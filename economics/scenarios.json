@@ -1,0 +1,153 @@
+{
+  "warning": "Illustrative partial costs; no measured prices or quality; no full margin with missing inputs",
+  "per_active_learner_ai_usd": {
+    "text": 0.475,
+    "cascade": 5.574999999999999,
+    "realtime": 25.475
+  },
+  "scales": [
+    {
+      "active_learners": 20,
+      "assumed_fixed_usd": 100,
+      "partial_monthly_cost_usd": {
+        "text": 109.5,
+        "cascade": 211.5,
+        "realtime": 609.5
+      },
+      "missing_full_margin_inputs": [
+        "fx_egp_per_usd",
+        "paid_learners",
+        "payment_percent",
+        "payment_fixed_egp",
+        "price_inclusive_tax_rate",
+        "refund_fraction",
+        "human_support_usd_per_learner",
+        "educator_usd_per_learner",
+        "rights_usd_per_learner",
+        "messaging_usd_per_learner",
+        "other_fixed_usd"
+      ],
+      "full_margin_egp": null
+    },
+    {
+      "active_learners": 100,
+      "assumed_fixed_usd": 200,
+      "partial_monthly_cost_usd": {
+        "text": 247.5,
+        "cascade": 757.5,
+        "realtime": 2747.5
+      },
+      "missing_full_margin_inputs": [
+        "fx_egp_per_usd",
+        "paid_learners",
+        "payment_percent",
+        "payment_fixed_egp",
+        "price_inclusive_tax_rate",
+        "refund_fraction",
+        "human_support_usd_per_learner",
+        "educator_usd_per_learner",
+        "rights_usd_per_learner",
+        "messaging_usd_per_learner",
+        "other_fixed_usd"
+      ],
+      "full_margin_egp": null
+    },
+    {
+      "active_learners": 1000,
+      "assumed_fixed_usd": 600,
+      "partial_monthly_cost_usd": {
+        "text": 1075.0,
+        "cascade": 6175.0,
+        "realtime": 26075.0
+      },
+      "missing_full_margin_inputs": [
+        "fx_egp_per_usd",
+        "paid_learners",
+        "payment_percent",
+        "payment_fixed_egp",
+        "price_inclusive_tax_rate",
+        "refund_fraction",
+        "human_support_usd_per_learner",
+        "educator_usd_per_learner",
+        "rights_usd_per_learner",
+        "messaging_usd_per_learner",
+        "other_fixed_usd"
+      ],
+      "full_margin_egp": null
+    },
+    {
+      "active_learners": 10000,
+      "assumed_fixed_usd": 3000,
+      "partial_monthly_cost_usd": {
+        "text": 7750.0,
+        "cascade": 58750.0,
+        "realtime": 257750.0
+      },
+      "missing_full_margin_inputs": [
+        "fx_egp_per_usd",
+        "paid_learners",
+        "payment_percent",
+        "payment_fixed_egp",
+        "price_inclusive_tax_rate",
+        "refund_fraction",
+        "human_support_usd_per_learner",
+        "educator_usd_per_learner",
+        "rights_usd_per_learner",
+        "messaging_usd_per_learner",
+        "other_fixed_usd"
+      ],
+      "full_margin_egp": null
+    }
+  ],
+  "sensitivities": [
+    {
+      "scenario": "baseline",
+      "text": 0.475,
+      "cascade": 5.574999999999999,
+      "realtime": 25.475
+    },
+    {
+      "scenario": "sessions doubled",
+      "text": 0.95,
+      "cascade": 11.149999999999999,
+      "realtime": 50.95
+    },
+    {
+      "scenario": "large context",
+      "text": 1.2349999999999999,
+      "cascade": 6.334999999999999,
+      "realtime": 26.235
+    },
+    {
+      "scenario": "half input cached",
+      "text": 0.387,
+      "cascade": 5.487,
+      "realtime": 25.387
+    },
+    {
+      "scenario": "voice 100 minutes",
+      "text": 0.475,
+      "cascade": 1.75,
+      "realtime": 6.725
+    },
+    {
+      "scenario": "voice 800 minutes",
+      "text": 0.475,
+      "cascade": 10.674999999999999,
+      "realtime": 50.475
+    },
+    {
+      "scenario": "speech rates doubled",
+      "text": 0.475,
+      "cascade": 10.674999999999999,
+      "realtime": 25.475
+    },
+    {
+      "scenario": "text model rates doubled",
+      "text": 0.95,
+      "cascade": 6.05,
+      "realtime": 25.95
+    }
+  ],
+  "gpu_break_even_activities": null
+}

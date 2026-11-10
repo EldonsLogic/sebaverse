@@ -1,0 +1,63 @@
+**Critical: Missing conversation context**
+
+The previous ChatGPT conversation contains essential product requirements and decisions that may not have transferred into this Work session.
+
+Do not treat the available conversation excerpt as the complete project brief.
+
+The project is an AI-native, adaptive tutoring SaaS, initially targeting Egyptian school students, with a long-term international vision.
+
+**Original product vision and requirements**
+
+- Conversational tutoring in Egyptian Arabic, Modern Standard Arabic, and English, using both text and voice.
+- Adaptive explanations, interactive lessons, guided problem-solving, exercises, quizzes, mock exams, and personalized exam preparation.
+- Persistent learner intelligence: mastery tracking, misconception diagnosis, prerequisite knowledge graphs, learning paths, active recall, spaced repetition, and progress across sessions.
+- Three distinct improvement loops: individual student adaptation, system-wide improvement through evaluated feedback, and optional controlled model improvement.
+- Built-in, versioned curricula, starting in Egypt and eventually supporting national, language, IGCSE, IB, American, and additional international education systems.
+- Student- and parent-uploaded textbooks, notes, worksheets, and custom curricula, with safe ingestion, OCR, curriculum mapping, provenance, permissions, RAG, and document-grounded explanations.
+- Student experience, parent dashboard, WhatsApp progress reports, notifications, and future teacher/school functionality.
+- Child safety, guardian consent, privacy, secure data isolation, accessibility, and age-appropriate interactions.
+- Affordable commercial model for Egypt, with initial pricing hypotheses around EGP 300/month or EGP 300–500 per course/semester, subject to validation.
+- Approximately 100 interested prospective users and an initial supervised pilot involving family/friends, subject to appropriate permissions.
+- Global-ready architecture without prematurely building every curriculum or feature.
+
+**AI infrastructure requirements**
+
+- Provider-agnostic integration with OpenAI, Anthropic Claude, Google Gemini, Chinese models such as Qwen and DeepSeek, and potentially locally hosted open-weight models.
+- A Jev-style decision/classification layer as an experimental option for routing, misconception classification, and instructional decision support. Benchmark against deterministic rules and smaller language models before adoption.
+- Model routing, caching, prompt/context optimization, token accounting, voice economics, GPU/self-hosting economics, operational cost modeling, quality evaluations, and usage limits.
+- Optimize cost per successful learning outcome, not merely price per token.
+- Keep student learning state and deterministic business rules separate from generative model outputs.
+
+**Research already completed**
+
+Research package 1: 12 reports plus README covering Eedi, CENTURY, Khanmigo, Synthesis, Duolingo, Squirrel AI, global/regional competitors, reverse engineering, adaptive learning, closed-loop intelligence, tutoring orchestration, differentiation, and technical recommendations.
+
+Research package 2: 13 reports plus README covering 22 inspected open-source repositories, including DeepTutor, LearnHouse, EduStudio, pyKT, PyEdmine, pyBKT, FSRS, and supporting infrastructure.
+
+Both research packages were uploaded to the original conversation. Verify which files are actually accessible here. Do not claim to have read missing files.
+
+**Preliminary technical direction**
+
+Both investigations favor an owned modular monolith with selective open-source reuse.
+
+DeepTutor is a reference and possible source of Apache-licensed modules, not an automatically approved production foundation.
+
+LearnHouse is an LMS fallback with material AGPL and enterprise licensing considerations.
+
+Start adaptive learning with transparent evidence-based mastery rules and reviewed prerequisite graphs; evaluate more complex models when justified.
+
+The second audit flagged a suspicious secret-exposure workflow in the inspected EduStudio revision. Keep that revision quarantined pending independent verification.
+
+Django/PostgreSQL is a proposed baseline, not an irreversible decision.
+
+**Required Work deliverables**
+
+Create a complete, traceable master product and engineering project, including naming, brand identity, design system, product requirements, features, user journeys, curriculum/RAG, learning intelligence, AI economics, technical architecture, security, data model, roadmap, development workflow, Codex instructions, testing, CI/CD, and operational planning.
+
+Distinguish confirmed evidence, research recommendations, founder requirements, assumptions, and unresolved decisions.
+
+Do not silently discard requirements because they are outside the MVP.
+
+Before generating final specifications, perform a context-completeness audit. Identify which research files and original requirements are available and which are missing.
+
+Do not start implementation until the requirements inventory and architecture decisions are established.

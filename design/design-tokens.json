@@ -1,0 +1,37 @@
+{
+  "status": "proposed",
+  "brand_name": null,
+  "temporary_project_name": "TBD",
+  "color": {
+    "primary": "#0B6058",
+    "text": "#16332F",
+    "canvas": "#F7F8F4",
+    "surface": "#FFFFFF",
+    "accent": "#E8B44D",
+    "danger": "#A12835"
+  },
+  "space_px": [
+    4,
+    8,
+    12,
+    16,
+    24,
+    32,
+    48
+  ],
+  "type_px": [
+    14,
+    16,
+    20,
+    28,
+    36
+  ],
+  "radius_px": [
+    8,
+    12,
+    20
+  ],
+  "min_target_px": 44,
+  "arabic_line_height": 1.65,
+  "contrast_status": "must be measured for each pairing"
+}

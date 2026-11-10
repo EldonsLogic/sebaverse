@@ -1,0 +1,15 @@
+{
+  "name": "Chatterbox",
+  "repository": "https://github.com/resemble-ai/chatterbox",
+  "commit": "ab55923c27757c90cfcc407baa57dc25a7d25217",
+  "last_commit_date": "2026-11-04",
+  "license": "MIT",
+  "version": "0.1.7",
+  "scope": "static selected-source audit, no checkout/install/model download/inference",
+  "maintenance": "README declares retired/unmaintained since August 2026",
+  "recommendation": "defer research comparison; reject maintained pilot default",
+  "model_repository": "https://huggingface.co/ResembleAI/chatterbox",
+  "model_head": "5bb1f6ee58e50c3b8d408bc82a6d3740c2db6e18",
+  "model_license": "MIT metadata on official card; standalone LICENSE URL 404; weights not downloaded",
+  "arabic": "ar language supported in source; Egyptian dialect quality unverified"
+}

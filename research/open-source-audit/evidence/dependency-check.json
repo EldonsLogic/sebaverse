@@ -1,0 +1,58 @@
+{
+  "date": "2026-11-10",
+  "scope": "Eight exact versions declared in LearnHouse manifests; not resolved transitive installation; no guarantee ecosystem registry has each future version indexed",
+  "packages": [
+    [
+      "PyPI",
+      "fastapi",
+      "0.162.0"
+    ],
+    [
+      "PyPI",
+      "sqlmodel",
+      "0.0.44"
+    ],
+    [
+      "PyPI",
+      "pydantic",
+      "2.14.3"
+    ],
+    [
+      "PyPI",
+      "redis",
+      "8.1.0"
+    ],
+    [
+      "PyPI",
+      "alembic",
+      "1.20.1"
+    ],
+    [
+      "PyPI",
+      "stripe",
+      "16.1.0"
+    ],
+    [
+      "PyPI",
+      "sentry-sdk",
+      "2.74.0"
+    ],
+    [
+      "npm",
+      "react",
+      "19.3.1"
+    ]
+  ],
+  "response": {
+    "results": [
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {}
+    ]
+  }
+}

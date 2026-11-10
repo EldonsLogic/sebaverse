@@ -1,0 +1,1784 @@
+[
+  {
+    "id": "R001",
+    "requirement": "Audit context completeness before final specifications",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P0",
+    "phase": "Gates",
+    "dependencies": [],
+    "acceptance_criteria": "All 27 pack files inventoried and historical GAP-001 explicit",
+    "specification": "docs/00-context-completeness-audit.md",
+    "owner": "Founder",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R002",
+    "requirement": "Preserve research originals and citations",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P0",
+    "phase": "Gates",
+    "dependencies": [
+      "R001"
+    ],
+    "acceptance_criteria": "36 research/evidence files hash-verified and unchanged",
+    "specification": "sources/source-catalog.md",
+    "owner": "Founder",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R003",
+    "requirement": "Trace every available founder requirement without silently dropping future scope",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P0",
+    "phase": "Gates",
+    "dependencies": [
+      "R001"
+    ],
+    "acceptance_criteria": "Stable IDs have source, phase, priority, dependencies, acceptance and spec; historical limitation declared",
+    "specification": "execution/roadmap-and-gates.md",
+    "owner": "Founder",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R004",
+    "requirement": "Product vision, target users and jobs",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P1",
+    "phase": "Gates",
+    "dependencies": [],
+    "acceptance_criteria": "Student/guardian/educator/teacher/operator jobs and primary outcome reviewed",
+    "specification": "docs/01-product-vision-prd.md",
+    "owner": "Founder",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R005",
+    "requirement": "Choose first Egypt curriculum/age/subject unit",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P0",
+    "phase": "Gates",
+    "dependencies": [],
+    "acceptance_criteria": "Founder records exact slice, educator, rights and buyer hypothesis",
+    "specification": "docs/01-product-vision-prd.md",
+    "owner": "Founder",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R006",
+    "requirement": "Solo-founder maintainability",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P1",
+    "phase": "Gates",
+    "dependencies": [],
+    "acceptance_criteria": "Work breakdown includes educator/legal/support effort and bounded scope",
+    "specification": "execution/roadmap-and-gates.md",
+    "owner": "Founder",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R007",
+    "requirement": "Affordability and pricing hypotheses",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P1",
+    "phase": "Gates",
+    "dependencies": [],
+    "acceptance_criteria": "EGP 300/month and EGP 300–500/course/semester modeled separately, not asserted viable",
+    "specification": "economics/README.md",
+    "owner": "Founder",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R008",
+    "requirement": "Preserve ~100 prospects and supervised family/friends pilot context",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P1",
+    "phase": "Pilot",
+    "dependencies": [
+      "R005",
+      "R058"
+    ],
+    "acceptance_criteria": "Interest not counted as revenue; appropriate pilot permissions and cohort plan documented",
+    "specification": "docs/01-product-vision-prd.md",
+    "owner": "Founder + educator where learning/content is affected",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R009",
+    "requirement": "Brand naming strategy and candidate screening",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P1",
+    "phase": "Gates",
+    "dependencies": [],
+    "acceptance_criteria": "Candidate list plus language, similarity, mark/domain screening and founder decision",
+    "specification": "design/brand-and-design-system.md",
+    "owner": "Founder",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R010",
+    "requirement": "Identity/design system",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P1",
+    "phase": "Gates",
+    "dependencies": [
+      "R009"
+    ],
+    "acceptance_criteria": "Bilingual direction, editable tokens, components/states and contrast review specified",
+    "specification": "design/brand-and-design-system.md",
+    "owner": "Founder",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R011",
+    "requirement": "UX journeys",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P1",
+    "phase": "Gates",
+    "dependencies": [
+      "R004"
+    ],
+    "acceptance_criteria": "Student, parent, upload, voice and teacher flows reviewed",
+    "specification": "design/brand-and-design-system.md",
+    "owner": "Founder",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R012",
+    "requirement": "Use existing TBD project folder; rename after chosen brand",
+    "sources": [
+      "U3"
+    ],
+    "priority": "P1",
+    "phase": "Gates",
+    "dependencies": [],
+    "acceptance_criteria": "Project resides in Documents/TBD; no premature rename",
+    "specification": "README.md",
+    "owner": "Founder",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R013",
+    "requirement": "Egyptian Arabic conversational text",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P1",
+    "phase": "Pilot",
+    "dependencies": [],
+    "acceptance_criteria": "Educator-scored dialect explanations pass agreed rubric",
+    "specification": "docs/05-model-routing-and-voice.md",
+    "owner": "Founder + educator where learning/content is affected",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R014",
+    "requirement": "MSA text and academic terminology",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P1",
+    "phase": "Pilot",
+    "dependencies": [],
+    "acceptance_criteria": "Formal terms and understandable MSA tested separately",
+    "specification": "docs/05-model-routing-and-voice.md",
+    "owner": "Founder + educator where learning/content is affected",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R015",
+    "requirement": "English and code-switching text",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P1",
+    "phase": "Pilot",
+    "dependencies": [],
+    "acceptance_criteria": "Language switching preserves math meaning and source scope",
+    "specification": "docs/05-model-routing-and-voice.md",
+    "owner": "Founder + educator where learning/content is affected",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R016",
+    "requirement": "Egyptian Arabic/MSA/English voice",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P1",
+    "phase": "PoC then conditional Pilot",
+    "dependencies": [
+      "R013",
+      "R014",
+      "R015"
+    ],
+    "acceptance_criteria": "Each language meets speech fidelity, privacy and cost gates; text fallback remains",
+    "specification": "docs/05-model-routing-and-voice.md",
+    "owner": "Founder + educator where learning/content is affected",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R017",
+    "requirement": "Adaptive explanations",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P1",
+    "phase": "Pilot",
+    "dependencies": [
+      "R025"
+    ],
+    "acceptance_criteria": "Explanations change with valid evidence and preference within allowed action",
+    "specification": "docs/03-learning-intelligence.md",
+    "owner": "Founder + educator where learning/content is affected",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R018",
+    "requirement": "Interactive lessons and visual manipulatives",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P1",
+    "phase": "Future",
+    "dependencies": [
+      "R017"
+    ],
+    "acceptance_criteria": "Reviewed interactive activities map to objectives with accessibility equivalents",
+    "specification": "design/brand-and-design-system.md",
+    "owner": "Founder + educator where learning/content is affected",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R019",
+    "requirement": "Guided problem-solving and hint ladder",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P1",
+    "phase": "Pilot",
+    "dependencies": [
+      "R025"
+    ],
+    "acceptance_criteria": "Hints record assistance; learner can switch to independent check",
+    "specification": "docs/03-learning-intelligence.md",
+    "owner": "Founder + educator where learning/content is affected",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R020",
+    "requirement": "Exercises and quizzes",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P1",
+    "phase": "Pilot",
+    "dependencies": [
+      "R043"
+    ],
+    "acceptance_criteria": "Reviewed item/rubric versions, independent mode and appeals work",
+    "specification": "docs/03-learning-intelligence.md",
+    "owner": "Founder + educator where learning/content is affected",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R021",
+    "requirement": "Timed mock exams",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P1",
+    "phase": "Future",
+    "dependencies": [
+      "R020",
+      "R035"
+    ],
+    "acceptance_criteria": "Syllabus blueprint, timing/accommodations, reviewed marking and post-exam plan",
+    "specification": "docs/03-learning-intelligence.md",
+    "owner": "Founder + educator where learning/content is affected",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R022",
+    "requirement": "Personalized exam preparation",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P1",
+    "phase": "Future",
+    "dependencies": [
+      "R025",
+      "R035"
+    ],
+    "acceptance_criteria": "Availability, objective coverage and delayed checks drive explainable plan",
+    "specification": "docs/01-product-vision-prd.md",
+    "owner": "Founder + educator where learning/content is affected",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R023",
+    "requirement": "Persistent progress across sessions",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P1",
+    "phase": "Pilot",
+    "dependencies": [
+      "R025"
+    ],
+    "acceptance_criteria": "Resume and projection replay preserve valid learning evidence",
+    "specification": "docs/03-learning-intelligence.md",
+    "owner": "Founder + educator where learning/content is affected",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R024",
+    "requirement": "Mastery tracking with uncertainty",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P1",
+    "phase": "Pilot",
+    "dependencies": [
+      "R025"
+    ],
+    "acceptance_criteria": "Unknown distinct from low; assisted success cannot promote status",
+    "specification": "docs/03-learning-intelligence.md",
+    "owner": "Founder + educator where learning/content is affected",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R025",
+    "requirement": "Immutable evidence ledger and correction lineage",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P1",
+    "phase": "PoC",
+    "dependencies": [
+      "R043"
+    ],
+    "acceptance_criteria": "Duplicate/out-of-order/corrected evidence replays deterministically",
+    "specification": "docs/03-learning-intelligence.md",
+    "owner": "Founder + educator where learning/content is affected",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R026",
+    "requirement": "Misconception diagnosis",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P1",
+    "phase": "Pilot",
+    "dependencies": [
+      "R025"
+    ],
+    "acceptance_criteria": "Wrong answer is hypothesis; distinguishing probe and expiry/review recorded",
+    "specification": "docs/03-learning-intelligence.md",
+    "owner": "Founder + educator where learning/content is affected",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R027",
+    "requirement": "Prerequisite knowledge graph",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P1",
+    "phase": "Pilot",
+    "dependencies": [
+      "R035"
+    ],
+    "acceptance_criteria": "Reviewed edges/provenance, cycle detection and safe fallback",
+    "specification": "docs/03-learning-intelligence.md",
+    "owner": "Founder + educator where learning/content is affected",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R028",
+    "requirement": "Explainable adaptive learning paths",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P1",
+    "phase": "Pilot",
+    "dependencies": [
+      "R024",
+      "R027"
+    ],
+    "acceptance_criteria": "Eligible next actions have stored reasons and override path",
+    "specification": "docs/03-learning-intelligence.md",
+    "owner": "Founder + educator where learning/content is affected",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R029",
+    "requirement": "Active recall and independent assessment",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P1",
+    "phase": "Pilot",
+    "dependencies": [
+      "R020"
+    ],
+    "acceptance_criteria": "Unseen-family checks separate hinted/exposed answers",
+    "specification": "docs/03-learning-intelligence.md",
+    "owner": "Founder + educator where learning/content is affected",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R030",
+    "requirement": "Spaced repetition and delayed retention",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P1",
+    "phase": "Pilot",
+    "dependencies": [
+      "R029"
+    ],
+    "acceptance_criteria": "Due reviews and independent delayed results recorded separately from completion",
+    "specification": "docs/03-learning-intelligence.md",
+    "owner": "Founder + educator where learning/content is affected",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R031",
+    "requirement": "Individual adaptation loop",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P1",
+    "phase": "Pilot",
+    "dependencies": [
+      "R025"
+    ],
+    "acceptance_criteria": "Only validated learner evidence changes that learner projection",
+    "specification": "docs/03-learning-intelligence.md",
+    "owner": "Founder + educator where learning/content is affected",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R032",
+    "requirement": "System-wide evaluated feedback loop",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P1",
+    "phase": "Pilot",
+    "dependencies": [
+      "R031"
+    ],
+    "acceptance_criteria": "Human triage, frozen regressions, versioned releases and rollback",
+    "specification": "docs/03-learning-intelligence.md",
+    "owner": "Founder + educator where learning/content is affected",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R033",
+    "requirement": "Optional controlled model improvement",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P1",
+    "phase": "Future",
+    "dependencies": [
+      "R032",
+      "R059"
+    ],
+    "acceptance_criteria": "Authorized curated training corpus, lineage and held-out evaluation before release",
+    "specification": "docs/03-learning-intelligence.md",
+    "owner": "Founder + educator where learning/content is affected",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R034",
+    "requirement": "Compare rules/BKT/logistic/IRT/deep KT",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P1",
+    "phase": "Future",
+    "dependencies": [
+      "R025",
+      "R076"
+    ],
+    "acceptance_criteria": "Calibration and held-out learning outcomes justify complexity; no AUC-only promotion",
+    "specification": "docs/03-learning-intelligence.md",
+    "owner": "Founder + educator where learning/content is affected",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R035",
+    "requirement": "Built-in versioned Egyptian curricula",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P1",
+    "phase": "Pilot",
+    "dependencies": [
+      "R005",
+      "R041"
+    ],
+    "acceptance_criteria": "Exact authority/year/grade/subject/term/language pinned and approved",
+    "specification": "docs/04-curriculum-and-rag.md",
+    "owner": "Founder + educator where learning/content is affected",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R036",
+    "requirement": "National/language/IGCSE/IB/American and global curricula",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P1",
+    "phase": "Future",
+    "dependencies": [
+      "R035"
+    ],
+    "acceptance_criteria": "Each system gets independent reviewed syllabus mappings and rights, not translation-only labels",
+    "specification": "docs/04-curriculum-and-rag.md",
+    "owner": "Founder + educator where learning/content is affected",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R037",
+    "requirement": "Student-uploaded materials/custom curriculum",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P1",
+    "phase": "Pilot",
+    "dependencies": [
+      "R041",
+      "R058"
+    ],
+    "acceptance_criteria": "Private upload, relationship/purpose scope, quarantine and reviewed mapping",
+    "specification": "docs/04-curriculum-and-rag.md",
+    "owner": "Founder + educator where learning/content is affected",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R038",
+    "requirement": "Parent-uploaded textbooks/notes/worksheets",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P1",
+    "phase": "Pilot",
+    "dependencies": [
+      "R037"
+    ],
+    "acceptance_criteria": "Verified guardian scope; private source/version/progress state visible",
+    "specification": "docs/04-curriculum-and-rag.md",
+    "owner": "Founder + educator where learning/content is affected",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R039",
+    "requirement": "OCR/layout/math/table/diagram extraction",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P1",
+    "phase": "PoC",
+    "dependencies": [
+      "R040"
+    ],
+    "acceptance_criteria": "Arabic and bilingual representative corpus checked for critical notation loss",
+    "specification": "docs/04-curriculum-and-rag.md",
+    "owner": "Founder + educator where learning/content is affected",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R040",
+    "requirement": "Safe upload ingestion and quotas",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P1",
+    "phase": "PoC",
+    "dependencies": [
+      "R060"
+    ],
+    "acceptance_criteria": "Streaming caps, magic/MIME, malware/quarantine and bounded parser fixtures pass",
+    "specification": "docs/04-curriculum-and-rag.md",
+    "owner": "Founder + educator where learning/content is affected",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R041",
+    "requirement": "Content rights/provenance/permissions",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P0",
+    "phase": "Gates",
+    "dependencies": [],
+    "acceptance_criteria": "Every published source has hash, permission scope, expiry and reviewer",
+    "specification": "docs/04-curriculum-and-rag.md",
+    "owner": "Founder",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R042",
+    "requirement": "Versioning, curriculum mapping and supersession",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P1",
+    "phase": "Pilot",
+    "dependencies": [
+      "R035"
+    ],
+    "acceptance_criteria": "New edition does not silently relabel old evidence; reviewed migration exists",
+    "specification": "docs/04-curriculum-and-rag.md",
+    "owner": "Founder + educator where learning/content is affected",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R043",
+    "requirement": "Original reviewed item bank/rubrics",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P1",
+    "phase": "PoC",
+    "dependencies": [
+      "R041"
+    ],
+    "acceptance_criteria": "100 clear plus 20 ambiguous/adversarial item cases with reviewed keys",
+    "specification": "docs/03-learning-intelligence.md",
+    "owner": "Founder + educator where learning/content is affected",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R044",
+    "requirement": "RAG retrieval architecture",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P1",
+    "phase": "PoC",
+    "dependencies": [
+      "R039",
+      "R041"
+    ],
+    "acceptance_criteria": "ACL/edition/approval filters apply before ranking and citation resolution",
+    "specification": "docs/04-curriculum-and-rag.md",
+    "owner": "Founder + educator where learning/content is affected",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R045",
+    "requirement": "Document-grounded answers and exact citations",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P1",
+    "phase": "PoC",
+    "dependencies": [
+      "R044"
+    ],
+    "acceptance_criteria": "No fabricated source references; support/abstention gates pass per language",
+    "specification": "docs/04-curriculum-and-rag.md",
+    "owner": "Founder + educator where learning/content is affected",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R046",
+    "requirement": "Private upload isolation and deletion",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P1",
+    "phase": "Pilot",
+    "dependencies": [
+      "R044",
+      "R061"
+    ],
+    "acceptance_criteria": "No cross-user chunks/cache leaks; withdrawal purges derived artifacts",
+    "specification": "docs/04-curriculum-and-rag.md",
+    "owner": "Founder + educator where learning/content is affected",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R047",
+    "requirement": "Parent dashboard and meaningful progress",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P1",
+    "phase": "Pilot",
+    "dependencies": [
+      "R024",
+      "R058"
+    ],
+    "acceptance_criteria": "Evidence/uncertainty/next action plus plan and permissions, no default full chat",
+    "specification": "design/brand-and-design-system.md",
+    "owner": "Founder + educator where learning/content is affected",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R048",
+    "requirement": "WhatsApp progress reports",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P1",
+    "phase": "Future",
+    "dependencies": [
+      "R047",
+      "R049"
+    ],
+    "acceptance_criteria": "Verified opt-in recipient, minimal template, quiet hours, price/privacy review before send",
+    "specification": "docs/06-safety-privacy-security.md",
+    "owner": "Founder + educator where learning/content is affected",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R049",
+    "requirement": "Notification preferences and revocation",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P1",
+    "phase": "Pilot",
+    "dependencies": [
+      "R058"
+    ],
+    "acceptance_criteria": "Deduplication/quiet hours/opt-out; revoked relationships cancel jobs",
+    "specification": "docs/06-safety-privacy-security.md",
+    "owner": "Founder + educator where learning/content is affected",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R050",
+    "requirement": "Future teacher/classroom functionality",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P1",
+    "phase": "Future",
+    "dependencies": [
+      "R047",
+      "R060"
+    ],
+    "acceptance_criteria": "Scoped roster, assignments, reviewed overrides and privacy-safe summaries",
+    "specification": "design/brand-and-design-system.md",
+    "owner": "Founder + educator where learning/content is affected",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R051",
+    "requirement": "Subscriptions/course-semester entitlements",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P1",
+    "phase": "Pilot",
+    "dependencies": [
+      "R007"
+    ],
+    "acceptance_criteria": "Server-side grants/expiry/quotas; manual prepaid path while gateway unresolved",
+    "specification": "architecture/system-and-data-model.md",
+    "owner": "Founder + educator where learning/content is affected",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R052",
+    "requirement": "Payment integration and refunds",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P1",
+    "phase": "Commercial",
+    "dependencies": [
+      "R051"
+    ],
+    "acceptance_criteria": "Signed idempotent webhooks, reversals and settlement reconciliation; actual terms verified",
+    "specification": "architecture/system-and-data-model.md",
+    "owner": "Founder + educator where learning/content is affected",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R053",
+    "requirement": "Child safety and age-appropriate interactions",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P0",
+    "phase": "Gates",
+    "dependencies": [],
+    "acceptance_criteria": "Three-language severe safety suite and named human escalation owner",
+    "specification": "docs/06-safety-privacy-security.md",
+    "owner": "Founder",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R054",
+    "requirement": "Accessibility and low-bandwidth/mobile UX",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P1",
+    "phase": "Pilot",
+    "dependencies": [
+      "R011"
+    ],
+    "acceptance_criteria": "Critical journeys pass keyboard/screen-reader/zoom/slow-network checks",
+    "specification": "design/brand-and-design-system.md",
+    "owner": "Founder + educator where learning/content is affected",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R055",
+    "requirement": "RTL/LTR and accessible mathematics",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P1",
+    "phase": "Pilot",
+    "dependencies": [
+      "R054"
+    ],
+    "acceptance_criteria": "Mixed equations/units/English terms preserve reading order and alternatives",
+    "specification": "design/brand-and-design-system.md",
+    "owner": "Founder + educator where learning/content is affected",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R056",
+    "requirement": "Child understandable notices and student agency",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P1",
+    "phase": "Pilot",
+    "dependencies": [
+      "R053"
+    ],
+    "acceptance_criteria": "Explain AI uncertainty, independent checks, recording and help/appeal paths",
+    "specification": "docs/06-safety-privacy-security.md",
+    "owner": "Founder + educator where learning/content is affected",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R057",
+    "requirement": "Guardian verification and consent lifecycle",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P0",
+    "phase": "Gates",
+    "dependencies": [],
+    "acceptance_criteria": "Counsel-approved age/purpose method with withdrawal/dispute evidence",
+    "specification": "docs/06-safety-privacy-security.md",
+    "owner": "Founder",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R058",
+    "requirement": "Privacy/data processing and transfer review",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P0",
+    "phase": "Gates",
+    "dependencies": [
+      "R057"
+    ],
+    "acceptance_criteria": "Purpose/data/processor register and current legal route signed before minors",
+    "specification": "docs/06-safety-privacy-security.md",
+    "owner": "Founder",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R059",
+    "requirement": "No automatic training on identifiable child chat",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P0",
+    "phase": "Gates",
+    "dependencies": [
+      "R058"
+    ],
+    "acceptance_criteria": "Optional training requires separate rights/purpose review and deletion lineage",
+    "specification": "docs/06-safety-privacy-security.md",
+    "owner": "Founder",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R060",
+    "requirement": "Secure data/tenant/object/tool isolation",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P0",
+    "phase": "PoC",
+    "dependencies": [],
+    "acceptance_criteria": "Zero unauthorized access across >=100 negative cases, including vectors/files/exports",
+    "specification": "docs/06-safety-privacy-security.md",
+    "owner": "Founder + educator where learning/content is affected",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R061",
+    "requirement": "Retention/export/deletion/backups",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P1",
+    "phase": "Pilot",
+    "dependencies": [
+      "R058",
+      "R060"
+    ],
+    "acceptance_criteria": "Approved schedule, derived-store purge and restore deletion reapplication demonstrated",
+    "specification": "docs/06-safety-privacy-security.md",
+    "owner": "Founder + educator where learning/content is affected",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R062",
+    "requirement": "Provider-agnostic adapters",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P1",
+    "phase": "PoC",
+    "dependencies": [
+      "R058"
+    ],
+    "acceptance_criteria": "Generate/stream/usage/cancel/error contracts survive provider substitution",
+    "specification": "docs/05-model-routing-and-voice.md",
+    "owner": "Founder + educator where learning/content is affected",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R063",
+    "requirement": "Benchmark OpenAI/Claude/Gemini",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P1",
+    "phase": "PoC",
+    "dependencies": [
+      "R062"
+    ],
+    "acceptance_criteria": "Matched eligible tasks record quality, language, latency and actual bills",
+    "specification": "docs/05-model-routing-and-voice.md",
+    "owner": "Founder + educator where learning/content is affected",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R064",
+    "requirement": "Benchmark Qwen/DeepSeek/Chinese model options",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P1",
+    "phase": "PoC",
+    "dependencies": [
+      "R062"
+    ],
+    "acceptance_criteria": "Same rubric/terms/rights gates, no adoption based solely on nominal token cost",
+    "specification": "docs/05-model-routing-and-voice.md",
+    "owner": "Founder + educator where learning/content is affected",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R065",
+    "requirement": "Open-weight/local inference path",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P1",
+    "phase": "Future",
+    "dependencies": [
+      "R062",
+      "R072"
+    ],
+    "acceptance_criteria": "Weight rights, dialect quality, utilization and full operations cost justify hosting",
+    "specification": "docs/05-model-routing-and-voice.md",
+    "owner": "Founder + educator where learning/content is affected",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R066",
+    "requirement": "Jev-style classifier experiment",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P1",
+    "phase": "PoC",
+    "dependencies": [
+      "R025",
+      "R062"
+    ],
+    "acceptance_criteria": "Frozen labeled comparison against rules and small LLM; calibration/cost/error report",
+    "specification": "docs/05-model-routing-and-voice.md",
+    "owner": "Founder + educator where learning/content is affected",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R067",
+    "requirement": "Deterministic state/business authority",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P0",
+    "phase": "PoC",
+    "dependencies": [
+      "R060"
+    ],
+    "acceptance_criteria": "Models cannot overwrite grade/mastery/consent/entitlement or tool scopes",
+    "specification": "architecture/system-and-data-model.md",
+    "owner": "Founder + educator where learning/content is affected",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R068",
+    "requirement": "Model routing and qualified fallback",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P1",
+    "phase": "PoC",
+    "dependencies": [
+      "R062",
+      "R067"
+    ],
+    "acceptance_criteria": "Privacy/quality eligibility precedes cost; no unapproved provider on failure",
+    "specification": "docs/05-model-routing-and-voice.md",
+    "owner": "Founder + educator where learning/content is affected",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R069",
+    "requirement": "Token/context/cache optimization",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P1",
+    "phase": "PoC",
+    "dependencies": [
+      "R062"
+    ],
+    "acceptance_criteria": "Bounded prompts and summaries, isolated versioned caches; savings from actual receipts",
+    "specification": "docs/05-model-routing-and-voice.md",
+    "owner": "Founder + educator where learning/content is affected",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R070",
+    "requirement": "Token/audio usage accounting and limits",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P1",
+    "phase": "PoC",
+    "dependencies": [
+      "R062"
+    ],
+    "acceptance_criteria": "Atomic reservations, cached units, retries/cancel receipts reconciled",
+    "specification": "architecture/system-and-data-model.md",
+    "owner": "Founder + educator where learning/content is affected",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R071",
+    "requirement": "Voice economics and quotas",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P1",
+    "phase": "PoC",
+    "dependencies": [
+      "R016",
+      "R070"
+    ],
+    "acceptance_criteria": "Cascade vs realtime matched workloads, connected/input/output units distinguished",
+    "specification": "economics/README.md",
+    "owner": "Founder + educator where learning/content is affected",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R072",
+    "requirement": "GPU/self-hosting sensitivity at 100/1k/10k users",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P1",
+    "phase": "Future",
+    "dependencies": [
+      "R062",
+      "R070"
+    ],
+    "acceptance_criteria": "Measured throughput/peak utilization plus idle/redundancy/ops; explicit break-even",
+    "specification": "economics/README.md",
+    "owner": "Founder + educator where learning/content is affected",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R073",
+    "requirement": "Operating cost/unit economics sensitivity",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P1",
+    "phase": "Gates",
+    "dependencies": [
+      "R007"
+    ],
+    "acceptance_criteria": "Usage/FX/cache/voice/support/fees/tax/paid-active ratios modeled transparently",
+    "specification": "economics/README.md",
+    "owner": "Founder",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R074",
+    "requirement": "Optimize cost per successful learning outcome",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P1",
+    "phase": "Pilot",
+    "dependencies": [
+      "R029",
+      "R070"
+    ],
+    "acceptance_criteria": "All-cost numerator and valid independent-activity denominator; delayed endpoint tracked",
+    "specification": "economics/README.md",
+    "owner": "Founder + educator where learning/content is affected",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R075",
+    "requirement": "Domain/data model and API contracts",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P1",
+    "phase": "Gates",
+    "dependencies": [],
+    "acceptance_criteria": "Entity authority, scopes, versions, idempotency and failure semantics reviewed",
+    "specification": "architecture/system-and-data-model.md",
+    "owner": "Founder",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R076",
+    "requirement": "QA/evals and language slices",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P1",
+    "phase": "PoC",
+    "dependencies": [
+      "R043"
+    ],
+    "acceptance_criteria": "Frozen holdout, rubric agreement and per-language result counts; no leakage",
+    "specification": "docs/07-qa-evals-and-operations.md",
+    "owner": "Founder + educator where learning/content is affected",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R077",
+    "requirement": "Architecture ADRs and decisions",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P1",
+    "phase": "Gates",
+    "dependencies": [
+      "R075"
+    ],
+    "acceptance_criteria": "Tradeoffs, alternatives, status and reversal triggers recorded",
+    "specification": "execution/roadmap-and-gates.md",
+    "owner": "Founder",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R078",
+    "requirement": "CI/CD and release lineage",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P1",
+    "phase": "Pilot",
+    "dependencies": [
+      "R076"
+    ],
+    "acceptance_criteria": "Checks/artifact/manifest/staging/flag/rollback process reviewed and exercised",
+    "specification": "docs/07-qa-evals-and-operations.md",
+    "owner": "Founder + educator where learning/content is affected",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R079",
+    "requirement": "Observability and redacted incident/cost metrics",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P1",
+    "phase": "Pilot",
+    "dependencies": [
+      "R070"
+    ],
+    "acceptance_criteria": "Health/quality/spend/review dashboards without raw child data in labels",
+    "specification": "docs/07-qa-evals-and-operations.md",
+    "owner": "Founder + educator where learning/content is affected",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R080",
+    "requirement": "Operational runbooks/recovery/support",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P1",
+    "phase": "Pilot",
+    "dependencies": [
+      "R061"
+    ],
+    "acceptance_criteria": "Outage/leak/content/spend/deletion runbooks plus timed restore and workload budget",
+    "specification": "docs/07-qa-evals-and-operations.md",
+    "owner": "Founder + educator where learning/content is affected",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R081",
+    "requirement": "Security/licensing source findings",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P0",
+    "phase": "Gates",
+    "dependencies": [
+      "R002"
+    ],
+    "acceptance_criteria": "Audit findings retained with bounded confidence and adoption gates",
+    "specification": "docs/06-safety-privacy-security.md",
+    "owner": "Founder",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R082",
+    "requirement": "Quarantine inspected EduStudio revision",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P0",
+    "phase": "Gates",
+    "dependencies": [
+      "R081"
+    ],
+    "acceptance_criteria": "Exact pin excluded from execution until independent provenance resolution",
+    "specification": "docs/06-safety-privacy-security.md",
+    "owner": "Founder",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R083",
+    "requirement": "Selective DeepTutor reuse only",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P1",
+    "phase": "PoC",
+    "dependencies": [
+      "R081"
+    ],
+    "acceptance_criteria": "Apache provenance/dependency closure; abandon extraction >3 repair days",
+    "specification": "architecture/system-and-data-model.md",
+    "owner": "Founder + educator where learning/content is affected",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R084",
+    "requirement": "LearnHouse LMS fallback with AGPL/EE review",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P1",
+    "phase": "Future",
+    "dependencies": [
+      "R081"
+    ],
+    "acceptance_criteria": "Actual feature/license terms and combined-work analysis before use",
+    "specification": "architecture/system-and-data-model.md",
+    "owner": "Founder + educator where learning/content is affected",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R085",
+    "requirement": "Framework choice remains reversible",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P1",
+    "phase": "Gates",
+    "dependencies": [
+      "R075"
+    ],
+    "acceptance_criteria": "Django/Postgres vs thin alternative compared with review/admin and solo operations",
+    "specification": "architecture/system-and-data-model.md",
+    "owner": "Founder",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R086",
+    "requirement": "Roadmap/milestones/work breakdown",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P1",
+    "phase": "Gates",
+    "dependencies": [
+      "R003"
+    ],
+    "acceptance_criteria": "Each milestone has dependencies, deliverable, owner, gate and stop condition",
+    "specification": "execution/roadmap-and-gates.md",
+    "owner": "Founder",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R087",
+    "requirement": "Risks/unknowns/decision log",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P1",
+    "phase": "Gates",
+    "dependencies": [
+      "R001"
+    ],
+    "acceptance_criteria": "Unknowns assigned owners/resolution evidence; no invented approval",
+    "specification": "execution/roadmap-and-gates.md",
+    "owner": "Founder",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R088",
+    "requirement": "Codex instructions and phased prompts",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P1",
+    "phase": "Gates",
+    "dependencies": [
+      "R003",
+      "R077"
+    ],
+    "acceptance_criteria": "Agents read authoritative docs; each prompt bounded by gates and evidence",
+    "specification": "AGENTS.md",
+    "owner": "Founder",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R089",
+    "requirement": "Version-controlled editable master artifacts",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P1",
+    "phase": "Gates",
+    "dependencies": [
+      "R002"
+    ],
+    "acceptance_criteria": "Markdown/JSON originals and reproducible checks committed locally; no product code",
+    "specification": "README.md",
+    "owner": "Founder",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R090",
+    "requirement": "No premature implementation; bounded PoC after gates",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P0",
+    "phase": "Gates",
+    "dependencies": [
+      "R003",
+      "R077"
+    ],
+    "acceptance_criteria": "G1–G3 approvals recorded before product code; PoC has budget/time/data limits",
+    "specification": "execution/roadmap-and-gates.md",
+    "owner": "Founder",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R091",
+    "requirement": "Multimodal/photo/diagram tutoring",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P1",
+    "phase": "Future",
+    "dependencies": [
+      "R039",
+      "R053"
+    ],
+    "acceptance_criteria": "Authorized image interpretation cites source and confirms uncertain notation",
+    "specification": "docs/04-curriculum-and-rag.md",
+    "owner": "Founder + educator where learning/content is affected",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R092",
+    "requirement": "Independent assessment/grade appeal and teacher correction",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P1",
+    "phase": "Pilot",
+    "dependencies": [
+      "R025",
+      "R043"
+    ],
+    "acceptance_criteria": "Disputed grades held/reviewed, correction lineage and affected replay",
+    "specification": "docs/03-learning-intelligence.md",
+    "owner": "Founder + educator where learning/content is affected",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R093",
+    "requirement": "Learning outcomes without unsupported efficacy claims",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P1",
+    "phase": "Pilot",
+    "dependencies": [
+      "R029",
+      "R030"
+    ],
+    "acceptance_criteria": "Delayed retention/transfer, attrition and uncertainty reported separately from engagement",
+    "specification": "docs/07-qa-evals-and-operations.md",
+    "owner": "Founder + educator where learning/content is affected",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R094",
+    "requirement": "Global-ready architecture without premature breadth",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "priority": "P1",
+    "phase": "Gates",
+    "dependencies": [
+      "R036"
+    ],
+    "acceptance_criteria": "Curriculum/provider/localization boundaries versioned; future scope retained",
+    "specification": "architecture/system-and-data-model.md",
+    "owner": "Founder",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained in named phase; no implementation claimed"
+  }
+]

@@ -1,0 +1,755 @@
+# Requirements register v0.1
+
+Authoritative structured form: requirements.json. Priority is importance/risk, not deletion permission. P0 = gate/critical control; P1 = retained product/program requirement. Phase is proposed delivery, not approval. All entries are unimplemented. Future scope remains visible. U1=current master instruction; U2=founder restoration; U3=TBD folder instructions. Research references are detailed in linked specifications/source catalog. GAP-001 prevents certifying all older history.
+
+## R001 — Audit context completeness before final specifications
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P0; phase: Gates; owner: Founder.
+- Dependencies: none within register; see gates.
+- Acceptance: All 27 pack files inventoried and historical GAP-001 explicit.
+- Specification: [docs/00-context-completeness-audit.md](../docs/00-context-completeness-audit.md).
+
+## R002 — Preserve research originals and citations
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P0; phase: Gates; owner: Founder.
+- Dependencies: R001.
+- Acceptance: 36 research/evidence files hash-verified and unchanged.
+- Specification: [sources/source-catalog.md](../sources/source-catalog.md).
+
+## R003 — Trace every available founder requirement without silently dropping future scope
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P0; phase: Gates; owner: Founder.
+- Dependencies: R001.
+- Acceptance: Stable IDs have source, phase, priority, dependencies, acceptance and spec; historical limitation declared.
+- Specification: [execution/roadmap-and-gates.md](../execution/roadmap-and-gates.md).
+
+## R004 — Product vision, target users and jobs
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P1; phase: Gates; owner: Founder.
+- Dependencies: none within register; see gates.
+- Acceptance: Student/guardian/educator/teacher/operator jobs and primary outcome reviewed.
+- Specification: [docs/01-product-vision-prd.md](../docs/01-product-vision-prd.md).
+
+## R005 — Choose first Egypt curriculum/age/subject unit
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P0; phase: Gates; owner: Founder.
+- Dependencies: none within register; see gates.
+- Acceptance: Founder records exact slice, educator, rights and buyer hypothesis.
+- Specification: [docs/01-product-vision-prd.md](../docs/01-product-vision-prd.md).
+
+## R006 — Solo-founder maintainability
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P1; phase: Gates; owner: Founder.
+- Dependencies: none within register; see gates.
+- Acceptance: Work breakdown includes educator/legal/support effort and bounded scope.
+- Specification: [execution/roadmap-and-gates.md](../execution/roadmap-and-gates.md).
+
+## R007 — Affordability and pricing hypotheses
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P1; phase: Gates; owner: Founder.
+- Dependencies: none within register; see gates.
+- Acceptance: EGP 300/month and EGP 300–500/course/semester modeled separately, not asserted viable.
+- Specification: [economics/README.md](../economics/README.md).
+
+## R008 — Preserve ~100 prospects and supervised family/friends pilot context
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P1; phase: Pilot; owner: Founder + educator where learning/content is affected.
+- Dependencies: R005, R058.
+- Acceptance: Interest not counted as revenue; appropriate pilot permissions and cohort plan documented.
+- Specification: [docs/01-product-vision-prd.md](../docs/01-product-vision-prd.md).
+
+## R009 — Brand naming strategy and candidate screening
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P1; phase: Gates; owner: Founder.
+- Dependencies: none within register; see gates.
+- Acceptance: Candidate list plus language, similarity, mark/domain screening and founder decision.
+- Specification: [design/brand-and-design-system.md](../design/brand-and-design-system.md).
+
+## R010 — Identity/design system
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P1; phase: Gates; owner: Founder.
+- Dependencies: R009.
+- Acceptance: Bilingual direction, editable tokens, components/states and contrast review specified.
+- Specification: [design/brand-and-design-system.md](../design/brand-and-design-system.md).
+
+## R011 — UX journeys
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P1; phase: Gates; owner: Founder.
+- Dependencies: R004.
+- Acceptance: Student, parent, upload, voice and teacher flows reviewed.
+- Specification: [design/brand-and-design-system.md](../design/brand-and-design-system.md).
+
+## R012 — Use existing TBD project folder; rename after chosen brand
+
+- Source: U3; status: Specified; not implemented; Founder requirement.
+- Priority: P1; phase: Gates; owner: Founder.
+- Dependencies: none within register; see gates.
+- Acceptance: Project resides in Documents/TBD; no premature rename.
+- Specification: [README.md](../README.md).
+
+## R013 — Egyptian Arabic conversational text
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P1; phase: Pilot; owner: Founder + educator where learning/content is affected.
+- Dependencies: none within register; see gates.
+- Acceptance: Educator-scored dialect explanations pass agreed rubric.
+- Specification: [docs/05-model-routing-and-voice.md](../docs/05-model-routing-and-voice.md).
+
+## R014 — MSA text and academic terminology
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P1; phase: Pilot; owner: Founder + educator where learning/content is affected.
+- Dependencies: none within register; see gates.
+- Acceptance: Formal terms and understandable MSA tested separately.
+- Specification: [docs/05-model-routing-and-voice.md](../docs/05-model-routing-and-voice.md).
+
+## R015 — English and code-switching text
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P1; phase: Pilot; owner: Founder + educator where learning/content is affected.
+- Dependencies: none within register; see gates.
+- Acceptance: Language switching preserves math meaning and source scope.
+- Specification: [docs/05-model-routing-and-voice.md](../docs/05-model-routing-and-voice.md).
+
+## R016 — Egyptian Arabic/MSA/English voice
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P1; phase: PoC then conditional Pilot; owner: Founder + educator where learning/content is affected.
+- Dependencies: R013, R014, R015.
+- Acceptance: Each language meets speech fidelity, privacy and cost gates; text fallback remains.
+- Specification: [docs/05-model-routing-and-voice.md](../docs/05-model-routing-and-voice.md).
+
+## R017 — Adaptive explanations
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P1; phase: Pilot; owner: Founder + educator where learning/content is affected.
+- Dependencies: R025.
+- Acceptance: Explanations change with valid evidence and preference within allowed action.
+- Specification: [docs/03-learning-intelligence.md](../docs/03-learning-intelligence.md).
+
+## R018 — Interactive lessons and visual manipulatives
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P1; phase: Future; owner: Founder + educator where learning/content is affected.
+- Dependencies: R017.
+- Acceptance: Reviewed interactive activities map to objectives with accessibility equivalents.
+- Specification: [design/brand-and-design-system.md](../design/brand-and-design-system.md).
+
+## R019 — Guided problem-solving and hint ladder
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P1; phase: Pilot; owner: Founder + educator where learning/content is affected.
+- Dependencies: R025.
+- Acceptance: Hints record assistance; learner can switch to independent check.
+- Specification: [docs/03-learning-intelligence.md](../docs/03-learning-intelligence.md).
+
+## R020 — Exercises and quizzes
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P1; phase: Pilot; owner: Founder + educator where learning/content is affected.
+- Dependencies: R043.
+- Acceptance: Reviewed item/rubric versions, independent mode and appeals work.
+- Specification: [docs/03-learning-intelligence.md](../docs/03-learning-intelligence.md).
+
+## R021 — Timed mock exams
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P1; phase: Future; owner: Founder + educator where learning/content is affected.
+- Dependencies: R020, R035.
+- Acceptance: Syllabus blueprint, timing/accommodations, reviewed marking and post-exam plan.
+- Specification: [docs/03-learning-intelligence.md](../docs/03-learning-intelligence.md).
+
+## R022 — Personalized exam preparation
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P1; phase: Future; owner: Founder + educator where learning/content is affected.
+- Dependencies: R025, R035.
+- Acceptance: Availability, objective coverage and delayed checks drive explainable plan.
+- Specification: [docs/01-product-vision-prd.md](../docs/01-product-vision-prd.md).
+
+## R023 — Persistent progress across sessions
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P1; phase: Pilot; owner: Founder + educator where learning/content is affected.
+- Dependencies: R025.
+- Acceptance: Resume and projection replay preserve valid learning evidence.
+- Specification: [docs/03-learning-intelligence.md](../docs/03-learning-intelligence.md).
+
+## R024 — Mastery tracking with uncertainty
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P1; phase: Pilot; owner: Founder + educator where learning/content is affected.
+- Dependencies: R025.
+- Acceptance: Unknown distinct from low; assisted success cannot promote status.
+- Specification: [docs/03-learning-intelligence.md](../docs/03-learning-intelligence.md).
+
+## R025 — Immutable evidence ledger and correction lineage
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P1; phase: PoC; owner: Founder + educator where learning/content is affected.
+- Dependencies: R043.
+- Acceptance: Duplicate/out-of-order/corrected evidence replays deterministically.
+- Specification: [docs/03-learning-intelligence.md](../docs/03-learning-intelligence.md).
+
+## R026 — Misconception diagnosis
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P1; phase: Pilot; owner: Founder + educator where learning/content is affected.
+- Dependencies: R025.
+- Acceptance: Wrong answer is hypothesis; distinguishing probe and expiry/review recorded.
+- Specification: [docs/03-learning-intelligence.md](../docs/03-learning-intelligence.md).
+
+## R027 — Prerequisite knowledge graph
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P1; phase: Pilot; owner: Founder + educator where learning/content is affected.
+- Dependencies: R035.
+- Acceptance: Reviewed edges/provenance, cycle detection and safe fallback.
+- Specification: [docs/03-learning-intelligence.md](../docs/03-learning-intelligence.md).
+
+## R028 — Explainable adaptive learning paths
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P1; phase: Pilot; owner: Founder + educator where learning/content is affected.
+- Dependencies: R024, R027.
+- Acceptance: Eligible next actions have stored reasons and override path.
+- Specification: [docs/03-learning-intelligence.md](../docs/03-learning-intelligence.md).
+
+## R029 — Active recall and independent assessment
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P1; phase: Pilot; owner: Founder + educator where learning/content is affected.
+- Dependencies: R020.
+- Acceptance: Unseen-family checks separate hinted/exposed answers.
+- Specification: [docs/03-learning-intelligence.md](../docs/03-learning-intelligence.md).
+
+## R030 — Spaced repetition and delayed retention
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P1; phase: Pilot; owner: Founder + educator where learning/content is affected.
+- Dependencies: R029.
+- Acceptance: Due reviews and independent delayed results recorded separately from completion.
+- Specification: [docs/03-learning-intelligence.md](../docs/03-learning-intelligence.md).
+
+## R031 — Individual adaptation loop
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P1; phase: Pilot; owner: Founder + educator where learning/content is affected.
+- Dependencies: R025.
+- Acceptance: Only validated learner evidence changes that learner projection.
+- Specification: [docs/03-learning-intelligence.md](../docs/03-learning-intelligence.md).
+
+## R032 — System-wide evaluated feedback loop
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P1; phase: Pilot; owner: Founder + educator where learning/content is affected.
+- Dependencies: R031.
+- Acceptance: Human triage, frozen regressions, versioned releases and rollback.
+- Specification: [docs/03-learning-intelligence.md](../docs/03-learning-intelligence.md).
+
+## R033 — Optional controlled model improvement
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P1; phase: Future; owner: Founder + educator where learning/content is affected.
+- Dependencies: R032, R059.
+- Acceptance: Authorized curated training corpus, lineage and held-out evaluation before release.
+- Specification: [docs/03-learning-intelligence.md](../docs/03-learning-intelligence.md).
+
+## R034 — Compare rules/BKT/logistic/IRT/deep KT
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P1; phase: Future; owner: Founder + educator where learning/content is affected.
+- Dependencies: R025, R076.
+- Acceptance: Calibration and held-out learning outcomes justify complexity; no AUC-only promotion.
+- Specification: [docs/03-learning-intelligence.md](../docs/03-learning-intelligence.md).
+
+## R035 — Built-in versioned Egyptian curricula
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P1; phase: Pilot; owner: Founder + educator where learning/content is affected.
+- Dependencies: R005, R041.
+- Acceptance: Exact authority/year/grade/subject/term/language pinned and approved.
+- Specification: [docs/04-curriculum-and-rag.md](../docs/04-curriculum-and-rag.md).
+
+## R036 — National/language/IGCSE/IB/American and global curricula
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P1; phase: Future; owner: Founder + educator where learning/content is affected.
+- Dependencies: R035.
+- Acceptance: Each system gets independent reviewed syllabus mappings and rights, not translation-only labels.
+- Specification: [docs/04-curriculum-and-rag.md](../docs/04-curriculum-and-rag.md).
+
+## R037 — Student-uploaded materials/custom curriculum
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P1; phase: Pilot; owner: Founder + educator where learning/content is affected.
+- Dependencies: R041, R058.
+- Acceptance: Private upload, relationship/purpose scope, quarantine and reviewed mapping.
+- Specification: [docs/04-curriculum-and-rag.md](../docs/04-curriculum-and-rag.md).
+
+## R038 — Parent-uploaded textbooks/notes/worksheets
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P1; phase: Pilot; owner: Founder + educator where learning/content is affected.
+- Dependencies: R037.
+- Acceptance: Verified guardian scope; private source/version/progress state visible.
+- Specification: [docs/04-curriculum-and-rag.md](../docs/04-curriculum-and-rag.md).
+
+## R039 — OCR/layout/math/table/diagram extraction
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P1; phase: PoC; owner: Founder + educator where learning/content is affected.
+- Dependencies: R040.
+- Acceptance: Arabic and bilingual representative corpus checked for critical notation loss.
+- Specification: [docs/04-curriculum-and-rag.md](../docs/04-curriculum-and-rag.md).
+
+## R040 — Safe upload ingestion and quotas
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P1; phase: PoC; owner: Founder + educator where learning/content is affected.
+- Dependencies: R060.
+- Acceptance: Streaming caps, magic/MIME, malware/quarantine and bounded parser fixtures pass.
+- Specification: [docs/04-curriculum-and-rag.md](../docs/04-curriculum-and-rag.md).
+
+## R041 — Content rights/provenance/permissions
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P0; phase: Gates; owner: Founder.
+- Dependencies: none within register; see gates.
+- Acceptance: Every published source has hash, permission scope, expiry and reviewer.
+- Specification: [docs/04-curriculum-and-rag.md](../docs/04-curriculum-and-rag.md).
+
+## R042 — Versioning, curriculum mapping and supersession
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P1; phase: Pilot; owner: Founder + educator where learning/content is affected.
+- Dependencies: R035.
+- Acceptance: New edition does not silently relabel old evidence; reviewed migration exists.
+- Specification: [docs/04-curriculum-and-rag.md](../docs/04-curriculum-and-rag.md).
+
+## R043 — Original reviewed item bank/rubrics
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P1; phase: PoC; owner: Founder + educator where learning/content is affected.
+- Dependencies: R041.
+- Acceptance: 100 clear plus 20 ambiguous/adversarial item cases with reviewed keys.
+- Specification: [docs/03-learning-intelligence.md](../docs/03-learning-intelligence.md).
+
+## R044 — RAG retrieval architecture
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P1; phase: PoC; owner: Founder + educator where learning/content is affected.
+- Dependencies: R039, R041.
+- Acceptance: ACL/edition/approval filters apply before ranking and citation resolution.
+- Specification: [docs/04-curriculum-and-rag.md](../docs/04-curriculum-and-rag.md).
+
+## R045 — Document-grounded answers and exact citations
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P1; phase: PoC; owner: Founder + educator where learning/content is affected.
+- Dependencies: R044.
+- Acceptance: No fabricated source references; support/abstention gates pass per language.
+- Specification: [docs/04-curriculum-and-rag.md](../docs/04-curriculum-and-rag.md).
+
+## R046 — Private upload isolation and deletion
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P1; phase: Pilot; owner: Founder + educator where learning/content is affected.
+- Dependencies: R044, R061.
+- Acceptance: No cross-user chunks/cache leaks; withdrawal purges derived artifacts.
+- Specification: [docs/04-curriculum-and-rag.md](../docs/04-curriculum-and-rag.md).
+
+## R047 — Parent dashboard and meaningful progress
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P1; phase: Pilot; owner: Founder + educator where learning/content is affected.
+- Dependencies: R024, R058.
+- Acceptance: Evidence/uncertainty/next action plus plan and permissions, no default full chat.
+- Specification: [design/brand-and-design-system.md](../design/brand-and-design-system.md).
+
+## R048 — WhatsApp progress reports
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P1; phase: Future; owner: Founder + educator where learning/content is affected.
+- Dependencies: R047, R049.
+- Acceptance: Verified opt-in recipient, minimal template, quiet hours, price/privacy review before send.
+- Specification: [docs/06-safety-privacy-security.md](../docs/06-safety-privacy-security.md).
+
+## R049 — Notification preferences and revocation
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P1; phase: Pilot; owner: Founder + educator where learning/content is affected.
+- Dependencies: R058.
+- Acceptance: Deduplication/quiet hours/opt-out; revoked relationships cancel jobs.
+- Specification: [docs/06-safety-privacy-security.md](../docs/06-safety-privacy-security.md).
+
+## R050 — Future teacher/classroom functionality
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P1; phase: Future; owner: Founder + educator where learning/content is affected.
+- Dependencies: R047, R060.
+- Acceptance: Scoped roster, assignments, reviewed overrides and privacy-safe summaries.
+- Specification: [design/brand-and-design-system.md](../design/brand-and-design-system.md).
+
+## R051 — Subscriptions/course-semester entitlements
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P1; phase: Pilot; owner: Founder + educator where learning/content is affected.
+- Dependencies: R007.
+- Acceptance: Server-side grants/expiry/quotas; manual prepaid path while gateway unresolved.
+- Specification: [architecture/system-and-data-model.md](../architecture/system-and-data-model.md).
+
+## R052 — Payment integration and refunds
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P1; phase: Commercial; owner: Founder + educator where learning/content is affected.
+- Dependencies: R051.
+- Acceptance: Signed idempotent webhooks, reversals and settlement reconciliation; actual terms verified.
+- Specification: [architecture/system-and-data-model.md](../architecture/system-and-data-model.md).
+
+## R053 — Child safety and age-appropriate interactions
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P0; phase: Gates; owner: Founder.
+- Dependencies: none within register; see gates.
+- Acceptance: Three-language severe safety suite and named human escalation owner.
+- Specification: [docs/06-safety-privacy-security.md](../docs/06-safety-privacy-security.md).
+
+## R054 — Accessibility and low-bandwidth/mobile UX
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P1; phase: Pilot; owner: Founder + educator where learning/content is affected.
+- Dependencies: R011.
+- Acceptance: Critical journeys pass keyboard/screen-reader/zoom/slow-network checks.
+- Specification: [design/brand-and-design-system.md](../design/brand-and-design-system.md).
+
+## R055 — RTL/LTR and accessible mathematics
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P1; phase: Pilot; owner: Founder + educator where learning/content is affected.
+- Dependencies: R054.
+- Acceptance: Mixed equations/units/English terms preserve reading order and alternatives.
+- Specification: [design/brand-and-design-system.md](../design/brand-and-design-system.md).
+
+## R056 — Child understandable notices and student agency
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P1; phase: Pilot; owner: Founder + educator where learning/content is affected.
+- Dependencies: R053.
+- Acceptance: Explain AI uncertainty, independent checks, recording and help/appeal paths.
+- Specification: [docs/06-safety-privacy-security.md](../docs/06-safety-privacy-security.md).
+
+## R057 — Guardian verification and consent lifecycle
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P0; phase: Gates; owner: Founder.
+- Dependencies: none within register; see gates.
+- Acceptance: Counsel-approved age/purpose method with withdrawal/dispute evidence.
+- Specification: [docs/06-safety-privacy-security.md](../docs/06-safety-privacy-security.md).
+
+## R058 — Privacy/data processing and transfer review
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P0; phase: Gates; owner: Founder.
+- Dependencies: R057.
+- Acceptance: Purpose/data/processor register and current legal route signed before minors.
+- Specification: [docs/06-safety-privacy-security.md](../docs/06-safety-privacy-security.md).
+
+## R059 — No automatic training on identifiable child chat
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P0; phase: Gates; owner: Founder.
+- Dependencies: R058.
+- Acceptance: Optional training requires separate rights/purpose review and deletion lineage.
+- Specification: [docs/06-safety-privacy-security.md](../docs/06-safety-privacy-security.md).
+
+## R060 — Secure data/tenant/object/tool isolation
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P0; phase: PoC; owner: Founder + educator where learning/content is affected.
+- Dependencies: none within register; see gates.
+- Acceptance: Zero unauthorized access across >=100 negative cases, including vectors/files/exports.
+- Specification: [docs/06-safety-privacy-security.md](../docs/06-safety-privacy-security.md).
+
+## R061 — Retention/export/deletion/backups
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P1; phase: Pilot; owner: Founder + educator where learning/content is affected.
+- Dependencies: R058, R060.
+- Acceptance: Approved schedule, derived-store purge and restore deletion reapplication demonstrated.
+- Specification: [docs/06-safety-privacy-security.md](../docs/06-safety-privacy-security.md).
+
+## R062 — Provider-agnostic adapters
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P1; phase: PoC; owner: Founder + educator where learning/content is affected.
+- Dependencies: R058.
+- Acceptance: Generate/stream/usage/cancel/error contracts survive provider substitution.
+- Specification: [docs/05-model-routing-and-voice.md](../docs/05-model-routing-and-voice.md).
+
+## R063 — Benchmark OpenAI/Claude/Gemini
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P1; phase: PoC; owner: Founder + educator where learning/content is affected.
+- Dependencies: R062.
+- Acceptance: Matched eligible tasks record quality, language, latency and actual bills.
+- Specification: [docs/05-model-routing-and-voice.md](../docs/05-model-routing-and-voice.md).
+
+## R064 — Benchmark Qwen/DeepSeek/Chinese model options
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P1; phase: PoC; owner: Founder + educator where learning/content is affected.
+- Dependencies: R062.
+- Acceptance: Same rubric/terms/rights gates, no adoption based solely on nominal token cost.
+- Specification: [docs/05-model-routing-and-voice.md](../docs/05-model-routing-and-voice.md).
+
+## R065 — Open-weight/local inference path
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P1; phase: Future; owner: Founder + educator where learning/content is affected.
+- Dependencies: R062, R072.
+- Acceptance: Weight rights, dialect quality, utilization and full operations cost justify hosting.
+- Specification: [docs/05-model-routing-and-voice.md](../docs/05-model-routing-and-voice.md).
+
+## R066 — Jev-style classifier experiment
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P1; phase: PoC; owner: Founder + educator where learning/content is affected.
+- Dependencies: R025, R062.
+- Acceptance: Frozen labeled comparison against rules and small LLM; calibration/cost/error report.
+- Specification: [docs/05-model-routing-and-voice.md](../docs/05-model-routing-and-voice.md).
+
+## R067 — Deterministic state/business authority
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P0; phase: PoC; owner: Founder + educator where learning/content is affected.
+- Dependencies: R060.
+- Acceptance: Models cannot overwrite grade/mastery/consent/entitlement or tool scopes.
+- Specification: [architecture/system-and-data-model.md](../architecture/system-and-data-model.md).
+
+## R068 — Model routing and qualified fallback
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P1; phase: PoC; owner: Founder + educator where learning/content is affected.
+- Dependencies: R062, R067.
+- Acceptance: Privacy/quality eligibility precedes cost; no unapproved provider on failure.
+- Specification: [docs/05-model-routing-and-voice.md](../docs/05-model-routing-and-voice.md).
+
+## R069 — Token/context/cache optimization
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P1; phase: PoC; owner: Founder + educator where learning/content is affected.
+- Dependencies: R062.
+- Acceptance: Bounded prompts and summaries, isolated versioned caches; savings from actual receipts.
+- Specification: [docs/05-model-routing-and-voice.md](../docs/05-model-routing-and-voice.md).
+
+## R070 — Token/audio usage accounting and limits
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P1; phase: PoC; owner: Founder + educator where learning/content is affected.
+- Dependencies: R062.
+- Acceptance: Atomic reservations, cached units, retries/cancel receipts reconciled.
+- Specification: [architecture/system-and-data-model.md](../architecture/system-and-data-model.md).
+
+## R071 — Voice economics and quotas
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P1; phase: PoC; owner: Founder + educator where learning/content is affected.
+- Dependencies: R016, R070.
+- Acceptance: Cascade vs realtime matched workloads, connected/input/output units distinguished.
+- Specification: [economics/README.md](../economics/README.md).
+
+## R072 — GPU/self-hosting sensitivity at 100/1k/10k users
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P1; phase: Future; owner: Founder + educator where learning/content is affected.
+- Dependencies: R062, R070.
+- Acceptance: Measured throughput/peak utilization plus idle/redundancy/ops; explicit break-even.
+- Specification: [economics/README.md](../economics/README.md).
+
+## R073 — Operating cost/unit economics sensitivity
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P1; phase: Gates; owner: Founder.
+- Dependencies: R007.
+- Acceptance: Usage/FX/cache/voice/support/fees/tax/paid-active ratios modeled transparently.
+- Specification: [economics/README.md](../economics/README.md).
+
+## R074 — Optimize cost per successful learning outcome
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P1; phase: Pilot; owner: Founder + educator where learning/content is affected.
+- Dependencies: R029, R070.
+- Acceptance: All-cost numerator and valid independent-activity denominator; delayed endpoint tracked.
+- Specification: [economics/README.md](../economics/README.md).
+
+## R075 — Domain/data model and API contracts
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P1; phase: Gates; owner: Founder.
+- Dependencies: none within register; see gates.
+- Acceptance: Entity authority, scopes, versions, idempotency and failure semantics reviewed.
+- Specification: [architecture/system-and-data-model.md](../architecture/system-and-data-model.md).
+
+## R076 — QA/evals and language slices
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P1; phase: PoC; owner: Founder + educator where learning/content is affected.
+- Dependencies: R043.
+- Acceptance: Frozen holdout, rubric agreement and per-language result counts; no leakage.
+- Specification: [docs/07-qa-evals-and-operations.md](../docs/07-qa-evals-and-operations.md).
+
+## R077 — Architecture ADRs and decisions
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P1; phase: Gates; owner: Founder.
+- Dependencies: R075.
+- Acceptance: Tradeoffs, alternatives, status and reversal triggers recorded.
+- Specification: [execution/roadmap-and-gates.md](../execution/roadmap-and-gates.md).
+
+## R078 — CI/CD and release lineage
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P1; phase: Pilot; owner: Founder + educator where learning/content is affected.
+- Dependencies: R076.
+- Acceptance: Checks/artifact/manifest/staging/flag/rollback process reviewed and exercised.
+- Specification: [docs/07-qa-evals-and-operations.md](../docs/07-qa-evals-and-operations.md).
+
+## R079 — Observability and redacted incident/cost metrics
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P1; phase: Pilot; owner: Founder + educator where learning/content is affected.
+- Dependencies: R070.
+- Acceptance: Health/quality/spend/review dashboards without raw child data in labels.
+- Specification: [docs/07-qa-evals-and-operations.md](../docs/07-qa-evals-and-operations.md).
+
+## R080 — Operational runbooks/recovery/support
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P1; phase: Pilot; owner: Founder + educator where learning/content is affected.
+- Dependencies: R061.
+- Acceptance: Outage/leak/content/spend/deletion runbooks plus timed restore and workload budget.
+- Specification: [docs/07-qa-evals-and-operations.md](../docs/07-qa-evals-and-operations.md).
+
+## R081 — Security/licensing source findings
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P0; phase: Gates; owner: Founder.
+- Dependencies: R002.
+- Acceptance: Audit findings retained with bounded confidence and adoption gates.
+- Specification: [docs/06-safety-privacy-security.md](../docs/06-safety-privacy-security.md).
+
+## R082 — Quarantine inspected EduStudio revision
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P0; phase: Gates; owner: Founder.
+- Dependencies: R081.
+- Acceptance: Exact pin excluded from execution until independent provenance resolution.
+- Specification: [docs/06-safety-privacy-security.md](../docs/06-safety-privacy-security.md).
+
+## R083 — Selective DeepTutor reuse only
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P1; phase: PoC; owner: Founder + educator where learning/content is affected.
+- Dependencies: R081.
+- Acceptance: Apache provenance/dependency closure; abandon extraction >3 repair days.
+- Specification: [architecture/system-and-data-model.md](../architecture/system-and-data-model.md).
+
+## R084 — LearnHouse LMS fallback with AGPL/EE review
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P1; phase: Future; owner: Founder + educator where learning/content is affected.
+- Dependencies: R081.
+- Acceptance: Actual feature/license terms and combined-work analysis before use.
+- Specification: [architecture/system-and-data-model.md](../architecture/system-and-data-model.md).
+
+## R085 — Framework choice remains reversible
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P1; phase: Gates; owner: Founder.
+- Dependencies: R075.
+- Acceptance: Django/Postgres vs thin alternative compared with review/admin and solo operations.
+- Specification: [architecture/system-and-data-model.md](../architecture/system-and-data-model.md).
+
+## R086 — Roadmap/milestones/work breakdown
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P1; phase: Gates; owner: Founder.
+- Dependencies: R003.
+- Acceptance: Each milestone has dependencies, deliverable, owner, gate and stop condition.
+- Specification: [execution/roadmap-and-gates.md](../execution/roadmap-and-gates.md).
+
+## R087 — Risks/unknowns/decision log
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P1; phase: Gates; owner: Founder.
+- Dependencies: R001.
+- Acceptance: Unknowns assigned owners/resolution evidence; no invented approval.
+- Specification: [execution/roadmap-and-gates.md](../execution/roadmap-and-gates.md).
+
+## R088 — Codex instructions and phased prompts
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P1; phase: Gates; owner: Founder.
+- Dependencies: R003, R077.
+- Acceptance: Agents read authoritative docs; each prompt bounded by gates and evidence.
+- Specification: [AGENTS.md](../AGENTS.md).
+
+## R089 — Version-controlled editable master artifacts
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P1; phase: Gates; owner: Founder.
+- Dependencies: R002.
+- Acceptance: Markdown/JSON originals and reproducible checks committed locally; no product code.
+- Specification: [README.md](../README.md).
+
+## R090 — No premature implementation; bounded PoC after gates
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P0; phase: Gates; owner: Founder.
+- Dependencies: R003, R077.
+- Acceptance: G1–G3 approvals recorded before product code; PoC has budget/time/data limits.
+- Specification: [execution/roadmap-and-gates.md](../execution/roadmap-and-gates.md).
+
+## R091 — Multimodal/photo/diagram tutoring
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P1; phase: Future; owner: Founder + educator where learning/content is affected.
+- Dependencies: R039, R053.
+- Acceptance: Authorized image interpretation cites source and confirms uncertain notation.
+- Specification: [docs/04-curriculum-and-rag.md](../docs/04-curriculum-and-rag.md).
+
+## R092 — Independent assessment/grade appeal and teacher correction
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P1; phase: Pilot; owner: Founder + educator where learning/content is affected.
+- Dependencies: R025, R043.
+- Acceptance: Disputed grades held/reviewed, correction lineage and affected replay.
+- Specification: [docs/03-learning-intelligence.md](../docs/03-learning-intelligence.md).
+
+## R093 — Learning outcomes without unsupported efficacy claims
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P1; phase: Pilot; owner: Founder + educator where learning/content is affected.
+- Dependencies: R029, R030.
+- Acceptance: Delayed retention/transfer, attrition and uncertainty reported separately from engagement.
+- Specification: [docs/07-qa-evals-and-operations.md](../docs/07-qa-evals-and-operations.md).
+
+## R094 — Global-ready architecture without premature breadth
+
+- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Priority: P1; phase: Gates; owner: Founder.
+- Dependencies: R036.
+- Acceptance: Curriculum/provider/localization boundaries versioned; future scope retained.
+- Specification: [architecture/system-and-data-model.md](../architecture/system-and-data-model.md).

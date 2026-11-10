@@ -1,0 +1,777 @@
+[
+  {
+    "repo": "celery/celery",
+    "metadata": {
+      "full_name": "celery/celery",
+      "description": "Distributed Task Queue (development branch)",
+      "archived": false,
+      "default_branch": "main",
+      "pushed_at": "2026-11-10T14:46:59Z",
+      "updated_at": "2026-11-10T16:39:15Z",
+      "stargazers_count": 29169,
+      "forks_count": 5259,
+      "open_issues_count": 773,
+      "license": {
+        "key": "other",
+        "name": "Other",
+        "spdx_id": "NOASSERTION",
+        "url": null,
+        "node_id": "MDc6TGljZW5zZTA="
+      }
+    }
+  },
+  {
+    "repo": "HKUDS/DeepTutor",
+    "metadata": {
+      "full_name": "HKUDS/DeepTutor",
+      "description": "DeepTutor: Lifelong Personalized Tutoring. https://deeptutor.info/.",
+      "archived": false,
+      "default_branch": "main",
+      "pushed_at": "2026-11-07T15:18:10Z",
+      "updated_at": "2026-11-10T19:10:24Z",
+      "stargazers_count": 57939,
+      "forks_count": 7056,
+      "open_issues_count": 394,
+      "license": {
+        "key": "apache-2.0",
+        "name": "Apache License 2.0",
+        "spdx_id": "Apache-2.0",
+        "url": "https://api.github.com/licenses/apache-2.0",
+        "node_id": "MDc6TGljZW5zZTI="
+      }
+    },
+    "releases": [
+      {
+        "html_url": "https://github.com/HKUDS/DeepTutor/releases/tag/v1.7.2",
+        "title": null,
+        "tag_name": "v1.7.2",
+        "published_at": "2026-11-06T08:42:06Z",
+        "updated_at": "2026-11-06T09:20:14Z",
+        "state": null,
+        "pull_request": null
+      },
+      {
+        "html_url": "https://github.com/HKUDS/DeepTutor/releases/tag/v1.7.1",
+        "title": null,
+        "tag_name": "v1.7.1",
+        "published_at": "2026-10-31T16:51:40Z",
+        "updated_at": "2026-10-31T17:06:25Z",
+        "state": null,
+        "pull_request": null
+      },
+      {
+        "html_url": "https://github.com/HKUDS/DeepTutor/releases/tag/v1.7.0",
+        "title": null,
+        "tag_name": "v1.7.0",
+        "published_at": "2026-10-28T14:13:12Z",
+        "updated_at": "2026-10-28T14:13:12Z",
+        "state": null,
+        "pull_request": null
+      }
+    ],
+    "open_issues_sample": [
+      {
+        "html_url": "https://github.com/HKUDS/DeepTutor/pull/2606",
+        "title": "fix: make foreign tool call ids valid for Anthropic",
+        "tag_name": null,
+        "published_at": null,
+        "updated_at": "2026-11-10T18:33:11Z",
+        "state": "open",
+        "pull_request": {
+          "url": "https://api.github.com/repos/HKUDS/DeepTutor/pulls/2606",
+          "html_url": "https://github.com/HKUDS/DeepTutor/pull/2606",
+          "diff_url": "https://github.com/HKUDS/DeepTutor/pull/2606.diff",
+          "patch_url": "https://github.com/HKUDS/DeepTutor/pull/2606.patch",
+          "merged_at": null
+        }
+      },
+      {
+        "html_url": "https://github.com/HKUDS/DeepTutor/pull/2605",
+        "title": "fix(mastery): let a new reply supersede an ungraded clarification",
+        "tag_name": null,
+        "published_at": null,
+        "updated_at": "2026-11-10T16:59:37Z",
+        "state": "open",
+        "pull_request": {
+          "url": "https://api.github.com/repos/HKUDS/DeepTutor/pulls/2605",
+          "html_url": "https://github.com/HKUDS/DeepTutor/pull/2605",
+          "diff_url": "https://github.com/HKUDS/DeepTutor/pull/2605.diff",
+          "patch_url": "https://github.com/HKUDS/DeepTutor/pull/2605.patch",
+          "merged_at": null
+        }
+      },
+      {
+        "html_url": "https://github.com/HKUDS/DeepTutor/issues/2604",
+        "title": "[Feature Request]: Configurable source limits for books and Mastery Path",
+        "tag_name": null,
+        "published_at": null,
+        "updated_at": "2026-11-10T13:57:36Z",
+        "state": "open",
+        "pull_request": null
+      },
+      {
+        "html_url": "https://github.com/HKUDS/DeepTutor/issues/2603",
+        "title": "[Feature Request]: Book pages that interleave visuals with shorter sections (and a page plan that is not cut at 1200 tokens)",
+        "tag_name": null,
+        "published_at": null,
+        "updated_at": "2026-11-10T13:57:35Z",
+        "state": "open",
+        "pull_request": null
+      },
+      {
+        "html_url": "https://github.com/HKUDS/DeepTutor/issues/2602",
+        "title": "[Feature Request]: Separate planner and writer models for book generation",
+        "tag_name": null,
+        "published_at": null,
+        "updated_at": "2026-11-10T13:57:33Z",
+        "state": "open",
+        "pull_request": null
+      }
+    ]
+  },
+  {
+    "repo": "docling-project/docling",
+    "metadata": {
+      "full_name": "docling-project/docling",
+      "description": "Get your documents ready for gen AI",
+      "archived": false,
+      "default_branch": "main",
+      "pushed_at": "2026-11-10T17:59:28Z",
+      "updated_at": "2026-11-10T18:18:02Z",
+      "stargazers_count": 70390,
+      "forks_count": 5307,
+      "open_issues_count": 967,
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit",
+        "node_id": "MDc6TGljZW5zZTEz"
+      }
+    }
+  },
+  {
+    "repo": "HFUT-LEC/EduStudio",
+    "metadata": {
+      "full_name": "HFUT-LEC/EduStudio",
+      "description": "[Frontiers of Computer Science 2025] EduStudio: towards a unified library for student cognitive modeling",
+      "archived": false,
+      "default_branch": "main",
+      "pushed_at": "2026-11-10T17:23:43Z",
+      "updated_at": "2026-11-07T09:09:26Z",
+      "stargazers_count": 83,
+      "forks_count": 23,
+      "open_issues_count": 3,
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit",
+        "node_id": "MDc6TGljZW5zZTEz"
+      }
+    },
+    "releases": [
+      {
+        "html_url": "https://github.com/HFUT-LEC/EduStudio/releases/tag/v1.1.7",
+        "title": null,
+        "tag_name": "v1.1.7",
+        "published_at": "2025-10-13T06:22:36Z",
+        "updated_at": "2025-10-13T06:22:36Z",
+        "state": null,
+        "pull_request": null
+      },
+      {
+        "html_url": "https://github.com/HFUT-LEC/EduStudio/releases/tag/v1.1.6",
+        "title": null,
+        "tag_name": "v1.1.6",
+        "published_at": "2025-09-22T15:13:05Z",
+        "updated_at": "2025-09-22T15:13:05Z",
+        "state": null,
+        "pull_request": null
+      },
+      {
+        "html_url": "https://github.com/HFUT-LEC/EduStudio/releases/tag/v1.1.5",
+        "title": null,
+        "tag_name": "v1.1.5",
+        "published_at": "2025-09-15T09:09:52Z",
+        "updated_at": "2025-09-15T09:12:58Z",
+        "state": null,
+        "pull_request": null
+      }
+    ],
+    "open_issues_sample": [
+      {
+        "html_url": "https://github.com/HFUT-LEC/EduStudio/pull/47",
+        "title": "docs: dependency audit notes",
+        "tag_name": null,
+        "published_at": null,
+        "updated_at": "2026-11-10T14:43:53Z",
+        "state": "open",
+        "pull_request": {
+          "url": "https://api.github.com/repos/HFUT-LEC/EduStudio/pulls/47",
+          "html_url": "https://github.com/HFUT-LEC/EduStudio/pull/47",
+          "diff_url": "https://github.com/HFUT-LEC/EduStudio/pull/47.diff",
+          "patch_url": "https://github.com/HFUT-LEC/EduStudio/pull/47.patch",
+          "merged_at": null
+        }
+      },
+      {
+        "html_url": "https://github.com/HFUT-LEC/EduStudio/issues/46",
+        "title": "\u8bf7\u95ee\u5bf9\u6bd4\u65b9\u6cd5\u6709\u6700\u65b0\u7684\u5417\uff1f\u611f\u89c9\u5bf9\u6bd4\u65b9\u6cd5\u6709\u70b9\u8001\u4e86\uff0c\u6700\u65b0\u5c31\u662f2023\u5e74\u7684",
+        "tag_name": null,
+        "published_at": null,
+        "updated_at": "2026-02-10T11:18:47Z",
+        "state": "open",
+        "pull_request": null
+      },
+      {
+        "html_url": "https://github.com/HFUT-LEC/EduStudio/issues/35",
+        "title": "[HFUT_Student]\u4f7f\u7528\u5176\u4ed6\u6570\u636e\u96c6\uff08ASSISTment_2015-2016\uff09\u6d4b\u8bd5\u6a21\u578b\u51fa\u9519",
+        "tag_name": null,
+        "published_at": null,
+        "updated_at": "2024-12-29T02:57:18Z",
+        "state": "open",
+        "pull_request": null
+      }
+    ]
+  },
+  {
+    "repo": "frappe/lms",
+    "metadata": {
+      "full_name": "frappe/lms",
+      "description": "Easy to Use, 100% Open Source Learning Management System",
+      "archived": false,
+      "default_branch": "develop",
+      "pushed_at": "2026-11-10T08:51:49Z",
+      "updated_at": "2026-11-10T16:09:22Z",
+      "stargazers_count": 3404,
+      "forks_count": 1586,
+      "open_issues_count": 101,
+      "license": {
+        "key": "agpl-3.0",
+        "name": "GNU Affero General Public License v3.0",
+        "spdx_id": "AGPL-3.0",
+        "url": "https://api.github.com/licenses/agpl-3.0",
+        "node_id": "MDc6TGljZW5zZTE="
+      }
+    }
+  },
+  {
+    "repo": "langfuse/langfuse",
+    "metadata": {
+      "full_name": "langfuse/langfuse",
+      "description": "\ud83e\udea2 Open source agent evals & observability: Trace, evaluate, and improve LLM applications with one open platform.",
+      "archived": false,
+      "default_branch": "main",
+      "pushed_at": "2026-11-10T19:14:43Z",
+      "updated_at": "2026-11-10T19:09:17Z",
+      "stargazers_count": 37264,
+      "forks_count": 4198,
+      "open_issues_count": 1179,
+      "license": {
+        "key": "other",
+        "name": "Other",
+        "spdx_id": "NOASSERTION",
+        "url": null,
+        "node_id": "MDc6TGljZW5zZTA="
+      }
+    }
+  },
+  {
+    "repo": "learnhouse/learnhouse",
+    "metadata": {
+      "full_name": "learnhouse/learnhouse",
+      "description": "The Next-gen Open Source learning platform for everyone \u2728",
+      "archived": false,
+      "default_branch": "dev",
+      "pushed_at": "2026-11-10T19:13:39Z",
+      "updated_at": "2026-11-10T17:05:11Z",
+      "stargazers_count": 2465,
+      "forks_count": 601,
+      "open_issues_count": 15,
+      "license": {
+        "key": "agpl-3.0",
+        "name": "GNU Affero General Public License v3.0",
+        "spdx_id": "AGPL-3.0",
+        "url": "https://api.github.com/licenses/agpl-3.0",
+        "node_id": "MDc6TGljZW5zZTE="
+      }
+    },
+    "releases": [
+      {
+        "html_url": "https://github.com/learnhouse/learnhouse/releases/tag/cli-1.6.0",
+        "title": null,
+        "tag_name": "cli-1.6.0",
+        "published_at": "2026-10-30T23:53:30Z",
+        "updated_at": "2026-10-30T23:53:30Z",
+        "state": null,
+        "pull_request": null
+      },
+      {
+        "html_url": "https://github.com/learnhouse/learnhouse/releases/tag/1.4.3",
+        "title": null,
+        "tag_name": "1.4.3",
+        "published_at": "2026-10-25T20:08:52Z",
+        "updated_at": "2026-10-25T20:08:52Z",
+        "state": null,
+        "pull_request": null
+      },
+      {
+        "html_url": "https://github.com/learnhouse/learnhouse/releases/tag/1.4.2",
+        "title": null,
+        "tag_name": "1.4.2",
+        "published_at": "2026-10-22T07:40:23Z",
+        "updated_at": "2026-10-22T07:40:23Z",
+        "state": null,
+        "pull_request": null
+      }
+    ],
+    "open_issues_sample": [
+      {
+        "html_url": "https://github.com/learnhouse/learnhouse/pull/1242",
+        "title": "fix: cancel Stripe subscriptions when an organization is deleted",
+        "tag_name": null,
+        "published_at": null,
+        "updated_at": "2026-11-10T19:14:17Z",
+        "state": "open",
+        "pull_request": {
+          "url": "https://api.github.com/repos/learnhouse/learnhouse/pulls/1242",
+          "html_url": "https://github.com/learnhouse/learnhouse/pull/1242",
+          "diff_url": "https://github.com/learnhouse/learnhouse/pull/1242.diff",
+          "patch_url": "https://github.com/learnhouse/learnhouse/pull/1242.patch",
+          "merged_at": null
+        }
+      },
+      {
+        "html_url": "https://github.com/learnhouse/learnhouse/issues/1241",
+        "title": "[Bug]: Signup form shows English text on non-English locales (password requirement labels, server validation errors)",
+        "tag_name": null,
+        "published_at": null,
+        "updated_at": "2026-11-10T12:22:10Z",
+        "state": "open",
+        "pull_request": null
+      },
+      {
+        "html_url": "https://github.com/learnhouse/learnhouse/issues/1240",
+        "title": "[Bug]: AI audio: default TTS model gemini-2.5-flash-preview-tts shuts down 17 Nov, and with the documented Anthropic models the script step already returns HTTP 400",
+        "tag_name": null,
+        "published_at": null,
+        "updated_at": "2026-11-10T00:35:01Z",
+        "state": "open",
+        "pull_request": null
+      },
+      {
+        "html_url": "https://github.com/learnhouse/learnhouse/pull/1239",
+        "title": "chore(deps): update dependency pyasn1 to v0.6.5 [security]",
+        "tag_name": null,
+        "published_at": null,
+        "updated_at": "2026-11-09T19:09:01Z",
+        "state": "open",
+        "pull_request": {
+          "url": "https://api.github.com/repos/learnhouse/learnhouse/pulls/1239",
+          "html_url": "https://github.com/learnhouse/learnhouse/pull/1239",
+          "diff_url": "https://github.com/learnhouse/learnhouse/pull/1239.diff",
+          "patch_url": "https://github.com/learnhouse/learnhouse/pull/1239.patch",
+          "merged_at": null
+        }
+      },
+      {
+        "html_url": "https://github.com/learnhouse/learnhouse/pull/1232",
+        "title": "feat: add @learnhouse/sdk, react and vue packages, and rebuild the docs",
+        "tag_name": null,
+        "published_at": null,
+        "updated_at": "2026-11-09T00:44:03Z",
+        "state": "open",
+        "pull_request": {
+          "url": "https://api.github.com/repos/learnhouse/learnhouse/pulls/1232",
+          "html_url": "https://github.com/learnhouse/learnhouse/pull/1232",
+          "diff_url": "https://github.com/learnhouse/learnhouse/pull/1232.diff",
+          "patch_url": "https://github.com/learnhouse/learnhouse/pull/1232.patch",
+          "merged_at": null
+        }
+      }
+    ]
+  },
+  {
+    "repo": "moodle/moodle",
+    "metadata": {
+      "full_name": "moodle/moodle",
+      "description": "Moodle - the world's open source learning platform",
+      "archived": false,
+      "default_branch": "main",
+      "pushed_at": "2026-10-30T03:46:06Z",
+      "updated_at": "2026-11-10T18:25:22Z",
+      "stargazers_count": 7600,
+      "forks_count": 7710,
+      "open_issues_count": 1,
+      "license": {
+        "key": "gpl-3.0",
+        "name": "GNU General Public License v3.0",
+        "spdx_id": "GPL-3.0",
+        "url": "https://api.github.com/licenses/gpl-3.0",
+        "node_id": "MDc6TGljZW5zZTk="
+      }
+    }
+  },
+  {
+    "repo": "networkx/networkx",
+    "metadata": {
+      "full_name": "networkx/networkx",
+      "description": "Network Analysis in Python",
+      "archived": false,
+      "default_branch": "main",
+      "pushed_at": "2026-11-04T20:30:52Z",
+      "updated_at": "2026-11-10T18:50:53Z",
+      "stargazers_count": 17392,
+      "forks_count": 3663,
+      "open_issues_count": 316,
+      "license": {
+        "key": "other",
+        "name": "Other",
+        "spdx_id": "NOASSERTION",
+        "url": null,
+        "node_id": "MDc6TGljZW5zZTA="
+      }
+    }
+  },
+  {
+    "repo": "open-telemetry/opentelemetry-python",
+    "metadata": {
+      "full_name": "open-telemetry/opentelemetry-python",
+      "description": "OpenTelemetry Python API and SDK ",
+      "archived": false,
+      "default_branch": "main",
+      "pushed_at": "2026-11-10T19:15:28Z",
+      "updated_at": "2026-11-10T10:28:35Z",
+      "stargazers_count": 2702,
+      "forks_count": 1061,
+      "open_issues_count": 444,
+      "license": {
+        "key": "apache-2.0",
+        "name": "Apache License 2.0",
+        "spdx_id": "Apache-2.0",
+        "url": "https://api.github.com/licenses/apache-2.0",
+        "node_id": "MDc6TGljZW5zZTI="
+      }
+    }
+  },
+  {
+    "repo": "PaddlePaddle/PaddleOCR",
+    "metadata": {
+      "full_name": "PaddlePaddle/PaddleOCR",
+      "description": "Turn any PDF or image document into structured data for your AI. A powerful, lightweight OCR toolkit that bridges the gap between images/PDFs and LLMs. Supports 100+ languages.",
+      "archived": false,
+      "default_branch": "main",
+      "pushed_at": "2026-09-16T03:31:50Z",
+      "updated_at": "2026-11-10T18:41:58Z",
+      "stargazers_count": 92535,
+      "forks_count": 11642,
+      "open_issues_count": 259,
+      "license": {
+        "key": "apache-2.0",
+        "name": "Apache License 2.0",
+        "spdx_id": "Apache-2.0",
+        "url": "https://api.github.com/licenses/apache-2.0",
+        "node_id": "MDc6TGljZW5zZTI="
+      }
+    }
+  },
+  {
+    "repo": "pipecat-ai/pipecat",
+    "metadata": {
+      "full_name": "pipecat-ai/pipecat",
+      "description": "Open Source framework for voice agents, multimodal apps, and realtime AI. Maintained by Daily and the community.",
+      "archived": false,
+      "default_branch": "main",
+      "pushed_at": "2026-11-10T19:08:54Z",
+      "updated_at": "2026-11-10T18:27:13Z",
+      "stargazers_count": 17178,
+      "forks_count": 3080,
+      "open_issues_count": 449,
+      "license": {
+        "key": "bsd-2-clause",
+        "name": "BSD 2-Clause \"Simplified\" License",
+        "spdx_id": "BSD-2-Clause",
+        "url": "https://api.github.com/licenses/bsd-2-clause",
+        "node_id": "MDc6TGljZW5zZTQ="
+      }
+    }
+  },
+  {
+    "repo": "promptfoo/promptfoo",
+    "metadata": {
+      "full_name": "promptfoo/promptfoo",
+      "description": "Test your prompts, agents, and RAGs. Red teaming/pentesting/vulnerability scanning for AI. Compare performance of GPT, Claude, Gemini, DeepSeek, and more. Simple declarative configs with command line and CI/CD integration.  Used by OpenAI and Anthropic.",
+      "archived": false,
+      "default_branch": "main",
+      "pushed_at": "2026-11-09T21:45:32Z",
+      "updated_at": "2026-11-10T18:41:24Z",
+      "stargazers_count": 27030,
+      "forks_count": 2705,
+      "open_issues_count": 962,
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit",
+        "node_id": "MDc6TGljZW5zZTEz"
+      }
+    }
+  },
+  {
+    "repo": "ZhijieXiong/pyedmine",
+    "metadata": {
+      "full_name": "ZhijieXiong/pyedmine",
+      "description": "A library of algorithms for reproducing knowledge tracing, cognitive diagnosis, exercise recommendation and learning path recommendation models.",
+      "archived": false,
+      "default_branch": "main",
+      "pushed_at": "2026-10-22T09:43:32Z",
+      "updated_at": "2026-11-07T09:09:25Z",
+      "stargazers_count": 84,
+      "forks_count": 13,
+      "open_issues_count": 0,
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit",
+        "node_id": "MDc6TGljZW5zZTEz"
+      }
+    },
+    "releases": [
+      {
+        "html_url": "https://github.com/ZhijieXiong/pyedmine/releases/tag/v1.0.0",
+        "title": null,
+        "tag_name": "v1.0.0",
+        "published_at": "2025-08-15T07:57:35Z",
+        "updated_at": "2025-08-15T07:57:35Z",
+        "state": null,
+        "pull_request": null
+      }
+    ],
+    "open_issues_sample": []
+  },
+  {
+    "repo": "sympy/sympy",
+    "metadata": {
+      "full_name": "sympy/sympy",
+      "description": "A computer algebra system written in pure Python",
+      "archived": false,
+      "default_branch": "master",
+      "pushed_at": "2026-11-10T18:59:36Z",
+      "updated_at": "2026-11-10T17:13:45Z",
+      "stargazers_count": 15082,
+      "forks_count": 5674,
+      "open_issues_count": 5804,
+      "license": {
+        "key": "other",
+        "name": "Other",
+        "spdx_id": "NOASSERTION",
+        "url": null,
+        "node_id": "MDc6TGljZW5zZTA="
+      }
+    }
+  },
+  {
+    "repo": "SYSTRAN/faster-whisper",
+    "metadata": {
+      "full_name": "SYSTRAN/faster-whisper",
+      "description": "Faster Whisper transcription with CTranslate2",
+      "archived": false,
+      "default_branch": "master",
+      "pushed_at": "2026-11-10T10:13:08Z",
+      "updated_at": "2026-11-10T19:05:07Z",
+      "stargazers_count": 26652,
+      "forks_count": 2230,
+      "open_issues_count": 18,
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit",
+        "node_id": "MDc6TGljZW5zZTEz"
+      }
+    }
+  },
+  {
+    "repo": "pgvector/pgvector",
+    "metadata": {
+      "full_name": "pgvector/pgvector",
+      "description": "Open-source vector similarity search for Postgres",
+      "archived": false,
+      "default_branch": "master",
+      "pushed_at": "2026-11-09T10:02:56Z",
+      "updated_at": "2026-11-10T16:48:13Z",
+      "stargazers_count": 23645,
+      "forks_count": 1386,
+      "open_issues_count": 17,
+      "license": {
+        "key": "other",
+        "name": "Other",
+        "spdx_id": "NOASSERTION",
+        "url": null,
+        "node_id": "MDc6TGljZW5zZTA="
+      }
+    }
+  },
+  {
+    "repo": "open-spaced-repetition/py-fsrs",
+    "metadata": {
+      "full_name": "open-spaced-repetition/py-fsrs",
+      "description": "Python Package for FSRS Spaced Repetition",
+      "archived": false,
+      "default_branch": "main",
+      "pushed_at": "2026-08-09T04:35:03Z",
+      "updated_at": "2026-11-10T06:23:24Z",
+      "stargazers_count": 529,
+      "forks_count": 65,
+      "open_issues_count": 0,
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit",
+        "node_id": "MDc6TGljZW5zZTEz"
+      }
+    }
+  },
+  {
+    "repo": "nd-ball/py-irt",
+    "metadata": {
+      "full_name": "nd-ball/py-irt",
+      "description": "Bayesian IRT models in Python",
+      "archived": false,
+      "default_branch": "master",
+      "pushed_at": "2026-11-01T22:43:07Z",
+      "updated_at": "2026-11-03T15:02:39Z",
+      "stargazers_count": 176,
+      "forks_count": 56,
+      "open_issues_count": 1,
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit",
+        "node_id": "MDc6TGljZW5zZTEz"
+      }
+    }
+  },
+  {
+    "repo": "CAHLR/pyBKT",
+    "metadata": {
+      "full_name": "CAHLR/pyBKT",
+      "description": "Python implementation of Bayesian Knowledge Tracing and extensions",
+      "archived": false,
+      "default_branch": "master",
+      "pushed_at": "2026-11-02T07:31:33Z",
+      "updated_at": "2026-11-06T08:16:06Z",
+      "stargazers_count": 292,
+      "forks_count": 91,
+      "open_issues_count": 67,
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit",
+        "node_id": "MDc6TGljZW5zZTEz"
+      }
+    }
+  },
+  {
+    "repo": "pykt-team/pykt-toolkit",
+    "metadata": {
+      "full_name": "pykt-team/pykt-toolkit",
+      "description": "pyKT: A Python Library to Benchmark Deep Learning based Knowledge Tracing Models",
+      "archived": false,
+      "default_branch": "main",
+      "pushed_at": "2026-10-18T08:35:40Z",
+      "updated_at": "2026-11-10T06:39:28Z",
+      "stargazers_count": 460,
+      "forks_count": 141,
+      "open_issues_count": 54,
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit",
+        "node_id": "MDc6TGljZW5zZTEz"
+      }
+    },
+    "releases": [
+      {
+        "html_url": "https://github.com/pykt-team/pykt-toolkit/releases/tag/v1.0.0",
+        "title": null,
+        "tag_name": "v1.0.0",
+        "published_at": "2023-02-10T08:06:51Z",
+        "updated_at": "2023-02-10T08:06:51Z",
+        "state": null,
+        "pull_request": null
+      },
+      {
+        "html_url": "https://github.com/pykt-team/pykt-toolkit/releases/tag/v0.0.38",
+        "title": null,
+        "tag_name": "v0.0.38",
+        "published_at": "2022-10-16T10:29:12Z",
+        "updated_at": "2022-10-16T10:29:25Z",
+        "state": null,
+        "pull_request": null
+      },
+      {
+        "html_url": "https://github.com/pykt-team/pykt-toolkit/releases/tag/v0.0.37",
+        "title": null,
+        "tag_name": "v0.0.37",
+        "published_at": "2022-07-26T07:49:21Z",
+        "updated_at": "2022-07-26T07:49:33Z",
+        "state": null,
+        "pull_request": null
+      }
+    ],
+    "open_issues_sample": [
+      {
+        "html_url": "https://github.com/pykt-team/pykt-toolkit/issues/278",
+        "title": "\u8d85\u53c2\u6570\u95ee\u9898",
+        "tag_name": null,
+        "published_at": null,
+        "updated_at": "2026-06-16T12:57:40Z",
+        "state": "open",
+        "pull_request": null
+      },
+      {
+        "html_url": "https://github.com/pykt-team/pykt-toolkit/issues/275",
+        "title": "\u8bad\u7ec3\u95ee\u9898",
+        "tag_name": null,
+        "published_at": null,
+        "updated_at": "2025-12-16T07:12:29Z",
+        "state": "open",
+        "pull_request": null
+      },
+      {
+        "html_url": "https://github.com/pykt-team/pykt-toolkit/issues/274",
+        "title": "promptkt",
+        "tag_name": null,
+        "published_at": null,
+        "updated_at": "2025-12-15T09:52:48Z",
+        "state": "open",
+        "pull_request": null
+      },
+      {
+        "html_url": "https://github.com/pykt-team/pykt-toolkit/issues/273",
+        "title": "promptkt\u95ee\u9898",
+        "tag_name": null,
+        "published_at": null,
+        "updated_at": "2025-12-15T08:48:12Z",
+        "state": "open",
+        "pull_request": null
+      },
+      {
+        "html_url": "https://github.com/pykt-team/pykt-toolkit/issues/272",
+        "title": "\u5b9e\u9a8c\u7ed3\u679c",
+        "tag_name": null,
+        "published_at": null,
+        "updated_at": "2025-12-11T10:10:10Z",
+        "state": "open",
+        "pull_request": null
+      }
+    ]
+  }
+]

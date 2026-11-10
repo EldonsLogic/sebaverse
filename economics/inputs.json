@@ -1,0 +1,53 @@
+{
+  "status": "illustrative_not_current_quotes",
+  "sessions": 20,
+  "turns": 20,
+  "input_tokens_per_turn": 2000,
+  "output_tokens_per_turn": 600,
+  "input_usd_per_million": 0.19,
+  "cached_input_usd_per_million": 0.014,
+  "output_usd_per_million": 0.95,
+  "cache_fraction": 0,
+  "auxiliary_multiplier": 1.25,
+  "voice_connected_minutes": 400,
+  "voice_student_share": 0.4,
+  "stt_usd_per_minute": 0.003,
+  "tts_usd_per_minute": 0.015,
+  "realtime_usd_per_connected_minute": 0.05,
+  "other_ai_usd_per_learner": 0,
+  "active_learners": [
+    20,
+    100,
+    1000,
+    10000
+  ],
+  "fixed_infrastructure_usd": [
+    100,
+    200,
+    600,
+    3000
+  ],
+  "fx_egp_per_usd": null,
+  "paid_learners": null,
+  "monthly_price_egp_hypothesis": 300,
+  "term_price_egp_hypotheses": [
+    300,
+    500
+  ],
+  "active_months_per_term": null,
+  "payment_percent": null,
+  "payment_fixed_egp": null,
+  "price_inclusive_tax_rate": null,
+  "refund_fraction": null,
+  "human_support_usd_per_learner": null,
+  "educator_usd_per_learner": null,
+  "rights_usd_per_learner": null,
+  "messaging_usd_per_learner": null,
+  "other_fixed_usd": null,
+  "successful_independent_activities_per_learner": null,
+  "gpu_monthly_usd": null,
+  "gpu_ops_monthly_usd": null,
+  "gpu_noncompute_monthly_usd": null,
+  "gpu_variable_usd_per_activity": null,
+  "hosted_usd_per_activity": null
+}
