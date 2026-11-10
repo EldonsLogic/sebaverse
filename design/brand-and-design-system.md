@@ -44,3 +44,11 @@ Voice: explicit start and remaining quota → mic indicator/transcript → confi
 ## Experience acceptance
 
 Test narrow mobile viewport, slow network, keyboard-only, screen reader, RTL/LTR mixed fractions/units, zoom to 200%, recording permission denial and interrupted sessions. Proposed target WCAG 2.2 AA; verify current standard at implementation. User tests include student comprehension and guardian interpretation of uncertain progress. Gate G2 approves flows, terminology and tokens; visual polish cannot waive educational/privacy gates.
+
+## Brand work priority U5
+
+Name, logo, slogan and brand guidelines are the next founder-requested deliverables. German at a national language school with a learner-uploaded curriculum is the first use case (U4), not a limitation on the future brand. Present coherent comparison concepts before selecting a winner; include bilingual pronunciation, marks/domain caveats, logo variants, typography, colors, voice and usage rules.
+
+## Active round 1 review package
+
+[Names, SVG logo concepts, slogans and draft guidelines](../outputs/brand-round-1/README.md) supersedes the earlier unverified candidate list as the active exploration. No final brand selected.

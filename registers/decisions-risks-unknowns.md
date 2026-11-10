@@ -11,7 +11,7 @@ Decisions below distinguish founder instruction (binding within task) from propo
 | D005 | Proposed | Transparent evidence rules and fixed review before complex tracing | ADR003, G3/G4 |
 | D006 | Proposed | Early voice benchmark, gated capped pilot | ADR005, G4 |
 | D007 | Required risk containment | Quarantine inspected EduStudio pin | Independent provenance resolution; no execution meanwhile |
-| D008 | Open | Initial curriculum/age/subject/term and buyer | Founder + educator at G1 |
+| D008 | Partially decided by founder (U4) | German at a national language school; learner-uploaded curriculum first. Grade/level/term/edition, explanation language and buyer remain open | Founder + educator; inspect actual uploaded materials |
 | D009 | Open | Platform name and trademark/domain clearance | Founder/native review/counsel at G2 |
 | D010 | Open | Monthly vs prepaid price, quotas, refund/renewal rules | Actual economics and prospect buying test |
 | D011 | Open | Hosting/processing/transfer route and consent verification | Qualified Egyptian review at G3/G5 |
@@ -36,3 +36,7 @@ Decisions below distinguish founder instruction (binding within task) from propo
 | Unproven efficacy marketing | High / avoidable | Independent delayed outcomes, uncertainty and claims review | Founder/educator |
 
 Unknown register resolution must attach evidence, date and affected requirement/ADR. Financial unknowns are machine-readable nulls in economics/inputs.json. Technical unknowns become bounded tests; legal and rights unknowns require owning-source/qualified review, not a model's guess. No task duration estimate resolves external lead times.
+
+## Founder update — 10 November 2026
+
+D016 — Confirmed instruction U5: name the platform, choose logo and slogan, and create brand guidelines next. Explore brand directions now; no final name/artwork is selected. Branding is for the broader adaptive tutoring platform, with German as the first use case.

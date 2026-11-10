@@ -76,12 +76,13 @@
     "requirement": "Choose first Egypt curriculum/age/subject unit",
     "sources": [
       "U1",
-      "U2"
+      "U2",
+      "U4"
     ],
     "priority": "P0",
     "phase": "Gates",
     "dependencies": [],
-    "acceptance_criteria": "Founder records exact slice, educator, rights and buyer hypothesis",
+    "acceptance_criteria": "German/national-language-school/uploaded-curriculum starting scope recorded; remaining grade, level, edition, reviewer and buyer resolved before full G1 approval",
     "specification": "docs/01-product-vision-prd.md",
     "owner": "Founder",
     "status": "Specified; not implemented",
@@ -147,7 +148,8 @@
     "requirement": "Brand naming strategy and candidate screening",
     "sources": [
       "U1",
-      "U2"
+      "U2",
+      "U5"
     ],
     "priority": "P1",
     "phase": "Gates",
@@ -164,7 +166,8 @@
     "requirement": "Identity/design system",
     "sources": [
       "U1",
-      "U2"
+      "U2",
+      "U5"
     ],
     "priority": "P1",
     "phase": "Gates",
@@ -676,7 +679,8 @@
     "requirement": "Student-uploaded materials/custom curriculum",
     "sources": [
       "U1",
-      "U2"
+      "U2",
+      "U4"
     ],
     "priority": "P1",
     "phase": "Pilot",
@@ -1780,5 +1784,44 @@
     "status": "Specified; not implemented",
     "evidence_status": "Founder requirement",
     "omission_disposition": "Retained in named phase; no implementation claimed"
+  },
+  {
+    "id": "R095",
+    "requirement": "German tutoring using the learner-uploaded school curriculum",
+    "sources": [
+      "U4"
+    ],
+    "priority": "P1",
+    "phase": "Pilot",
+    "dependencies": [
+      "R037",
+      "R041",
+      "R045"
+    ],
+    "acceptance_criteria": "Tutor uses the approved uploaded German unit as initial source; vocabulary/grammar/practice map to that version; no invented CEFR level or syllabus coverage",
+    "specification": "docs/08-german-upload-first.md",
+    "owner": "Founder + educator where learning/content is affected",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained; no implementation claimed"
+  },
+  {
+    "id": "R096",
+    "requirement": "Brand name, logo, slogan and guidelines before implementation",
+    "sources": [
+      "U5"
+    ],
+    "priority": "P1",
+    "phase": "Gates",
+    "dependencies": [
+      "R009",
+      "R010"
+    ],
+    "acceptance_criteria": "Founder reviews coherent name/logo/slogan concepts and selects a direction; screening limitations explicit; selected identity documented with usage rules",
+    "specification": "design/brand-and-design-system.md",
+    "owner": "Founder + educator where learning/content is affected",
+    "status": "Specified; not implemented",
+    "evidence_status": "Founder requirement",
+    "omission_disposition": "Retained; no implementation claimed"
   }
 ]

@@ -1,6 +1,6 @@
 # TBD — AI-native adaptive tutoring master project
 
-Version 0.1 • 10 November 2026 • documentation and planning only.
+Version 0.2 • 10 November 2026 • documentation and planning only.
 
 Egypt-first, solo-founder, affordability-critical, globally extensible. The platform name is undecided. This repository belongs in the founder's existing Documents/TBD project; rename that project after a reviewed brand selection. No application, paid model benchmark, deployment or real-student pilot has been implemented.
 
@@ -20,9 +20,13 @@ Egypt-first, solo-founder, affordability-critical, globally extensible. The plat
 
 All 13 global research files and 14 open-source audit files are preserved unchanged, plus nine supporting evidence files (36 research artifacts total). Original citations, source registers and immutable repository links remain in place. The manifest records SHA-256; no research finding is promoted to a verified product behavior. The full older conversation remains GAP-001; accept the current founder restatement as baseline only through an explicit recorded decision or reconcile an eventual export.
 
+## Current starting scope
+
+German for a student at a national language school, using her uploaded curriculum first ([scope](docs/08-german-upload-first.md), U4). Naming, logo, slogan and brand guidelines come next (U5). Grade/level/edition and explanation language remain open.
+
 ## Decisions to review next
 
-First curriculum/age/subject/buyer and content-rights route; monthly vs course/semester plan and cost ceiling; shortlist/name/design direction; data-processing/guardian/safeguarding route; stack/provider benchmarks and bounded PoC budget. All gate approval records remain pending. Pricing inputs are hypotheses, not validated margin. No current name/domain/mark clearance is claimed.
+Remaining grade/level/edition/buyer and content-rights route; monthly vs course/semester plan and cost ceiling; shortlist/name/design direction; data-processing/guardian/safeguarding route; stack/provider benchmarks and bounded PoC budget. All gate approval records remain pending. Pricing inputs are hypotheses, not validated margin. No current name/domain/mark clearance is claimed.
 
 ## Reproduce artifact checks
 

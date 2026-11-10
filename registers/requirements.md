@@ -36,10 +36,10 @@ Authoritative structured form: requirements.json. Priority is importance/risk, n
 
 ## R005 — Choose first Egypt curriculum/age/subject unit
 
-- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Source: U1, U2, U4; status: Specified; not implemented; Founder requirement.
 - Priority: P0; phase: Gates; owner: Founder.
 - Dependencies: none within register; see gates.
-- Acceptance: Founder records exact slice, educator, rights and buyer hypothesis.
+- Acceptance: German/national-language-school/uploaded-curriculum starting scope recorded; remaining grade, level, edition, reviewer and buyer resolved before full G1 approval.
 - Specification: [docs/01-product-vision-prd.md](../docs/01-product-vision-prd.md).
 
 ## R006 — Solo-founder maintainability
@@ -68,7 +68,7 @@ Authoritative structured form: requirements.json. Priority is importance/risk, n
 
 ## R009 — Brand naming strategy and candidate screening
 
-- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Source: U1, U2, U5; status: Specified; not implemented; Founder requirement.
 - Priority: P1; phase: Gates; owner: Founder.
 - Dependencies: none within register; see gates.
 - Acceptance: Candidate list plus language, similarity, mark/domain screening and founder decision.
@@ -76,7 +76,7 @@ Authoritative structured form: requirements.json. Priority is importance/risk, n
 
 ## R010 — Identity/design system
 
-- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Source: U1, U2, U5; status: Specified; not implemented; Founder requirement.
 - Priority: P1; phase: Gates; owner: Founder.
 - Dependencies: R009.
 - Acceptance: Bilingual direction, editable tokens, components/states and contrast review specified.
@@ -292,7 +292,7 @@ Authoritative structured form: requirements.json. Priority is importance/risk, n
 
 ## R037 — Student-uploaded materials/custom curriculum
 
-- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Source: U1, U2, U4; status: Specified; not implemented; Founder requirement.
 - Priority: P1; phase: Pilot; owner: Founder + educator where learning/content is affected.
 - Dependencies: R041, R058.
 - Acceptance: Private upload, relationship/purpose scope, quarantine and reviewed mapping.
@@ -753,3 +753,20 @@ Authoritative structured form: requirements.json. Priority is importance/risk, n
 - Dependencies: R036.
 - Acceptance: Curriculum/provider/localization boundaries versioned; future scope retained.
 - Specification: [architecture/system-and-data-model.md](../architecture/system-and-data-model.md).
+
+## R095 — German tutoring using the learner-uploaded school curriculum
+
+- Source: U4; status: Specified; not implemented; Founder requirement.
+- Priority: P1; phase: Pilot; owner: Founder + educator where learning/content is affected.
+- Dependencies: R037, R041, R045.
+- Acceptance: Tutor uses the approved uploaded German unit as initial source; vocabulary/grammar/practice map to that version; no invented CEFR level or syllabus coverage.
+- Specification: [docs/08-german-upload-first.md](../docs/08-german-upload-first.md).
+
+## R096 — Brand name, logo, slogan and guidelines before implementation
+
+- Source: U5; status: Specified; not implemented; Founder requirement.
+- Priority: P1; phase: Gates; owner: Founder + educator where learning/content is affected.
+- Dependencies: R009, R010.
+- Acceptance: Founder reviews coherent name/logo/slogan concepts and selects a direction; screening limitations explicit; selected identity documented with usage rules.
+- Specification: [design/brand-and-design-system.md](../design/brand-and-design-system.md).
+

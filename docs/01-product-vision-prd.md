@@ -23,7 +23,7 @@ Founder constraints: solo operation, affordability, approximately 100 interested
 
 ## Narrow pilot candidate and scope
 
-Candidate: one Egyptian curriculum, one grade/age band, one subject, one unit/semester edition, 10–20 supervised learners. Mathematics is a useful PoC candidate because reviewed answers can be checked, but is not selected on the founder's behalf. Choose based on rights, educator access, prospect needs and operational budget at G1.
+Founder-selected starting use case (U4): German for a student at a national language school, with her uploaded curriculum as the tutor’s initial source. Grade, German proficiency, explanation language, exact edition/term and first unit remain open. Begin with her uploaded material and a bounded reviewed unit; do not require a prebuilt German course. The broader 10–20-learner pilot remains a proposal, not an already selected cohort. Brand naming, logo, slogan and guidelines are the next workstream (U5).
 
 Pilot core: verified guardian/student relationship; onboarding and consent; approved content; diagnostic and explicit unknown state; bounded grounded text dialogue; original reviewed exercises; independent checks; prerequisite remediation; simple mastery/evidence view; fixed expanding review schedule; minimal parent dashboard; manual course grants if gateway approval pending; upload ingestion with human approval; usage/incident/deletion/backup controls. Voice is tested in the PoC from the outset and included as capped pilot functionality only if its gates pass. This preserves voice as a core requirement while making exposure conditional on evidence.
 

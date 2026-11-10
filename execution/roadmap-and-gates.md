@@ -14,7 +14,7 @@ All future work is proposed. This delivery establishes docs, not approval to imp
 
 ## Work packages and milestone outputs
 
-M0 Foundation (this deliverable): context audit, 94-entry requirements baseline, preserved research, PRD/design/architecture, economics and execution system. Final historic completeness remains open. No fixed completion date for founder reviews.
+M0 Foundation (this deliverable): context audit, 96-entry requirements baseline, preserved research, PRD/design/architecture, economics and execution system. Final historic completeness remains open. No fixed completion date for founder reviews.
 
 M1 Product/brand/design: select one slice and customer promise; review hypotheses against existing prospects; identify content/educator; screen three names and choose; test low-fidelity student/parent/upload/voice journeys; record decisions. Estimate 1–2 founder weeks plus external name/rights/legal lead time as a new planning assumption, not research fact. Stop if no lawful affordable content/data route.
 
@@ -29,3 +29,7 @@ M5 Commercial hardening: current payments/refunds/tax, accessibility/RTL, load/s
 ## Change control and dependency discipline
 
 New requirement gets source, stable ID, priority, dependencies, phase and acceptance. A deferral records reason, trigger and owner; deletion/rejection needs explicit founder decision and retained historical row. Amend affected specs/ADRs/evals/economics together. Do not weaken failed acceptance thresholds without documenting tradeoff and founder/reviewer approval. Approved gate record includes date, reviewed artifact commit, approver, conditions and unresolved risks; gate default stays pending. Brand-folder rename is a later project-management action after selection, preserving Git history and links.
+
+## Updated sequence U4/U5
+
+Starting subject is German, national language school, learner-uploaded curriculum first. Next: compare name/logo/slogan/brand-guideline directions; do not block exploration on the remaining grade/edition questions. Original math-focused PoC fixtures must be adapted for reviewed German vocabulary, grammar, comprehension and speech before approval. G1–G3 remain pending as whole gates.

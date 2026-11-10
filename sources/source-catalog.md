@@ -42,3 +42,5 @@ Source namespace: U = current founder instructions; C = historical conversation 
 Jev [official introduction](https://jev-ai.org/docs/) opened 2026-11-10; decision-API description only, no local quality/calibration/latency test. [PDPC home](https://pdpc.gov.eg/) returned no readable text; no current compliance conclusion. [AGPL text](https://opensource.org/license/agpl-3-0) opened as license reference; exact integration scope still requires review. Research rates and software release recommendations are dated observations, not fresh endorsements.
 
 Exact research files/bytes/checksums: [manifest](research-manifest.json). Supporting audit evidence includes repository-pins, source verification, dependency query, smoke tests, Chatterbox provenance and historical cost arithmetic; these remain in research/open-source-audit/evidence/.
+
+- U4/U5: [First German/uploaded-curriculum scope and brand priority](founder-scope-and-brand-update.md), founder instructions 10 November 2026.
