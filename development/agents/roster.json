@@ -13,7 +13,7 @@
         "Integration",
         "Release"
       ],
-      "status": "active",
+      "status": "completed",
       "files": [
         "AGENTS.md",
         "CLAUDE.md",
@@ -26,7 +26,7 @@
         "registers/",
         "README.md"
       ],
-      "evidence": "Current task integration and tool logs"
+      "evidence": "development/evidence/foundation-run.md and github-sync.json"
     },
     {
       "agent": "/root/development_plan",
@@ -64,5 +64,6 @@
       "files": [],
       "evidence": "development/evidence/independent-review.md"
     }
-  ]
+  ],
+  "run_status": "completed F0 foundation; actual subsequent state in CURRENT-STATE.md"
 }

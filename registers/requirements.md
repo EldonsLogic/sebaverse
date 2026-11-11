@@ -895,7 +895,7 @@ Authoritative structured form: requirements.json. All requirements retained; pro
 
 ## R100 — Shared private GitHub source of truth and verified milestone pushes
 
-- Source: U13; status: Foundation implementation in progress; product runtime not implemented; Founder requirement U13/U14.
+- Source: U13; status: Foundation controls documented and locally/hosted-CI verified; future product phase suites not run; Founder requirement U13/U14.
 - Priority: P0; phase: Foundation; owner: Orchestrator + independent reviewer.
 - Dependencies: R078, R089.
 - Acceptance: Reviewed milestone commits preserve existing history in EldonsLogic/sebaverse; actual local/remote SHA checked; no force push, secrets or child data published.
@@ -904,7 +904,7 @@ Authoritative structured form: requirements.json. All requirements retained; pro
 
 ## R101 — Agent-neutral roadmap, task graph and durable handover
 
-- Source: U13; status: Foundation implementation in progress; product runtime not implemented; Founder requirement U13/U14.
+- Source: U13; status: Foundation controls documented and locally/hosted-CI verified; future product phase suites not run; Founder requirement U13/U14.
 - Priority: P0; phase: Foundation; owner: Orchestrator + independent reviewer.
 - Dependencies: R086, R088.
 - Acceptance: Stable tasks, owners, dependencies, file scopes, acceptance, actual verification and exact next action persist across Codex/Claude/Antigravity sessions.
@@ -913,7 +913,7 @@ Authoritative structured form: requirements.json. All requirements retained; pro
 
 ## R102 — Pinned coding-discipline guidance in shared project rules
 
-- Source: U13; status: Foundation implementation in progress; product runtime not implemented; Founder requirement U13/U14.
+- Source: U13; status: Foundation controls documented and locally/hosted-CI verified; future product phase suites not run; Founder requirement U13/U14.
 - Priority: P0; phase: Foundation; owner: Orchestrator + independent reviewer.
 - Dependencies: R081, R088.
 - Acceptance: Record requested upstream commit/file/license limitation; adopt four ideas in project wording without overriding architecture/security or unnecessary scope.
@@ -922,7 +922,7 @@ Authoritative structured form: requirements.json. All requirements retained; pro
 
 ## R103 — Extract and execute bounded verifiable agent-team guidance
 
-- Source: U13; status: Foundation implementation in progress; product runtime not implemented; Founder requirement U13/U14.
+- Source: U13; status: Foundation controls documented and locally/hosted-CI verified; future product phase suites not run; Founder requirement U13/U14.
 - Priority: P0; phase: Foundation; owner: Orchestrator + independent reviewer.
 - Dependencies: R088, R101.
 - Acceptance: Preserve original image/hash and transcription; 30 contracts in six functions, actual scoped roster, task/evidence loop, fresh review and honest measured/not-measured workflow changes.
@@ -931,7 +931,7 @@ Authoritative structured form: requirements.json. All requirements retained; pro
 
 ## R104 — Tests and review must pass after every phase before progression
 
-- Source: U14; status: Foundation implementation in progress; product runtime not implemented; Founder requirement U13/U14.
+- Source: U14; status: Foundation controls documented and locally/hosted-CI verified; future product phase suites not run; Founder requirement U13/U14.
 - Priority: P0; phase: Foundation / all phases; owner: Orchestrator + independent reviewer.
 - Dependencies: R076, R086, R101.
 - Acceptance: Every phase declares relevant required test suites and acceptance; actual passing results/evidence, cleared blockers and independent review required; checker rejects not-run/failing/missing evidence and early next-phase starts.

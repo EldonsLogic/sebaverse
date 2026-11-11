@@ -9,3 +9,7 @@ Reviewed root AGENTS/CLAUDE, Antigravity adapter, foundation workflow, developme
 Resolved findings: live-vs-archived instruction authority; dated folder correction; genuinely independent F0 preparation streams; reject completed task with nonexistent evidence file (independently reproduced); distinguish four actual agents from 30 available contracts; pinned source with license unknown and paraphrased ideas.
 
 At review time F0 was in progress, later phases not started, no push or hosted CI observed. Publication/CI results must be recorded separately from this review.
+
+## Closing-state recheck
+
+Reviewer independently reran checker PASS, 14 tests PASS (0.018s) and diff whitespace clean after F0 closure. Verified F0 tasks done with evidence, later phases not started and remote claims attributed to root-observed GitHub evidence. Reviewer requested replacing test-command templates/prose with actual run ID and executable commands; corrected to run 43047681839 and actual git commands before checkpoint. No new product or wider gate approval.

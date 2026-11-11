@@ -16,4 +16,4 @@ Measured workflow correction IMP-003: invalid done-task evidence path accepted b
 
 ## Publication and phase exit
 
-Initial private push and hosted CI are pending at this checkpoint. F0 remains in_progress, no later phase started. Actual commit/remote SHA/run conclusions will be recorded after observation. No production tests, other-client instruction loading or real model benchmarks claimed.
+Initial private push succeeded: local and remote main both 98590747ba7f04be28c4dbb704a92e373706620d. GitHub hosted foundation run 43047681839 completed successfully for that exact commit. Repo visibility was rechecked private. Evidence: github-sync.json. All four F0 tasks and six required checks are now verified; independent review passed. F0 is closed/passed and F1–F8 remain not_started. Subsequent status checkpoint commits preserve these results and are verified on push separately. No production tests, other-client instruction loading or real model benchmarks claimed.

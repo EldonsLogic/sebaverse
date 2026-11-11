@@ -1909,7 +1909,7 @@
     ],
     "acceptance_criteria": "Reviewed milestone commits preserve existing history in EldonsLogic/sebaverse; actual local/remote SHA checked; no force push, secrets or child data published",
     "specification": "development/GITHUB-WORKFLOW.md",
-    "status": "Foundation implementation in progress; product runtime not implemented",
+    "status": "Foundation controls documented and locally/hosted-CI verified; future product phase suites not run",
     "priority": "P0",
     "requirement_phase": "Foundation"
   },
@@ -1928,7 +1928,7 @@
     ],
     "acceptance_criteria": "Stable tasks, owners, dependencies, file scopes, acceptance, actual verification and exact next action persist across Codex/Claude/Antigravity sessions",
     "specification": "development/HANDOVER.md",
-    "status": "Foundation implementation in progress; product runtime not implemented",
+    "status": "Foundation controls documented and locally/hosted-CI verified; future product phase suites not run",
     "priority": "P0",
     "requirement_phase": "Foundation"
   },
@@ -1947,7 +1947,7 @@
     ],
     "acceptance_criteria": "Record requested upstream commit/file/license limitation; adopt four ideas in project wording without overriding architecture/security or unnecessary scope",
     "specification": "development/ENGINEERING_RULES.md",
-    "status": "Foundation implementation in progress; product runtime not implemented",
+    "status": "Foundation controls documented and locally/hosted-CI verified; future product phase suites not run",
     "priority": "P0",
     "requirement_phase": "Foundation"
   },
@@ -1966,7 +1966,7 @@
     ],
     "acceptance_criteria": "Preserve original image/hash and transcription; 30 contracts in six functions, actual scoped roster, task/evidence loop, fresh review and honest measured/not-measured workflow changes",
     "specification": "sources/agent-guidance/agent-team-transcription.md",
-    "status": "Foundation implementation in progress; product runtime not implemented",
+    "status": "Foundation controls documented and locally/hosted-CI verified; future product phase suites not run",
     "priority": "P0",
     "requirement_phase": "Foundation"
   },
@@ -1986,7 +1986,7 @@
     ],
     "acceptance_criteria": "Every phase declares relevant required test suites and acceptance; actual passing results/evidence, cleared blockers and independent review required; checker rejects not-run/failing/missing evidence and early next-phase starts",
     "specification": "development/phase-gates.json",
-    "status": "Foundation implementation in progress; product runtime not implemented",
+    "status": "Foundation controls documented and locally/hosted-CI verified; future product phase suites not run",
     "priority": "P0",
     "requirement_phase": "Foundation / all phases"
   }

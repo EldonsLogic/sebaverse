@@ -1,0 +1,19 @@
+{
+  "date": "2026-11-11",
+  "repository": "https://github.com/EldonsLogic/sebaverse",
+  "visibility_verified": "private",
+  "branch": "main",
+  "published_work_commit": "98590747ba7f04be28c4dbb704a92e373706620d",
+  "local_sha_observed": "98590747ba7f04be28c4dbb704a92e373706620d",
+  "remote_sha_observed": "98590747ba7f04be28c4dbb704a92e373706620d",
+  "matched": true,
+  "push": "success; original local six-commit history preserved plus foundation commit",
+  "hosted_foundation_run": {
+    "id": 43047681839,
+    "url": "https://github.com/EldonsLogic/sebaverse/actions/runs/43047681839",
+    "headSha": "98590747ba7f04be28c4dbb704a92e373706620d",
+    "status": "completed",
+    "conclusion": "success"
+  },
+  "checkpoint_policy": "Subsequent metadata/checkpoint commits are discoverable via git log and are separately pushed/verified; a file cannot embed its own commit SHA."
+}

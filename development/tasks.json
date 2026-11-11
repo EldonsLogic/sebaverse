@@ -18,7 +18,7 @@
       "id": "DEV-001",
       "title": "Establish canonical GitHub source of truth",
       "phase": "F0",
-      "status": "in_progress",
+      "status": "done",
       "requirements": [
         "R012",
         "R078",
@@ -41,7 +41,11 @@
         "python3 -m unittest discover -s tools/tests -p test_foundation.py"
       ],
       "execution_condition": "All preceding mandatory phase exit tests passed with recorded evidence/review. U13 authorizes foundation documentation and GitHub commit/push workflow; preserve source evidence and do not approve broader gates.",
-      "evidence": [],
+      "evidence": [
+        "development/evidence/foundation-run.md",
+        "development/evidence/independent-review.md",
+        "development/evidence/github-sync.json"
+      ],
       "files": [
         "README.md",
         "development/GITHUB-WORKFLOW.md",
@@ -76,7 +80,7 @@
       "id": "DEV-002",
       "title": "Adopt shared coding and orchestration rules with provenance",
       "phase": "F0",
-      "status": "in_progress",
+      "status": "done",
       "requirements": [
         "R003",
         "R006",
@@ -101,7 +105,11 @@
         "python3 -m unittest discover -s tools/tests -p test_foundation.py"
       ],
       "execution_condition": "All preceding mandatory phase exit tests passed with recorded evidence/review. U13 authorizes foundation documentation and GitHub commit/push workflow; preserve source evidence and do not approve broader gates.",
-      "evidence": [],
+      "evidence": [
+        "development/evidence/foundation-run.md",
+        "development/evidence/independent-review.md",
+        "development/evidence/github-sync.json"
+      ],
       "files": [
         "AGENTS.md",
         "CLAUDE.md",
@@ -137,7 +145,7 @@
       "id": "DEV-003",
       "title": "Install development task and handover operating system",
       "phase": "F0",
-      "status": "in_progress",
+      "status": "done",
       "requirements": [
         "R086",
         "R087",
@@ -161,7 +169,11 @@
         "python3 -m unittest discover -s tools/tests -p test_foundation.py"
       ],
       "execution_condition": "All preceding mandatory phase exit tests passed with recorded evidence/review. U13 authorizes foundation documentation and GitHub commit/push workflow; preserve source evidence and do not approve broader gates.",
-      "evidence": [],
+      "evidence": [
+        "development/evidence/foundation-run.md",
+        "development/evidence/independent-review.md",
+        "development/evidence/github-sync.json"
+      ],
       "files": [
         "development/ROADMAP.md",
         "development/tasks.json",
@@ -196,7 +208,7 @@
       "id": "DEV-004",
       "title": "Package execution readiness and approval record",
       "phase": "F0",
-      "status": "in_progress",
+      "status": "done",
       "requirements": [
         "R001",
         "R005",
@@ -223,7 +235,11 @@
         "python3 -m unittest discover -s tools/tests -p test_foundation.py"
       ],
       "execution_condition": "All preceding mandatory phase exit tests passed with recorded evidence/review. U13 authorizes foundation documentation and GitHub commit/push workflow; preserve source evidence and do not approve broader gates.",
-      "evidence": [],
+      "evidence": [
+        "development/evidence/foundation-run.md",
+        "development/evidence/independent-review.md",
+        "development/evidence/github-sync.json"
+      ],
       "files": [
         "development/",
         "execution/roadmap-and-gates.md",
