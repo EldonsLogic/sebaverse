@@ -57,3 +57,6 @@ Exact research files/bytes/checksums: [manifest](research-manifest.json). Suppor
 
 - U11/U12: [Subject-independent architecture finalization and audit handoff](subject-independent-architecture-instruction.md), 11 November 2026.
 - E22–E32: [Architecture primary checks](architecture-primary-checks.md), limited readable owning-source checks, 11 November 2026.
+
+- U13/U14: [Development foundation, named GitHub repo, shared agent rules and mandatory phase tests](development-foundation-instruction.md), 11 November 2026.
+- External coding guidance and user image: [pinned provenance and adaptation](agent-guidance/provenance.json), [image transcription](agent-guidance/agent-team-transcription.md).

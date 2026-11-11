@@ -1,0 +1,937 @@
+{
+  "schema_version": 1,
+  "source": "U13 user-adopted image, adapted to Sebaverse",
+  "activation_policy": "Contracts are available roles, not running agents or permission grants",
+  "roles": [
+    {
+      "id": "ROLE-01",
+      "name": "Orchestrator",
+      "function": "leadership",
+      "mission": "Integrate authorized tasks and truthful evidence",
+      "tools": [
+        "read assigned project context",
+        "edit only assigned files if writer",
+        "run approved relevant local checks"
+      ],
+      "file_scope": "development/, AGENTS.md",
+      "ownership_rule": "Concrete task assignment replaces this suggested scope; no overlap without orchestrator coordination",
+      "inputs": [
+        "root AGENTS.md",
+        "development/ENGINEERING_RULES.md",
+        "current eligible task and requirement/acceptance IDs",
+        "assigned exact files and applicable contracts"
+      ],
+      "outputs": [
+        "reviewable scoped artifact or finding",
+        "actual command results and failures",
+        "handover with exact next step"
+      ],
+      "tests": [
+        "applicable task verification commands; planned command is not a result",
+        "mandatory phase exit suite before transition"
+      ],
+      "handoff": "development/templates/task-handoff.md",
+      "escalation": "Missing authority, destructive action, dependent blocker, overlapping ownership or unclear correctness; continue independent authorized work",
+      "authority_limit": "No role expands spend/permissions or changes consent/entitlements/mastery outside deterministic architecture; no fabricated checks"
+    },
+    {
+      "id": "ROLE-02",
+      "name": "Planner",
+      "function": "leadership",
+      "mission": "Maintain dependency-ordered task and phase graph",
+      "tools": [
+        "read assigned project context",
+        "edit only assigned files if writer",
+        "run approved relevant local checks"
+      ],
+      "file_scope": "development/ROADMAP.md, development/tasks.json",
+      "ownership_rule": "Concrete task assignment replaces this suggested scope; no overlap without orchestrator coordination",
+      "inputs": [
+        "root AGENTS.md",
+        "development/ENGINEERING_RULES.md",
+        "current eligible task and requirement/acceptance IDs",
+        "assigned exact files and applicable contracts"
+      ],
+      "outputs": [
+        "reviewable scoped artifact or finding",
+        "actual command results and failures",
+        "handover with exact next step"
+      ],
+      "tests": [
+        "applicable task verification commands; planned command is not a result",
+        "mandatory phase exit suite before transition"
+      ],
+      "handoff": "development/templates/task-handoff.md",
+      "escalation": "Missing authority, destructive action, dependent blocker, overlapping ownership or unclear correctness; continue independent authorized work",
+      "authority_limit": "No role expands spend/permissions or changes consent/entitlements/mastery outside deterministic architecture; no fabricated checks"
+    },
+    {
+      "id": "ROLE-03",
+      "name": "Architect",
+      "function": "leadership",
+      "mission": "Protect selected module and subject extension contracts",
+      "tools": [
+        "read assigned project context",
+        "edit only assigned files if writer",
+        "run approved relevant local checks"
+      ],
+      "file_scope": "architecture/",
+      "ownership_rule": "Concrete task assignment replaces this suggested scope; no overlap without orchestrator coordination",
+      "inputs": [
+        "root AGENTS.md",
+        "development/ENGINEERING_RULES.md",
+        "current eligible task and requirement/acceptance IDs",
+        "assigned exact files and applicable contracts"
+      ],
+      "outputs": [
+        "reviewable scoped artifact or finding",
+        "actual command results and failures",
+        "handover with exact next step"
+      ],
+      "tests": [
+        "applicable task verification commands; planned command is not a result",
+        "mandatory phase exit suite before transition"
+      ],
+      "handoff": "development/templates/task-handoff.md",
+      "escalation": "Missing authority, destructive action, dependent blocker, overlapping ownership or unclear correctness; continue independent authorized work",
+      "authority_limit": "No role expands spend/permissions or changes consent/entitlements/mastery outside deterministic architecture; no fabricated checks"
+    },
+    {
+      "id": "ROLE-04",
+      "name": "Backend",
+      "function": "engineering",
+      "mission": "Implement server application services after gates",
+      "tools": [
+        "read assigned project context",
+        "edit only assigned files if writer",
+        "run approved relevant local checks"
+      ],
+      "file_scope": "backend/",
+      "ownership_rule": "Concrete task assignment replaces this suggested scope; no overlap without orchestrator coordination",
+      "inputs": [
+        "root AGENTS.md",
+        "development/ENGINEERING_RULES.md",
+        "current eligible task and requirement/acceptance IDs",
+        "assigned exact files and applicable contracts"
+      ],
+      "outputs": [
+        "reviewable scoped artifact or finding",
+        "actual command results and failures",
+        "handover with exact next step"
+      ],
+      "tests": [
+        "applicable task verification commands; planned command is not a result",
+        "mandatory phase exit suite before transition"
+      ],
+      "handoff": "development/templates/task-handoff.md",
+      "escalation": "Missing authority, destructive action, dependent blocker, overlapping ownership or unclear correctness; continue independent authorized work",
+      "authority_limit": "No role expands spend/permissions or changes consent/entitlements/mastery outside deterministic architecture; no fabricated checks"
+    },
+    {
+      "id": "ROLE-05",
+      "name": "Frontend",
+      "function": "engineering",
+      "mission": "Implement accessible Arabic-first product surfaces",
+      "tools": [
+        "read assigned project context",
+        "edit only assigned files if writer",
+        "run approved relevant local checks"
+      ],
+      "file_scope": "web/",
+      "ownership_rule": "Concrete task assignment replaces this suggested scope; no overlap without orchestrator coordination",
+      "inputs": [
+        "root AGENTS.md",
+        "development/ENGINEERING_RULES.md",
+        "current eligible task and requirement/acceptance IDs",
+        "assigned exact files and applicable contracts"
+      ],
+      "outputs": [
+        "reviewable scoped artifact or finding",
+        "actual command results and failures",
+        "handover with exact next step"
+      ],
+      "tests": [
+        "applicable task verification commands; planned command is not a result",
+        "mandatory phase exit suite before transition"
+      ],
+      "handoff": "development/templates/task-handoff.md",
+      "escalation": "Missing authority, destructive action, dependent blocker, overlapping ownership or unclear correctness; continue independent authorized work",
+      "authority_limit": "No role expands spend/permissions or changes consent/entitlements/mastery outside deterministic architecture; no fabricated checks"
+    },
+    {
+      "id": "ROLE-06",
+      "name": "Infrastructure",
+      "function": "engineering",
+      "mission": "Maintain local/container/CI boundaries without implicit deployment",
+      "tools": [
+        "read assigned project context",
+        "edit only assigned files if writer",
+        "run approved relevant local checks"
+      ],
+      "file_scope": "infra/, .github/",
+      "ownership_rule": "Concrete task assignment replaces this suggested scope; no overlap without orchestrator coordination",
+      "inputs": [
+        "root AGENTS.md",
+        "development/ENGINEERING_RULES.md",
+        "current eligible task and requirement/acceptance IDs",
+        "assigned exact files and applicable contracts"
+      ],
+      "outputs": [
+        "reviewable scoped artifact or finding",
+        "actual command results and failures",
+        "handover with exact next step"
+      ],
+      "tests": [
+        "applicable task verification commands; planned command is not a result",
+        "mandatory phase exit suite before transition"
+      ],
+      "handoff": "development/templates/task-handoff.md",
+      "escalation": "Missing authority, destructive action, dependent blocker, overlapping ownership or unclear correctness; continue independent authorized work",
+      "authority_limit": "No role expands spend/permissions or changes consent/entitlements/mastery outside deterministic architecture; no fabricated checks"
+    },
+    {
+      "id": "ROLE-07",
+      "name": "Database",
+      "function": "engineering",
+      "mission": "Own schema invariants, migrations and scoped queries",
+      "tools": [
+        "read assigned project context",
+        "edit only assigned files if writer",
+        "run approved relevant local checks"
+      ],
+      "file_scope": "backend/modules/, architecture/system-and-data-model.md",
+      "ownership_rule": "Concrete task assignment replaces this suggested scope; no overlap without orchestrator coordination",
+      "inputs": [
+        "root AGENTS.md",
+        "development/ENGINEERING_RULES.md",
+        "current eligible task and requirement/acceptance IDs",
+        "assigned exact files and applicable contracts"
+      ],
+      "outputs": [
+        "reviewable scoped artifact or finding",
+        "actual command results and failures",
+        "handover with exact next step"
+      ],
+      "tests": [
+        "applicable task verification commands; planned command is not a result",
+        "mandatory phase exit suite before transition"
+      ],
+      "handoff": "development/templates/task-handoff.md",
+      "escalation": "Missing authority, destructive action, dependent blocker, overlapping ownership or unclear correctness; continue independent authorized work",
+      "authority_limit": "No role expands spend/permissions or changes consent/entitlements/mastery outside deterministic architecture; no fabricated checks"
+    },
+    {
+      "id": "ROLE-08",
+      "name": "Integration",
+      "function": "engineering",
+      "mission": "Verify cross-module ports and versioned contracts",
+      "tools": [
+        "read assigned project context",
+        "edit only assigned files if writer",
+        "run approved relevant local checks"
+      ],
+      "file_scope": "contracts/, integration checks",
+      "ownership_rule": "Concrete task assignment replaces this suggested scope; no overlap without orchestrator coordination",
+      "inputs": [
+        "root AGENTS.md",
+        "development/ENGINEERING_RULES.md",
+        "current eligible task and requirement/acceptance IDs",
+        "assigned exact files and applicable contracts"
+      ],
+      "outputs": [
+        "reviewable scoped artifact or finding",
+        "actual command results and failures",
+        "handover with exact next step"
+      ],
+      "tests": [
+        "applicable task verification commands; planned command is not a result",
+        "mandatory phase exit suite before transition"
+      ],
+      "handoff": "development/templates/task-handoff.md",
+      "escalation": "Missing authority, destructive action, dependent blocker, overlapping ownership or unclear correctness; continue independent authorized work",
+      "authority_limit": "No role expands spend/permissions or changes consent/entitlements/mastery outside deterministic architecture; no fabricated checks"
+    },
+    {
+      "id": "ROLE-09",
+      "name": "Testing",
+      "function": "quality",
+      "mission": "Build meaningful acceptance and negative regression suites",
+      "tools": [
+        "read assigned project context",
+        "edit only assigned files if writer",
+        "run approved relevant local checks"
+      ],
+      "file_scope": "tests/, evals/, tools/",
+      "ownership_rule": "Concrete task assignment replaces this suggested scope; no overlap without orchestrator coordination",
+      "inputs": [
+        "root AGENTS.md",
+        "development/ENGINEERING_RULES.md",
+        "current eligible task and requirement/acceptance IDs",
+        "assigned exact files and applicable contracts"
+      ],
+      "outputs": [
+        "reviewable scoped artifact or finding",
+        "actual command results and failures",
+        "handover with exact next step"
+      ],
+      "tests": [
+        "applicable task verification commands; planned command is not a result",
+        "mandatory phase exit suite before transition"
+      ],
+      "handoff": "development/templates/task-handoff.md",
+      "escalation": "Missing authority, destructive action, dependent blocker, overlapping ownership or unclear correctness; continue independent authorized work",
+      "authority_limit": "No role expands spend/permissions or changes consent/entitlements/mastery outside deterministic architecture; no fabricated checks"
+    },
+    {
+      "id": "ROLE-10",
+      "name": "Reviewer",
+      "function": "quality",
+      "mission": "Independently inspect actual diff and run relevant checks",
+      "tools": [
+        "read assigned project context",
+        "edit only assigned files if writer",
+        "run approved relevant local checks"
+      ],
+      "file_scope": "Read-only by default; evidence report",
+      "ownership_rule": "Concrete task assignment replaces this suggested scope; no overlap without orchestrator coordination",
+      "inputs": [
+        "root AGENTS.md",
+        "development/ENGINEERING_RULES.md",
+        "current eligible task and requirement/acceptance IDs",
+        "assigned exact files and applicable contracts"
+      ],
+      "outputs": [
+        "reviewable scoped artifact or finding",
+        "actual command results and failures",
+        "handover with exact next step"
+      ],
+      "tests": [
+        "applicable task verification commands; planned command is not a result",
+        "mandatory phase exit suite before transition"
+      ],
+      "handoff": "development/templates/task-handoff.md",
+      "escalation": "Missing authority, destructive action, dependent blocker, overlapping ownership or unclear correctness; continue independent authorized work",
+      "authority_limit": "No role expands spend/permissions or changes consent/entitlements/mastery outside deterministic architecture; no fabricated checks"
+    },
+    {
+      "id": "ROLE-11",
+      "name": "Security",
+      "function": "quality",
+      "mission": "Review permissions, ingestion, secrets and threat tests",
+      "tools": [
+        "read assigned project context",
+        "edit only assigned files if writer",
+        "run approved relevant local checks"
+      ],
+      "file_scope": "Security review / tests by explicit assignment",
+      "ownership_rule": "Concrete task assignment replaces this suggested scope; no overlap without orchestrator coordination",
+      "inputs": [
+        "root AGENTS.md",
+        "development/ENGINEERING_RULES.md",
+        "current eligible task and requirement/acceptance IDs",
+        "assigned exact files and applicable contracts"
+      ],
+      "outputs": [
+        "reviewable scoped artifact or finding",
+        "actual command results and failures",
+        "handover with exact next step"
+      ],
+      "tests": [
+        "applicable task verification commands; planned command is not a result",
+        "mandatory phase exit suite before transition"
+      ],
+      "handoff": "development/templates/task-handoff.md",
+      "escalation": "Missing authority, destructive action, dependent blocker, overlapping ownership or unclear correctness; continue independent authorized work",
+      "authority_limit": "No role expands spend/permissions or changes consent/entitlements/mastery outside deterministic architecture; no fabricated checks"
+    },
+    {
+      "id": "ROLE-12",
+      "name": "Research",
+      "function": "research",
+      "mission": "Verify primary sources and dated claims",
+      "tools": [
+        "read assigned project context",
+        "edit only assigned files if writer",
+        "run approved relevant local checks"
+      ],
+      "file_scope": "sources/; no historical research rewrites",
+      "ownership_rule": "Concrete task assignment replaces this suggested scope; no overlap without orchestrator coordination",
+      "inputs": [
+        "root AGENTS.md",
+        "development/ENGINEERING_RULES.md",
+        "current eligible task and requirement/acceptance IDs",
+        "assigned exact files and applicable contracts"
+      ],
+      "outputs": [
+        "reviewable scoped artifact or finding",
+        "actual command results and failures",
+        "handover with exact next step"
+      ],
+      "tests": [
+        "applicable task verification commands; planned command is not a result",
+        "mandatory phase exit suite before transition"
+      ],
+      "handoff": "development/templates/task-handoff.md",
+      "escalation": "Missing authority, destructive action, dependent blocker, overlapping ownership or unclear correctness; continue independent authorized work",
+      "authority_limit": "No role expands spend/permissions or changes consent/entitlements/mastery outside deterministic architecture; no fabricated checks"
+    },
+    {
+      "id": "ROLE-13",
+      "name": "Documentation",
+      "function": "research",
+      "mission": "Maintain concise accurate developer/user documentation",
+      "tools": [
+        "read assigned project context",
+        "edit only assigned files if writer",
+        "run approved relevant local checks"
+      ],
+      "file_scope": "docs/, development/ assigned files",
+      "ownership_rule": "Concrete task assignment replaces this suggested scope; no overlap without orchestrator coordination",
+      "inputs": [
+        "root AGENTS.md",
+        "development/ENGINEERING_RULES.md",
+        "current eligible task and requirement/acceptance IDs",
+        "assigned exact files and applicable contracts"
+      ],
+      "outputs": [
+        "reviewable scoped artifact or finding",
+        "actual command results and failures",
+        "handover with exact next step"
+      ],
+      "tests": [
+        "applicable task verification commands; planned command is not a result",
+        "mandatory phase exit suite before transition"
+      ],
+      "handoff": "development/templates/task-handoff.md",
+      "escalation": "Missing authority, destructive action, dependent blocker, overlapping ownership or unclear correctness; continue independent authorized work",
+      "authority_limit": "No role expands spend/permissions or changes consent/entitlements/mastery outside deterministic architecture; no fabricated checks"
+    },
+    {
+      "id": "ROLE-14",
+      "name": "Context",
+      "function": "research",
+      "mission": "Assemble minimal exact task context and handoff",
+      "tools": [
+        "read assigned project context",
+        "edit only assigned files if writer",
+        "run approved relevant local checks"
+      ],
+      "file_scope": "development/CURRENT-STATE.md, handoff drafts",
+      "ownership_rule": "Concrete task assignment replaces this suggested scope; no overlap without orchestrator coordination",
+      "inputs": [
+        "root AGENTS.md",
+        "development/ENGINEERING_RULES.md",
+        "current eligible task and requirement/acceptance IDs",
+        "assigned exact files and applicable contracts"
+      ],
+      "outputs": [
+        "reviewable scoped artifact or finding",
+        "actual command results and failures",
+        "handover with exact next step"
+      ],
+      "tests": [
+        "applicable task verification commands; planned command is not a result",
+        "mandatory phase exit suite before transition"
+      ],
+      "handoff": "development/templates/task-handoff.md",
+      "escalation": "Missing authority, destructive action, dependent blocker, overlapping ownership or unclear correctness; continue independent authorized work",
+      "authority_limit": "No role expands spend/permissions or changes consent/entitlements/mastery outside deterministic architecture; no fabricated checks"
+    },
+    {
+      "id": "ROLE-15",
+      "name": "Memory",
+      "function": "research",
+      "mission": "Record verified decisions and corrections, no secrets",
+      "tools": [
+        "read assigned project context",
+        "edit only assigned files if writer",
+        "run approved relevant local checks"
+      ],
+      "file_scope": "registers/, development/ verified evidence",
+      "ownership_rule": "Concrete task assignment replaces this suggested scope; no overlap without orchestrator coordination",
+      "inputs": [
+        "root AGENTS.md",
+        "development/ENGINEERING_RULES.md",
+        "current eligible task and requirement/acceptance IDs",
+        "assigned exact files and applicable contracts"
+      ],
+      "outputs": [
+        "reviewable scoped artifact or finding",
+        "actual command results and failures",
+        "handover with exact next step"
+      ],
+      "tests": [
+        "applicable task verification commands; planned command is not a result",
+        "mandatory phase exit suite before transition"
+      ],
+      "handoff": "development/templates/task-handoff.md",
+      "escalation": "Missing authority, destructive action, dependent blocker, overlapping ownership or unclear correctness; continue independent authorized work",
+      "authority_limit": "No role expands spend/permissions or changes consent/entitlements/mastery outside deterministic architecture; no fabricated checks"
+    },
+    {
+      "id": "ROLE-16",
+      "name": "Evaluation",
+      "function": "evaluation",
+      "mission": "Maintain frozen evaluation protocol and gates",
+      "tools": [
+        "read assigned project context",
+        "edit only assigned files if writer",
+        "run approved relevant local checks"
+      ],
+      "file_scope": "evals/, QA specs",
+      "ownership_rule": "Concrete task assignment replaces this suggested scope; no overlap without orchestrator coordination",
+      "inputs": [
+        "root AGENTS.md",
+        "development/ENGINEERING_RULES.md",
+        "current eligible task and requirement/acceptance IDs",
+        "assigned exact files and applicable contracts"
+      ],
+      "outputs": [
+        "reviewable scoped artifact or finding",
+        "actual command results and failures",
+        "handover with exact next step"
+      ],
+      "tests": [
+        "applicable task verification commands; planned command is not a result",
+        "mandatory phase exit suite before transition"
+      ],
+      "handoff": "development/templates/task-handoff.md",
+      "escalation": "Missing authority, destructive action, dependent blocker, overlapping ownership or unclear correctness; continue independent authorized work",
+      "authority_limit": "No role expands spend/permissions or changes consent/entitlements/mastery outside deterministic architecture; no fabricated checks"
+    },
+    {
+      "id": "ROLE-17",
+      "name": "Benchmark",
+      "function": "evaluation",
+      "mission": "Run matched authorized quality/latency/cost comparisons",
+      "tools": [
+        "read assigned project context",
+        "edit only assigned files if writer",
+        "run approved relevant local checks"
+      ],
+      "file_scope": "evals/; no paid calls absent cap",
+      "ownership_rule": "Concrete task assignment replaces this suggested scope; no overlap without orchestrator coordination",
+      "inputs": [
+        "root AGENTS.md",
+        "development/ENGINEERING_RULES.md",
+        "current eligible task and requirement/acceptance IDs",
+        "assigned exact files and applicable contracts"
+      ],
+      "outputs": [
+        "reviewable scoped artifact or finding",
+        "actual command results and failures",
+        "handover with exact next step"
+      ],
+      "tests": [
+        "applicable task verification commands; planned command is not a result",
+        "mandatory phase exit suite before transition"
+      ],
+      "handoff": "development/templates/task-handoff.md",
+      "escalation": "Missing authority, destructive action, dependent blocker, overlapping ownership or unclear correctness; continue independent authorized work",
+      "authority_limit": "No role expands spend/permissions or changes consent/entitlements/mastery outside deterministic architecture; no fabricated checks"
+    },
+    {
+      "id": "ROLE-18",
+      "name": "Prompt Engineer",
+      "function": "evaluation",
+      "mission": "Version prompts within fixed allowed actions",
+      "tools": [
+        "read assigned project context",
+        "edit only assigned files if writer",
+        "run approved relevant local checks"
+      ],
+      "file_scope": "prompt specs / later prompt registry",
+      "ownership_rule": "Concrete task assignment replaces this suggested scope; no overlap without orchestrator coordination",
+      "inputs": [
+        "root AGENTS.md",
+        "development/ENGINEERING_RULES.md",
+        "current eligible task and requirement/acceptance IDs",
+        "assigned exact files and applicable contracts"
+      ],
+      "outputs": [
+        "reviewable scoped artifact or finding",
+        "actual command results and failures",
+        "handover with exact next step"
+      ],
+      "tests": [
+        "applicable task verification commands; planned command is not a result",
+        "mandatory phase exit suite before transition"
+      ],
+      "handoff": "development/templates/task-handoff.md",
+      "escalation": "Missing authority, destructive action, dependent blocker, overlapping ownership or unclear correctness; continue independent authorized work",
+      "authority_limit": "No role expands spend/permissions or changes consent/entitlements/mastery outside deterministic architecture; no fabricated checks"
+    },
+    {
+      "id": "ROLE-19",
+      "name": "Optimization",
+      "function": "evaluation",
+      "mission": "Improve measured cost/performance without bypassing quality",
+      "tools": [
+        "read assigned project context",
+        "edit only assigned files if writer",
+        "run approved relevant local checks"
+      ],
+      "file_scope": "Assigned hotspot only; benchmark evidence",
+      "ownership_rule": "Concrete task assignment replaces this suggested scope; no overlap without orchestrator coordination",
+      "inputs": [
+        "root AGENTS.md",
+        "development/ENGINEERING_RULES.md",
+        "current eligible task and requirement/acceptance IDs",
+        "assigned exact files and applicable contracts"
+      ],
+      "outputs": [
+        "reviewable scoped artifact or finding",
+        "actual command results and failures",
+        "handover with exact next step"
+      ],
+      "tests": [
+        "applicable task verification commands; planned command is not a result",
+        "mandatory phase exit suite before transition"
+      ],
+      "handoff": "development/templates/task-handoff.md",
+      "escalation": "Missing authority, destructive action, dependent blocker, overlapping ownership or unclear correctness; continue independent authorized work",
+      "authority_limit": "No role expands spend/permissions or changes consent/entitlements/mastery outside deterministic architecture; no fabricated checks"
+    },
+    {
+      "id": "ROLE-20",
+      "name": "Reliability",
+      "function": "quality",
+      "mission": "Test retries, cancellation, fencing, recovery and replay",
+      "tools": [
+        "read assigned project context",
+        "edit only assigned files if writer",
+        "run approved relevant local checks"
+      ],
+      "file_scope": "Reliability tests / runbooks",
+      "ownership_rule": "Concrete task assignment replaces this suggested scope; no overlap without orchestrator coordination",
+      "inputs": [
+        "root AGENTS.md",
+        "development/ENGINEERING_RULES.md",
+        "current eligible task and requirement/acceptance IDs",
+        "assigned exact files and applicable contracts"
+      ],
+      "outputs": [
+        "reviewable scoped artifact or finding",
+        "actual command results and failures",
+        "handover with exact next step"
+      ],
+      "tests": [
+        "applicable task verification commands; planned command is not a result",
+        "mandatory phase exit suite before transition"
+      ],
+      "handoff": "development/templates/task-handoff.md",
+      "escalation": "Missing authority, destructive action, dependent blocker, overlapping ownership or unclear correctness; continue independent authorized work",
+      "authority_limit": "No role expands spend/permissions or changes consent/entitlements/mastery outside deterministic architecture; no fabricated checks"
+    },
+    {
+      "id": "ROLE-21",
+      "name": "Observability",
+      "function": "operations",
+      "mission": "Keep metadata-only metrics and safe diagnostics",
+      "tools": [
+        "read assigned project context",
+        "edit only assigned files if writer",
+        "run approved relevant local checks"
+      ],
+      "file_scope": "Operations specs / telemetry adapters",
+      "ownership_rule": "Concrete task assignment replaces this suggested scope; no overlap without orchestrator coordination",
+      "inputs": [
+        "root AGENTS.md",
+        "development/ENGINEERING_RULES.md",
+        "current eligible task and requirement/acceptance IDs",
+        "assigned exact files and applicable contracts"
+      ],
+      "outputs": [
+        "reviewable scoped artifact or finding",
+        "actual command results and failures",
+        "handover with exact next step"
+      ],
+      "tests": [
+        "applicable task verification commands; planned command is not a result",
+        "mandatory phase exit suite before transition"
+      ],
+      "handoff": "development/templates/task-handoff.md",
+      "escalation": "Missing authority, destructive action, dependent blocker, overlapping ownership or unclear correctness; continue independent authorized work",
+      "authority_limit": "No role expands spend/permissions or changes consent/entitlements/mastery outside deterministic architecture; no fabricated checks"
+    },
+    {
+      "id": "ROLE-22",
+      "name": "Release",
+      "function": "operations",
+      "mission": "Verify manifest, checks, commit and approved promotion",
+      "tools": [
+        "read assigned project context",
+        "edit only assigned files if writer",
+        "run approved relevant local checks"
+      ],
+      "file_scope": "Release records; push only if assigned and authorized",
+      "ownership_rule": "Concrete task assignment replaces this suggested scope; no overlap without orchestrator coordination",
+      "inputs": [
+        "root AGENTS.md",
+        "development/ENGINEERING_RULES.md",
+        "current eligible task and requirement/acceptance IDs",
+        "assigned exact files and applicable contracts"
+      ],
+      "outputs": [
+        "reviewable scoped artifact or finding",
+        "actual command results and failures",
+        "handover with exact next step"
+      ],
+      "tests": [
+        "applicable task verification commands; planned command is not a result",
+        "mandatory phase exit suite before transition"
+      ],
+      "handoff": "development/templates/task-handoff.md",
+      "escalation": "Missing authority, destructive action, dependent blocker, overlapping ownership or unclear correctness; continue independent authorized work",
+      "authority_limit": "No role expands spend/permissions or changes consent/entitlements/mastery outside deterministic architecture; no fabricated checks"
+    },
+    {
+      "id": "ROLE-23",
+      "name": "Operations",
+      "function": "operations",
+      "mission": "Maintain recovery, deletion and incident procedures",
+      "tools": [
+        "read assigned project context",
+        "edit only assigned files if writer",
+        "run approved relevant local checks"
+      ],
+      "file_scope": "Runbooks / local fixtures",
+      "ownership_rule": "Concrete task assignment replaces this suggested scope; no overlap without orchestrator coordination",
+      "inputs": [
+        "root AGENTS.md",
+        "development/ENGINEERING_RULES.md",
+        "current eligible task and requirement/acceptance IDs",
+        "assigned exact files and applicable contracts"
+      ],
+      "outputs": [
+        "reviewable scoped artifact or finding",
+        "actual command results and failures",
+        "handover with exact next step"
+      ],
+      "tests": [
+        "applicable task verification commands; planned command is not a result",
+        "mandatory phase exit suite before transition"
+      ],
+      "handoff": "development/templates/task-handoff.md",
+      "escalation": "Missing authority, destructive action, dependent blocker, overlapping ownership or unclear correctness; continue independent authorized work",
+      "authority_limit": "No role expands spend/permissions or changes consent/entitlements/mastery outside deterministic architecture; no fabricated checks"
+    },
+    {
+      "id": "ROLE-24",
+      "name": "Risk & Approval",
+      "function": "leadership",
+      "mission": "Track actual authorization, blockers and risk owners",
+      "tools": [
+        "read assigned project context",
+        "edit only assigned files if writer",
+        "run approved relevant local checks"
+      ],
+      "file_scope": "Gate/risk records; cannot approve for founder",
+      "ownership_rule": "Concrete task assignment replaces this suggested scope; no overlap without orchestrator coordination",
+      "inputs": [
+        "root AGENTS.md",
+        "development/ENGINEERING_RULES.md",
+        "current eligible task and requirement/acceptance IDs",
+        "assigned exact files and applicable contracts"
+      ],
+      "outputs": [
+        "reviewable scoped artifact or finding",
+        "actual command results and failures",
+        "handover with exact next step"
+      ],
+      "tests": [
+        "applicable task verification commands; planned command is not a result",
+        "mandatory phase exit suite before transition"
+      ],
+      "handoff": "development/templates/task-handoff.md",
+      "escalation": "Missing authority, destructive action, dependent blocker, overlapping ownership or unclear correctness; continue independent authorized work",
+      "authority_limit": "No role expands spend/permissions or changes consent/entitlements/mastery outside deterministic architecture; no fabricated checks"
+    },
+    {
+      "id": "ROLE-25",
+      "name": "Knowledge",
+      "function": "research",
+      "mission": "Maintain source/requirement/decision cross references",
+      "tools": [
+        "read assigned project context",
+        "edit only assigned files if writer",
+        "run approved relevant local checks"
+      ],
+      "file_scope": "sources/, registers/ assigned records",
+      "ownership_rule": "Concrete task assignment replaces this suggested scope; no overlap without orchestrator coordination",
+      "inputs": [
+        "root AGENTS.md",
+        "development/ENGINEERING_RULES.md",
+        "current eligible task and requirement/acceptance IDs",
+        "assigned exact files and applicable contracts"
+      ],
+      "outputs": [
+        "reviewable scoped artifact or finding",
+        "actual command results and failures",
+        "handover with exact next step"
+      ],
+      "tests": [
+        "applicable task verification commands; planned command is not a result",
+        "mandatory phase exit suite before transition"
+      ],
+      "handoff": "development/templates/task-handoff.md",
+      "escalation": "Missing authority, destructive action, dependent blocker, overlapping ownership or unclear correctness; continue independent authorized work",
+      "authority_limit": "No role expands spend/permissions or changes consent/entitlements/mastery outside deterministic architecture; no fabricated checks"
+    },
+    {
+      "id": "ROLE-26",
+      "name": "Improvement",
+      "function": "evaluation",
+      "mission": "Compare bounded workflow changes with actual evidence",
+      "tools": [
+        "read assigned project context",
+        "edit only assigned files if writer",
+        "run approved relevant local checks"
+      ],
+      "file_scope": "development/improvements.md; no automatic production policy edits",
+      "ownership_rule": "Concrete task assignment replaces this suggested scope; no overlap without orchestrator coordination",
+      "inputs": [
+        "root AGENTS.md",
+        "development/ENGINEERING_RULES.md",
+        "current eligible task and requirement/acceptance IDs",
+        "assigned exact files and applicable contracts"
+      ],
+      "outputs": [
+        "reviewable scoped artifact or finding",
+        "actual command results and failures",
+        "handover with exact next step"
+      ],
+      "tests": [
+        "applicable task verification commands; planned command is not a result",
+        "mandatory phase exit suite before transition"
+      ],
+      "handoff": "development/templates/task-handoff.md",
+      "escalation": "Missing authority, destructive action, dependent blocker, overlapping ownership or unclear correctness; continue independent authorized work",
+      "authority_limit": "No role expands spend/permissions or changes consent/entitlements/mastery outside deterministic architecture; no fabricated checks"
+    },
+    {
+      "id": "ROLE-27",
+      "name": "Cost Control",
+      "function": "operations",
+      "mission": "Enforce explicit spend/retry/usage bounds",
+      "tools": [
+        "read assigned project context",
+        "edit only assigned files if writer",
+        "run approved relevant local checks"
+      ],
+      "file_scope": "Economics and usage contracts; no purchases",
+      "ownership_rule": "Concrete task assignment replaces this suggested scope; no overlap without orchestrator coordination",
+      "inputs": [
+        "root AGENTS.md",
+        "development/ENGINEERING_RULES.md",
+        "current eligible task and requirement/acceptance IDs",
+        "assigned exact files and applicable contracts"
+      ],
+      "outputs": [
+        "reviewable scoped artifact or finding",
+        "actual command results and failures",
+        "handover with exact next step"
+      ],
+      "tests": [
+        "applicable task verification commands; planned command is not a result",
+        "mandatory phase exit suite before transition"
+      ],
+      "handoff": "development/templates/task-handoff.md",
+      "escalation": "Missing authority, destructive action, dependent blocker, overlapping ownership or unclear correctness; continue independent authorized work",
+      "authority_limit": "No role expands spend/permissions or changes consent/entitlements/mastery outside deterministic architecture; no fabricated checks"
+    },
+    {
+      "id": "ROLE-28",
+      "name": "Scheduler",
+      "function": "operations",
+      "mission": "Schedule independent tasks under slot and phase limits",
+      "tools": [
+        "read assigned project context",
+        "edit only assigned files if writer",
+        "run approved relevant local checks"
+      ],
+      "file_scope": "Task/roster proposals; no background claims",
+      "ownership_rule": "Concrete task assignment replaces this suggested scope; no overlap without orchestrator coordination",
+      "inputs": [
+        "root AGENTS.md",
+        "development/ENGINEERING_RULES.md",
+        "current eligible task and requirement/acceptance IDs",
+        "assigned exact files and applicable contracts"
+      ],
+      "outputs": [
+        "reviewable scoped artifact or finding",
+        "actual command results and failures",
+        "handover with exact next step"
+      ],
+      "tests": [
+        "applicable task verification commands; planned command is not a result",
+        "mandatory phase exit suite before transition"
+      ],
+      "handoff": "development/templates/task-handoff.md",
+      "escalation": "Missing authority, destructive action, dependent blocker, overlapping ownership or unclear correctness; continue independent authorized work",
+      "authority_limit": "No role expands spend/permissions or changes consent/entitlements/mastery outside deterministic architecture; no fabricated checks"
+    },
+    {
+      "id": "ROLE-29",
+      "name": "Delegation",
+      "function": "leadership",
+      "mission": "Assign minimal context and exclusive ownership",
+      "tools": [
+        "read assigned project context",
+        "edit only assigned files if writer",
+        "run approved relevant local checks"
+      ],
+      "file_scope": "Role/task assignments and handoffs",
+      "ownership_rule": "Concrete task assignment replaces this suggested scope; no overlap without orchestrator coordination",
+      "inputs": [
+        "root AGENTS.md",
+        "development/ENGINEERING_RULES.md",
+        "current eligible task and requirement/acceptance IDs",
+        "assigned exact files and applicable contracts"
+      ],
+      "outputs": [
+        "reviewable scoped artifact or finding",
+        "actual command results and failures",
+        "handover with exact next step"
+      ],
+      "tests": [
+        "applicable task verification commands; planned command is not a result",
+        "mandatory phase exit suite before transition"
+      ],
+      "handoff": "development/templates/task-handoff.md",
+      "escalation": "Missing authority, destructive action, dependent blocker, overlapping ownership or unclear correctness; continue independent authorized work",
+      "authority_limit": "No role expands spend/permissions or changes consent/entitlements/mastery outside deterministic architecture; no fabricated checks"
+    },
+    {
+      "id": "ROLE-30",
+      "name": "Audit",
+      "function": "quality",
+      "mission": "Audit requirement, repo, phase and evidence completeness",
+      "tools": [
+        "read assigned project context",
+        "edit only assigned files if writer",
+        "run approved relevant local checks"
+      ],
+      "file_scope": "Read-only audit; findings with exact locators",
+      "ownership_rule": "Concrete task assignment replaces this suggested scope; no overlap without orchestrator coordination",
+      "inputs": [
+        "root AGENTS.md",
+        "development/ENGINEERING_RULES.md",
+        "current eligible task and requirement/acceptance IDs",
+        "assigned exact files and applicable contracts"
+      ],
+      "outputs": [
+        "reviewable scoped artifact or finding",
+        "actual command results and failures",
+        "handover with exact next step"
+      ],
+      "tests": [
+        "applicable task verification commands; planned command is not a result",
+        "mandatory phase exit suite before transition"
+      ],
+      "handoff": "development/templates/task-handoff.md",
+      "escalation": "Missing authority, destructive action, dependent blocker, overlapping ownership or unclear correctness; continue independent authorized work",
+      "authority_limit": "No role expands spend/permissions or changes consent/entitlements/mastery outside deterministic architecture; no fabricated checks"
+    }
+  ]
+}

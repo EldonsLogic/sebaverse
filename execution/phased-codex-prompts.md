@@ -33,3 +33,7 @@ After successful pilot, use current payment/processor/rate/tax terms and observe
 ## Current architecture constraint U11/U12
 
 All implementation prompts use architecture/technical-baseline.md, feature-function-matrix.json and repository-adoption.json. A task names requirement IDs, exact acceptance and approved execution scope. No subject-specific DB/state-machine branches, no wholesale upstream application imports, no silent scope deletion. All phase outputs include pass/fail/not-run and real receipts.
+
+## Cross-agent operational entry point U13/U14
+
+Before any prompt, follow development/START-HERE.md and current task/phase gate. These prompts preserve architecture intent but do not supersede the live task owner, authorization or required after-phase tests. On interruption or agent switch, record actual checks, blockers and exact next action using the shared handover template. Commit/push reviewed milestones to the named private repo; no force or secret upload.

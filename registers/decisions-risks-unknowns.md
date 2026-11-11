@@ -70,3 +70,11 @@ D024 — Ready libraries and all 22 audit dispositions fixed in repository-adopt
 D025 — External audit handoff U12 covers all 99 requirements, data/runtime diagrams, feature/functions, phases, source lineage, decisions and unknowns. No external message sent.
 
 Current unknown separation: exact dependency locks (before install); live-call time/spend cap and eligible processor/data mode (before live PoC); region/provider/retention/guardian process, actual rights and operational coverage (before affected real data/pilot); production model winners and Jev/voice/local GPU choices (after matched evidence). None requires a specific school textbook to complete platform design.
+
+## D026 — Shared development foundation and GitHub authorization (U13)
+
+Founder accepts current direction for foundation work and names private EldonsLogic/sebaverse as shared Git source of truth. Roadmap/task/handover/check tooling and verified commits/pushes are authorized. Preserve local history; do not invent wider execution/legal/live-spend/deploy/minor approvals. development/APPROVALS.md records exact scope.
+
+D027 — Incorporate pinned multica coding principles and user image into shared root rules; source license unknown so four ideas are paraphrased, not vendored. Image transcribed and original/hash retained. Thirty contracts are capabilities; only actual needed agents are activated and reported. Frozen exported rules do not govern active development.
+
+D028 — U14 requires tests/review after EVERY phase, with recorded actual evidence and no next-phase start until pass. development/phase-gates.json and tools/check_foundation.py make missing/failing/not-run evidence and premature progression checkable. Never lower gates to manufacture progress. Product phase test suites remain required and unrun until implemented.

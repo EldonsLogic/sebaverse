@@ -37,3 +37,7 @@ Starting subject is German, national language school, learner-uploaded curriculu
 ## U11/U12 supersession — current sequence
 
 Architecture design is not blocked by a particular German curriculum, grade or edition. [A0–A7 phase plan](subject-independent-poc.md) is the current execution sequence; earlier one-unit/German fixtures above are historical planning scope superseded for architecture validation by three authored subject profiles. No whole G1/G2/G3 gate is approved by agent delivery. Technical design is selected; content-specific readiness applies before the corresponding real pilot, and live/provider/processor/budget conditions remain separate.
+
+## Current development execution view — U13/U14
+
+Development foundation (F0) and GitHub workflow are now authorized under the [scoped authorization record](../development/APPROVALS.md). [F0–F8 roadmap](../development/ROADMAP.md), tasks.json and phase-gates.json provide the current step-by-step execution view, preserving A1–A7 technical scope. AFTER EACH phase run and record its meaningful required tests and independent review; no next phase starts with required checks missing/failing/not-run or blockers unresolved. This does not infer real-data/legal/budget/deployment approvals from a document pass.

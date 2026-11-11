@@ -1,6 +1,6 @@
 # Complete feature/function and phase map
 
-U12 · Every current requirement R001–R099 appears below, including future/rejected/deferred paths. **No product function is implemented by this document.** Phase entries are the selected architecture delivery sequence, not deletion or readiness claims. Exact sources, dependencies, original acceptance criteria and status are in [editable JSON](feature-function-matrix.json), exported from the authoritative requirement register. A0–A7 are defined in the [phase plan](../execution/subject-independent-poc.md).
+U12 · Every current requirement R001–R104 appears below, including future/rejected/deferred paths. **No product function is implemented by this document.** Phase entries are the selected architecture delivery sequence, not deletion or readiness claims. Exact sources, dependencies, original acceptance criteria and status are in [editable JSON](feature-function-matrix.json), exported from the authoritative requirement register. A0–A7 are defined in the [phase plan](../execution/subject-independent-poc.md).
 
 | Requirement / feature | Functions | Phase | Build / ready-component boundary |
 |---|---|---|---|
@@ -103,3 +103,15 @@ U12 · Every current requirement R001–R099 appears below, including future/rej
 | R097 — Arabic-first brand/product experience | Lead with Arabic typography/navigation and mixed-language layouts | A0/A1 | Design/documentation; React UI later |
 | R098 — Latin-only Sebaverse logo | Use Latin Sebaverse vector logo without mirroring | A0/A1 | Design/documentation; React UI later |
 | R099 — Subject-independent platform architecture and audit handoff | Deliver auditor-ready maps, feature coverage, repo boundaries and phases | A0/A1 | Owned product/application logic |
+
+## Development foundation additions U13/U14
+
+F0–F8 are the development view of A1–A7, defined in development/ROADMAP.md; the original architecture phase scope is retained. The frozen v1 audit export remains the 99-requirement historical snapshot.
+
+| Requirement | Functions | Phase | Build/reuse |
+|---|---|---|---|
+| R100 — Shared private GitHub source of truth and verified milestone pushes | Verify remote identity/privacy; commit/review/push and reconcile local/remote SHA | F0 and every subsequent phase | Owned workflow/check tooling; pinned source ideas adapted, no external source runtime |
+| R101 — Agent-neutral roadmap, task graph and durable handover | Claim task/file ownership; checkpoint evidence and exact next step across agents | F0 and every subsequent phase | Owned workflow/check tooling; pinned source ideas adapted, no external source runtime |
+| R102 — Pinned coding-discipline guidance in shared project rules | Apply concise assumption/simplicity/focused-change/observable-success discipline | F0 and every subsequent phase | Owned workflow/check tooling; pinned source ideas adapted, no external source runtime |
+| R103 — Extract and execute bounded verifiable agent-team guidance | Maintain contracts/real roster; delegate independent files; test/review/record actual outputs | F0 and every subsequent phase | Owned workflow/check tooling; pinned source ideas adapted, no external source runtime |
+| R104 — Tests and review must pass after every phase before progression | Declare/run phase tests; reject premature advancement; record evidence, reviewer and blockers | F0 and every subsequent phase | Owned workflow/check tooling; pinned source ideas adapted, no external source runtime |

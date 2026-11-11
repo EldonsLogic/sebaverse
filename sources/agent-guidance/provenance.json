@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "instruction_source": "U13",
+  "coding_guidance": {
+    "repository": "https://github.com/multica-ai/andrej-karpathy-skills",
+    "requested_file": "CLAUDE.md",
+    "commit": "2c606141936f1eeef17fa3043a72095b4765b9c2",
+    "blob_sha": "daced9bd64f25908ebedeb4701fb406985dc8366",
+    "file_bytes": 2357,
+    "pinned_url": "https://github.com/multica-ai/andrej-karpathy-skills/blob/2c606141936f1eeef17fa3043a72095b4765b9c2/CLAUDE.md",
+    "verified_date": "2026-11-11",
+    "license": "unknown: GitHub repository license null, license endpoint 404, root tree contains no license file",
+    "integration": "Four ideas paraphrased in development/ENGINEERING_RULES.md; no source file/installer vendored; not claimed Karpathy authorship/endorsement"
+  },
+  "image": {
+    "file": "sources/agent-guidance/agent-team-original.jpeg",
+    "sha256": "51df6933107942d9ffa3c4eba9faf142b7f42acf7aa6e9684fe7028546e32360",
+    "transcription": "sources/agent-guidance/agent-team-transcription.md",
+    "method": "visual transcription by root agent",
+    "authenticity": "Image branding/model/publisher unverified; founder adopts operational ideas",
+    "execution": "30 contracts, bounded actual worker roster, task graph, actual checks and independent review; not 30 running agents"
+  },
+  "client_conventions": {
+    "Claude": "https://code.claude.com/docs/en/memory",
+    "Antigravity": "https://antigravity.google/docs/rules/",
+    "observation": "Official docs inspected 2026-11-11; files added, loading not tested inside the other clients"
+  }
+}

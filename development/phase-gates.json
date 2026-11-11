@@ -1,0 +1,512 @@
+{
+  "schema_version": 1,
+  "source": "U14",
+  "policy": "Every phase requires actual passing tests and review before any task in next phase starts; not-run is not pass",
+  "phases": [
+    {
+      "id": "F0",
+      "name": "Development foundation",
+      "architecture_phase": "A1",
+      "status": "in_progress",
+      "depends_on": [],
+      "tests": [
+        {
+          "id": "F0-economics",
+          "command": "python3 tools/model_economics.py",
+          "availability": "existing",
+          "required": true,
+          "result": "not_run",
+          "evidence": []
+        },
+        {
+          "id": "F0-artifacts",
+          "command": "python3 tools/validate_project.py",
+          "availability": "existing",
+          "required": true,
+          "result": "not_run",
+          "evidence": []
+        },
+        {
+          "id": "F0-foundation",
+          "command": "python3 tools/check_foundation.py",
+          "availability": "existing",
+          "required": true,
+          "result": "not_run",
+          "evidence": []
+        },
+        {
+          "id": "F0-gate_negatives",
+          "command": "python3 -m unittest discover -s tools/tests -p test_foundation.py",
+          "availability": "existing",
+          "required": true,
+          "result": "not_run",
+          "evidence": []
+        },
+        {
+          "id": "F0-publish",
+          "command": "git rev-parse HEAD; git ls-remote origin refs/heads/main (compare exact SHA)",
+          "availability": "existing",
+          "required": true,
+          "result": "not_run",
+          "evidence": []
+        },
+        {
+          "id": "F0-ci",
+          "command": "gh run view <verified-run-id> --repo EldonsLogic/sebaverse --json conclusion,headSha",
+          "availability": "existing",
+          "required": true,
+          "result": "not_run",
+          "evidence": []
+        }
+      ],
+      "review": {
+        "result": "pending",
+        "reviewer": null,
+        "evidence": []
+      },
+      "blockers": [],
+      "transition_rule": "All required checks pass with real evidence, independent review passes, required blockers cleared; no next phase until then",
+      "external_conditions": "Applicable real-data/provider/spend/deployment/pilot conditions remain separate; no blanket approval"
+    },
+    {
+      "id": "F1",
+      "name": "Execution readiness and dependency locks",
+      "architecture_phase": "A1",
+      "status": "not_started",
+      "depends_on": [
+        "F0"
+      ],
+      "tests": [
+        {
+          "id": "F1-suite-1",
+          "command": null,
+          "suite": "Locked compatible toolchains",
+          "availability": "planned",
+          "required": true,
+          "result": "not_run",
+          "evidence": []
+        },
+        {
+          "id": "F1-suite-2",
+          "command": null,
+          "suite": "License/security/asset closure",
+          "availability": "planned",
+          "required": true,
+          "result": "not_run",
+          "evidence": []
+        },
+        {
+          "id": "F1-suite-3",
+          "command": null,
+          "suite": "Reproducible clean dependency install",
+          "availability": "planned",
+          "required": true,
+          "result": "not_run",
+          "evidence": []
+        },
+        {
+          "id": "F1-suite-4",
+          "command": null,
+          "suite": "Actual scoped execution authorization",
+          "availability": "planned",
+          "required": true,
+          "result": "not_run",
+          "evidence": []
+        }
+      ],
+      "review": {
+        "result": "pending",
+        "reviewer": null,
+        "evidence": []
+      },
+      "blockers": [],
+      "transition_rule": "All required checks pass with real evidence, independent review passes, required blockers cleared; no next phase until then",
+      "external_conditions": "Applicable real-data/provider/spend/deployment/pilot conditions remain separate; no blanket approval"
+    },
+    {
+      "id": "F2",
+      "name": "Runnable local skeleton",
+      "architecture_phase": "A2",
+      "status": "not_started",
+      "depends_on": [
+        "F1"
+      ],
+      "tests": [
+        {
+          "id": "F2-suite-1",
+          "command": null,
+          "suite": "Backend health/DB migration smoke",
+          "availability": "planned",
+          "required": true,
+          "result": "not_run",
+          "evidence": []
+        },
+        {
+          "id": "F2-suite-2",
+          "command": null,
+          "suite": "Frontend type/build/RTL smoke",
+          "availability": "planned",
+          "required": true,
+          "result": "not_run",
+          "evidence": []
+        },
+        {
+          "id": "F2-suite-3",
+          "command": null,
+          "suite": "Local setup teardown smoke",
+          "availability": "planned",
+          "required": true,
+          "result": "not_run",
+          "evidence": []
+        },
+        {
+          "id": "F2-suite-4",
+          "command": null,
+          "suite": "No credentials/real data required",
+          "availability": "planned",
+          "required": true,
+          "result": "not_run",
+          "evidence": []
+        }
+      ],
+      "review": {
+        "result": "pending",
+        "reviewer": null,
+        "evidence": []
+      },
+      "blockers": [],
+      "transition_rule": "All required checks pass with real evidence, independent review passes, required blockers cleared; no next phase until then",
+      "external_conditions": "Applicable real-data/provider/spend/deployment/pilot conditions remain separate; no blanket approval"
+    },
+    {
+      "id": "F3",
+      "name": "Identity, consent, curriculum and safe upload",
+      "architecture_phase": "A2/A3",
+      "status": "not_started",
+      "depends_on": [
+        "F2"
+      ],
+      "tests": [
+        {
+          "id": "F3-suite-1",
+          "command": null,
+          "suite": "Cross-actor/tenant/learner/course negatives",
+          "availability": "planned",
+          "required": true,
+          "result": "not_run",
+          "evidence": []
+        },
+        {
+          "id": "F3-suite-2",
+          "command": null,
+          "suite": "Consent/grant revocation",
+          "availability": "planned",
+          "required": true,
+          "result": "not_run",
+          "evidence": []
+        },
+        {
+          "id": "F3-suite-3",
+          "command": null,
+          "suite": "Quarantine/parser limits/failure closed",
+          "availability": "planned",
+          "required": true,
+          "result": "not_run",
+          "evidence": []
+        },
+        {
+          "id": "F3-suite-4",
+          "command": null,
+          "suite": "Version/source/rights and private isolation tests",
+          "availability": "planned",
+          "required": true,
+          "result": "not_run",
+          "evidence": []
+        }
+      ],
+      "review": {
+        "result": "pending",
+        "reviewer": null,
+        "evidence": []
+      },
+      "blockers": [],
+      "transition_rule": "All required checks pass with real evidence, independent review passes, required blockers cleared; no next phase until then",
+      "external_conditions": "Applicable real-data/provider/spend/deployment/pilot conditions remain separate; no blanket approval"
+    },
+    {
+      "id": "F4",
+      "name": "Tutor, assessment, evidence and reports",
+      "architecture_phase": "A3",
+      "status": "not_started",
+      "depends_on": [
+        "F3"
+      ],
+      "tests": [
+        {
+          "id": "F4-suite-1",
+          "command": null,
+          "suite": "Grounding/citation/abstention",
+          "availability": "planned",
+          "required": true,
+          "result": "not_run",
+          "evidence": []
+        },
+        {
+          "id": "F4-suite-2",
+          "command": null,
+          "suite": "Three-subject extension fixture",
+          "availability": "planned",
+          "required": true,
+          "result": "not_run",
+          "evidence": []
+        },
+        {
+          "id": "F4-suite-3",
+          "command": null,
+          "suite": "Assistance/independence/grading/replay",
+          "availability": "planned",
+          "required": true,
+          "result": "not_run",
+          "evidence": []
+        },
+        {
+          "id": "F4-suite-4",
+          "command": null,
+          "suite": "Cancel/retry/lease/usage accounting",
+          "availability": "planned",
+          "required": true,
+          "result": "not_run",
+          "evidence": []
+        },
+        {
+          "id": "F4-suite-5",
+          "command": null,
+          "suite": "Authorized parent summary",
+          "availability": "planned",
+          "required": true,
+          "result": "not_run",
+          "evidence": []
+        }
+      ],
+      "review": {
+        "result": "pending",
+        "reviewer": null,
+        "evidence": []
+      },
+      "blockers": [],
+      "transition_rule": "All required checks pass with real evidence, independent review passes, required blockers cleared; no next phase until then",
+      "external_conditions": "Applicable real-data/provider/spend/deployment/pilot conditions remain separate; no blanket approval"
+    },
+    {
+      "id": "F5",
+      "name": "Comparative models, decision layer and voice",
+      "architecture_phase": "A4",
+      "status": "not_started",
+      "depends_on": [
+        "F4"
+      ],
+      "tests": [
+        {
+          "id": "F5-suite-1",
+          "command": null,
+          "suite": "Matched qualified provider comparisons",
+          "availability": "planned",
+          "required": true,
+          "result": "not_run",
+          "evidence": []
+        },
+        {
+          "id": "F5-suite-2",
+          "command": null,
+          "suite": "Rules/small LLM/Jev benchmark or explicit disabled feature",
+          "availability": "planned",
+          "required": true,
+          "result": "not_run",
+          "evidence": []
+        },
+        {
+          "id": "F5-suite-3",
+          "command": null,
+          "suite": "Authorized adult speech/entity/latency/cancel comparison",
+          "availability": "planned",
+          "required": true,
+          "result": "not_run",
+          "evidence": []
+        },
+        {
+          "id": "F5-suite-4",
+          "command": null,
+          "suite": "Actual cost/receipt and quota tests",
+          "availability": "planned",
+          "required": true,
+          "result": "not_run",
+          "evidence": []
+        }
+      ],
+      "review": {
+        "result": "pending",
+        "reviewer": null,
+        "evidence": []
+      },
+      "blockers": [],
+      "transition_rule": "All required checks pass with real evidence, independent review passes, required blockers cleared; no next phase until then",
+      "external_conditions": "Applicable real-data/provider/spend/deployment/pilot conditions remain separate; no blanket approval"
+    },
+    {
+      "id": "F6",
+      "name": "Supervised pilot readiness",
+      "architecture_phase": "A5",
+      "status": "not_started",
+      "depends_on": [
+        "F5"
+      ],
+      "tests": [
+        {
+          "id": "F6-suite-1",
+          "command": null,
+          "suite": "Privacy/rights/consent/safeguarding review",
+          "availability": "planned",
+          "required": true,
+          "result": "not_run",
+          "evidence": []
+        },
+        {
+          "id": "F6-suite-2",
+          "command": null,
+          "suite": "Security/restore/deletion/accessibility",
+          "availability": "planned",
+          "required": true,
+          "result": "not_run",
+          "evidence": []
+        },
+        {
+          "id": "F6-suite-3",
+          "command": null,
+          "suite": "Content/educator quality review",
+          "availability": "planned",
+          "required": true,
+          "result": "not_run",
+          "evidence": []
+        },
+        {
+          "id": "F6-suite-4",
+          "command": null,
+          "suite": "Pilot authorization and incident coverage",
+          "availability": "planned",
+          "required": true,
+          "result": "not_run",
+          "evidence": []
+        }
+      ],
+      "review": {
+        "result": "pending",
+        "reviewer": null,
+        "evidence": []
+      },
+      "blockers": [],
+      "transition_rule": "All required checks pass with real evidence, independent review passes, required blockers cleared; no next phase until then",
+      "external_conditions": "Applicable real-data/provider/spend/deployment/pilot conditions remain separate; no blanket approval"
+    },
+    {
+      "id": "F7",
+      "name": "Commercial hardening",
+      "architecture_phase": "A6",
+      "status": "not_started",
+      "depends_on": [
+        "F6"
+      ],
+      "tests": [
+        {
+          "id": "F7-suite-1",
+          "command": null,
+          "suite": "Gateway signature/refund/entitlement negatives",
+          "availability": "planned",
+          "required": true,
+          "result": "not_run",
+          "evidence": []
+        },
+        {
+          "id": "F7-suite-2",
+          "command": null,
+          "suite": "Load/security and recovery",
+          "availability": "planned",
+          "required": true,
+          "result": "not_run",
+          "evidence": []
+        },
+        {
+          "id": "F7-suite-3",
+          "command": null,
+          "suite": "Actual full cost/pricing/support review",
+          "availability": "planned",
+          "required": true,
+          "result": "not_run",
+          "evidence": []
+        },
+        {
+          "id": "F7-suite-4",
+          "command": null,
+          "suite": "Commercial authorization",
+          "availability": "planned",
+          "required": true,
+          "result": "not_run",
+          "evidence": []
+        }
+      ],
+      "review": {
+        "result": "pending",
+        "reviewer": null,
+        "evidence": []
+      },
+      "blockers": [],
+      "transition_rule": "All required checks pass with real evidence, independent review passes, required blockers cleared; no next phase until then",
+      "external_conditions": "Applicable real-data/provider/spend/deployment/pilot conditions remain separate; no blanket approval"
+    },
+    {
+      "id": "F8",
+      "name": "Expansion",
+      "architecture_phase": "A7",
+      "status": "not_started",
+      "depends_on": [
+        "F7"
+      ],
+      "tests": [
+        {
+          "id": "F8-suite-1",
+          "command": null,
+          "suite": "Feature-specific regression and rights suites",
+          "availability": "planned",
+          "required": true,
+          "result": "not_run",
+          "evidence": []
+        },
+        {
+          "id": "F8-suite-2",
+          "command": null,
+          "suite": "New subject/curriculum compatibility",
+          "availability": "planned",
+          "required": true,
+          "result": "not_run",
+          "evidence": []
+        },
+        {
+          "id": "F8-suite-3",
+          "command": null,
+          "suite": "Teacher/interactive/local/realtime/training-specific gates",
+          "availability": "planned",
+          "required": true,
+          "result": "not_run",
+          "evidence": []
+        }
+      ],
+      "review": {
+        "result": "pending",
+        "reviewer": null,
+        "evidence": []
+      },
+      "blockers": [],
+      "transition_rule": "All required checks pass with real evidence, independent review passes, required blockers cleared; no next phase until then",
+      "external_conditions": "Applicable real-data/provider/spend/deployment/pilot conditions remain separate; no blanket approval"
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 # Sebaverse — AI-native adaptive tutoring master project
 
-Version 1.0 • 11 November 2026 • documentation and planning only.
+Version 1.1 • 11 November 2026 • development foundation; product runtime not implemented.
 
 Egypt-first, solo-founder, affordability-critical, globally extensible. The founder selected **Sebaverse** for brand development (U7). The project folder is Documents/Sebaverse; the existing repository and history are preserved. C visual identity with B blue/orange is selected (U10). No permanent slogan is selected; detailed brand/design review remains open. No application, paid model benchmark, deployment or real-student pilot has been implemented.
 
@@ -32,7 +32,7 @@ Technical architecture is selected under U11/U12. Next: audit the concrete basel
 
 `python3 tools/model_economics.py` rebuilds illustrative costs; unknown full-margin inputs stay null. `python3 tools/validate_project.py` verifies report inventory, hashes, requirement references, links and arithmetic. See [validation report](VALIDATION.md). These are document checks, not security certification or measured tutoring results.
 
-Project files are editable Markdown/JSON with local Git history. No remote repository or publishing is created. Later code starts only after product, brand/design and architecture gates, and a bounded technical PoC precedes real-student use.
+Project files are editable Markdown/JSON with preserved Git history. The founder designated https://github.com/EldonsLogic/sebaverse as the shared private remote under U13; verified milestone commits/pushes are authorized. Later code starts only after product, brand/design and architecture gates, and a bounded technical PoC precedes real-student use.
 
 ## Arabic-first identity trials
 
@@ -44,4 +44,10 @@ Project files are editable Markdown/JSON with local Git history. No remote repos
 
 ## Selected architecture and audit handoff
 
-[Technical baseline](architecture/technical-baseline.md), [all 99 features/functions](architecture/feature-function-matrix.md), [all 22 repo decisions](architecture/repository-adoption.md), and [subject-independent phases/PoC](execution/subject-independent-poc.md). [Shareable audit package](outputs/sebaverse-architecture-audit-v1/README.md). Design selected; no product or paid benchmarks built.
+[Technical baseline](architecture/technical-baseline.md), [all 104 features/functions](architecture/feature-function-matrix.md), [all 22 repo decisions](architecture/repository-adoption.md), and [subject-independent phases/PoC](execution/subject-independent-poc.md). [Shareable audit package](outputs/sebaverse-architecture-audit-v1/README.md). Design selected; no product or paid benchmarks built.
+
+## Development starts here — U13/U14
+
+[START-HERE](development/START-HERE.md) → [current checkpoint](development/CURRENT-STATE.md) → [step-by-step roadmap](development/ROADMAP.md) → [task graph](development/tasks.json) → [phase test gates](development/phase-gates.json). [Shared coding rules](development/ENGINEERING_RULES.md), [workflow](development/WORKFLOW.md) and [handover protocol](development/HANDOVER.md) keep Codex, Claude and Antigravity aligned. Root AGENTS.md is canonical; CLAUDE.md and the Antigravity rule point to it.
+
+Every phase must pass its relevant required tests and independent review before the next begins. `python3 tools/check_foundation.py` and `python3 -m unittest discover -s tools/tests -p test_foundation.py` verify the development task/phase contracts; these do not replace product phase tests. No paid provider use, deployment or real-minor handling is implied by the foundation authorization.

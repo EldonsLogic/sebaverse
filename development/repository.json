@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "url": "https://github.com/EldonsLogic/sebaverse",
+  "owner": "EldonsLogic",
+  "name": "sebaverse",
+  "canonical_branch": "main",
+  "visibility_observed": "private",
+  "observed_date": "2026-11-11",
+  "access_observed": "push/admin via existing gh authentication; no credentials recorded",
+  "initial_remote_state": "empty; git ls-remote returned no refs",
+  "policy": "Preserve original local history. Verified commits pushed after checks; no force push, secret upload or remote overwrite. Use feature branches/PRs for concurrent or high-impact work. Remote remains private unless founder explicitly changes it."
+}

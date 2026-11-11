@@ -4,3 +4,12 @@ work/
 .env
 .env.*
 !.env.example
+
+# Local tooling and private runtime data
+.venv/
+node_modules/
+.pytest_cache/
+.mypy_cache/
+.coverage
+coverage/
+.local/

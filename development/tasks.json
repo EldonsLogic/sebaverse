@@ -1,0 +1,1269 @@
+{
+  "version": "1.0",
+  "date": "2026-11-11",
+  "baseline": "U13 foundation/GitHub/agent-workflow instruction; U14 requires passing evidence-backed test gate after every phase before the next phase; U11/U12 selected architecture; requirement register remains authoritative.",
+  "status_vocabulary": [
+    "planned",
+    "ready",
+    "in_progress",
+    "review",
+    "blocked",
+    "done"
+  ],
+  "phase_source": "development/phase-gates.json F0–F8; architecture A1–A7 equivalents retained per task",
+  "implementation_status": "No product implementation claimed; current changes establish documentation and development workflow.",
+  "verification_policy": "Only existing commands may be reported run today. Planned make targets name intended task-specific verification contracts and must be created/reviewed before use. Evidence is empty until an actual run/review is recorded. Mandatory F0–F8 exit checks are defined in development/phase-gates.json. Missing/not-run/failed required tests keep a gate unpassed; optional comparisons require explicit disposition and cannot excuse mandatory safety/privacy/quality failures.",
+  "tasks": [
+    {
+      "id": "DEV-001",
+      "title": "Establish canonical GitHub source of truth",
+      "phase": "F0",
+      "status": "in_progress",
+      "requirements": [
+        "R012",
+        "R078",
+        "R088",
+        "R089",
+        "R100"
+      ],
+      "dependencies": [],
+      "owner_role": "Orchestrator",
+      "acceptance_criteria": [
+        "Verify repository identity/access/history before changing remotes.",
+        "Connect the original Sebaverse history without overwriting unrelated remote work.",
+        "Commit a reviewed bounded change and verify pushed branch/SHA; never claim a push from a local commit alone.",
+        "Record actual task checks for the mandatory phase exit gate; do not advance to the next phase until every required check passes and evidence/review is recorded."
+      ],
+      "verification": [
+        "python3 tools/validate_project.py",
+        "python3 tools/model_economics.py",
+        "python3 tools/check_foundation.py",
+        "python3 -m unittest discover -s tools/tests -p test_foundation.py"
+      ],
+      "execution_condition": "All preceding mandatory phase exit tests passed with recorded evidence/review. U13 authorizes foundation documentation and GitHub commit/push workflow; preserve source evidence and do not approve broader gates.",
+      "evidence": [],
+      "files": [
+        "README.md",
+        "development/GITHUB-WORKFLOW.md",
+        "development/repository.json"
+      ],
+      "verification_contracts": [
+        {
+          "command": "python3 tools/validate_project.py",
+          "availability": "existing",
+          "notes": "Artifact integrity, references and arithmetic only; not product validation."
+        },
+        {
+          "command": "python3 tools/model_economics.py",
+          "availability": "existing",
+          "notes": "Recomputes planning assumptions; does not measure costs or profitability."
+        },
+        {
+          "command": "python3 tools/check_foundation.py",
+          "availability": "existing",
+          "notes": "Foundation contract check/negative fixtures; no product result claimed."
+        },
+        {
+          "command": "python3 -m unittest discover -s tools/tests -p test_foundation.py",
+          "availability": "existing",
+          "notes": "Foundation contract check/negative fixtures; no product result claimed."
+        }
+      ],
+      "architecture_phase": "A1",
+      "phase_exit_gate": "F0"
+    },
+    {
+      "id": "DEV-002",
+      "title": "Adopt shared coding and orchestration rules with provenance",
+      "phase": "F0",
+      "status": "in_progress",
+      "requirements": [
+        "R003",
+        "R006",
+        "R081",
+        "R088",
+        "R090",
+        "R102",
+        "R103"
+      ],
+      "dependencies": [],
+      "owner_role": "Documentation",
+      "acceptance_criteria": [
+        "Record pinned upstream source and licensing limitations; external guidance is adapted beneath project/user authority.",
+        "Extract image content faithfully, preserve source and mark uncertain text.",
+        "Define bounded role contracts, ownership, independent review and real-evidence requirements without pretending 30 agents are running.",
+        "Record actual task checks for the mandatory phase exit gate; do not advance to the next phase until every required check passes and evidence/review is recorded."
+      ],
+      "verification": [
+        "python3 tools/validate_project.py",
+        "python3 tools/model_economics.py",
+        "python3 tools/check_foundation.py",
+        "python3 -m unittest discover -s tools/tests -p test_foundation.py"
+      ],
+      "execution_condition": "All preceding mandatory phase exit tests passed with recorded evidence/review. U13 authorizes foundation documentation and GitHub commit/push workflow; preserve source evidence and do not approve broader gates.",
+      "evidence": [],
+      "files": [
+        "AGENTS.md",
+        "CLAUDE.md",
+        "development/",
+        "sources/"
+      ],
+      "verification_contracts": [
+        {
+          "command": "python3 tools/validate_project.py",
+          "availability": "existing",
+          "notes": "Artifact integrity, references and arithmetic only; not product validation."
+        },
+        {
+          "command": "python3 tools/model_economics.py",
+          "availability": "existing",
+          "notes": "Recomputes planning assumptions; does not measure costs or profitability."
+        },
+        {
+          "command": "python3 tools/check_foundation.py",
+          "availability": "existing",
+          "notes": "Foundation contract check/negative fixtures; no product result claimed."
+        },
+        {
+          "command": "python3 -m unittest discover -s tools/tests -p test_foundation.py",
+          "availability": "existing",
+          "notes": "Foundation contract check/negative fixtures; no product result claimed."
+        }
+      ],
+      "architecture_phase": "A1",
+      "phase_exit_gate": "F0"
+    },
+    {
+      "id": "DEV-003",
+      "title": "Install development task and handover operating system",
+      "phase": "F0",
+      "status": "in_progress",
+      "requirements": [
+        "R086",
+        "R087",
+        "R088",
+        "R089",
+        "R101",
+        "R104"
+      ],
+      "dependencies": [],
+      "owner_role": "Planner",
+      "acceptance_criteria": [
+        "Stable task IDs include requirement links, dependencies, owners, file scopes and acceptance.",
+        "A new agent can identify current task, actual checks, unresolved gates and one next action from committed state.",
+        "Task states and evidence distinguish planned, implemented, verified, blocked and not-run work.",
+        "Record actual task checks for the mandatory phase exit gate; do not advance to the next phase until every required check passes and evidence/review is recorded."
+      ],
+      "verification": [
+        "python3 tools/validate_project.py",
+        "python3 tools/model_economics.py",
+        "python3 tools/check_foundation.py",
+        "python3 -m unittest discover -s tools/tests -p test_foundation.py"
+      ],
+      "execution_condition": "All preceding mandatory phase exit tests passed with recorded evidence/review. U13 authorizes foundation documentation and GitHub commit/push workflow; preserve source evidence and do not approve broader gates.",
+      "evidence": [],
+      "files": [
+        "development/ROADMAP.md",
+        "development/tasks.json",
+        "development/handover/"
+      ],
+      "verification_contracts": [
+        {
+          "command": "python3 tools/validate_project.py",
+          "availability": "existing",
+          "notes": "Artifact integrity, references and arithmetic only; not product validation."
+        },
+        {
+          "command": "python3 tools/model_economics.py",
+          "availability": "existing",
+          "notes": "Recomputes planning assumptions; does not measure costs or profitability."
+        },
+        {
+          "command": "python3 tools/check_foundation.py",
+          "availability": "existing",
+          "notes": "Foundation contract check/negative fixtures; no product result claimed."
+        },
+        {
+          "command": "python3 -m unittest discover -s tools/tests -p test_foundation.py",
+          "availability": "existing",
+          "notes": "Foundation contract check/negative fixtures; no product result claimed."
+        }
+      ],
+      "architecture_phase": "A1",
+      "phase_exit_gate": "F0"
+    },
+    {
+      "id": "DEV-004",
+      "title": "Package execution readiness and approval record",
+      "phase": "F0",
+      "status": "in_progress",
+      "requirements": [
+        "R001",
+        "R005",
+        "R041",
+        "R058",
+        "R077",
+        "R081",
+        "R090",
+        "R099",
+        "R104"
+      ],
+      "dependencies": [],
+      "owner_role": "Risk & Approval",
+      "acceptance_criteria": [
+        "Separate approval of foundation/docs/GitHub workflow from code/live-call/pilot/commercial permissions.",
+        "List exact local synthetic PoC scope, dependency review, timebox and live-call cap status.",
+        "Do not request a German curriculum to settle architecture or invent whole-gate approval.",
+        "Record actual task checks for the mandatory phase exit gate; do not advance to the next phase until every required check passes and evidence/review is recorded."
+      ],
+      "verification": [
+        "python3 tools/validate_project.py",
+        "python3 tools/model_economics.py",
+        "python3 tools/check_foundation.py",
+        "python3 -m unittest discover -s tools/tests -p test_foundation.py"
+      ],
+      "execution_condition": "All preceding mandatory phase exit tests passed with recorded evidence/review. U13 authorizes foundation documentation and GitHub commit/push workflow; preserve source evidence and do not approve broader gates.",
+      "evidence": [],
+      "files": [
+        "development/",
+        "execution/roadmap-and-gates.md",
+        "registers/decisions-risks-unknowns.md"
+      ],
+      "verification_contracts": [
+        {
+          "command": "python3 tools/validate_project.py",
+          "availability": "existing",
+          "notes": "Artifact integrity, references and arithmetic only; not product validation."
+        },
+        {
+          "command": "python3 tools/model_economics.py",
+          "availability": "existing",
+          "notes": "Recomputes planning assumptions; does not measure costs or profitability."
+        },
+        {
+          "command": "python3 tools/check_foundation.py",
+          "availability": "existing",
+          "notes": "Foundation contract check/negative fixtures; no product result claimed."
+        },
+        {
+          "command": "python3 -m unittest discover -s tools/tests -p test_foundation.py",
+          "availability": "existing",
+          "notes": "Foundation contract check/negative fixtures; no product result claimed."
+        }
+      ],
+      "architecture_phase": "A1",
+      "phase_exit_gate": "F0"
+    },
+    {
+      "id": "DEV-005",
+      "title": "Resolve minimal toolchain and dependency locks",
+      "phase": "F1",
+      "status": "planned",
+      "requirements": [
+        "R006",
+        "R075",
+        "R081",
+        "R082",
+        "R083",
+        "R084",
+        "R085"
+      ],
+      "dependencies": [
+        "DEV-004"
+      ],
+      "owner_role": "Infrastructure",
+      "acceptance_criteria": [
+        "Resolve compatible patched Django/DRF/Python and React/TS/Vite tooling within selected architecture.",
+        "Record exact releases/digests, notices, dependency scans and model/asset rights; separate parser/evaluation dependencies.",
+        "No whole DeepTutor/LearnHouse runtime or quarantined EduStudio revision installed.",
+        "Record actual task checks for the mandatory phase exit gate; do not advance to the next phase until every required check passes and evidence/review is recorded."
+      ],
+      "verification": [
+        "make dependency-check"
+      ],
+      "execution_condition": "All preceding mandatory phase exit tests passed with recorded evidence/review. Applicable G1–G3 execution decisions recorded; synthetic fixtures only; exact dependency/license/security closure reviewed. No paid calls or deployment implied.",
+      "evidence": [],
+      "files": [
+        "backend/pyproject.toml",
+        "backend/*lock*",
+        "web/package.json",
+        "web/*lock*",
+        "workers/parser/pyproject.toml",
+        "third-party/"
+      ],
+      "verification_contracts": [
+        {
+          "command": "make dependency-check",
+          "availability": "planned",
+          "notes": "Command/test location must be created and recorded by this task; not currently runnable or passed."
+        }
+      ],
+      "architecture_phase": "A1",
+      "phase_exit_gate": "F1"
+    },
+    {
+      "id": "DEV-006",
+      "title": "Create runnable local application skeleton",
+      "phase": "F2",
+      "status": "planned",
+      "requirements": [
+        "R054",
+        "R075",
+        "R078",
+        "R094",
+        "R097",
+        "R098"
+      ],
+      "dependencies": [
+        "DEV-005"
+      ],
+      "owner_role": "Backend",
+      "acceptance_criteria": [
+        "Local documented startup provides Django health endpoint and Arabic-first static React shell.",
+        "No Node production backend, provider key requirement or real data; use selected design tokens.",
+        "Document environment variables, prerequisite commands and safe teardown.",
+        "Record actual task checks for the mandatory phase exit gate; do not advance to the next phase until every required check passes and evidence/review is recorded."
+      ],
+      "verification": [
+        "make smoke-local"
+      ],
+      "execution_condition": "All preceding mandatory phase exit tests passed with recorded evidence/review. Applicable G1–G3 execution decisions recorded; synthetic fixtures only; exact dependency/license/security closure reviewed. No paid calls or deployment implied.",
+      "evidence": [],
+      "files": [
+        "backend/config/",
+        "backend/modules/",
+        "web/src/app/",
+        "web/src/ui/",
+        "infra/local/",
+        "Makefile"
+      ],
+      "verification_contracts": [
+        {
+          "command": "make smoke-local",
+          "availability": "planned",
+          "notes": "Command/test location must be created and recorded by this task; not currently runnable or passed."
+        }
+      ],
+      "architecture_phase": "A2",
+      "phase_exit_gate": "F2"
+    },
+    {
+      "id": "DEV-007",
+      "title": "Create schemas and authored multi-subject fixtures",
+      "phase": "F3",
+      "status": "planned",
+      "requirements": [
+        "R035",
+        "R036",
+        "R041",
+        "R042",
+        "R043",
+        "R075",
+        "R094",
+        "R099"
+      ],
+      "dependencies": [
+        "DEV-006"
+      ],
+      "owner_role": "Architect",
+      "acceptance_criteria": [
+        "Version profiles, editions, collections, objectives, items and rubrics through validated schemas.",
+        "Author rights-controlled language, quantitative and science fixture materials with two editions and private overlay.",
+        "Do not insert subject-specific core schema branches or actual child data.",
+        "Record actual task checks for the mandatory phase exit gate; do not advance to the next phase until every required check passes and evidence/review is recorded."
+      ],
+      "verification": [
+        "make test-contracts"
+      ],
+      "execution_condition": "All preceding mandatory phase exit tests passed with recorded evidence/review. Applicable G1–G3 execution decisions recorded; synthetic fixtures only; exact dependency/license/security closure reviewed. No paid calls or deployment implied.",
+      "evidence": [],
+      "files": [
+        "contracts/",
+        "backend/modules/curriculum/",
+        "evals/fixtures/"
+      ],
+      "verification_contracts": [
+        {
+          "command": "make test-contracts",
+          "availability": "planned",
+          "notes": "Command/test location must be created and recorded by this task; not currently runnable or passed."
+        }
+      ],
+      "architecture_phase": "A2",
+      "phase_exit_gate": "F3"
+    },
+    {
+      "id": "DEV-008",
+      "title": "Implement actor/learner access and consent boundaries",
+      "phase": "F3",
+      "status": "planned",
+      "requirements": [
+        "R051",
+        "R053",
+        "R056",
+        "R057",
+        "R060",
+        "R067"
+      ],
+      "dependencies": [
+        "DEV-007"
+      ],
+      "owner_role": "Security",
+      "acceptance_criteria": [
+        "Server-derived actor/learner relationship, purpose consent and entitlement checks protect every service.",
+        "Same-origin sessions/CSRF and object scope enforced; role/paid/consent flags never trusted from browser or model.",
+        "At least 100 negative scope tests across tenants/learners/courses/versions/files/jobs/streams; no unauthorized success.",
+        "Record actual task checks for the mandatory phase exit gate; do not advance to the next phase until every required check passes and evidence/review is recorded."
+      ],
+      "verification": [
+        "make test-authorization"
+      ],
+      "execution_condition": "All preceding mandatory phase exit tests passed with recorded evidence/review. Applicable G1–G3 execution decisions recorded; synthetic fixtures only; exact dependency/license/security closure reviewed. No paid calls or deployment implied.",
+      "evidence": [],
+      "files": [
+        "backend/modules/identity/",
+        "backend/modules/access/",
+        "backend/tests/authorization/"
+      ],
+      "verification_contracts": [
+        {
+          "command": "make test-authorization",
+          "availability": "planned",
+          "notes": "Command/test location must be created and recorded by this task; not currently runnable or passed."
+        }
+      ],
+      "architecture_phase": "A2",
+      "phase_exit_gate": "F3"
+    },
+    {
+      "id": "DEV-009",
+      "title": "Implement durable jobs, usage reservations and cancellation",
+      "phase": "F3",
+      "status": "planned",
+      "requirements": [
+        "R062",
+        "R067",
+        "R068",
+        "R069",
+        "R070",
+        "R075",
+        "R080"
+      ],
+      "dependencies": [
+        "DEV-008"
+      ],
+      "owner_role": "Backend",
+      "acceptance_criteria": [
+        "Mock adapters normalize capabilities, request IDs, units, errors and cancellation.",
+        "Leases, fences, idempotency, bounded retries and unknown vendor billing state survive crash/replay fixtures.",
+        "No open transaction across network calls; hard quota rejects new billable work; cancellation prevents stale effects.",
+        "Record actual task checks for the mandatory phase exit gate; do not advance to the next phase until every required check passes and evidence/review is recorded."
+      ],
+      "verification": [
+        "make test-resilience"
+      ],
+      "execution_condition": "All preceding mandatory phase exit tests passed with recorded evidence/review. Applicable G1–G3 execution decisions recorded; synthetic fixtures only; exact dependency/license/security closure reviewed. No paid calls or deployment implied.",
+      "evidence": [],
+      "files": [
+        "backend/modules/operations/",
+        "backend/modules/usage/",
+        "backend/modules/providers/",
+        "backend/tests/resilience/"
+      ],
+      "verification_contracts": [
+        {
+          "command": "make test-resilience",
+          "availability": "planned",
+          "notes": "Command/test location must be created and recorded by this task; not currently runnable or passed."
+        }
+      ],
+      "architecture_phase": "A2",
+      "phase_exit_gate": "F3"
+    },
+    {
+      "id": "DEV-010",
+      "title": "Implement isolated upload and extraction lifecycle",
+      "phase": "F3",
+      "status": "planned",
+      "requirements": [
+        "R037",
+        "R038",
+        "R039",
+        "R040",
+        "R041",
+        "R042",
+        "R046"
+      ],
+      "dependencies": [
+        "DEV-007",
+        "DEV-008",
+        "DEV-009"
+      ],
+      "owner_role": "Integration",
+      "acceptance_criteria": [
+        "Allocate private quarantined objects with byte/type/page/time limits and scope-bound job manifests.",
+        "Scanner failure/unavailability never bypasses into parsing; parser has no learner DB credentials or broad egress.",
+        "Broker validates output provenance/quality and handles cancel/retry/delete/withdraw without stale publication.",
+        "Record actual task checks for the mandatory phase exit gate; do not advance to the next phase until every required check passes and evidence/review is recorded."
+      ],
+      "verification": [
+        "make test-ingestion"
+      ],
+      "execution_condition": "All preceding mandatory phase exit tests passed with recorded evidence/review. Applicable G1–G3 execution decisions recorded; synthetic fixtures only; exact dependency/license/security closure reviewed. No paid calls or deployment implied.",
+      "evidence": [],
+      "files": [
+        "backend/modules/ingestion/",
+        "workers/parser/",
+        "infra/scanner/",
+        "backend/tests/ingestion/"
+      ],
+      "verification_contracts": [
+        {
+          "command": "make test-ingestion",
+          "availability": "planned",
+          "notes": "Command/test location must be created and recorded by this task; not currently runnable or passed."
+        }
+      ],
+      "architecture_phase": "A3",
+      "phase_exit_gate": "F3"
+    },
+    {
+      "id": "DEV-011",
+      "title": "Implement curriculum review, versioning and publication",
+      "phase": "F3",
+      "status": "planned",
+      "requirements": [
+        "R035",
+        "R036",
+        "R041",
+        "R042",
+        "R043",
+        "R095",
+        "R099"
+      ],
+      "dependencies": [
+        "DEV-007",
+        "DEV-010"
+      ],
+      "owner_role": "Backend",
+      "acceptance_criteria": [
+        "Private-ready sources and shared built-in publication have separate ownership/approval paths.",
+        "Reviewed item/rubric/source/objective versions remain pinned to active sessions.",
+        "Adding a third supported subject uses approved configuration/content without core schema/state-machine edits.",
+        "Record actual task checks for the mandatory phase exit gate; do not advance to the next phase until every required check passes and evidence/review is recorded."
+      ],
+      "verification": [
+        "make test-curriculum"
+      ],
+      "execution_condition": "All preceding mandatory phase exit tests passed with recorded evidence/review. Applicable G1–G3 execution decisions recorded; synthetic fixtures only; exact dependency/license/security closure reviewed. No paid calls or deployment implied.",
+      "evidence": [],
+      "files": [
+        "backend/modules/curriculum/",
+        "backend/modules/assessment/",
+        "web/src/features/source-review/"
+      ],
+      "verification_contracts": [
+        {
+          "command": "make test-curriculum",
+          "availability": "planned",
+          "notes": "Command/test location must be created and recorded by this task; not currently runnable or passed."
+        }
+      ],
+      "architecture_phase": "A3",
+      "phase_exit_gate": "F3"
+    },
+    {
+      "id": "DEV-012",
+      "title": "Implement scoped retrieval and citation resolver",
+      "phase": "F3",
+      "status": "planned",
+      "requirements": [
+        "R044",
+        "R045",
+        "R046",
+        "R069"
+      ],
+      "dependencies": [
+        "DEV-008",
+        "DEV-011"
+      ],
+      "owner_role": "Backend",
+      "acceptance_criteria": [
+        "Compare lexical, scoped exact dense and hybrid candidates using approved indexes; incompatible embedding spaces never mix.",
+        "Citation access rechecks live permission/source version; answer keys and private cross-learner chunks remain excluded.",
+        "Report recall@5/abstention/support by subject/language; target >=90% for answerable retrieval and abstention, zero fabricated/unauthorized citations.",
+        "Record actual task checks for the mandatory phase exit gate; do not advance to the next phase until every required check passes and evidence/review is recorded."
+      ],
+      "verification": [
+        "make eval-retrieval"
+      ],
+      "execution_condition": "All preceding mandatory phase exit tests passed with recorded evidence/review. Applicable G1–G3 execution decisions recorded; synthetic fixtures only; exact dependency/license/security closure reviewed. No paid calls or deployment implied.",
+      "evidence": [],
+      "files": [
+        "backend/modules/retrieval/",
+        "evals/retrieval/"
+      ],
+      "verification_contracts": [
+        {
+          "command": "make eval-retrieval",
+          "availability": "planned",
+          "notes": "Command/test location must be created and recorded by this task; not currently runnable or passed."
+        }
+      ],
+      "architecture_phase": "A3",
+      "phase_exit_gate": "F3"
+    },
+    {
+      "id": "DEV-013",
+      "title": "Implement bounded tutoring state machine and mock UI loop",
+      "phase": "F4",
+      "status": "planned",
+      "requirements": [
+        "R013",
+        "R014",
+        "R015",
+        "R017",
+        "R019",
+        "R023",
+        "R028",
+        "R053",
+        "R062",
+        "R067"
+      ],
+      "dependencies": [
+        "DEV-009",
+        "DEV-012"
+      ],
+      "owner_role": "Backend",
+      "acceptance_criteria": [
+        "Deterministic allowed states/actions and typed tools govern diagnose/explain/guide/practice/review/pause.",
+        "REST starts durable turns; authenticated SSE replays validated blocks/checkpoints, not raw unchecked content.",
+        "Scope revocation, hint exposure, outage, cancellation and late results cannot mutate wrong item/session.",
+        "Record actual task checks for the mandatory phase exit gate; do not advance to the next phase until every required check passes and evidence/review is recorded."
+      ],
+      "verification": [
+        "make test-tutor-state"
+      ],
+      "execution_condition": "All preceding mandatory phase exit tests passed with recorded evidence/review. Applicable G1–G3 execution decisions recorded; synthetic fixtures only; exact dependency/license/security closure reviewed. No paid calls or deployment implied.",
+      "evidence": [],
+      "files": [
+        "backend/modules/tutoring/",
+        "web/src/features/tutor/",
+        "contracts/tutor/"
+      ],
+      "verification_contracts": [
+        {
+          "command": "make test-tutor-state",
+          "availability": "planned",
+          "notes": "Command/test location must be created and recorded by this task; not currently runnable or passed."
+        }
+      ],
+      "architecture_phase": "A3",
+      "phase_exit_gate": "F4"
+    },
+    {
+      "id": "DEV-014",
+      "title": "Implement reviewed assessment and replayable learning evidence",
+      "phase": "F4",
+      "status": "planned",
+      "requirements": [
+        "R020",
+        "R024",
+        "R025",
+        "R026",
+        "R027",
+        "R029",
+        "R030",
+        "R031",
+        "R067",
+        "R092"
+      ],
+      "dependencies": [
+        "DEV-011",
+        "DEV-013"
+      ],
+      "owner_role": "Backend",
+      "acceptance_criteria": [
+        "Independent, assisted, exposed and ambiguous evidence stay distinct; unknown remains unknown.",
+        "Deterministic reviewed grading passes reference cases; uncertain model proposals held for review.",
+        "Duplicate/correction/out-of-order replay yields stable projection; fixed recall schedule separate from mastery, FSRS comparison bounded.",
+        "Record actual task checks for the mandatory phase exit gate; do not advance to the next phase until every required check passes and evidence/review is recorded."
+      ],
+      "verification": [
+        "make test-learning-ledger"
+      ],
+      "execution_condition": "All preceding mandatory phase exit tests passed with recorded evidence/review. Applicable G1–G3 execution decisions recorded; synthetic fixtures only; exact dependency/license/security closure reviewed. No paid calls or deployment implied.",
+      "evidence": [],
+      "files": [
+        "backend/modules/assessment/",
+        "backend/modules/learning/",
+        "backend/tests/learning/"
+      ],
+      "verification_contracts": [
+        {
+          "command": "make test-learning-ledger",
+          "availability": "planned",
+          "notes": "Command/test location must be created and recorded by this task; not currently runnable or passed."
+        }
+      ],
+      "architecture_phase": "A3",
+      "phase_exit_gate": "F4"
+    },
+    {
+      "id": "DEV-015",
+      "title": "Complete accessible learner and parent vertical slice",
+      "phase": "F4",
+      "status": "planned",
+      "requirements": [
+        "R010",
+        "R011",
+        "R047",
+        "R054",
+        "R055",
+        "R056",
+        "R097",
+        "R098"
+      ],
+      "dependencies": [
+        "DEV-013",
+        "DEV-014"
+      ],
+      "owner_role": "Frontend",
+      "acceptance_criteria": [
+        "Responsive RTL/mixed-language study, upload/source inspection, assistance-aware progress and parent summary use shared components.",
+        "Keyboard, focus, reflow, labels, contrast and text fallback tested; parent sees only authorized scope and uncertainty.",
+        "No permanent door-based slogan or fabricated attainment percentage.",
+        "Record actual task checks for the mandatory phase exit gate; do not advance to the next phase until every required check passes and evidence/review is recorded."
+      ],
+      "verification": [
+        "make test-web"
+      ],
+      "execution_condition": "All preceding mandatory phase exit tests passed with recorded evidence/review. Applicable G1–G3 execution decisions recorded; synthetic fixtures only; exact dependency/license/security closure reviewed. No paid calls or deployment implied.",
+      "evidence": [],
+      "files": [
+        "web/src/features/",
+        "web/src/ui/",
+        "web/tests/"
+      ],
+      "verification_contracts": [
+        {
+          "command": "make test-web",
+          "availability": "planned",
+          "notes": "Command/test location must be created and recorded by this task; not currently runnable or passed."
+        }
+      ],
+      "architecture_phase": "A3",
+      "phase_exit_gate": "F4"
+    },
+    {
+      "id": "DEV-016",
+      "title": "Complete privacy, telemetry, release and recovery baseline",
+      "phase": "F4",
+      "status": "planned",
+      "requirements": [
+        "R059",
+        "R061",
+        "R076",
+        "R078",
+        "R079",
+        "R080",
+        "R089"
+      ],
+      "dependencies": [
+        "DEV-009",
+        "DEV-015"
+      ],
+      "owner_role": "Operations",
+      "acceptance_criteria": [
+        "Metadata-only default traces and restricted audit; no child prompts/audio or personal metric labels.",
+        "Export/delete affects original/derived/cache/job state and restore replays deletion tombstones.",
+        "Versioned release manifest, dependency scans, regression fixtures and restore/rollback evidence ready for PoC review.",
+        "Record actual task checks for the mandatory phase exit gate; do not advance to the next phase until every required check passes and evidence/review is recorded."
+      ],
+      "verification": [
+        "make verify-poc"
+      ],
+      "execution_condition": "All preceding mandatory phase exit tests passed with recorded evidence/review. Applicable G1–G3 execution decisions recorded; synthetic fixtures only; exact dependency/license/security closure reviewed. No paid calls or deployment implied.",
+      "evidence": [],
+      "files": [
+        "backend/modules/operations/",
+        "infra/",
+        "evals/",
+        "development/runbooks/"
+      ],
+      "verification_contracts": [
+        {
+          "command": "make verify-poc",
+          "availability": "planned",
+          "notes": "Command/test location must be created and recorded by this task; not currently runnable or passed."
+        }
+      ],
+      "architecture_phase": "A3",
+      "phase_exit_gate": "F4"
+    },
+    {
+      "id": "DEV-017",
+      "title": "Evaluate providers and measured token/context economics",
+      "phase": "F5",
+      "status": "planned",
+      "requirements": [
+        "R062",
+        "R063",
+        "R064",
+        "R065",
+        "R068",
+        "R069",
+        "R070",
+        "R072",
+        "R073",
+        "R074"
+      ],
+      "dependencies": [
+        "DEV-016"
+      ],
+      "owner_role": "Benchmark",
+      "acceptance_criteria": [
+        "Use eligible matched tasks across OpenAI/Claude/Gemini/Chinese/open-weight candidates without assuming every candidate runs within cap.",
+        "Quality/privacy gates precede price; record exact model/terms/release, actual receipts and failed/cancelled auxiliary cost.",
+        "Report passed/failed/not-run and update sensitivity; no fabricated margin or self-hosting break-even.",
+        "Record actual task checks for the mandatory phase exit gate; do not advance to the next phase until every required check passes and evidence/review is recorded."
+      ],
+      "verification": [
+        "make eval-providers"
+      ],
+      "execution_condition": "All preceding mandatory phase exit tests passed with recorded evidence/review. Separate recorded data/provider/time/spend authorization plus preceding offline acceptance; no real-minor data.",
+      "evidence": [],
+      "files": [
+        "evals/providers/",
+        "economics/",
+        "backend/modules/providers/"
+      ],
+      "verification_contracts": [
+        {
+          "command": "make eval-providers",
+          "availability": "planned",
+          "notes": "Command/test location must be created and recorded by this task; not currently runnable or passed."
+        }
+      ],
+      "architecture_phase": "A4",
+      "phase_exit_gate": "F5"
+    },
+    {
+      "id": "DEV-018",
+      "title": "Evaluate rules, small classifier/LLM and Jev decision layer",
+      "phase": "F5",
+      "status": "planned",
+      "requirements": [
+        "R026",
+        "R028",
+        "R034",
+        "R066",
+        "R067"
+      ],
+      "dependencies": [
+        "DEV-016"
+      ],
+      "owner_role": "Evaluation",
+      "acceptance_criteria": [
+        "Freeze labeled subject/language/noise families with adjudicated ambiguity before tuning.",
+        "Compare rules, conventional classifier where feasible, small LLM and Jev with dangerous errors, abstention/calibration/cost/latency.",
+        "Shadow-only until reviewed benefit; no authority over consent, entitlement, score or mastery.",
+        "Record actual task checks for the mandatory phase exit gate; do not advance to the next phase until every required check passes and evidence/review is recorded."
+      ],
+      "verification": [
+        "make eval-decision-layer"
+      ],
+      "execution_condition": "All preceding mandatory phase exit tests passed with recorded evidence/review. Separate recorded data/provider/time/spend authorization plus preceding offline acceptance; no real-minor data.",
+      "evidence": [],
+      "files": [
+        "evals/decision-layer/",
+        "backend/modules/tutoring/policy/"
+      ],
+      "verification_contracts": [
+        {
+          "command": "make eval-decision-layer",
+          "availability": "planned",
+          "notes": "Command/test location must be created and recorded by this task; not currently runnable or passed."
+        }
+      ],
+      "architecture_phase": "A4",
+      "phase_exit_gate": "F5"
+    },
+    {
+      "id": "DEV-019",
+      "title": "Implement and evaluate capped multilingual push-to-talk voice",
+      "phase": "F5",
+      "status": "planned",
+      "requirements": [
+        "R016",
+        "R054",
+        "R062",
+        "R071"
+      ],
+      "dependencies": [
+        "DEV-015",
+        "DEV-017"
+      ],
+      "owner_role": "Integration",
+      "acceptance_criteria": [
+        "Explicit mic start/stop/cancel, editable transcript and text fallback; audio transient unless separately authorized retention.",
+        "Use licensed/consented adult fixtures; measure Egyptian Arabic/MSA/English/code-switching critical-entity accuracy and latency.",
+        "Compare cascade vs realtime only within cap; record actual units and uncertainty; ASR confidence is not pronunciation grading.",
+        "Record actual task checks for the mandatory phase exit gate; do not advance to the next phase until every required check passes and evidence/review is recorded."
+      ],
+      "verification": [
+        "make eval-voice"
+      ],
+      "execution_condition": "All preceding mandatory phase exit tests passed with recorded evidence/review. Separate recorded data/provider/time/spend authorization plus preceding offline acceptance; no real-minor data.",
+      "evidence": [],
+      "files": [
+        "web/src/features/voice/",
+        "backend/modules/providers/speech/",
+        "evals/voice/"
+      ],
+      "verification_contracts": [
+        {
+          "command": "make eval-voice",
+          "availability": "planned",
+          "notes": "Command/test location must be created and recorded by this task; not currently runnable or passed."
+        }
+      ],
+      "architecture_phase": "A4",
+      "phase_exit_gate": "F5"
+    },
+    {
+      "id": "DEV-020",
+      "title": "Run optional DeepTutor extraction and advanced grading spikes",
+      "phase": "F5",
+      "status": "planned",
+      "requirements": [
+        "R020",
+        "R034",
+        "R039",
+        "R081",
+        "R083"
+      ],
+      "dependencies": [
+        "DEV-016"
+      ],
+      "owner_role": "Architect",
+      "acceptance_criteria": [
+        "Reference-only baseline remains runnable without upstream runtime.",
+        "Any extracted candidate has exact file/source hashes, closure/notices, scope/cancel/receipt tests and maintenance comparison.",
+        "Stop extraction at three engineer-days or full-runtime dependency; preserve owned implementation if no benefit.",
+        "Record actual task checks for the mandatory phase exit gate; do not advance to the next phase until every required check passes and evidence/review is recorded."
+      ],
+      "verification": [
+        "make eval-reuse-spike"
+      ],
+      "execution_condition": "All preceding mandatory phase exit tests passed with recorded evidence/review. Separate recorded data/provider/time/spend authorization plus preceding offline acceptance; no real-minor data.",
+      "evidence": [],
+      "files": [
+        "work/spikes/",
+        "evals/reuse/",
+        "architecture/"
+      ],
+      "verification_contracts": [
+        {
+          "command": "make eval-reuse-spike",
+          "availability": "planned",
+          "notes": "Command/test location must be created and recorded by this task; not currently runnable or passed."
+        }
+      ],
+      "architecture_phase": "A4",
+      "phase_exit_gate": "F5"
+    },
+    {
+      "id": "DEV-021",
+      "title": "Produce PoC exit and pilot readiness package",
+      "phase": "F5",
+      "status": "planned",
+      "requirements": [
+        "R005",
+        "R008",
+        "R053",
+        "R058",
+        "R076",
+        "R087",
+        "R090",
+        "R093"
+      ],
+      "dependencies": [
+        "DEV-016",
+        "DEV-017",
+        "DEV-018",
+        "DEV-019",
+        "DEV-020"
+      ],
+      "owner_role": "Audit",
+      "acceptance_criteria": [
+        "Report each optional comparison passed/failed/not-run; an approved not-run disposition can satisfy dependency readiness without inventing a result.",
+        "Block pilot on isolation/privacy/critical safety failure regardless of averages.",
+        "Record actual content/processor/guardian/support decisions and founder/qualified review before G5; do not confuse synthetic PoC success with efficacy.",
+        "Record actual task checks for the mandatory phase exit gate; do not advance to the next phase until every required check passes and evidence/review is recorded."
+      ],
+      "verification": [
+        "make verify-poc"
+      ],
+      "execution_condition": "All preceding mandatory phase exit tests passed with recorded evidence/review. Separate recorded data/provider/time/spend authorization plus preceding offline acceptance; no real-minor data.",
+      "evidence": [],
+      "files": [
+        "development/reviews/",
+        "execution/",
+        "registers/"
+      ],
+      "verification_contracts": [
+        {
+          "command": "make verify-poc",
+          "availability": "planned",
+          "notes": "Command/test location must be created and recorded by this task; not currently runnable or passed."
+        }
+      ],
+      "architecture_phase": "A4",
+      "phase_exit_gate": "F5"
+    },
+    {
+      "id": "DEV-022",
+      "title": "Build supervised pilot with reviewed content and bounded access",
+      "phase": "F6",
+      "status": "planned",
+      "requirements": [
+        "R004",
+        "R005",
+        "R008",
+        "R017",
+        "R020",
+        "R022",
+        "R023",
+        "R035",
+        "R037",
+        "R038",
+        "R043",
+        "R047",
+        "R051",
+        "R053",
+        "R057",
+        "R058",
+        "R061",
+        "R095"
+      ],
+      "dependencies": [
+        "DEV-021"
+      ],
+      "owner_role": "Operations",
+      "acceptance_criteria": [
+        "Use explicitly approved real content, onboarding/consent route, grants/quotas and support ownership.",
+        "Pilot can start in any approved subject; German remains an initial example rather than architecture dependency.",
+        "Recruitment/data processing requires G5 authorization; collect independent/delayed outcomes and support cost with uncertainty.",
+        "Record actual task checks for the mandatory phase exit gate; do not advance to the next phase until every required check passes and evidence/review is recorded."
+      ],
+      "verification": [
+        "make verify-pilot-readiness"
+      ],
+      "execution_condition": "All preceding mandatory phase exit tests passed with recorded evidence/review. G4 evidence and G5 readiness/authorization with reviewed content, consent/privacy, safeguarding and support.",
+      "evidence": [],
+      "files": [
+        "backend/",
+        "web/",
+        "development/runbooks/",
+        "evals/pilot/"
+      ],
+      "verification_contracts": [
+        {
+          "command": "make verify-pilot-readiness",
+          "availability": "planned",
+          "notes": "Command/test location must be created and recorded by this task; not currently runnable or passed."
+        }
+      ],
+      "architecture_phase": "A5",
+      "phase_exit_gate": "F6"
+    },
+    {
+      "id": "DEV-023",
+      "title": "Add commercial payments, opt-in messaging and operational hardening",
+      "phase": "F7",
+      "status": "planned",
+      "requirements": [
+        "R007",
+        "R048",
+        "R049",
+        "R051",
+        "R052",
+        "R070",
+        "R073",
+        "R078",
+        "R080"
+      ],
+      "dependencies": [
+        "DEV-022"
+      ],
+      "owner_role": "Release",
+      "acceptance_criteria": [
+        "Gateway signature/dedup/refund reconciliation controls entitlements; no browser paid flag or card storage.",
+        "Opt-in minimal WhatsApp reports use approved channel/recipient/template/opt-out and authenticated portal link.",
+        "Deploy/collect/send only within explicit approval; validate full costs, refunds/renewal, accessibility, load/security and incident coverage.",
+        "Record actual task checks for the mandatory phase exit gate; do not advance to the next phase until every required check passes and evidence/review is recorded."
+      ],
+      "verification": [
+        "make verify-commercial-readiness"
+      ],
+      "execution_condition": "All preceding mandatory phase exit tests passed with recorded evidence/review. G6 commercial authorization; explicit collection/deployment/channel permissions and current account/terms review.",
+      "evidence": [],
+      "files": [
+        "backend/modules/commerce/",
+        "backend/modules/notifications/",
+        "infra/",
+        "development/runbooks/"
+      ],
+      "verification_contracts": [
+        {
+          "command": "make verify-commercial-readiness",
+          "availability": "planned",
+          "notes": "Command/test location must be created and recorded by this task; not currently runnable or passed."
+        }
+      ],
+      "architecture_phase": "A6",
+      "phase_exit_gate": "F7"
+    },
+    {
+      "id": "DEV-024",
+      "title": "Expand learning modes and teacher/classroom workflows",
+      "phase": "F8",
+      "status": "planned",
+      "requirements": [
+        "R018",
+        "R021",
+        "R022",
+        "R036",
+        "R050",
+        "R084",
+        "R091"
+      ],
+      "dependencies": [
+        "DEV-022"
+      ],
+      "owner_role": "Planner",
+      "acceptance_criteria": [
+        "Retain interactive representations, mock exams/accommodations, multimodal source interpretation and scoped teacher/classroom workflows.",
+        "Add supported subjects through reviewed configuration; specialist grading/representation uses adapters with separate evaluation.",
+        "Revisit LearnHouse/LMS only for validated institutional need with explicit rights/integration decision.",
+        "Record actual task checks for the mandatory phase exit gate; do not advance to the next phase until every required check passes and evidence/review is recorded."
+      ],
+      "verification": [
+        "make verify-expansion-slice"
+      ],
+      "execution_condition": "All preceding mandatory phase exit tests passed with recorded evidence/review. Feature-specific ADR/data/rights/budget approval and preceding pilot evidence; retained future requirement, not current implementation.",
+      "evidence": [],
+      "files": [
+        "backend/modules/",
+        "web/src/features/",
+        "architecture/"
+      ],
+      "verification_contracts": [
+        {
+          "command": "make verify-expansion-slice",
+          "availability": "planned",
+          "notes": "Command/test location must be created and recorded by this task; not currently runnable or passed."
+        }
+      ],
+      "architecture_phase": "A7",
+      "phase_exit_gate": "F8"
+    },
+    {
+      "id": "DEV-025",
+      "title": "Evaluate realtime/local inference and statistical learning models",
+      "phase": "F8",
+      "status": "planned",
+      "requirements": [
+        "R016",
+        "R030",
+        "R034",
+        "R065",
+        "R071",
+        "R072"
+      ],
+      "dependencies": [
+        "DEV-017",
+        "DEV-018",
+        "DEV-019",
+        "DEV-022"
+      ],
+      "owner_role": "Research",
+      "acceptance_criteria": [
+        "Realtime/Pipecat/local GPU changes require measured language/latency/cancellation/privacy/cost benefit.",
+        "BKT/logistic/IRT/deep-KT fitting uses adequate lawful data and held-out family/time splits; no prediction metric alone certifies teaching benefit.",
+        "Default remains inspectable bounded policy unless promotion criteria pass.",
+        "Record actual task checks for the mandatory phase exit gate; do not advance to the next phase until every required check passes and evidence/review is recorded."
+      ],
+      "verification": [
+        "make eval-advanced-options"
+      ],
+      "execution_condition": "All preceding mandatory phase exit tests passed with recorded evidence/review. Feature-specific ADR/data/rights/budget approval and preceding pilot evidence; retained future requirement, not current implementation.",
+      "evidence": [],
+      "files": [
+        "evals/",
+        "backend/modules/providers/",
+        "economics/",
+        "architecture/"
+      ],
+      "verification_contracts": [
+        {
+          "command": "make eval-advanced-options",
+          "availability": "planned",
+          "notes": "Command/test location must be created and recorded by this task; not currently runnable or passed."
+        }
+      ],
+      "architecture_phase": "A7",
+      "phase_exit_gate": "F8"
+    },
+    {
+      "id": "DEV-026",
+      "title": "Operate controlled improvement and long-term product evidence",
+      "phase": "F8",
+      "status": "planned",
+      "requirements": [
+        "R032",
+        "R033",
+        "R059",
+        "R074",
+        "R076",
+        "R079",
+        "R087",
+        "R093"
+      ],
+      "dependencies": [
+        "DEV-022"
+      ],
+      "owner_role": "Improvement",
+      "acceptance_criteria": [
+        "Separate learner adaptation, reviewed system fixes and separately authorized model-training experiments.",
+        "Frozen regressions, versioned change, independent review and rollback precede promotion; never automatic identifiable child-chat training.",
+        "Measure delayed independent transfer/retention, attrition, support and quality-adjusted costs; do not advertise unproven efficacy.",
+        "Record actual task checks for the mandatory phase exit gate; do not advance to the next phase until every required check passes and evidence/review is recorded."
+      ],
+      "verification": [
+        "make verify-improvement-release"
+      ],
+      "execution_condition": "All preceding mandatory phase exit tests passed with recorded evidence/review. Feature-specific ADR/data/rights/budget approval and preceding pilot evidence; retained future requirement, not current implementation.",
+      "evidence": [],
+      "files": [
+        "evals/",
+        "development/reviews/",
+        "registers/",
+        "architecture/"
+      ],
+      "verification_contracts": [
+        {
+          "command": "make verify-improvement-release",
+          "availability": "planned",
+          "notes": "Command/test location must be created and recorded by this task; not currently runnable or passed."
+        }
+      ],
+      "architecture_phase": "A7",
+      "phase_exit_gate": "F8"
+    }
+  ],
+  "schema_version": 1,
+  "phase_gate_policy": "A task may not enter in_progress/review/done in a later phase until all preceding mandatory phase exit tests pass and evidence/review is recorded. No product test is passed by this documentation release.",
+  "foundation_dependency_note": "F0 deliverables are independent preparation streams with disjoint drafting ownership; orchestrator integrates them and only closes the phase after all four tasks, tests, review and private push evidence. Later phases retain task dependencies and ordered phase gates."
+}

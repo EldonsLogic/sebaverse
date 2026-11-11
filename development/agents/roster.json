@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "run": "foundation-2026-11-11",
+  "max_concurrent_including_orchestrator": 4,
+  "paid_provider_budget_usd": 0,
+  "token_budget": null,
+  "token_usage": "unknown; no exact accounting tool available",
+  "agents": [
+    {
+      "agent": "/root",
+      "roles": [
+        "Orchestrator",
+        "Integration",
+        "Release"
+      ],
+      "status": "active",
+      "files": [
+        "AGENTS.md",
+        "CLAUDE.md",
+        ".agents/rules/sebaverse.md",
+        ".github/workflows/foundation.yml",
+        "sources/agent-guidance/",
+        "tools/check_foundation.py",
+        "tools/tests/",
+        "development/ except delegated scopes",
+        "registers/",
+        "README.md"
+      ],
+      "evidence": "Current task integration and tool logs"
+    },
+    {
+      "agent": "/root/development_plan",
+      "roles": [
+        "Planner"
+      ],
+      "status": "completed",
+      "files": [
+        "development/ROADMAP.md",
+        "development/tasks.json"
+      ],
+      "evidence": "Actual spawned worker returned scoped files and consistency findings"
+    },
+    {
+      "agent": "/root/handover_contracts",
+      "roles": [
+        "Documentation",
+        "Context"
+      ],
+      "status": "completed",
+      "files": [
+        "development/WORKFLOW.md",
+        "development/HANDOVER.md",
+        "development/templates/"
+      ],
+      "evidence": "Actual spawned worker returned four scoped artifacts and U14 updates"
+    },
+    {
+      "agent": "/root/independent_reviewer",
+      "roles": [
+        "Reviewer",
+        "Audit"
+      ],
+      "status": "completed",
+      "files": [],
+      "evidence": "development/evidence/independent-review.md"
+    }
+  ]
+}

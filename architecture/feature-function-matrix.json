@@ -1893,5 +1893,101 @@
     "status": "Technical baseline v1 selected for audit; unimplemented and unbenchmarked",
     "priority": "P0",
     "requirement_phase": "Gates"
+  },
+  {
+    "requirement_id": "R100",
+    "feature": "Shared private GitHub source of truth and verified milestone pushes",
+    "functions": "Verify remote identity/privacy; commit/review/push and reconcile local/remote SHA",
+    "phase": "F0 and every subsequent phase",
+    "build_reuse": "Owned workflow/check tooling; pinned source ideas adapted, no external source runtime",
+    "sources": [
+      "U13"
+    ],
+    "dependencies": [
+      "R078",
+      "R089"
+    ],
+    "acceptance_criteria": "Reviewed milestone commits preserve existing history in EldonsLogic/sebaverse; actual local/remote SHA checked; no force push, secrets or child data published",
+    "specification": "development/GITHUB-WORKFLOW.md",
+    "status": "Foundation implementation in progress; product runtime not implemented",
+    "priority": "P0",
+    "requirement_phase": "Foundation"
+  },
+  {
+    "requirement_id": "R101",
+    "feature": "Agent-neutral roadmap, task graph and durable handover",
+    "functions": "Claim task/file ownership; checkpoint evidence and exact next step across agents",
+    "phase": "F0 and every subsequent phase",
+    "build_reuse": "Owned workflow/check tooling; pinned source ideas adapted, no external source runtime",
+    "sources": [
+      "U13"
+    ],
+    "dependencies": [
+      "R086",
+      "R088"
+    ],
+    "acceptance_criteria": "Stable tasks, owners, dependencies, file scopes, acceptance, actual verification and exact next action persist across Codex/Claude/Antigravity sessions",
+    "specification": "development/HANDOVER.md",
+    "status": "Foundation implementation in progress; product runtime not implemented",
+    "priority": "P0",
+    "requirement_phase": "Foundation"
+  },
+  {
+    "requirement_id": "R102",
+    "feature": "Pinned coding-discipline guidance in shared project rules",
+    "functions": "Apply concise assumption/simplicity/focused-change/observable-success discipline",
+    "phase": "F0 and every subsequent phase",
+    "build_reuse": "Owned workflow/check tooling; pinned source ideas adapted, no external source runtime",
+    "sources": [
+      "U13"
+    ],
+    "dependencies": [
+      "R081",
+      "R088"
+    ],
+    "acceptance_criteria": "Record requested upstream commit/file/license limitation; adopt four ideas in project wording without overriding architecture/security or unnecessary scope",
+    "specification": "development/ENGINEERING_RULES.md",
+    "status": "Foundation implementation in progress; product runtime not implemented",
+    "priority": "P0",
+    "requirement_phase": "Foundation"
+  },
+  {
+    "requirement_id": "R103",
+    "feature": "Extract and execute bounded verifiable agent-team guidance",
+    "functions": "Maintain contracts/real roster; delegate independent files; test/review/record actual outputs",
+    "phase": "F0 and every subsequent phase",
+    "build_reuse": "Owned workflow/check tooling; pinned source ideas adapted, no external source runtime",
+    "sources": [
+      "U13"
+    ],
+    "dependencies": [
+      "R088",
+      "R101"
+    ],
+    "acceptance_criteria": "Preserve original image/hash and transcription; 30 contracts in six functions, actual scoped roster, task/evidence loop, fresh review and honest measured/not-measured workflow changes",
+    "specification": "sources/agent-guidance/agent-team-transcription.md",
+    "status": "Foundation implementation in progress; product runtime not implemented",
+    "priority": "P0",
+    "requirement_phase": "Foundation"
+  },
+  {
+    "requirement_id": "R104",
+    "feature": "Tests and review must pass after every phase before progression",
+    "functions": "Declare/run phase tests; reject premature advancement; record evidence, reviewer and blockers",
+    "phase": "F0 and every subsequent phase",
+    "build_reuse": "Owned workflow/check tooling; pinned source ideas adapted, no external source runtime",
+    "sources": [
+      "U14"
+    ],
+    "dependencies": [
+      "R076",
+      "R086",
+      "R101"
+    ],
+    "acceptance_criteria": "Every phase declares relevant required test suites and acceptance; actual passing results/evidence, cleared blockers and independent review required; checker rejects not-run/failing/missing evidence and early next-phase starts",
+    "specification": "development/phase-gates.json",
+    "status": "Foundation implementation in progress; product runtime not implemented",
+    "priority": "P0",
+    "requirement_phase": "Foundation / all phases"
   }
 ]
