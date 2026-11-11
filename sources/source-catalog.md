@@ -50,3 +50,5 @@ Exact research files/bytes/checksums: [manifest](research-manifest.json). Suppor
 - U7: [Sebaverse name selection and logo rejection feedback](sebaverse-brand-selection.md), 11 November 2026.
 
 - U8: [Arabic-first identity trials and Latin-only logo requirement](arabic-first-brand-trials.md), 11 November 2026.
+
+- U9: [C identity selected; two palette candidates](c-identity-palette-selection.md), founder instruction 11 November 2026.

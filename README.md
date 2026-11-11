@@ -2,7 +2,7 @@
 
 Version 0.2 • 10 November 2026 • documentation and planning only.
 
-Egypt-first, solo-founder, affordability-critical, globally extensible. The founder selected **Sebaverse** for brand development (U7). The working folder remains Documents/TBD until the app project can be moved safely to the selected name; it is the same single repository. Logo, palette and slogan remain open. No application, paid model benchmark, deployment or real-student pilot has been implemented.
+Egypt-first, solo-founder, affordability-critical, globally extensible. The founder selected **Sebaverse** for brand development (U7). The working folder remains Documents/TBD until the app project can be moved safely to the selected name; it is the same single repository. Claude C / Bāb identity direction is selected (U9); its original palette is rejected. Blue/orange and blue/lime are under review; final brand approval remains open. No application, paid model benchmark, deployment or real-student pilot has been implemented.
 
 ## Read first
 

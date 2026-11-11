@@ -64,3 +64,7 @@ U7 supersedes earlier exploration: platform name **Sebaverse** selected; N14 Egy
 ## New Arabic-first trials — 11 November 2026
 
 U8: Arabic leads the product and brand experience; logo remains Latin **Sebaverse**. Three distinct unapproved [trial systems](../outputs/sebaverse-brand-trial-v3/README.md) include visual boards, editable guidelines/tokens and RTL reading previews. Neither old rejected concepts nor new trials are production masters. See review notes for generated-image limitations.
+
+## C direction / palette review — 11 November 2026
+
+U9 selects Claude C / Bāb as the identity direction and rejects its original colors. [Editable comparison](../outputs/sebaverse-c-palette-comparison/index.html) keeps C typography, geometry and layouts, comparing B blue/orange and the attached blue/lime palette. Palette remains undecided; neither candidate replaces approved production tokens. D020 records the bounded decision; G2 remains pending.

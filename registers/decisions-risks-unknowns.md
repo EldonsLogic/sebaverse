@@ -50,3 +50,7 @@ D017 — U6: Maat is the active exploration, including Maat AI / The Maat and re
 D018 — U7: Sebaverse selected for brand development, superseding Maat as active exploration. Egyptian N14 star inspiration requested. Both generated logo rounds rejected (coastal/diving; Converse/sportswear associations). Palette, logo and slogan remain open; full G2 not approved. No domain purchased or name clearance established. Physical folder remains TBD pending safe app-project path update, not a second project.
 
 D019 — U8 confirmed: Arabic-first experience and Latin-only Sebaverse wordmark. Three new independent identity trials delivered; full G2 and choice of logo, type, palette and slogan remain pending.
+
+## D020 — C identity direction selected (U9)
+
+Founder selected Claude C / Bāb as the identity direction, rejecting its original palette. Compare B blue/orange with the attached blue/lime palette using identical C geometry, typography and layouts. Final palette and full G2 approval remain open. No product implementation authorized.
