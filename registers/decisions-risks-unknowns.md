@@ -40,3 +40,13 @@ Unknown register resolution must attach evidence, date and affected requirement/
 ## Founder update — 10 November 2026
 
 D016 — Confirmed instruction U5: name the platform, choose logo and slogan, and create brand guidelines next. Explore brand directions now; no final name/artwork is selected. Branding is for the broader adaptive tutoring platform, with German as the first use case.
+
+## Brand exploration update — 11 November 2026
+
+D017 — U6: Maat is the active exploration, including Maat AI / The Maat and related descriptor forms. Not selected, cleared or approved. Earlier round-1 naming/logo directions were rejected; preserve them as history rather than an active shortlist. [Exploration](../outputs/maat-exploration/README.md). Domain status unresolved; current education uses require review. TBD remains the project name.
+
+## Founder-selected name — 11 November 2026
+
+D018 — U7: Sebaverse selected for brand development, superseding Maat as active exploration. Egyptian N14 star inspiration requested. Both generated logo rounds rejected (coastal/diving; Converse/sportswear associations). Palette, logo and slogan remain open; full G2 not approved. No domain purchased or name clearance established. Physical folder remains TBD pending safe app-project path update, not a second project.
+
+D019 — U8 confirmed: Arabic-first experience and Latin-only Sebaverse wordmark. Three new independent identity trials delivered; full G2 and choice of logo, type, palette and slogan remain pending.

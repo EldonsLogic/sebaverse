@@ -1,0 +1,52 @@
+{
+  "status": "independent proposed direction; not approved",
+  "brand": "Sebaverse",
+  "logo_script": "Latin only",
+  "direction": "index",
+  "locale_priority": [
+    "ar-EG",
+    "ar",
+    "en"
+  ],
+  "colors": {
+    "primary": "#26282D",
+    "accent": "#B83025",
+    "paper": "#FFFCF5",
+    "ink": "#26282D",
+    "muted": "#66605A"
+  },
+  "font_arabic": "Noto Sans Arabic; Noto Naskh Arabic for long reading passages",
+  "font_latin": "Readex Pro",
+  "space_px": [
+    4,
+    8,
+    12,
+    16,
+    24,
+    32,
+    48,
+    64
+  ],
+  "arabic_body_px": 18,
+  "arabic_body_line_height": 1.8,
+  "touch_target_px": 44,
+  "contrast_pairs": [
+    {
+      "pair": "ink / paper",
+      "ratio": 14.39
+    },
+    {
+      "pair": "white / primary",
+      "ratio": 14.75
+    },
+    {
+      "pair": "ink / accent",
+      "ratio": 2.45
+    },
+    {
+      "pair": "accent / paper",
+      "ratio": 5.88
+    }
+  ],
+  "production_logo_svg": null
+}

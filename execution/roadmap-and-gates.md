@@ -14,7 +14,7 @@ All future work is proposed. This delivery establishes docs, not approval to imp
 
 ## Work packages and milestone outputs
 
-M0 Foundation (this deliverable): context audit, 96-entry requirements baseline, preserved research, PRD/design/architecture, economics and execution system. Final historic completeness remains open. No fixed completion date for founder reviews.
+M0 Foundation (this deliverable): context audit, 98-entry requirements baseline, preserved research, PRD/design/architecture, economics and execution system. Final historic completeness remains open. No fixed completion date for founder reviews.
 
 M1 Product/brand/design: select one slice and customer promise; review hypotheses against existing prospects; identify content/educator; screen three names and choose; test low-fidelity student/parent/upload/voice journeys; record decisions. Estimate 1–2 founder weeks plus external name/rights/legal lead time as a new planning assumption, not research fact. Stop if no lawful affordable content/data route.
 

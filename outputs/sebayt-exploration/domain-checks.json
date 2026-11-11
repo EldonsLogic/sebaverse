@@ -1,0 +1,48 @@
+{
+  "checked_at_utc": "2026-11-11T10:54:18.974799+00:00",
+  "limits": "No registry record does not guarantee registrar purchase availability or price. No trademark clearance or purchase.",
+  "results": [
+    {
+      "domain": "sebayet.com",
+      "status": "no_registry_record",
+      "http_status": 404,
+      "registry_url": "https://rdap.verisign.com/com/v1/domain/sebayet.com"
+    },
+    {
+      "domain": "seebayt.com",
+      "status": "no_registry_record",
+      "http_status": 404,
+      "registry_url": "https://rdap.verisign.com/com/v1/domain/seebayt.com"
+    },
+    {
+      "domain": "sebaytt.com",
+      "status": "no_registry_record",
+      "http_status": 404,
+      "registry_url": "https://rdap.verisign.com/com/v1/domain/sebaytt.com"
+    },
+    {
+      "domain": "sebait.com",
+      "status": "registered",
+      "http_status": 200,
+      "registry_url": "https://rdap.verisign.com/com/v1/domain/sebait.com"
+    },
+    {
+      "domain": "sebayit.com",
+      "status": "no_registry_record",
+      "http_status": 404,
+      "registry_url": "https://rdap.verisign.com/com/v1/domain/sebayit.com"
+    },
+    {
+      "domain": "sebaiet.com",
+      "status": "no_registry_record",
+      "http_status": 404,
+      "registry_url": "https://rdap.verisign.com/com/v1/domain/sebaiet.com"
+    },
+    {
+      "domain": "sebayat.com",
+      "status": "no_registry_record",
+      "http_status": 404,
+      "registry_url": "https://rdap.verisign.com/com/v1/domain/sebayat.com"
+    }
+  ]
+}

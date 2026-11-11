@@ -770,3 +770,19 @@ Authoritative structured form: requirements.json. Priority is importance/risk, n
 - Acceptance: Founder reviews coherent name/logo/slogan concepts and selects a direction; screening limitations explicit; selected identity documented with usage rules.
 - Specification: [design/brand-and-design-system.md](../design/brand-and-design-system.md).
 
+## R097 — Arabic-first brand/product experience
+
+- Source: U8; status: Trial delivered; not approved; Founder requirement.
+- Priority: P1; phase: Gates; owner: Founder + Arabic design/native-language review.
+- Dependencies: R010, R096.
+- Acceptance: Arabic typography, RTL/mixed German content, Arabic messaging and parent/student tone lead all three identity trials; English is supported rather than the design default.
+- Specification: [outputs/sebaverse-brand-trial-v3/README.md](../outputs/sebaverse-brand-trial-v3/README.md).
+
+## R098 — Latin-only Sebaverse logo
+
+- Source: U8; status: Trial delivered; not approved; Founder requirement.
+- Priority: P1; phase: Gates; owner: Founder + Arabic design/native-language review.
+- Dependencies: R010, R096.
+- Acceptance: All logo/wordmark proposals use Latin Sebaverse; RTL layouts do not mirror the mark and do not add an Arabic logo.
+- Specification: [outputs/sebaverse-brand-trial-v3/README.md](../outputs/sebaverse-brand-trial-v3/README.md).
+

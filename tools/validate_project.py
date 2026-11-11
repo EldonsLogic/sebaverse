@@ -1,6 +1,8 @@
 """Validate planning artifacts; no external calls or product execution."""
 from pathlib import Path
 import json,hashlib,re,math
+from datetime import datetime
+from zoneinfo import ZoneInfo
 R=Path(__file__).resolve().parents[1]
 errors=[];warnings=[]
 manifest=json.loads((R/'sources/research-manifest.json').read_text())
@@ -43,7 +45,8 @@ sc=json.loads((R/'economics/scenarios.json').read_text())
 for k,v in [('text',.475),('cascade',5.575),('realtime',25.475)]:
  if not math.isclose(sc['per_active_learner_ai_usd'][k],v,abs_tol=1e-8):errors.append('Baseline arithmetic changed; update validation intentionally '+k)
 if any(x['status']!='pending' for x in json.loads((R/'execution/gate-records.json').read_text())):warnings.append('Gate status changed; confirm approval provenance')
-report=f'# Artifact validation\n\nRun date: 10 November 2026. Status: {"PASS" if not errors else "FAIL"}.\n\n- {len(manifest)} preserved research/evidence files match SHA-256 manifest.\n- 13 global + 14 audit Markdown deliverables present.\n- {len(reqs)} unique requirement rows checked for required fields, specs and acyclic dependencies.\n- JSON, Markdown fences and local links checked.\n- Illustrative baseline text/cascade/realtime arithmetic reproduced.\n- Product implementation, provider benchmarks, accessibility, security and learning efficacy were not tested.\n- Historical GAP-001 remains open; passing artifacts do not establish full conversation completeness.\n\n'
+run_date=datetime.now(ZoneInfo('Africa/Cairo')).strftime('%d %B %Y')
+report=f'# Artifact validation\n\nRun date: {run_date}. Status: {"PASS" if not errors else "FAIL"}.\n\n- {len(manifest)} preserved research/evidence files match SHA-256 manifest.\n- 13 global + 14 audit Markdown deliverables present.\n- {len(reqs)} unique requirement rows checked for required fields, specs and acyclic dependencies.\n- JSON, Markdown fences and local links checked.\n- Illustrative baseline text/cascade/realtime arithmetic reproduced.\n- Product implementation, provider benchmarks, accessibility, security and learning efficacy were not tested.\n- Historical GAP-001 remains open; passing artifacts do not establish full conversation completeness.\n\n'
 report+='## Errors\n\n'+('\n'.join('- '+x for x in errors) or 'None.')+'\n\n## Warnings\n\n'+('\n'.join('- '+x for x in warnings) or 'None.')+'\n'
 (R/'VALIDATION.md').write_text(report)
 print(report)

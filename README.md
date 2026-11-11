@@ -1,8 +1,8 @@
-# TBD — AI-native adaptive tutoring master project
+# Sebaverse — AI-native adaptive tutoring master project
 
 Version 0.2 • 10 November 2026 • documentation and planning only.
 
-Egypt-first, solo-founder, affordability-critical, globally extensible. The platform name is undecided. This repository belongs in the founder's existing Documents/TBD project; rename that project after a reviewed brand selection. No application, paid model benchmark, deployment or real-student pilot has been implemented.
+Egypt-first, solo-founder, affordability-critical, globally extensible. The founder selected **Sebaverse** for brand development (U7). The working folder remains Documents/TBD until the app project can be moved safely to the selected name; it is the same single repository. Logo, palette and slogan remain open. No application, paid model benchmark, deployment or real-student pilot has been implemented.
 
 ## Read first
 
@@ -33,3 +33,7 @@ Remaining grade/level/edition/buyer and content-rights route; monthly vs course/
 `python3 tools/model_economics.py` rebuilds illustrative costs; unknown full-margin inputs stay null. `python3 tools/validate_project.py` verifies report inventory, hashes, requirement references, links and arithmetic. See [validation report](VALIDATION.md). These are document checks, not security certification or measured tutoring results.
 
 Project files are editable Markdown/JSON with local Git history. No remote repository or publishing is created. Later code starts only after product, brand/design and architecture gates, and a bounded technical PoC precedes real-student use.
+
+## Arabic-first identity trials
+
+[Three new brand trial systems](outputs/sebaverse-brand-trial-v3/README.md): visual boards, editable guidelines and tokens, RTL reading previews. Arabic leads; logo stays Latin Sebaverse. All three await founder review.

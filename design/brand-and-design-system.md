@@ -52,3 +52,15 @@ Name, logo, slogan and brand guidelines are the next founder-requested deliverab
 ## Active round 1 review package
 
 [Names, SVG logo concepts, slogans and draft guidelines](../outputs/brand-round-1/README.md) supersedes the earlier unverified candidate list as the active exploration. No final brand selected.
+
+## Superseding founder direction — 11 November 2026
+
+Earlier round-1 names were rejected. Active exploration is [Maat and descriptor variants](../outputs/maat-exploration/README.md), based on U6. Do not interpret earlier creative preferences as founder choices. No final name or brand approval.
+
+## Selected name and rejected logo rounds — 11 November 2026
+
+U7 supersedes earlier exploration: platform name **Sebaverse** selected; N14 Egyptian star inspiration requested. [Current brand status](../outputs/sebaverse-brand-v1/README.md). Round 1 and round 2 are rejected and must not define a master logo, palette or guidelines. Earlier brand candidates are historical only. Full identity design remains open.
+
+## New Arabic-first trials — 11 November 2026
+
+U8: Arabic leads the product and brand experience; logo remains Latin **Sebaverse**. Three distinct unapproved [trial systems](../outputs/sebaverse-brand-trial-v3/README.md) include visual boards, editable guidelines/tokens and RTL reading previews. Neither old rejected concepts nor new trials are production masters. See review notes for generated-image limitations.

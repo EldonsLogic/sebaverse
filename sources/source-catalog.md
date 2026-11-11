@@ -44,3 +44,9 @@ Jev [official introduction](https://jev-ai.org/docs/) opened 2026-11-10; decisio
 Exact research files/bytes/checksums: [manifest](research-manifest.json). Supporting audit evidence includes repository-pins, source verification, dependency query, smoke tests, Chatterbox provenance and historical cost arithmetic; these remain in research/open-source-audit/evidence/.
 
 - U4/U5: [First German/uploaded-curriculum scope and brand priority](founder-scope-and-brand-update.md), founder instructions 10 November 2026.
+
+- U6: [Maat name-family exploration and earlier naming rejections](maat-brand-direction.md), founder steering 11 November 2026.
+
+- U7: [Sebaverse name selection and logo rejection feedback](sebaverse-brand-selection.md), 11 November 2026.
+
+- U8: [Arabic-first identity trials and Latin-only logo requirement](arabic-first-brand-trials.md), 11 November 2026.
