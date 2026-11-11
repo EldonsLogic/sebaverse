@@ -167,7 +167,8 @@
     "sources": [
       "U1",
       "U2",
-      "U5"
+      "U5",
+      "U10"
     ],
     "priority": "P1",
     "phase": "Gates",
@@ -177,7 +178,7 @@
     "acceptance_criteria": "Bilingual direction, editable tokens, components/states and contrast review specified",
     "specification": "design/brand-and-design-system.md",
     "owner": "Founder",
-    "status": "Specified; not implemented",
+    "status": "Brand system v1 documented; detailed founder review pending; no product implemented",
     "evidence_status": "Founder requirement",
     "omission_disposition": "Retained in named phase; no implementation claimed"
   },
@@ -1809,7 +1810,8 @@
     "id": "R096",
     "requirement": "Brand name, logo, slogan and guidelines before implementation",
     "sources": [
-      "U5"
+      "U5",
+      "U10"
     ],
     "priority": "P1",
     "phase": "Gates",
@@ -1820,7 +1822,7 @@
     "acceptance_criteria": "Founder reviews coherent name/logo/slogan concepts and selects a direction; screening limitations explicit; selected identity documented with usage rules",
     "specification": "design/brand-and-design-system.md",
     "owner": "Founder + educator where learning/content is affected",
-    "status": "Specified; not implemented",
+    "status": "Brand system v1 documented; detailed founder review pending; no product implemented",
     "evidence_status": "Founder requirement",
     "omission_disposition": "Retained; no implementation claimed"
   },
@@ -1828,7 +1830,8 @@
     "id": "R097",
     "requirement": "Arabic-first brand/product experience",
     "sources": [
-      "U8"
+      "U8",
+      "U10"
     ],
     "priority": "P1",
     "phase": "Gates",
@@ -1839,7 +1842,7 @@
     "acceptance_criteria": "Arabic typography, RTL/mixed German content, Arabic messaging and parent/student tone lead all three identity trials; English is supported rather than the design default",
     "specification": "outputs/sebaverse-brand-trial-v3/README.md",
     "owner": "Founder + Arabic design/native-language review",
-    "status": "Trial delivered; not approved",
+    "status": "Brand system v1 documented; detailed founder review pending; no product implemented",
     "evidence_status": "Founder requirement",
     "omission_disposition": "Retained in brand gate; no product implementation claimed"
   },
@@ -1847,7 +1850,8 @@
     "id": "R098",
     "requirement": "Latin-only Sebaverse logo",
     "sources": [
-      "U8"
+      "U8",
+      "U10"
     ],
     "priority": "P1",
     "phase": "Gates",
@@ -1858,7 +1862,7 @@
     "acceptance_criteria": "All logo/wordmark proposals use Latin Sebaverse; RTL layouts do not mirror the mark and do not add an Arabic logo",
     "specification": "outputs/sebaverse-brand-trial-v3/README.md",
     "owner": "Founder + Arabic design/native-language review",
-    "status": "Trial delivered; not approved",
+    "status": "Brand system v1 documented; detailed founder review pending; no product implemented",
     "evidence_status": "Founder requirement",
     "omission_disposition": "Retained in brand gate; no product implementation claimed"
   }

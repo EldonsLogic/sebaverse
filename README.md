@@ -2,7 +2,7 @@
 
 Version 0.2 • 10 November 2026 • documentation and planning only.
 
-Egypt-first, solo-founder, affordability-critical, globally extensible. The founder selected **Sebaverse** for brand development (U7). The working folder remains Documents/TBD until the app project can be moved safely to the selected name; it is the same single repository. Claude C / Bāb identity direction is selected (U9); its original palette is rejected. Blue/orange and blue/lime are under review; final brand approval remains open. No application, paid model benchmark, deployment or real-student pilot has been implemented.
+Egypt-first, solo-founder, affordability-critical, globally extensible. The founder selected **Sebaverse** for brand development (U7). The project folder is Documents/Sebaverse; the existing repository and history are preserved. C visual identity with B blue/orange is selected (U10). No permanent slogan is selected; detailed brand/design review remains open. No application, paid model benchmark, deployment or real-student pilot has been implemented.
 
 ## Read first
 
@@ -37,3 +37,7 @@ Project files are editable Markdown/JSON with local Git history. No remote repos
 ## Arabic-first identity trials
 
 [Three new brand trial systems](outputs/sebaverse-brand-trial-v3/README.md): visual boards, editable guidelines and tokens, RTL reading previews. Arabic leads; logo stays Latin Sebaverse. All three await founder review.
+
+## Current brand system
+
+[Brand and design system v1](outputs/sebaverse-brand-system-v1/README.md): editable visual reference, guidelines, components, tokens, SVG assets and licensed fonts. This supersedes earlier palette trials; “كل سؤال باب” is not adopted.

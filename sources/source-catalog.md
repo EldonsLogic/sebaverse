@@ -52,3 +52,5 @@ Exact research files/bytes/checksums: [manifest](research-manifest.json). Suppor
 - U8: [Arabic-first identity trials and Latin-only logo requirement](arabic-first-brand-trials.md), 11 November 2026.
 
 - U9: [C identity selected; two palette candidates](c-identity-palette-selection.md), founder instruction 11 November 2026.
+
+- U10: [Blue/orange selection, wording and brand-system/folder instruction](brand-system-approval-scope.md), 11 November 2026.

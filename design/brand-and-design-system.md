@@ -68,3 +68,7 @@ U8: Arabic leads the product and brand experience; logo remains Latin **Sebavers
 ## C direction / palette review — 11 November 2026
 
 U9 selects Claude C / Bāb as the identity direction and rejects its original colors. [Editable comparison](../outputs/sebaverse-c-palette-comparison/index.html) keeps C typography, geometry and layouts, comparing B blue/orange and the attached blue/lime palette. Palette remains undecided; neither candidate replaces approved production tokens. D020 records the bounded decision; G2 remains pending.
+
+## Current baseline — U10 / D021
+
+C identity + B blue/orange is selected. [Current editable system](../outputs/sebaverse-brand-system-v1/README.md) supersedes earlier candidate palettes. “كل سؤال باب” and recurring door wording are not adopted. Tokens in design-tokens.json now represent this working system; component/copy details and full G2 remain subject to review.

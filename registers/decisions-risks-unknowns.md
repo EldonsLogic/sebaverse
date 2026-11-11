@@ -54,3 +54,7 @@ D019 — U8 confirmed: Arabic-first experience and Latin-only Sebaverse wordmark
 ## D020 — C identity direction selected (U9)
 
 Founder selected Claude C / Bāb as the identity direction, rejecting its original palette. Compare B blue/orange with the attached blue/lime palette using identical C geometry, typography and layouts. Final palette and full G2 approval remain open. No product implementation authorized.
+
+## D021 — Blue/orange selected; visual metaphor is not wording (U10)
+
+Founder selects B blue/orange for C visual identity. Supersedes the open palette question in D020. “كل سؤال باب” and door-based product terminology are not selected. Brand-system v1 documents this combination; new copy and component details remain proposals. No permanent slogan or full G2 approval inferred. Founder authorizes rename of existing folder to Sebaverse, preserving Git history.

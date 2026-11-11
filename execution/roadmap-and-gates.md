@@ -6,7 +6,7 @@ All future work is proposed. This delivery establishes docs, not approval to imp
 |---|---|---|---|
 | G0 Context | Full pack hashes, available founder sources, GAP-001 declared | Founder; R001–003 | Pack inventory done; older-history sign-off open |
 | G1 Product | First curriculum/age/subject, buyer, rights route, budget, success protocol, MVP/future baseline | Founder + educator, after G0 | Pending |
-| G2 Brand/design | Screened shortlist, chosen name, bilingual identity/tokens and tested journeys | Founder + native reviewers, after G1 | Pending; TBD retained |
+| G2 Brand/design | Screened shortlist, chosen name, bilingual identity/tokens and tested journeys | Founder + native reviewers, after G1 | In progress; Sebaverse name, C visual identity and B blue/orange selected (U10); full review pending |
 | G3 Architecture/PoC | ADRs, data/rights/privacy route, safe synthetic corpus, budget/timebox, acceptance suite | Founder + educator/security/legal roles as relevant; G1/G2 | Pending |
 | G4 Technical evidence | Bounded PoC results with raw receipts, failures, quality slices, restore/deletion | Founder + educator; G3 | Not started |
 | G5 Supervised pilot | Appropriate real-minor permissions, approved materials, safeguarding/support owner, caps and incident operations | Founder + qualified reviewers; G4 | Not started |

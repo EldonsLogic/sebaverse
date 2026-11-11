@@ -1,37 +1,85 @@
 {
-  "status": "legacy proposed tokens; not approved for Sebaverse; current logo palettes rejected",
-  "brand_name": "Sebaverse",
-  "temporary_project_name": "TBD",
+  "version": "1.0.0",
+  "brand": "Sebaverse",
+  "status": "Founder selected identity direction and core palette; detailed system proposed for review; G2 pending",
+  "source": "U9, U10",
   "color": {
-    "primary": "#0B6058",
-    "text": "#16332F",
-    "canvas": "#F7F8F4",
+    "primary": "#2347D6",
+    "primaryHover": "#172F96",
+    "primaryTint": "#E4EAFF",
+    "accent": "#FF8A3D",
+    "accentTint": "#FFE8D9",
+    "ink": "#151922",
+    "muted": "#535D71",
+    "canvas": "#F4F6FA",
     "surface": "#FFFFFF",
-    "accent": "#E8B44D",
-    "danger": "#A12835"
+    "border": "#DCE1EB",
+    "success": "#0F6E46",
+    "successBg": "#E1F3EA",
+    "danger": "#BE2419",
+    "dangerBg": "#FCE8E6",
+    "warning": "#8C4A00",
+    "warningBg": "#FFF0DC",
+    "focus": "#2347D6",
+    "disabledText": "#535D71",
+    "disabledBg": "#E8EBF2"
   },
-  "space_px": [
+  "font": {
+    "display": "Alexandria",
+    "ui": "Rubik",
+    "diacritics": "Noto Naskh Arabic",
+    "fallback": "Arial, sans-serif"
+  },
+  "fontSizePx": {
+    "caption": 12,
+    "label": 14,
+    "body": 16,
+    "bodyLarge": 18,
+    "h3": 24,
+    "h2": 32,
+    "h1": 48
+  },
+  "lineHeight": {
+    "arabicBody": 1.8,
+    "latinBody": 1.55,
+    "heading": 1.4
+  },
+  "spacePx": [
+    0,
     4,
     8,
     12,
     16,
     24,
     32,
-    48
+    48,
+    64,
+    96
   ],
-  "type_px": [
-    14,
-    16,
-    20,
-    28,
-    36
-  ],
-  "radius_px": [
-    8,
-    12,
-    20
-  ],
-  "min_target_px": 44,
-  "arabic_line_height": 1.65,
-  "contrast_status": "must be measured for each pairing"
+  "radiusPx": {
+    "control": 12,
+    "card": 20,
+    "pill": 999
+  },
+  "controlHeightPx": 48,
+  "targetMinPx": 44,
+  "containerMaxPx": 1200,
+  "breakpointsPx": {
+    "mobile": 0,
+    "tablet": 768,
+    "desktop": 1200
+  },
+  "motionMs": {
+    "fast": 120,
+    "normal": 180,
+    "slow": 240
+  },
+  "zIndex": {
+    "base": 0,
+    "sticky": 10,
+    "overlay": 40,
+    "dialog": 50,
+    "toast": 60
+  },
+  "darkMode": "Deferred; do not invert light colors automatically"
 }

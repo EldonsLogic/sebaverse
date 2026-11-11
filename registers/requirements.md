@@ -76,7 +76,7 @@ Authoritative structured form: requirements.json. Priority is importance/risk, n
 
 ## R010 — Identity/design system
 
-- Source: U1, U2, U5; status: Specified; not implemented; Founder requirement.
+- Source: U1, U2, U5, U10; status: Specified; not implemented; Founder requirement.
 - Priority: P1; phase: Gates; owner: Founder.
 - Dependencies: R009.
 - Acceptance: Bilingual direction, editable tokens, components/states and contrast review specified.
@@ -764,7 +764,7 @@ Authoritative structured form: requirements.json. Priority is importance/risk, n
 
 ## R096 — Brand name, logo, slogan and guidelines before implementation
 
-- Source: U5; status: Specified; not implemented; Founder requirement.
+- Source: U5, U10; status: Specified; not implemented; Founder requirement.
 - Priority: P1; phase: Gates; owner: Founder + educator where learning/content is affected.
 - Dependencies: R009, R010.
 - Acceptance: Founder reviews coherent name/logo/slogan concepts and selects a direction; screening limitations explicit; selected identity documented with usage rules.
@@ -772,7 +772,7 @@ Authoritative structured form: requirements.json. Priority is importance/risk, n
 
 ## R097 — Arabic-first brand/product experience
 
-- Source: U8; status: Trial delivered; not approved; Founder requirement.
+- Source: U8, U10; status: Trial delivered; not approved; Founder requirement.
 - Priority: P1; phase: Gates; owner: Founder + Arabic design/native-language review.
 - Dependencies: R010, R096.
 - Acceptance: Arabic typography, RTL/mixed German content, Arabic messaging and parent/student tone lead all three identity trials; English is supported rather than the design default.
@@ -780,7 +780,7 @@ Authoritative structured form: requirements.json. Priority is importance/risk, n
 
 ## R098 — Latin-only Sebaverse logo
 
-- Source: U8; status: Trial delivered; not approved; Founder requirement.
+- Source: U8, U10; status: Trial delivered; not approved; Founder requirement.
 - Priority: P1; phase: Gates; owner: Founder + Arabic design/native-language review.
 - Dependencies: R010, R096.
 - Acceptance: All logo/wordmark proposals use Latin Sebaverse; RTL layouts do not mirror the mark and do not add an Arabic logo.
