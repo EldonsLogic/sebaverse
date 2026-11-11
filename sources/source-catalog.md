@@ -60,3 +60,5 @@ Exact research files/bytes/checksums: [manifest](research-manifest.json). Suppor
 
 - U13/U14: [Development foundation, named GitHub repo, shared agent rules and mandatory phase tests](development-foundation-instruction.md), 11 November 2026.
 - External coding guidance and user image: [pinned provenance and adaptation](agent-guidance/provenance.json), [image transcription](agent-guidance/agent-team-transcription.md).
+
+- U15: [Start F1 dependency and local execution readiness](f1-start-instruction.md), 11 November 2026.

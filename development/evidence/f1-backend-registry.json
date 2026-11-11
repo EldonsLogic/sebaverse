@@ -1,0 +1,1283 @@
+{
+  "date": "2026-11-11",
+  "evidence_type": "OBS official PyPI metadata before installation",
+  "packages": [
+    {
+      "name": "Django",
+      "version": "5.2.19",
+      "source": "https://pypi.org/pypi/Django/5.2.19/json",
+      "requires_python": ">=3.10",
+      "license_expression": "BSD-3-Clause",
+      "license": null,
+      "license_classifiers": [],
+      "requires_dist": [
+        "asgiref>=3.8.1",
+        "sqlparse>=0.3.1",
+        "tzdata; sys_platform == \"win32\"",
+        "argon2-cffi>=19.1.0; extra == \"argon2\"",
+        "bcrypt; extra == \"bcrypt\""
+      ],
+      "project_urls": {
+        "Documentation": "https://docs.djangoproject.com/",
+        "Funding": "https://www.djangoproject.com/fundraising/",
+        "Homepage": "https://www.djangoproject.com/",
+        "Release notes": "https://docs.djangoproject.com/en/stable/releases/",
+        "Source": "https://github.com/django/django",
+        "Tracker": "https://code.djangoproject.com/"
+      },
+      "files": [
+        {
+          "filename": "django-5.2.19-py3-none-any.whl",
+          "sha256": "5965d974a5218a2b68a11dd1276434707f23886525c23f0598eccedaf4f4ca00",
+          "url": "https://files.pythonhosted.org/packages/3c/fb/65b4e897d1268288a46457493d9aec6541be8be08e0093a93cc101c03ab2/django-5.2.19-py3-none-any.whl",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        },
+        {
+          "filename": "django-5.2.19.tar.gz",
+          "sha256": "ad03d8abc51dbff95ebf34b27123cf0c26a3b62db7ba0cd520783686362533d1",
+          "url": "https://files.pythonhosted.org/packages/02/29/a487a108caa76430c8b616aa90a6d09cf431306112c14093e6f0a7454e17/django-5.2.19.tar.gz",
+          "packagetype": "sdist",
+          "yanked": false
+        }
+      ]
+    },
+    {
+      "name": "djangorestframework",
+      "version": "3.18.3",
+      "source": "https://pypi.org/pypi/djangorestframework/3.18.3/json",
+      "requires_python": ">=3.10",
+      "license_expression": "BSD-3-Clause",
+      "license": null,
+      "license_classifiers": [],
+      "requires_dist": [
+        "django>=5.2"
+      ],
+      "project_urls": {
+        "Changelog": "https://www.django-rest-framework.org/community/release-notes/",
+        "Funding": "https://fund.django-rest-framework.org/topics/funding/",
+        "Homepage": "https://www.django-rest-framework.org",
+        "Source": "https://github.com/encode/django-rest-framework"
+      },
+      "files": [
+        {
+          "filename": "djangorestframework-3.18.3-py3-none-any.whl",
+          "sha256": "8544bb674846731b1e3c9b309236ee1dc412905a0aa725be2ec193ca950a7d12",
+          "url": "https://files.pythonhosted.org/packages/c4/dd/de5f4543765bec94e036a5e9593a42f8fa7efec8de78eb56b9ca834385f3/djangorestframework-3.18.3-py3-none-any.whl",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        },
+        {
+          "filename": "djangorestframework-3.18.3.tar.gz",
+          "sha256": "446a9b352e7eff630421ab3f2328bd2401b109a9470afa4a31189994911ed030",
+          "url": "https://files.pythonhosted.org/packages/8d/b2/1cee76b188301f7d03169ca77fab2b3d3ec5d01b3469189f944af2d7f11a/djangorestframework-3.18.3.tar.gz",
+          "packagetype": "sdist",
+          "yanked": false
+        }
+      ]
+    },
+    {
+      "name": "uvicorn",
+      "version": "0.54.0",
+      "source": "https://pypi.org/pypi/uvicorn/0.54.0/json",
+      "requires_python": ">=3.10",
+      "license_expression": "BSD-3-Clause",
+      "license": null,
+      "license_classifiers": [],
+      "requires_dist": [
+        "click>=7.0",
+        "h11>=0.8",
+        "typing-extensions>=4.0; python_version < \"3.11\"",
+        "httptools>=0.8.0; extra == \"standard\"",
+        "python-dotenv>=0.13; extra == \"standard\"",
+        "pyyaml>=5.1; extra == \"standard\"",
+        "uvloop>=0.15.1; (sys_platform != \"win32\" and (sys_platform != \"cygwin\" and platform_python_implementation != \"PyPy\")) and extra == \"standard\"",
+        "watchfiles>=0.20; extra == \"standard\"",
+        "websockets>=13.0; extra == \"standard\""
+      ],
+      "project_urls": {
+        "Changelog": "https://uvicorn.dev/release-notes",
+        "Funding": "https://github.com/sponsors/Kludex",
+        "Homepage": "https://uvicorn.dev/",
+        "Source": "https://github.com/Kludex/uvicorn"
+      },
+      "files": [
+        {
+          "filename": "uvicorn-0.54.0-py3-none-any.whl",
+          "sha256": "505bdb0f318731d45f1f712071fc781a8981f6847a31c902c9f5e652d4f67faf",
+          "url": "https://files.pythonhosted.org/packages/38/0c/b54a4fdd7f90a3af8b02ebc9ce6712c2c208b7926a2f7bad95c33ebbe943/uvicorn-0.54.0-py3-none-any.whl",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        },
+        {
+          "filename": "uvicorn-0.54.0.tar.gz",
+          "sha256": "a2e33cbfaa0306f8e6b0c13e0cb89d7d7a2da3e62b90c66e18c33d9807b28620",
+          "url": "https://files.pythonhosted.org/packages/da/34/30e9280707135d2cfc589dfff3cb796bd07a3aeb1a3e415ba09dd89d7bb4/uvicorn-0.54.0.tar.gz",
+          "packagetype": "sdist",
+          "yanked": false
+        }
+      ]
+    },
+    {
+      "name": "psycopg",
+      "version": "3.3.8",
+      "source": "https://pypi.org/pypi/psycopg/3.3.8/json",
+      "requires_python": ">=3.10",
+      "license_expression": "LGPL-3.0-only",
+      "license": null,
+      "license_classifiers": [],
+      "requires_dist": [
+        "typing-extensions>=4.6; python_version < \"3.13\"",
+        "tzdata; sys_platform == \"win32\"",
+        "psycopg-c==3.3.8; implementation_name != \"pypy\" and extra == \"c\"",
+        "psycopg-binary==3.3.8; implementation_name != \"pypy\" and extra == \"binary\"",
+        "psycopg-pool; extra == \"pool\"",
+        "anyio>=4.0; extra == \"test\"",
+        "mypy>=2.1.0; implementation_name != \"pypy\" and extra == \"test\"",
+        "pproxy>=2.7; extra == \"test\"",
+        "pytest>=6.2.5; extra == \"test\"",
+        "pytest-cov>=3.0; extra == \"test\"",
+        "pytest-randomly>=3.5; extra == \"test\"",
+        "ast-comments>=1.1.2; extra == \"dev\"",
+        "black>=26.1.0; extra == \"dev\"",
+        "codespell>=2.2; extra == \"dev\"",
+        "cython-lint>=0.21; extra == \"dev\"",
+        "dnspython>=2.1; extra == \"dev\"",
+        "flake8>=4.0; extra == \"dev\"",
+        "isort[colors]>=6.0; extra == \"dev\"",
+        "isort-psycopg>=0.0.3; extra == \"dev\"",
+        "mypy>=2.1.0; extra == \"dev\"",
+        "pre-commit>=4.0.1; extra == \"dev\"",
+        "types-setuptools>=57.4; extra == \"dev\"",
+        "types-shapely>=2.0; extra == \"dev\"",
+        "wheel>=0.37; extra == \"dev\"",
+        "Sphinx>=9.1; extra == \"docs\"",
+        "furo==2025.12.19; extra == \"docs\"",
+        "sphinx-autobuild>=2025.8.25; extra == \"docs\"",
+        "sphinx-autodoc-typehints>=3.10.2; extra == \"docs\""
+      ],
+      "project_urls": {
+        "Changes": "https://psycopg.org/psycopg3/docs/news.html",
+        "Code": "https://github.com/psycopg/psycopg",
+        "Documentation": "https://psycopg.org/psycopg3/docs/",
+        "Funding": "https://github.com/sponsors/dvarrazzo",
+        "Homepage": "https://psycopg.org/",
+        "Issue Tracker": "https://github.com/psycopg/psycopg/issues"
+      },
+      "files": [
+        {
+          "filename": "psycopg-3.3.8-py3-none-any.whl",
+          "sha256": "ca50af6072ba9ea6866f33021975230c2555d7bfdb9d8f94ca3af5c3d1bf2167",
+          "url": "https://files.pythonhosted.org/packages/7b/5c/50a0b0796ccb69b11934f7c5758051c08019bda2fafb417501109fffd569/psycopg-3.3.8-py3-none-any.whl",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        },
+        {
+          "filename": "psycopg-3.3.8.tar.gz",
+          "sha256": "86c135a9a6f5e98404975c5787e620bf436a7807e088baebd1b20fa48d3b4b4f",
+          "url": "https://files.pythonhosted.org/packages/11/c8/3bd7e09770a5829eb26667df5e49f084d78bd106d5949ade9447288a8e18/psycopg-3.3.8.tar.gz",
+          "packagetype": "sdist",
+          "yanked": false
+        }
+      ]
+    },
+    {
+      "name": "psycopg-binary",
+      "version": "3.3.8",
+      "source": "https://pypi.org/pypi/psycopg-binary/3.3.8/json",
+      "requires_python": ">=3.10",
+      "license_expression": "LGPL-3.0-only",
+      "license": null,
+      "license_classifiers": [],
+      "requires_dist": null,
+      "project_urls": {
+        "Changes": "https://psycopg.org/psycopg3/docs/news.html",
+        "Code": "https://github.com/psycopg/psycopg",
+        "Documentation": "https://psycopg.org/psycopg3/docs/",
+        "Funding": "https://github.com/sponsors/dvarrazzo",
+        "Homepage": "https://psycopg.org/",
+        "Issue Tracker": "https://github.com/psycopg/psycopg/issues"
+      },
+      "files": [
+        {
+          "filename": "psycopg_binary-3.3.8-cp310-cp310-macosx_10_9_x86_64.whl",
+          "sha256": "ef2dcdad18f7e6b0241dafbaad3033ca5c12e07755418ece4c3a90e9665e434e",
+          "url": "https://files.pythonhosted.org/packages/ca/fe/29b20b4aedb99989fe81127e2396a00379372c78b0f63de1a05a61007554/psycopg_binary-3.3.8-cp310-cp310-macosx_10_9_x86_64.whl",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        },
+        {
+          "filename": "psycopg_binary-3.3.8-cp310-cp310-macosx_11_0_arm64.whl",
+          "sha256": "e4332b7178062649e29d2770905f20e6a4b2dfc54581dcfcd919aeaed26291f4",
+          "url": "https://files.pythonhosted.org/packages/00/55/1fa24d8d2bed9dd743239851a7fcba07afa54eeb6bd8a59bc9bd15ad9be7/psycopg_binary-3.3.8-cp310-cp310-macosx_11_0_arm64.whl",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        },
+        {
+          "filename": "psycopg_binary-3.3.8-cp310-cp310-manylinux2014_ppc64le.manylinux_2_17_ppc64le.whl",
+          "sha256": "b26fbeb64c3ec29d799c89709f9500bd3bfa452ae22bdac3e11c3bb15fb057dc",
+          "url": "https://files.pythonhosted.org/packages/22/97/bd56c1a42692a75b1ca26fbb6c41b8913d79904cea303826ee932f816516/psycopg_binary-3.3.8-cp310-cp310-manylinux2014_ppc64le.manylinux_2_17_ppc64le.whl",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        },
+        {
+          "filename": "psycopg_binary-3.3.8-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+          "sha256": "f719b1b6498b3562843be83add8714c8967da95bb9aa626aae157a8ca31e4742",
+          "url": "https://files.pythonhosted.org/packages/7d/57/90a0c4eb6398cbd7d354d10e8108e0a64cfed69cf6bfbaa348b5a6583325/psycopg_binary-3.3.8-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        },
+        {
+          "filename": "psycopg_binary-3.3.8-cp310-cp310-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl",
+          "sha256": "0f454d1d8e8071c7ec5fc10db6204334c36bba5ad30005c4b8c35859b1250ac6",
+          "url": "https://files.pythonhosted.org/packages/bf/7f/d04780a1c8e797ca2d31d3c0c3595e961f505af2f556d4a33fa5c0c024e0/psycopg_binary-3.3.8-cp310-cp310-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        },
+        {
+          "filename": "psycopg_binary-3.3.8-cp310-cp310-manylinux_2_38_riscv64.manylinux_2_39_riscv64.whl",
+          "sha256": "1f65e8e84e13b34ef40011b30c7e6eb39578956c4a0f326a0a5a274a3d84f812",
+          "url": "https://files.pythonhosted.org/packages/f8/15/a7b909602a816a10371901f55132495dc086095846b30a6bfcdba845bbd5/psycopg_binary-3.3.8-cp310-cp310-manylinux_2_38_riscv64.manylinux_2_39_riscv64.whl",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        },
+        {
+          "filename": "psycopg_binary-3.3.8-cp310-cp310-musllinux_1_2_aarch64.whl",
+          "sha256": "9353240f6e58d4a988f3ca842185f5349594153dcddd05e30f83c7d8badfbe0e",
+          "url": "https://files.pythonhosted.org/packages/f6/e7/1d74197109b3bd5bba43fd8a8599af4850a87fd6609d58026e83d6ffdb59/psycopg_binary-3.3.8-cp310-cp310-musllinux_1_2_aarch64.whl",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        },
+        {
+          "filename": "psycopg_binary-3.3.8-cp310-cp310-musllinux_1_2_ppc64le.whl",
+          "sha256": "fc9b9922899a3ca6193fd1d96920329c10acb72d3fad0dbc87b1ecdd8a791c14",
+          "url": "https://files.pythonhosted.org/packages/24/75/67d6d4a895abc48267417e16ec9b35bb89b785b6f20e9a4ba7b99b7e9cdd/psycopg_binary-3.3.8-cp310-cp310-musllinux_1_2_ppc64le.whl",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        },
+        {
+          "filename": "psycopg_binary-3.3.8-cp310-cp310-musllinux_1_2_riscv64.whl",
+          "sha256": "382e3a1fcc7988cd05bfa68db7cc50189e785c05be212d27b524f0cc983fc77a",
+          "url": "https://files.pythonhosted.org/packages/57/21/206ed9d734bc738480886e6d0eda018293beb8787fad2e4760a030adcb28/psycopg_binary-3.3.8-cp310-cp310-musllinux_1_2_riscv64.whl",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        },
+        {
+          "filename": "psycopg_binary-3.3.8-cp310-cp310-musllinux_1_2_x86_64.whl",
+          "sha256": "d01495f37407899a699726710e26d6105654273a12afc8fe87784743b4802844",
+          "url": "https://files.pythonhosted.org/packages/a3/bb/be3cdfce99980f39aaf7285cf0f9dea4e590a074b822ab2a46a3d9dd2593/psycopg_binary-3.3.8-cp310-cp310-musllinux_1_2_x86_64.whl",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        },
+        {
+          "filename": "psycopg_binary-3.3.8-cp310-cp310-win_amd64.whl",
+          "sha256": "9a7b232d55ab7ba22be48487c5f0adb7a6941fd54b436bdbbb72df4e5a740fb2",
+          "url": "https://files.pythonhosted.org/packages/48/0e/97e0222166b770500443dd224233cf7208ddb0964aa6bf1f2e4b7f1da0c7/psycopg_binary-3.3.8-cp310-cp310-win_amd64.whl",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        },
+        {
+          "filename": "psycopg_binary-3.3.8-cp311-cp311-macosx_10_9_x86_64.whl",
+          "sha256": "42718d7e5732aa1feb0a7f0ff7e0404fd080528bd4694b40b31ef0b146eda8e1",
+          "url": "https://files.pythonhosted.org/packages/2e/04/674c4048729b5ad90d1036c7c6c4ce13d2e05ca3d16ed68368e00c092e71/psycopg_binary-3.3.8-cp311-cp311-macosx_10_9_x86_64.whl",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        },
+        {
+          "filename": "psycopg_binary-3.3.8-cp311-cp311-macosx_11_0_arm64.whl",
+          "sha256": "1126ff5eae645a304e6ca94e1c79cc19249fb54517b923ee5862badd2fabb334",
+          "url": "https://files.pythonhosted.org/packages/03/6d/98b98c95dae1c53e52dac2301093b89640afb178ebfed745dc8465a3d64d/psycopg_binary-3.3.8-cp311-cp311-macosx_11_0_arm64.whl",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        },
+        {
+          "filename": "psycopg_binary-3.3.8-cp311-cp311-manylinux2014_ppc64le.manylinux_2_17_ppc64le.whl",
+          "sha256": "281d0e891fa8c2bb231a97a5a57522cc2a9664c3f77b9fb007d2719bc1afd29e",
+          "url": "https://files.pythonhosted.org/packages/77/e9/8aa5b11a272d97c7240796c16bce5f98c3ab07fbb2643e60432fc446d0f6/psycopg_binary-3.3.8-cp311-cp311-manylinux2014_ppc64le.manylinux_2_17_ppc64le.whl",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        },
+        {
+          "filename": "psycopg_binary-3.3.8-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+          "sha256": "39bc3b42e6486ae8ace820df93b00dce4858338e8a428d14d8e71130e852bab1",
+          "url": "https://files.pythonhosted.org/packages/cd/33/28dde854cf3175e0e68609e8b3b5f4e3c40cdf14c08ae1f8d66930451191/psycopg_binary-3.3.8-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        },
+        {
+          "filename": "psycopg_binary-3.3.8-cp311-cp311-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl",
+          "sha256": "4bedd0fbbbebe0c0f66b34c3f6be972ce38357ce3451510e1dcf5025f7011dba",
+          "url": "https://files.pythonhosted.org/packages/48/7b/f57955d6cb1a5b1b530faeb12df2eaa3f3eff14626d6862a7b5de4b49c59/psycopg_binary-3.3.8-cp311-cp311-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        },
+        {
+          "filename": "psycopg_binary-3.3.8-cp311-cp311-manylinux_2_38_riscv64.manylinux_2_39_riscv64.whl",
+          "sha256": "fe26e72b87ca280e538f4f78d1a956df0ae6ed51aab73ccc4c1dcf6f25256438",
+          "url": "https://files.pythonhosted.org/packages/91/50/3fa8790d539f14e8e10f904fca22226555d7fff773854974d163cfa47bdd/psycopg_binary-3.3.8-cp311-cp311-manylinux_2_38_riscv64.manylinux_2_39_riscv64.whl",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        },
+        {
+          "filename": "psycopg_binary-3.3.8-cp311-cp311-musllinux_1_2_aarch64.whl",
+          "sha256": "5a3925d0c67b0452db066d97d0452af012e7bd2fdf8e6ab4ab0392df8906a6e1",
+          "url": "https://files.pythonhosted.org/packages/57/a4/12fda52aa11297ca0e3aec5b6433232a42dc8e6c29a2413b4470a7b69bd3/psycopg_binary-3.3.8-cp311-cp311-musllinux_1_2_aarch64.whl",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        },
+        {
+          "filename": "psycopg_binary-3.3.8-cp311-cp311-musllinux_1_2_ppc64le.whl",
+          "sha256": "d4de096987b9f7c346879e164637de91a66067378b1ee4b49f07d1bac0e2847a",
+          "url": "https://files.pythonhosted.org/packages/8e/6c/1fd9639c6f27f527ac991ad9cf827ddcdd524e0482085fd0d9acacba23d3/psycopg_binary-3.3.8-cp311-cp311-musllinux_1_2_ppc64le.whl",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        },
+        {
+          "filename": "psycopg_binary-3.3.8-cp311-cp311-musllinux_1_2_riscv64.whl",
+          "sha256": "c3ac86af1a7ac65fe3461d831e8bc9fa62bc247ef1b73d58e9dd4ed406be4bfd",
+          "url": "https://files.pythonhosted.org/packages/f5/58/dd3a5fa5d23b42e0cb466f3d4a9e9759399dcf03a2a2b7a6a3e4cd67197f/psycopg_binary-3.3.8-cp311-cp311-musllinux_1_2_riscv64.whl",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        },
+        {
+          "filename": "psycopg_binary-3.3.8-cp311-cp311-musllinux_1_2_x86_64.whl",
+          "sha256": "09676448a9bbc5c09ce8d578a6958a0bb8175e63c94edf6d88a62d2b07fadd23",
+          "url": "https://files.pythonhosted.org/packages/e6/01/9b20b20d240c075b5fb7e4b2baf4c70cdedd34806a87de65537ec809da19/psycopg_binary-3.3.8-cp311-cp311-musllinux_1_2_x86_64.whl",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        },
+        {
+          "filename": "psycopg_binary-3.3.8-cp311-cp311-win_amd64.whl",
+          "sha256": "ed65d1b32a7f9684ab682296ac7cac1dd972bb8d86c9336753bc915efc3515f4",
+          "url": "https://files.pythonhosted.org/packages/0d/f1/e2b149237e5c7ea559deba7ffa9527cb11866424933c1418d22fc5f81590/psycopg_binary-3.3.8-cp311-cp311-win_amd64.whl",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        },
+        {
+          "filename": "psycopg_binary-3.3.8-cp312-cp312-macosx_10_13_x86_64.whl",
+          "sha256": "a09aa2ba7927e9b11bd5bddb6d33cec274235d6f54f1ab777ed71c932cfc8d72",
+          "url": "https://files.pythonhosted.org/packages/6c/e8/10db627d04a32afbba6e4a6aaf192c0ae88321e44669c0224ee88e11ad68/psycopg_binary-3.3.8-cp312-cp312-macosx_10_13_x86_64.whl",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        },
+        {
+          "filename": "psycopg_binary-3.3.8-cp312-cp312-macosx_11_0_arm64.whl",
+          "sha256": "e0972d8de5a0d855d76624f559a6ce5dd068fb4bbfa01e1d7cf929e6800dc4f0",
+          "url": "https://files.pythonhosted.org/packages/67/f5/ddfd762133fda147c8779f3014dfa5404868aea1d3f4cc6f6bc5b8c3a076/psycopg_binary-3.3.8-cp312-cp312-macosx_11_0_arm64.whl",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        },
+        {
+          "filename": "psycopg_binary-3.3.8-cp312-cp312-manylinux2014_ppc64le.manylinux_2_17_ppc64le.whl",
+          "sha256": "41c31b175084a85232b6ea5f8eb474491b6c963302c69b46fa2ed60afb888b62",
+          "url": "https://files.pythonhosted.org/packages/9b/f5/d9944976536d4f94ce36f4cc9eec43be66a227159d91cab6cec2c36fe109/psycopg_binary-3.3.8-cp312-cp312-manylinux2014_ppc64le.manylinux_2_17_ppc64le.whl",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        },
+        {
+          "filename": "psycopg_binary-3.3.8-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+          "sha256": "a7cdba018e4decf3837793c1e18dbe3dd71709adef54892ab83d81c00e866dc3",
+          "url": "https://files.pythonhosted.org/packages/c7/04/aef0b229adc200259d3aec4c8ba17a2ff233505dec8712f37f7168e45c06/psycopg_binary-3.3.8-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        },
+        {
+          "filename": "psycopg_binary-3.3.8-cp312-cp312-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl",
+          "sha256": "804041b79916b0e8021a1130650d724741eff1e81ccec8133abf357b4d284a24",
+          "url": "https://files.pythonhosted.org/packages/95/f3/eda400c9b76805996e3d7197fc0b0b3c7068311f623b72f71f20f1bfe620/psycopg_binary-3.3.8-cp312-cp312-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        },
+        {
+          "filename": "psycopg_binary-3.3.8-cp312-cp312-manylinux_2_38_riscv64.manylinux_2_39_riscv64.whl",
+          "sha256": "9daff4d6257969b02678943d62bfd83b971004f6efef68d5b767ac69c2222751",
+          "url": "https://files.pythonhosted.org/packages/78/7a/dfc5c75661c4677b853f91c52273904b1ab24ae8272e14bb74644dc74d10/psycopg_binary-3.3.8-cp312-cp312-manylinux_2_38_riscv64.manylinux_2_39_riscv64.whl",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        },
+        {
+          "filename": "psycopg_binary-3.3.8-cp312-cp312-musllinux_1_2_aarch64.whl",
+          "sha256": "e8f1addbaec62c9e2bf5b3ae4b32a20c793c06de7d57471f6509a127f1c902f4",
+          "url": "https://files.pythonhosted.org/packages/7e/84/fedb9ddef0ae0ee03bcbb4f2ced765f3cf7a82a0836e4bc175b775949ecf/psycopg_binary-3.3.8-cp312-cp312-musllinux_1_2_aarch64.whl",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        },
+        {
+          "filename": "psycopg_binary-3.3.8-cp312-cp312-musllinux_1_2_ppc64le.whl",
+          "sha256": "5f51d97b67276e90cda022ad363eca61dbe855dbb5342e358469006d4b5254df",
+          "url": "https://files.pythonhosted.org/packages/3f/ac/bd948283a127e03df0d89d19b81c02de54b3176b9d068ebe2a9ac0acf628/psycopg_binary-3.3.8-cp312-cp312-musllinux_1_2_ppc64le.whl",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        },
+        {
+          "filename": "psycopg_binary-3.3.8-cp312-cp312-musllinux_1_2_riscv64.whl",
+          "sha256": "aa7af0d2d1194b65b8c4d0056c5607de6c38fb6a295f04087d17e1c9d2d11fba",
+          "url": "https://files.pythonhosted.org/packages/1c/8a/d8fdd24b3356d188e84892663d403d4f2ae02326f342b0806cfdd9e0433e/psycopg_binary-3.3.8-cp312-cp312-musllinux_1_2_riscv64.whl",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        },
+        {
+          "filename": "psycopg_binary-3.3.8-cp312-cp312-musllinux_1_2_x86_64.whl",
+          "sha256": "f09cb4e7744522d71048a8998ff841c7af942a61ffbd4142a140b42d89b950fe",
+          "url": "https://files.pythonhosted.org/packages/e7/fc/ca06d048860f210d84b2ea7d49d15ed8780143454619c371d91868077d05/psycopg_binary-3.3.8-cp312-cp312-musllinux_1_2_x86_64.whl",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        },
+        {
+          "filename": "psycopg_binary-3.3.8-cp312-cp312-win_amd64.whl",
+          "sha256": "ec6773395189417c92102b34c77ed299f6111fbbc37d50d4fa12ab819f763669",
+          "url": "https://files.pythonhosted.org/packages/7c/c7/d96e8ff851d1f83e5cd6ec57e9a7f6eb9fb526ecdb4bbbf017a5066e9199/psycopg_binary-3.3.8-cp312-cp312-win_amd64.whl",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        },
+        {
+          "filename": "psycopg_binary-3.3.8-cp313-cp313-macosx_10_13_x86_64.whl",
+          "sha256": "0d483014dde0bd5404801aa91ebbd7912006065dd8d244a962f228fe44bfc08b",
+          "url": "https://files.pythonhosted.org/packages/04/27/3b2dc3eb98d32ac87746fb327e889404e611fc017397b3b83057de38a701/psycopg_binary-3.3.8-cp313-cp313-macosx_10_13_x86_64.whl",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        },
+        {
+          "filename": "psycopg_binary-3.3.8-cp313-cp313-macosx_11_0_arm64.whl",
+          "sha256": "6ff02f23b7d95de68f42d5ebe91374540d3d31851d83d9cd37e6e71a5dbd0bcd",
+          "url": "https://files.pythonhosted.org/packages/72/fb/2bee345580b59e749078da581d7b0fc16ec9dec53a57225d698da391d1bc/psycopg_binary-3.3.8-cp313-cp313-macosx_11_0_arm64.whl",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        },
+        {
+          "filename": "psycopg_binary-3.3.8-cp313-cp313-manylinux2014_ppc64le.manylinux_2_17_ppc64le.whl",
+          "sha256": "31dd2597df303d22a2cabf73c40bb05afaf4ca1394e22935b97f627d4968c87d",
+          "url": "https://files.pythonhosted.org/packages/53/4f/b1569176285bc74b031eb287bc9dba75fcb22aa3be9a3faee5fa593b5f88/psycopg_binary-3.3.8-cp313-cp313-manylinux2014_ppc64le.manylinux_2_17_ppc64le.whl",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        },
+        {
+          "filename": "psycopg_binary-3.3.8-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+          "sha256": "2f72c18d75d16500fe2f7f300945d68fba9dbb883aef20ba4be0c386afbbf2e9",
+          "url": "https://files.pythonhosted.org/packages/94/bb/89ce891e7897638df5eb34c3e7c36143c59933fd6602e61a7b9b8e905644/psycopg_binary-3.3.8-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        },
+        {
+          "filename": "psycopg_binary-3.3.8-cp313-cp313-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl",
+          "sha256": "00c226f718901ce022bcee2e0779dc2f0a6d8bcedd5a3818e21ff25564efaa97",
+          "url": "https://files.pythonhosted.org/packages/e2/55/a676f32b29096651f9725e9cae78a033bcf88697df4e1d31b7b77589be6c/psycopg_binary-3.3.8-cp313-cp313-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        },
+        {
+          "filename": "psycopg_binary-3.3.8-cp313-cp313-manylinux_2_38_riscv64.manylinux_2_39_riscv64.whl",
+          "sha256": "c3a8420317a3b3910a08b77a952ef8f8051da61622c6a2e03fc51b75761c6acf",
+          "url": "https://files.pythonhosted.org/packages/dd/00/e83def05e558d011bcddb2cba10d7087b92980a4abc387f4c58cad75d6b4/psycopg_binary-3.3.8-cp313-cp313-manylinux_2_38_riscv64.manylinux_2_39_riscv64.whl",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        },
+        {
+          "filename": "psycopg_binary-3.3.8-cp313-cp313-musllinux_1_2_aarch64.whl",
+          "sha256": "a565d8446b59d26dcf75b08d3ccd4e85b750edba9e53a396cb7a4652d7cbc9e8",
+          "url": "https://files.pythonhosted.org/packages/55/75/46a29692f7b87d96efc675087fe4495d01d2811720c16abce351ec78547a/psycopg_binary-3.3.8-cp313-cp313-musllinux_1_2_aarch64.whl",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        },
+        {
+          "filename": "psycopg_binary-3.3.8-cp313-cp313-musllinux_1_2_ppc64le.whl",
+          "sha256": "6891b6d9d25103c31411b50f83f9a8aba63f4cbcc63b009f461c115bfaf7b78d",
+          "url": "https://files.pythonhosted.org/packages/eb/cc/e3bd0dc83e52aff75bb8131f200e336f6d8a5642de60cc96694eb53540af/psycopg_binary-3.3.8-cp313-cp313-musllinux_1_2_ppc64le.whl",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        },
+        {
+          "filename": "psycopg_binary-3.3.8-cp313-cp313-musllinux_1_2_riscv64.whl",
+          "sha256": "7d2b484e8ced7c3292e811d28087814467aecd3ef19badb64ed45a0f5fd78bf8",
+          "url": "https://files.pythonhosted.org/packages/9b/e1/db358ef11a5e5b7590aba3dfa2ef7af685210e27f37a2ae3b93c5af99bc4/psycopg_binary-3.3.8-cp313-cp313-musllinux_1_2_riscv64.whl",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        },
+        {
+          "filename": "psycopg_binary-3.3.8-cp313-cp313-musllinux_1_2_x86_64.whl",
+          "sha256": "522acdc8a71a042b407851658eb1da85fe09c78b222b2233faef7da3385a757b",
+          "url": "https://files.pythonhosted.org/packages/0d/6d/45f8401f1b1dd65303892a786d190814279d212a663f840572da3b73084d/psycopg_binary-3.3.8-cp313-cp313-musllinux_1_2_x86_64.whl",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        },
+        {
+          "filename": "psycopg_binary-3.3.8-cp313-cp313-win_amd64.whl",
+          "sha256": "e42c0e37eaed1ff03c24008561bca218eae8ec5ca4405a37897c6245ead8d612",
+          "url": "https://files.pythonhosted.org/packages/1d/f2/3db3e063f05f50641d3e8483132507504b781c8f045f0c3ef883adf73baa/psycopg_binary-3.3.8-cp313-cp313-win_amd64.whl",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        },
+        {
+          "filename": "psycopg_binary-3.3.8-cp314-cp314-macosx_10_15_x86_64.whl",
+          "sha256": "e09cc11a367cbb147bacec0a41d748d22245e322827911d9c82b6066a8ba2059",
+          "url": "https://files.pythonhosted.org/packages/7a/67/7da6c17ce91cc8f991c104d7d557396d37bd2394436d446af87493e8bed7/psycopg_binary-3.3.8-cp314-cp314-macosx_10_15_x86_64.whl",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        },
+        {
+          "filename": "psycopg_binary-3.3.8-cp314-cp314-macosx_11_0_arm64.whl",
+          "sha256": "bf9388216da2069ca0dbad58479bb83e4b979ed35c4a80d247399ac93361417c",
+          "url": "https://files.pythonhosted.org/packages/f3/0c/56a7a35b304a7ae9f2796f76dd76a847d34f0cdaa76f0945294c06d13220/psycopg_binary-3.3.8-cp314-cp314-macosx_11_0_arm64.whl",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        },
+        {
+          "filename": "psycopg_binary-3.3.8-cp314-cp314-manylinux2014_ppc64le.manylinux_2_17_ppc64le.whl",
+          "sha256": "78f92c5c9c9177b247b0f72f03412bc829185786525a8cf8742460066762a7d1",
+          "url": "https://files.pythonhosted.org/packages/17/d1/99852fa4ebae1956c664be13758cf98219e9bf9613d58b9f4b21301dd1a9/psycopg_binary-3.3.8-cp314-cp314-manylinux2014_ppc64le.manylinux_2_17_ppc64le.whl",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        },
+        {
+          "filename": "psycopg_binary-3.3.8-cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+          "sha256": "710183a2e29c72050c3a447f9f566de27c6efea9da40bf7b800381ac57026204",
+          "url": "https://files.pythonhosted.org/packages/6d/70/b0e38a0f80439e3b4a4ce52d1421ee5c6aa2803a43c50d32cfd16efb6df9/psycopg_binary-3.3.8-cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        },
+        {
+          "filename": "psycopg_binary-3.3.8-cp314-cp314-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl",
+          "sha256": "df35063b88af16c08bb8960aac9882cce620aea478dfec5a67cff397b575b97d",
+          "url": "https://files.pythonhosted.org/packages/b6/b3/8bc56251ee11c9fcbf83fd87970116d9997834bb7ff8b9d1b8e23b468581/psycopg_binary-3.3.8-cp314-cp314-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        },
+        {
+          "filename": "psycopg_binary-3.3.8-cp314-cp314-manylinux_2_38_riscv64.manylinux_2_39_riscv64.whl",
+          "sha256": "a63be4f745b778654e3c438d1b0e31bcf5ce265151c6982d5c6d5d286bae84c0",
+          "url": "https://files.pythonhosted.org/packages/4a/c7/64fd282c7a16dbb56af75f336c58e16c7e00be147d8efb93eeec6a4d4def/psycopg_binary-3.3.8-cp314-cp314-manylinux_2_38_riscv64.manylinux_2_39_riscv64.whl",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        },
+        {
+          "filename": "psycopg_binary-3.3.8-cp314-cp314-musllinux_1_2_aarch64.whl",
+          "sha256": "ced3499d480a979b956536b3f71a4736451bf3a976e4e400fc5c4b8dd3f43b23",
+          "url": "https://files.pythonhosted.org/packages/80/da/88d70f65c54a828f3d89597749e6c1b90991297e34de5f50b0f8f394022b/psycopg_binary-3.3.8-cp314-cp314-musllinux_1_2_aarch64.whl",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        },
+        {
+          "filename": "psycopg_binary-3.3.8-cp314-cp314-musllinux_1_2_ppc64le.whl",
+          "sha256": "bf96efb4530605813b30d664f5d3b510540d89434a8e89dd7c62fb2d4fa4278f",
+          "url": "https://files.pythonhosted.org/packages/e8/fe/0bdcc827e2fdb4a63e9516ad9e6e3989c39076796074ee752e0fd5c7e2bd/psycopg_binary-3.3.8-cp314-cp314-musllinux_1_2_ppc64le.whl",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        },
+        {
+          "filename": "psycopg_binary-3.3.8-cp314-cp314-musllinux_1_2_riscv64.whl",
+          "sha256": "0fd106e47b7d1f82744b23b6dd31856435e46c3d1b3d4972325d76f2e7a3d771",
+          "url": "https://files.pythonhosted.org/packages/8e/7c/d870616fd18f371c710a08fee92d1f7c663753e992e03472b84954fa8a82/psycopg_binary-3.3.8-cp314-cp314-musllinux_1_2_riscv64.whl",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        },
+        {
+          "filename": "psycopg_binary-3.3.8-cp314-cp314-musllinux_1_2_x86_64.whl",
+          "sha256": "5deec7746acf1c742572b8bf8599f2f61a38c9925015d77254d87d3781169b3f",
+          "url": "https://files.pythonhosted.org/packages/1b/bd/af3b881b42954a5cf406b084588dd7e2fd069bb998beeef2ab5057d4cbec/psycopg_binary-3.3.8-cp314-cp314-musllinux_1_2_x86_64.whl",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        },
+        {
+          "filename": "psycopg_binary-3.3.8-cp314-cp314-win_amd64.whl",
+          "sha256": "6d899f361effad9a23d90940b6b55683bc87ed2d457ef64a7fa76fee7c3b9dfc",
+          "url": "https://files.pythonhosted.org/packages/00/72/132dd54feeac60ecb77eae04bac76cdcf84f8fc1e8e7cae596cd2a9d43c9/psycopg_binary-3.3.8-cp314-cp314-win_amd64.whl",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        },
+        {
+          "filename": "psycopg_binary-3.3.8-cp315-cp315-macosx_10_15_x86_64.whl",
+          "sha256": "419a52eb62bdc0bf9eff80039329435c55a1943b1fa12f4d0cbdc45b5f856c5b",
+          "url": "https://files.pythonhosted.org/packages/22/85/7589ec7690974b56b5cd2c5c00174f9b78f958fb6a381317a33620696380/psycopg_binary-3.3.8-cp315-cp315-macosx_10_15_x86_64.whl",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        },
+        {
+          "filename": "psycopg_binary-3.3.8-cp315-cp315-macosx_11_0_arm64.whl",
+          "sha256": "f31dea98f8c5c6c60e8e049388f24eec14088518e2ded0f892d96c785401e688",
+          "url": "https://files.pythonhosted.org/packages/49/cd/7a01cfa27b2f062727d3abe82726915cc45789a4649bdab6f7740b779348/psycopg_binary-3.3.8-cp315-cp315-macosx_11_0_arm64.whl",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        },
+        {
+          "filename": "psycopg_binary-3.3.8-cp315-cp315-manylinux2014_ppc64le.manylinux_2_17_ppc64le.whl",
+          "sha256": "5fd40b5ced3f8b458024ea434f2dfee7aa62a65663089bde26c41302f6c31b2e",
+          "url": "https://files.pythonhosted.org/packages/e5/ae/06211024de518c5a5d02733fba9639a062dc41f1f322e273ad611973bb3b/psycopg_binary-3.3.8-cp315-cp315-manylinux2014_ppc64le.manylinux_2_17_ppc64le.whl",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        },
+        {
+          "filename": "psycopg_binary-3.3.8-cp315-cp315-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+          "sha256": "fc134798cd646a15326004bbeff4c2719e000a9ac52f6b893a767f7c5276e24b",
+          "url": "https://files.pythonhosted.org/packages/e5/48/82a13d5b04fb046582b87f0651252f66dc5e1cc3183d6807aff1ea126189/psycopg_binary-3.3.8-cp315-cp315-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        },
+        {
+          "filename": "psycopg_binary-3.3.8-cp315-cp315-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl",
+          "sha256": "da101085aa9f74817e48fc96dda859528fc52fabcf81e27c3640d1df17dd6dcb",
+          "url": "https://files.pythonhosted.org/packages/ee/24/01ddf5382fe55372f85f174e9531bdcc5350a6c9b980e25e19653d038bf8/psycopg_binary-3.3.8-cp315-cp315-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        },
+        {
+          "filename": "psycopg_binary-3.3.8-cp315-cp315-manylinux_2_38_riscv64.manylinux_2_39_riscv64.whl",
+          "sha256": "bb88457e8357a8709ab04f542c07361a816793f012a1c9818a4edd86d02cde4d",
+          "url": "https://files.pythonhosted.org/packages/51/42/192a69f42c797d8dc09ebd97f69c2c3f745abba810379df83c38490fc428/psycopg_binary-3.3.8-cp315-cp315-manylinux_2_38_riscv64.manylinux_2_39_riscv64.whl",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        },
+        {
+          "filename": "psycopg_binary-3.3.8-cp315-cp315-musllinux_1_2_aarch64.whl",
+          "sha256": "eb4cd3f0ad6ebcf2baeb94f93d87138044976b57b7113b6321ac3c5cf70a8130",
+          "url": "https://files.pythonhosted.org/packages/82/73/a420dc5c2888d5c91bd40ddd7a8a604b622f3d883048a6b92e5c33ac1e9b/psycopg_binary-3.3.8-cp315-cp315-musllinux_1_2_aarch64.whl",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        },
+        {
+          "filename": "psycopg_binary-3.3.8-cp315-cp315-musllinux_1_2_ppc64le.whl",
+          "sha256": "9199be795608cbd3e6cc39b21c19e6043c44bc15d5a1d28f1df379830c553dd5",
+          "url": "https://files.pythonhosted.org/packages/29/57/b30555a448fcc60607cbee68880a4126786680e71b7cc25e0a836b31da8b/psycopg_binary-3.3.8-cp315-cp315-musllinux_1_2_ppc64le.whl",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        },
+        {
+          "filename": "psycopg_binary-3.3.8-cp315-cp315-musllinux_1_2_riscv64.whl",
+          "sha256": "6bde86fb307fe1698fbbfeaa96130d4825f265afbeff217b959c1905b86f924d",
+          "url": "https://files.pythonhosted.org/packages/48/4b/a6ead08df35feb2f5e10897e33c1ba26809f85365a7c2a0efa244acf9008/psycopg_binary-3.3.8-cp315-cp315-musllinux_1_2_riscv64.whl",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        },
+        {
+          "filename": "psycopg_binary-3.3.8-cp315-cp315-musllinux_1_2_x86_64.whl",
+          "sha256": "c2154bd84cf20148d9a59e3ade04f0f754462b96cfac91d54d76ef33af7946e5",
+          "url": "https://files.pythonhosted.org/packages/68/8a/7ff05b083c676024beb549863a19d59b205931010ec7f3a12aadf5de9901/psycopg_binary-3.3.8-cp315-cp315-musllinux_1_2_x86_64.whl",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        },
+        {
+          "filename": "psycopg_binary-3.3.8-cp315-cp315-win_amd64.whl",
+          "sha256": "0332e83c2e78b1c8c00c1095688f9b332bdde9d5e9d61b8ce1cdcaf716a19b9e",
+          "url": "https://files.pythonhosted.org/packages/59/a7/58ab2cf0a6da11d5c2b00d524f5d5b114e2e6359e629d34360cf57a22e20/psycopg_binary-3.3.8-cp315-cp315-win_amd64.whl",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        }
+      ]
+    },
+    {
+      "name": "pytest",
+      "version": "9.2.0",
+      "source": "https://pypi.org/pypi/pytest/9.2.0/json",
+      "requires_python": ">=3.10",
+      "license_expression": "MIT",
+      "license": null,
+      "license_classifiers": [],
+      "requires_dist": [
+        "colorama>=0.4; sys_platform == \"win32\"",
+        "exceptiongroup>=1; python_version < \"3.11\"",
+        "iniconfig>=2",
+        "packaging>=24",
+        "pluggy<2,>=1.6",
+        "pygments>=2.15",
+        "tomli>=2; python_version < \"3.11\"",
+        "argcomplete; extra == \"dev\"",
+        "asynctest; python_version < \"3.11\" and extra == \"dev\"",
+        "attrs>=23.1; extra == \"dev\"",
+        "coverage>=7.5; extra == \"dev\"",
+        "hypothesis>=6.75; extra == \"dev\"",
+        "mock; extra == \"dev\"",
+        "numpy>=1.26; extra == \"dev\"",
+        "pexpect>=4.9; extra == \"dev\"",
+        "pytest-xdist>=3.5; extra == \"dev\"",
+        "pyyaml; extra == \"dev\"",
+        "requests; extra == \"dev\"",
+        "setuptools; extra == \"dev\"",
+        "xmlschema; extra == \"dev\""
+      ],
+      "project_urls": {
+        "Changelog": "https://docs.pytest.org/en/stable/changelog.html",
+        "Contact": "https://docs.pytest.org/en/stable/contact.html",
+        "Funding": "https://docs.pytest.org/en/stable/sponsor.html",
+        "Homepage": "https://docs.pytest.org/en/latest/",
+        "Source": "https://github.com/pytest-dev/pytest",
+        "Tracker": "https://github.com/pytest-dev/pytest/issues"
+      },
+      "files": [
+        {
+          "filename": "pytest-9.2.0-py3-none-any.whl",
+          "sha256": "07acdcf88ec174f907dc01af70bf52d49b014bbab03faeeade31c96b18c2e588",
+          "url": "https://files.pythonhosted.org/packages/51/39/1f5d8c8877a0fa327db959c19341d4be61660de1ab6b7391f9eb805bcd67/pytest-9.2.0-py3-none-any.whl",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        },
+        {
+          "filename": "pytest-9.2.0.tar.gz",
+          "sha256": "97c4f3b1f3c7414aa36465e09b8220f1d03627993bd51b1282e193753c80557b",
+          "url": "https://files.pythonhosted.org/packages/79/42/bb4641652e58dedeac2ec51abc1f8cae4fee4ec63899a0999016229a0f2a/pytest-9.2.0.tar.gz",
+          "packagetype": "sdist",
+          "yanked": false
+        }
+      ]
+    },
+    {
+      "name": "pytest-django",
+      "version": "4.14.0",
+      "source": "https://pypi.org/pypi/pytest-django/4.14.0/json",
+      "requires_python": ">=3.10",
+      "license_expression": null,
+      "license": "pytest-django is released under the BSD (3-clause) license\n        ----------------------------------------------------------\n        Copyright (c) 2015-2018, pytest-django authors (see AUTHORS file)\n        All rights reserved.\n        \n        Redistribution and use in source and binary forms, with or without\n        modification, are permitted provided that the following conditions are met:\n        \n         * Redistributions of source code must retain the above copyright notice, this\n           list of conditions and the following disclaimer.\n         * Redistributions in binary form must reproduce the above copyright notice,\n           this list of conditions and the following disclaimer in the documentation\n           and/or other materials provided with the distribution.\n         * The names of its contributors may not be used to endorse or promote products\n           derived from this software without specific prior written permission.\n        \n        THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS \"AS IS\" AND\n        ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED\n        WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE\n        DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR\n        ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES\n        (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;\n        LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON\n        ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT\n        (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS\n        SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n        \n        \n        This version of pytest-django is a fork of pytest_django created by Ben Firshman.\n        ---------------------------------------------------------------------------------\n        Copyright (c) 2009, Ben Firshman\n        All rights reserved.\n        \n        Redistribution and use in source and binary forms, with or without\n        modification, are permitted provided that the following conditions are met:\n        \n         * Redistributions of source code must retain the above copyright notice, this\n           list of conditions and the following disclaimer.\n         * Redistributions in binary form must reproduce the above copyright notice,\n           this list of conditions and the following disclaimer in the documentation\n           and/or other materials provided with the distribution.\n         * The names of its contributors may not be used to endorse or promote products\n           derived from this software without specific prior written permission.\n        \n        THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS \"AS IS\" AND\n        ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED\n        WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE\n        DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR\n        ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES\n        (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;\n        LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON\n        ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT\n        (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS\n        SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n        ",
+      "license_classifiers": [
+        "License :: OSI Approved :: BSD License"
+      ],
+      "requires_dist": [
+        "pytest>=7.0.0",
+        "django>=5.2; extra == \"django\"",
+        "sphinx; extra == \"docs\"",
+        "sphinx-rtd-theme; extra == \"docs\""
+      ],
+      "project_urls": {
+        "Changelog": "https://pytest-django.readthedocs.io/en/latest/changelog.html",
+        "Documentation": "https://pytest-django.readthedocs.io/",
+        "Repository": "https://github.com/pytest-dev/pytest-django"
+      },
+      "files": [
+        {
+          "filename": "pytest_django-4.14.0-py3-none-any.whl",
+          "sha256": "c533b08d89cc675efcd5398eea270b34547e35f9a3608e2c9748dd88428ea187",
+          "url": "https://files.pythonhosted.org/packages/9c/03/850bffad2b581c440ca51c039d74504d5a422c94bda0bdb8a8ba5068d48b/pytest_django-4.14.0-py3-none-any.whl",
+          "packagetype": "bdist_wheel",
+          "yanked": false
+        },
+        {
+          "filename": "pytest_django-4.14.0.tar.gz",
+          "sha256": "26787dd3f422cfbab8f55b80a776e2edea7a11092cb74e960bef1312515708ef",
+          "url": "https://files.pythonhosted.org/packages/44/f6/3851312120c2bf2f19cafff931e75059aad1ba670703cd751e2fde9bc942/pytest_django-4.14.0.tar.gz",
+          "packagetype": "sdist",
+          "yanked": false
+        }
+      ]
+    }
+  ],
+  "locked_dependencies": [
+    {
+      "name": "asgiref",
+      "version": "3.13.0",
+      "source": "https://pypi.org/pypi/asgiref/3.13.0/json",
+      "requires_python": ">=3.11",
+      "license_expression": null,
+      "license": "BSD-3-Clause",
+      "license_classifiers": [],
+      "requires_dist": [
+        "packaging; extra == \"tests\"",
+        "pytest; extra == \"tests\"",
+        "pytest-asyncio; extra == \"tests\"",
+        "mypy>=1.14.0; extra == \"mypy\""
+      ],
+      "project_urls": {
+        "Changelog": "https://github.com/django/asgiref/blob/master/CHANGELOG.txt",
+        "Documentation": "https://asgi.readthedocs.io/",
+        "Further Documentation": "https://docs.djangoproject.com/en/stable/topics/async/#async-adapter-functions",
+        "Homepage": "https://github.com/django/asgiref/"
+      },
+      "wheel_available": true,
+      "all_files_yanked": false,
+      "locked_wheel_sha256": [
+        "sha256:f9596a2434512686473d50f96ff6207fbba49ae1a785dfac614df4aeb085674d"
+      ],
+      "review": "Metadata inspected before installation; no source build allowed. Full installed notice-file inventory follows wheel install."
+    },
+    {
+      "name": "click",
+      "version": "8.5.1",
+      "source": "https://pypi.org/pypi/click/8.5.1/json",
+      "requires_python": ">=3.10",
+      "license_expression": "BSD-3-Clause",
+      "license": null,
+      "license_classifiers": [],
+      "requires_dist": null,
+      "project_urls": {
+        "Changes": "https://click.palletsprojects.com/page/changes/",
+        "Chat": "https://discord.gg/pallets",
+        "Documentation": "https://click.palletsprojects.com/",
+        "Donate": "https://palletsprojects.com/donate",
+        "Source": "https://github.com/pallets/click/"
+      },
+      "wheel_available": true,
+      "all_files_yanked": false,
+      "locked_wheel_sha256": [
+        "sha256:8bb5376d2006950386f8c6427613334a2acadc5f559cb80e638d00b4df957e37"
+      ],
+      "review": "Metadata inspected before installation; no source build allowed. Full installed notice-file inventory follows wheel install."
+    },
+    {
+      "name": "colorama",
+      "version": "0.4.6",
+      "source": "https://pypi.org/pypi/colorama/0.4.6/json",
+      "requires_python": "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,!=3.5.*,!=3.6.*,>=2.7",
+      "license_expression": null,
+      "license": "",
+      "license_classifiers": [
+        "License :: OSI Approved :: BSD License"
+      ],
+      "requires_dist": null,
+      "project_urls": {
+        "Homepage": "https://github.com/tartley/colorama"
+      },
+      "wheel_available": true,
+      "all_files_yanked": false,
+      "locked_wheel_sha256": [
+        "sha256:4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6"
+      ],
+      "review": "Metadata inspected before installation; no source build allowed. Full installed notice-file inventory follows wheel install."
+    },
+    {
+      "name": "django",
+      "version": "5.2.19",
+      "source": "https://pypi.org/pypi/django/5.2.19/json",
+      "requires_python": ">=3.10",
+      "license_expression": "BSD-3-Clause",
+      "license": null,
+      "license_classifiers": [],
+      "requires_dist": [
+        "asgiref>=3.8.1",
+        "sqlparse>=0.3.1",
+        "tzdata; sys_platform == \"win32\"",
+        "argon2-cffi>=19.1.0; extra == \"argon2\"",
+        "bcrypt; extra == \"bcrypt\""
+      ],
+      "project_urls": {
+        "Documentation": "https://docs.djangoproject.com/",
+        "Funding": "https://www.djangoproject.com/fundraising/",
+        "Homepage": "https://www.djangoproject.com/",
+        "Release notes": "https://docs.djangoproject.com/en/stable/releases/",
+        "Source": "https://github.com/django/django",
+        "Tracker": "https://code.djangoproject.com/"
+      },
+      "wheel_available": true,
+      "all_files_yanked": false,
+      "locked_wheel_sha256": [
+        "sha256:5965d974a5218a2b68a11dd1276434707f23886525c23f0598eccedaf4f4ca00"
+      ],
+      "review": "Metadata inspected before installation; no source build allowed. Full installed notice-file inventory follows wheel install."
+    },
+    {
+      "name": "djangorestframework",
+      "version": "3.18.3",
+      "source": "https://pypi.org/pypi/djangorestframework/3.18.3/json",
+      "requires_python": ">=3.10",
+      "license_expression": "BSD-3-Clause",
+      "license": null,
+      "license_classifiers": [],
+      "requires_dist": [
+        "django>=5.2"
+      ],
+      "project_urls": {
+        "Changelog": "https://www.django-rest-framework.org/community/release-notes/",
+        "Funding": "https://fund.django-rest-framework.org/topics/funding/",
+        "Homepage": "https://www.django-rest-framework.org",
+        "Source": "https://github.com/encode/django-rest-framework"
+      },
+      "wheel_available": true,
+      "all_files_yanked": false,
+      "locked_wheel_sha256": [
+        "sha256:8544bb674846731b1e3c9b309236ee1dc412905a0aa725be2ec193ca950a7d12"
+      ],
+      "review": "Metadata inspected before installation; no source build allowed. Full installed notice-file inventory follows wheel install."
+    },
+    {
+      "name": "h11",
+      "version": "0.16.0",
+      "source": "https://pypi.org/pypi/h11/0.16.0/json",
+      "requires_python": ">=3.8",
+      "license_expression": null,
+      "license": "MIT",
+      "license_classifiers": [
+        "License :: OSI Approved :: MIT License"
+      ],
+      "requires_dist": null,
+      "project_urls": {
+        "Homepage": "https://github.com/python-hyper/h11"
+      },
+      "wheel_available": true,
+      "all_files_yanked": false,
+      "locked_wheel_sha256": [
+        "sha256:63cf8bbe7522de3bf65932fda1d9c2772064ffb3dae62d55932da54b31cb6c86"
+      ],
+      "review": "Metadata inspected before installation; no source build allowed. Full installed notice-file inventory follows wheel install."
+    },
+    {
+      "name": "iniconfig",
+      "version": "2.3.1",
+      "source": "https://pypi.org/pypi/iniconfig/2.3.1/json",
+      "requires_python": ">=3.10",
+      "license_expression": "MIT",
+      "license": null,
+      "license_classifiers": [],
+      "requires_dist": null,
+      "project_urls": {
+        "Homepage": "https://github.com/pytest-dev/iniconfig"
+      },
+      "wheel_available": true,
+      "all_files_yanked": false,
+      "locked_wheel_sha256": [
+        "sha256:9121e2c1fdb355232495be3194c8dfe87ccc2d5dee45947b78e68f499790d7a7"
+      ],
+      "review": "Metadata inspected before installation; no source build allowed. Full installed notice-file inventory follows wheel install."
+    },
+    {
+      "name": "packaging",
+      "version": "26.3",
+      "source": "https://pypi.org/pypi/packaging/26.3/json",
+      "requires_python": ">=3.9",
+      "license_expression": "Apache-2.0 OR BSD-2-Clause",
+      "license": null,
+      "license_classifiers": [],
+      "requires_dist": null,
+      "project_urls": {
+        "Documentation": "https://packaging.pypa.io/",
+        "Source": "https://github.com/pypa/packaging"
+      },
+      "wheel_available": true,
+      "all_files_yanked": false,
+      "locked_wheel_sha256": [
+        "sha256:d7193f7c8e4e93f444fde0262bf90af30e16fa0ad0ad44cb553c87339b23cd1c"
+      ],
+      "review": "Metadata inspected before installation; no source build allowed. Full installed notice-file inventory follows wheel install."
+    },
+    {
+      "name": "pluggy",
+      "version": "1.7.0",
+      "source": "https://pypi.org/pypi/pluggy/1.7.0/json",
+      "requires_python": ">=3.10",
+      "license_expression": null,
+      "license": "MIT",
+      "license_classifiers": [
+        "License :: OSI Approved :: MIT License"
+      ],
+      "requires_dist": null,
+      "project_urls": {
+        "Changelog": "https://pluggy.readthedocs.io/en/latest/changelog.html",
+        "Documentation": "https://pluggy.readthedocs.io/",
+        "Funding": "https://tidelift.com/subscription/pkg/pypi-pluggy",
+        "Homepage": "https://github.com/pytest-dev/pluggy",
+        "Issues": "https://github.com/pytest-dev/pluggy/issues",
+        "Repository": "https://github.com/pytest-dev/pluggy"
+      },
+      "wheel_available": true,
+      "all_files_yanked": false,
+      "locked_wheel_sha256": [
+        "sha256:7dd7b0d8832ba3cb632c306926ded123429211b83641b35dc5c41ad2d34f9bec"
+      ],
+      "review": "Metadata inspected before installation; no source build allowed. Full installed notice-file inventory follows wheel install."
+    },
+    {
+      "name": "psycopg",
+      "version": "3.3.8",
+      "source": "https://pypi.org/pypi/psycopg/3.3.8/json",
+      "requires_python": ">=3.10",
+      "license_expression": "LGPL-3.0-only",
+      "license": null,
+      "license_classifiers": [],
+      "requires_dist": [
+        "typing-extensions>=4.6; python_version < \"3.13\"",
+        "tzdata; sys_platform == \"win32\"",
+        "psycopg-c==3.3.8; implementation_name != \"pypy\" and extra == \"c\"",
+        "psycopg-binary==3.3.8; implementation_name != \"pypy\" and extra == \"binary\"",
+        "psycopg-pool; extra == \"pool\"",
+        "anyio>=4.0; extra == \"test\"",
+        "mypy>=2.1.0; implementation_name != \"pypy\" and extra == \"test\"",
+        "pproxy>=2.7; extra == \"test\"",
+        "pytest>=6.2.5; extra == \"test\"",
+        "pytest-cov>=3.0; extra == \"test\"",
+        "pytest-randomly>=3.5; extra == \"test\"",
+        "ast-comments>=1.1.2; extra == \"dev\"",
+        "black>=26.1.0; extra == \"dev\"",
+        "codespell>=2.2; extra == \"dev\"",
+        "cython-lint>=0.21; extra == \"dev\"",
+        "dnspython>=2.1; extra == \"dev\"",
+        "flake8>=4.0; extra == \"dev\"",
+        "isort[colors]>=6.0; extra == \"dev\"",
+        "isort-psycopg>=0.0.3; extra == \"dev\"",
+        "mypy>=2.1.0; extra == \"dev\"",
+        "pre-commit>=4.0.1; extra == \"dev\"",
+        "types-setuptools>=57.4; extra == \"dev\"",
+        "types-shapely>=2.0; extra == \"dev\"",
+        "wheel>=0.37; extra == \"dev\"",
+        "Sphinx>=9.1; extra == \"docs\"",
+        "furo==2025.12.19; extra == \"docs\"",
+        "sphinx-autobuild>=2025.8.25; extra == \"docs\"",
+        "sphinx-autodoc-typehints>=3.10.2; extra == \"docs\""
+      ],
+      "project_urls": {
+        "Changes": "https://psycopg.org/psycopg3/docs/news.html",
+        "Code": "https://github.com/psycopg/psycopg",
+        "Documentation": "https://psycopg.org/psycopg3/docs/",
+        "Funding": "https://github.com/sponsors/dvarrazzo",
+        "Homepage": "https://psycopg.org/",
+        "Issue Tracker": "https://github.com/psycopg/psycopg/issues"
+      },
+      "wheel_available": true,
+      "all_files_yanked": false,
+      "locked_wheel_sha256": [
+        "sha256:ca50af6072ba9ea6866f33021975230c2555d7bfdb9d8f94ca3af5c3d1bf2167"
+      ],
+      "review": "Metadata inspected before installation; no source build allowed. Full installed notice-file inventory follows wheel install."
+    },
+    {
+      "name": "psycopg-binary",
+      "version": "3.3.8",
+      "source": "https://pypi.org/pypi/psycopg-binary/3.3.8/json",
+      "requires_python": ">=3.10",
+      "license_expression": "LGPL-3.0-only",
+      "license": null,
+      "license_classifiers": [],
+      "requires_dist": null,
+      "project_urls": {
+        "Changes": "https://psycopg.org/psycopg3/docs/news.html",
+        "Code": "https://github.com/psycopg/psycopg",
+        "Documentation": "https://psycopg.org/psycopg3/docs/",
+        "Funding": "https://github.com/sponsors/dvarrazzo",
+        "Homepage": "https://psycopg.org/",
+        "Issue Tracker": "https://github.com/psycopg/psycopg/issues"
+      },
+      "wheel_available": true,
+      "all_files_yanked": false,
+      "locked_wheel_sha256": [
+        "sha256:a09aa2ba7927e9b11bd5bddb6d33cec274235d6f54f1ab777ed71c932cfc8d72",
+        "sha256:e0972d8de5a0d855d76624f559a6ce5dd068fb4bbfa01e1d7cf929e6800dc4f0",
+        "sha256:41c31b175084a85232b6ea5f8eb474491b6c963302c69b46fa2ed60afb888b62",
+        "sha256:a7cdba018e4decf3837793c1e18dbe3dd71709adef54892ab83d81c00e866dc3",
+        "sha256:804041b79916b0e8021a1130650d724741eff1e81ccec8133abf357b4d284a24",
+        "sha256:9daff4d6257969b02678943d62bfd83b971004f6efef68d5b767ac69c2222751",
+        "sha256:e8f1addbaec62c9e2bf5b3ae4b32a20c793c06de7d57471f6509a127f1c902f4",
+        "sha256:5f51d97b67276e90cda022ad363eca61dbe855dbb5342e358469006d4b5254df",
+        "sha256:aa7af0d2d1194b65b8c4d0056c5607de6c38fb6a295f04087d17e1c9d2d11fba",
+        "sha256:f09cb4e7744522d71048a8998ff841c7af942a61ffbd4142a140b42d89b950fe",
+        "sha256:ec6773395189417c92102b34c77ed299f6111fbbc37d50d4fa12ab819f763669"
+      ],
+      "review": "Metadata inspected before installation; no source build allowed. Full installed notice-file inventory follows wheel install."
+    },
+    {
+      "name": "pygments",
+      "version": "2.21.0",
+      "source": "https://pypi.org/pypi/pygments/2.21.0/json",
+      "requires_python": ">=3.9",
+      "license_expression": "BSD-2-Clause",
+      "license": null,
+      "license_classifiers": [],
+      "requires_dist": [
+        "colorama>=0.4.6; extra == \"windows-terminal\""
+      ],
+      "project_urls": {
+        "Bug Tracker": "https://github.com/pygments/pygments/issues",
+        "Changelog": "https://github.com/pygments/pygments/blob/master/CHANGES",
+        "Documentation": "https://pygments.org/docs",
+        "Homepage": "https://pygments.org",
+        "Source": "https://github.com/pygments/pygments"
+      },
+      "wheel_available": true,
+      "all_files_yanked": false,
+      "locked_wheel_sha256": [
+        "sha256:2363c69b61c4a97c838da3b130dcd6468f4848992b21a82f2a63ec34377137d9"
+      ],
+      "review": "Metadata inspected before installation; no source build allowed. Full installed notice-file inventory follows wheel install."
+    },
+    {
+      "name": "pytest",
+      "version": "9.2.0",
+      "source": "https://pypi.org/pypi/pytest/9.2.0/json",
+      "requires_python": ">=3.10",
+      "license_expression": "MIT",
+      "license": null,
+      "license_classifiers": [],
+      "requires_dist": [
+        "colorama>=0.4; sys_platform == \"win32\"",
+        "exceptiongroup>=1; python_version < \"3.11\"",
+        "iniconfig>=2",
+        "packaging>=24",
+        "pluggy<2,>=1.6",
+        "pygments>=2.15",
+        "tomli>=2; python_version < \"3.11\"",
+        "argcomplete; extra == \"dev\"",
+        "asynctest; python_version < \"3.11\" and extra == \"dev\"",
+        "attrs>=23.1; extra == \"dev\"",
+        "coverage>=7.5; extra == \"dev\"",
+        "hypothesis>=6.75; extra == \"dev\"",
+        "mock; extra == \"dev\"",
+        "numpy>=1.26; extra == \"dev\"",
+        "pexpect>=4.9; extra == \"dev\"",
+        "pytest-xdist>=3.5; extra == \"dev\"",
+        "pyyaml; extra == \"dev\"",
+        "requests; extra == \"dev\"",
+        "setuptools; extra == \"dev\"",
+        "xmlschema; extra == \"dev\""
+      ],
+      "project_urls": {
+        "Changelog": "https://docs.pytest.org/en/stable/changelog.html",
+        "Contact": "https://docs.pytest.org/en/stable/contact.html",
+        "Funding": "https://docs.pytest.org/en/stable/sponsor.html",
+        "Homepage": "https://docs.pytest.org/en/latest/",
+        "Source": "https://github.com/pytest-dev/pytest",
+        "Tracker": "https://github.com/pytest-dev/pytest/issues"
+      },
+      "wheel_available": true,
+      "all_files_yanked": false,
+      "locked_wheel_sha256": [
+        "sha256:07acdcf88ec174f907dc01af70bf52d49b014bbab03faeeade31c96b18c2e588"
+      ],
+      "review": "Metadata inspected before installation; no source build allowed. Full installed notice-file inventory follows wheel install."
+    },
+    {
+      "name": "pytest-django",
+      "version": "4.14.0",
+      "source": "https://pypi.org/pypi/pytest-django/4.14.0/json",
+      "requires_python": ">=3.10",
+      "license_expression": null,
+      "license": "pytest-django is released under the BSD (3-clause) license\n        ----------------------------------------------------------\n        Copyright (c) 2015-2018, pytest-django authors (see AUTHORS file)\n        All rights reserved.\n        \n        Redistribution and use in source and binary forms, with or without\n        modification, are permitted provided that the following conditions are met:\n        \n         * Redistributions of source code must retain the above copyright notice, this\n           list of conditions and the following disclaimer.\n         * Redistributions in binary form must reproduce the above copyright notice,\n           this list of conditions and the following disclaimer in the documentation\n           and/or other materials provided with the distribution.\n         * The names of its contributors may not be used to endorse or promote products\n           derived from this software without specific prior written permission.\n        \n        THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS \"AS IS\" AND\n        ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED\n        WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE\n        DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR\n        ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES\n        (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;\n        LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON\n        ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT\n        (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS\n        SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n        \n        \n        This version of pytest-django is a fork of pytest_django created by Ben Firshman.\n        ---------------------------------------------------------------------------------\n        Copyright (c) 2009, Ben Firshman\n        All rights reserved.\n        \n        Redistribution and use in source and binary forms, with or without\n        modification, are permitted provided that the following conditions are met:\n        \n         * Redistributions of source code must retain the above copyright notice, this\n           list of conditions and the following disclaimer.\n         * Redistributions in binary form must reproduce the above copyright notice,\n           this list of conditions and the following disclaimer in the documentation\n           and/or other materials provided with the distribution.\n         * The names of its contributors may not be used to endorse or promote products\n           derived from this software without specific prior written permission.\n        \n        THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS \"AS IS\" AND\n        ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED\n        WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE\n        DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR\n        ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES\n        (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;\n        LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON\n        ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT\n        (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS\n        SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n        ",
+      "license_classifiers": [
+        "License :: OSI Approved :: BSD License"
+      ],
+      "requires_dist": [
+        "pytest>=7.0.0",
+        "django>=5.2; extra == \"django\"",
+        "sphinx; extra == \"docs\"",
+        "sphinx-rtd-theme; extra == \"docs\""
+      ],
+      "project_urls": {
+        "Changelog": "https://pytest-django.readthedocs.io/en/latest/changelog.html",
+        "Documentation": "https://pytest-django.readthedocs.io/",
+        "Repository": "https://github.com/pytest-dev/pytest-django"
+      },
+      "wheel_available": true,
+      "all_files_yanked": false,
+      "locked_wheel_sha256": [
+        "sha256:c533b08d89cc675efcd5398eea270b34547e35f9a3608e2c9748dd88428ea187"
+      ],
+      "review": "Metadata inspected before installation; no source build allowed. Full installed notice-file inventory follows wheel install."
+    },
+    {
+      "name": "sqlparse",
+      "version": "0.6.1",
+      "source": "https://pypi.org/pypi/sqlparse/0.6.1/json",
+      "requires_python": ">=3.10",
+      "license_expression": null,
+      "license": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: BSD License"
+      ],
+      "requires_dist": [
+        "build; extra == \"dev\"",
+        "furo; extra == \"doc\"",
+        "sphinx; extra == \"doc\""
+      ],
+      "project_urls": {
+        "Documentation": "https://sqlparse.readthedocs.io/",
+        "Home": "https://github.com/andialbrecht/sqlparse",
+        "Release Notes": "https://sqlparse.readthedocs.io/en/latest/changes.html",
+        "Source": "https://github.com/andialbrecht/sqlparse",
+        "Tracker": "https://github.com/andialbrecht/sqlparse/issues"
+      },
+      "wheel_available": true,
+      "all_files_yanked": false,
+      "locked_wheel_sha256": [
+        "sha256:3be5a72d04c873d690d7c6dedd33d6fae2ef82759881ceec02fc2efd0cba564f"
+      ],
+      "review": "Metadata inspected before installation; no source build allowed. Full installed notice-file inventory follows wheel install."
+    },
+    {
+      "name": "typing-extensions",
+      "version": "4.16.0",
+      "source": "https://pypi.org/pypi/typing-extensions/4.16.0/json",
+      "requires_python": ">=3.9",
+      "license_expression": "PSF-2.0",
+      "license": null,
+      "license_classifiers": [],
+      "requires_dist": null,
+      "project_urls": {
+        "Bug Tracker": "https://github.com/python/typing_extensions/issues",
+        "Changes": "https://github.com/python/typing_extensions/blob/main/CHANGELOG.md",
+        "Documentation": "https://typing-extensions.readthedocs.io/",
+        "Home": "https://github.com/python/typing_extensions",
+        "Q & A": "https://github.com/python/typing/discussions",
+        "Repository": "https://github.com/python/typing_extensions"
+      },
+      "wheel_available": true,
+      "all_files_yanked": false,
+      "locked_wheel_sha256": [
+        "sha256:481caa481374e813c1b176ada14e97f1f67a4539ce9cfeb3f350d78d6370c2e8"
+      ],
+      "review": "Metadata inspected before installation; no source build allowed. Full installed notice-file inventory follows wheel install."
+    },
+    {
+      "name": "tzdata",
+      "version": "2026.6",
+      "source": "https://pypi.org/pypi/tzdata/2026.6/json",
+      "requires_python": ">=2",
+      "license_expression": null,
+      "license": "Apache-2.0",
+      "license_classifiers": [],
+      "requires_dist": null,
+      "project_urls": {
+        "Bug Reports": "https://github.com/python/tzdata/issues",
+        "Documentation": "https://tzdata.python.org",
+        "Homepage": "https://github.com/python/tzdata",
+        "Source": "https://github.com/python/tzdata"
+      },
+      "wheel_available": true,
+      "all_files_yanked": false,
+      "locked_wheel_sha256": [
+        "sha256:0a10eec6e13ef16b627fabed9a5f2ba61a62b1c67f327305f4e7e412a70b4aec"
+      ],
+      "review": "Metadata inspected before installation; no source build allowed. Full installed notice-file inventory follows wheel install."
+    },
+    {
+      "name": "uvicorn",
+      "version": "0.54.0",
+      "source": "https://pypi.org/pypi/uvicorn/0.54.0/json",
+      "requires_python": ">=3.10",
+      "license_expression": "BSD-3-Clause",
+      "license": null,
+      "license_classifiers": [],
+      "requires_dist": [
+        "click>=7.0",
+        "h11>=0.8",
+        "typing-extensions>=4.0; python_version < \"3.11\"",
+        "httptools>=0.8.0; extra == \"standard\"",
+        "python-dotenv>=0.13; extra == \"standard\"",
+        "pyyaml>=5.1; extra == \"standard\"",
+        "uvloop>=0.15.1; (sys_platform != \"win32\" and (sys_platform != \"cygwin\" and platform_python_implementation != \"PyPy\")) and extra == \"standard\"",
+        "watchfiles>=0.20; extra == \"standard\"",
+        "websockets>=13.0; extra == \"standard\""
+      ],
+      "project_urls": {
+        "Changelog": "https://uvicorn.dev/release-notes",
+        "Funding": "https://github.com/sponsors/Kludex",
+        "Homepage": "https://uvicorn.dev/",
+        "Source": "https://github.com/Kludex/uvicorn"
+      },
+      "wheel_available": true,
+      "all_files_yanked": false,
+      "locked_wheel_sha256": [
+        "sha256:505bdb0f318731d45f1f712071fc781a8981f6847a31c902c9f5e652d4f67faf"
+      ],
+      "review": "Metadata inspected before installation; no source build allowed. Full installed notice-file inventory follows wheel install."
+    }
+  ],
+  "audit_tool": {
+    "name": "pip-audit",
+    "version": "2.10.1",
+    "source": "https://pypi.org/pypi/pip-audit/2.10.1/json",
+    "license_expression": null,
+    "license": null,
+    "requires_python": ">=3.10",
+    "scope": "isolated uv ephemeral tool; not backend runtime dependency",
+    "license_classifiers": [
+      "License :: OSI Approved :: Apache Software License"
+    ],
+    "project_urls": {
+      "Homepage": "https://pypi.org/project/pip-audit/",
+      "Issues": "https://github.com/pypa/pip-audit/issues",
+      "Source": "https://github.com/pypa/pip-audit"
+    },
+    "wheel_available": true
+  }
+}

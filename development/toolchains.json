@@ -1,0 +1,26 @@
+{
+  "date": "2026-11-11",
+  "python": {
+    "required": "3.12.13",
+    "observed": "Python 3.12.13",
+    "local_source": "uv-managed standalone, local ignored work/uv-python; no source build",
+    "host_binary_sha256": "a395f264e5612a2819662ed3e37fd30d39ed61179b98e5f86c3c783a008d8623"
+  },
+  "node": {
+    "required": "24.22.1",
+    "observed": "v24.22.1",
+    "local_source": "Existing Codex bundled runtime, not global configuration change",
+    "host_binary_sha256": "eb96bdabfd1f6705345bbd459f9308d140c011fa55865efdb4fa8f61d048f55d",
+    "official_release_tag": "https://github.com/nodejs/node/releases/tag/v24.22.1",
+    "official_tag_object": "d01285110044365f0ad4fec24482a585646640e2"
+  },
+  "uv": {
+    "required": "0.11.14",
+    "source": "https://github.com/astral-sh/uv"
+  },
+  "npm": {
+    "required": "10.8.2",
+    "local_source": "Existing system npm CLI executed with compatible Node24; CI pins npm only on disposable runner"
+  },
+  "platform_scope": "Observed local macOS arm64; clean Ubuntu CI pending; no Windows or native/OS security certification"
+}

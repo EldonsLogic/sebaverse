@@ -274,7 +274,7 @@
       "id": "DEV-005",
       "title": "Resolve minimal toolchain and dependency locks",
       "phase": "F1",
-      "status": "planned",
+      "status": "in_progress",
       "requirements": [
         "R006",
         "R075",
@@ -295,7 +295,8 @@
         "Record actual task checks for the mandatory phase exit gate; do not advance to the next phase until every required check passes and evidence/review is recorded."
       ],
       "verification": [
-        "make dependency-check"
+        "make dependency-check",
+        "make foundation-check"
       ],
       "execution_condition": "All preceding mandatory phase exit tests passed with recorded evidence/review. Applicable G1–G3 execution decisions recorded; synthetic fixtures only; exact dependency/license/security closure reviewed. No paid calls or deployment implied.",
       "evidence": [],
@@ -305,13 +306,28 @@
         "web/package.json",
         "web/*lock*",
         "workers/parser/pyproject.toml",
-        "third-party/"
+        "third-party/",
+        "development/dependency-scope.json",
+        "tools/check_dependencies.py",
+        "Makefile",
+        "workers/parser/DEPENDENCIES.md",
+        "third-party/README.md",
+        ".python-version",
+        ".node-version",
+        "infra/images.lock.json",
+        ".github/workflows/dependencies.yml",
+        "tools/tests/test_dependencies.py"
       ],
       "verification_contracts": [
         {
           "command": "make dependency-check",
-          "availability": "planned",
-          "notes": "Command/test location must be created and recorded by this task; not currently runnable or passed."
+          "availability": "existing",
+          "notes": "F1 actual locks/evidence/local library smoke and development phase regressions; no app/DB/learning result."
+        },
+        {
+          "command": "make foundation-check",
+          "availability": "existing",
+          "notes": "F1 actual locks/evidence/local library smoke and development phase regressions; no app/DB/learning result."
         }
       ],
       "architecture_phase": "A1",
@@ -338,7 +354,8 @@
         "Local documented startup provides Django health endpoint and Arabic-first static React shell.",
         "No Node production backend, provider key requirement or real data; use selected design tokens.",
         "Document environment variables, prerequisite commands and safe teardown.",
-        "Record actual task checks for the mandatory phase exit gate; do not advance to the next phase until every required check passes and evidence/review is recorded."
+        "Record actual task checks for the mandatory phase exit gate; do not advance to the next phase until every required check passes and evidence/review is recorded.",
+        "Before DB/network/container use complete native/container notice/version/known-CVE closure; F1 import-only package audits are not that evidence."
       ],
       "verification": [
         "make smoke-local"

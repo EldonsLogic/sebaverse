@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "run": "foundation-2026-11-11",
+  "run": "f1-dependency-readiness-2026-11-11",
   "max_concurrent_including_orchestrator": 4,
   "paid_provider_budget_usd": 0,
   "token_budget": null,
@@ -11,48 +11,47 @@
       "roles": [
         "Orchestrator",
         "Integration",
-        "Release"
+        "Infrastructure"
       ],
-      "status": "completed",
+      "status": "active",
       "files": [
-        "AGENTS.md",
-        "CLAUDE.md",
-        ".agents/rules/sebaverse.md",
-        ".github/workflows/foundation.yml",
-        "sources/agent-guidance/",
-        "tools/check_foundation.py",
-        "tools/tests/",
-        "development/ except delegated scopes",
+        "development/ shared state except worker evidence",
+        "tools/check_dependencies.py",
+        "Makefile",
+        ".github/workflows/dependencies.yml",
+        "workers/parser/DEPENDENCIES.md",
+        "third-party/README.md",
         "registers/",
-        "README.md"
+        "sources/"
       ],
-      "evidence": "development/evidence/foundation-run.md and github-sync.json"
+      "evidence": "Actual F1 coordination and tool calls"
     },
     {
       "agent": "/root/development_plan",
       "roles": [
-        "Planner"
+        "Infrastructure",
+        "Backend"
       ],
       "status": "completed",
       "files": [
-        "development/ROADMAP.md",
-        "development/tasks.json"
+        "backend/",
+        "third-party/backend-licenses.json",
+        "development/evidence/f1-backend*"
       ],
-      "evidence": "Actual spawned worker returned scoped files and consistency findings"
+      "evidence": "development/evidence/f1-backend-checks.json"
     },
     {
       "agent": "/root/handover_contracts",
       "roles": [
-        "Documentation",
-        "Context"
+        "Frontend"
       ],
       "status": "completed",
       "files": [
-        "development/WORKFLOW.md",
-        "development/HANDOVER.md",
-        "development/templates/"
+        "web/",
+        "third-party/web-licenses.json",
+        "development/evidence/f1-web*"
       ],
-      "evidence": "Actual spawned worker returned four scoped artifacts and U14 updates"
+      "evidence": "development/evidence/f1-web-summary.json"
     },
     {
       "agent": "/root/independent_reviewer",
@@ -60,10 +59,11 @@
         "Reviewer",
         "Audit"
       ],
-      "status": "completed",
+      "status": "completed_local_review_pending_hosted_ci",
       "files": [],
-      "evidence": "development/evidence/independent-review.md"
+      "evidence": "development/evidence/f1-independent-review.md"
     }
   ],
-  "run_status": "completed F0 foundation; actual subsequent state in CURRENT-STATE.md"
+  "run_status": "in_progress under U15",
+  "scope": "Local backend/web locks and isolated installs; no product app, model assets, paid calls, data or deployment"
 }

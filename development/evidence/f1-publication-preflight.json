@@ -1,0 +1,11 @@
+{
+  "date": "2026-11-11",
+  "scope": "Existing Git blob history, project working files and bounded nested archive members; excluded scratch and Git internals",
+  "counts": {
+    "unique_git_blobs": 311,
+    "working_files": 452,
+    "archive_members": 247
+  },
+  "high_confidence_pattern_findings": [],
+  "limitations": "Pattern scan is not a security certification or proof of absence; no raw child dataset supplied in project; private repo is not a secrets store."
+}

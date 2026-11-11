@@ -1,0 +1,56 @@
+name: Dependency readiness
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+concurrency:
+  group: dependencies-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  locked-install-and-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version-file: .python-version
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version-file: .node-version
+      - uses: astral-sh/setup-uv@d0cc045d04ccac9d8b7881df0226f9e82c39688e
+        with:
+          version: '0.11.14'
+          enable-cache: false
+      - name: Pin npm on this disposable runner only
+        run: npm install --global npm@10.8.2 --ignore-scripts --no-fund --no-audit --registry=https://registry.npmjs.org
+      - name: Verify committed dependency snapshot
+        run: python3 tools/check_dependencies.py --static
+      - name: Clean locked backend install without source builds
+        run: |
+          uv sync --project backend --locked --no-build --no-install-project --python 3.12.13 --no-python-downloads --default-index https://pypi.org/simple
+          uv pip check --python backend/.venv/bin/python
+      - name: Clean web install without lifecycle hooks
+        run: |
+          npm --prefix web ci --ignore-scripts --engine-strict --no-fund --no-audit --registry=https://registry.npmjs.org
+          npm --prefix web ls --all
+      - name: Local library and exact-version smoke
+        run: make dependency-check
+      - name: Audit every locked Python package
+        run: |
+          mkdir -p work/ci
+          python3 - <<'PY'
+          import tomllib
+          from pathlib import Path
+          packages = tomllib.loads(Path('backend/uv.lock').read_text())['package']
+          lines = [p['name'] + '==' + p['version'] for p in packages if 'registry' in p.get('source', {})]
+          Path('work/ci/backend.requirements.txt').write_text('\n'.join(sorted(lines)) + '\n')
+          PY
+          uv tool run --isolated --from pip-audit==2.10.1 --no-build --python 3.12.13 --no-python-downloads --default-index https://pypi.org/simple pip-audit --disable-pip --no-deps --requirement work/ci/backend.requirements.txt --format json --output work/ci/backend-audit.json --progress-spinner off
+      - name: Audit locked npm dependencies
+        run: npm --prefix web audit --audit-level=low --json --registry=https://registry.npmjs.org
+      - name: Verify phase barriers and evidence regressions
+        run: make foundation-check

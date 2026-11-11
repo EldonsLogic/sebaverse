@@ -1,0 +1,389 @@
+{
+  "retrieved_date": "2026-11-11",
+  "source": "official registry.npmjs.org version metadata",
+  "packages": [
+    {
+      "name": "react",
+      "metadata_url": "https://registry.npmjs.org/react/latest",
+      "version": "19.3.1",
+      "license": "MIT",
+      "engines": {
+        "node": ">=0.10.0"
+      },
+      "peerDependencies": {},
+      "repository": {
+        "url": "git+https://github.com/react/react.git",
+        "type": "git",
+        "directory": "packages/react"
+      },
+      "dist": {
+        "shasum": "26e9523fc36ea06be5050ebb780249a133260ad7",
+        "tarball": "https://registry.npmjs.org/react/-/react-19.3.1.tgz",
+        "fileCount": 27,
+        "integrity": "sha512-QNhWdt7nrgVWWQG58QuGsAR3jv3Hbe4mb4vz7w2csnHavciZJgda1CPNaldF6eVxv90ud3jUXpKlHL69gO38yw==",
+        "signatures": [
+          {
+            "sig": "MEUCIDFKwsaTXLOJNpD3WJ6dy5E7wkTf2QNrZgmlItJn3Cy4AiEAoAvLd5MEj+CHKGO1a81NFTiC79fQLibq7JqAPGvPC0w=",
+            "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+          },
+          {
+            "sig": "MEQCIG60Jz/rQm93/m8ZTZvxX3fxIhTqB5EnASV642pG4n94AiA8XxzTRyCDS6L54HKPSciJX3l/dcW5MjgnFd4plotjSg==",
+            "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+          }
+        ],
+        "attestations": {
+          "url": "https://registry.npmjs.org/-/npm/v1/attestations/react@19.3.1",
+          "provenance": {
+            "predicateType": "https://slsa.dev/provenance/v1"
+          }
+        },
+        "unpackedSize": 178663
+      },
+      "scripts": {}
+    },
+    {
+      "name": "react-dom",
+      "metadata_url": "https://registry.npmjs.org/react-dom/latest",
+      "version": "19.3.1",
+      "license": "MIT",
+      "engines": {},
+      "peerDependencies": {
+        "react": "^19.3.1"
+      },
+      "repository": {
+        "url": "git+https://github.com/react/react.git",
+        "type": "git",
+        "directory": "packages/react-dom"
+      },
+      "dist": {
+        "shasum": "b384c53cfcbe9c2a5d09d863b98455de9d68afe2",
+        "tarball": "https://registry.npmjs.org/react-dom/-/react-dom-19.3.1.tgz",
+        "fileCount": 43,
+        "integrity": "sha512-Y0bARz53lhEC1NMCASs0/j+faB/zqt3R8hpvg1e8+61ZVJ4UL0UdC4cBbXfZMcIuhrfgeILTLe+ZeBCavQPtKQ==",
+        "signatures": [
+          {
+            "sig": "MEYCIQDKhj2WJ0+n7p8mYN1rC0wCt9+cD0S58A7JGp6iSDsusgIhAIzdEcBxzxMDJ5pGXlJ1Qw+Utal8MwAbfud/9Fm04N1N",
+            "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+          },
+          {
+            "sig": "MEYCIQCVaB5TV8fUMl1DUqtKZxsqf+6v/itdKfx9lY/4yHu8kwIhANkvM3hU52XEwXbe6/xrseK88Q6blbENfk+peCPY6Ih4",
+            "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+          }
+        ],
+        "attestations": {
+          "url": "https://registry.npmjs.org/-/npm/v1/attestations/react-dom@19.3.1",
+          "provenance": {
+            "predicateType": "https://slsa.dev/provenance/v1"
+          }
+        },
+        "unpackedSize": 8067632
+      },
+      "scripts": {
+        "start": "node server.js"
+      }
+    },
+    {
+      "name": "react-router",
+      "metadata_url": "https://registry.npmjs.org/react-router/latest",
+      "version": "8.5.1",
+      "license": "MIT",
+      "engines": {
+        "node": ">=22.22.0"
+      },
+      "peerDependencies": {
+        "react": ">=19.2.7",
+        "react-dom": ">=19.2.7",
+        "@types/react": ">=19.2.0",
+        "@types/react-dom": ">=19.2.0"
+      },
+      "repository": {
+        "url": "https://github.com/remix-run/react-router",
+        "type": "git",
+        "directory": "packages/react-router"
+      },
+      "dist": {
+        "shasum": "930df69ce3444240a4a6285c29aeb89aa493814b",
+        "tarball": "https://registry.npmjs.org/react-router/-/react-router-8.5.1.tgz",
+        "fileCount": 346,
+        "integrity": "sha512-5u1eQ46QjuXjNfEnLwzrnou1Bm5dquO3xjVYkkMYCudtkicD2AQHtx+fvXzPATtPJx8TW6DR1x1TDRqsfHyZBw==",
+        "signatures": [
+          {
+            "sig": "MEQCICkEU9h7xayjHMFElg5ZkZX8jTvNsbpRwd7HsdFxmROHAiB93E0rQYXMYYTrccoCgM4Amj56UE1scvkYQskmvwY+Cw==",
+            "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+          },
+          {
+            "sig": "MEYCIQCKZHxvCSUH4WAwAdmeyMpiXj4tD46LTpOE0O+BrJafYgIhAIcs6jHHjxD1Yg8qei0SBkYWQNNhRe7CPmDaJc/P2rj7",
+            "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+          }
+        ],
+        "attestations": {
+          "url": "https://registry.npmjs.org/-/npm/v1/attestations/react-router@8.5.1",
+          "provenance": {
+            "predicateType": "https://slsa.dev/provenance/v1"
+          }
+        },
+        "unpackedSize": 3010360
+      },
+      "scripts": {
+        "build": "wireit",
+        "watch": "tsdown --watch & tsdown --config tsdown.config.rsc.ts --watch",
+        "typecheck": "tsc"
+      }
+    },
+    {
+      "name": "@tanstack/react-query",
+      "metadata_url": "https://registry.npmjs.org/@tanstack%2freact-query/latest",
+      "version": "5.107.1",
+      "license": "MIT",
+      "engines": {},
+      "peerDependencies": {
+        "react": "^18 || ^19",
+        "@types/react": "^18 || ^19"
+      },
+      "repository": {
+        "url": "git+https://github.com/TanStack/query.git",
+        "type": "git",
+        "directory": "packages/react-query"
+      },
+      "dist": {
+        "shasum": "277e4b8c4d6d0496047ef15afacbc8c091ce0532",
+        "tarball": "https://registry.npmjs.org/@tanstack/react-query/-/react-query-5.107.1.tgz",
+        "fileCount": 410,
+        "integrity": "sha512-udCOOLp3ZAheUrIHLCe+ZZge6nr2ZUrGMSWcCuXsjY1Bf2JeeE09oxst97PILiCY6N8xo/7bIo3Hvz13zh06FA==",
+        "signatures": [
+          {
+            "sig": "MEQCIECu1DULIpQ1NdPPrszUqjwbpEQHri9X9LbPAfXRU/vWAiBQ7+QCwauHwZq1CBDurcNJdrb/OUTxJx/5nm2j4YyfBg==",
+            "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+          },
+          {
+            "sig": "MEUCIQDrpztGLl5CfL/BnCOqVmaVvhk9pVVW0psO6QKb0+FdmAIgbAlWRT+5PIJWnhbuC1+mu4GBoz40t/YKL8vcbCimj2I=",
+            "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+          }
+        ],
+        "attestations": {
+          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@tanstack%2freact-query@5.107.1",
+          "provenance": {
+            "predicateType": "https://slsa.dev/provenance/v1"
+          }
+        },
+        "unpackedSize": 1796999
+      },
+      "scripts": {
+        "build": "pnpm build:tsdown && pnpm build:codemods",
+        "clean": "premove ./build ./coverage ./dist-ts ./.cache/test-types",
+        "compile": "tsc --project tsconfig.json",
+        "test:lib": "vitest",
+        "test:build": "publint --strict && attw --pack",
+        "test:types": "npm-run-all --serial test:types:*",
+        "test:oxlint": "oxlint ./src",
+        "build:tsdown": "tsdown --tsconfig tsconfig.prod.json",
+        "test:lib:dev": "pnpm run test:lib --watch",
+        "build:codemods": "rm -rf ./build/codemods && mkdir ./build/codemods && cp -r ../query-codemods/src/* ./build/codemods",
+        "test:types:ts57": "node ../../node_modules/typescript57/lib/tsc.js --project tsconfig.legacy.json --outDir .cache/test-types/ts57 --tsBuildInfoFile .cache/test-types/ts57.tsbuildinfo",
+        "test:types:ts58": "node ../../node_modules/typescript58/lib/tsc.js --project tsconfig.legacy.json --outDir .cache/test-types/ts58 --tsBuildInfoFile .cache/test-types/ts58.tsbuildinfo",
+        "test:types:ts59": "node ../../node_modules/typescript59/lib/tsc.js --project tsconfig.legacy.json --outDir .cache/test-types/ts59 --tsBuildInfoFile .cache/test-types/ts59.tsbuildinfo",
+        "test:types:ts70": "node ../../node_modules/typescript70/lib/tsc.js --project tsconfig.legacy.json --outDir .cache/test-types/ts70 --tsBuildInfoFile .cache/test-types/ts70.tsbuildinfo",
+        "test:types:ts71": "node ../../node_modules/typescript71/lib/tsc.js --project tsconfig.legacy.json --outDir .cache/test-types/ts71 --tsBuildInfoFile .cache/test-types/ts71.tsbuildinfo",
+        "test:types:tscurrent": "tsc --project tsconfig.json --outDir .cache/test-types/tscurrent --tsBuildInfoFile .cache/test-types/tscurrent.tsbuildinfo"
+      }
+    },
+    {
+      "name": "typescript",
+      "metadata_url": "https://registry.npmjs.org/typescript/latest",
+      "version": "7.0.2",
+      "license": "Apache-2.0",
+      "engines": {
+        "node": ">=16.20.0"
+      },
+      "peerDependencies": {},
+      "repository": {
+        "url": "git+https://github.com/microsoft/TypeScript.git",
+        "type": "git"
+      },
+      "dist": {
+        "shasum": "9ec773d7954a8c182c17cc5bbd575aa28bc51582",
+        "tarball": "https://registry.npmjs.org/typescript/-/typescript-7.0.2.tgz",
+        "fileCount": 416,
+        "integrity": "sha512-8FYau96o3NKOhbjKi/qNvG/W5jhzxkbdm5sj9AbZ/5T5sWqn3hJgLfGx27sRKZWTvyzCP8dLRBTf5tBTSRVUNA==",
+        "signatures": [
+          {
+            "sig": "MEUCIHn8lVrLBbTJToaOcV3IJ0oVPREmFT5BhqmO2niVNCaSAiEAjbubGExGAYMSJN39iEgX/eDYhwBGnh/iyyGTRigXGjY=",
+            "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+          }
+        ],
+        "unpackedSize": 2497498
+      },
+      "scripts": {}
+    },
+    {
+      "name": "vite",
+      "metadata_url": "https://registry.npmjs.org/vite/latest",
+      "version": "8.3.8",
+      "license": "MIT",
+      "engines": {
+        "node": "^20.19.0 || >=22.12.0"
+      },
+      "peerDependencies": {
+        "tsx": "^4.8.1",
+        "jiti": ">=1.21.0",
+        "less": "^4.0.0",
+        "sass": "^1.70.0",
+        "yaml": "^2.4.2",
+        "stylus": ">=0.54.8",
+        "terser": "^5.16.0",
+        "esbuild": "^0.27.0 || ^0.28.0",
+        "sugarss": "^5.0.0",
+        "@types/node": "^20.19.0 || >=22.12.0",
+        "sass-embedded": "^1.70.0",
+        "@vitejs/devtools": "^0.7.1 || ^0.8.0"
+      },
+      "repository": {
+        "url": "git+https://github.com/vitejs/vite.git",
+        "type": "git",
+        "directory": "packages/vite"
+      },
+      "dist": {
+        "shasum": "ad713bf2e46c241f344b5e50401297b77a08621d",
+        "tarball": "https://registry.npmjs.org/vite/-/vite-8.3.8.tgz",
+        "fileCount": 37,
+        "integrity": "sha512-LzOn3h9rG/0vhLdXrV4yJ4QFA9eEoqCl+Yx+kGJd7aB9w6nfNgVHKSYwLPZUHrz4ZGa+t+kXjV9itvcHDLQouA==",
+        "signatures": [
+          {
+            "sig": "MEUCIAb30s2ngsUhJH8f88SekTPwXwpHFaKciSR2/BqZ8I+kAiEA4CmowZn0Dn4zGxVQZtBLlQrprvINx5XZvp+KCaALqnU=",
+            "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+          },
+          {
+            "sig": "MEYCIQCY4ih3Q/Akd3iyT0BlfojGL694FtI44uFZr3IECNUtSgIhAKGpRaO34C4yFh9+gunvi2UmhKQvK+vHUzvqhnIltka0",
+            "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+          }
+        ],
+        "attestations": {
+          "url": "https://registry.npmjs.org/-/npm/v1/attestations/vite@8.3.8",
+          "provenance": {
+            "predicateType": "https://slsa.dev/provenance/v1"
+          }
+        },
+        "unpackedSize": 2405422
+      },
+      "scripts": {
+        "dev": "premove dist && pnpm build-bundle -w",
+        "lint": "oxlint src",
+        "build": "premove dist && pnpm build-bundle && pnpm build-types",
+        "format": "oxfmt",
+        "typecheck": "tsc && tsc -p src/node && tsc -p src/client && tsc -p src/module-runner && tsc -p src/shared && tsc -p src/node/__tests_dts__ && tsc -p src/module-runner/__tests_dts__",
+        "build-types": "pnpm build-types-roll && pnpm build-types-check",
+        "build-bundle": "rolldown --config rolldown.config.ts",
+        "generate-target": "tsx scripts/generateTarget.ts",
+        "build-types-roll": "rolldown --config rolldown.dts.config.ts",
+        "build-types-check": "tsc --project tsconfig.check.json"
+      }
+    },
+    {
+      "name": "@types/react",
+      "metadata_url": "https://registry.npmjs.org/@types%2freact/latest",
+      "version": "19.3.0",
+      "license": "MIT",
+      "engines": {},
+      "peerDependencies": {},
+      "repository": {
+        "url": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
+        "type": "git",
+        "directory": "types/react"
+      },
+      "dist": {
+        "shasum": "3b3ce8d8c1627fb5ccd4dadd57ef445c5a153b77",
+        "tarball": "https://registry.npmjs.org/@types/react/-/react-19.3.0.tgz",
+        "fileCount": 18,
+        "integrity": "sha512-N0rFCuH9YoxG9/m61l9MfpJKfmLOVU0em7ipIz6TRgSSkvReLB9vL85GB+yr8Bs5leqpvg96JSwF4ZS1s4viQg==",
+        "signatures": [
+          {
+            "sig": "MEQCICO9E9W9sN+6oHDGno2fJYJ8YEsNOa01MoJJmauunAjGAiAVusL8FBYYoRgnVrnz0RY2KMSjP1OlJ7GunY0YhIr0GA==",
+            "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+          },
+          {
+            "sig": "MEYCIQCG/2kbQCjMBz9wJNsFnPRUQFtQzxGIbkrwTxQ3ZYlQrwIhAKZAxRpE46wtsHz27OGDgRmXLV83Q5GivNToLaMzF7Q2",
+            "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+          }
+        ],
+        "unpackedSize": 408108
+      },
+      "scripts": {}
+    },
+    {
+      "name": "@types/react-dom",
+      "metadata_url": "https://registry.npmjs.org/@types%2freact-dom/latest",
+      "version": "19.3.0",
+      "license": "MIT",
+      "engines": {},
+      "peerDependencies": {
+        "@types/react": "^19.3.0"
+      },
+      "repository": {
+        "url": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
+        "type": "git",
+        "directory": "types/react-dom"
+      },
+      "dist": {
+        "shasum": "90294a9266efd928a5266f2110d60d5dba5015d2",
+        "tarball": "https://registry.npmjs.org/@types/react-dom/-/react-dom-19.3.0.tgz",
+        "fileCount": 19,
+        "integrity": "sha512-ZI7bU42mZXXKHn/qNLEw2IrbiINU7X5+vfgdixBHkCNpYWXjKgfQ/P+uyGb5CjOLB9UcnTeg3rylQtV2hym44Q==",
+        "signatures": [
+          {
+            "sig": "MEYCIQDeggFlao9be7yHQ/b9bEJ/aNUgA9ewpLiMScDNunzitAIhAKh8Ct2ZYAjnfZI/KeuIMkZ0Qz2vlOS1C1PkdT2UacvQ",
+            "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+          },
+          {
+            "sig": "MEYCIQDfRDroOzjwBEz1yqXRbBWKCYOt7p/DKB+WIMPoMWCfUAIhAMPChj/cPQOALZVIGvV0h+QYQERrlQ5RJZb3dptWvQFV",
+            "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+          }
+        ],
+        "unpackedSize": 32862
+      },
+      "scripts": {}
+    },
+    {
+      "name": "@types/node",
+      "metadata_url": "https://registry.npmjs.org/@types%2fnode/24.19.2",
+      "version": "24.19.2",
+      "license": "MIT",
+      "engines": {},
+      "peerDependencies": {},
+      "repository": {
+        "url": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
+        "type": "git",
+        "directory": "types/node"
+      },
+      "dist": {
+        "shasum": "8718eedbc0f89648de6525be9f4a9c61cdbaa502",
+        "tarball": "https://registry.npmjs.org/@types/node/-/node-24.19.2.tgz",
+        "fileCount": 88,
+        "integrity": "sha512-93d49wCWJkCyN87MxLpNN6KXPCwFw7bVUg79mGUV1OS40JGWwVCr8n61DXCSqz7CV6/VfPkb7xec7uP2M+QHWQ==",
+        "signatures": [
+          {
+            "sig": "MEQCIANcVRgt/opOpIiouz2oQFvOIyDM4lBAgR5KWFpeM0S7AiAlIKKketPR7tVtdmeqoW9ERmEN+hUSbmSsgvw4PZE5xg==",
+            "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+          },
+          {
+            "sig": "MEQCIEyyRKiIaH5zy091E3cDbeZApk+zitfD9OmZP0qKnrKRAiB6X7j1j2Vakh+MTSX0FSCk/vXjx9TKwcy6mTWJb+rXXg==",
+            "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+          }
+        ],
+        "unpackedSize": 2613701
+      },
+      "scripts": {}
+    }
+  ],
+  "toolchain": {
+    "node_version": "24.22.1",
+    "node_source": "Existing Codex bundled runtime, no download in this task",
+    "npm_version": "10.8.2",
+    "npm_metadata_url": "https://registry.npmjs.org/npm/10.8.2",
+    "npm_license": "Artistic-2.0",
+    "npm_engines": {
+      "node": "^18.17.0 || >=20.5.0"
+    },
+    "node_release_policy": "https://nodejs.org/en/about/previous-releases",
+    "node24_policy_observation": "official page lists v24 LTS; v20 EOL on retrieval date"
+  }
+}

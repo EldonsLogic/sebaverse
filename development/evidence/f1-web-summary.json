@@ -1,0 +1,109 @@
+{
+  "date": "2026-11-11",
+  "task": "DEV-005",
+  "phase": "F1",
+  "status": "checks_passed_pending_independent_review",
+  "runtime": {
+    "node": "24.22.1",
+    "npm": "10.8.2",
+    "platform": "darwin-arm64",
+    "source": "existing Codex bundled Node; installed system npm CLI; no runtime download/global install"
+  },
+  "manifest_sha256": "1197a76f1030564d23b1d1cd2d0b93d37cf5c111ad140a0c83e999a8c9dab820",
+  "lock_sha256": "8a5bc3f103357d02aa408266b13037e8cf2a737a1a51c179225aa88bd4055dc3",
+  "direct_packages": {
+    "@tanstack/react-query": "5.107.1",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "react-router": "8.5.1",
+    "@types/node": "24.19.2",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "typescript": "7.0.2",
+    "vite": "8.3.8"
+  },
+  "locked_package_entries": 81,
+  "installed_package_entries": 31,
+  "license_declarations": {
+    "MIT": 44,
+    "Apache-2.0": 22,
+    "MPL-2.0": 12,
+    "ISC": 1,
+    "BSD-3-Clause": 1,
+    "0BSD": 1
+  },
+  "missing_license_declarations": [],
+  "installed_missing_notice_files": [
+    "@rolldown/binding-darwin-arm64"
+  ],
+  "scripts_disabled": true,
+  "install_script_entries": [
+    "fsevents"
+  ],
+  "command_exit_codes": [
+    {
+      "command": [
+        "npm",
+        "--prefix",
+        "web",
+        "ci",
+        "--ignore-scripts",
+        "--engine-strict",
+        "--no-fund",
+        "--no-audit"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "npm",
+        "--prefix",
+        "web",
+        "ls",
+        "--all",
+        "--json"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "npm",
+        "--prefix",
+        "web",
+        "audit",
+        "--json"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "audit_vulnerabilities": {
+    "info": 0,
+    "low": 0,
+    "moderate": 0,
+    "high": 0,
+    "critical": 0,
+    "total": 0
+  },
+  "audit_report_version": 2,
+  "unresolved_registry_advisories": [],
+  "limitations": [
+    "Advisory data is a dated npm audit response, not comprehensive security proof.",
+    "Cross-platform optional package notice texts not inspected unless installed on this platform.",
+    "No product source/build/type/UI/RTL/accessibility/runtime behavior tested.",
+    "Lifecycle scripts remained disabled including optional fsevents; future CLI/native build behavior is not implied.",
+    "MPL build-tool distribution/source-notice obligations need release review; no application code/binaries redistributed by F1."
+  ],
+  "associated_notice_mapping": {
+    "package": "@rolldown/binding-darwin-arm64",
+    "version": "1.2.19",
+    "same_version_notice_package": "rolldown",
+    "evidence": "third-party/web-licenses.json associated_notice_files and notice_observation"
+  },
+  "release_review_items": [
+    "Retain matching-version rolldown wrapper LICENSE and THIRD-PARTY-LICENSE with any distributed native bindings; binding tarball alone omits standalone notices.",
+    "Review target-platform optional packages and applicable source/notice obligations before shipping; only darwin-arm64 installed/notice-inspected locally.",
+    "MPL-2.0 lightningcss build dependencies remain subject to release distribution/source notice review; no tool/library binary or application redistributed in F1."
+  ],
+  "raw_audit": "development/evidence/f1-web-audit.json",
+  "license_inventory_sha256": "d583fa59f9cd35d3d981ff2ad66b9d34a1ae386a62e534c88219330e42833936"
+}

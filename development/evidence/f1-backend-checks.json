@@ -1,0 +1,125 @@
+{
+  "date": "2026-11-11",
+  "checked_at_utc": "2026-11-11T15:41:42.685771+00:00",
+  "requirements": [
+    "R006",
+    "R075",
+    "R081",
+    "R082",
+    "R083",
+    "R084",
+    "R085"
+  ],
+  "task": "DEV-005",
+  "phase": "F1",
+  "scope": "Dependency foundation only; no product application, real data or DB connection",
+  "tools": {
+    "uv": "0.11.14",
+    "python": "3.12.13",
+    "python_executable": "/Users/eldon/Documents/Sebaverse/backend/.venv/bin/python",
+    "platform": "macOS-26.5.1-arm64-arm-64bit"
+  },
+  "lock_sha256": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
+  "manifest_sha256": "9a331cd26885abf81ae9b4aab1a00f8f3455cae3fbb08685a862fd300cb7d9e5",
+  "installed_packages": {
+    "uvicorn": "0.54.0",
+    "packaging": "26.3",
+    "sqlparse": "0.6.1",
+    "Pygments": "2.21.0",
+    "click": "8.5.1",
+    "Django": "5.2.19",
+    "iniconfig": "2.3.1",
+    "pluggy": "1.7.0",
+    "h11": "0.16.0",
+    "asgiref": "3.13.0",
+    "psycopg": "3.3.8",
+    "pytest": "9.2.0",
+    "djangorestframework": "3.18.3",
+    "typing_extensions": "4.16.0",
+    "pytest-django": "4.14.0",
+    "psycopg-binary": "3.3.8"
+  },
+  "checks": [
+    {
+      "id": "official-metadata-license-before-install",
+      "result": "pass",
+      "exit_code": 0,
+      "evidence": "development/evidence/f1-backend-registry.json",
+      "details": "All18 locked packages have official metadata license/classifier and unyanked wheels; official PyPI index only."
+    },
+    {
+      "id": "hashed-wheel-only-locked-sync",
+      "result": "pass",
+      "exit_code": 0,
+      "command": "UV_CACHE_DIR=$PWD/work/uv-cache UV_PYTHON_INSTALL_DIR=$PWD/work/uv-python uv sync --project backend --locked --no-build --no-install-project --python $PWD/work/uv-python/cpython-3.12.13-macos-aarch64-none/bin/python3.12 --no-python-downloads --default-index https://pypi.org/simple",
+      "details": "Resolved19 graph entries including virtual project; installed16 applicable third-party packages. No source build or local project build."
+    },
+    {
+      "id": "python-framework-db-binding-import-smoke",
+      "result": "pass",
+      "exit_code": 0,
+      "details": {
+        "django": "5.2.19",
+        "drf": "3.18.3",
+        "uvicorn": "0.54.0",
+        "psycopg": "3.3.8",
+        "pytest": "9.2.0",
+        "valid_and_invalid_drf_serializer": true,
+        "uvicorn_asgi_h11_config_loaded": true,
+        "libpq_version": 180006
+      }
+    },
+    {
+      "id": "all-locked-python-advisories",
+      "result": "pass",
+      "exit_code": 0,
+      "audited_packages": 18,
+      "vulnerability_count": 0,
+      "evidence": [
+        "development/evidence/f1-backend-audit.json",
+        "development/evidence/f1-backend-audit-run.json"
+      ]
+    },
+    {
+      "id": "installed-dependency-consistency",
+      "result": "pass",
+      "exit_code": 0,
+      "command": "UV_CACHE_DIR=$PWD/work/uv-cache uv pip check --python backend/.venv/bin/python",
+      "observed_output_summary": "Using Python 3.12.13 environment at: backend/.venv\nChecked16 packages\nAll installed packages are compatible"
+    },
+    {
+      "id": "lock-manifest-offline-consistency",
+      "result": "pass",
+      "exit_code": 0,
+      "command": "UV_CACHE_DIR=$PWD/work/uv-cache UV_PYTHON_INSTALL_DIR=$PWD/work/uv-python uv lock --project backend --check --offline --no-build --python $PWD/work/uv-python/cpython-3.12.13-macos-aarch64-none/bin/python3.12 --no-python-downloads",
+      "observed_output_summary": "Resolved19 packages"
+    },
+    {
+      "id": "dev-tool-availability",
+      "result": "pass",
+      "exit_code": 0,
+      "command": "backend/.venv/bin/python -m pytest --version",
+      "limitation": "Tool version only; no product test suite exists or is claimed passed.",
+      "observed_output_summary": "pytest9.2.0"
+    }
+  ],
+  "limitations": [
+    "No product tests, database connection/server, auth/tenant/streaming/educational behavior tested.",
+    "Advisory scan covers Python package versions only, not bundled native library/OS/CPython CVEs or source code.",
+    "Observed installation is macOS arm64; clean Linux/CI reproduction is a separate required check.",
+    "Exact wheel notice files recorded; LGPL/bundled-native redistribution obligations require review for actual release packaging.",
+    "psycopg-binary wheel supplies LGPL notice but separate bundled native-library notice/version closure is not complete for redistribution; no native binary is shipped by this task."
+  ],
+  "setup_corrections": [
+    "Default user cache access was blocked; all subsequent cache/runtime paths are project-local ignored work/.",
+    "Initial uv Python bootstrap created a user-bin symlink into this task runtime; that exact link was removed immediately. Recommended bootstrap includes --no-bin; no persistent user-bin shortcut retained."
+  ],
+  "artifact_hashes": {
+    "backend/pyproject.toml": "9a331cd26885abf81ae9b4aab1a00f8f3455cae3fbb08685a862fd300cb7d9e5",
+    "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
+    "third-party/backend-licenses.json": "b19ef37f29116a2b3fa6592d0dd116cd66495d998c4ed7b9e9f1b65a0b6cf5c7",
+    "development/evidence/f1-backend-registry.json": "701ce524bb6a07b55eb5048d86093501416aa930b0547126f003b12249c60f76",
+    "development/evidence/f1-backend-audit.json": "433edcf2e100a66b76bdc0e5defc5b01f67251f4369fbc46c1d5a5f193af06b3",
+    "development/evidence/f1-backend-audit-run.json": "1e1a88a6289afe1d786309f128f235e11412fd1cefb1d41d107c9296b91d24ec"
+  }
+}

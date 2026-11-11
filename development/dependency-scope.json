@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "source": "U15 / AUTH-002; existing repo adoption phases",
+  "phase": "F1",
+  "enabled": [
+    "backend Python runtime and test tooling",
+    "web TypeScript/React build/runtime dependencies"
+  ],
+  "model_assets_used": [],
+  "model_rights_status": "not applicable to this phase: no model assets downloaded, licensed or executed",
+  "disabled_until_own_gate": [
+    {
+      "component": "Docling / scanner / OCR",
+      "phase": "F3",
+      "task": "DEV-010",
+      "condition": "Separate exact lock, transitive notices/security, model rights and isolated input/manifest tests before install/use"
+    },
+    {
+      "component": "embeddings / STT / TTS / hosted or local models",
+      "phase": "F4/F5",
+      "condition": "Qualified adapter, terms/data eligibility, exact model/assets, authorized spend and matched tests"
+    },
+    {
+      "component": "Promptfoo / FSRS / specialist grading / optional reused code",
+      "phase": "F4/F5",
+      "condition": "Own package/rights/security closure before use; no whole tutoring/LMS dependency"
+    },
+    {
+      "component": "Native database/network/image use and distribution",
+      "phase": "F2 before use; release before shipping",
+      "condition": "Native bundled libpq/OpenSSL/etc and target-platform container notices/version/CVE review; local import-only F1 scan does not certify them"
+    }
+  ]
+}

@@ -93,28 +93,34 @@
       "id": "F1",
       "name": "Execution readiness and dependency locks",
       "architecture_phase": "A1",
-      "status": "not_started",
+      "status": "in_progress",
       "depends_on": [
         "F0"
       ],
       "tests": [
         {
           "id": "F1-suite-1",
-          "command": null,
+          "command": "make dependency-check",
           "suite": "Locked compatible toolchains",
-          "availability": "planned",
+          "availability": "existing",
           "required": true,
-          "result": "not_run",
-          "evidence": []
+          "result": "pass",
+          "evidence": [
+            "development/evidence/f1-run.md",
+            "development/evidence/f1-dependency-snapshot.json"
+          ]
         },
         {
           "id": "F1-suite-2",
-          "command": null,
+          "command": "python3 tools/check_dependencies.py --static",
           "suite": "License/security/asset closure",
-          "availability": "planned",
+          "availability": "existing",
           "required": true,
-          "result": "not_run",
-          "evidence": []
+          "result": "pass",
+          "evidence": [
+            "development/evidence/f1-run.md",
+            "development/evidence/f1-dependency-snapshot.json"
+          ]
         },
         {
           "id": "F1-suite-3",
@@ -127,12 +133,15 @@
         },
         {
           "id": "F1-suite-4",
-          "command": null,
+          "command": "python3 tools/check_foundation.py",
           "suite": "Actual scoped execution authorization",
-          "availability": "planned",
+          "availability": "existing",
           "required": true,
-          "result": "not_run",
-          "evidence": []
+          "result": "pass",
+          "evidence": [
+            "development/evidence/f1-run.md",
+            "development/evidence/f1-dependency-snapshot.json"
+          ]
         }
       ],
       "review": {
@@ -142,7 +151,8 @@
       },
       "blockers": [],
       "transition_rule": "All required checks pass with real evidence, independent review passes, required blockers cleared; no next phase until then",
-      "external_conditions": "Applicable real-data/provider/spend/deployment/pilot conditions remain separate; no blanket approval"
+      "external_conditions": "Applicable real-data/provider/spend/deployment/pilot conditions remain separate; no blanket approval",
+      "scope": "Locked backend/web local toolchain only; native DB/network/image and parser/model gates remain required before their use. No blanket security/legal clearance."
     },
     {
       "id": "F2",
@@ -188,6 +198,15 @@
           "required": true,
           "result": "not_run",
           "evidence": []
+        },
+        {
+          "id": "F2-native-image-closure",
+          "command": null,
+          "suite": "Before DB/network/image use: native library and container version/notices/known-CVE review, immutable artifacts and startup/teardown tests",
+          "availability": "planned",
+          "required": true,
+          "result": "not_run",
+          "evidence": []
         }
       ],
       "review": {
@@ -197,7 +216,7 @@
       },
       "blockers": [],
       "transition_rule": "All required checks pass with real evidence, independent review passes, required blockers cleared; no next phase until then",
-      "external_conditions": "Applicable real-data/provider/spend/deployment/pilot conditions remain separate; no blanket approval"
+      "external_conditions": "Applicable real-data/provider/spend/deployment/pilot conditions remain separate; no blanket approval Native database libraries and container layer license/security closure are required before DB/network/image use; F1 Python/npm advisory scans do not cover them."
     },
     {
       "id": "F3",

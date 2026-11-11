@@ -1,0 +1,33 @@
+{
+  "command": [
+    "/Users/eldon/.local/bin/uv",
+    "tool",
+    "run",
+    "--isolated",
+    "--from",
+    "pip-audit==2.10.1",
+    "--no-build",
+    "--python",
+    "/Users/eldon/Documents/Sebaverse/work/uv-python/cpython-3.12.13-macos-aarch64-none/bin/python3.12",
+    "--no-python-downloads",
+    "--default-index",
+    "https://pypi.org/simple",
+    "pip-audit",
+    "--disable-pip",
+    "--no-deps",
+    "--requirement",
+    "work/f1-backend-all.requirements.txt",
+    "--format",
+    "json",
+    "--output",
+    "development/evidence/f1-backend-audit.json",
+    "--progress-spinner",
+    "off"
+  ],
+  "started_at_utc": "2026-11-11T15:39:29.901956+00:00",
+  "finished_at_utc": "2026-11-11T15:40:33.334061+00:00",
+  "exit_code": 0,
+  "stdout": "",
+  "stderr": "WARN Fixing invalid version specifier by removing star after comparison operator other than equal and not equal (before: `>=3.6.*`; after: `>=3.6`)\nWARN Fixing invalid version specifier by removing star after comparison operator other than equal and not equal (before: `>=3.6.*`; after: `>=3.6`)\nWARN Fixing invalid version specifier by removing star after comparison operator other than equal and not equal (before: `>=3.6.*`; after: `>=3.6`)\nWARN Fixing invalid version specifier by removing star after comparison operator other than equal and not equal (before: `>=3.6.*`; after: `>=3.6`)\nWARN Fixing invalid version specifier by removing star after comparison operator other than equal and not equal (before: `>=3.6.*`; after: `>=3.6`)\nWARN Fixing invalid version specifier by removing star after comparison operator other than equal and not equal (before: `>=3.6.*`; after: `>=3.6`)\nWARN Fixing invalid version specifier by removing star after comparison operator other than equal and not equal (before: `>=3.6.*`; after: `>=3.6`)\nWARN Fixing invalid version specifier by removing star after comparison operator other than equal and not equal (before: `>=3.6.*`; after: `>=3.6`)\nWARN Fixing invalid version specifier by removing star after comparison operator other than equal and not equal (before: `>=3.6.*`; after: `>=3.6`)\nWARN Fixing invalid version specifier by removing star after comparison operator other than equal and not equal (before: `>=3.6.*`; after: `>=3.6`)\nWARN Fixing invalid version specifier by removing star after comparison operator other than equal and not equal (before: `>=3.6.*`; after: `>=3.6`)\nWARN Fixing invalid version specifier by removing star after comparison operator other than equal and not equal (before: `>=3.6.*`; after: `>=3.6`)\nDownloading pip (1.9MiB)\n Downloaded pip\nInstalled 29 packages in 57ms\nWARNING:pip_audit._cli:--no-deps is supported, but users are encouraged to fully hash their pinned dependencies\nWARNING:pip_audit._cli:Consider using a tool like `pip-compile`: https://pip-tools.readthedocs.io/en/latest/#using-hashes\nNo known vulnerabilities found\n",
+  "scope": "All18 packages in uv.lock including platform-conditional dependencies; fully pinned names/versions, no dependency installation by pip-audit. Native libraries and OS/Python vulnerabilities outside scanner scope."
+}

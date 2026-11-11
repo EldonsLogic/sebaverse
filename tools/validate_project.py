@@ -1,9 +1,17 @@
 """Validate planning artifacts; no external calls or product execution."""
 from pathlib import Path
-import json,hashlib,re,math
+import json,hashlib,re,math,os
 from datetime import datetime
 from zoneinfo import ZoneInfo
 R=Path(__file__).resolve().parents[1]
+def project_files(suffix):
+ # Installed packages and scratch are not project-owned specifications.
+ excluded={'.git','work','.venv','node_modules','.local','__pycache__'}
+ for directory,dirs,files in os.walk(R):
+  dirs[:]=[name for name in dirs if name not in excluded]
+  for name in files:
+   if name.endswith(suffix):yield Path(directory)/name
+
 errors=[];warnings=[]
 manifest=json.loads((R/'sources/research-manifest.json').read_text())
 for row in manifest:
@@ -29,10 +37,10 @@ def visit(k):
   if d in graph:visit(d)
  active.remove(k);done.add(k)
 for k in graph:visit(k)
-for p in R.rglob('*.json'):
+for p in project_files('.json'):
  try:json.loads(p.read_text())
  except Exception as e:errors.append(f'Invalid JSON {p.relative_to(R)} {e}')
-for p in R.rglob('*.md'):
+for p in project_files('.md'):
  text=p.read_text()
  if text.count('```')%2:errors.append('Unbalanced fence '+str(p.relative_to(R)))
  for target in re.findall(r'\]\(([^)]+)\)',text):

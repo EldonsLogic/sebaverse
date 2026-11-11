@@ -1,0 +1,837 @@
+{
+  "date": "2026-11-11",
+  "evidence_type": "Observed official registry metadata; exact notices inventoried after wheel install",
+  "backend_lock_sha256": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
+  "packages": [
+    {
+      "name": "asgiref",
+      "version": "3.13.0",
+      "source": "https://pypi.org/pypi/asgiref/3.13.0/json",
+      "requires_python": ">=3.11",
+      "license_expression": null,
+      "license": "BSD-3-Clause",
+      "license_classifiers": [],
+      "requires_dist": [
+        "packaging; extra == \"tests\"",
+        "pytest; extra == \"tests\"",
+        "pytest-asyncio; extra == \"tests\"",
+        "mypy>=1.14.0; extra == \"mypy\""
+      ],
+      "project_urls": {
+        "Changelog": "https://github.com/django/asgiref/blob/master/CHANGELOG.txt",
+        "Documentation": "https://asgi.readthedocs.io/",
+        "Further Documentation": "https://docs.djangoproject.com/en/stable/topics/async/#async-adapter-functions",
+        "Homepage": "https://github.com/django/asgiref/"
+      },
+      "wheel_available": true,
+      "all_files_yanked": false,
+      "locked_wheel_sha256": [
+        "sha256:f9596a2434512686473d50f96ff6207fbba49ae1a785dfac614df4aeb085674d"
+      ],
+      "review": "Metadata inspected before installation; no source build allowed. Full installed notice-file inventory follows wheel install.",
+      "installed_here": true,
+      "installed_version": "3.13.0",
+      "installed_notice_files": [
+        {
+          "path": "asgiref-3.13.0.dist-info/licenses/LICENSE",
+          "sha256": "b846415d1b514e9c1dff14a22deb906d794bc546ca6129f950a18cd091e2a669",
+          "bytes": 1552
+        }
+      ],
+      "installed_native_files": []
+    },
+    {
+      "name": "click",
+      "version": "8.5.1",
+      "source": "https://pypi.org/pypi/click/8.5.1/json",
+      "requires_python": ">=3.10",
+      "license_expression": "BSD-3-Clause",
+      "license": null,
+      "license_classifiers": [],
+      "requires_dist": null,
+      "project_urls": {
+        "Changes": "https://click.palletsprojects.com/page/changes/",
+        "Chat": "https://discord.gg/pallets",
+        "Documentation": "https://click.palletsprojects.com/",
+        "Donate": "https://palletsprojects.com/donate",
+        "Source": "https://github.com/pallets/click/"
+      },
+      "wheel_available": true,
+      "all_files_yanked": false,
+      "locked_wheel_sha256": [
+        "sha256:8bb5376d2006950386f8c6427613334a2acadc5f559cb80e638d00b4df957e37"
+      ],
+      "review": "Metadata inspected before installation; no source build allowed. Full installed notice-file inventory follows wheel install.",
+      "installed_here": true,
+      "installed_version": "8.5.1",
+      "installed_notice_files": [
+        {
+          "path": "click-8.5.1.dist-info/licenses/LICENSE.txt",
+          "sha256": "9a8ad106a394e853bfe21f42f4e72d592819a22805d991b5f3275029292b658d",
+          "bytes": 1475
+        }
+      ],
+      "installed_native_files": []
+    },
+    {
+      "name": "colorama",
+      "version": "0.4.6",
+      "source": "https://pypi.org/pypi/colorama/0.4.6/json",
+      "requires_python": "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,!=3.5.*,!=3.6.*,>=2.7",
+      "license_expression": null,
+      "license": "",
+      "license_classifiers": [
+        "License :: OSI Approved :: BSD License"
+      ],
+      "requires_dist": null,
+      "project_urls": {
+        "Homepage": "https://github.com/tartley/colorama"
+      },
+      "wheel_available": true,
+      "all_files_yanked": false,
+      "locked_wheel_sha256": [
+        "sha256:4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6"
+      ],
+      "review": "Metadata inspected before installation; no source build allowed. Full installed notice-file inventory follows wheel install.",
+      "installed_here": false,
+      "reason": "Platform-conditional lock entry not installed on macOS arm64; included in all-lock advisory audit."
+    },
+    {
+      "name": "django",
+      "version": "5.2.19",
+      "source": "https://pypi.org/pypi/django/5.2.19/json",
+      "requires_python": ">=3.10",
+      "license_expression": "BSD-3-Clause",
+      "license": null,
+      "license_classifiers": [],
+      "requires_dist": [
+        "asgiref>=3.8.1",
+        "sqlparse>=0.3.1",
+        "tzdata; sys_platform == \"win32\"",
+        "argon2-cffi>=19.1.0; extra == \"argon2\"",
+        "bcrypt; extra == \"bcrypt\""
+      ],
+      "project_urls": {
+        "Documentation": "https://docs.djangoproject.com/",
+        "Funding": "https://www.djangoproject.com/fundraising/",
+        "Homepage": "https://www.djangoproject.com/",
+        "Release notes": "https://docs.djangoproject.com/en/stable/releases/",
+        "Source": "https://github.com/django/django",
+        "Tracker": "https://code.djangoproject.com/"
+      },
+      "wheel_available": true,
+      "all_files_yanked": false,
+      "locked_wheel_sha256": [
+        "sha256:5965d974a5218a2b68a11dd1276434707f23886525c23f0598eccedaf4f4ca00"
+      ],
+      "review": "Metadata inspected before installation; no source build allowed. Full installed notice-file inventory follows wheel install.",
+      "installed_here": true,
+      "installed_version": "5.2.19",
+      "installed_notice_files": [
+        {
+          "path": "django-5.2.19.dist-info/licenses/AUTHORS",
+          "sha256": "cd00119a418a78ef201aae1fbda4747658568a264bb145ebc1deb41521212629",
+          "bytes": 43981
+        },
+        {
+          "path": "django-5.2.19.dist-info/licenses/LICENSE",
+          "sha256": "b846415d1b514e9c1dff14a22deb906d794bc546ca6129f950a18cd091e2a669",
+          "bytes": 1552
+        },
+        {
+          "path": "django-5.2.19.dist-info/licenses/LICENSE.python",
+          "sha256": "765e2b1e339fef8d3e9f12892e7e072a8be309996a0be43ffc5796398ec4e7d4",
+          "bytes": 14256
+        },
+        {
+          "path": "django/contrib/admin/static/admin/css/vendor/select2/LICENSE-SELECT2.md",
+          "sha256": "4ee0cbc51370afde358652a0f977972053729ed578b6a42f5e2a037d114f0b39",
+          "bytes": 1124
+        },
+        {
+          "path": "django/contrib/admin/static/admin/img/LICENSE",
+          "sha256": "d114faff3488c16c319b3235dc41f90239d3d63d9853733033d8f7535f5c0004",
+          "bytes": 1081
+        },
+        {
+          "path": "django/contrib/admin/static/admin/js/vendor/jquery/LICENSE.txt",
+          "sha256": "d4db9ebe6f29f5168eac45ad713f055623ac5d0dcd5ba92da23d650ae012020d",
+          "bytes": 1097
+        },
+        {
+          "path": "django/contrib/admin/static/admin/js/vendor/select2/LICENSE.md",
+          "sha256": "4ee0cbc51370afde358652a0f977972053729ed578b6a42f5e2a037d114f0b39",
+          "bytes": 1124
+        },
+        {
+          "path": "django/contrib/admin/static/admin/js/vendor/xregexp/LICENSE.txt",
+          "sha256": "73af2949bff9296cb0f816c3be19a4da4e95adc94c1f924796e8bad3f03f2f29",
+          "bytes": 1106
+        },
+        {
+          "path": "django/contrib/gis/gdal/LICENSE",
+          "sha256": "570a045a8372b6cd6a00e30ebafe8e3e8dfc0a7fe3d4ef2cc5f16d419eb63aeb",
+          "bytes": 1526
+        },
+        {
+          "path": "django/contrib/gis/geos/LICENSE",
+          "sha256": "08bf24b7551238ae325295245425b1caeb9ad0f42f9e2d303c7b353502632045",
+          "bytes": 1530
+        },
+        {
+          "path": "django/dispatch/license.txt",
+          "sha256": "54004c4b606964ebc163af16d04607c16e428f8a78a026fecb53f70c09f4a94f",
+          "bytes": 1743
+        }
+      ],
+      "installed_native_files": []
+    },
+    {
+      "name": "djangorestframework",
+      "version": "3.18.3",
+      "source": "https://pypi.org/pypi/djangorestframework/3.18.3/json",
+      "requires_python": ">=3.10",
+      "license_expression": "BSD-3-Clause",
+      "license": null,
+      "license_classifiers": [],
+      "requires_dist": [
+        "django>=5.2"
+      ],
+      "project_urls": {
+        "Changelog": "https://www.django-rest-framework.org/community/release-notes/",
+        "Funding": "https://fund.django-rest-framework.org/topics/funding/",
+        "Homepage": "https://www.django-rest-framework.org",
+        "Source": "https://github.com/encode/django-rest-framework"
+      },
+      "wheel_available": true,
+      "all_files_yanked": false,
+      "locked_wheel_sha256": [
+        "sha256:8544bb674846731b1e3c9b309236ee1dc412905a0aa725be2ec193ca950a7d12"
+      ],
+      "review": "Metadata inspected before installation; no source build allowed. Full installed notice-file inventory follows wheel install.",
+      "installed_here": true,
+      "installed_version": "3.18.3",
+      "installed_notice_files": [
+        {
+          "path": "djangorestframework-3.18.3.dist-info/licenses/LICENSE.md",
+          "sha256": "cc12b0b85368972177ebf422089419b9fe3eea5729fecb11105c640f6eeaccd4",
+          "bytes": 1537
+        }
+      ],
+      "installed_native_files": []
+    },
+    {
+      "name": "h11",
+      "version": "0.16.0",
+      "source": "https://pypi.org/pypi/h11/0.16.0/json",
+      "requires_python": ">=3.8",
+      "license_expression": null,
+      "license": "MIT",
+      "license_classifiers": [
+        "License :: OSI Approved :: MIT License"
+      ],
+      "requires_dist": null,
+      "project_urls": {
+        "Homepage": "https://github.com/python-hyper/h11"
+      },
+      "wheel_available": true,
+      "all_files_yanked": false,
+      "locked_wheel_sha256": [
+        "sha256:63cf8bbe7522de3bf65932fda1d9c2772064ffb3dae62d55932da54b31cb6c86"
+      ],
+      "review": "Metadata inspected before installation; no source build allowed. Full installed notice-file inventory follows wheel install.",
+      "installed_here": true,
+      "installed_version": "0.16.0",
+      "installed_notice_files": [
+        {
+          "path": "h11-0.16.0.dist-info/licenses/LICENSE.txt",
+          "sha256": "37db5bb85926db28a427a25867f10b1232003aea1be69ccb851138adb8e6f361",
+          "bytes": 1124
+        }
+      ],
+      "installed_native_files": []
+    },
+    {
+      "name": "iniconfig",
+      "version": "2.3.1",
+      "source": "https://pypi.org/pypi/iniconfig/2.3.1/json",
+      "requires_python": ">=3.10",
+      "license_expression": "MIT",
+      "license": null,
+      "license_classifiers": [],
+      "requires_dist": null,
+      "project_urls": {
+        "Homepage": "https://github.com/pytest-dev/iniconfig"
+      },
+      "wheel_available": true,
+      "all_files_yanked": false,
+      "locked_wheel_sha256": [
+        "sha256:9121e2c1fdb355232495be3194c8dfe87ccc2d5dee45947b78e68f499790d7a7"
+      ],
+      "review": "Metadata inspected before installation; no source build allowed. Full installed notice-file inventory follows wheel install.",
+      "installed_here": true,
+      "installed_version": "2.3.1",
+      "installed_notice_files": [
+        {
+          "path": "iniconfig-2.3.1.dist-info/licenses/LICENSE",
+          "sha256": "3409fa91f7ace557894632676656e32264fe5ef7581535725dc9a23774551bd4",
+          "bytes": 1098
+        }
+      ],
+      "installed_native_files": []
+    },
+    {
+      "name": "packaging",
+      "version": "26.3",
+      "source": "https://pypi.org/pypi/packaging/26.3/json",
+      "requires_python": ">=3.9",
+      "license_expression": "Apache-2.0 OR BSD-2-Clause",
+      "license": null,
+      "license_classifiers": [],
+      "requires_dist": null,
+      "project_urls": {
+        "Documentation": "https://packaging.pypa.io/",
+        "Source": "https://github.com/pypa/packaging"
+      },
+      "wheel_available": true,
+      "all_files_yanked": false,
+      "locked_wheel_sha256": [
+        "sha256:d7193f7c8e4e93f444fde0262bf90af30e16fa0ad0ad44cb553c87339b23cd1c"
+      ],
+      "review": "Metadata inspected before installation; no source build allowed. Full installed notice-file inventory follows wheel install.",
+      "installed_here": true,
+      "installed_version": "26.3",
+      "installed_notice_files": [
+        {
+          "path": "packaging-26.3.dist-info/licenses/LICENSE",
+          "sha256": "cad1ef5bd340d73e074ba614d26f7deaca5c7940c3d8c34852e65c4909686c48",
+          "bytes": 197
+        },
+        {
+          "path": "packaging-26.3.dist-info/licenses/LICENSE.APACHE",
+          "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+          "bytes": 10174
+        },
+        {
+          "path": "packaging-26.3.dist-info/licenses/LICENSE.BSD",
+          "sha256": "b70e7e9b742f1cc6f948b34c16aa39ffece94196364bc88ff0d2180f0028fac5",
+          "bytes": 1344
+        },
+        {
+          "path": "packaging/licenses/__init__.py",
+          "sha256": "590d12eee73ddbec53b4e9ee5bfc64d9cb3aacb4940e8ebcba260757ce56740b",
+          "bytes": 7859
+        },
+        {
+          "path": "packaging/licenses/_spdx.py",
+          "sha256": "596ec35e2ca0ebcba9fd8343ff0a51625af548786257815f24b41f7e08613314",
+          "bytes": 51122
+        }
+      ],
+      "installed_native_files": []
+    },
+    {
+      "name": "pluggy",
+      "version": "1.7.0",
+      "source": "https://pypi.org/pypi/pluggy/1.7.0/json",
+      "requires_python": ">=3.10",
+      "license_expression": null,
+      "license": "MIT",
+      "license_classifiers": [
+        "License :: OSI Approved :: MIT License"
+      ],
+      "requires_dist": null,
+      "project_urls": {
+        "Changelog": "https://pluggy.readthedocs.io/en/latest/changelog.html",
+        "Documentation": "https://pluggy.readthedocs.io/",
+        "Funding": "https://tidelift.com/subscription/pkg/pypi-pluggy",
+        "Homepage": "https://github.com/pytest-dev/pluggy",
+        "Issues": "https://github.com/pytest-dev/pluggy/issues",
+        "Repository": "https://github.com/pytest-dev/pluggy"
+      },
+      "wheel_available": true,
+      "all_files_yanked": false,
+      "locked_wheel_sha256": [
+        "sha256:7dd7b0d8832ba3cb632c306926ded123429211b83641b35dc5c41ad2d34f9bec"
+      ],
+      "review": "Metadata inspected before installation; no source build allowed. Full installed notice-file inventory follows wheel install.",
+      "installed_here": true,
+      "installed_version": "1.7.0",
+      "installed_notice_files": [
+        {
+          "path": "pluggy-1.7.0.dist-info/licenses/LICENSE",
+          "sha256": "d6b65e6c213a5d0b577911d34d6e5949b9f59d76c238c5071a2f3fc16cfb2606",
+          "bytes": 1110
+        }
+      ],
+      "installed_native_files": []
+    },
+    {
+      "name": "psycopg",
+      "version": "3.3.8",
+      "source": "https://pypi.org/pypi/psycopg/3.3.8/json",
+      "requires_python": ">=3.10",
+      "license_expression": "LGPL-3.0-only",
+      "license": null,
+      "license_classifiers": [],
+      "requires_dist": [
+        "typing-extensions>=4.6; python_version < \"3.13\"",
+        "tzdata; sys_platform == \"win32\"",
+        "psycopg-c==3.3.8; implementation_name != \"pypy\" and extra == \"c\"",
+        "psycopg-binary==3.3.8; implementation_name != \"pypy\" and extra == \"binary\"",
+        "psycopg-pool; extra == \"pool\"",
+        "anyio>=4.0; extra == \"test\"",
+        "mypy>=2.1.0; implementation_name != \"pypy\" and extra == \"test\"",
+        "pproxy>=2.7; extra == \"test\"",
+        "pytest>=6.2.5; extra == \"test\"",
+        "pytest-cov>=3.0; extra == \"test\"",
+        "pytest-randomly>=3.5; extra == \"test\"",
+        "ast-comments>=1.1.2; extra == \"dev\"",
+        "black>=26.1.0; extra == \"dev\"",
+        "codespell>=2.2; extra == \"dev\"",
+        "cython-lint>=0.21; extra == \"dev\"",
+        "dnspython>=2.1; extra == \"dev\"",
+        "flake8>=4.0; extra == \"dev\"",
+        "isort[colors]>=6.0; extra == \"dev\"",
+        "isort-psycopg>=0.0.3; extra == \"dev\"",
+        "mypy>=2.1.0; extra == \"dev\"",
+        "pre-commit>=4.0.1; extra == \"dev\"",
+        "types-setuptools>=57.4; extra == \"dev\"",
+        "types-shapely>=2.0; extra == \"dev\"",
+        "wheel>=0.37; extra == \"dev\"",
+        "Sphinx>=9.1; extra == \"docs\"",
+        "furo==2025.12.19; extra == \"docs\"",
+        "sphinx-autobuild>=2025.8.25; extra == \"docs\"",
+        "sphinx-autodoc-typehints>=3.10.2; extra == \"docs\""
+      ],
+      "project_urls": {
+        "Changes": "https://psycopg.org/psycopg3/docs/news.html",
+        "Code": "https://github.com/psycopg/psycopg",
+        "Documentation": "https://psycopg.org/psycopg3/docs/",
+        "Funding": "https://github.com/sponsors/dvarrazzo",
+        "Homepage": "https://psycopg.org/",
+        "Issue Tracker": "https://github.com/psycopg/psycopg/issues"
+      },
+      "wheel_available": true,
+      "all_files_yanked": false,
+      "locked_wheel_sha256": [
+        "sha256:ca50af6072ba9ea6866f33021975230c2555d7bfdb9d8f94ca3af5c3d1bf2167"
+      ],
+      "review": "Metadata inspected before installation; no source build allowed. Full installed notice-file inventory follows wheel install.",
+      "installed_here": true,
+      "installed_version": "3.3.8",
+      "installed_notice_files": [
+        {
+          "path": "psycopg-3.3.8.dist-info/licenses/LICENSE.txt",
+          "sha256": "e3a994d82e644b03a792a930f574002658412f62407f5fee083f2555c5f23118",
+          "bytes": 7652
+        }
+      ],
+      "installed_native_files": []
+    },
+    {
+      "name": "psycopg-binary",
+      "version": "3.3.8",
+      "source": "https://pypi.org/pypi/psycopg-binary/3.3.8/json",
+      "requires_python": ">=3.10",
+      "license_expression": "LGPL-3.0-only",
+      "license": null,
+      "license_classifiers": [],
+      "requires_dist": null,
+      "project_urls": {
+        "Changes": "https://psycopg.org/psycopg3/docs/news.html",
+        "Code": "https://github.com/psycopg/psycopg",
+        "Documentation": "https://psycopg.org/psycopg3/docs/",
+        "Funding": "https://github.com/sponsors/dvarrazzo",
+        "Homepage": "https://psycopg.org/",
+        "Issue Tracker": "https://github.com/psycopg/psycopg/issues"
+      },
+      "wheel_available": true,
+      "all_files_yanked": false,
+      "locked_wheel_sha256": [
+        "sha256:a09aa2ba7927e9b11bd5bddb6d33cec274235d6f54f1ab777ed71c932cfc8d72",
+        "sha256:e0972d8de5a0d855d76624f559a6ce5dd068fb4bbfa01e1d7cf929e6800dc4f0",
+        "sha256:41c31b175084a85232b6ea5f8eb474491b6c963302c69b46fa2ed60afb888b62",
+        "sha256:a7cdba018e4decf3837793c1e18dbe3dd71709adef54892ab83d81c00e866dc3",
+        "sha256:804041b79916b0e8021a1130650d724741eff1e81ccec8133abf357b4d284a24",
+        "sha256:9daff4d6257969b02678943d62bfd83b971004f6efef68d5b767ac69c2222751",
+        "sha256:e8f1addbaec62c9e2bf5b3ae4b32a20c793c06de7d57471f6509a127f1c902f4",
+        "sha256:5f51d97b67276e90cda022ad363eca61dbe855dbb5342e358469006d4b5254df",
+        "sha256:aa7af0d2d1194b65b8c4d0056c5607de6c38fb6a295f04087d17e1c9d2d11fba",
+        "sha256:f09cb4e7744522d71048a8998ff841c7af942a61ffbd4142a140b42d89b950fe",
+        "sha256:ec6773395189417c92102b34c77ed299f6111fbbc37d50d4fa12ab819f763669"
+      ],
+      "review": "Metadata inspected before installation; no source build allowed. Full installed notice-file inventory follows wheel install.",
+      "installed_here": true,
+      "installed_version": "3.3.8",
+      "installed_notice_files": [
+        {
+          "path": "psycopg_binary-3.3.8.dist-info/licenses/LICENSE.txt",
+          "sha256": "e3a994d82e644b03a792a930f574002658412f62407f5fee083f2555c5f23118",
+          "bytes": 7652
+        }
+      ],
+      "installed_native_files": [
+        {
+          "path": "psycopg_binary/.dylibs/libcom_err.3.0.dylib",
+          "sha256": "4d068a381d4b2b1515d9af6d194ea532c9a024fbc9e9c36eb8030eb9fb2e6aeb",
+          "bytes": 73456
+        },
+        {
+          "path": "psycopg_binary/.dylibs/libcrypto.3.dylib",
+          "sha256": "29c6186115387ef6bfaa7508f6e76a58a2c9cd9c457a9a53f710dcfc5e33384d",
+          "bytes": 4975456
+        },
+        {
+          "path": "psycopg_binary/.dylibs/libgssapi_krb5.2.2.dylib",
+          "sha256": "0da762d0dbc472b56fd53cc406868f7a6c432e5904d48347428a81cc1c0422b5",
+          "bytes": 396400
+        },
+        {
+          "path": "psycopg_binary/.dylibs/libk5crypto.3.1.dylib",
+          "sha256": "9c05d406a2e92a9afe82cd6b48b12d0964cf172f01dabc6d269861577014d99c",
+          "bytes": 247632
+        },
+        {
+          "path": "psycopg_binary/.dylibs/libkrb5.3.3.dylib",
+          "sha256": "1a91e22c99a7fc378940f5a2feec51e76312c8b6ab74d2458f74944902eed861",
+          "bytes": 982192
+        },
+        {
+          "path": "psycopg_binary/.dylibs/libkrb5support.1.1.dylib",
+          "sha256": "50bd796d2a104fbbbd7d7eafa8d9b92c17ceebd83c40651325a1ef1d8505e42c",
+          "bytes": 110048
+        },
+        {
+          "path": "psycopg_binary/.dylibs/liblber.2.dylib",
+          "sha256": "073e551586b28a51399d8db1fd62b33254cc6257e3435f524c78d243a4b18903",
+          "bytes": 138608
+        },
+        {
+          "path": "psycopg_binary/.dylibs/libldap.2.dylib",
+          "sha256": "cdcb49e14ab16b35f564099289d85fd5c261177721fba269db0c0e158066fce3",
+          "bytes": 477936
+        },
+        {
+          "path": "psycopg_binary/.dylibs/libpq.5.dylib",
+          "sha256": "1ea8caf53acd564665c9bc12342c654549b2833011eaac6aa7595fc11b034d51",
+          "bytes": 371120
+        },
+        {
+          "path": "psycopg_binary/.dylibs/libssl.3.dylib",
+          "sha256": "c6c865d93b10b06fb40f51d5b6d3a281dcfcca549ce69ded417dfa01c0db757d",
+          "bytes": 1032368
+        },
+        {
+          "path": "psycopg_binary/_psycopg.cpython-312-darwin.so",
+          "sha256": "2c1cfd20ae11eae31eabcd35918873d5f0f6dcbb35f9ec1a7f4179fe86bf220b",
+          "bytes": 915520
+        },
+        {
+          "path": "psycopg_binary/pq.cpython-312-darwin.so",
+          "sha256": "55fe1c923e8ad1e9ec07ea1abc0ac2bbbec9cdd4e5e33d3d3de19a8d962f3eec",
+          "bytes": 399984
+        }
+      ],
+      "native_notice_review": {
+        "status": "not_complete_for_redistribution",
+        "observation": "Wheel metadata exposes only its LGPL LICENSE.txt; separate bundled native-library notices/version provenance are not fully supplied by that file. Native files inventoried; release image/license closure remains pending.",
+        "local_scope": "Official wheel installed only into ignored local dependency environment; no binary distribution committed or deployed."
+      }
+    },
+    {
+      "name": "pygments",
+      "version": "2.21.0",
+      "source": "https://pypi.org/pypi/pygments/2.21.0/json",
+      "requires_python": ">=3.9",
+      "license_expression": "BSD-2-Clause",
+      "license": null,
+      "license_classifiers": [],
+      "requires_dist": [
+        "colorama>=0.4.6; extra == \"windows-terminal\""
+      ],
+      "project_urls": {
+        "Bug Tracker": "https://github.com/pygments/pygments/issues",
+        "Changelog": "https://github.com/pygments/pygments/blob/master/CHANGES",
+        "Documentation": "https://pygments.org/docs",
+        "Homepage": "https://pygments.org",
+        "Source": "https://github.com/pygments/pygments"
+      },
+      "wheel_available": true,
+      "all_files_yanked": false,
+      "locked_wheel_sha256": [
+        "sha256:2363c69b61c4a97c838da3b130dcd6468f4848992b21a82f2a63ec34377137d9"
+      ],
+      "review": "Metadata inspected before installation; no source build allowed. Full installed notice-file inventory follows wheel install.",
+      "installed_here": true,
+      "installed_version": "2.21.0",
+      "installed_notice_files": [
+        {
+          "path": "pygments-2.21.0.dist-info/licenses/AUTHORS",
+          "sha256": "71a83872ad82f57be692cf827e048e2cd51d45169cfa1ea3f28706d97a872c0f",
+          "bytes": 11048
+        },
+        {
+          "path": "pygments-2.21.0.dist-info/licenses/LICENSE",
+          "sha256": "a9d66f1d526df02e29dce73436d34e56e8632f46c275bbdffc70569e882f9f17",
+          "bytes": 1331
+        }
+      ],
+      "installed_native_files": []
+    },
+    {
+      "name": "pytest",
+      "version": "9.2.0",
+      "source": "https://pypi.org/pypi/pytest/9.2.0/json",
+      "requires_python": ">=3.10",
+      "license_expression": "MIT",
+      "license": null,
+      "license_classifiers": [],
+      "requires_dist": [
+        "colorama>=0.4; sys_platform == \"win32\"",
+        "exceptiongroup>=1; python_version < \"3.11\"",
+        "iniconfig>=2",
+        "packaging>=24",
+        "pluggy<2,>=1.6",
+        "pygments>=2.15",
+        "tomli>=2; python_version < \"3.11\"",
+        "argcomplete; extra == \"dev\"",
+        "asynctest; python_version < \"3.11\" and extra == \"dev\"",
+        "attrs>=23.1; extra == \"dev\"",
+        "coverage>=7.5; extra == \"dev\"",
+        "hypothesis>=6.75; extra == \"dev\"",
+        "mock; extra == \"dev\"",
+        "numpy>=1.26; extra == \"dev\"",
+        "pexpect>=4.9; extra == \"dev\"",
+        "pytest-xdist>=3.5; extra == \"dev\"",
+        "pyyaml; extra == \"dev\"",
+        "requests; extra == \"dev\"",
+        "setuptools; extra == \"dev\"",
+        "xmlschema; extra == \"dev\""
+      ],
+      "project_urls": {
+        "Changelog": "https://docs.pytest.org/en/stable/changelog.html",
+        "Contact": "https://docs.pytest.org/en/stable/contact.html",
+        "Funding": "https://docs.pytest.org/en/stable/sponsor.html",
+        "Homepage": "https://docs.pytest.org/en/latest/",
+        "Source": "https://github.com/pytest-dev/pytest",
+        "Tracker": "https://github.com/pytest-dev/pytest/issues"
+      },
+      "wheel_available": true,
+      "all_files_yanked": false,
+      "locked_wheel_sha256": [
+        "sha256:07acdcf88ec174f907dc01af70bf52d49b014bbab03faeeade31c96b18c2e588"
+      ],
+      "review": "Metadata inspected before installation; no source build allowed. Full installed notice-file inventory follows wheel install.",
+      "installed_here": true,
+      "installed_version": "9.2.0",
+      "installed_notice_files": [
+        {
+          "path": "pytest-9.2.0.dist-info/licenses/LICENSE",
+          "sha256": "ca836a5f9ecca3b2f350230faa20a48fb8b145653b5568d784862df864706b9b",
+          "bytes": 1091
+        }
+      ],
+      "installed_native_files": []
+    },
+    {
+      "name": "pytest-django",
+      "version": "4.14.0",
+      "source": "https://pypi.org/pypi/pytest-django/4.14.0/json",
+      "requires_python": ">=3.10",
+      "license_expression": null,
+      "license": "pytest-django is released under the BSD (3-clause) license\n        ----------------------------------------------------------\n        Copyright (c) 2015-2018, pytest-django authors (see AUTHORS file)\n        All rights reserved.\n        \n        Redistribution and use in source and binary forms, with or without\n        modification, are permitted provided that the following conditions are met:\n        \n         * Redistributions of source code must retain the above copyright notice, this\n           list of conditions and the following disclaimer.\n         * Redistributions in binary form must reproduce the above copyright notice,\n           this list of conditions and the following disclaimer in the documentation\n           and/or other materials provided with the distribution.\n         * The names of its contributors may not be used to endorse or promote products\n           derived from this software without specific prior written permission.\n        \n        THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS \"AS IS\" AND\n        ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED\n        WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE\n        DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR\n        ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES\n        (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;\n        LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON\n        ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT\n        (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS\n        SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n        \n        \n        This version of pytest-django is a fork of pytest_django created by Ben Firshman.\n        ---------------------------------------------------------------------------------\n        Copyright (c) 2009, Ben Firshman\n        All rights reserved.\n        \n        Redistribution and use in source and binary forms, with or without\n        modification, are permitted provided that the following conditions are met:\n        \n         * Redistributions of source code must retain the above copyright notice, this\n           list of conditions and the following disclaimer.\n         * Redistributions in binary form must reproduce the above copyright notice,\n           this list of conditions and the following disclaimer in the documentation\n           and/or other materials provided with the distribution.\n         * The names of its contributors may not be used to endorse or promote products\n           derived from this software without specific prior written permission.\n        \n        THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS \"AS IS\" AND\n        ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED\n        WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE\n        DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR\n        ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES\n        (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;\n        LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON\n        ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT\n        (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS\n        SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n        ",
+      "license_classifiers": [
+        "License :: OSI Approved :: BSD License"
+      ],
+      "requires_dist": [
+        "pytest>=7.0.0",
+        "django>=5.2; extra == \"django\"",
+        "sphinx; extra == \"docs\"",
+        "sphinx-rtd-theme; extra == \"docs\""
+      ],
+      "project_urls": {
+        "Changelog": "https://pytest-django.readthedocs.io/en/latest/changelog.html",
+        "Documentation": "https://pytest-django.readthedocs.io/",
+        "Repository": "https://github.com/pytest-dev/pytest-django"
+      },
+      "wheel_available": true,
+      "all_files_yanked": false,
+      "locked_wheel_sha256": [
+        "sha256:c533b08d89cc675efcd5398eea270b34547e35f9a3608e2c9748dd88428ea187"
+      ],
+      "review": "Metadata inspected before installation; no source build allowed. Full installed notice-file inventory follows wheel install.",
+      "installed_here": true,
+      "installed_version": "4.14.0",
+      "installed_notice_files": [
+        {
+          "path": "pytest_django-4.14.0.dist-info/licenses/AUTHORS",
+          "sha256": "dc6d05a5ec2c94858993f761d50c5b75c51eda558168718a00d130cac89d0b72",
+          "bytes": 647
+        },
+        {
+          "path": "pytest_django-4.14.0.dist-info/licenses/LICENSE",
+          "sha256": "ded3c069e77cad4777cb8d6accd06a95560cfb167537316058011eb521fb30a1",
+          "bytes": 3219
+        }
+      ],
+      "installed_native_files": []
+    },
+    {
+      "name": "sqlparse",
+      "version": "0.6.1",
+      "source": "https://pypi.org/pypi/sqlparse/0.6.1/json",
+      "requires_python": ">=3.10",
+      "license_expression": null,
+      "license": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: BSD License"
+      ],
+      "requires_dist": [
+        "build; extra == \"dev\"",
+        "furo; extra == \"doc\"",
+        "sphinx; extra == \"doc\""
+      ],
+      "project_urls": {
+        "Documentation": "https://sqlparse.readthedocs.io/",
+        "Home": "https://github.com/andialbrecht/sqlparse",
+        "Release Notes": "https://sqlparse.readthedocs.io/en/latest/changes.html",
+        "Source": "https://github.com/andialbrecht/sqlparse",
+        "Tracker": "https://github.com/andialbrecht/sqlparse/issues"
+      },
+      "wheel_available": true,
+      "all_files_yanked": false,
+      "locked_wheel_sha256": [
+        "sha256:3be5a72d04c873d690d7c6dedd33d6fae2ef82759881ceec02fc2efd0cba564f"
+      ],
+      "review": "Metadata inspected before installation; no source build allowed. Full installed notice-file inventory follows wheel install.",
+      "installed_here": true,
+      "installed_version": "0.6.1",
+      "installed_notice_files": [
+        {
+          "path": "sqlparse-0.6.1.dist-info/licenses/AUTHORS",
+          "sha256": "fee330a5b516ad49a8453b0ea6813c89cb8ec4e0f34007946f6efabd0271e399",
+          "bytes": 3648
+        },
+        {
+          "path": "sqlparse-0.6.1.dist-info/licenses/LICENSE",
+          "sha256": "c1938235b80d39e93138eae89edc3af67e18ecbc40d266529fa57b2dce426310",
+          "bytes": 1537
+        }
+      ],
+      "installed_native_files": []
+    },
+    {
+      "name": "typing-extensions",
+      "version": "4.16.0",
+      "source": "https://pypi.org/pypi/typing-extensions/4.16.0/json",
+      "requires_python": ">=3.9",
+      "license_expression": "PSF-2.0",
+      "license": null,
+      "license_classifiers": [],
+      "requires_dist": null,
+      "project_urls": {
+        "Bug Tracker": "https://github.com/python/typing_extensions/issues",
+        "Changes": "https://github.com/python/typing_extensions/blob/main/CHANGELOG.md",
+        "Documentation": "https://typing-extensions.readthedocs.io/",
+        "Home": "https://github.com/python/typing_extensions",
+        "Q & A": "https://github.com/python/typing/discussions",
+        "Repository": "https://github.com/python/typing_extensions"
+      },
+      "wheel_available": true,
+      "all_files_yanked": false,
+      "locked_wheel_sha256": [
+        "sha256:481caa481374e813c1b176ada14e97f1f67a4539ce9cfeb3f350d78d6370c2e8"
+      ],
+      "review": "Metadata inspected before installation; no source build allowed. Full installed notice-file inventory follows wheel install.",
+      "installed_here": true,
+      "installed_version": "4.16.0",
+      "installed_notice_files": [
+        {
+          "path": "typing_extensions-4.16.0.dist-info/licenses/LICENSE",
+          "sha256": "3b2f81fe21d181c499c59a256c8e1968455d6689d269aa85373bfb6af41da3bf",
+          "bytes": 13936
+        }
+      ],
+      "installed_native_files": []
+    },
+    {
+      "name": "tzdata",
+      "version": "2026.6",
+      "source": "https://pypi.org/pypi/tzdata/2026.6/json",
+      "requires_python": ">=2",
+      "license_expression": null,
+      "license": "Apache-2.0",
+      "license_classifiers": [],
+      "requires_dist": null,
+      "project_urls": {
+        "Bug Reports": "https://github.com/python/tzdata/issues",
+        "Documentation": "https://tzdata.python.org",
+        "Homepage": "https://github.com/python/tzdata",
+        "Source": "https://github.com/python/tzdata"
+      },
+      "wheel_available": true,
+      "all_files_yanked": false,
+      "locked_wheel_sha256": [
+        "sha256:0a10eec6e13ef16b627fabed9a5f2ba61a62b1c67f327305f4e7e412a70b4aec"
+      ],
+      "review": "Metadata inspected before installation; no source build allowed. Full installed notice-file inventory follows wheel install.",
+      "installed_here": false,
+      "reason": "Platform-conditional lock entry not installed on macOS arm64; included in all-lock advisory audit."
+    },
+    {
+      "name": "uvicorn",
+      "version": "0.54.0",
+      "source": "https://pypi.org/pypi/uvicorn/0.54.0/json",
+      "requires_python": ">=3.10",
+      "license_expression": "BSD-3-Clause",
+      "license": null,
+      "license_classifiers": [],
+      "requires_dist": [
+        "click>=7.0",
+        "h11>=0.8",
+        "typing-extensions>=4.0; python_version < \"3.11\"",
+        "httptools>=0.8.0; extra == \"standard\"",
+        "python-dotenv>=0.13; extra == \"standard\"",
+        "pyyaml>=5.1; extra == \"standard\"",
+        "uvloop>=0.15.1; (sys_platform != \"win32\" and (sys_platform != \"cygwin\" and platform_python_implementation != \"PyPy\")) and extra == \"standard\"",
+        "watchfiles>=0.20; extra == \"standard\"",
+        "websockets>=13.0; extra == \"standard\""
+      ],
+      "project_urls": {
+        "Changelog": "https://uvicorn.dev/release-notes",
+        "Funding": "https://github.com/sponsors/Kludex",
+        "Homepage": "https://uvicorn.dev/",
+        "Source": "https://github.com/Kludex/uvicorn"
+      },
+      "wheel_available": true,
+      "all_files_yanked": false,
+      "locked_wheel_sha256": [
+        "sha256:505bdb0f318731d45f1f712071fc781a8981f6847a31c902c9f5e652d4f67faf"
+      ],
+      "review": "Metadata inspected before installation; no source build allowed. Full installed notice-file inventory follows wheel install.",
+      "installed_here": true,
+      "installed_version": "0.54.0",
+      "installed_notice_files": [
+        {
+          "path": "uvicorn-0.54.0.dist-info/licenses/LICENSE.md",
+          "sha256": "efe1acf3e62fb99c288b0ec73e5a773b7268ef4320fe757ea994214e4b63c371",
+          "bytes": 1526
+        }
+      ],
+      "installed_native_files": []
+    }
+  ],
+  "license_conditions": [
+    "Psycopg and psycopg-binary metadata declare LGPL-3.0-only; package notice/redistribution obligations and bundled library notices remain explicit.",
+    "This inventory is not legal clearance; external binary native components are not covered by Python advisory scan.",
+    "No research repository or parser/model dependency is included.",
+    "Installed wheel license/notice files and native-file hashes are inventoried; notices are not yet assembled into a release image."
+  ],
+  "platform_observed": {
+    "system": "Darwin",
+    "machine": "arm64",
+    "python": "3.12.13",
+    "libpq_version": 180006
+  }
+}

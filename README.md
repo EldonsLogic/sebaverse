@@ -51,3 +51,7 @@ Project files are editable Markdown/JSON with preserved Git history. The founder
 [START-HERE](development/START-HERE.md) → [current checkpoint](development/CURRENT-STATE.md) → [step-by-step roadmap](development/ROADMAP.md) → [task graph](development/tasks.json) → [phase test gates](development/phase-gates.json). [Shared coding rules](development/ENGINEERING_RULES.md), [workflow](development/WORKFLOW.md) and [handover protocol](development/HANDOVER.md) keep Codex, Claude and Antigravity aligned. Root AGENTS.md is canonical; CLAUDE.md and the Antigravity rule point to it.
 
 Every phase must pass its relevant required tests and independent review before the next begins. `python3 tools/check_foundation.py` and `python3 -m unittest discover -s tools/tests -p test_foundation.py` verify the development task/phase contracts; these do not replace product phase tests. No paid provider use, deployment or real-minor handling is implied by the foundation authorization.
+
+## Dependency readiness
+
+[Dependency setup](development/DEPENDENCIES.md), backend/uv.lock and web/package-lock.json define the minimal locked environments. `make dependency-check` validates committed closure/evidence and local library smoke; `make foundation-check` runs document, phase and evidence regressions. F1 status and actual Linux/local results are recorded in development/CURRENT-STATE.md and evidence files; installed dependencies are ignored, not committed. No product app is implied by dependency readiness.

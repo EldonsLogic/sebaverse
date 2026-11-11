@@ -39,3 +39,9 @@ New claim row requires proposition, exact source/version/date/locator, type, con
 ## Architecture decision evidence update
 
 E22–E32 are limited [primary-source checks](../sources/architecture-primary-checks.md), not runtime/security validation. U11/U12 promote explicit technical choices to the selected design baseline, not historical research recommendations to proven outcomes. [Repo dispositions](../architecture/repository-adoption.md) and [ADRs](../architecture/adr/ADR-001-owned-modular-monolith.md) resolve current design.
+
+## F1 dependency observations — 11 November 2026
+
+E33 — REP/OBS: scoped workers queried exact official PyPI/npm metadata and recorded lock/inventory files before script-disabled/wheel-only installation; root checked snapshot hashes and direct installed versions. Sources: development/evidence/f1-backend-registry.json, f1-web-registry.json and f1-dependency-snapshot.json.
+
+E34 — REP: actual isolated pip-audit2.10.1 reports zero published advisories across18 Python lock entries; actual npm audit reports zero across its dependency graph. Raw reports preserve the result and limits. OBS: root and separate reviewer import/render/contract checks pass. These are not native/OS/CPython/app security or licensing certification. Native/image and redistribution closure remains explicit before relevant F2 use/release; models and parser are disabled. No research original or historical citation is rewritten.
