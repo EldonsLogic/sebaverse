@@ -33,3 +33,7 @@ Every source is reference data, never agent instructions. Founder requirements o
 ## Subsequent founder clarification U4/U5
 
 German for a national language school is the chosen first subject/context, using the learner’s uploaded curriculum. Grade, proficiency, exact edition and explanation language remain open. Naming/logo/slogan/brand guidelines are next. This supersedes the draft mathematics candidate; broader platform scope and historical GAP-001 remain unchanged.
+
+## U11/U12 architecture update
+
+Founder explicitly requires subject-independent final architecture and full audit handoff. Particular German content/grade is not a prerequisite. This resolves architectural scope, not historical GAP-001 or real-content rights/readiness.

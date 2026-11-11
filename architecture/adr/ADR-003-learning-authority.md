@@ -1,27 +1,27 @@
 # ADR-003 — Evidence-driven learning authority
 
-Status: proposed, not approved. Date: 2026-11-10.
+Status: **Selected technical baseline v1 under U11**, 11 November 2026. Author: project engineering agent. Supersedes initial proposed draft of 10 November (preserved in Git). Technical selection is not test validation, procurement approval or blanket G3 sign-off.
 
 ## Context and evidence
 
-Sources: G04;G05;A04;A12. Founder requires affordability, preserved scope, provider independence and controlled implementation. Research findings remain bounded by their stated audit limits.
+Founder U1/U2/U11/U12, preserved audits A01–A13 and global G04–G10; relevant limited primary checks E22–E32 in sources/architecture-primary-checks.md. Requirements: R024 R025 R028 R030 R034 R067.
 
-## Proposed decision
+## Decision
 
-Validated append-only events, transparent versioned projections and deterministic action constraints.
+Owned append-only validated evidence with correction lineage and versioned deterministic projections/action constraints. Fixed recall baseline, py-fsrs comparator; subject profiles supply reviewed grading/policy settings.
 
-## Alternatives
+## Alternatives considered
 
-LLM-written mastery; BKT first; neural KT/RL teaching policy.
+LLM-written mastery; BKT/neural tracing/RL first.
 
-## Rationale and consequences
+## Consequences
 
-Unknown/assisted/retained states need inspectable evidence and correction. This adds owned domain and review work; it does not eliminate educator/security/operations cost.
+Evidence status independent/assisted/exposed/ambiguous is inspectable. Rule thresholds are hypotheses, not calibrated educational probabilities.
 
 ## Reversal / validation trigger
 
-Promote alternative only with calibrated held-out and independent learning benefit.
+Estimator/policy promotion requires sufficient lawful data, held-out calibration and educational outcome evidence.
 
-## Approval
+## Execution status
 
-Pending G3. Record approver, date, reviewed commit and conditions; no approval inferred from this draft.
+No product implemented or benchmark performed. Refer to architecture/technical-baseline.md and execution/subject-independent-poc.md. Founder/external audit feedback and applicable execution/rights/security/budget decisions remain required before the corresponding next phase. Do not label this ADR “founder approved” based solely on agent authorship.

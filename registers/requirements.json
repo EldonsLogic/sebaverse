@@ -87,7 +87,7 @@
     "owner": "Founder",
     "status": "Specified; not implemented",
     "evidence_status": "Founder requirement",
-    "omission_disposition": "Retained in named phase; no implementation claimed"
+    "omission_disposition": "Retained for real-content pilot readiness; not a dependency of subject-independent architecture finalization (U11)"
   },
   {
     "id": "R006",
@@ -205,15 +205,16 @@
     "id": "R012",
     "requirement": "Use existing TBD project folder; rename after chosen brand",
     "sources": [
-      "U3"
+      "U3",
+      "U10"
     ],
     "priority": "P1",
     "phase": "Gates",
     "dependencies": [],
-    "acceptance_criteria": "Project resides in Documents/TBD; no premature rename",
+    "acceptance_criteria": "Documents/Sebaverse is canonical; Git/research preserved, no duplicate master; app registration compatibility documented",
     "specification": "README.md",
     "owner": "Founder",
-    "status": "Specified; not implemented",
+    "status": "Completed: original repository renamed Sebaverse; legacy path is compatibility symlink",
     "evidence_status": "Founder requirement",
     "omission_disposition": "Retained in named phase; no implementation claimed"
   },
@@ -1408,7 +1409,8 @@
     "requirement": "Domain/data model and API contracts",
     "sources": [
       "U1",
-      "U2"
+      "U2",
+      "U11"
     ],
     "priority": "P1",
     "phase": "Gates",
@@ -1416,7 +1418,7 @@
     "acceptance_criteria": "Entity authority, scopes, versions, idempotency and failure semantics reviewed",
     "specification": "architecture/system-and-data-model.md",
     "owner": "Founder",
-    "status": "Specified; not implemented",
+    "status": "Technical baseline v1 selected for audit; unimplemented and unbenchmarked",
     "evidence_status": "Founder requirement",
     "omission_disposition": "Retained in named phase; no implementation claimed"
   },
@@ -1444,17 +1446,18 @@
     "requirement": "Architecture ADRs and decisions",
     "sources": [
       "U1",
-      "U2"
+      "U2",
+      "U11"
     ],
     "priority": "P1",
     "phase": "Gates",
     "dependencies": [
       "R075"
     ],
-    "acceptance_criteria": "Tradeoffs, alternatives, status and reversal triggers recorded",
+    "acceptance_criteria": "Selected stack, boundaries, tradeoffs and reversal triggers recorded in ADRs; execution/legal gates distinct from technical selection",
     "specification": "execution/roadmap-and-gates.md",
     "owner": "Founder",
-    "status": "Specified; not implemented",
+    "status": "Technical baseline v1 selected for audit; unimplemented and unbenchmarked",
     "evidence_status": "Founder requirement",
     "omission_disposition": "Retained in named phase; no implementation claimed"
   },
@@ -1558,7 +1561,8 @@
     "requirement": "Selective DeepTutor reuse only",
     "sources": [
       "U1",
-      "U2"
+      "U2",
+      "U11"
     ],
     "priority": "P1",
     "phase": "PoC",
@@ -1568,7 +1572,7 @@
     "acceptance_criteria": "Apache provenance/dependency closure; abandon extraction >3 repair days",
     "specification": "architecture/system-and-data-model.md",
     "owner": "Founder + educator where learning/content is affected",
-    "status": "Specified; not implemented",
+    "status": "Technical baseline v1 selected for audit; unimplemented and unbenchmarked",
     "evidence_status": "Founder requirement",
     "omission_disposition": "Retained in named phase; no implementation claimed"
   },
@@ -1577,7 +1581,8 @@
     "requirement": "LearnHouse LMS fallback with AGPL/EE review",
     "sources": [
       "U1",
-      "U2"
+      "U2",
+      "U11"
     ],
     "priority": "P1",
     "phase": "Future",
@@ -1587,7 +1592,7 @@
     "acceptance_criteria": "Actual feature/license terms and combined-work analysis before use",
     "specification": "architecture/system-and-data-model.md",
     "owner": "Founder + educator where learning/content is affected",
-    "status": "Specified; not implemented",
+    "status": "Technical baseline v1 selected for audit; unimplemented and unbenchmarked",
     "evidence_status": "Founder requirement",
     "omission_disposition": "Retained in named phase; no implementation claimed"
   },
@@ -1596,17 +1601,18 @@
     "requirement": "Framework choice remains reversible",
     "sources": [
       "U1",
-      "U2"
+      "U2",
+      "U11"
     ],
     "priority": "P1",
     "phase": "Gates",
     "dependencies": [
       "R075"
     ],
-    "acceptance_criteria": "Django/Postgres vs thin alternative compared with review/admin and solo operations",
+    "acceptance_criteria": "Django/DRF + React/TypeScript/Vite selected under U11; framework changes require an evidence-backed ADR amendment, not indefinite open comparison",
     "specification": "architecture/system-and-data-model.md",
     "owner": "Founder",
-    "status": "Specified; not implemented",
+    "status": "Technical baseline v1 selected for audit; unimplemented and unbenchmarked",
     "evidence_status": "Founder requirement",
     "omission_disposition": "Retained in named phase; no implementation claimed"
   },
@@ -1772,17 +1778,18 @@
     "requirement": "Global-ready architecture without premature breadth",
     "sources": [
       "U1",
-      "U2"
+      "U2",
+      "U11"
     ],
     "priority": "P1",
     "phase": "Gates",
     "dependencies": [
       "R036"
     ],
-    "acceptance_criteria": "Curriculum/provider/localization boundaries versioned; future scope retained",
+    "acceptance_criteria": "Adding a supported subject uses reviewed content/profile/grader configuration without core schema or state-machine edits; specialist new capabilities use reviewed adapters; multi-subject fixture tests specified",
     "specification": "architecture/system-and-data-model.md",
     "owner": "Founder",
-    "status": "Specified; not implemented",
+    "status": "Technical baseline v1 selected for audit; unimplemented and unbenchmarked",
     "evidence_status": "Founder requirement",
     "omission_disposition": "Retained in named phase; no implementation claimed"
   },
@@ -1804,7 +1811,7 @@
     "owner": "Founder + educator where learning/content is affected",
     "status": "Specified; not implemented",
     "evidence_status": "Founder requirement",
-    "omission_disposition": "Retained; no implementation claimed"
+    "omission_disposition": "Retained initial use case only; U11 explicitly excludes it as a platform-architecture dependency"
   },
   {
     "id": "R096",
@@ -1840,7 +1847,7 @@
       "R096"
     ],
     "acceptance_criteria": "Arabic typography, RTL/mixed German content, Arabic messaging and parent/student tone lead all three identity trials; English is supported rather than the design default",
-    "specification": "outputs/sebaverse-brand-trial-v3/README.md",
+    "specification": "outputs/sebaverse-brand-system-v1/README.md",
     "owner": "Founder + Arabic design/native-language review",
     "status": "Brand system v1 documented; detailed founder review pending; no product implemented",
     "evidence_status": "Founder requirement",
@@ -1860,10 +1867,31 @@
       "R096"
     ],
     "acceptance_criteria": "All logo/wordmark proposals use Latin Sebaverse; RTL layouts do not mirror the mark and do not add an Arabic logo",
-    "specification": "outputs/sebaverse-brand-trial-v3/README.md",
+    "specification": "outputs/sebaverse-brand-system-v1/README.md",
     "owner": "Founder + Arabic design/native-language review",
     "status": "Brand system v1 documented; detailed founder review pending; no product implemented",
     "evidence_status": "Founder requirement",
     "omission_disposition": "Retained in brand gate; no product implementation claimed"
+  },
+  {
+    "id": "R099",
+    "requirement": "Subject-independent platform architecture and audit handoff",
+    "sources": [
+      "U11",
+      "U12"
+    ],
+    "priority": "P0",
+    "phase": "Gates",
+    "dependencies": [
+      "R075",
+      "R077",
+      "R094"
+    ],
+    "acceptance_criteria": "Full system/data/runtime maps, every feature/function and phase, all audited repo dispositions and build/reuse boundaries; curriculum-independent extension contracts and multi-subject PoC; no German upload prerequisite",
+    "specification": "architecture/technical-baseline.md",
+    "owner": "Engineering + founder/external auditor",
+    "status": "Technical baseline v1 selected for audit; unimplemented and unbenchmarked",
+    "evidence_status": "Founder requirement; engineering decisions",
+    "omission_disposition": "Retained in architecture gate; execution gates tracked separately"
   }
 ]

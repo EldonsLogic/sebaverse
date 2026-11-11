@@ -1,0 +1,58 @@
+[
+  {
+    "gate": "G0",
+    "status": "pending",
+    "approved_by": null,
+    "date": null,
+    "artifact_commit": null,
+    "conditions": []
+  },
+  {
+    "gate": "G1",
+    "status": "pending",
+    "approved_by": null,
+    "date": null,
+    "artifact_commit": null,
+    "conditions": []
+  },
+  {
+    "gate": "G2",
+    "status": "pending",
+    "approved_by": null,
+    "date": null,
+    "artifact_commit": null,
+    "conditions": []
+  },
+  {
+    "gate": "G3",
+    "status": "pending",
+    "approved_by": null,
+    "date": null,
+    "artifact_commit": null,
+    "conditions": []
+  },
+  {
+    "gate": "G4",
+    "status": "pending",
+    "approved_by": null,
+    "date": null,
+    "artifact_commit": null,
+    "conditions": []
+  },
+  {
+    "gate": "G5",
+    "status": "pending",
+    "approved_by": null,
+    "date": null,
+    "artifact_commit": null,
+    "conditions": []
+  },
+  {
+    "gate": "G6",
+    "status": "pending",
+    "approved_by": null,
+    "date": null,
+    "artifact_commit": null,
+    "conditions": []
+  }
+]

@@ -1,0 +1,52 @@
+{
+  "status": "independent proposed direction; not approved",
+  "brand": "Sebaverse",
+  "logo_script": "Latin only",
+  "direction": "workshop",
+  "locale_priority": [
+    "ar-EG",
+    "ar",
+    "en"
+  ],
+  "colors": {
+    "primary": "#4B234A",
+    "accent": "#FFC84A",
+    "paper": "#FFF9EB",
+    "ink": "#2D2030",
+    "muted": "#6D586C"
+  },
+  "font_arabic": "Alexandria",
+  "font_latin": "Manrope",
+  "space_px": [
+    4,
+    8,
+    12,
+    16,
+    24,
+    32,
+    48,
+    64
+  ],
+  "arabic_body_px": 18,
+  "arabic_body_line_height": 1.8,
+  "touch_target_px": 44,
+  "contrast_pairs": [
+    {
+      "pair": "ink / paper",
+      "ratio": 14.7
+    },
+    {
+      "pair": "white / primary",
+      "ratio": 12.82
+    },
+    {
+      "pair": "ink / accent",
+      "ratio": 10.0
+    },
+    {
+      "pair": "accent / paper",
+      "ratio": 1.47
+    }
+  ],
+  "production_logo_svg": null
+}

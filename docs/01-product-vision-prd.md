@@ -1,5 +1,7 @@
 # Product vision and PRD v0.1
 
+Current architecture note (U11/U12, 11 November 2026): architecture/technical-baseline.md selects the subject-independent technical baseline. German is one retained initial use case, not a design dependency; technical selection does not certify content/benchmarks or authorize execution. Detailed learning thresholds/provider models remain subject to evaluation.
+
 Status: proposed specification for review. Founder sources U1 (master request), U2 (context restoration), U3 (TBD project-folder instruction). Research sources G04–G10 and A07–A13 inform recommendations; they do not override founder scope. No brand, first curriculum or stack is finally selected.
 
 ## Product promise and strategy

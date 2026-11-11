@@ -1,0 +1,178 @@
+[
+  {
+    "name": "DeepTutor-sparse",
+    "sha": "60fb3bdfddb30b7740c7ce3bd9b28d908f2af6db",
+    "date": "2026-11-06T16:41:21+08:00",
+    "subject": "release: v1.7.2",
+    "remote": "https://github.com/HKUDS/DeepTutor.git",
+    "license_assessment": "Apache-2.0"
+  },
+  {
+    "name": "LearnHouse-sparse",
+    "sha": "7dc39bc0e116437d564e4c7f96974397e913c338",
+    "date": "2026-11-08T21:04:31+01:00",
+    "subject": "Merge pull request #1238 from learnhouse/renovate/all-minor-patch",
+    "remote": "https://github.com/learnhouse/learnhouse.git",
+    "license_assessment": "AGPL-3.0 / separate EE"
+  },
+  {
+    "name": "EduStudio",
+    "sha": "4acedad91be841a3c3c109944b4180997b8a7260",
+    "date": "2026-10-27T14:26:42+08:00",
+    "subject": "ci: exfil",
+    "remote": "https://github.com/HFUT-LEC/EduStudio.git",
+    "license_assessment": "MIT"
+  },
+  {
+    "name": "pykt-filtered",
+    "sha": "ccbaf37b07e3e7ff7b2415475b2faacb967d54ea",
+    "date": "2026-10-18T16:35:40+08:00",
+    "subject": "Merge pull request #310 from pykt-team/youh_dev",
+    "remote": "https://github.com/pykt-team/pykt-toolkit.git",
+    "license_assessment": "MIT"
+  },
+  {
+    "name": "PyEdmine",
+    "sha": "31e434ae5b2d3bf9823044a4bd4582b184c0190b",
+    "date": "2026-10-22T17:43:19+08:00",
+    "subject": "update",
+    "remote": "https://github.com/ZhijieXiong/pyedmine.git",
+    "license_assessment": "MIT"
+  },
+  {
+    "name": "pyBKT",
+    "sha": "0f4ea412e18f6bcbd396fdf2be68fdd43aebebb6",
+    "date": "2026-11-01T23:31:32-08:00",
+    "subject": "Merge pull request #116 from Moetez-Fradi/fix/multigs-unseen-classes",
+    "remote": "https://github.com/CAHLR/pyBKT.git",
+    "license_assessment": "MIT"
+  },
+  {
+    "name": "py-irt",
+    "sha": "d4f4dbda1e591f2b2f471556b9664c6b2829131c",
+    "date": "2026-11-01T14:43:04-08:00",
+    "subject": "changelog for 0.8.3",
+    "remote": "https://github.com/nd-ball/py-irt.git",
+    "license_assessment": "MIT"
+  },
+  {
+    "name": "py-fsrs",
+    "sha": "9446cb06605c597a063aeee49f7d188d42e34dc2",
+    "date": "2026-08-09T04:29:18Z",
+    "subject": "Fix Ruff autofix failures (#156)",
+    "remote": "https://github.com/open-spaced-repetition/py-fsrs.git",
+    "license_assessment": "MIT"
+  },
+  {
+    "name": "pgvector",
+    "sha": "bcbb135db5f6f7539965e18565ddd5990efcf165",
+    "date": "2026-11-09T02:02:17-08:00",
+    "subject": "Fixed CI",
+    "remote": "https://github.com/pgvector/pgvector.git",
+    "license_assessment": "PostgreSQL License"
+  },
+  {
+    "name": "Docling",
+    "sha": "1ae470a1f4580881ed73853f64e0bf178f623c5e",
+    "date": "2026-11-10T18:59:27+01:00",
+    "subject": "fix(epub): drop query and fragment from image src (#4636)",
+    "remote": "https://github.com/docling-project/docling.git",
+    "license_assessment": "MIT code; models separate"
+  },
+  {
+    "name": "PaddleOCR",
+    "sha": "dab3fe35379033fdcb2d0e9572fac0b36c9a9ebf",
+    "date": "2026-09-16T11:30:53+08:00",
+    "subject": "docs: deduplicate images and streamline repository cloning (#18359)",
+    "remote": "https://github.com/PaddlePaddle/PaddleOCR.git",
+    "license_assessment": "Apache-2.0 code; models separate"
+  },
+  {
+    "name": "SymPy",
+    "sha": "8424f95e5fd61df195d490b8f9a22f075e450f9b",
+    "date": "2026-11-10T11:59:36-07:00",
+    "subject": "Merge pull request #30940 from oscarbenjamin/pr_setup",
+    "remote": "https://github.com/sympy/sympy.git",
+    "license_assessment": "BSD-3-Clause + bundled notices"
+  },
+  {
+    "name": "NetworkX",
+    "sha": "e59d71890e745effb3724dc4b5620b23f92e0ee3",
+    "date": "2026-11-04T15:30:52-05:00",
+    "subject": "Fix docstring spacing and scraper image move (#8929)",
+    "remote": "https://github.com/networkx/networkx.git",
+    "license_assessment": "BSD-3-Clause"
+  },
+  {
+    "name": "faster-whisper",
+    "sha": "3ec025c4b7526e3fa121e527724ac43afa275a95",
+    "date": "2026-11-10T10:13:07Z",
+    "subject": "docs: fix model conversion command (#1696)",
+    "remote": "https://github.com/SYSTRAN/faster-whisper.git",
+    "license_assessment": "MIT code; weights separate"
+  },
+  {
+    "name": "Pipecat",
+    "sha": "36d53278fd296bb63a8a2f9a3ffbfbf16fa84112",
+    "date": "2026-11-10T13:53:15-05:00",
+    "subject": "Merge pull request #5551 from pipecat-ai/provider-watch/piper-tts-http-endpoint-and-synthesis-settings",
+    "remote": "https://github.com/pipecat-ai/pipecat.git",
+    "license_assessment": "BSD-2-Clause"
+  },
+  {
+    "name": "OpenTelemetry",
+    "sha": "5546285fc885858ce580350563e861681aa642fb",
+    "date": "2026-11-10T10:24:07Z",
+    "subject": "ci: run contrib typecheck (#5887)",
+    "remote": "https://github.com/open-telemetry/opentelemetry-python.git",
+    "license_assessment": "Apache-2.0"
+  },
+  {
+    "name": "Promptfoo",
+    "sha": "b3603fab85bb331da98a8b68ca442e1f4af7e368",
+    "date": "2026-11-09T13:42:24-08:00",
+    "subject": "docs(site): keep store product dialogs dismissible on mobile (#12357)",
+    "remote": "https://github.com/promptfoo/promptfoo.git",
+    "license_assessment": "MIT core; review any separately licensed additions"
+  },
+  {
+    "name": "Langfuse",
+    "sha": "47a70342f1736561dfa157a654d011aac29db79d",
+    "date": "2026-11-10T18:55:33Z",
+    "subject": "chore(worker): share lazy evaluation scheduling for OTEL ingestion (#19950)",
+    "remote": "https://github.com/langfuse/langfuse.git",
+    "license_assessment": "MIT core / commercial EE paths"
+  },
+  {
+    "name": "Celery",
+    "sha": "40a3154d457f085770ee7ed85ee892b4608cfb94",
+    "date": "2026-11-10T20:46:58+06:00",
+    "subject": "Make report_internal_error report the correct pickleable exception type (#11026)",
+    "remote": "https://github.com/celery/celery.git",
+    "license_assessment": "BSD-3-Clause"
+  },
+  {
+    "name": "Moodle",
+    "sha": "0580991669815767026aea115a2053e2040378af",
+    "date": "2026-10-30T09:50:10+07:00",
+    "subject": "weekly release",
+    "remote": "https://github.com/moodle/moodle.git",
+    "license_assessment": "GPL-3.0-or-later"
+  },
+  {
+    "name": "FrappeLMS",
+    "sha": "7f7c78b5c43698420ef5a3bc9871f29647e67e31",
+    "date": "2026-11-10T13:56:39+05:30",
+    "subject": "Merge pull request #3243 from frappe/ci/pilot",
+    "remote": "https://github.com/frappe/lms.git",
+    "license_assessment": "AGPL-3.0"
+  },
+  {
+    "name": "Chatterbox",
+    "sha": "ab55923c27757c90cfcc407baa57dc25a7d25217",
+    "date": "2026-11-04T10:48:10-08:00",
+    "subject": "Update README (#581)",
+    "remote": "https://github.com/resemble-ai/chatterbox.git",
+    "license_assessment": "MIT code; weight/voice rights separately gated"
+  }
+]

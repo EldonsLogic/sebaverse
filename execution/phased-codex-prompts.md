@@ -8,15 +8,15 @@ Read context audit, U1/U2/C1 and both research packs. Reconcile any newly suppli
 
 ## P1 — Product and brand gate
 
-Using the approved baseline, review user jobs, phased scope, pricing hypotheses and name shortlist. Conduct explicitly authorized public screening; log exact queries/dates and caveats, obtain native-language review and legal clearance where needed. Prepare founder-selectable name/design/flow package. Keep folder TBD until selection. Record only actual decisions; no domain purchase or publication.
+Using the approved baseline, review user jobs, phased scope, pricing hypotheses and name shortlist. Conduct explicitly authorized public screening; log exact queries/dates and caveats, obtain native-language review and legal clearance where needed. Prepare founder-selectable name/design/flow package. Use canonical Documents/Sebaverse and current selected brand system. Record only actual decisions; no domain purchase or publication.
 
 ## P2 — Architecture and PoC readiness
 
-Compare proposed stack against thin alternatives using solo operations and review/admin requirements. Finalize ADRs, scoped contracts, rights/processor/retention decisions, threat model, minimal dependency plan, synthetic curriculum corpus, offline benchmark and exact spending/time cap. Produce G3 package; no product implementation until recorded approval.
+Use the selected technical baseline and ADR-001–012; do not repeat stack selection or wait for a German textbook. Audit subject-independent contracts, resolve rights/processor/retention readiness, exact dependency closure, authored multi-subject fixtures, offline benchmarks and authorized spending/time cap. Produce G3 package; no product implementation until recorded approval.
 
 ## P3 — Bounded synthetic PoC
 
-Only after G1–G3 approval, implement one unit's vertical slice: server-side identity/scope/grant fixtures, quarantined authorized ingestion, retrieval, bounded tutor adapter, reviewed independent item, immutable evidence/projection and read-only guardian summary. Use synthetic identities and authorized source materials; no real-minor records. Add negative authorization/injection/state/replay/cancel/usage tests. Preserve exact versions and real results, including failures. Prefer a runnable narrow loop over broad provider coverage.
+Only after G1–G3 approval, implement the subject-independent PoC in execution/subject-independent-poc.md using three small authored subject profiles: server-side identity/scope/grant fixtures, quarantined authorized ingestion, retrieval, bounded tutor adapter, reviewed independent item, immutable evidence/projection and read-only guardian summary. Use synthetic identities and authorized source materials; no real-minor records. Add negative authorization/injection/state/replay/cancel/usage tests. Preserve exact versions and real results, including failures. Prefer a runnable narrow loop over broad provider coverage.
 
 ## P4 — Comparative intelligence/voice economics
 
@@ -29,3 +29,7 @@ Only after G5 permission/readiness, deliver approved onboarding/consent, course 
 ## P6 — Commercial hardening and expansion
 
 After successful pilot, use current payment/processor/rate/tax terms and observed usage to finalize commercial plan quotas/refunds/support. Run staging/security/load/accessibility/restore gates, document releases and rollback. Expand one objective/curriculum/teacher workflow at a time with reviewed content rights and evaluation coverage. Local GPU hosting/model training/complex KT requires its own comparative decision and data/operations case. Deployment/publishing follows explicit authorization for the reviewed release.
+
+## Current architecture constraint U11/U12
+
+All implementation prompts use architecture/technical-baseline.md, feature-function-matrix.json and repository-adoption.json. A task names requirement IDs, exact acceptance and approved execution scope. No subject-specific DB/state-machine branches, no wholesale upstream application imports, no silent scope deletion. All phase outputs include pass/fail/not-run and real receipts.

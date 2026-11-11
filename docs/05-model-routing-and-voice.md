@@ -1,5 +1,7 @@
 # Provider routing, Jev and multilingual voice
 
+Current architecture note (U11/U12, 11 November 2026): architecture/technical-baseline.md selects the subject-independent technical baseline. German is one retained initial use case, not a design dependency; technical selection does not certify content/benchmarks or authorize execution. Detailed learning thresholds/provider models remain subject to evaluation.
+
 Sources U1/U2/C1; G06; A09/A11. Jev introduction was opened 2026-11-10: https://jev-ai.org/docs/ . The vendor describes structured decisions with probabilities; educational calibration and local quality remain unmeasured.
 
 ## Provider-neutral boundary

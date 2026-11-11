@@ -1,0 +1,349 @@
+{
+  "commit": "7dc39bc0e116437d564e4c7f96974397e913c338",
+  "files": [
+    {
+      "path": "LICENSE",
+      "sha256": "8486a10c4393cee1c25392769ddd3b2d6c242d6ec7928e1414efff7dfb2f07ef",
+      "git_blob_sha1": "0ad25db4bd1d86c452db3f9602ccdbe172438f52",
+      "expected": "0ad25db4bd1d86c452db3f9602ccdbe172438f52",
+      "matched": true,
+      "url": "https://github.com/learnhouse/learnhouse/blob/7dc39bc0e116437d564e4c7f96974397e913c338/LICENSE"
+    },
+    {
+      "path": "Dockerfile",
+      "sha256": "622d9540d4ed22c250ed38987ee988d8e637842ec3f8602a66ace79c9a519c73",
+      "git_blob_sha1": "146e7ebe9aec470afb7a94e31b7932786e315084",
+      "expected": "146e7ebe9aec470afb7a94e31b7932786e315084",
+      "matched": true,
+      "url": "https://github.com/learnhouse/learnhouse/blob/7dc39bc0e116437d564e4c7f96974397e913c338/Dockerfile"
+    },
+    {
+      "path": "docker/start.sh",
+      "sha256": "45755a54cc325b33b9212e0ea420f4ec7ea0f2f2924ff339e8224e3e71386a79",
+      "git_blob_sha1": "5912703cffcbe9f1b3034b004bbd9a6f80fb844d",
+      "expected": "5912703cffcbe9f1b3034b004bbd9a6f80fb844d",
+      "matched": true,
+      "url": "https://github.com/learnhouse/learnhouse/blob/7dc39bc0e116437d564e4c7f96974397e913c338/docker/start.sh"
+    },
+    {
+      "path": ".github/workflows/web-tests.yaml",
+      "sha256": "94f63507216e3801f0d0e3348e424b667a60b0b4d3aea53d3ab54c2e7655d19b",
+      "git_blob_sha1": "ab4c9d4aa873c0e48001ce8ddddf6102fec14395",
+      "expected": "ab4c9d4aa873c0e48001ce8ddddf6102fec14395",
+      "matched": true,
+      "url": "https://github.com/learnhouse/learnhouse/blob/7dc39bc0e116437d564e4c7f96974397e913c338/.github/workflows/web-tests.yaml"
+    },
+    {
+      "path": ".github/workflows/api-tests.yaml",
+      "sha256": "bec47da11f533ba932d0b21ed412bf94ec31fc841afe866d040631cd5e8a6d47",
+      "git_blob_sha1": "a427f49f20eb5d0505b7ee0be2b86da7e9c21c0d",
+      "expected": "a427f49f20eb5d0505b7ee0be2b86da7e9c21c0d",
+      "matched": true,
+      "url": "https://github.com/learnhouse/learnhouse/blob/7dc39bc0e116437d564e4c7f96974397e913c338/.github/workflows/api-tests.yaml"
+    },
+    {
+      "path": ".github/workflows/e2e.yaml",
+      "sha256": "2f614ca4ef07bbdc418f0e8f8b681f76958b7bfe38ac3d225850eaa85e03c012",
+      "git_blob_sha1": "7fa3d7f5b22e9c9da6b757c4d690cedf7abc83ab",
+      "expected": "7fa3d7f5b22e9c9da6b757c4d690cedf7abc83ab",
+      "matched": true,
+      "url": "https://github.com/learnhouse/learnhouse/blob/7dc39bc0e116437d564e4c7f96974397e913c338/.github/workflows/e2e.yaml"
+    },
+    {
+      "path": ".github/workflows/api-migrations.yaml",
+      "sha256": "37042688899e2b8855420c914eca59a5aa272ca132520f706cc11c75701c97d6",
+      "git_blob_sha1": "f0ac8c41a357b3cf0d62ed2b39af32d7192c6383",
+      "expected": "f0ac8c41a357b3cf0d62ed2b39af32d7192c6383",
+      "matched": true,
+      "url": "https://github.com/learnhouse/learnhouse/blob/7dc39bc0e116437d564e4c7f96974397e913c338/.github/workflows/api-migrations.yaml"
+    },
+    {
+      "path": "apps/web/package.json",
+      "sha256": "ea1b065e28d730dd65df1806655d1f5a1a62f3a146ff762887d9e1431d0cd13b",
+      "git_blob_sha1": "57bfc116f898de7e090139700580ae4507d97bd8",
+      "expected": "57bfc116f898de7e090139700580ae4507d97bd8",
+      "matched": true,
+      "url": "https://github.com/learnhouse/learnhouse/blob/7dc39bc0e116437d564e4c7f96974397e913c338/apps/web/package.json"
+    },
+    {
+      "path": "apps/web/AGENTS.md",
+      "sha256": "063098f6cb31bb44c6f8fbea25b3876de7ee1e5f7d00a50dbab506f6415eb7f0",
+      "git_blob_sha1": "af3b7c84114bafeee578bf1adff2ef74af2cc6a2",
+      "expected": "af3b7c84114bafeee578bf1adff2ef74af2cc6a2",
+      "matched": true,
+      "url": "https://github.com/learnhouse/learnhouse/blob/7dc39bc0e116437d564e4c7f96974397e913c338/apps/web/AGENTS.md"
+    },
+    {
+      "path": "apps/web/lib/i18n.ts",
+      "sha256": "53cedbd1f05a3a27d7be30837f47f90971740e5ed8cd2abe7e726938a2762293",
+      "git_blob_sha1": "9f3545aa14c8c2901f8c756c0f25e658b8505752",
+      "expected": "9f3545aa14c8c2901f8c756c0f25e658b8505752",
+      "matched": true,
+      "url": "https://github.com/learnhouse/learnhouse/blob/7dc39bc0e116437d564e4c7f96974397e913c338/apps/web/lib/i18n.ts"
+    },
+    {
+      "path": "apps/cli/src/templates/docker-compose.ts",
+      "sha256": "c3ec7ec0e0da51b0a49045848e86229d7dfb531e1cb9b1130241cb96c5fdf19e",
+      "git_blob_sha1": "033f7b5b4c042dd7c73e99a94e5bf421901b8f8d",
+      "expected": "033f7b5b4c042dd7c73e99a94e5bf421901b8f8d",
+      "matched": true,
+      "url": "https://github.com/learnhouse/learnhouse/blob/7dc39bc0e116437d564e4c7f96974397e913c338/apps/cli/src/templates/docker-compose.ts"
+    },
+    {
+      "path": "apps/api/pyproject.toml",
+      "sha256": "7521af21b80ef0c4cccf7a79c6490caed1691472bd48fdd62027c34478e556e5",
+      "git_blob_sha1": "7bdeb2a06c2bdb73d64e148b9f106550d66fff2d",
+      "expected": "7bdeb2a06c2bdb73d64e148b9f106550d66fff2d",
+      "matched": true,
+      "url": "https://github.com/learnhouse/learnhouse/blob/7dc39bc0e116437d564e4c7f96974397e913c338/apps/api/pyproject.toml"
+    },
+    {
+      "path": "apps/api/src/router.py",
+      "sha256": "1e2027f87b35d11e6ac0ef03949782f3e7e8045168d1afc2ebf8a34acea76eb6",
+      "git_blob_sha1": "a093b613953b031fb4dcaee652fe8454fbfb0c9a",
+      "expected": "a093b613953b031fb4dcaee652fe8454fbfb0c9a",
+      "matched": true,
+      "url": "https://github.com/learnhouse/learnhouse/blob/7dc39bc0e116437d564e4c7f96974397e913c338/apps/api/src/router.py"
+    },
+    {
+      "path": "apps/api/src/routers/api_tokens.py",
+      "sha256": "3a37b474e0c46177cc0547de587bd5d649eb10644f042ffb507822e563f7e0dc",
+      "git_blob_sha1": "48118dad9fab858d0610a057cb9457cd240b2800",
+      "expected": "48118dad9fab858d0610a057cb9457cd240b2800",
+      "matched": true,
+      "url": "https://github.com/learnhouse/learnhouse/blob/7dc39bc0e116437d564e4c7f96974397e913c338/apps/api/src/routers/api_tokens.py"
+    },
+    {
+      "path": "apps/api/src/routers/courses/assignments.py",
+      "sha256": "32d2d8a1ee7ffe33ad6d0444294ef24a27b4e186161f4e7db76c4901dec292fa",
+      "git_blob_sha1": "de93598be3711244fdc2398be6ce4714f3e09f46",
+      "expected": "de93598be3711244fdc2398be6ce4714f3e09f46",
+      "matched": true,
+      "url": "https://github.com/learnhouse/learnhouse/blob/7dc39bc0e116437d564e4c7f96974397e913c338/apps/api/src/routers/courses/assignments.py"
+    },
+    {
+      "path": "apps/api/src/core/deployment_mode.py",
+      "sha256": "045634236703237bbb0bf6b7059306ac70c44e37fc9e77d08b8623c76b2bbe64",
+      "git_blob_sha1": "799ba2bb612e0e13896ef0962b2dfb41fbebd88b",
+      "expected": "799ba2bb612e0e13896ef0962b2dfb41fbebd88b",
+      "matched": true,
+      "url": "https://github.com/learnhouse/learnhouse/blob/7dc39bc0e116437d564e4c7f96974397e913c338/apps/api/src/core/deployment_mode.py"
+    },
+    {
+      "path": "apps/api/src/core/ee_hooks.py",
+      "sha256": "c56031b24b359e256c4341ccbba40a367cfdf6b64bf0d6e91b7b3b16c0cc3c86",
+      "git_blob_sha1": "a5f46c3b1f83fcd8913958eba09e518460b5b03c",
+      "expected": "a5f46c3b1f83fcd8913958eba09e518460b5b03c",
+      "matched": true,
+      "url": "https://github.com/learnhouse/learnhouse/blob/7dc39bc0e116437d564e4c7f96974397e913c338/apps/api/src/core/ee_hooks.py"
+    },
+    {
+      "path": "apps/api/src/security/auth.py",
+      "sha256": "eda017f0953c446470fe26898d0fede4bfeb79e1ed264d6fb54e5841fb044ede",
+      "git_blob_sha1": "f5d84b42df982c036b5d59680299850f5138d82a",
+      "expected": "f5d84b42df982c036b5d59680299850f5138d82a",
+      "matched": true,
+      "url": "https://github.com/learnhouse/learnhouse/blob/7dc39bc0e116437d564e4c7f96974397e913c338/apps/api/src/security/auth.py"
+    },
+    {
+      "path": "apps/api/src/security/org_scope.py",
+      "sha256": "6c8c3bbec7402a2c4a5fcbea197326079e003e1ed92b9bb54b9a2ce4c344cb4e",
+      "git_blob_sha1": "762e02cc8b57a1318a1a0500368a7d62016eca70",
+      "expected": "762e02cc8b57a1318a1a0500368a7d62016eca70",
+      "matched": true,
+      "url": "https://github.com/learnhouse/learnhouse/blob/7dc39bc0e116437d564e4c7f96974397e913c338/apps/api/src/security/org_scope.py"
+    },
+    {
+      "path": "apps/api/src/security/csrf.py",
+      "sha256": "de8c4aab71aa0ebe6f8ae3998f25764865e73874e04b1e393128051474e06528",
+      "git_blob_sha1": "a8b2ac1a16e815c39a3df91777549db8cd49697d",
+      "expected": "a8b2ac1a16e815c39a3df91777549db8cd49697d",
+      "matched": true,
+      "url": "https://github.com/learnhouse/learnhouse/blob/7dc39bc0e116437d564e4c7f96974397e913c338/apps/api/src/security/csrf.py"
+    },
+    {
+      "path": "apps/api/src/security/security.py",
+      "sha256": "c7deb479769ac2e6ba07923c35153cf01a3c837af0b93a2166ac10b5657f6fef",
+      "git_blob_sha1": "11ef11f79cd625247d5a556ebabfe49d16a6fb50",
+      "expected": "11ef11f79cd625247d5a556ebabfe49d16a6fb50",
+      "matched": true,
+      "url": "https://github.com/learnhouse/learnhouse/blob/7dc39bc0e116437d564e4c7f96974397e913c338/apps/api/src/security/security.py"
+    },
+    {
+      "path": "apps/api/src/security/file_validation.py",
+      "sha256": "a5d1e464379f89efa849f456055081c9313a37e26e2c69135d8e8efb41b33de2",
+      "git_blob_sha1": "ba3fbed6eae9f23a6c08a59351193189de9c8f01",
+      "expected": "ba3fbed6eae9f23a6c08a59351193189de9c8f01",
+      "matched": true,
+      "url": "https://github.com/learnhouse/learnhouse/blob/7dc39bc0e116437d564e4c7f96974397e913c338/apps/api/src/security/file_validation.py"
+    },
+    {
+      "path": "apps/api/src/security/rbac/rbac.py",
+      "sha256": "c890ffaa0b66c7708fc2b573facb0c20b16c0dca85c5a52dfc51548d6803c699",
+      "git_blob_sha1": "ab4998039ef7dd1108f0a4382b4a528fe58ec19a",
+      "expected": "ab4998039ef7dd1108f0a4382b4a528fe58ec19a",
+      "matched": true,
+      "url": "https://github.com/learnhouse/learnhouse/blob/7dc39bc0e116437d564e4c7f96974397e913c338/apps/api/src/security/rbac/rbac.py"
+    },
+    {
+      "path": "apps/api/src/security/features_utils/plan_check.py",
+      "sha256": "b6e10b5b196f2b3c010bc216b84a5cd2c914810035435762da640cc496ccfd45",
+      "git_blob_sha1": "1d090550f331391b1a5ad1b9443834804b30c56e",
+      "expected": "1d090550f331391b1a5ad1b9443834804b30c56e",
+      "matched": true,
+      "url": "https://github.com/learnhouse/learnhouse/blob/7dc39bc0e116437d564e4c7f96974397e913c338/apps/api/src/security/features_utils/plan_check.py"
+    },
+    {
+      "path": "apps/api/src/db/trail_steps.py",
+      "sha256": "f225e6f6b3ec4fec97768ccbe1d9bf3b938e9728168873b3a90d4bbc681c099e",
+      "git_blob_sha1": "b981b7c0d2cdf3c442a95b8991356bb85a48648e",
+      "expected": "b981b7c0d2cdf3c442a95b8991356bb85a48648e",
+      "matched": true,
+      "url": "https://github.com/learnhouse/learnhouse/blob/7dc39bc0e116437d564e4c7f96974397e913c338/apps/api/src/db/trail_steps.py"
+    },
+    {
+      "path": "apps/api/src/db/user_organizations.py",
+      "sha256": "2a2df695bdf4722f24237a7b206e0f60db19a1f8b097265a68e897f20d13c90c",
+      "git_blob_sha1": "165202b53bd96168cc6044e062acd7bf15433d3d",
+      "expected": "165202b53bd96168cc6044e062acd7bf15433d3d",
+      "matched": true,
+      "url": "https://github.com/learnhouse/learnhouse/blob/7dc39bc0e116437d564e4c7f96974397e913c338/apps/api/src/db/user_organizations.py"
+    },
+    {
+      "path": "apps/api/src/db/paths.py",
+      "sha256": "d4e679591dd124b3b39304eacbcdd971c6228a48078430ff611fe85c5a257944",
+      "git_blob_sha1": "4ba5687a8b17fe53955b6b8dd885958928a72fe4",
+      "expected": "4ba5687a8b17fe53955b6b8dd885958928a72fe4",
+      "matched": true,
+      "url": "https://github.com/learnhouse/learnhouse/blob/7dc39bc0e116437d564e4c7f96974397e913c338/apps/api/src/db/paths.py"
+    },
+    {
+      "path": "apps/api/src/db/users.py",
+      "sha256": "8aa3c78bc98b0b2be467517ed4f80a673b9e82b4b9ec2e8b0f6e1d4879a0ece7",
+      "git_blob_sha1": "92079944e2623106e72299dd23b0636c3280b828",
+      "expected": "92079944e2623106e72299dd23b0636c3280b828",
+      "matched": true,
+      "url": "https://github.com/learnhouse/learnhouse/blob/7dc39bc0e116437d564e4c7f96974397e913c338/apps/api/src/db/users.py"
+    },
+    {
+      "path": "apps/api/src/db/roles.py",
+      "sha256": "6c40625bfd661c4882c4a1283add0d5472eab62c31b722ff7538d133773d290e",
+      "git_blob_sha1": "e81cb8c8ab640230576263b8402a7bafba39e2e1",
+      "expected": "e81cb8c8ab640230576263b8402a7bafba39e2e1",
+      "matched": true,
+      "url": "https://github.com/learnhouse/learnhouse/blob/7dc39bc0e116437d564e4c7f96974397e913c338/apps/api/src/db/roles.py"
+    },
+    {
+      "path": "apps/api/src/db/trails.py",
+      "sha256": "7e9b7f3ab7b778811cdf1d50abb4f296e3139ac769c744521d631c9942d595e7",
+      "git_blob_sha1": "56f31ca4ff8a404eb698e5a6d9105f17be0f1a22",
+      "expected": "56f31ca4ff8a404eb698e5a6d9105f17be0f1a22",
+      "matched": true,
+      "url": "https://github.com/learnhouse/learnhouse/blob/7dc39bc0e116437d564e4c7f96974397e913c338/apps/api/src/db/trails.py"
+    },
+    {
+      "path": "apps/api/src/db/trail_runs.py",
+      "sha256": "8e4040d9d8c715e1a44b96ce2dc72400b16aa08db251b50e2de369ff2c24584e",
+      "git_blob_sha1": "fced6253e407239a75b395b6a4d4b214610a5218",
+      "expected": "fced6253e407239a75b395b6a4d4b214610a5218",
+      "matched": true,
+      "url": "https://github.com/learnhouse/learnhouse/blob/7dc39bc0e116437d564e4c7f96974397e913c338/apps/api/src/db/trail_runs.py"
+    },
+    {
+      "path": "apps/api/src/db/packs.py",
+      "sha256": "729cd886e6abd9a88f49242eaf1588cf6b0b16ed7b1e27027ae94dc7232516fc",
+      "git_blob_sha1": "196a42b63b2a8b89ff9970af202a0b4cf41297c2",
+      "expected": "196a42b63b2a8b89ff9970af202a0b4cf41297c2",
+      "matched": true,
+      "url": "https://github.com/learnhouse/learnhouse/blob/7dc39bc0e116437d564e4c7f96974397e913c338/apps/api/src/db/packs.py"
+    },
+    {
+      "path": "apps/api/src/db/courses/assignments.py",
+      "sha256": "824e7f56e3a3a52e26421ac574e5ee3470db5ec36c2828905abbdc377807587d",
+      "git_blob_sha1": "546cd6c5b8a8796e6251f2f0466f3cb54cc6672f",
+      "expected": "546cd6c5b8a8796e6251f2f0466f3cb54cc6672f",
+      "matched": true,
+      "url": "https://github.com/learnhouse/learnhouse/blob/7dc39bc0e116437d564e4c7f96974397e913c338/apps/api/src/db/courses/assignments.py"
+    },
+    {
+      "path": "apps/api/src/db/courses/courses.py",
+      "sha256": "d5b7cad1aab0de86f6c279160eb095910f2bdd5c70407afad441d4b369959a7b",
+      "git_blob_sha1": "2a21e8b25dcc833aaa856ef72a3ab4ef69bd630d",
+      "expected": "2a21e8b25dcc833aaa856ef72a3ab4ef69bd630d",
+      "matched": true,
+      "url": "https://github.com/learnhouse/learnhouse/blob/7dc39bc0e116437d564e4c7f96974397e913c338/apps/api/src/db/courses/courses.py"
+    },
+    {
+      "path": "apps/api/src/services/security/rate_limiting.py",
+      "sha256": "9de7d149061981a57783c8d17636d13c2b1dc0e56468343a5e3c8c9dd041225f",
+      "git_blob_sha1": "4692c35f90cc9d45f0132a19654818c443e8897d",
+      "expected": "4692c35f90cc9d45f0132a19654818c443e8897d",
+      "matched": true,
+      "url": "https://github.com/learnhouse/learnhouse/blob/7dc39bc0e116437d564e4c7f96974397e913c338/apps/api/src/services/security/rate_limiting.py"
+    },
+    {
+      "path": "apps/api/src/services/ai/ai.py",
+      "sha256": "f250a04dc00352b49ac093496acf321b30a1f8ed89092f9529b9ddf5f971be1b",
+      "git_blob_sha1": "bca4639e2896d0c6cbd2780ecd50ae16a404cac3",
+      "expected": "bca4639e2896d0c6cbd2780ecd50ae16a404cac3",
+      "matched": true,
+      "url": "https://github.com/learnhouse/learnhouse/blob/7dc39bc0e116437d564e4c7f96974397e913c338/apps/api/src/services/ai/ai.py"
+    },
+    {
+      "path": "apps/api/src/services/ai/base.py",
+      "sha256": "c1b4c084e1082fb2c46e37b35736bec586e848520338fc2f449dfcb30ac6e75e",
+      "git_blob_sha1": "04c71409607ef8f03b0c6ae78df18a72f3244ea5",
+      "expected": "04c71409607ef8f03b0c6ae78df18a72f3244ea5",
+      "matched": true,
+      "url": "https://github.com/learnhouse/learnhouse/blob/7dc39bc0e116437d564e4c7f96974397e913c338/apps/api/src/services/ai/base.py"
+    },
+    {
+      "path": "apps/api/src/services/ai/rag/queue.py",
+      "sha256": "d7868559b51f4fc1c601a749e57b8dfebc59a36fb5a884d0e5c8edde5cb4745f",
+      "git_blob_sha1": "eb0310553caf7ad4e3fb9219f9c32bf737cfaa6b",
+      "expected": "eb0310553caf7ad4e3fb9219f9c32bf737cfaa6b",
+      "matched": true,
+      "url": "https://github.com/learnhouse/learnhouse/blob/7dc39bc0e116437d564e4c7f96974397e913c338/apps/api/src/services/ai/rag/queue.py"
+    },
+    {
+      "path": "apps/api/src/services/ai/rag/store.py",
+      "sha256": "6a8cb052f2e0687d63bdabbe597545304dd0db425f12a13d4905e7ae20afed3f",
+      "git_blob_sha1": "fa3c70c25fac52288e10f13e4d5ba6eb53a42412",
+      "expected": "fa3c70c25fac52288e10f13e4d5ba6eb53a42412",
+      "matched": true,
+      "url": "https://github.com/learnhouse/learnhouse/blob/7dc39bc0e116437d564e4c7f96974397e913c338/apps/api/src/services/ai/rag/store.py"
+    },
+    {
+      "path": "apps/api/src/services/ai/rag/access.py",
+      "sha256": "37aa243dcc7fc80b1a5f3698afbdd3574c86b6d8eb9a639b7877c450f29d2106",
+      "git_blob_sha1": "149fe7c9373d7a0d53d8825d4d836858d944b09c",
+      "expected": "149fe7c9373d7a0d53d8825d4d836858d944b09c",
+      "matched": true,
+      "url": "https://github.com/learnhouse/learnhouse/blob/7dc39bc0e116437d564e4c7f96974397e913c338/apps/api/src/services/ai/rag/access.py"
+    },
+    {
+      "path": "apps/api/src/services/ai/rag/query_service.py",
+      "sha256": "27258aeb387c624e613322a3f58a387810a78c84d494959c7185d792030e0ad9",
+      "git_blob_sha1": "8a1637e913ad51ddc43e62f73cbbd80e9426027e",
+      "expected": "8a1637e913ad51ddc43e62f73cbbd80e9426027e",
+      "matched": true,
+      "url": "https://github.com/learnhouse/learnhouse/blob/7dc39bc0e116437d564e4c7f96974397e913c338/apps/api/src/services/ai/rag/query_service.py"
+    },
+    {
+      "path": "apps/api/src/services/users/users.py",
+      "sha256": "b68ddcfcd489d92058768c9e019df87e5cf2e8dfaabb70c7053387a0d464fa9f",
+      "git_blob_sha1": "84d72fb327a3b70ea8fb459fabcd2f0729039846",
+      "expected": "84d72fb327a3b70ea8fb459fabcd2f0729039846",
+      "matched": true,
+      "url": "https://github.com/learnhouse/learnhouse/blob/7dc39bc0e116437d564e4c7f96974397e913c338/apps/api/src/services/users/users.py"
+    },
+    {
+      "path": "apps/api/src/services/analytics/analytics.py",
+      "sha256": "339e37a9f6a0c0f08238df3890c674dcdd9ec7dea3ce385b28bbd5ce2d997394",
+      "git_blob_sha1": "2261a1f8e4fb5092ab787ea60410fd0735086aaa",
+      "expected": "2261a1f8e4fb5092ab787ea60410fd0735086aaa",
+      "matched": true,
+      "url": "https://github.com/learnhouse/learnhouse/blob/7dc39bc0e116437d564e4c7f96974397e913c338/apps/api/src/services/analytics/analytics.py"
+    }
+  ]
+}

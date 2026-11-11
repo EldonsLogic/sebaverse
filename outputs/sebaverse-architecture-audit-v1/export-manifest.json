@@ -1,0 +1,987 @@
+{
+  "release": "Sebaverse architecture audit v1.0",
+  "date": "2026-11-11",
+  "status": "selected design; not implemented or benchmarked",
+  "research_originals_verified": 36,
+  "requirements": 99,
+  "audited_repositories": 22,
+  "adrs": 12,
+  "pdf_pages": 34,
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "bytes": 3602,
+      "sha256": "d45f7352d2ecb8c374d15367f67a0aa6f2a6ebc8dd7e3a7e743e924ab6eb07ed"
+    },
+    {
+      "path": "CHECKS.md",
+      "bytes": 901,
+      "sha256": "83ea9e0936d38ec9bdb8a48a065a37b924463310c77fa9481c9d99cdf8991294"
+    },
+    {
+      "path": "README.md",
+      "bytes": 2039,
+      "sha256": "6320551d62e3f8f8ee4ad732e90c51f0864d968796a1b75a4c66a8ec84734f3a"
+    },
+    {
+      "path": "Sebaverse-Architecture-Audit-v1.pdf",
+      "bytes": 589025,
+      "sha256": "f7aa34a761c85f22ac146d94568efc279f0710cc2925abc0dd1474782bcd4544"
+    },
+    {
+      "path": "VALIDATION.md",
+      "bytes": 641,
+      "sha256": "a7cc6ceb21378e5940d9e25f7560cf68ff262ac306eb2ee95e2f66396355604b"
+    },
+    {
+      "path": "architecture/adr/ADR-001-owned-modular-monolith.md",
+      "bytes": 1428,
+      "sha256": "9266ae02fb6b53f9988b4f637eb7672f933b5881fd7d09f3155e7f909fbba17a"
+    },
+    {
+      "path": "architecture/adr/ADR-002-framework-and-storage.md",
+      "bytes": 1598,
+      "sha256": "263138eacaff1d0efed851c5dca2dede61fbb418d4539119074d7a277d44e2ff"
+    },
+    {
+      "path": "architecture/adr/ADR-003-learning-authority.md",
+      "bytes": 1548,
+      "sha256": "8ccfecbc49c39d5dad73169d2fe246d9c80964f890ccb6943cd9b8023b7972de"
+    },
+    {
+      "path": "architecture/adr/ADR-004-provider-routing.md",
+      "bytes": 1547,
+      "sha256": "ab47f5177067230a309e704d3119954b27a91364445bc9ccdd173889276dbd1e"
+    },
+    {
+      "path": "architecture/adr/ADR-005-voice.md",
+      "bytes": 1492,
+      "sha256": "216c540f1daac9270d6fa6d2c4abcd3afb3c66966dc567460caeba3338556acb"
+    },
+    {
+      "path": "architecture/adr/ADR-006-content-and-retrieval.md",
+      "bytes": 1629,
+      "sha256": "5fb5a78466156e0d5eb9db454788b3f622ed6338e28efbe44aad70ea70090155"
+    },
+    {
+      "path": "architecture/adr/ADR-007-reuse-and-licenses.md",
+      "bytes": 1598,
+      "sha256": "6552db806de3583dc424252c9dd78efd5aa5e04323e06d4bcb803c5f3499cbe3"
+    },
+    {
+      "path": "architecture/adr/ADR-008-delivery-governance.md",
+      "bytes": 1653,
+      "sha256": "6965a2c42f0691c25234c1ef13c81b70175bb8dff69f5ba76b5aaf796477c783"
+    },
+    {
+      "path": "architecture/adr/ADR-009-subject-extension.md",
+      "bytes": 1074,
+      "sha256": "69793f74e4a9a8f6773017047243fd89375d63d2e0f91d3ccb11d45435d59be8"
+    },
+    {
+      "path": "architecture/adr/ADR-010-web-and-streaming.md",
+      "bytes": 1016,
+      "sha256": "089ae0ddc9e20201ec8285083afcaec35445ede17c7271d0a4442e396282dd1b"
+    },
+    {
+      "path": "architecture/adr/ADR-011-jobs-and-deployment.md",
+      "bytes": 1011,
+      "sha256": "d3e4c7d8b5ab74c4c8901810cb4a51899554d04075c25abccc4f48ac2be0321b"
+    },
+    {
+      "path": "architecture/adr/ADR-012-audit-and-completeness.md",
+      "bytes": 1098,
+      "sha256": "5a516a5d6463b440e0b4bd6707141d8e9aeb16ca624d40f1187cada9ce7f2836"
+    },
+    {
+      "path": "architecture/api-and-event-contracts.md",
+      "bytes": 6143,
+      "sha256": "aa09acae834267b5cda04fade97725fa07779f5286ca6b94eeac35a21dae3057"
+    },
+    {
+      "path": "architecture/architecture-map.svg",
+      "bytes": 11909,
+      "sha256": "5b7a09f659eabd40f281d8c108edb6d2f5cf1ed0691d398c7331b13220ab35d6"
+    },
+    {
+      "path": "architecture/audit-readiness-and-unknowns.md",
+      "bytes": 4197,
+      "sha256": "ea18b64efd74cabf85df4eeeccaa46f9108999deb1c36b464dec9134d5d80693"
+    },
+    {
+      "path": "architecture/auditor-review-template.md",
+      "bytes": 3440,
+      "sha256": "59d2617174f05cd326cd24aeefba72744813000e589f21f4df16d6f88eec5458"
+    },
+    {
+      "path": "architecture/data-map.svg",
+      "bytes": 4485,
+      "sha256": "bd8cc7f55b9886762b941d18f1ef0c8c3bd210b499612ab72f6440f4a91b259d"
+    },
+    {
+      "path": "architecture/decision-manifest.json",
+      "bytes": 1618,
+      "sha256": "98b1bbe9f51d4dc91f4b3033f10e16e3612e0afeda3096c5d689692fb8f1aec8"
+    },
+    {
+      "path": "architecture/deployment-and-delivery.md",
+      "bytes": 6379,
+      "sha256": "2739175edd9f8e0b1daf3c58466ff8918a42fdc83711005728f48733e16a4c7f"
+    },
+    {
+      "path": "architecture/feature-function-matrix.json",
+      "bytes": 62469,
+      "sha256": "601e1da25efa97f6370ecb158bdd0437797c773e3a51e6a1d92c80f847146fff"
+    },
+    {
+      "path": "architecture/feature-function-matrix.md",
+      "bytes": 17211,
+      "sha256": "581b6f02b6265df45c6481db16131cadb101aec6dbc80b705bbe6cb6a1a0991a"
+    },
+    {
+      "path": "architecture/ingestion-map.svg",
+      "bytes": 5129,
+      "sha256": "48335e310ca9c193d82d26471dd9a56e78b527c0dcac8f9d548882a21dea1bef"
+    },
+    {
+      "path": "architecture/repository-adoption.json",
+      "bytes": 19547,
+      "sha256": "ffcbfa1f7fd485ab26f51a5d63e8784d1d4ce9759f77ef221cc4f5e2a3b21417"
+    },
+    {
+      "path": "architecture/repository-adoption.md",
+      "bytes": 7321,
+      "sha256": "b65569c90f4daed9ba0fad0db69e397d9f0d7a8bd357eb267e280f4df338f578"
+    },
+    {
+      "path": "architecture/runtime-maps.md",
+      "bytes": 4954,
+      "sha256": "f0dd209f38e54ee733b204f5fa1027d962b9a7f7fc07ee300715a2e48068ce58"
+    },
+    {
+      "path": "architecture/subject-and-curriculum-contracts.md",
+      "bytes": 5309,
+      "sha256": "2841c049917ea5c6bdf7af64ac9d44ae7ec39eb48f827badb0e23a474d29725b"
+    },
+    {
+      "path": "architecture/system-and-data-model.md",
+      "bytes": 7483,
+      "sha256": "fe6f47a72556bd5c88c307dddf2c0f5e0e6c6b2d368dfa55c82c6fde20513e9d"
+    },
+    {
+      "path": "architecture/technical-baseline.md",
+      "bytes": 13194,
+      "sha256": "2becbfb858c876132dadb5214deba5ad4d022e0f9af5511aa23b3ed8a34cd5fb"
+    },
+    {
+      "path": "architecture/tutor-learning-map.svg",
+      "bytes": 5152,
+      "sha256": "3e60ab7a0c2e2e0536eae9161369188b950439f0f77e3babc3436895f0a058be"
+    },
+    {
+      "path": "audit-book.md",
+      "bytes": 86452,
+      "sha256": "119843f86460cd9d7456d2574c8df27d795fa5bc2103a6f51064d727258d3e01"
+    },
+    {
+      "path": "cover-preview.png",
+      "bytes": 151361,
+      "sha256": "7bb8149db1af3d118c970424d3db99b19b2f8f252451d97108c90f0fb0420e3b"
+    },
+    {
+      "path": "design/brand-and-design-system.md",
+      "bytes": 9315,
+      "sha256": "a88db412f6683a26221b523f93eb121d2178679feadcf3623611ebd10efc4fd7"
+    },
+    {
+      "path": "design/design-tokens.json",
+      "bytes": 1645,
+      "sha256": "d39a6dd0eddeff1ede7f93d0bb6ce2f7b387411fcf0cede848d338a40a28668f"
+    },
+    {
+      "path": "docs/00-context-completeness-audit.md",
+      "bytes": 4740,
+      "sha256": "72986fa77bc5fa44cfb61a47fe5c8ea1e563ebc23614a32eff174c6cbeed7377"
+    },
+    {
+      "path": "docs/01-product-vision-prd.md",
+      "bytes": 8638,
+      "sha256": "7929515689e32c7d0f02cef610e426eef0b04e3f67ed39642b034e3c0993ea98"
+    },
+    {
+      "path": "docs/02-research-reconciliation.md",
+      "bytes": 6716,
+      "sha256": "5cdede3927f3817255be49c3449df7b7e295858ed739379cc5c5afd1d049bad7"
+    },
+    {
+      "path": "docs/03-learning-intelligence.md",
+      "bytes": 6987,
+      "sha256": "b275f8f7dd914df74341f27a4ca09099f9e8c52886aa252277a1659695d9c872"
+    },
+    {
+      "path": "docs/04-curriculum-and-rag.md",
+      "bytes": 6523,
+      "sha256": "2885fb06a65cf795a33ef1250866cdd66fff758873b682fbca0ae8dbf758dca5"
+    },
+    {
+      "path": "docs/05-model-routing-and-voice.md",
+      "bytes": 7432,
+      "sha256": "e4ad57185ed17d904e163f43d7a86ec3aabaae7f621bd356f64fd4ec49620f50"
+    },
+    {
+      "path": "docs/06-safety-privacy-security.md",
+      "bytes": 7309,
+      "sha256": "92cf6b146cee847be4ff113d7b93726d0ecca38fb88d4b5ccd521f52330e0ade"
+    },
+    {
+      "path": "docs/07-qa-evals-and-operations.md",
+      "bytes": 5413,
+      "sha256": "d91798ca86d1ffecbee940e15783a65db920c5687bd8630376843e8175600f2f"
+    },
+    {
+      "path": "docs/08-german-upload-first.md",
+      "bytes": 2095,
+      "sha256": "9e01274d182c7000f844d09e1d76100595c2f7207a9e19102b84be74437a0dce"
+    },
+    {
+      "path": "economics/README.md",
+      "bytes": 4212,
+      "sha256": "92e90a716c8d9779d6d2357b0f906d1a3acf8404b8eaf6d47ac08a4248e38047"
+    },
+    {
+      "path": "economics/inputs.json",
+      "bytes": 1356,
+      "sha256": "55a5da892719dd9f06bad723dd26a21750f58d99239e6bb8c0fa91f6994fdac8"
+    },
+    {
+      "path": "economics/scenarios.json",
+      "bytes": 3826,
+      "sha256": "3df48978ae0721ecbeaf6be552e622b1ff5fde2f02d688fb5cb4dda4dca6a498"
+    },
+    {
+      "path": "economics/sensitivity.md",
+      "bytes": 1131,
+      "sha256": "865228491ba7e4d2c5094b4830ccc56199c6ac7ae35327994c9f488601bb0d4b"
+    },
+    {
+      "path": "execution/gate-records.json",
+      "bytes": 1018,
+      "sha256": "88040eda986af33663a7ed80d5b7cac967edee6835e7ea27f6f92f452dfecba3"
+    },
+    {
+      "path": "execution/phased-codex-prompts.md",
+      "bytes": 4545,
+      "sha256": "4e03e458095b813ea663e999cf2d0440631de8bd156d6d66a20cc16a14439b6a"
+    },
+    {
+      "path": "execution/roadmap-and-gates.md",
+      "bytes": 6465,
+      "sha256": "982b1f259efeef25a0efc56dec9fb9977ced55ecb6c2c54e85d1c5bfb06268cf"
+    },
+    {
+      "path": "execution/subject-independent-poc.md",
+      "bytes": 6604,
+      "sha256": "19ec10a78591788a51eb9ff60cdfdc13bd111f1fc78ae817d924d3d6bfc1cb0c"
+    },
+    {
+      "path": "index.html",
+      "bytes": 115062,
+      "sha256": "98f4089c2e4bc0a1dab7c191266fc44acb5601bde7f07042dc3da831be8a0d57"
+    },
+    {
+      "path": "outputs/brand-round-1/README.md",
+      "bytes": 6135,
+      "sha256": "af5f9cf1f9e3c6751fe3a179188d197792f82636146d5bdb7ee559f8b1e3fc78"
+    },
+    {
+      "path": "outputs/brand-round-1/darj-concept.svg",
+      "bytes": 2000,
+      "sha256": "e2f1bc039d4b88f280ffaa035812d0a1e32028a1ce76f6d5d85a92d66ca91837"
+    },
+    {
+      "path": "outputs/brand-round-1/darj-mark.svg",
+      "bytes": 259,
+      "sha256": "d1e8435ab77c6e8c8142df9b8e38c5765677504063326f81b878e73c461293e7"
+    },
+    {
+      "path": "outputs/brand-round-1/fahmori-concept.svg",
+      "bytes": 2104,
+      "sha256": "7d46a79712c00d09cf489da58f96af7c0a07be9766a7b02b360495a58be093c2"
+    },
+    {
+      "path": "outputs/brand-round-1/fahmori-mark.svg",
+      "bytes": 289,
+      "sha256": "7bc8a4305de78d0c9ca50e402b80dcd4df4cc8b1e07114291a662bebe45926d4"
+    },
+    {
+      "path": "outputs/maat-exploration/README.md",
+      "bytes": 5126,
+      "sha256": "0383e5cb2f6f5ed6da3ee190a23724b90350699a00b9383fa61a35df2f6ace66"
+    },
+    {
+      "path": "outputs/seba-exploration/domain-checks.json",
+      "bytes": 1791,
+      "sha256": "e559ed19505b7d5271bbf8eba156aead62f68809ad28384e67f8d9474171bbe5"
+    },
+    {
+      "path": "outputs/seba-exploration/sebamate-domain-check.json",
+      "bytes": 209,
+      "sha256": "bf0d9ffbc8e1059f6962d89fd683121668373c17e83c41b7139e8550e17068c7"
+    },
+    {
+      "path": "outputs/sebaverse-brand-system-v1/CHANGELOG.md",
+      "bytes": 401,
+      "sha256": "d4f4ddb6f973e55a2c4339bf96550a66a6b835e4ebf96af91c71e05220324d12"
+    },
+    {
+      "path": "outputs/sebaverse-brand-system-v1/README.md",
+      "bytes": 729,
+      "sha256": "a8982fea88133fd8ceca5a3127c7fc75caf3b1a273ed22c1319a11ef59553a6f"
+    },
+    {
+      "path": "outputs/sebaverse-brand-system-v1/assets/sebaverse-app-icon-1024.svg",
+      "bytes": 1637,
+      "sha256": "a738b486926a719a1ec6dc0e9f26908a79832cb4983a12e357e9253a95b44288"
+    },
+    {
+      "path": "outputs/sebaverse-brand-system-v1/assets/sebaverse-compact-black.svg",
+      "bytes": 6465,
+      "sha256": "61bcecb136cf2cf7a65e8d8fd59fb3eeffaca394101bef755b6c80ea8bcaedb6"
+    },
+    {
+      "path": "outputs/sebaverse-brand-system-v1/assets/sebaverse-compact-color.svg",
+      "bytes": 6465,
+      "sha256": "a6e224dbe9fdafd5b2521d429c6ab0f9016db23e2a4da810c1224db3eba7d218"
+    },
+    {
+      "path": "outputs/sebaverse-brand-system-v1/assets/sebaverse-compact-white-1c.svg",
+      "bytes": 6468,
+      "sha256": "1011528131752fcf82e2dba366ec25d92c32bcda090dab04da1d4ad49209201b"
+    },
+    {
+      "path": "outputs/sebaverse-brand-system-v1/assets/sebaverse-compact-white.svg",
+      "bytes": 6465,
+      "sha256": "950023179ef9f5db987f34c98aa16f21e7e8564b8b803d31d60956e4e7b7a091"
+    },
+    {
+      "path": "outputs/sebaverse-brand-system-v1/assets/sebaverse-favicon-dark.svg",
+      "bytes": 912,
+      "sha256": "7ef08af7036db5cb780d14974760b00d7756fc4b185eace45fb94aa4a6afa9c3"
+    },
+    {
+      "path": "outputs/sebaverse-brand-system-v1/assets/sebaverse-favicon.svg",
+      "bytes": 912,
+      "sha256": "8bdb77747b0077b897a0f46c2ee04a7b490eca055978ab79ed83eb76d32e4321"
+    },
+    {
+      "path": "outputs/sebaverse-brand-system-v1/assets/sebaverse-primary-black.svg",
+      "bytes": 6353,
+      "sha256": "61ca9afd37ee6aeee88dc47b59bbcbdfd187427653af0acc4438edcd03bcd6d3"
+    },
+    {
+      "path": "outputs/sebaverse-brand-system-v1/assets/sebaverse-primary-color.svg",
+      "bytes": 6353,
+      "sha256": "b3ecdb56981f3f18ee76fc32746be765bbce6d518ac149e157d7b9a21bd24ba5"
+    },
+    {
+      "path": "outputs/sebaverse-brand-system-v1/assets/sebaverse-primary-white-1c.svg",
+      "bytes": 6356,
+      "sha256": "48afa541b16adc3ec46cdd776c535f507b2b907ce5a03a4928c1f23fddf716e1"
+    },
+    {
+      "path": "outputs/sebaverse-brand-system-v1/assets/sebaverse-primary-white.svg",
+      "bytes": 6353,
+      "sha256": "cdb6d0aaec190abea4afa0456cbd7a50956b46df20ca96e14471c5301ad0d4fc"
+    },
+    {
+      "path": "outputs/sebaverse-brand-system-v1/assets/sebaverse-symbol-black.svg",
+      "bytes": 1252,
+      "sha256": "5f26e64debb67663800f0e18d3314e9422c6dd21b95f0eda4a1071f9d00ebdcf"
+    },
+    {
+      "path": "outputs/sebaverse-brand-system-v1/assets/sebaverse-symbol-color.svg",
+      "bytes": 1252,
+      "sha256": "fd50d266b71ae326ff0b2cbd8d8ae1caf891537ca7c1c9f8e2e313e725729f67"
+    },
+    {
+      "path": "outputs/sebaverse-brand-system-v1/assets/sebaverse-symbol-white-1c.svg",
+      "bytes": 1255,
+      "sha256": "5bf2988094837b17dd9b881fdf644470324fadd7af9999e87a138a641322761f"
+    },
+    {
+      "path": "outputs/sebaverse-brand-system-v1/assets/sebaverse-symbol-white.svg",
+      "bytes": 1252,
+      "sha256": "09041a95cec2233eada54568354f13604370c239bae9c5399ec7fb97eb884d3d"
+    },
+    {
+      "path": "outputs/sebaverse-brand-system-v1/assets/sebaverse-wordmark-black.svg",
+      "bytes": 4970,
+      "sha256": "6e8dc7e9b61bce35d6401726fec9e7e352430ac0f589ab6f34d280c911385412"
+    },
+    {
+      "path": "outputs/sebaverse-brand-system-v1/assets/sebaverse-wordmark-color.svg",
+      "bytes": 4970,
+      "sha256": "0d83781e5073dd539832590ea797760749250e9f127db578acdcb1aa4e08e9ac"
+    },
+    {
+      "path": "outputs/sebaverse-brand-system-v1/assets/sebaverse-wordmark-white-1c.svg",
+      "bytes": 4973,
+      "sha256": "00f88d46a12ed79f9e7e6bd2d44dd57d56336b2ca9406d59ae0a9173d934fdc1"
+    },
+    {
+      "path": "outputs/sebaverse-brand-system-v1/assets/sebaverse-wordmark-white.svg",
+      "bytes": 4970,
+      "sha256": "20f085c69d89ae6806fb8817ea04d74520e690faa00c1ebedef0fa2d4b636c36"
+    },
+    {
+      "path": "outputs/sebaverse-brand-system-v1/brand-guidelines.md",
+      "bytes": 5962,
+      "sha256": "a1861fb7d34045aa00471c0a26032fe74e130e418f84cc6e675a7b7405a0cea0"
+    },
+    {
+      "path": "outputs/sebaverse-brand-system-v1/contrast-report.json",
+      "bytes": 1338,
+      "sha256": "d0977e54f73766c4ac8feacad59d59de1c4405ecdcefbff52ccf0e11981b2963"
+    },
+    {
+      "path": "outputs/sebaverse-brand-system-v1/design-system.md",
+      "bytes": 7349,
+      "sha256": "852e3c2ddda159250a6e6cbf355ab1a6e13e7efc97cee89b46abd7ee997f1bcb"
+    },
+    {
+      "path": "outputs/sebaverse-brand-system-v1/desktop-preview.png",
+      "bytes": 70176,
+      "sha256": "892870f246db8b987d9bcc573f2993c25a4de749aaa6ac28fb967f7abe45a00c"
+    },
+    {
+      "path": "outputs/sebaverse-brand-system-v1/fonts/Alexandria-VF.ttf",
+      "bytes": 332488,
+      "sha256": "db8ae03b62d55a65aa4e04307878df8c00d6e5388e4800635cbe0e22b6411b64"
+    },
+    {
+      "path": "outputs/sebaverse-brand-system-v1/fonts/NotoNaskhArabic-VF.ttf",
+      "bytes": 307592,
+      "sha256": "67b5a525a661b607971fbd3f96a81b89d3a768e74534fca84f18ac97e6fab72f"
+    },
+    {
+      "path": "outputs/sebaverse-brand-system-v1/fonts/OFL-Alexandria.txt",
+      "bytes": 4483,
+      "sha256": "56372aed19c2701f50e6e784110af55bf8796ed51648805324ad1adb0a3860bb"
+    },
+    {
+      "path": "outputs/sebaverse-brand-system-v1/fonts/OFL-NotoNaskhArabic.txt",
+      "bytes": 4382,
+      "sha256": "a7a5a25eb188bf1cd96982030d53e23c33485c69b1044a562254226857ee13af"
+    },
+    {
+      "path": "outputs/sebaverse-brand-system-v1/fonts/OFL-Rubik.txt",
+      "bytes": 4384,
+      "sha256": "472cbe7c25441df63e9c7864b43eb3c0f4b3df950c66a76224e6cfe1eae843fb"
+    },
+    {
+      "path": "outputs/sebaverse-brand-system-v1/fonts/Rubik-VF.ttf",
+      "bytes": 359804,
+      "sha256": "1b3a7437ba2af80e465e773ed60c5036d1ba6ace492d89046dbcf18fb31e4e88"
+    },
+    {
+      "path": "outputs/sebaverse-brand-system-v1/index.html",
+      "bytes": 8881,
+      "sha256": "6e898f6e46436e45ba12649f24998f58ad48739472adc19e3ebafbbd1f05697b"
+    },
+    {
+      "path": "outputs/sebaverse-brand-system-v1/mobile-preview.png",
+      "bytes": 403766,
+      "sha256": "dd0f8b9edb56c6ee28ef989272b5d591937c0331a0e8aca0b92b6e6b00658be9"
+    },
+    {
+      "path": "outputs/sebaverse-brand-system-v1/provenance.json",
+      "bytes": 658,
+      "sha256": "94d7e9a2207e1e2296d47c9c1628764de663bb153884dd335905fabcf48c40aa"
+    },
+    {
+      "path": "outputs/sebaverse-brand-system-v1/system.css",
+      "bytes": 4469,
+      "sha256": "6c5303973df0a07f8ac7c55c73867c18fa22b13a9be1d39742a9150c8c73ca1d"
+    },
+    {
+      "path": "outputs/sebaverse-brand-system-v1/tokens.json",
+      "bytes": 1645,
+      "sha256": "d39a6dd0eddeff1ede7f93d0bb6ce2f7b387411fcf0cede848d338a40a28668f"
+    },
+    {
+      "path": "outputs/sebaverse-brand-system-v1.zip",
+      "bytes": 970086,
+      "sha256": "f6760891b83e52489ab27763ce91fd9c649f14ddfa95e0ff9e5a4d6d21837590"
+    },
+    {
+      "path": "outputs/sebaverse-brand-trial-v3/README.md",
+      "bytes": 2690,
+      "sha256": "07d9d292a6af6354b5c0541f76a47914ae4caeb90f3d2f4c4641f449eeff6d68"
+    },
+    {
+      "path": "outputs/sebaverse-brand-trial-v3/REVIEW-NOTES.md",
+      "bytes": 1726,
+      "sha256": "ef3e0d1dd23beeab6286bc900e6dcfa1c48cf0d0be744b77918fbdc04371e01f"
+    },
+    {
+      "path": "outputs/sebaverse-brand-trial-v3/index-board.png",
+      "bytes": 1617089,
+      "sha256": "eca9ca8ea633d994c0f1847cd234288ebea06d201eeef17d4b5dde226a5104f7"
+    },
+    {
+      "path": "outputs/sebaverse-brand-trial-v3/index-guidelines.md",
+      "bytes": 10776,
+      "sha256": "85a3c7d0a1653c5660f1bbc0e0838341cc10d962ff0908947a105db50623ad56"
+    },
+    {
+      "path": "outputs/sebaverse-brand-trial-v3/index-preview.html",
+      "bytes": 2830,
+      "sha256": "ac875ec6cce9a39c19423e25b1452baa7235906434b9c07383fbf40711dc531b"
+    },
+    {
+      "path": "outputs/sebaverse-brand-trial-v3/index-tokens.json",
+      "bytes": 933,
+      "sha256": "4c15643d5a3dad40a9fcde4541fb30e1e5adb54cef402b7ed506d2c0163e4f1e"
+    },
+    {
+      "path": "outputs/sebaverse-brand-trial-v3/index.html",
+      "bytes": 1826,
+      "sha256": "39226e16c8789b62f158860d33e6d7151f39a5524ca005884f9488253ba8d72f"
+    },
+    {
+      "path": "outputs/sebaverse-brand-trial-v3/margin-board.png",
+      "bytes": 1706994,
+      "sha256": "f0387c59e824f09f4f91f7468f591ee1f30e70775f9539c436aeb0d36aaefe0c"
+    },
+    {
+      "path": "outputs/sebaverse-brand-trial-v3/margin-guidelines.md",
+      "bytes": 10540,
+      "sha256": "146b0a024ec14a9cd39de95003ff050fa73f44d89c278eb891fb0504d76cc223"
+    },
+    {
+      "path": "outputs/sebaverse-brand-trial-v3/margin-preview.html",
+      "bytes": 2756,
+      "sha256": "5cfa57cfc1eb2afaf3826cf3d06bec22698dc55e064c260c030ec076b5424094"
+    },
+    {
+      "path": "outputs/sebaverse-brand-trial-v3/margin-tokens.json",
+      "bytes": 896,
+      "sha256": "65ac11b59b19322d5e31dfe4bdc07b9cd376113f53bf9efd7daf5213cdbf5ddb"
+    },
+    {
+      "path": "outputs/sebaverse-brand-trial-v3/workshop-board.png",
+      "bytes": 2176377,
+      "sha256": "a48c6ef59d567f60598b761e980cd86517c8759b3a74084ca7b4e2535a208c13"
+    },
+    {
+      "path": "outputs/sebaverse-brand-trial-v3/workshop-guidelines.md",
+      "bytes": 10515,
+      "sha256": "1ab2b3e9dfda9f82dde317eb127150d1b40935a916e20ffa9ac3a323b1cde941"
+    },
+    {
+      "path": "outputs/sebaverse-brand-trial-v3/workshop-preview.html",
+      "bytes": 2793,
+      "sha256": "7b5a02c630dabff0a55ad97dd86db0cd9bfa0189bd03f1cc7b98c1726d2e3201"
+    },
+    {
+      "path": "outputs/sebaverse-brand-trial-v3/workshop-tokens.json",
+      "bytes": 881,
+      "sha256": "e180ae157b89dea3ec48bae42d363294f19adc2dd7a6ed7ac90c60c7128a8e99"
+    },
+    {
+      "path": "outputs/sebaverse-brand-trial-v3.zip",
+      "bytes": 5068057,
+      "sha256": "e16efa2283a0f2fb772a126548b7673aaa7cf949f6fc6cd56ed8818ce3297c4b"
+    },
+    {
+      "path": "outputs/sebaverse-brand-v1/README.md",
+      "bytes": 1637,
+      "sha256": "1e7639f31266472899682c4408a5e210b6c5a56456f8b89823c0f8d338906ab2"
+    },
+    {
+      "path": "outputs/sebaverse-brand-v1/logo-directions-round2-rejected.png",
+      "bytes": 1177018,
+      "sha256": "39d3536e6c9d1b59cea2ca7c159542101ac110dfa8f440b905a135b109c5a877"
+    },
+    {
+      "path": "outputs/sebaverse-brand-v1/logo-directions.png",
+      "bytes": 1393790,
+      "sha256": "f9f9d67982ceb0a5825b77bfa650dab8ee47e1a4cf16d8228aef60c1e68c4924"
+    },
+    {
+      "path": "outputs/sebaverse-c-palette-comparison/README.md",
+      "bytes": 1858,
+      "sha256": "0fb3312eb0348ba0a47f2d1d68e096b46ae52d301d3c91b66947de707b99091d"
+    },
+    {
+      "path": "outputs/sebaverse-c-palette-comparison/blue-lime/chat.png",
+      "bytes": 65734,
+      "sha256": "55d92b0499878fc5465b63672075e0233be3bc6a27b7bf51c071e6ad6ba0f20b"
+    },
+    {
+      "path": "outputs/sebaverse-c-palette-comparison/blue-lime/hero.png",
+      "bytes": 75326,
+      "sha256": "0d5e58885c10fb39f3ccccd3b74397f08968301750cbcd3d133c019918def504"
+    },
+    {
+      "path": "outputs/sebaverse-c-palette-comparison/blue-lime/home.png",
+      "bytes": 47509,
+      "sha256": "29809a0e7ba0c33f6d0ee8e1b0dcec3a61077aeb8a3b2a4aa1a59e3803359ebc"
+    },
+    {
+      "path": "outputs/sebaverse-c-palette-comparison/blue-lime/logo.svg",
+      "bytes": 6353,
+      "sha256": "27e474bb5f751b5b890c3faf4617f0aaa5987fb486b57b97f129c10c03839eae"
+    },
+    {
+      "path": "outputs/sebaverse-c-palette-comparison/blue-lime/palette.css",
+      "bytes": 95,
+      "sha256": "e73a8686c53e7f9cc87c5310f185eef35b89e309028d6a3bcf6015c31a9a0b13"
+    },
+    {
+      "path": "outputs/sebaverse-c-palette-comparison/blue-lime/preview.html",
+      "bytes": 431157,
+      "sha256": "22e19a85a56b29c2ee96c93156bc593344dcfcf9ee7f35db8cc43ed05e239a1d"
+    },
+    {
+      "path": "outputs/sebaverse-c-palette-comparison/blue-lime/tokens.json",
+      "bytes": 681,
+      "sha256": "b2da7b82a2bab8a087605ded3279a3765794030b0e107214c7c85f1e94232084"
+    },
+    {
+      "path": "outputs/sebaverse-c-palette-comparison/blue-orange/chat.png",
+      "bytes": 65236,
+      "sha256": "921792e3ee9899843ac324cb6dd3dbfdb82300d6605c26d03924e46fa5330205"
+    },
+    {
+      "path": "outputs/sebaverse-c-palette-comparison/blue-orange/hero.png",
+      "bytes": 74306,
+      "sha256": "85ac59a59a3886f0ff6b50c86ddfd20ed00f66feb54502cbd22249639f364b64"
+    },
+    {
+      "path": "outputs/sebaverse-c-palette-comparison/blue-orange/home.png",
+      "bytes": 46931,
+      "sha256": "580b00206705a1dd6578e358b14676dbd14e975d0bbd7a059c8eab78b593d917"
+    },
+    {
+      "path": "outputs/sebaverse-c-palette-comparison/blue-orange/logo.svg",
+      "bytes": 6353,
+      "sha256": "b3ecdb56981f3f18ee76fc32746be765bbce6d518ac149e157d7b9a21bd24ba5"
+    },
+    {
+      "path": "outputs/sebaverse-c-palette-comparison/blue-orange/palette.css",
+      "bytes": 95,
+      "sha256": "e24cccf816d871acefdcab52233bab93dffbf1bfa6d9079c237043758a74af52"
+    },
+    {
+      "path": "outputs/sebaverse-c-palette-comparison/blue-orange/preview.html",
+      "bytes": 431161,
+      "sha256": "f04000e4a533225b44279914525b865e310fb7063a78f21c5a72d4123ffa1570"
+    },
+    {
+      "path": "outputs/sebaverse-c-palette-comparison/blue-orange/tokens.json",
+      "bytes": 681,
+      "sha256": "aaf2903e63f7b8f7d54a407067fdbaeab3db8fcc6347b34006ee008aa8939f83"
+    },
+    {
+      "path": "outputs/sebaverse-c-palette-comparison/comparison.jpg",
+      "bytes": 239081,
+      "sha256": "bb4f026c500f9b25b3b415c7c44f7100c24ca8dc034db4ad51c6ee62d4b8eeac"
+    },
+    {
+      "path": "outputs/sebaverse-c-palette-comparison/index.html",
+      "bytes": 576,
+      "sha256": "7807dac2262b49c854ec34a81c25c219dfc5ba428387bcebcde3f4c74c78c918"
+    },
+    {
+      "path": "outputs/sebaverse-c-palette-comparison/source-hashes.json",
+      "bytes": 519,
+      "sha256": "3139b2c7cd8d30a7d849d0af04243f5b31bc13f4d7c48e0d5f5081715e2957e2"
+    },
+    {
+      "path": "outputs/sebayt-exploration/domain-checks.json",
+      "bytes": 1487,
+      "sha256": "35fa128424e5ab20cfa24c062394bd0d94fb39a67ae2d580c5efe3b7d07e7c7d"
+    },
+    {
+      "path": "registers/decisions-risks-unknowns.md",
+      "bytes": 8181,
+      "sha256": "3353a92a649ef06760172e83185a72b9f8ab4453987adcbc261a1bacf018fb3d"
+    },
+    {
+      "path": "registers/requirements.json",
+      "bytes": 62400,
+      "sha256": "9f20710bf4fc8744159324de6c640b513b15579bcad9d92759feb7f8053284b2"
+    },
+    {
+      "path": "registers/requirements.md",
+      "bytes": 49234,
+      "sha256": "0ced204a487918d03ed8098fec0654be0c161466724d8e9248a98ac149fdc192"
+    },
+    {
+      "path": "research/global-competitors/01-global-landscape.md",
+      "bytes": 4280,
+      "sha256": "4c48bde0f7008f823899f870c66e238c09e37ffc023419c2792ffb4d45b34973"
+    },
+    {
+      "path": "research/global-competitors/02-competitor-deep-dives.md",
+      "bytes": 32810,
+      "sha256": "7c1c1a239a4054c63a5caf0b6367f70d20d07507cfab786d85681dd19dee8726"
+    },
+    {
+      "path": "research/global-competitors/03-reverse-engineering-findings.md",
+      "bytes": 6613,
+      "sha256": "6180fff2fc63410a8896b24dacbb481a3e6239bdbfcf44e731d9a4488b6d5168"
+    },
+    {
+      "path": "research/global-competitors/04-adaptive-learning-engine.md",
+      "bytes": 8508,
+      "sha256": "06599e35460f23452d429770d869993cdb6c751d4c2c6fd89201a6868e660c04"
+    },
+    {
+      "path": "research/global-competitors/05-closed-loop-intelligence.md",
+      "bytes": 7345,
+      "sha256": "3eb35bf1a93c5a22f8dd6fa1ef8b82002781612bc921c35d320980fb0c1a4ab7"
+    },
+    {
+      "path": "research/global-competitors/06-tutor-orchestration.md",
+      "bytes": 8273,
+      "sha256": "8d6f5a42fa0373fdc2054a0d109ce3ed9777bf08d9406d0054fbfa14a569c385"
+    },
+    {
+      "path": "research/global-competitors/07-capability-matrix.md",
+      "bytes": 6681,
+      "sha256": "02d9ed2ccf5fc0b3fd99304a960ddbb4e9627283abf23665a8626edf98d12d9b"
+    },
+    {
+      "path": "research/global-competitors/08-differentiation-opportunities.md",
+      "bytes": 4239,
+      "sha256": "63fa63666f8ad26ced5d40ac7a6189fca26b7db3d0bfbb4afe57ca1f1377ca69"
+    },
+    {
+      "path": "research/global-competitors/09-reproducible-technical-patterns.md",
+      "bytes": 3935,
+      "sha256": "a6e751e75036c7ea58d2e1026b5111ac601b3abcade52bfe23069e6dda169621"
+    },
+    {
+      "path": "research/global-competitors/10-recommendations.md",
+      "bytes": 6774,
+      "sha256": "9bb229b4a0f354c0383ec62b502268889a218e4d602c5eaab6eee5d59674b04c"
+    },
+    {
+      "path": "research/global-competitors/11-sources-and-evidence.md",
+      "bytes": 24883,
+      "sha256": "e6226ea93eb7c2b7fe2355ae5dadcb9e4fb4e6e9f3f5325d90e9a3cb6e5d9db5"
+    },
+    {
+      "path": "research/global-competitors/12-executive-brief.md",
+      "bytes": 4232,
+      "sha256": "3d16d6f35e361326c7af06cd506cb0ef457fc0ee4fede6ca9a6105b39db445a0"
+    },
+    {
+      "path": "research/global-competitors/README.md",
+      "bytes": 3198,
+      "sha256": "e4980c446598c81199903912a95a79014a2a09db625697b55eb290608356ffd0"
+    },
+    {
+      "path": "research/open-source-audit/01-repository-inventory.md",
+      "bytes": 14885,
+      "sha256": "88bd204e37d229060f7f3a6fd200ad7e5f275053ee62f02e61be673debebba6c"
+    },
+    {
+      "path": "research/open-source-audit/02-deeptutor-audit.md",
+      "bytes": 15670,
+      "sha256": "8fffd95700ecca7dffcf300da84faf235d9c266f31846f7cd95914bdff34a645"
+    },
+    {
+      "path": "research/open-source-audit/03-learnhouse-audit.md",
+      "bytes": 29549,
+      "sha256": "e2a8f34fbfece8a80fec89630a7148aaf956a88c6c72f342a9a1c0f5a59790d8"
+    },
+    {
+      "path": "research/open-source-audit/04-adaptive-learning-libraries.md",
+      "bytes": 20593,
+      "sha256": "a6fd99fe8a5451e4e6f9c7aed7b6127cb7b008fa737a3bf8dc8e13a1515d19e7"
+    },
+    {
+      "path": "research/open-source-audit/05-additional-open-source-components.md",
+      "bytes": 14176,
+      "sha256": "5e12fb423eb1e32c42833531d623e1a4ea6b9e787da556054a080d4f0e99a733"
+    },
+    {
+      "path": "research/open-source-audit/06-compatibility-matrix.md",
+      "bytes": 7272,
+      "sha256": "481276d1a66badab5c96a27843f58665608726d7fde57173b99be5e170cb742e"
+    },
+    {
+      "path": "research/open-source-audit/07-integration-architecture-options.md",
+      "bytes": 9134,
+      "sha256": "d0d5d07d482eb6850a4a99a88f431d6d0a99c3494262eb5d05de5b91a96e8c25"
+    },
+    {
+      "path": "research/open-source-audit/08-security-and-licensing.md",
+      "bytes": 17048,
+      "sha256": "84ee1f4decdcd10c8833f04c3581eb38bb0c92aad5e135865bf99992739e0d39"
+    },
+    {
+      "path": "research/open-source-audit/09-ai-infrastructure-and-economics.md",
+      "bytes": 11437,
+      "sha256": "eb4ac7c5f4b35212d852f5d120b0a65ad521de8336a555c11048839527251d6b"
+    },
+    {
+      "path": "research/open-source-audit/10-build-vs-reuse-matrix.md",
+      "bytes": 6308,
+      "sha256": "3441af30f8022c6a24c21050873e0680c5cc836b92c4c0ce194494d43baab1cf"
+    },
+    {
+      "path": "research/open-source-audit/11-integration-proof-of-concept-plan.md",
+      "bytes": 9412,
+      "sha256": "e385fb23a379cd3554e82af9a6f93ad396b68f4b41e941cced67e0a2d1501721"
+    },
+    {
+      "path": "research/open-source-audit/12-recommended-technical-foundation.md",
+      "bytes": 14502,
+      "sha256": "13079ea3cead26ee5153856872d544ee5267fdc404f08fbf40c0240937964b5d"
+    },
+    {
+      "path": "research/open-source-audit/13-executive-brief.md",
+      "bytes": 5538,
+      "sha256": "6c595ebf0c4209e1273df06b440b66481417b15fc4b6c975252a185e5b77b26a"
+    },
+    {
+      "path": "research/open-source-audit/README.md",
+      "bytes": 1770,
+      "sha256": "11e76d706507e5d4be5aec94b6af25c6e8fdbecc2ca504517b9c1ba236ed3dc9"
+    },
+    {
+      "path": "research/open-source-audit/evidence/SHA256SUMS.json",
+      "bytes": 2288,
+      "sha256": "ee45941b61ee34fd2ad9558b604d5a70cc0fe877dd038a331f9456120193d628"
+    },
+    {
+      "path": "research/open-source-audit/evidence/chatterbox-provenance.json",
+      "bytes": 786,
+      "sha256": "08271b693bd5481d09b09ef0150d6cb2873f4a3b1c4f10dbfec75f0f11b69cc8"
+    },
+    {
+      "path": "research/open-source-audit/evidence/chatterbox-source-audit.md",
+      "bytes": 8725,
+      "sha256": "c74e48d04ea530075991287347aaac44dc42f54c575218fecc5c75bc7de1e555"
+    },
+    {
+      "path": "research/open-source-audit/evidence/cost-scenarios.json",
+      "bytes": 1072,
+      "sha256": "1602fafcba1239add3b20caee20fdb0cc11572b4e32854f92c27d69893af63ad"
+    },
+    {
+      "path": "research/open-source-audit/evidence/dependency-check.json",
+      "bytes": 811,
+      "sha256": "d2e8896e4161b7d004b75367e0ddca89b7cc6aed6299b5c03f578697cb60da98"
+    },
+    {
+      "path": "research/open-source-audit/evidence/github-metadata.json",
+      "bytes": 25985,
+      "sha256": "4600210b6a0d3a83ce3032410bfc6a381b2007f9e0149a4e88168665893c7d18"
+    },
+    {
+      "path": "research/open-source-audit/evidence/learnhouse-source-verification.json",
+      "bytes": 18643,
+      "sha256": "9547be8027b18dc4065a19d4fd7131ef3a1cef1f9d3b41a15ddf2a7d641bb85e"
+    },
+    {
+      "path": "research/open-source-audit/evidence/repository-pins.json",
+      "bytes": 6567,
+      "sha256": "46588d4c997a395c7a3c3ff300c6078b4a6d665b39b2ebd70c0759ba2c4519b4"
+    },
+    {
+      "path": "research/open-source-audit/evidence/test-results.md",
+      "bytes": 3353,
+      "sha256": "03616191673b4450060c4c31cf375c8b56a0856a9de849001b9112eb5412d553"
+    },
+    {
+      "path": "sources/arabic-first-brand-trials.md",
+      "bytes": 799,
+      "sha256": "db6e9247f0bb4fac98752cd7aa6235cab663b05c5d21ef102694ef25723398fb"
+    },
+    {
+      "path": "sources/architecture-primary-checks.md",
+      "bytes": 3601,
+      "sha256": "417b5bb8a5dd4b44d0d5cc814923f0a405607b8efa24f69f046a52795c938a11"
+    },
+    {
+      "path": "sources/brand-system-approval-scope.md",
+      "bytes": 899,
+      "sha256": "63b6e1476e4567e02f3368e928e85eee8b1c2c618ec993eb90f75505c3be687b"
+    },
+    {
+      "path": "sources/c-identity-palette-selection.md",
+      "bytes": 980,
+      "sha256": "174837c636edcd9eeb386d565e1dd162bb070b8d31ed4e4340c4daeec1d443ea"
+    },
+    {
+      "path": "sources/conversation-extract.md",
+      "bytes": 20077,
+      "sha256": "558fc1ef6b4a8be1a24f8aa3e70e36cd0474585a51d57a9169425d48fdc79871"
+    },
+    {
+      "path": "sources/conversation-reader-response.json",
+      "bytes": 26966,
+      "sha256": "b15f743544e543f7f1216aebeb1d522de5decc428ca79fab17282dcd3fb76057"
+    },
+    {
+      "path": "sources/current-master-request.md",
+      "bytes": 2014,
+      "sha256": "5da7597cd5acf0c80fffe9b2406e6b81f70dbb6095b315311f42b965de4da08c"
+    },
+    {
+      "path": "sources/founder-context-restoration.txt",
+      "bytes": 5092,
+      "sha256": "4b53e2201fa5aecf4cb8c966731547dd1bcf7e095308d7ef78447994ecae8e4a"
+    },
+    {
+      "path": "sources/founder-scope-and-brand-update.md",
+      "bytes": 665,
+      "sha256": "ffd42af8675bbe363c93bfa0314b2811df1ec9f833eece6e719df14f3d49dd36"
+    },
+    {
+      "path": "sources/maat-brand-direction.md",
+      "bytes": 692,
+      "sha256": "28dc6c62bcce2e59abb2406d09d05ab4f23976e605d3fea6ad350c865ea86dea"
+    },
+    {
+      "path": "sources/project-folder-migration.md",
+      "bytes": 790,
+      "sha256": "dc032e36516fb6b92febc5b1d232f3c57ce00d3662287b47bcf3a12a085b0fc0"
+    },
+    {
+      "path": "sources/research-manifest.json",
+      "bytes": 6520,
+      "sha256": "655e5fff2ee66a78bcd2327d293e44a4cf6ec2328470dfc5da874dff7f0d67e5"
+    },
+    {
+      "path": "sources/sebaverse-brand-selection.md",
+      "bytes": 1008,
+      "sha256": "846282d1282dc795091cac3a1045a34d3b58cf5b92f4ef88cea95c32d9eadd9c"
+    },
+    {
+      "path": "sources/source-catalog.md",
+      "bytes": 5518,
+      "sha256": "26a05a8b15b4ae64f2f6238a6e7b3945d3750db34d388bb104c9b862e0098567"
+    },
+    {
+      "path": "sources/subject-independent-architecture-instruction.md",
+      "bytes": 1105,
+      "sha256": "2b3f134725bc39695ee1a1a75aaecc292d6363785a41bb3b98fc9bbc89d40fc7"
+    },
+    {
+      "path": "tools/model_economics.py",
+      "bytes": 4625,
+      "sha256": "fcd185c5fafa711cd0529373bbee23edd113e2e5f8c4d2163c62a817ea1604fa"
+    },
+    {
+      "path": "tools/validate_project.py",
+      "bytes": 3542,
+      "sha256": "64da4fccb9b2aac4d79fe1d2cabaab07644cbb8622fc06a670f584e4d7236e6b"
+    }
+  ]
+}

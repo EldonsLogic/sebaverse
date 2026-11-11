@@ -1,0 +1,45 @@
+{
+  "basis": "monthly USD; 25% AI reserve; no taxes or payment fees",
+  "scenarios": [
+    {
+      "students": 20,
+      "fixed_assumption_usd": 100,
+      "text_ai": 9.5,
+      "text_total": 109.5,
+      "cascade_ai_assumption": 111.5,
+      "cascade_total": 211.5,
+      "live_ai": 509.5,
+      "live_total": 609.5
+    },
+    {
+      "students": 100,
+      "fixed_assumption_usd": 200,
+      "text_ai": 47.5,
+      "text_total": 247.5,
+      "cascade_ai_assumption": 557.5,
+      "cascade_total": 757.5,
+      "live_ai": 2547.5,
+      "live_total": 2747.5
+    },
+    {
+      "students": 1000,
+      "fixed_assumption_usd": 600,
+      "text_ai": 475.0,
+      "text_total": 1075.0,
+      "cascade_ai_assumption": 5575.0,
+      "cascade_total": 6175.0,
+      "live_ai": 25475.0,
+      "live_total": 26075.0
+    },
+    {
+      "students": 10000,
+      "fixed_assumption_usd": 3000,
+      "text_ai": 4750.0,
+      "text_total": 7750.0,
+      "cascade_ai_assumption": 55750.0,
+      "cascade_total": 58750.0,
+      "live_ai": 254750.0,
+      "live_total": 257750.0
+    }
+  ]
+}

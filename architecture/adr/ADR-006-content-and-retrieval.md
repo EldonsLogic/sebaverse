@@ -1,27 +1,27 @@
 # ADR-006 — Versioned content with scoped retrieval
 
-Status: proposed, not approved. Date: 2026-11-10.
+Status: **Selected technical baseline v1 under U11**, 11 November 2026. Author: project engineering agent. Supersedes initial proposed draft of 10 November (preserved in Git). Technical selection is not test validation, procurement approval or blanket G3 sign-off.
 
 ## Context and evidence
 
-Sources: G06;A09;A12. Founder requires affordability, preserved scope, provider independence and controlled implementation. Research findings remain bounded by their stated audit limits.
+Founder U1/U2/U11/U12, preserved audits A01–A13 and global G04–G10; relevant limited primary checks E22–E32 in sources/architecture-primary-checks.md. Requirements: R035 R036 R037 R038 R039 R040 R041 R042 R044 R045 R046 R099.
 
-## Proposed decision
+## Decision
 
-Private uploads and approved built-in editions, immutable provenance and ACL before ranking.
+Shared provenance/version pipeline for built-in/private content, immutable collection/profile/edition manifests, PostgreSQL lexical + pgvector hybrid candidate ranking from authorized set. Citation resolution rechecks live rights.
 
-## Alternatives
+## Alternatives considered
 
-Shared upload corpus; unversioned textbook chat; postfilter-only access.
+Shared upload corpus; unversioned chat; postfilter-only permissions; vector/graph service first.
 
-## Rationale and consequences
+## Consequences
 
-Rights, edition accuracy and isolation cannot depend on prompts. This adds owned domain and review work; it does not eliminate educator/security/operations cost.
+Supports multiple subjects without school-specific core. Exact search first avoids assuming ANN plus filters preserves recall.
 
 ## Reversal / validation trigger
 
-Revisit index technology when measured filtered recall/latency demands it, not before.
+Change index technology after measured scoped recall/latency/cost need; never relax live authorization to improve metrics.
 
-## Approval
+## Execution status
 
-Pending G3. Record approver, date, reviewed commit and conditions; no approval inferred from this draft.
+No product implemented or benchmark performed. Refer to architecture/technical-baseline.md and execution/subject-independent-poc.md. Founder/external audit feedback and applicable execution/rights/security/budget decisions remain required before the corresponding next phase. Do not label this ADR “founder approved” based solely on agent authorship.

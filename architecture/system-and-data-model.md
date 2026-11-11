@@ -1,62 +1,76 @@
-# Architecture and domain model
+# Architecture and domain/data model — v1.0
 
-Status: proposed, awaiting G3. Sources A07/A12 and G04–G06; owned learning core is a research recommendation consistent with founder constraints. Framework/version selection remains open. Django/PostgreSQL is the baseline candidate; compare a thin FastAPI-based alternative on auth/admin/content review, security surface, async/voice fit, team familiarity and total operational work. Avoid selecting based on a synthetic hello-world benchmark.
+Selected technical design under U11/U12. [Technical baseline](technical-baseline.md) supersedes the earlier framework comparison. Django/DRF + React/TypeScript/Vite + PostgreSQL + private object storage; subject-independent modular core with isolated parsing. No product schema/migration executed. Prior proposal remains in Git history.
 
-## Deployment and boundaries
+## Conceptual entity map
+
+![Domain entity map](data-map.svg)
 
 ```mermaid
-flowchart TD
- UI[Bilingual responsive student and guardian UI] --> API[Authenticated modular application]
- API --> AUTH[Identity consent scope and entitlements]
- API --> LEARN[Assessment evidence and next-action policy]
- API --> TUTOR[Bounded tutor orchestrator]
- TUTOR --> RET[Authorized retrieval]
- TUTOR --> ROUTE[Qualified provider adapters and budgets]
- API --> DB[(Postgres authoritative domain and outbox)]
- RET --> DB
- LEARN --> DB
- API --> OBJ[Private versioned object storage]
- OBJ --> Q[Quarantined restricted parser worker]
- Q --> DB
- DB --> WORK[Reviewed jobs and notifications]
- API --> OBS[Redacted metrics and audit events]
+erDiagram
+ Tenant ||--o{ Membership : has
+ User ||--o{ Membership : holds
+ LearnerProfile ||--o{ GuardianRelationship : governed_by
+ GuardianRelationship ||--o{ ConsentRecord : authorizes
+ EducationSystem ||--o{ CurriculumSpecification : defines
+ Subject ||--o{ SubjectProfileVersion : configures
+ CurriculumSpecification ||--o{ CurriculumEditionVersion : versions
+ CurriculumEditionVersion ||--o{ ObjectiveVersion : contains
+ ObjectiveVersion }o--o{ ConceptVersion : reviewed_mapping
+ ConceptVersion ||--o{ PrerequisiteEdge : connects
+ CurriculumEditionVersion ||--o{ CollectionManifestVersion : sources
+ CollectionManifestVersion }o--o{ MaterialVersion : includes
+ MaterialVersion ||--|| RightsRecord : governed_by
+ MaterialVersion ||--o{ Chunk : yields
+ Chunk }o--|| IndexManifestVersion : indexed_in
+ CurriculumEditionVersion ||--o{ CourseOffering : offered_as
+ LearnerProfile ||--o{ Enrollment : studies
+ CourseOffering ||--o{ Enrollment : admits
+ Enrollment ||--o{ Entitlement : requires
+ SubjectProfileVersion ||--o{ TutorSession : configures
+ Enrollment ||--o{ TutorSession : scopes
+ TutorSession ||--o{ TutorTurn : runs
+ TutorTurn ||--o{ UsageReceipt : accounts
+ ItemFamily ||--o{ ItemVersion : versions
+ ItemVersion ||--|| RubricVersion : assessed_by
+ TutorSession ||--o{ Attempt : records
+ ItemVersion ||--o{ Attempt : answered_in
+ Attempt ||--o{ EvidenceEvent : supports
+ EvidenceEvent }o--|| KnowledgeProjection : projects_to
+ LearnerProfile ||--o{ ReviewSchedule : schedules
+ ReleaseManifest ||--o{ TutorTurn : pins
 ```
 
-One deployable application with clear modules: identity/consent, curriculum/rights, assessment, learner intelligence, tutoring, retrieval, AI adapters, billing/usage, reporting and operations. Separate restricted parser environment and optional media worker for safety/runtime needs; they do not require general microservices. Postgres is transactional source of truth. Private assets use signed short-lived access after authorization. Add pgvector only if filtered recall/latency improves over lexical baseline. No graph DB initially; versioned edge tables suffice. A job/outbox worker begins in the same domain; add Celery/Redis when demonstrated scheduling/concurrency warrants it.
+The diagram is conceptual, not a claim all relationships are 1:1 physical tables; rights and rubric can be separately versioned/reused. KnowledgeProjection is derived from many events and one event may affect several concept projections; an explicit projection-input link/cursor captures this mapping rather than a restrictive physical foreign key. Curriculum IDs remain nullable for genuinely custom materials, never falsely official. Shared approved content has publication audience records; learner-private content always retains its actual ownership scope.
 
-## Domain entities and invariants
+## Aggregates and invariants
 
-| Aggregate / entity | Key fields and relations | Invariant |
-|---|---|---|
-| Tenant / User / Membership | id, role, status, locale | Role never taken from client assertions |
-| LearnerProfile | user, minimal age band, preferences | Identifying contact separated from learning analytics |
-| GuardianRelationship / Consent | adult, child, scope, verification, purpose/version, dates/revoked | Live relationship and legal process checked for every sensitive command |
-| CurriculumEdition / Objective / ConceptMapping | system, body, year/specification, subject/term/language, immutable version | Mapping confidence/review; no silent equivalence |
-| PrerequisiteEdge | concept versions, provenance, reviewer | Approved acyclic graph or explicit supported exception |
-| MaterialVersion / RightsRecord | owner/scope/hash/license/original/source/version | Publication requires rights and content approval |
-| Chunk / IndexManifest | source/page/bbox/objectives/ACL/parser/embedding | Retrieval cannot widen material scope |
-| ItemFamily / ItemVersion / Rubric | objective, solution ref, exposure, language, approval | Reviewed key separated from tutor-visible practice context |
-| Attempt / AssessmentEvent | learner/session/item version, response ref, score, assistance, timestamps | Idempotent immutable evidence with correction lineage |
-| KnowledgeProjection / MisconceptionHypothesis | concept version, evidence cursor, status/uncertainty | Rebuildable; no LLM direct write authority |
-| ReviewSchedule / ReviewEvent | learner/concept/item family, due/result | Recall scheduling distinct from mastery |
-| TutorSession / Turn / Summary | state/checkpoint/request, release manifest, bounded memory | Turn-scoped cancellation and authorized tools |
-| Enrollment / Entitlement | learner/course/term, quotas, start/end, grant source | Expiry/revocation enforced at command/tool boundary |
-| PaymentEvent / UsageReservation / UsageReceipt | idempotency/provider ID, units, rate version, amount/currency | Never count payment webhook twice; reconcile reservations |
-| Notification / Incident / Appeal | verified recipient/purpose/status, minimal payload | No external send without authorized workflow |
-| ReleaseManifest / AuditEvent / Outbox | hashes/versions, actor/event, schema, processed state | Durable lineage and reviewed replay |
+| Aggregate | Minimum fields / constraints |
+|---|---|
+| User / Tenant / Membership | Immutable ID, status, verified auth relations, locale; tenant role from server, never client or model |
+| LearnerProfile | Actor distinct from learner; minimal age band and volunteered preferences; no inferred disability or permanent intelligence label |
+| GuardianRelationship / ConsentRecord | Verified adult-child link, purpose/scope, policy version, recorded/revoked times, evidence reference; live checks for sensitive access |
+| EducationSystem / Subject / Specification | Country/authority/qualification tags and identifiers; no fixed Egyptian/German enum in core |
+| CurriculumEditionVersion / SubjectProfileVersion | Immutable version, status, provenance/reviewer, locale/capability schema; withdrawal overrides pinned session availability |
+| ObjectiveVersion / ConceptVersion / Mapping / Edge | Many-to-many mapping, confidence/reviewer, edition and edge provenance; approved graph validation; no silent mastery equivalence |
+| CollectionManifestVersion | Explicit source versions + audience; pinned session collection, not all uploads in account |
+| MaterialVersion / RightsRecord | Original hash, owner, processing/display/derivative/distribution/training permissions, restrictions/expiry, source and reviewer; private is not public approval |
+| ExtractionManifest / Chunk / IndexManifestVersion | Parser/model version, original + normalized text, page/bbox, quality, audience/ACL, embedding model/dimension/hash; no mixed embedding spaces |
+| ItemFamily / ItemVersion / RubricVersion | Objectives, source, review state, answer key scope, valid variants, grader/profile version, exposure rules; keys excluded from tutor retrieval |
+| Attempt / EvidenceEvent / CorrectionEvent | Learner/item/session IDs, occurrence/receipt times, response reference, assistance/exposure, grader/rubric, accepted score or pending status; unique event and command IDs |
+| KnowledgeProjection / MisconceptionHypothesis | Learner/concept-version, evidence cursor, state/uncertainty, independent-family counts, contradictions and expiry; rebuildable, no LLM direct writes |
+| ReviewSchedule / ReviewEvent | Due time, strategy/algorithm version, accepted recall result; independent of mastery projection |
+| Session / Turn / StreamCheckpoint | Curriculum/profile/item/release versions, state/version, cancellation generation, bounded summary; validated block cursor, no hidden chain-of-thought storage |
+| Enrollment / Entitlement | Learner/course/status + grant purpose, start/end, quotas; payment alone does not prove valid consent |
+| UsageReservation / CallAttempt / UsageReceipt | Maximum reserve, provider attempt/request ID, actual input/output/cache/audio units, price version/currency, unknown/reconciled state; original units retained |
+| PaymentEvent / Notification / Preference | Signed deduplicated payment event; recipient/purpose/channel opt-out; real external effects gated |
+| Job / Outbox / AuditEvent | Schema version, scope generation, idempotency, lease/fence, status/retry/deadline; restricted payload/reference |
+| ReleaseManifest / EvaluationRun / Incident / Appeal | Immutable lineage, fixture/rubric/model/policy versions, result/reviewer; raw child payload excluded from default evals/logs |
 
-All learner-owned domain records carry canonical tenant/learner scope, created/occurred/received times and schema version where relevant. Unique command/event/provider receipt keys prevent double writes. Constraints validate scope consistency across joins. Raw SQL/vector and file access use the same authorization policy as ORM commands; optional RLS is defense in depth and must reset pooled connection context correctly.
+Foreign keys and unique/composite constraints enforce learner/course/edition consistency, not prompt instructions. Actor-owned sensitive records carry tenant/learner scope; global approved content uses explicit publication grants instead of fabricated learner ownership. Money uses integer minor units/decimal rates with currency, never binary floats; usage units remain exact integer/decimal by modality. Time stored UTC with occurrence and receipt separately; UI localizes. Sort replay deterministically by accepted sequence and event-time rules with tie-breaker; corrections append lineage before rebuilding, subject to privacy deletion requirements.
 
-## Transaction and API contracts
+## Privacy, lifecycle and contracts
 
-Conceptual authenticated commands: start_tutor_turn, cancel_turn, submit_assessment, get_progress, request_upload, publish_curriculum_version (staff), create_guardian_link, revoke_consent, grant_course, request_export and delete_learner_data. Browser cannot submit trusted score/mastery/consent status. Use request idempotency key and expected session/item/version; return correlation ID, state, result or safe recoverable error.
+Contact/auth records, learning evidence, restricted safety/consent audit and routine operations telemetry have distinct access/retention purposes. Transcript/audio retention is not required for mastery projection; use minimal response/evidence references and authorized deletion. Export includes allowed source and curriculum/item/policy versions. Revocation blocks live access and cancels queued work before asynchronous deletion; backups restore deletion tombstones before access.
 
-submit_assessment validates role/grant/item independence → records attempt and outbox atomically → grades under bounded process → appends validated result → idempotent projection update. Queue delivery may be at-least-once; domain effects are once per event. Out-of-order events use defined event-time ordering plus tie-breaker and replay/conflict handling, never silent arrival-order mutation. Correction events supersede evidence without erasing audit history, subject to approved deletion/minimization policy.
-
-Tutor command atomically reserves maximum spend → resolves approved evidence/action → calls qualified provider → validates result/citations → reconciles actual receipt and releases remainder → stores bounded checkpoint. Orphan reservations expire/reconcile; vendor billing can outlive app cancellation. Payment webhook uses signature, exact route, replay window and unique provider event; reversals/expiry change entitlements predictably. No browser-supplied paid flag.
-
-## Failure and exit design
-
-Provider outage: circuit breaker and qualified fallback or resumable pause. Parser crash: bounded retry/quarantine. Invalid item: quarantine, notify reviewer and replay affected state. Budget cap: safe quota explanation, no hidden upgrade. Revoked guardian: immediate denial plus queued job cancellation. Export contains curriculum/item/source versions, allowed original assets, consent/grants and learning evidence, not opaque chat summaries alone.
-
-Migrations use expand/contract and versioned projection rebuild; backfill asynchronously with checks. Preserve source chunks for reindexing and provider-independent prompts/evals. Deployment region, tenancy beyond families, payment provider, frontend framework and realtime transport remain open ADRs. No production topology or uptime promise is inferred from the diagram.
+[API/event contracts](api-and-event-contracts.md) define idempotency, stale workers, cancellation and provider billing uncertainty. [Subject contracts](subject-and-curriculum-contracts.md) define adding subjects without core changes. [Deployment](deployment-and-delivery.md) defines roles/keys and migration rules. Database migrations are future code tasks and must test both schema constraints and application authorization.

@@ -7,9 +7,9 @@ Decisions below distinguish founder instruction (binding within task) from propo
 | D001 | Founder instruction | Preserve all requirements, phase scope, do not implement before baseline/architecture | Founder; all work |
 | D002 | Founder instruction | Egypt-first, solo, affordability, global-ready | Founder; product/economics gate |
 | D003 | Founder instruction | Use Documents/TBD; rename after chosen brand | Founder; name selected at G2 |
-| D004 | Proposed | Owned modular monolith, selective reuse; Django/Postgres candidate | ADR001/002, G3 |
-| D005 | Proposed | Transparent evidence rules and fixed review before complex tracing | ADR003, G3/G4 |
-| D006 | Proposed | Early voice benchmark, gated capped pilot | ADR005, G4 |
+| D004 | Technical baseline selected under U11 | Owned modular monolith; Django/DRF + React/TypeScript/Vite + PostgreSQL | ADR001/002/010; execution gates separate |
+| D005 | Technical baseline selected under U11 | Transparent evidence rules and fixed review before complex tracing | ADR003, G3/G4 |
+| D006 | Technical baseline selected under U11 | Early voice benchmark, gated capped pilot | ADR005, G4 |
 | D007 | Required risk containment | Quarantine inspected EduStudio pin | Independent provenance resolution; no execution meanwhile |
 | D008 | Partially decided by founder (U4) | German at a national language school; learner-uploaded curriculum first. Grade/level/term/edition, explanation language and buyer remain open | Founder + educator; inspect actual uploaded materials |
 | D009 | Open | Platform name and trademark/domain clearance | Founder/native review/counsel at G2 |
@@ -58,3 +58,15 @@ Founder selected Claude C / Bāb as the identity direction, rejecting its origin
 ## D021 — Blue/orange selected; visual metaphor is not wording (U10)
 
 Founder selects B blue/orange for C visual identity. Supersedes the open palette question in D020. “كل سؤال باب” and door-based product terminology are not selected. Brand-system v1 documents this combination; new copy and component details remain proposals. No permanent slogan or full G2 approval inferred. Founder authorizes rename of existing folder to Sebaverse, preserving Git history.
+
+## D022 — Subject-independent finalized technical baseline (U11/U12)
+
+Founder instructs finalization now and rejects dependence on a German curriculum. Engineering selects architecture/technical-baseline.md and ADR-001–012 as concrete technical decisions for audit. Finalized means design choices/boundaries, not test results, founder endorsement of unseen details or approval of whole execution/legal/deployment gates. R095 retained as one first-use example.
+
+D023 — React/TypeScript/Vite static web app with React Router/TanStack Query, same-origin Django/DRF backend, REST/SSE selected; supersedes D014 frontend/text-transport uncertainty. Payment gateway and production host/region remain unresolved.
+
+D024 — Ready libraries and all 22 audit dispositions fixed in repository-adoption.json. No entire tutoring/LMS adopted; DeepTutor reference-only baseline; bounded optional extraction. Exact install releases, transitive/model/data rights and security closure remain pre-install conditions, not unspecified application architecture.
+
+D025 — External audit handoff U12 covers all 99 requirements, data/runtime diagrams, feature/functions, phases, source lineage, decisions and unknowns. No external message sent.
+
+Current unknown separation: exact dependency locks (before install); live-call time/spend cap and eligible processor/data mode (before live PoC); region/provider/retention/guardian process, actual rights and operational coverage (before affected real data/pilot); production model winners and Jev/voice/local GPU choices (after matched evidence). None requires a specific school textbook to complete platform design.

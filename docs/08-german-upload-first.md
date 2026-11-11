@@ -1,5 +1,7 @@
 # German: uploaded-curriculum first
 
+Current architecture note (U11/U12, 11 November 2026): architecture/technical-baseline.md selects the subject-independent technical baseline. German is one retained initial use case, not a design dependency; technical selection does not certify content/benchmarks or authorize execution. Detailed learning thresholds/provider models remain subject to evaluation.
+
 Founder decision U4: German for a student at a national language school. Her uploaded curriculum is the tutor’s initial source. This replaces the earlier unselected mathematics suggestion. Do not infer grade, age, CEFR level, textbook, school scheme or preferred explanation language.
 
 Proposed first loop: upload → safe extraction and page-aware provenance → confirm unit/order and uncertain text → reviewed vocabulary/grammar/objectives → short diagnostic → explanation/guided German practice → independent new example → evidence and due recall. Keep Egyptian Arabic/MSA/English explanation options separate from German as the target subject language. German text, umlauts/ß, capitalization, grammatical gender, inflections, word order and valid alternative answers need German educator review. Speech may include listening/read-aloud/conversation, but pronunciation assessment requires a distinct validated rubric; generic ASR confidence is not a pronunciation grade. German voice/grounding/safety evaluation must be added to the original language slices before use.

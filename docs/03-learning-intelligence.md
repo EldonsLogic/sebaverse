@@ -1,5 +1,7 @@
 # Learning intelligence and tutoring state machine
 
+Current architecture note (U11/U12, 11 November 2026): architecture/technical-baseline.md selects the subject-independent technical baseline. German is one retained initial use case, not a design dependency; technical selection does not certify content/benchmarks or authorize execution. Detailed learning thresholds/provider models remain subject to evaluation.
+
 Proposed original design. Sources U1/U2, G04–G06, A04/A12. The learning evidence ledger is authoritative; narrative memory, a classifier's confidence and chat completion are not mastery.
 
 ## State and update semantics

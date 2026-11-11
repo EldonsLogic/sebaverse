@@ -1,5 +1,7 @@
 # Curriculum, uploads and RAG
 
+Current architecture note (U11/U12, 11 November 2026): architecture/technical-baseline.md selects the subject-independent technical baseline. German is one retained initial use case, not a design dependency; technical selection does not certify content/benchmarks or authorize execution. Detailed learning thresholds/provider models remain subject to evaluation.
+
 Sources: U1/U2; G04/G06/G08; A05/A09/A12. Proposed pipeline and gates below. RAG provides candidate evidence; citations do not prove an answer is correct.
 
 ## Identity and rights

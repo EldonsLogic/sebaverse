@@ -1,0 +1,43 @@
+# Chatterbox supporting TTS audit
+
+10 November 2026. **Decision: defer as a self-hosted research comparison; reject as the maintained default for the pilot.** Arabic synthesis is implemented, but Egyptian dialect, math fidelity, streaming latency, throughput and commercial voice rights are not established by a language-list entry.
+
+## Provenance and scope
+
+Canonical source: [resemble-ai/chatterbox](https://github.com/resemble-ai/chatterbox), cross-linked by the official [ResembleAI model card](https://huggingface.co/ResembleAI/chatterbox). Shallow, blob-filtered clone at `work/repos/Chatterbox` with no checkout; selected source blobs inspected using `git show`, saved under `work/chatterbox-source`. Exact code SHA **ab55923c27757c90cfcc407baa57dc25a7d25217**, last commit **2026-11-04**, subject `Update README (#581)`. Root LICENSE is MIT, copyright 2025 Resemble AI. Package manifest version 0.1.7, Python >=3.10. No agent instruction files or dedicated test suite found in the source tree listing. No code, install script, model or inference was executed; no model weights downloaded, no paid calls.
+
+## Maintenance and quality claim caveat
+
+Pinned [`README.md:6–11`](https://github.com/resemble-ai/chatterbox/blob/ab55923c27757c90cfcc407baa57dc25a7d25217/README.md#L6) explicitly says Chatterbox became retired, unmaintained research in August 2026, with no support, updates or paid voice tier. Later legacy prose still promotes a hosted TTS service. The official model card also retains promotional production/latency language. Treat these as inconsistent maintenance/marketing claims; do not turn older service claims into an available-vendor recommendation. The fetched commit date alone does not establish active engineering maintenance. `.github/workflows/install_check.yml` only installs the package on Python 3.10 using tagged checkout/setup actions; it does not demonstrate inference, Arabic correctness, privacy or robust regression coverage.
+
+## Verified source interfaces
+
+[`src/chatterbox/mtl_tts.py:21–55`](https://github.com/resemble-ai/chatterbox/blob/ab55923c27757c90cfcc407baa57dc25a7d25217/src/chatterbox/mtl_tts.py#L21) identifies `ResembleAI/chatterbox`, multilingual V2/V3 filenames, and `SUPPORTED_LANGUAGES['ar']='Arabic'`; English is also present. `get_supported_languages():178` returns that mapping. There is no separate Egyptian Arabic `ar-EG` dialect contract or accuracy benchmark in the inspected interface. V2 is the default even though README recommends V3: explicitly choose/version `t3_model='v3'` for a comparison.
+
+`ChatterboxMultilingualTTS.from_local(ckpt_dir, device, t3_model):183` loads a voice encoder, T3 multilingual model, S3Gen decoder, tokenizer and optional stored conditionals. T3 uses safetensors; encoder/decoder/conditionals use `torch.load(...weights_only=True)` (`:200,213,151`), reducing ordinary unrestricted pickle loading but not certifying arbitrary weights safe. `from_pretrained(...):228–251` downloads selected model files from the **mutable `main` revision**, optionally with `HF_TOKEN`. Production would need a separately pinned model revision and artifact hashes, followed by `from_local` with controlled immutable files.
+
+`prepare_conditionals(wav_fpath, exaggeration):253` reads a reference clip using librosa and sets instance voice conditionals. `generate(text, language_id, audio_prompt_path, exaggeration, cfg_weight, temperature, repetition_penalty, min_p, top_p):280–355` validates the language, normalizes/tokenizes text, runs T3 generation (hardcoded max_new_tokens=1000), decodes the waveform, applies Perth watermarking and returns a Torch waveform tensor. It returns a completed waveform; the inspected multilingual public interface has no chunked streaming/yield/cancellation contract. Do not infer end-to-end voice latency from an English Turbo claim.
+
+The same object mutates `self.conds` when loading reference audio and changing exaggeration (`:300–312`); naïve concurrent reuse with student-specific reference voices can mix conditioning. Use a fixed rights-cleared adult tutor voice and serialize/model-isolate inference, or design and test per-request immutable conditionals. Do not expose reference-audio cloning to students in the pilot. The sample [`multilingual_app.py:320`](https://github.com/resemble-ai/chatterbox/blob/ab55923c27757c90cfcc407baa57dc25a7d25217/multilingual_app.py#L320) launches Gradio with MCP enabled, not an application authorization/entitlements layer; do not deploy the demo as the commercial API.
+
+## Code, weights, voice and training rights are separate
+
+- **Code:** inspected root MIT license permits commercial adaptation subject to notices and its warranty disclaimer. Preserve code/third-party notices.
+- **Official weights:** [official model card](https://huggingface.co/ResembleAI/chatterbox) declares MIT and Arabic coverage. Model repository HEAD obtained read-only via `git ls-remote` is **5bb1f6ee58e50c3b8d408bc82a6d3740c2db6e18**. This records a candidate model revision, not a downloaded/validated checkpoint. The model repository's `/LICENSE` URL returned 404; a standalone weight-license file was not verified. Archive the exact revision's model card/terms and artifact hashes before adopting. Do not assume third-party finetunes share the same license.
+- **Training and voice rights:** a model-card license is not proof that every training recording or a supplied speaker reference is cleared for the founder's use. The card acknowledges Llama/CosyVoice/HiFT-GAN and broad internet sourcing; trace derivative components and terms. Obtain an explicit commercial speaker release; no child voice cloning, actor impersonation or assumption of rights based on a downloadable clip. Watermark presence does not establish consent, prevent misuse or prove legal compliance.
+
+## Dependency and deployment implications
+
+Pinned [`pyproject.toml:11–34`](https://github.com/resemble-ai/chatterbox/blob/ab55923c27757c90cfcc407baa57dc25a7d25217/pyproject.toml#L11) requires Torch/torchaudio 2.6 below Python 3.14, transformers 5.2.0, diffusers 0.29.0, librosa 0.11, safetensors 0.5.3, conformer, s3tokenizer, language-tokenization packages, Gradio 6.8 and others. `resemble-perth` is a direct Git dependency on **master**, so the manifest is not a reproducible dependency closure despite several exact package pins. Python-version markers change numpy/Torch branches. Isolate this heavyweight ML environment from the tutoring monolith; do not resolve it alongside pyKT/Docling by assumption. Pin every artifact and scan vulnerabilities/licenses before running. No complete transitive dependency/license/CVE analysis was done.
+
+GPU memory/CPU feasibility for the multilingual stack, model startup, cold/warm real-time factor and concurrent streams must be measured. README model sizes alone do not capture decoder/vocoder, memory, batch or tail-latency requirements. Do not carry English Nano/Turbo CPU/latency claims to Arabic multilingual generation.
+
+## Cost and security boundaries
+
+There is no verified current hosted rate in this audit. Self-hosting removes a per-call vendor bill but adds reserved hardware, idle time, model loading, queueing, operations, bandwidth and safety review. Compare `monthly GPU/CPU and worker cost / completed generated audio minutes + operational cost`; benchmark duty cycle and p95 concurrency before asserting it is cheaper than hosted audio. At small pilot utilization, defer always-on GPU cost. Sentence chunking may reduce time to first sound but needs interruption/number/formula boundary tests; it is not proof of native streaming.
+
+Worker controls required: private network/API auth, fixed allowlisted model and speaker IDs, no user-supplied filesystem paths, bounded text/reference duration/file bytes, validated audio decoding, timeout/memory limits, isolated cache, no broad secrets, output expiry/deletion and per-learner usage quotas. Preserve watermarking; do not rely on it as moderation. TTS can still omit/repeat words or misread mathematical signs, units and negation; native Egyptian educator tests and text-visible fallback are mandatory. No measured Egyptian Arabic efficacy, security certification, latency or cost claims were established.
+
+## Before reconsideration
+
+Require a maintained upstream/fork with clear support ownership, immutable code/weight/dependency provenance, commercial voice permission, representative Egyptian Arabic/MSA/English math benchmarks, critical-token fidelity, controlled reference conditioning under concurrency, and actual audio-minute costs. Otherwise use replaceable supported hosted STT/TTS for a capped pilot and keep this as a documented open-source alternative rather than a dependency.

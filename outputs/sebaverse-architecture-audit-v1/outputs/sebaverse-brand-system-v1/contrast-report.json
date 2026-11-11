@@ -1,0 +1,65 @@
+[
+  {
+    "foreground": "white",
+    "background": "primary",
+    "ratio": 7.13,
+    "normalTextAA": true,
+    "usage": "allowed for normal text"
+  },
+  {
+    "foreground": "ink",
+    "background": "orange",
+    "ratio": 7.5,
+    "normalTextAA": true,
+    "usage": "allowed for normal text"
+  },
+  {
+    "foreground": "muted",
+    "background": "canvas",
+    "ratio": 6.12,
+    "normalTextAA": true,
+    "usage": "allowed for normal text"
+  },
+  {
+    "foreground": "ink",
+    "background": "white",
+    "ratio": 17.59,
+    "normalTextAA": true,
+    "usage": "allowed for normal text"
+  },
+  {
+    "foreground": "blue",
+    "background": "white",
+    "ratio": 7.13,
+    "normalTextAA": true,
+    "usage": "allowed for normal text"
+  },
+  {
+    "foreground": "success",
+    "background": "successBg",
+    "ratio": 5.45,
+    "normalTextAA": true,
+    "usage": "allowed for normal text"
+  },
+  {
+    "foreground": "danger",
+    "background": "dangerBg",
+    "ratio": 5.16,
+    "normalTextAA": true,
+    "usage": "allowed for normal text"
+  },
+  {
+    "foreground": "warning",
+    "background": "warningBg",
+    "ratio": 6.06,
+    "normalTextAA": true,
+    "usage": "allowed for normal text"
+  },
+  {
+    "foreground": "white",
+    "background": "orange",
+    "ratio": 2.35,
+    "normalTextAA": false,
+    "usage": "prohibited for text"
+  }
+]

@@ -1,27 +1,27 @@
 # ADR-005 — Capped multilingual voice
 
-Status: proposed, not approved. Date: 2026-11-10.
+Status: **Selected technical baseline v1 under U11**, 11 November 2026. Author: project engineering agent. Supersedes initial proposed draft of 10 November (preserved in Git). Technical selection is not test validation, procurement approval or blanket G3 sign-off.
 
 ## Context and evidence
 
-Sources: U2;A09;A11;G06. Founder requires affordability, preserved scope, provider independence and controlled implementation. Research findings remain bounded by their stated audit limits.
+Founder U1/U2/U11/U12, preserved audits A01–A13 and global G04–G10; relevant limited primary checks E22–E32 in sources/architecture-primary-checks.md. Requirements: R016 R071 R091.
 
-## Proposed decision
+## Decision
 
-Benchmark cascade/realtime early; explicit recording and uncertain-math confirmation; pilot quota conditional.
+Push-to-talk STT/text/TTS baseline with editable transcript/text fallback and per-session caps. Realtime adapter seam preserved, benchmarked before rollout; no voice clone/automatic recording.
 
-## Alternatives
+## Alternatives considered
 
-Unlimited voice; text-only forever; native realtime without inspectable assessment.
+Unlimited voice; native realtime without inspectable evidence; text-only forever.
 
-## Rationale and consequences
+## Consequences
 
-Voice is founder core scope, but quality, cost and data handling are unresolved. This adds owned domain and review work; it does not eliminate educator/security/operations cost.
+Keeps core voice requirement with accountable cancellation/costs. Uncertain speech is not independent grading evidence.
 
 ## Reversal / validation trigger
 
-Drop failed mode from pilot while retaining future requirement and text fallback.
+Realtime/local speech becomes default only after matched language/entity/latency/privacy/full-cost gate.
 
-## Approval
+## Execution status
 
-Pending G3. Record approver, date, reviewed commit and conditions; no approval inferred from this draft.
+No product implemented or benchmark performed. Refer to architecture/technical-baseline.md and execution/subject-independent-poc.md. Founder/external audit feedback and applicable execution/rights/security/budget decisions remain required before the corresponding next phase. Do not label this ADR “founder approved” based solely on agent authorship.

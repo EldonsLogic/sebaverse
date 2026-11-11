@@ -1,0 +1,59 @@
+{
+  "checked_at_utc": "2026-11-11T10:44:43.744897+00:00",
+  "limits": "No registry record is not registrar purchase or trademark clearance. No purchases made.",
+  "results": [
+    {
+      "domain": "seba.com",
+      "status": "registered",
+      "registry_url": "https://rdap.verisign.com/com/v1/domain/seba.com"
+    },
+    {
+      "domain": "withseba.com",
+      "status": "no_registry_record",
+      "http_status": 404,
+      "registry_url": "https://rdap.verisign.com/com/v1/domain/withseba.com"
+    },
+    {
+      "domain": "heyseba.com",
+      "status": "no_registry_record",
+      "http_status": 404,
+      "registry_url": "https://rdap.verisign.com/com/v1/domain/heyseba.com"
+    },
+    {
+      "domain": "sebaone.com",
+      "status": "registered",
+      "registry_url": "https://rdap.verisign.com/com/v1/domain/sebaone.com"
+    },
+    {
+      "domain": "learnseba.com",
+      "status": "no_registry_record",
+      "http_status": 404,
+      "registry_url": "https://rdap.verisign.com/com/v1/domain/learnseba.com"
+    },
+    {
+      "domain": "sebalearn.com",
+      "status": "registered",
+      "registry_url": "https://rdap.verisign.com/com/v1/domain/sebalearn.com"
+    },
+    {
+      "domain": "sebaai.com",
+      "status": "registered",
+      "registry_url": "https://rdap.verisign.com/com/v1/domain/sebaai.com"
+    },
+    {
+      "domain": "theseba.com",
+      "status": "registered",
+      "registry_url": "https://rdap.verisign.com/com/v1/domain/theseba.com"
+    },
+    {
+      "domain": "helloseba.com",
+      "status": "registered",
+      "registry_url": "https://rdap.verisign.com/com/v1/domain/helloseba.com"
+    },
+    {
+      "domain": "meetseba.com",
+      "status": "registered",
+      "registry_url": "https://rdap.verisign.com/com/v1/domain/meetseba.com"
+    }
+  ]
+}

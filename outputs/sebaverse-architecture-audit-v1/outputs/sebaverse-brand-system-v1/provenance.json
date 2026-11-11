@@ -1,0 +1,10 @@
+{
+  "source": "Founder supplied Claude C/B packages; U9/U10",
+  "assets": "C vector geometry recolored with B core palette; no source scripts run",
+  "fontRights": "Bundled original OFL license texts; downstream distribution must retain",
+  "sources": {
+    "work/claude-brand-review/Sebaverse-C-Bab/brand-book.html": "f12f1c4cb0d195971855b6fada656dfa113f15c9ca5579163cf904cd3ec81ed3",
+    "work/claude-brand-review/Sebaverse-C-Bab/logo/svg/sebaverse-C-primary-color.svg": "a62d58a9928b2186cfd4ff248b480ba9d1bac880069de8c25ef47aa279e3dd14"
+  },
+  "claims": "Typography/components/copy are design proposals; contrast numeric; product behavior unimplemented"
+}

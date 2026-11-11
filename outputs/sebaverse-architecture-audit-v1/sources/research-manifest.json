@@ -1,0 +1,182 @@
+[
+  {
+    "path": "research/global-competitors/01-global-landscape.md",
+    "sha256": "4c48bde0f7008f823899f870c66e238c09e37ffc023419c2792ffb4d45b34973",
+    "bytes": 4280
+  },
+  {
+    "path": "research/global-competitors/02-competitor-deep-dives.md",
+    "sha256": "7c1c1a239a4054c63a5caf0b6367f70d20d07507cfab786d85681dd19dee8726",
+    "bytes": 32810
+  },
+  {
+    "path": "research/global-competitors/03-reverse-engineering-findings.md",
+    "sha256": "6180fff2fc63410a8896b24dacbb481a3e6239bdbfcf44e731d9a4488b6d5168",
+    "bytes": 6613
+  },
+  {
+    "path": "research/global-competitors/04-adaptive-learning-engine.md",
+    "sha256": "06599e35460f23452d429770d869993cdb6c751d4c2c6fd89201a6868e660c04",
+    "bytes": 8508
+  },
+  {
+    "path": "research/global-competitors/05-closed-loop-intelligence.md",
+    "sha256": "3eb35bf1a93c5a22f8dd6fa1ef8b82002781612bc921c35d320980fb0c1a4ab7",
+    "bytes": 7345
+  },
+  {
+    "path": "research/global-competitors/06-tutor-orchestration.md",
+    "sha256": "8d6f5a42fa0373fdc2054a0d109ce3ed9777bf08d9406d0054fbfa14a569c385",
+    "bytes": 8273
+  },
+  {
+    "path": "research/global-competitors/07-capability-matrix.md",
+    "sha256": "02d9ed2ccf5fc0b3fd99304a960ddbb4e9627283abf23665a8626edf98d12d9b",
+    "bytes": 6681
+  },
+  {
+    "path": "research/global-competitors/08-differentiation-opportunities.md",
+    "sha256": "63fa63666f8ad26ced5d40ac7a6189fca26b7db3d0bfbb4afe57ca1f1377ca69",
+    "bytes": 4239
+  },
+  {
+    "path": "research/global-competitors/09-reproducible-technical-patterns.md",
+    "sha256": "a6e751e75036c7ea58d2e1026b5111ac601b3abcade52bfe23069e6dda169621",
+    "bytes": 3935
+  },
+  {
+    "path": "research/global-competitors/10-recommendations.md",
+    "sha256": "9bb229b4a0f354c0383ec62b502268889a218e4d602c5eaab6eee5d59674b04c",
+    "bytes": 6774
+  },
+  {
+    "path": "research/global-competitors/11-sources-and-evidence.md",
+    "sha256": "e6226ea93eb7c2b7fe2355ae5dadcb9e4fb4e6e9f3f5325d90e9a3cb6e5d9db5",
+    "bytes": 24883
+  },
+  {
+    "path": "research/global-competitors/12-executive-brief.md",
+    "sha256": "3d16d6f35e361326c7af06cd506cb0ef457fc0ee4fede6ca9a6105b39db445a0",
+    "bytes": 4232
+  },
+  {
+    "path": "research/global-competitors/README.md",
+    "sha256": "e4980c446598c81199903912a95a79014a2a09db625697b55eb290608356ffd0",
+    "bytes": 3198
+  },
+  {
+    "path": "research/open-source-audit/01-repository-inventory.md",
+    "sha256": "88bd204e37d229060f7f3a6fd200ad7e5f275053ee62f02e61be673debebba6c",
+    "bytes": 14885
+  },
+  {
+    "path": "research/open-source-audit/02-deeptutor-audit.md",
+    "sha256": "8fffd95700ecca7dffcf300da84faf235d9c266f31846f7cd95914bdff34a645",
+    "bytes": 15670
+  },
+  {
+    "path": "research/open-source-audit/03-learnhouse-audit.md",
+    "sha256": "e2a8f34fbfece8a80fec89630a7148aaf956a88c6c72f342a9a1c0f5a59790d8",
+    "bytes": 29549
+  },
+  {
+    "path": "research/open-source-audit/04-adaptive-learning-libraries.md",
+    "sha256": "a6fd99fe8a5451e4e6f9c7aed7b6127cb7b008fa737a3bf8dc8e13a1515d19e7",
+    "bytes": 20593
+  },
+  {
+    "path": "research/open-source-audit/05-additional-open-source-components.md",
+    "sha256": "5e12fb423eb1e32c42833531d623e1a4ea6b9e787da556054a080d4f0e99a733",
+    "bytes": 14176
+  },
+  {
+    "path": "research/open-source-audit/06-compatibility-matrix.md",
+    "sha256": "481276d1a66badab5c96a27843f58665608726d7fde57173b99be5e170cb742e",
+    "bytes": 7272
+  },
+  {
+    "path": "research/open-source-audit/07-integration-architecture-options.md",
+    "sha256": "d0d5d07d482eb6850a4a99a88f431d6d0a99c3494262eb5d05de5b91a96e8c25",
+    "bytes": 9134
+  },
+  {
+    "path": "research/open-source-audit/08-security-and-licensing.md",
+    "sha256": "84ee1f4decdcd10c8833f04c3581eb38bb0c92aad5e135865bf99992739e0d39",
+    "bytes": 17048
+  },
+  {
+    "path": "research/open-source-audit/09-ai-infrastructure-and-economics.md",
+    "sha256": "eb4ac7c5f4b35212d852f5d120b0a65ad521de8336a555c11048839527251d6b",
+    "bytes": 11437
+  },
+  {
+    "path": "research/open-source-audit/10-build-vs-reuse-matrix.md",
+    "sha256": "3441af30f8022c6a24c21050873e0680c5cc836b92c4c0ce194494d43baab1cf",
+    "bytes": 6308
+  },
+  {
+    "path": "research/open-source-audit/11-integration-proof-of-concept-plan.md",
+    "sha256": "e385fb23a379cd3554e82af9a6f93ad396b68f4b41e941cced67e0a2d1501721",
+    "bytes": 9412
+  },
+  {
+    "path": "research/open-source-audit/12-recommended-technical-foundation.md",
+    "sha256": "13079ea3cead26ee5153856872d544ee5267fdc404f08fbf40c0240937964b5d",
+    "bytes": 14502
+  },
+  {
+    "path": "research/open-source-audit/13-executive-brief.md",
+    "sha256": "6c595ebf0c4209e1273df06b440b66481417b15fc4b6c975252a185e5b77b26a",
+    "bytes": 5538
+  },
+  {
+    "path": "research/open-source-audit/README.md",
+    "sha256": "11e76d706507e5d4be5aec94b6af25c6e8fdbecc2ca504517b9c1ba236ed3dc9",
+    "bytes": 1770
+  },
+  {
+    "path": "research/open-source-audit/evidence/SHA256SUMS.json",
+    "sha256": "ee45941b61ee34fd2ad9558b604d5a70cc0fe877dd038a331f9456120193d628",
+    "bytes": 2288
+  },
+  {
+    "path": "research/open-source-audit/evidence/chatterbox-provenance.json",
+    "sha256": "08271b693bd5481d09b09ef0150d6cb2873f4a3b1c4f10dbfec75f0f11b69cc8",
+    "bytes": 786
+  },
+  {
+    "path": "research/open-source-audit/evidence/chatterbox-source-audit.md",
+    "sha256": "c74e48d04ea530075991287347aaac44dc42f54c575218fecc5c75bc7de1e555",
+    "bytes": 8725
+  },
+  {
+    "path": "research/open-source-audit/evidence/cost-scenarios.json",
+    "sha256": "1602fafcba1239add3b20caee20fdb0cc11572b4e32854f92c27d69893af63ad",
+    "bytes": 1072
+  },
+  {
+    "path": "research/open-source-audit/evidence/dependency-check.json",
+    "sha256": "d2e8896e4161b7d004b75367e0ddca89b7cc6aed6299b5c03f578697cb60da98",
+    "bytes": 811
+  },
+  {
+    "path": "research/open-source-audit/evidence/github-metadata.json",
+    "sha256": "4600210b6a0d3a83ce3032410bfc6a381b2007f9e0149a4e88168665893c7d18",
+    "bytes": 25985
+  },
+  {
+    "path": "research/open-source-audit/evidence/learnhouse-source-verification.json",
+    "sha256": "9547be8027b18dc4065a19d4fd7131ef3a1cef1f9d3b41a15ddf2a7d641bb85e",
+    "bytes": 18643
+  },
+  {
+    "path": "research/open-source-audit/evidence/repository-pins.json",
+    "sha256": "46588d4c997a395c7a3c3ff300c6078b4a6d665b39b2ebd70c0759ba2c4519b4",
+    "bytes": 6567
+  },
+  {
+    "path": "research/open-source-audit/evidence/test-results.md",
+    "sha256": "03616191673b4450060c4c31cf375c8b56a0856a9de849001b9112eb5412d553",
+    "bytes": 3353
+  }
+]

@@ -1,6 +1,6 @@
 # Sebaverse — AI-native adaptive tutoring master project
 
-Version 0.2 • 10 November 2026 • documentation and planning only.
+Version 1.0 • 11 November 2026 • documentation and planning only.
 
 Egypt-first, solo-founder, affordability-critical, globally extensible. The founder selected **Sebaverse** for brand development (U7). The project folder is Documents/Sebaverse; the existing repository and history are preserved. C visual identity with B blue/orange is selected (U10). No permanent slogan is selected; detailed brand/design review remains open. No application, paid model benchmark, deployment or real-student pilot has been implemented.
 
@@ -11,7 +11,7 @@ Egypt-first, solo-founder, affordability-critical, globally extensible. The foun
 3. [Research reconciliation / evidence ledger](docs/02-research-reconciliation.md) and [source catalog](sources/source-catalog.md).
 4. [Naming / brand / design / flows](design/brand-and-design-system.md), [editable tokens](design/design-tokens.json).
 5. [Learning state machine](docs/03-learning-intelligence.md), [curriculum / uploads / RAG](docs/04-curriculum-and-rag.md), [routing / Jev / voice](docs/05-model-routing-and-voice.md).
-6. [Architecture / data model](architecture/system-and-data-model.md), eight [ADRs](architecture/adr/ADR-001-owned-modular-monolith.md), [safety / privacy / licensing](docs/06-safety-privacy-security.md).
+6. [Architecture / data model](architecture/system-and-data-model.md), twelve [ADRs](architecture/adr/ADR-001-owned-modular-monolith.md), [safety / privacy / licensing](docs/06-safety-privacy-security.md).
 7. [Economics](economics/README.md), [editable inputs](economics/inputs.json), [sensitivity](economics/sensitivity.md).
 8. [QA / delivery / operations](docs/07-qa-evals-and-operations.md), [roadmap / gates](execution/roadmap-and-gates.md), [decisions / risks](registers/decisions-risks-unknowns.md).
 9. [Codex instructions](AGENTS.md) and [phased prompts](execution/phased-codex-prompts.md).
@@ -22,11 +22,11 @@ All 13 global research files and 14 open-source audit files are preserved unchan
 
 ## Current starting scope
 
-German for a student at a national language school, using her uploaded curriculum first ([scope](docs/08-german-upload-first.md), U4). Naming, logo, slogan and brand guidelines come next (U5). Grade/level/edition and explanation language remain open.
+German for a student at a national language school, using her uploaded curriculum first ([scope](docs/08-german-upload-first.md), U4). This is an initial content example only; U11 makes the platform architecture subject-independent and does not require this upload to proceed.
 
 ## Decisions to review next
 
-Remaining grade/level/edition/buyer and content-rights route; monthly vs course/semester plan and cost ceiling; shortlist/name/design direction; data-processing/guardian/safeguarding route; stack/provider benchmarks and bounded PoC budget. All gate approval records remain pending. Pricing inputs are hypotheses, not validated margin. No current name/domain/mark clearance is claimed.
+Technical architecture is selected under U11/U12. Next: audit the concrete baseline and resolve PoC execution budget/dependency/security conditions. Grade/edition choices apply to pilot content, not core design. Production processor/rights/guardian/retention and commercial decisions remain gated. Pricing inputs are hypotheses, not validated margin. No current name/domain/mark clearance is claimed.
 
 ## Reproduce artifact checks
 
@@ -36,8 +36,12 @@ Project files are editable Markdown/JSON with local Git history. No remote repos
 
 ## Arabic-first identity trials
 
-[Three new brand trial systems](outputs/sebaverse-brand-trial-v3/README.md): visual boards, editable guidelines and tokens, RTL reading previews. Arabic leads; logo stays Latin Sebaverse. All three await founder review.
+[Three new brand trial systems](outputs/sebaverse-brand-trial-v3/README.md): visual boards, editable guidelines and tokens, RTL reading previews. Arabic leads; logo stays Latin Sebaverse. Historical trials; superseded by the current brand system below.
 
 ## Current brand system
 
 [Brand and design system v1](outputs/sebaverse-brand-system-v1/README.md): editable visual reference, guidelines, components, tokens, SVG assets and licensed fonts. This supersedes earlier palette trials; “كل سؤال باب” is not adopted.
+
+## Selected architecture and audit handoff
+
+[Technical baseline](architecture/technical-baseline.md), [all 99 features/functions](architecture/feature-function-matrix.md), [all 22 repo decisions](architecture/repository-adoption.md), and [subject-independent phases/PoC](execution/subject-independent-poc.md). [Shareable audit package](outputs/sebaverse-architecture-audit-v1/README.md). Design selected; no product or paid benchmarks built.

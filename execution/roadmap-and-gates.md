@@ -1,20 +1,20 @@
 # Roadmap, work breakdown and gates
 
-All future work is proposed. This delivery establishes docs, not approval to implement/deploy/recruit/pay/send. The founder can approve concrete gate records after review; requirements are retained regardless of phase. U1/U2; G10 and A11–A13 inform estimates.
+Implementation work remains gated. Technical baseline selected under U11/U12; architectural design proceeds independently of first-subject content. This delivery establishes docs, not approval to implement/deploy/recruit/pay/send. The founder can approve concrete gate records after review; requirements are retained regardless of phase. U1/U2; G10 and A11–A13 inform estimates.
 
 | Gate | Reviewable artifact / acceptance | Owner and dependencies | Current status |
 |---|---|---|---|
 | G0 Context | Full pack hashes, available founder sources, GAP-001 declared | Founder; R001–003 | Pack inventory done; older-history sign-off open |
 | G1 Product | First curriculum/age/subject, buyer, rights route, budget, success protocol, MVP/future baseline | Founder + educator, after G0 | Pending |
 | G2 Brand/design | Screened shortlist, chosen name, bilingual identity/tokens and tested journeys | Founder + native reviewers, after G1 | In progress; Sebaverse name, C visual identity and B blue/orange selected (U10); full review pending |
-| G3 Architecture/PoC | ADRs, data/rights/privacy route, safe synthetic corpus, budget/timebox, acceptance suite | Founder + educator/security/legal roles as relevant; G1/G2 | Pending |
+| G3 Architecture/PoC | Selected ADRs, audit pack, rights/privacy route, synthetic corpus, budget/timebox, acceptance suite | Technical design under U11/U12; actual execution permissions separately recorded | Technical design complete for audit; execution/processor/budget conditions pending |
 | G4 Technical evidence | Bounded PoC results with raw receipts, failures, quality slices, restore/deletion | Founder + educator; G3 | Not started |
 | G5 Supervised pilot | Appropriate real-minor permissions, approved materials, safeguarding/support owner, caps and incident operations | Founder + qualified reviewers; G4 | Not started |
 | G6 Commercial | Payment/refund terms, full unit economics, security/load/privacy review and support coverage | Founder; successful pilot | Not started |
 
 ## Work packages and milestone outputs
 
-M0 Foundation (this deliverable): context audit, 98-entry requirements baseline, preserved research, PRD/design/architecture, economics and execution system. Final historic completeness remains open. No fixed completion date for founder reviews.
+M0 Foundation (this deliverable): context audit, 99-entry requirements baseline, preserved research, PRD/design/architecture, economics and execution system. Final historic completeness remains open. No fixed completion date for founder reviews.
 
 M1 Product/brand/design: select one slice and customer promise; review hypotheses against existing prospects; identify content/educator; screen three names and choose; test low-fidelity student/parent/upload/voice journeys; record decisions. Estimate 1–2 founder weeks plus external name/rights/legal lead time as a new planning assumption, not research fact. Stop if no lawful affordable content/data route.
 
@@ -33,3 +33,7 @@ New requirement gets source, stable ID, priority, dependencies, phase and accept
 ## Updated sequence U4/U5
 
 Starting subject is German, national language school, learner-uploaded curriculum first. Next: compare name/logo/slogan/brand-guideline directions; do not block exploration on the remaining grade/edition questions. Original math-focused PoC fixtures must be adapted for reviewed German vocabulary, grammar, comprehension and speech before approval. G1–G3 remain pending as whole gates.
+
+## U11/U12 supersession — current sequence
+
+Architecture design is not blocked by a particular German curriculum, grade or edition. [A0–A7 phase plan](subject-independent-poc.md) is the current execution sequence; earlier one-unit/German fixtures above are historical planning scope superseded for architecture validation by three authored subject profiles. No whole G1/G2/G3 gate is approved by agent delivery. Technical design is selected; content-specific readiness applies before the corresponding real pilot, and live/provider/processor/budget conditions remain separate.

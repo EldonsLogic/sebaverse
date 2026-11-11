@@ -1,0 +1,62 @@
+{
+  "version": "1.0",
+  "date": "2026-11-11",
+  "instruction_sources": [
+    "U11",
+    "U12"
+  ],
+  "decision_author": "project engineering agent under founder instruction to finalize",
+  "technical_baseline": "selected; audit ready",
+  "founder_blanket_gate_approval": false,
+  "implementation_started": false,
+  "curriculum_upload_required_for_design": false,
+  "stack": {
+    "backend": [
+      "Python 3.12",
+      "Django 5.2 LTS",
+      "Django REST framework",
+      "Uvicorn ASGI"
+    ],
+    "web": [
+      "React",
+      "TypeScript",
+      "Vite",
+      "React Router",
+      "TanStack Query"
+    ],
+    "storage": [
+      "PostgreSQL 17",
+      "pgvector",
+      "private S3-compatible objects"
+    ],
+    "jobs": "PostgreSQL leased jobs/outbox; same-codebase workers",
+    "parser": "Docling isolated worker; external scanner boundary",
+    "transport": "same-origin REST + SSE; push-to-talk audio",
+    "model_authority": "none over permissions/payments/mastery; qualified adapters only"
+  },
+  "exact_dependency_locks": null,
+  "hosting_region_provider": null,
+  "production_model_routes": null,
+  "live_comparison_budget": null,
+  "pending_conditions": [
+    "external/founder audit feedback",
+    "resolved versions/security/model-data-license closure",
+    "applicable G1-G3 execution approvals",
+    "authorized live-call time/spend cap",
+    "processor/rights/consent readiness before real data"
+  ],
+  "adrs": [
+    "ADR-001",
+    "ADR-002",
+    "ADR-003",
+    "ADR-004",
+    "ADR-005",
+    "ADR-006",
+    "ADR-007",
+    "ADR-008",
+    "ADR-009",
+    "ADR-010",
+    "ADR-011",
+    "ADR-012"
+  ]
+}

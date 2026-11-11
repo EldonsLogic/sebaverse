@@ -1,0 +1,1745 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Sebaverse architecture audit v1</title><style>@page{size:A4;margin:18mm 15mm 20mm}*{box-sizing:border-box}body{margin:0;color:#151922;background:#F4F6FA;font:16px/1.65 Arial,sans-serif}main{max-width:1250px;background:white;margin:auto;padding:48px}.cover{border-top:9px solid #2347D6;padding-top:36px;margin-bottom:60px}.cover h1{font-size:50px;line-height:1.12;max-width:900px}.label{color:#535D71;text-transform:uppercase;letter-spacing:.08em;font-size:13px}.badge{display:inline-block;padding:6px 12px;background:#FFE8D9;border-radius:6px}h1{font-size:30px;line-height:1.25}h2{font-size:23px;margin-top:36px;color:#172F96}h3{font-size:19px}p,li{max-width:105ch}a{color:#2347D6}table{width:100%;border-collapse:collapse;font-size:13px;line-height:1.55;table-layout:fixed;margin:20px 0}th,td{border:1px solid #DCE1EB;vertical-align:top;padding:10px;overflow-wrap:anywhere}th{background:#E4EAFF;text-align:left}thead{display:table-header-group}tr{break-inside:avoid}code{font:12px/1.5 monospace;background:#F4F6FA;overflow-wrap:anywhere}pre{background:#F4F6FA;border:1px solid #DCE1EB;padding:16px;white-space:pre-wrap;font-size:12px;overflow-wrap:anywhere;break-inside:auto}pre code{font-size:11px}.section-tag{color:#535D71;border-top:3px solid #FF8A3D;padding-top:12px;font-size:13px;font-weight:bold}section{margin-top:70px}.map,img{max-width:100%;height:auto}.map{width:100%}.note{background:#E4EAFF;border-inline-start:4px solid #2347D6;padding:16px}blockquote{border-left:3px solid #FF8A3D;padding-left:16px;color:#535D71}.toc{columns:2;padding-left:22px}.toc li{padding:5px 0}.mermaid-note{font-size:12px;color:#535D71}#section-5 th:nth-child(1){width:14%}#section-5 th:nth-child(2){width:26%}#section-5 th:nth-child(3){width:10%}#section-5 th:nth-child(4){width:50%}#section-6 th:nth-child(1){width:31%}#section-6 th:nth-child(2){width:31%}#section-6 th:nth-child(3){width:13%}#section-6 th:nth-child(4){width:25%}#section-11 th:nth-child(1){width:10%}#section-11 th:nth-child(2){width:52%}#section-11 th:nth-child(3){width:38%}@media(max-width:700px){main{padding:20px}.cover h1{font-size:34px}.toc{columns:1}table{font-size:11px}td,th{padding:5px}}@media print{body{background:white;font-size:10.5pt;line-height:1.5}main{max-width:none;padding:0}.cover{break-after:page}.cover h1{font-size:38pt}h1{font-size:23pt}h2{font-size:16pt;break-after:avoid}h3{font-size:13pt;break-after:avoid}section{break-before:auto;margin-top:28px}h1,.section-tag{break-after:avoid}pre:has(code.language-mermaid){display:none}table{font-size:8.5pt;line-height:1.45}th,td{padding:6px}pre,code{font-size:8pt}.map-page{break-before:page;break-after:page}.map{max-height:235mm}img{max-height:190mm;object-fit:contain;break-inside:avoid}.toc{columns:1}.section-tag{font-size:9pt}a{text-decoration:none}p{orphans:3;widows:3}}</style></head><body><main><div class="cover"><div class="label">Independent architecture audit handoff</div><h1>Sebaverse<br>Platform architecture</h1><p><span class="badge">Version 1.0 · 11 November 2026</span></p><p>Subject-independent adaptive tutoring platform. Selected technical design, complete feature/function coverage, GitHub component decisions and phased delivery.</p><p class="note"><strong>Design selected. Product unimplemented.</strong> All 99 requirements and 22 audited repositories are accounted for. Engineering decisions, research evidence, untested behavior and unresolved execution conditions are distinguished.</p><h2>Contents</h2><ol class="toc"><li><a href="#section-0">Technical baseline and system map</a></li><li><a href="#section-1">Subject and curriculum contracts</a></li><li><a href="#section-2">Data and entity model</a></li><li><a href="#section-3">Runtime and lifecycle maps</a></li><li><a href="#section-4">API and event contracts</a></li><li><a href="#section-5">GitHub adoption and exclusions</a></li><li><a href="#section-6">Full feature / function / phase map</a></li><li><a href="#section-7">Deployment, security and delivery</a></li><li><a href="#section-8">Phases, work packages and PoC acceptance</a></li><li><a href="#section-9">Evidence, limitations and unknowns</a></li><li><a href="#section-10">Independent auditor response template</a></li><li><a href="#section-11">Primary-source references</a></li></ol><p>Editable Markdown, JSON, SVG/Mermaid, 12 ADRs, all original research/citations, economics and reviewer template are bundled. No external send performed.</p></div><div class="map-page"><svg class="map" xmlns="http://www.w3.org/2000/svg" width="1600" height="1330" viewBox="0 0 1600 1330"><defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="none" stroke="#535D71"/></marker></defs><rect width="1600" height="1330" fill="#F4F6FA"/><text x="50" y="52" font-family="Arial,sans-serif" font-size="34" font-weight="700" fill="#151922">Sebaverse | Subject-independent architecture</text><text x="50" y="84" font-family="Arial,sans-serif" font-size="18" font-weight="400" fill="#535D71">Selected technical design v1.0 | 11 November 2026 | Not implemented or benchmarked</text><rect x="50" y="115" width="480" height="100" rx="14" fill="#FFFFFF" stroke="#DCE1EB"/><text x="68" y="145" font-family="Arial,sans-serif" font-size="21" font-weight="700" fill="#151922">Student</text><text x="68" y="173" font-family="Arial,sans-serif" font-size="17" font-weight="400" fill="#535D71">Subjects / sources / tutor / independent practice</text><rect x="560" y="115" width="480" height="100" rx="14" fill="#FFFFFF" stroke="#DCE1EB"/><text x="578" y="145" font-family="Arial,sans-serif" font-size="21" font-weight="700" fill="#151922">Parent</text><text x="578" y="173" font-family="Arial,sans-serif" font-size="17" font-weight="400" fill="#535D71">Verified relationship / permitted progress</text><rect x="1070" y="115" width="480" height="100" rx="14" fill="#FFFFFF" stroke="#DCE1EB"/><text x="1088" y="145" font-family="Arial,sans-serif" font-size="21" font-weight="700" fill="#151922">Educator / operator</text><text x="1088" y="173" font-family="Arial,sans-serif" font-size="17" font-weight="400" fill="#535D71">Review / publication / appeals / operations</text><path d="M290 215 L290 245" stroke="#535D71" stroke-width="2" marker-end="url(#arrow)"/><path d="M800 215 L800 245" stroke="#535D71" stroke-width="2" marker-end="url(#arrow)"/><path d="M1310 215 L1310 245" stroke="#535D71" stroke-width="2" marker-end="url(#arrow)"/><rect x="50" y="250" width="1500" height="110" rx="14" fill="#E4EAFF" stroke="#DCE1EB"/><text x="68" y="280" font-family="Arial,sans-serif" font-size="21" font-weight="700" fill="#151922">One web product + same-origin API</text><text x="68" y="308" font-family="Arial,sans-serif" font-size="17" font-weight="400" fill="#535D71">React + TypeScript + Vite | Django + DRF / ASGI | REST commands + authenticated SSE</text><text x="68" y="333" font-family="Arial,sans-serif" font-size="17" font-weight="400" fill="#535D71">Server-side sessions / CSRF | live consent, object permissions, entitlement and spend checks</text><path d="M800 360 L800 390" stroke="#535D71" stroke-width="2" marker-end="url(#arrow)"/><rect x="50" y="400" width="350" height="145" rx="14" fill="#FFFFFF" stroke="#DCE1EB"/><text x="68" y="430" font-family="Arial,sans-serif" font-size="21" font-weight="700" fill="#151922">Curriculum + ingestion</text><text x="68" y="458" font-family="Arial,sans-serif" font-size="17" font-weight="400" fill="#535D71">Systems / subjects / editions</text><text x="68" y="483" font-family="Arial,sans-serif" font-size="17" font-weight="400" fill="#535D71">Private + built-in materials</text><text x="68" y="508" font-family="Arial,sans-serif" font-size="17" font-weight="400" fill="#535D71">Rights / source anchors / versions</text><rect x="430" y="400" width="350" height="145" rx="14" fill="#FFFFFF" stroke="#DCE1EB"/><text x="448" y="430" font-family="Arial,sans-serif" font-size="21" font-weight="700" fill="#151922">Tutor + learning policy</text><text x="448" y="458" font-family="Arial,sans-serif" font-size="17" font-weight="400" fill="#535D71">Versioned subject profiles</text><text x="448" y="483" font-family="Arial,sans-serif" font-size="17" font-weight="400" fill="#535D71">Bounded actions / typed tools</text><text x="448" y="508" font-family="Arial,sans-serif" font-size="17" font-weight="400" fill="#535D71">Deterministic authority</text><rect x="810" y="400" width="350" height="145" rx="14" fill="#FFFFFF" stroke="#DCE1EB"/><text x="828" y="430" font-family="Arial,sans-serif" font-size="21" font-weight="700" fill="#151922">Assessment + evidence</text><text x="828" y="458" font-family="Arial,sans-serif" font-size="17" font-weight="400" fill="#535D71">Reviewed items / rubrics</text><text x="828" y="483" font-family="Arial,sans-serif" font-size="17" font-weight="400" fill="#535D71">Independent vs assisted</text><text x="828" y="508" font-family="Arial,sans-serif" font-size="17" font-weight="400" fill="#535D71">Correction / replay / due review</text><rect x="1190" y="400" width="360" height="145" rx="14" fill="#FFFFFF" stroke="#DCE1EB"/><text x="1208" y="430" font-family="Arial,sans-serif" font-size="21" font-weight="700" fill="#151922">Access + operations</text><text x="1208" y="458" font-family="Arial,sans-serif" font-size="17" font-weight="400" fill="#535D71">Consent / grants / usage</text><text x="1208" y="483" font-family="Arial,sans-serif" font-size="17" font-weight="400" fill="#535D71">Parent reports / future teacher</text><text x="1208" y="508" font-family="Arial,sans-serif" font-size="17" font-weight="400" fill="#535D71">Release / incidents / privacy</text><path d="M225 545 L225 580" stroke="#535D71" stroke-width="2" marker-end="url(#arrow)"/><path d="M605 545 L605 580" stroke="#535D71" stroke-width="2" marker-end="url(#arrow)"/><path d="M985 545 L985 580" stroke="#535D71" stroke-width="2" marker-end="url(#arrow)"/><path d="M1370 545 L1370 580" stroke="#535D71" stroke-width="2" marker-end="url(#arrow)"/><rect x="50" y="590" width="480" height="140" rx="14" fill="#E4EAFF" stroke="#DCE1EB"/><text x="68" y="620" font-family="Arial,sans-serif" font-size="21" font-weight="700" fill="#151922">Scoped retrieval</text><text x="68" y="648" font-family="Arial,sans-serif" font-size="17" font-weight="400" fill="#535D71">PostgreSQL lexical + pgvector</text><text x="68" y="673" font-family="Arial,sans-serif" font-size="17" font-weight="400" fill="#535D71">Exact filtered search baseline</text><text x="68" y="698" font-family="Arial,sans-serif" font-size="17" font-weight="400" fill="#535D71">Source/version/page citation resolver</text><rect x="560" y="590" width="480" height="140" rx="14" fill="#FFE8D9" stroke="#DCE1EB"/><text x="578" y="620" font-family="Arial,sans-serif" font-size="21" font-weight="700" fill="#151922">Provider gateway</text><text x="578" y="648" font-family="Arial,sans-serif" font-size="17" font-weight="400" fill="#535D71">Eligible text / embed / STT / TTS</text><text x="578" y="673" font-family="Arial,sans-serif" font-size="17" font-weight="400" fill="#535D71">Budget / usage receipts / cancellation</text><text x="578" y="698" font-family="Arial,sans-serif" font-size="17" font-weight="400" fill="#535D71">Rules first; Jev classifier experiment</text><rect x="1070" y="590" width="480" height="140" rx="14" fill="#FFFFFF" stroke="#DCE1EB"/><text x="1088" y="620" font-family="Arial,sans-serif" font-size="21" font-weight="700" fill="#151922">Durable work</text><text x="1088" y="648" font-family="Arial,sans-serif" font-size="17" font-weight="400" fill="#535D71">PostgreSQL jobs + outbox</text><text x="1088" y="673" font-family="Arial,sans-serif" font-size="17" font-weight="400" fill="#535D71">Leases / fencing / bounded retries</text><text x="1088" y="698" font-family="Arial,sans-serif" font-size="17" font-weight="400" fill="#535D71">No Redis/Celery required initially</text><path d="M290 730 L290 770" stroke="#535D71" stroke-width="2" marker-end="url(#arrow)"/><path d="M800 730 L800 770" stroke="#535D71" stroke-width="2" marker-end="url(#arrow)"/><path d="M1310 730 L1310 770" stroke="#535D71" stroke-width="2" marker-end="url(#arrow)"/><rect x="50" y="780" width="480" height="140" rx="14" fill="#FFFFFF" stroke="#DCE1EB"/><text x="68" y="810" font-family="Arial,sans-serif" font-size="21" font-weight="700" fill="#151922">Authoritative PostgreSQL</text><text x="68" y="838" font-family="Arial,sans-serif" font-size="17" font-weight="400" fill="#535D71">Curriculum / actors / evidence / usage</text><text x="68" y="863" font-family="Arial,sans-serif" font-size="17" font-weight="400" fill="#535D71">pgvector selected extension</text><text x="68" y="888" font-family="Arial,sans-serif" font-size="17" font-weight="400" fill="#535D71">No model writes roles, money, mastery</text><rect x="560" y="780" width="480" height="140" rx="14" fill="#FFFFFF" stroke="#DCE1EB"/><text x="578" y="810" font-family="Arial,sans-serif" font-size="21" font-weight="700" fill="#151922">Private object storage</text><text x="578" y="838" font-family="Arial,sans-serif" font-size="17" font-weight="400" fill="#535D71">Quarantine / accepted / derived assets</text><text x="578" y="863" font-family="Arial,sans-serif" font-size="17" font-weight="400" fill="#535D71">Authorized scoped access</text><text x="578" y="888" font-family="Arial,sans-serif" font-size="17" font-weight="400" fill="#535D71">Delete / rights withdrawal propagation</text><rect x="1070" y="780" width="480" height="140" rx="14" fill="#FFFFFF" stroke="#DCE1EB"/><text x="1088" y="810" font-family="Arial,sans-serif" font-size="21" font-weight="700" fill="#151922">Isolated upload processing</text><text x="1088" y="838" font-family="Arial,sans-serif" font-size="17" font-weight="400" fill="#535D71">ClamAV boundary + Docling parser</text><text x="1088" y="863" font-family="Arial,sans-serif" font-size="17" font-weight="400" fill="#535D71">PaddleOCR fallback only if useful</text><text x="1088" y="888" font-family="Arial,sans-serif" font-size="17" font-weight="400" fill="#535D71">No learner DB keys or broad egress</text><path d="M290 920 L290 955" stroke="#535D71" stroke-width="2" marker-end="url(#arrow)"/><path d="M800 920 L800 955" stroke="#535D71" stroke-width="2" marker-end="url(#arrow)"/><path d="M1310 920 L1310 955" stroke="#535D71" stroke-width="2" marker-end="url(#arrow)"/><rect x="50" y="965" width="735" height="125" rx="14" fill="#E4EAFF" stroke="#DCE1EB"/><text x="68" y="995" font-family="Arial,sans-serif" font-size="21" font-weight="700" fill="#151922">Evaluation + delivery</text><text x="68" y="1023" font-family="Arial,sans-serif" font-size="17" font-weight="400" fill="#535D71">Own fixtures + pytest / Playwright / Promptfoo offline</text><text x="68" y="1048" font-family="Arial,sans-serif" font-size="17" font-weight="400" fill="#535D71">OpenTelemetry metadata | versioned releases / CI / restore</text><rect x="815" y="965" width="735" height="125" rx="14" fill="#FFE8D9" stroke="#DCE1EB"/><text x="833" y="995" font-family="Arial,sans-serif" font-size="21" font-weight="700" fill="#151922">Ready-component policy</text><text x="833" y="1023" font-family="Arial,sans-serif" font-size="17" font-weight="400" fill="#535D71">Adopt bounded libraries, not an entire tutoring platform</text><text x="833" y="1048" font-family="Arial,sans-serif" font-size="17" font-weight="400" fill="#535D71">DeepTutor: reference only | LearnHouse: deferred | EduStudio pin: quarantine</text><rect x="50" y="1120" width="1500" height="125" rx="14" fill="#FFFFFF" stroke="#DCE1EB"/><text x="68" y="1150" font-family="Arial,sans-serif" font-size="21" font-weight="700" fill="#151922">Adding another subject</text><text x="68" y="1178" font-family="Arial,sans-serif" font-size="17" font-weight="400" fill="#535D71">Reviewed profile + curriculum/material versions + item/rubric configuration; same core and APIs.</text><text x="68" y="1203" font-family="Arial,sans-serif" font-size="17" font-weight="400" fill="#535D71">New specialist grading/representation capabilities use reviewed adapters. No particular textbook is an architecture dependency.</text><text x="50" y="1290" font-family="Arial,sans-serif" font-size="18" font-weight="400" fill="#535D71">Detailed runtime, ER and state diagrams + all 99 requirements and 22 audited repositories are included in the audit pack.</text></svg></div><section id="section-0"><div class="section-tag">01 / Technical baseline and system map</div><h1>Sebaverse technical architecture baseline — v1.0</h1>
+<p>11 November 2026 · sources U1/U2/U11/U12; A01–A13 and G04–G10 remain dated research. <strong>Status: technical design selected under the founder&#39;s instruction to finalize architecture.</strong> Author: project engineering agent. This is a concrete design baseline for audit, not a claim of founder sign-off on unseen details, passed benchmarks, legal clearance or implementation permission. Architecture choices below replace the earlier open stack comparison. Production and PoC execution gates remain separately recorded.</p>
+<h2>1. Decision summary</h2>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Selected baseline</th>
+<th>Boundary / consequence</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Product core</td>
+<td>Owned modular monolith, one repository</td>
+<td>One business authority; no whole upstream tutoring/LMS foundation</td>
+</tr>
+<tr>
+<td>Backend</td>
+<td>Python 3.12 + Django 5.2 LTS + Django REST framework</td>
+<td>Django auth/admin/ORM/migrations; synchronous transactional services; ASGI endpoints for event streaming</td>
+</tr>
+<tr>
+<td>Web product</td>
+<td>React + TypeScript + Vite, React Router and TanStack Query</td>
+<td>Static build, same-origin API, reusable Arabic-first components using current design tokens; no separate Node production server</td>
+</tr>
+<tr>
+<td>Persistence</td>
+<td>PostgreSQL 17, JSONB for validated profile/config extensions</td>
+<td>Relational scope/version/financial invariants; JSONB is not an untyped replacement for domain tables</td>
+</tr>
+<tr>
+<td>Retrieval</td>
+<td>PostgreSQL lexical retrieval + pgvector dense path, bounded reciprocal-rank fusion</td>
+<td>Lexical baseline always measured; exact filtered vector search first, ANN only after filtered recall tests</td>
+</tr>
+<tr>
+<td>Assets</td>
+<td>Private S3-compatible object storage</td>
+<td>Separate quarantine/accepted/derived access; short-lived access issued only after authorization</td>
+</tr>
+<tr>
+<td>Ingestion</td>
+<td>Isolated Docling parser worker; isolated malware scanner boundary</td>
+<td>No learner DB credentials or arbitrary network access; signed scoped job manifests; PaddleOCR only if evaluated need</td>
+</tr>
+<tr>
+<td>Tutoring</td>
+<td>Owned finite-state orchestration, typed tools, approved subject profiles</td>
+<td>Models propose content; application owns transitions, authorization, score acceptance and projections</td>
+</tr>
+<tr>
+<td>Jobs</td>
+<td>PostgreSQL durable job/outbox tables + same-codebase workers</td>
+<td>At-least-once execution, leases/heartbeats/idempotent effects; no broker or Celery initially</td>
+</tr>
+<tr>
+<td>Text transport</td>
+<td>REST commands + server-sent events (SSE) over ASGI</td>
+<td>Durable turn IDs, replay, cancel endpoint, server-authorized subscriptions; no WebSockets required for text</td>
+</tr>
+<tr>
+<td>Voice</td>
+<td>Push-to-talk STT → text tutor → TTS, adapter-based</td>
+<td>Text always available; realtime voice has a separate benchmarked adapter seam, not initial default</td>
+</tr>
+<tr>
+<td>Models</td>
+<td>Direct provider adapters behind owned capability/eligibility registry</td>
+<td>Default + qualified fallback selected by evaluation/terms; OpenAI/Claude/Gemini/Chinese/open-weight/local remain supported adapter families</td>
+</tr>
+<tr>
+<td>Recall</td>
+<td>Fixed schedule baseline; py-fsrs adapter comparator</td>
+<td>FSRS is a selected reuse component for recall experiments, never an educational mastery estimator</td>
+</tr>
+<tr>
+<td>Evaluation / telemetry</td>
+<td>Own fixtures + pytest/Playwright + Promptfoo offline + OpenTelemetry</td>
+<td>Metadata-only observability defaults; no raw child prompts/audio in routine telemetry</td>
+</tr>
+<tr>
+<td>Packaging / delivery</td>
+<td>OCI containers; Docker Compose local; same-origin reverse proxy; GitHub Actions workflow design</td>
+<td>Actual remote, accounts, region and production provisioning require separate authorization</td>
+</tr>
+</tbody></table>
+<p>Exact package patches, toolchain minors, image digests and dependency closure are resolved and recorded before installation. This is release pinning, not a reopening of selected architecture. Python/Django compatibility, parser model rights and resolved vulnerabilities must pass then. Do not install latest tags or use research commit SHAs as an untested production lock. The Vite build has no runtime Node requirement; choose a compatible supported Node LTS for builds when locking.</p>
+<p>React adds a typed UI toolchain compared with the old template-first proposal, justified by multi-panel tutoring, citations, editable transcripts, source review and reusable parent/student components. Keeping all business authority in Django and serving static assets on the same origin avoids a second backend. No Next.js server or React Server Components at baseline; public marketing can be static. DRF handles ordinary HTTP APIs; native Django ASGI views handle streaming, not an assumption that all DRF views are async.</p>
+<h2>2. System map</h2>
+<pre><code class="language-mermaid">flowchart TB
+ subgraph Clients[Browser surfaces — one design system]
+  S[Student: subjects / sources / tutor / practice / revision]
+  P[Parent: permissions / permitted progress / access]
+  E[Educator and operator admin]
+ end
+ S --&gt; EDGE[HTTPS same-origin proxy + static React assets]
+ P --&gt; EDGE
+ E --&gt; EDGE
+ EDGE --&gt; WEB[Django ASGI / REST commands / SSE]
+ WEB --&gt; AUTH[Identity / live authorization / consent / entitlements]
+ WEB --&gt; CORE[Application services and module contracts]
+ CORE --&gt; CUR[Curriculum / rights / versions / subject profiles]
+ CORE --&gt; ASSESS[Reviewed items / grading / appeals]
+ CORE --&gt; LEARN[Evidence ledger / projections / review schedule]
+ CORE --&gt; TURN[Durable tutor state machine]
+ TURN --&gt; POLICY[Deterministic policy + optional classifier recommendations]
+ TURN --&gt; RET[Scoped retrieval + citation resolver]
+ TURN --&gt; AI[Provider gateway + spend reservations]
+ AI --&gt; EXT[Eligible text / embedding / STT / TTS endpoints or local model]
+ CORE --&gt; DB[(PostgreSQL domain + jobs + outbox + pgvector)]
+ CUR --&gt; DB
+ ASSESS --&gt; DB
+ LEARN --&gt; DB
+ RET --&gt; DB
+ TURN --&gt; DB
+ CORE --&gt; OBJ[Private object storage]
+ DB --&gt; JOB[General worker + scheduler]
+ JOB --&gt; BROKER[Restricted ingestion coordinator]
+ BROKER --&gt; SCAN[Isolated scanner]
+ BROKER --&gt; PARSE[Isolated Docling process]
+ SCAN --&gt; Q[Quarantine input + constrained result location]
+ PARSE --&gt; Q
+ BROKER --&gt; CUR
+ JOB --&gt; NOTIFY[Notification/payment adapters — gated external actions]
+ WEB --&gt; OBS[Redacted metrics / audit / traces]
+ JOB --&gt; OBS
+</code></pre>
+<p>Parser arrows indicate constrained job I/O, not a database write permission. Ingestion coordinator validates result manifest, checks current permission/generation/version and commits metadata; parser output is untrusted. External model arrows are gated egress, not permission to send child data to every provider. Web and workers share domain code, not unrestricted credentials.</p>
+<h2>3. Module ownership</h2>
+<table>
+<thead>
+<tr>
+<th>Module</th>
+<th>Functions</th>
+<th>Owns / refuses</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>identity</td>
+<td>login/logout, staff MFA, account recovery, actor/learner separation</td>
+<td>Uses established auth; roles never model/client assertions</td>
+</tr>
+<tr>
+<td>access</td>
+<td>relationship verification, consent, course grants, object scope, revocation</td>
+<td>Single server-derived policy used by API, retrieval, files, jobs and tools</td>
+</tr>
+<tr>
+<td>curriculum</td>
+<td>systems/subjects/editions, private materials, rights, mappings, publication</td>
+<td>No private upload automatically promoted to shared course</td>
+</tr>
+<tr>
+<td>ingestion</td>
+<td>quotas, upload sessions, scanner/parser jobs, extraction review</td>
+<td>No unsafe parsing in API process; unknown quality remains flagged</td>
+</tr>
+<tr>
+<td>assessment</td>
+<td>item families, keys/rubrics, attempts, graders, adjudication</td>
+<td>Versioned score proposals; validated evidence only</td>
+</tr>
+<tr>
+<td>learning</td>
+<td>evidence, misconception hypotheses, projections, prerequisites, due review</td>
+<td>No narrative memory or classifier confidence treated as mastery</td>
+</tr>
+<tr>
+<td>tutoring</td>
+<td>state machine, bounded action selection, tool dispatch, summaries</td>
+<td>No arbitrary agent code/tools or model-directed authorization</td>
+</tr>
+<tr>
+<td>retrieval</td>
+<td>chunk/index lifecycle, scoped query, fusion, citations</td>
+<td>No global unscoped search followed only by postfilter</td>
+</tr>
+<tr>
+<td>providers</td>
+<td>capability registry, adapter normalization, privacy eligibility, cancellation</td>
+<td>No vendor type leaks into business data; no ineligible cheap fallback</td>
+</tr>
+<tr>
+<td>usage/commerce</td>
+<td>quotas, reserve/finalize/reconcile, grants, webhook events/refunds</td>
+<td>No card storage; access separate from money collection</td>
+</tr>
+<tr>
+<td>reporting</td>
+<td>learner/parent views, educator review, later classroom projections</td>
+<td>Aggregates authorized evidence, not invented attainment percentages</td>
+</tr>
+<tr>
+<td>operations</td>
+<td>outbox/jobs, release manifests, evaluations, incidents, audit/export/deletion</td>
+<td>No raw child data in routine logs or automatic training</td>
+</tr>
+</tbody></table>
+<p>Modules expose typed application services and versioned events. Cross-module writes go through owning service; no model or frontend can directly mutate DB tables. Tests enforce import boundaries. Repository layout at implementation: backend/config, backend/modules/{module}, web/src/{app,features,ui}, workers/parser, contracts, evals, infra, with existing docs/research preserved. This is a planned layout, not a generated application.</p>
+<h2>4. Subject-independent extension</h2>
+<p>A SubjectProfileVersion identifies reviewed teaching strategies, allowed representations/tools, grader types and retrieval settings. CurriculumEditionVersion supplies the syllabus, objectives and sources. A learner can enroll in any number of courses with distinct editions. Language of instruction, UI locale and target language are independent fields. No core branch such as <code>if subject == German</code> is permitted.</p>
+<p>Adding a normal subject means content/configuration and reviewer work, using existing item/representation/grader capabilities. A genuinely new modality or grading method requires a reviewed adapter implementation; do not claim every subject can be added with zero engineering. See <a href="architecture/subject-and-curriculum-contracts.md">contracts</a>. Built-in and privately uploaded content use the same version/provenance pipeline with different ownership/publication rules.</p>
+<h2>5. Main runtime flows</h2>
+<p><strong>Upload:</strong> resolve scope/rights/quota → allocate upload → stream to quarantine → verify bytes/type/checksum → scan/resource checks → isolated parse → validate manifest → review extraction/mapping → publish private-ready or separately approved built-in version → index. Failed/stale jobs cannot publish. Rights withdrawal, deletion and revocation invalidate derived access as well as originals.</p>
+<p><strong>Tutor:</strong> authorize actor/learner/course/consent → reserve allowed spend → atomically start turn/checkpoint → pick deterministic permitted action → retrieve from pinned authorized sources → call eligible model with bounded context/tools → validate structured output/citations/safety → emit validated blocks → reconcile receipts → checkpoint. SSE status may stream early; generated text is buffered until that block&#39;s checks pass. Do not send unverified text to a child merely for first-token latency. Worker crashes can pause a turn safely; paid provider calls are not assumed exactly-once.</p>
+<p><strong>Assessment:</strong> lock expected item/session state → record attempt and assistance/exposure → grade with reviewed rubric/tool → ambiguous result pending review → append accepted grade event → versioned projection update → next permitted action. Answer keys stay out of learner-facing retrieval; request retries never double score.</p>
+<p><strong>Parent/report:</strong> live verified relationship + purpose scope → permitted evidence summary and uncertainty → minimal suggested support. Raw transcripts are not a default entitlement. Teacher/organization authority is separate from guardian authority.</p>
+<p><strong>Provider route:</strong> legal/privacy/content eligibility → capability → per-task quality/safety → availability → budget. Classifier may rank already-allowed options; cannot broaden scope or write business state. All requests record release/curriculum/prompt/model/index/policy versions and actual usage units. Prompt/context caching is eligibility-scoped; private learners do not share personalized caches.</p>
+<h2>6. Operating shape and expansion</h2>
+<p>Start with web, general worker/scheduler, parser/scanner isolation, PostgreSQL and object storage. Process boundaries protect runtime and credentials; they are not a microservices program. No initial Redis, Kubernetes, Kafka, separate vector database, graph database, LangChain/LlamaIndex framework or self-hosted GPU requirement. Scale API/worker replicas and indexed queries first. Consider a dedicated broker only after job/DB contention; vector service only after filtered recall/latency demands it; realtime media service only after cost/quality/privacy tests; local inference only after quality and utilization evidence.</p>
+<p>Hosting region/provider, payment gateway, exact model endpoints, retention durations and legal consent process remain owning decisions. Their interfaces are fixed here; their eligibility cannot be invented. None requires a specific school textbook to settle architecture.</p>
+<h2>7. Audit package map</h2>
+<ul>
+<li><a href="architecture/subject-and-curriculum-contracts.md">Subject/curriculum contracts</a></li>
+<li><a href="architecture/system-and-data-model.md">Data model</a></li>
+<li><a href="architecture/api-and-event-contracts.md">API/events and failure semantics</a></li>
+<li><a href="architecture/repository-adoption.md">Repository adoption and exclusions</a></li>
+<li><a href="architecture/deployment-and-delivery.md">Deployment/security/CI</a></li>
+<li><a href="architecture/feature-function-matrix.md">Full feature/function coverage</a></li>
+<li><a href="execution/subject-independent-poc.md">PoC phases and acceptance</a></li>
+<li><a href="sources/architecture-primary-checks.md">Architecture source checks</a></li>
+</ul>
+<p>No performance, safety, efficacy or cost benchmark result is claimed in this baseline.</p>
+</section><section id="section-1"><div class="section-tag">02 / Subject and curriculum contracts</div><h1>Subject and curriculum extension contracts</h1>
+<p>Selected technical design v1 · U11/U12 · R017–R045, R075, R094, R099. Content and assessment approval remains distinct from software configuration.</p>
+<h2>Domain separation</h2>
+<p>EducationSystem → CurriculumSpecification → CurriculumEditionVersion → CourseOffering → Enrollment. Subject is an independent taxonomy, not a deployment. Custom/private courses may leave official specification null; they must not claim ministry alignment. An AcademicPeriod is metadata, not a hard-coded Egyptian semester enum. ObjectiveVersion maps to ConceptVersion through reviewed MappingVersion; equivalence across courses or subjects is explicit, never inferred mastery transfer.</p>
+<p>SubjectProfileVersion specifies instruction language options, target language when relevant, representation capabilities, permitted action templates, grader configurations, prerequisite conventions and retrieval normalization. Values are schema-validated IDs from a reviewed registry, not Python paths, uploaded plugins or executable prompt instructions. Policy limits and safety rules are global constraints a profile cannot weaken. Copying a profile creates a new version; active sessions pin the old one until an explicit migration or withdrawal.</p>
+<h2>Profile fields</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Meaning / constraint</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>id/version/status/reviewer</td>
+<td>Immutable published profile; draft/approved/withdrawn lifecycle</td>
+</tr>
+<tr>
+<td>subject taxonomy</td>
+<td>Language, mathematics, science etc. are tags, not conditionals in core</td>
+</tr>
+<tr>
+<td>instruction_locales/target_language</td>
+<td>Egyptian Arabic/MSA/English explanation independent of curriculum language</td>
+</tr>
+<tr>
+<td>representations</td>
+<td>text, bilingual span, equation AST, table, image region, later interactive manipulative</td>
+</tr>
+<tr>
+<td>graders</td>
+<td>reviewed exact-set, typed numeric, structured choice, rubric proposal with adjudication; optional restricted symbolic/language adapter</td>
+</tr>
+<tr>
+<td>teaching strategies</td>
+<td>diagnostic, explain, worked example, guided step, independent practice, delayed retrieval</td>
+</tr>
+<tr>
+<td>evidence policy version</td>
+<td>Independent/assisted/exposed/ambiguous semantics; profile thresholds remain educator-reviewed hypotheses</td>
+</tr>
+<tr>
+<td>retrieval configuration</td>
+<td>lexical normalization/embedding/rerank settings; may not broaden ACL or combine incompatible embedding spaces</td>
+</tr>
+<tr>
+<td>allowed tools</td>
+<td>Registry identifiers authorized independently by runtime; no generic shell/browser/code executor</td>
+</tr>
+<tr>
+<td>accessibility</td>
+<td>alternative representation and speech/text controls; never an inferred disability classification</td>
+</tr>
+</tbody></table>
+<h2>Adding content or a subject</h2>
+<ol>
+<li>Create or choose a reviewed subject profile and permitted grader types.</li>
+<li>Register source ownership, processing/display/derivative rights and publication scope.</li>
+<li>Upload or import source versions through quarantine; capture original layout/page anchors.</li>
+<li>Review extraction, mark uncertain regions and accept explicit mappings or custom objectives.</li>
+<li>Create reviewed item families, answer/rubric versions and prerequisite edges.</li>
+<li>Run profile/content checks and the subject&#39;s grounding/grading evaluation slice.</li>
+<li>Publish a versioned manifest and enable a course offering; enrollments and grants remain separate.</li>
+</ol>
+<p>A new science course using text/choice/table items needs no core schema change. Chemistry notation, proof grading or pronunciation assessment may need specialist tooling/rubrics; unsupported capabilities stay unavailable, never silently fall back to generic LLM certainty. Instructor configuration may select allowed variants, but not set arbitrary executable rules.</p>
+<h2>Shared and private ingestion</h2>
+<p>Both paths retain material hash, original/normalized text, page/bounding box, source/rights record, parser and index versions. Built-in content requires publisher/educator approval for its intended audience. Private uploaded material can become ready for its permitted learner only after rights/processing and extraction-quality checks; this is not public curricular approval. User corrections create derived revisions with lineage. Source text, notes, answer keys and review comments have distinct audience policies.</p>
+<p>A course may combine several authorized sources via an immutable CollectionManifestVersion. Retrieval resolves its explicit sources plus live grants; a session cannot accidentally search every uploaded book. Replacing one document creates a new collection version. A session pins curriculum/profile/collection/item versions; revocation is checked live even when versions are pinned.</p>
+<h2>Subject-independence acceptance</h2>
+<p>Use three small authored fixtures: a language unit, a quantitative unit and a factual-science unit, plus a private worksheet overlay. Run the same upload/session/attempt/report commands for each. Add the third course via configuration/content after two exist, without editing identity, billing, tutoring state machine, database schema or report code. An unsupported grader produces a clear blocked capability, not a fake result. Two learners studying two subjects never mix evidence, source access or entitlements. Shared concept transfer requires an approved mapping and original evidence remains linked to its source edition.</p>
+<p>This verifies extension boundaries, not quality for every global syllabus. The initial German use case R095 is retained as one example, not a platform dependency.</p>
+</section><section id="section-2"><div class="section-tag">03 / Data and entity model</div><h1>Architecture and domain/data model — v1.0</h1>
+<p>Selected technical design under U11/U12. <a href="architecture/technical-baseline.md">Technical baseline</a> supersedes the earlier framework comparison. Django/DRF + React/TypeScript/Vite + PostgreSQL + private object storage; subject-independent modular core with isolated parsing. No product schema/migration executed. Prior proposal remains in Git history.</p>
+<h2>Conceptual entity map</h2>
+<p><img src="architecture/data-map.svg" alt="Domain entity map"></p>
+<pre><code class="language-mermaid">erDiagram
+ Tenant ||--o{ Membership : has
+ User ||--o{ Membership : holds
+ LearnerProfile ||--o{ GuardianRelationship : governed_by
+ GuardianRelationship ||--o{ ConsentRecord : authorizes
+ EducationSystem ||--o{ CurriculumSpecification : defines
+ Subject ||--o{ SubjectProfileVersion : configures
+ CurriculumSpecification ||--o{ CurriculumEditionVersion : versions
+ CurriculumEditionVersion ||--o{ ObjectiveVersion : contains
+ ObjectiveVersion }o--o{ ConceptVersion : reviewed_mapping
+ ConceptVersion ||--o{ PrerequisiteEdge : connects
+ CurriculumEditionVersion ||--o{ CollectionManifestVersion : sources
+ CollectionManifestVersion }o--o{ MaterialVersion : includes
+ MaterialVersion ||--|| RightsRecord : governed_by
+ MaterialVersion ||--o{ Chunk : yields
+ Chunk }o--|| IndexManifestVersion : indexed_in
+ CurriculumEditionVersion ||--o{ CourseOffering : offered_as
+ LearnerProfile ||--o{ Enrollment : studies
+ CourseOffering ||--o{ Enrollment : admits
+ Enrollment ||--o{ Entitlement : requires
+ SubjectProfileVersion ||--o{ TutorSession : configures
+ Enrollment ||--o{ TutorSession : scopes
+ TutorSession ||--o{ TutorTurn : runs
+ TutorTurn ||--o{ UsageReceipt : accounts
+ ItemFamily ||--o{ ItemVersion : versions
+ ItemVersion ||--|| RubricVersion : assessed_by
+ TutorSession ||--o{ Attempt : records
+ ItemVersion ||--o{ Attempt : answered_in
+ Attempt ||--o{ EvidenceEvent : supports
+ EvidenceEvent }o--|| KnowledgeProjection : projects_to
+ LearnerProfile ||--o{ ReviewSchedule : schedules
+ ReleaseManifest ||--o{ TutorTurn : pins
+</code></pre>
+<p>The diagram is conceptual, not a claim all relationships are 1:1 physical tables; rights and rubric can be separately versioned/reused. KnowledgeProjection is derived from many events and one event may affect several concept projections; an explicit projection-input link/cursor captures this mapping rather than a restrictive physical foreign key. Curriculum IDs remain nullable for genuinely custom materials, never falsely official. Shared approved content has publication audience records; learner-private content always retains its actual ownership scope.</p>
+<h2>Aggregates and invariants</h2>
+<table>
+<thead>
+<tr>
+<th>Aggregate</th>
+<th>Minimum fields / constraints</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>User / Tenant / Membership</td>
+<td>Immutable ID, status, verified auth relations, locale; tenant role from server, never client or model</td>
+</tr>
+<tr>
+<td>LearnerProfile</td>
+<td>Actor distinct from learner; minimal age band and volunteered preferences; no inferred disability or permanent intelligence label</td>
+</tr>
+<tr>
+<td>GuardianRelationship / ConsentRecord</td>
+<td>Verified adult-child link, purpose/scope, policy version, recorded/revoked times, evidence reference; live checks for sensitive access</td>
+</tr>
+<tr>
+<td>EducationSystem / Subject / Specification</td>
+<td>Country/authority/qualification tags and identifiers; no fixed Egyptian/German enum in core</td>
+</tr>
+<tr>
+<td>CurriculumEditionVersion / SubjectProfileVersion</td>
+<td>Immutable version, status, provenance/reviewer, locale/capability schema; withdrawal overrides pinned session availability</td>
+</tr>
+<tr>
+<td>ObjectiveVersion / ConceptVersion / Mapping / Edge</td>
+<td>Many-to-many mapping, confidence/reviewer, edition and edge provenance; approved graph validation; no silent mastery equivalence</td>
+</tr>
+<tr>
+<td>CollectionManifestVersion</td>
+<td>Explicit source versions + audience; pinned session collection, not all uploads in account</td>
+</tr>
+<tr>
+<td>MaterialVersion / RightsRecord</td>
+<td>Original hash, owner, processing/display/derivative/distribution/training permissions, restrictions/expiry, source and reviewer; private is not public approval</td>
+</tr>
+<tr>
+<td>ExtractionManifest / Chunk / IndexManifestVersion</td>
+<td>Parser/model version, original + normalized text, page/bbox, quality, audience/ACL, embedding model/dimension/hash; no mixed embedding spaces</td>
+</tr>
+<tr>
+<td>ItemFamily / ItemVersion / RubricVersion</td>
+<td>Objectives, source, review state, answer key scope, valid variants, grader/profile version, exposure rules; keys excluded from tutor retrieval</td>
+</tr>
+<tr>
+<td>Attempt / EvidenceEvent / CorrectionEvent</td>
+<td>Learner/item/session IDs, occurrence/receipt times, response reference, assistance/exposure, grader/rubric, accepted score or pending status; unique event and command IDs</td>
+</tr>
+<tr>
+<td>KnowledgeProjection / MisconceptionHypothesis</td>
+<td>Learner/concept-version, evidence cursor, state/uncertainty, independent-family counts, contradictions and expiry; rebuildable, no LLM direct writes</td>
+</tr>
+<tr>
+<td>ReviewSchedule / ReviewEvent</td>
+<td>Due time, strategy/algorithm version, accepted recall result; independent of mastery projection</td>
+</tr>
+<tr>
+<td>Session / Turn / StreamCheckpoint</td>
+<td>Curriculum/profile/item/release versions, state/version, cancellation generation, bounded summary; validated block cursor, no hidden chain-of-thought storage</td>
+</tr>
+<tr>
+<td>Enrollment / Entitlement</td>
+<td>Learner/course/status + grant purpose, start/end, quotas; payment alone does not prove valid consent</td>
+</tr>
+<tr>
+<td>UsageReservation / CallAttempt / UsageReceipt</td>
+<td>Maximum reserve, provider attempt/request ID, actual input/output/cache/audio units, price version/currency, unknown/reconciled state; original units retained</td>
+</tr>
+<tr>
+<td>PaymentEvent / Notification / Preference</td>
+<td>Signed deduplicated payment event; recipient/purpose/channel opt-out; real external effects gated</td>
+</tr>
+<tr>
+<td>Job / Outbox / AuditEvent</td>
+<td>Schema version, scope generation, idempotency, lease/fence, status/retry/deadline; restricted payload/reference</td>
+</tr>
+<tr>
+<td>ReleaseManifest / EvaluationRun / Incident / Appeal</td>
+<td>Immutable lineage, fixture/rubric/model/policy versions, result/reviewer; raw child payload excluded from default evals/logs</td>
+</tr>
+</tbody></table>
+<p>Foreign keys and unique/composite constraints enforce learner/course/edition consistency, not prompt instructions. Actor-owned sensitive records carry tenant/learner scope; global approved content uses explicit publication grants instead of fabricated learner ownership. Money uses integer minor units/decimal rates with currency, never binary floats; usage units remain exact integer/decimal by modality. Time stored UTC with occurrence and receipt separately; UI localizes. Sort replay deterministically by accepted sequence and event-time rules with tie-breaker; corrections append lineage before rebuilding, subject to privacy deletion requirements.</p>
+<h2>Privacy, lifecycle and contracts</h2>
+<p>Contact/auth records, learning evidence, restricted safety/consent audit and routine operations telemetry have distinct access/retention purposes. Transcript/audio retention is not required for mastery projection; use minimal response/evidence references and authorized deletion. Export includes allowed source and curriculum/item/policy versions. Revocation blocks live access and cancels queued work before asynchronous deletion; backups restore deletion tombstones before access.</p>
+<p><a href="architecture/api-and-event-contracts.md">API/event contracts</a> define idempotency, stale workers, cancellation and provider billing uncertainty. <a href="architecture/subject-and-curriculum-contracts.md">Subject contracts</a> define adding subjects without core changes. <a href="architecture/deployment-and-delivery.md">Deployment</a> defines roles/keys and migration rules. Database migrations are future code tasks and must test both schema constraints and application authorization.</p>
+</section><section id="section-3"><div class="section-tag">04 / Runtime and lifecycle maps</div><h1>Detailed runtime and lifecycle maps</h1>
+<p>U11/U12 · Selected design, not implementation. <a href="architecture/technical-baseline.md">System topology</a> and <a href="architecture/system-and-data-model.md">entity map</a> complement these editable Mermaid diagrams.</p>
+<h2>Curriculum ingestion and publication</h2>
+<p><img src="architecture/ingestion-map.svg" alt="Curriculum ingestion lifecycle"></p>
+<pre><code class="language-mermaid">flowchart TD
+ A[Actor + learner + scope + quota + rights purpose] --&gt; B[Allocate upload and quarantine object]
+ B --&gt; C[Verify bytes/type/hash/limits]
+ C --&gt; D[Isolated malware scanner]
+ D --&gt;|fail/unavailable| X[Hold or reject: no parser bypass]
+ D --&gt;|accepted| E[Isolated Docling parse]
+ E --&gt; F[Broker validates scoped extraction manifest]
+ F --&gt; G[Quality/mapping review; uncertain regions flagged]
+ G --&gt; P{Publication audience}
+ P --&gt;|private| H[Permitted private-ready source version]
+ P --&gt;|built-in| I[Rights + educator publication review]
+ I --&gt; J[Shared approved edition]
+ H --&gt; K[Versioned collection + lexical/dense indexes]
+ J --&gt; K
+ K --&gt; L[Authorized retrieval and source inspection]
+ L --&gt; M[Replace / withdraw / revoke / delete]
+ M --&gt; N[Invalidate access, jobs, caches and derived indexes]
+</code></pre>
+<h2>Tutoring and assessment state machine</h2>
+<p><img src="architecture/tutor-learning-map.svg" alt="Tutor and evidence lifecycle"></p>
+<pre><code class="language-mermaid">stateDiagram-v2
+ [*] --&gt; access_check
+ access_check --&gt; blocked: scope/consent/grant/budget fails
+ access_check --&gt; diagnose: eligible new session
+ access_check --&gt; select: resume valid checkpoint
+ diagnose --&gt; select: validated diagnostic evidence
+ select --&gt; explain
+ select --&gt; practice
+ select --&gt; schedule
+ explain --&gt; guided
+ guided --&gt; prerequisite
+ prerequisite --&gt; guided
+ guided --&gt; practice: new independent item
+ practice --&gt; grade: answer submitted
+ practice --&gt; guided: hint requested / independence ends
+ grade --&gt; review_pending: uncertain or disputed
+ grade --&gt; reflect: validated result appended once
+ review_pending --&gt; reflect: reviewed correction and replay
+ reflect --&gt; select
+ schedule --&gt; done
+ done --&gt; [*]
+ explain --&gt; safety_pause: safety policy event
+ guided --&gt; safety_pause
+ practice --&gt; safety_pause
+ safety_pause --&gt; access_check: authorized resume
+ explain --&gt; paused: cancel / outage
+ guided --&gt; paused
+ practice --&gt; paused
+ paused --&gt; access_check
+ blocked --&gt; [*]
+</code></pre>
+<p>Any state can be cancelled/denied on live revocation; diagram omits repeated arrows for legibility. Cursor/version/cancellation generation fences reject late output. No autonomous model transition or write to learner projections.</p>
+<h2>Request, model and evidence sequence</h2>
+<p>Browser command → Django authorization and atomic spend reservation → durable worker lease → scoped retrieval → eligible provider call → validated content blocks and usage receipts → authorized SSE replay. Independent answers enter the separate reviewed grading/evidence path. Cancellation or revocation fences all later effects.</p>
+<pre><code class="language-mermaid">sequenceDiagram
+ participant UI as Browser
+ participant API as Django services
+ participant DB as Postgres/outbox
+ participant W as Worker
+ participant R as Scoped retrieval
+ participant M as Eligible model adapter
+ UI-&gt;&gt;API: start turn (expected version, idempotency)
+ API-&gt;&gt;API: live authorization + action constraints
+ API-&gt;&gt;DB: reserve spend + turn + job atomically
+ API--&gt;&gt;UI: turn ID / subscription cursor
+ W-&gt;&gt;DB: claim job lease + fence
+ W-&gt;&gt;R: retrieve from allowed pinned sources
+ R--&gt;&gt;W: chunks + exact locators
+ W-&gt;&gt;M: bounded request / call attempt ID
+ M--&gt;&gt;W: content proposals + actual usage
+ W-&gt;&gt;W: validate structured content/citations/safety
+ W-&gt;&gt;DB: accepted blocks / checkpoint / receipts
+ UI-&gt;&gt;API: authorized SSE subscription
+ API-&gt;&gt;DB: read eligible validated blocks
+ API--&gt;&gt;UI: replay/status/validated blocks
+ UI-&gt;&gt;API: independent attempt or hint request
+ API-&gt;&gt;DB: attempt + assistance record + job
+ W-&gt;&gt;W: reviewed grader validation
+ W-&gt;&gt;DB: evidence + projection transaction
+ Note over API,DB: Any revocation/cancel invalidates later effects
+</code></pre>
+<h2>Release and controlled improvement</h2>
+<p>Validated evidence updates the learner projection and next permitted activity. Separately, minimized failure categories go through educator/engineering triage, frozen evaluation and reviewed versioned release with rollback. Optional model training uses separately authorized curated data and the same release gate, never automatic child-chat ingestion.</p>
+<pre><code class="language-mermaid">flowchart LR
+ E[Validated learning events] --&gt; P[Deterministic learner projection]
+ P --&gt; A[Permitted next activity]
+ E --&gt; F[Minimized failure categories]
+ F --&gt; H[Educator/engineering triage]
+ H --&gt; T[Frozen offline eval + safety/rights tests]
+ T --&gt; V[Reviewed versioned release]
+ V --&gt; C[Controlled rollout / rollback]
+ C --&gt; A
+ D[Separately authorized curated training data] --&gt; O[Optional offline model experiment]
+ O --&gt; T
+</code></pre>
+<p>No raw identifiable child conversation automatically enters training or evaluation fixtures. A positive engagement signal is not evidence of mastery or efficacy.</p>
+</section><section id="section-4"><div class="section-tag">05 / API and event contracts</div><h1>API, event and transaction contracts</h1>
+<p>Selected technical design v1 · U11/U12 · R025/R040/R046/R057/R060/R062/R067/R070/R075/R078. Specification only; no endpoint implemented.</p>
+<h2>Common protocol</h2>
+<p>Same-origin HTTPS, Django server sessions in Secure/HttpOnly cookies, CSRF protection on mutations including login, Origin checks and no permissive credentialed CORS. Browser localStorage holds no bearer credential or child transcript. Staff MFA and object policies are required. Internal UUIDs are identifiers, not authorization. Version API under /api/v1 and serialize contracts in OpenAPI/JSON Schema during implementation; generate TypeScript types rather than maintain competing definitions.</p>
+<p>Every mutation accepts an idempotency key scoped to actor + command + body hash, expected aggregate version and correlation ID. Reusing a key with a different body is a conflict. Errors have stable code, localized safe message, field errors where relevant, retryability and correlation ID; no private filename/stack trace leaked. Cursor pagination and quotas are bounded. 401 unauthenticated, 403 denied, 404 concealed missing/out-of-scope resource, 409 version/key conflict, 422 invalid domain input, 429 quota/rate limit; API contract fixes exact use case at implementation.</p>
+<h2>Command surface</h2>
+<table>
+<thead>
+<tr>
+<th>Surface</th>
+<th>Commands / functions</th>
+<th>Server checks</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>/account, /relationships, /consents</td>
+<td>Sign in/out, verified link workflow, record/revoke scoped consent</td>
+<td>Actor verification, relationship authority, purpose and policy version</td>
+</tr>
+<tr>
+<td>/courses, /enrollments</td>
+<td>List permitted curricula, enroll/resume course</td>
+<td>Current course visibility, grant, consent, curriculum availability</td>
+</tr>
+<tr>
+<td>/uploads</td>
+<td>Initiate, finalize checksum, status, cancel, delete request</td>
+<td>Bytes/pages/types, uploader scope, rights claim, quota reservation</td>
+</tr>
+<tr>
+<td>/materials, /sources/{id}</td>
+<td>Inspect extraction, confirm private-ready, resolve citation</td>
+<td>Material/source version and live audience rights; answer keys excluded</td>
+</tr>
+<tr>
+<td>/admin/curricula</td>
+<td>Review mappings/items/profile, publish/withdraw edition</td>
+<td>Staff capability, rights/content approval, immutable release manifest</td>
+</tr>
+<tr>
+<td>/sessions</td>
+<td>Create/resume with curriculum/profile version</td>
+<td>Subject capabilities and access; client cannot override policy</td>
+</tr>
+<tr>
+<td>/sessions/{id}/turns</td>
+<td>Start turn, cancel, subscribe to events</td>
+<td>Idempotency, expected state/turn, spend reserve, ownership</td>
+</tr>
+<tr>
+<td>/attempts</td>
+<td>Submit answer, request hint, report/appeal grade</td>
+<td>Server-owned item/rubric/exposure state; browser supplies no trusted score</td>
+</tr>
+<tr>
+<td>/progress, /reviews</td>
+<td>Fetch evidence projection, due items, summarize</td>
+<td>Learner/guardian scope; unknown and assistance remain distinct</td>
+</tr>
+<tr>
+<td>/voice</td>
+<td>Authorize bounded upload/transcription/TTS or cancel</td>
+<td>Explicit mic action, privacy eligibility, media quotas, transient assets</td>
+</tr>
+<tr>
+<td>/entitlements, /payments/webhook</td>
+<td>Read access, staff grant, reconcile signed gateway event</td>
+<td>No client paid flag, provider signature/dedup; real collection gated</td>
+</tr>
+<tr>
+<td>/privacy</td>
+<td>Export/delete request and status</td>
+<td>Verified requester, lawful scope, active revocation and purge lineage</td>
+</tr>
+<tr>
+<td>/notifications</td>
+<td>Read/update preferences, future outbox send</td>
+<td>Recipient authority, purpose/opt-out, approved channel and send workflow</td>
+</tr>
+</tbody></table>
+<h2>Tutor event stream</h2>
+<p>POST start returns turn_id and current version; worker executes from durable job. Authenticated GET events uses SSE with event sequence cursor, not credentials in query strings. Event envelope: schema_version, event_id, turn_id, session_version, sequence, type, occurred_at, safe payload. Types: accepted, status, validated_content_block, citation, usage_status, completed, cancelled, failed. No raw provider reasoning, hidden prompt, answer key or internal safety classifier text.</p>
+<p>Persist bounded validated blocks/checkpoints for reconnect; raw token deltas are not a permanent append-only transcript. Authorize before subscription and recheck access before each batch and after revocation notification; event IDs do not convey permission. Send only actor-scoped events, heartbeat under proxy timeout and stop denied/cancelled streams. Bounded DB polling is baseline; tune interval/retention with measured load. Native EventSource auto reconnect does not restart generation. Text reconnect replays eligible stored events then status; media replay requires separate consent/asset eligibility.</p>
+<h2>Transactions, jobs and reconciliation</h2>
+<p>Start turn: short transaction validates state and scope, reserves maximum estimated units/spend, creates turn/job/outbox, commits. Never hold DB transaction open during network inference. Unique expected-active-turn constraint or explicit serialized session version prevents competing actions. Lease token/generation fences reject stale worker results; heartbeats extend leases only within job limit.</p>
+<p>A provider call can succeed before a worker crashes. Record call attempt ID/provider receipt where possible, mark unknown billing and reconcile; do not promise external exactly-once billing. Unknown billable attempts hold a bounded outstanding reservation and block unbounded retries. Grading/evidence effects are once per accepted event using unique keys. Outbox delivery and job execution are at least once, retries capped with jitter/dead-letter review. Recovery never reuses an unverified paid flag or duplicates an independent success.</p>
+<p>Cancel: mark durable cancellation generation, cancel upstream if supported, stop media/obsolete work, reconcile already billed units. Completion must compare expected version and cancellation generation; late output cannot score a new item or resume an old turn. Consent/access revocation increments scope generation and invalidates pending jobs/cache; all consumers recheck live scope before effects.</p>
+<p>Deletion: deny access immediately, schedule purge of originals/derived chunks/embeddings/cache/media/transcripts/provider-side deletable assets, record minimal purge evidence. Restored backups replay deletion tombstones before service access. Retention and deletion obligations are reviewed separately; append-only learning history does not override legitimate deletion/minimization.</p>
+</section><section id="section-5"><div class="section-tag">06 / GitHub adoption and exclusions</div><h1>Repository adoption plan — v1.0</h1>
+<p>U11/U12 · 11 November 2026. <strong>No whole tutoring/LMS repository will be adopted as Sebaverse.</strong> Ready libraries are selected through narrow interfaces; product-specific learning, consent, rights, authorization and cost authority are owned. No upstream code is copied or installed by this documentation release.</p>
+<p>The 22 audited repositories are accounted for below; none silently omitted. Exact inspected SHAs and historical licenses are in <a href="architecture/repository-adoption.json">machine-readable register</a> and original A01. Inspection pins prove what was reviewed, not production suitability. Blank release locks are an explicit install-time condition, not an invented ready deployment. License observations are not legal clearance; models/data/assets and transitive packages may differ from code licenses.</p>
+<table>
+<thead>
+<tr>
+<th>Repository</th>
+<th>Decision</th>
+<th>Phase</th>
+<th>Concrete use / exclusion</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://github.com/HKUDS/DeepTutor">DeepTutor</a></td>
+<td>reference_only</td>
+<td>A4</td>
+<td>No runtime dependency in baseline. Study durable turn service and provider/cancellation patterns; optional extraction experiment only.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/learnhouse/learnhouse">LearnHouse</a></td>
+<td>deferred_lms_alternative</td>
+<td>A7</td>
+<td>No source in proprietary core; retain LMS fallback if school workflows justify rights/AGPL/EE decision.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/HFUT-LEC/EduStudio">EduStudio</a></td>
+<td>quarantined</td>
+<td>none</td>
+<td>Audited pin remains quarantined; do not run its workflows/install scripts. No proven compromise is asserted.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/pykt-team/pykt-toolkit">pyKT</a></td>
+<td>deferred_offline</td>
+<td>A7</td>
+<td>Deep knowledge-tracing benchmark only after representative lawful sequence data.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/ZhijieXiong/pyedmine">PyEdmine</a></td>
+<td>not_selected</td>
+<td>A7</td>
+<td>Research alternative; no role in baseline runtime.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/CAHLR/pyBKT">pyBKT</a></td>
+<td>deferred_offline</td>
+<td>A4/A7</td>
+<td>Compare estimator only after adequate labeled evidence; no fitted baseline dependency.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/nd-ball/py-irt">py-irt</a></td>
+<td>deferred_offline</td>
+<td>A7</td>
+<td>Item calibration only when connected item-bank data supports fitting.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/open-spaced-repetition/py-fsrs">py-fsrs</a></td>
+<td>selected_adapter_comparison</td>
+<td>A3/A4</td>
+<td>Use package API behind ReviewScheduler; compare fixed intervals; no source fork or mastery authority.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/pgvector/pgvector">pgvector</a></td>
+<td>selected_extension</td>
+<td>A3</td>
+<td>PostgreSQL extension for scoped dense retrieval; exact search first; no separate vector service.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/docling-project/docling">Docling</a></td>
+<td>selected_library_isolated</td>
+<td>A3</td>
+<td>Document conversion API in sandboxed parser worker; no upstream service/UI/tool framework.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/PaddlePaddle/PaddleOCR">PaddleOCR</a></td>
+<td>conditional_fallback</td>
+<td>A4</td>
+<td>Separate OCR adapter only if targeted page benchmark improves extraction within rights/runtime limits.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/sympy/sympy">SymPy</a></td>
+<td>conditional_subject_adapter</td>
+<td>A4/A7</td>
+<td>Restricted typed symbolic checker for supported quantitative activities; never raw untrusted parse_expr.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/networkx/networkx">NetworkX</a></td>
+<td>not_required_baseline</td>
+<td>A4</td>
+<td>Optional offline graph validation utility; relational edge tables are canonical.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/SYSTRAN/faster-whisper">faster-whisper</a></td>
+<td>deferred_voice_comparator</td>
+<td>A4/A7</td>
+<td>Benchmark local ASR only after eligible model weights and CPU/GPU economics.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/pipecat-ai/pipecat">Pipecat</a></td>
+<td>deferred_realtime</td>
+<td>A7</td>
+<td>Optional separate realtime media runtime after voice benchmarks; not needed for push-to-talk.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/open-telemetry/opentelemetry-python">OpenTelemetry</a></td>
+<td>selected_library</td>
+<td>A2</td>
+<td>Python instrumentation APIs and allowlisted metadata exporter; no child payload capture.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/promptfoo/promptfoo">Promptfoo</a></td>
+<td>selected_dev_tool</td>
+<td>A3/A4</td>
+<td>Offline prompt/provider evaluation runner; core features only after exact release-license check.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/langfuse/langfuse">Langfuse</a></td>
+<td>deferred_ops_tool</td>
+<td>A7</td>
+<td>No full self-hosted observability stack now; separate core/EE and data handling review.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/celery/celery">Celery</a></td>
+<td>deferred_queue</td>
+<td>A7</td>
+<td>Add only when measured job/DB contention justifies broker operations.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/moodle/moodle">Moodle</a></td>
+<td>not_selected_lms_alternative</td>
+<td>A7</td>
+<td>No baseline dependency; stable LMS/rights/integration review if school demand changes.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/frappe/lms">FrappeLMS</a></td>
+<td>not_selected_lms_alternative</td>
+<td>A7</td>
+<td>No baseline dependency; avoid merging identity and application runtimes.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/resemble-ai/chatterbox">Chatterbox</a></td>
+<td>not_selected</td>
+<td>none</td>
+<td>Do not choose audited retired implementation as maintained default; any future revisit needs new provenance/maintenance review.</td>
+</tr>
+</tbody></table>
+<h2>DeepTutor extraction boundary</h2>
+<p>Baseline deliberately has <strong>no imported DeepTutor runtime</strong>. Audited interfaces worth comparing: <code>deeptutor/app/service.py</code> TurnApplicationService start/subscribe/cancel/submit input; <code>app/engine.py</code>; <code>runtime/orchestrator.py</code>; <code>services/llm/provider_registry.py</code>, <code>provider_factory.py</code>, <code>types.py</code>, <code>traffic_control.py</code>, <code>request_cache.py</code>, <code>telemetry.py</code>. These are candidate reference locations from A02, not a claim that they form a dependency-free drop-in module.</p>
+<p>If an A4 spike extracts anything, produce exact file hashes, source pin, diff, transitive closure, notices, behavior/isolation/cancel/receipt tests and maintenance comparison. Stop at three engineer-days or if full upstream runtime/tool registries become required. Keep custom owned implementation if extraction loses its benefit. Do not import upstream sessions/guardian/mastery stores as the canonical platform state; do not expose arbitrary workspace tools to learners. A02 smoke checks do not certify the application.</p>
+<h2>Standard platform dependencies outside the tutoring audit</h2>
+<p>These are architectural selections rather than claimed audited applications: Django (<code>django/django</code>), DRF (<code>encode/django-rest-framework</code>), React (official React project), TypeScript (<code>microsoft/TypeScript</code>), Vite (<code>vitejs/vite</code>), React Router (<code>remix-run/react-router</code>), TanStack Query (<code>TanStack/query</code>), PostgreSQL, psycopg, Uvicorn, a private S3-compatible SDK, pytest and Playwright. Adopt published libraries/APIs, not forked applications. ClamAV is a separately deployed scanning process. Docker/OCI packaging and GitHub Actions are delivery choices, not open-source tutoring modules. Exact versions/licenses/notices/compatibility are captured in dependency locks/SBOM before install, including any UI primitive/icon library later requested. No new UI library is silently added by the design system.</p>
+<h2>Reuse acceptance</h2>
+<p>Every adopted artifact needs owner, purpose, exact version/digest, checksum, original URL, SPDX/license expression and notice files, model/asset permissions, transitive dependency closure, vulnerability results and exceptions, data/egress review, minimum adapter tests, update/removal plan and release approval. Preserve modified-source history and avoid making the research manifest a product lockfile. Copyleft components require an explicit rights/integration decision; process separation is not asserted as automatic legal resolution. No empty vulnerability query or recent commit establishes security.</p>
+</section><section id="section-6"><div class="section-tag">07 / Full feature / function / phase map</div><h1>Complete feature/function and phase map</h1>
+<p>U12 · Every current requirement R001–R099 appears below, including future/rejected/deferred paths. <strong>No product function is implemented by this document.</strong> Phase entries are the selected architecture delivery sequence, not deletion or readiness claims. Exact sources, dependencies, original acceptance criteria and status are in <a href="architecture/feature-function-matrix.json">editable JSON</a>, exported from the authoritative requirement register. A0–A7 are defined in the <a href="execution/subject-independent-poc.md">phase plan</a>.</p>
+<table>
+<thead>
+<tr>
+<th>Requirement / feature</th>
+<th>Functions</th>
+<th>Phase</th>
+<th>Build / ready-component boundary</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>R001 — Audit context completeness before final specifications</td>
+<td>Inventory sources, disclose historical gaps, append reconciliations</td>
+<td>A0/A1</td>
+<td>Owned product/application logic</td>
+</tr>
+<tr>
+<td>R002 — Preserve research originals and citations</td>
+<td>Hash and preserve all research originals and citations</td>
+<td>A0/A1</td>
+<td>Owned product/application logic</td>
+</tr>
+<tr>
+<td>R003 — Trace every available founder requirement without silently dropping future scope</td>
+<td>Maintain IDs, source/phase/dependency coverage and change control</td>
+<td>A0/A1</td>
+<td>Owned product/application logic</td>
+</tr>
+<tr>
+<td>R004 — Product vision, target users and jobs</td>
+<td>Maintain user/job/outcome and service scope contracts</td>
+<td>A0/A1</td>
+<td>Owned product/application logic</td>
+</tr>
+<tr>
+<td>R005 — Choose first Egypt curriculum/age/subject unit</td>
+<td>Configure pilot content/age/buyer; not architecture prerequisite</td>
+<td>A0/A1</td>
+<td>Owned product/application logic</td>
+</tr>
+<tr>
+<td>R006 — Solo-founder maintainability</td>
+<td>Keep single domain and minimal operations footprint</td>
+<td>A0/A1</td>
+<td>Owned product/application logic</td>
+</tr>
+<tr>
+<td>R007 — Affordability and pricing hypotheses</td>
+<td>Model plans, quotas and willingness-to-pay hypotheses</td>
+<td>A0/A1</td>
+<td>Owned product/application logic</td>
+</tr>
+<tr>
+<td>R008 — Preserve ~100 prospects and supervised family/friends pilot context</td>
+<td>Manage permitted prospect/pilot readiness; no assumed conversion</td>
+<td>A3–A6</td>
+<td>Owned product/application logic</td>
+</tr>
+<tr>
+<td>R009 — Brand naming strategy and candidate screening</td>
+<td>Manage selected name and clearance evidence</td>
+<td>A0/A1</td>
+<td>Design/documentation; React UI later</td>
+</tr>
+<tr>
+<td>R010 — Identity/design system</td>
+<td>Version design tokens, components and branding rules</td>
+<td>A0/A1</td>
+<td>Design/documentation; React UI later</td>
+</tr>
+<tr>
+<td>R011 — UX journeys</td>
+<td>Compose student/parent/upload/voice/teacher journeys</td>
+<td>A0/A1</td>
+<td>Design/documentation; React UI later</td>
+</tr>
+<tr>
+<td>R012 — Use existing TBD project folder; rename after chosen brand</td>
+<td>Preserve canonical project path and local history</td>
+<td>A0/A1</td>
+<td>Design/documentation; React UI later</td>
+</tr>
+<tr>
+<td>R013 — Egyptian Arabic conversational text</td>
+<td>Explain/converse in Egyptian Arabic with rubric slices</td>
+<td>A3–A6</td>
+<td>Owned product/application logic</td>
+</tr>
+<tr>
+<td>R014 — MSA text and academic terminology</td>
+<td>Support MSA academic terminology and formal notices</td>
+<td>A3–A6</td>
+<td>Owned product/application logic</td>
+</tr>
+<tr>
+<td>R015 — English and code-switching text</td>
+<td>Handle English and language switching with bidi isolation</td>
+<td>A3–A6</td>
+<td>Owned product/application logic</td>
+</tr>
+<tr>
+<td>R016 — Egyptian Arabic/MSA/English voice</td>
+<td>Record/transcribe/synthesize/cancel speech with text fallback</td>
+<td>A4; rollout conditional</td>
+<td>Owned product/application logic</td>
+</tr>
+<tr>
+<td>R017 — Adaptive explanations</td>
+<td>Select explanation strategy from evidence and subject profile</td>
+<td>A3–A6</td>
+<td>Owned product/application logic</td>
+</tr>
+<tr>
+<td>R018 — Interactive lessons and visual manipulatives</td>
+<td>Render reviewed interactive learning representations</td>
+<td>A7; contracts now</td>
+<td>Owned product/application logic</td>
+</tr>
+<tr>
+<td>R019 — Guided problem-solving and hint ladder</td>
+<td>Offer bounded hints and track assistance/exposure</td>
+<td>A3–A6</td>
+<td>Owned product/application logic</td>
+</tr>
+<tr>
+<td>R020 — Exercises and quizzes</td>
+<td>Serve reviewed items, collect attempts and validate grading</td>
+<td>A3–A6</td>
+<td>Owned product/application logic</td>
+</tr>
+<tr>
+<td>R021 — Timed mock exams</td>
+<td>Build reviewed exam blueprint, timer/accommodations and post-exam remediation</td>
+<td>A7</td>
+<td>Owned product/application logic</td>
+</tr>
+<tr>
+<td>R022 — Personalized exam preparation</td>
+<td>Plan revision from objectives, time availability and uncertainty</td>
+<td>A7</td>
+<td>Owned product/application logic</td>
+</tr>
+<tr>
+<td>R023 — Persistent progress across sessions</td>
+<td>Resume checkpoints and preserve evidence across sessions</td>
+<td>A3–A6</td>
+<td>Owned product/application logic</td>
+</tr>
+<tr>
+<td>R024 — Mastery tracking with uncertainty</td>
+<td>Project evidence-backed status and uncertainty</td>
+<td>A3–A6</td>
+<td>Owned product/application logic</td>
+</tr>
+<tr>
+<td>R025 — Immutable evidence ledger and correction lineage</td>
+<td>Append/deduplicate/correct/replay assessment evidence</td>
+<td>A3–A6</td>
+<td>Owned product/application logic</td>
+</tr>
+<tr>
+<td>R026 — Misconception diagnosis</td>
+<td>Maintain expiring misconception hypotheses and disambiguating probes</td>
+<td>A3–A6</td>
+<td>Owned product/application logic</td>
+</tr>
+<tr>
+<td>R027 — Prerequisite knowledge graph</td>
+<td>Review prerequisite edges and validate graph</td>
+<td>A3–A6</td>
+<td>Owned product/application logic</td>
+</tr>
+<tr>
+<td>R028 — Explainable adaptive learning paths</td>
+<td>Rank eligible next actions with reason codes and safe choice</td>
+<td>A3–A6</td>
+<td>Owned product/application logic</td>
+</tr>
+<tr>
+<td>R029 — Active recall and independent assessment</td>
+<td>Select unseen item families and track independent checks</td>
+<td>A3–A6</td>
+<td>Owned product/application logic</td>
+</tr>
+<tr>
+<td>R030 — Spaced repetition and delayed retention</td>
+<td>Schedule/review recall with versioned strategy</td>
+<td>A3–A6</td>
+<td>Owned schedule boundary + fixed rule / py-fsrs comparison</td>
+</tr>
+<tr>
+<td>R031 — Individual adaptation loop</td>
+<td>Update learner policy inputs after validated events</td>
+<td>A3–A6</td>
+<td>Owned product/application logic</td>
+</tr>
+<tr>
+<td>R032 — System-wide evaluated feedback loop</td>
+<td>Triage failure categories and promote reviewed fixes after regression</td>
+<td>A3–A6</td>
+<td>Owned product/application logic</td>
+</tr>
+<tr>
+<td>R033 — Optional controlled model improvement</td>
+<td>Curate separately authorized training data and gated model release</td>
+<td>A7; contracts now</td>
+<td>Owned product/application logic</td>
+</tr>
+<tr>
+<td>R034 — Compare rules/BKT/logistic/IRT/deep KT</td>
+<td>Run offline estimator comparisons with lawful adequate data</td>
+<td>A4; rollout conditional</td>
+<td>Owned product/application logic</td>
+</tr>
+<tr>
+<td>R035 — Built-in versioned Egyptian curricula</td>
+<td>Publish rights-reviewed built-in Egyptian editions</td>
+<td>A3 core; A5 reviewed content</td>
+<td>Owned product/application logic</td>
+</tr>
+<tr>
+<td>R036 — National/language/IGCSE/IB/American and global curricula</td>
+<td>Configure multiple systems/specifications/curricula without hardcoding</td>
+<td>A3 core; A5 reviewed content</td>
+<td>Owned product/application logic</td>
+</tr>
+<tr>
+<td>R037 — Student-uploaded materials/custom curriculum</td>
+<td>Upload private learner materials and custom objectives</td>
+<td>A3 core; A5 reviewed content</td>
+<td>Owned product/application logic</td>
+</tr>
+<tr>
+<td>R038 — Parent-uploaded textbooks/notes/worksheets</td>
+<td>Verify parent upload authority and learner sharing scope</td>
+<td>A3 core; A5 reviewed content</td>
+<td>Owned product/application logic</td>
+</tr>
+<tr>
+<td>R039 — OCR/layout/math/table/diagram extraction</td>
+<td>Extract layout/text/table/equation/image anchors and quality flags</td>
+<td>A3 core; A5 reviewed content</td>
+<td>Own controls + isolated Docling; OCR fallback conditional</td>
+</tr>
+<tr>
+<td>R040 — Safe upload ingestion and quotas</td>
+<td>Reserve upload quota, quarantine, scan, parse, cancel/retry safely</td>
+<td>A3 core; A5 reviewed content</td>
+<td>Own controls + isolated Docling; OCR fallback conditional</td>
+</tr>
+<tr>
+<td>R041 — Content rights/provenance/permissions</td>
+<td>Record processing/display/derivative rights and restrictions</td>
+<td>A3 core; A5 reviewed content</td>
+<td>Owned product/application logic</td>
+</tr>
+<tr>
+<td>R042 — Versioning, curriculum mapping and supersession</td>
+<td>Version editions, mappings and supersession/migration manifests</td>
+<td>A3 core; A5 reviewed content</td>
+<td>Owned product/application logic</td>
+</tr>
+<tr>
+<td>R043 — Original reviewed item bank/rubrics</td>
+<td>Review original items, variants, rubrics and answer-key scope</td>
+<td>A3 core; A5 reviewed content</td>
+<td>Owned product/application logic</td>
+</tr>
+<tr>
+<td>R044 — RAG retrieval architecture</td>
+<td>Index scoped chunks; compare lexical/dense/hybrid retrieval</td>
+<td>A3 core; A5 reviewed content</td>
+<td>Own scope/citations + PostgreSQL/pgvector</td>
+</tr>
+<tr>
+<td>R045 — Document-grounded answers and exact citations</td>
+<td>Resolve exact authorized source/version/page citations and abstain</td>
+<td>A3 core; A5 reviewed content</td>
+<td>Owned product/application logic</td>
+</tr>
+<tr>
+<td>R046 — Private upload isolation and deletion</td>
+<td>Isolate/purge originals, derived indexes/cache and pending jobs</td>
+<td>A3 core; A5 reviewed content</td>
+<td>Owned product/application logic</td>
+</tr>
+<tr>
+<td>R047 — Parent dashboard and meaningful progress</td>
+<td>Render permitted parent progress and uncertainty summaries</td>
+<td>A3–A6</td>
+<td>Owned product/application logic</td>
+</tr>
+<tr>
+<td>R048 — WhatsApp progress reports</td>
+<td>Queue minimal opt-in WhatsApp message with authenticated portal link</td>
+<td>A6; external actions gated</td>
+<td>Owned product/application logic</td>
+</tr>
+<tr>
+<td>R049 — Notification preferences and revocation</td>
+<td>Manage notification purpose/channel/opt-out and revocation</td>
+<td>A6; external actions gated</td>
+<td>Owned product/application logic</td>
+</tr>
+<tr>
+<td>R050 — Future teacher/classroom functionality</td>
+<td>Add scoped educator/class/course authoring and reports</td>
+<td>A7</td>
+<td>Owned product/application logic</td>
+</tr>
+<tr>
+<td>R051 — Subscriptions/course-semester entitlements</td>
+<td>Enforce course/term/subscription grants and quotas</td>
+<td>A3–A6</td>
+<td>Owned product/application logic</td>
+</tr>
+<tr>
+<td>R052 — Payment integration and refunds</td>
+<td>Validate signed payment/refund events and reconcile entitlements</td>
+<td>A6; external actions gated</td>
+<td>Owned product/application logic</td>
+</tr>
+<tr>
+<td>R053 — Child safety and age-appropriate interactions</td>
+<td>Apply age-appropriate safety policy, pause/report/review workflow</td>
+<td>A0/A1</td>
+<td>Owned product/application logic</td>
+</tr>
+<tr>
+<td>R054 — Accessibility and low-bandwidth/mobile UX</td>
+<td>Responsive/low-bandwidth keyboard/screen-reader UI and text fallback</td>
+<td>A3–A6</td>
+<td>Owned product/application logic</td>
+</tr>
+<tr>
+<td>R055 — RTL/LTR and accessible mathematics</td>
+<td>Render RTL/LTR text and accessible equations/alternatives</td>
+<td>A3–A6</td>
+<td>Owned product/application logic</td>
+</tr>
+<tr>
+<td>R056 — Child understandable notices and student agency</td>
+<td>Explain limits/privacy in child-understandable copy and allow correction/skip</td>
+<td>A3–A6</td>
+<td>Owned product/application logic</td>
+</tr>
+<tr>
+<td>R057 — Guardian verification and consent lifecycle</td>
+<td>Verify guardian edge and purpose-scoped consent/revocation</td>
+<td>A0/A1</td>
+<td>Owned product/application logic</td>
+</tr>
+<tr>
+<td>R058 — Privacy/data processing and transfer review</td>
+<td>Review processor/region/transfer and minimize disclosure</td>
+<td>A0/A1</td>
+<td>Owned product/application logic</td>
+</tr>
+<tr>
+<td>R059 — No automatic training on identifiable child chat</td>
+<td>Exclude child chat from automatic training and default fixtures</td>
+<td>A0/A1</td>
+<td>Owned product/application logic</td>
+</tr>
+<tr>
+<td>R060 — Secure data/tenant/object/tool isolation</td>
+<td>Authorize all object/query/tool/job/stream/file boundaries</td>
+<td>A3–A6</td>
+<td>Owned product/application logic</td>
+</tr>
+<tr>
+<td>R061 — Retention/export/deletion/backups</td>
+<td>Export/delete/expire records and replay purge after restore</td>
+<td>A3–A6</td>
+<td>Owned product/application logic</td>
+</tr>
+<tr>
+<td>R062 — Provider-agnostic adapters</td>
+<td>Normalize text/embed/STT/TTS capabilities, errors, usage and cancellation</td>
+<td>A3–A6</td>
+<td>Owned adapters/policy + qualified vendor/library interfaces</td>
+</tr>
+<tr>
+<td>R063 — Benchmark OpenAI/Claude/Gemini</td>
+<td>Compare eligible OpenAI/Claude/Gemini routes on matched tasks</td>
+<td>A4; rollout conditional</td>
+<td>Owned adapters/policy + qualified vendor/library interfaces</td>
+</tr>
+<tr>
+<td>R064 — Benchmark Qwen/DeepSeek/Chinese model options</td>
+<td>Compare eligible Qwen/DeepSeek/other hosted Chinese routes</td>
+<td>A4; rollout conditional</td>
+<td>Owned adapters/policy + qualified vendor/library interfaces</td>
+</tr>
+<tr>
+<td>R065 — Open-weight/local inference path</td>
+<td>Benchmark local/open-weight serving behind same adapter</td>
+<td>A4; rollout conditional</td>
+<td>Owned adapters/policy + qualified vendor/library interfaces</td>
+</tr>
+<tr>
+<td>R066 — Jev-style classifier experiment</td>
+<td>Compare rules/classifier/small LLM/Jev in shadow</td>
+<td>A4; rollout conditional</td>
+<td>Owned adapters/policy + qualified vendor/library interfaces</td>
+</tr>
+<tr>
+<td>R067 — Deterministic state/business authority</td>
+<td>Validate authority/state transitions and own score acceptance</td>
+<td>A3–A6</td>
+<td>Owned product/application logic</td>
+</tr>
+<tr>
+<td>R068 — Model routing and qualified fallback</td>
+<td>Route only eligible qualified options with bounded retries/fallback</td>
+<td>A3–A6</td>
+<td>Owned adapters/policy + qualified vendor/library interfaces</td>
+</tr>
+<tr>
+<td>R069 — Token/context/cache optimization</td>
+<td>Bound context/history, summarize checkpoints and scope caches</td>
+<td>A3–A6</td>
+<td>Owned product/application logic</td>
+</tr>
+<tr>
+<td>R070 — Token/audio usage accounting and limits</td>
+<td>Reserve/reconcile exact units, quota/concurrency and cancelled cost</td>
+<td>A3–A6</td>
+<td>Owned product/application logic</td>
+</tr>
+<tr>
+<td>R071 — Voice economics and quotas</td>
+<td>Compare cascade/realtime bills and enforce voice caps</td>
+<td>A4; rollout conditional</td>
+<td>Owned product/application logic</td>
+</tr>
+<tr>
+<td>R072 — GPU/self-hosting sensitivity at 100/1k/10k users</td>
+<td>Model GPU idle/peak/operations at 100/1k/10k active workloads</td>
+<td>A4; rollout conditional</td>
+<td>Owned product/application logic</td>
+</tr>
+<tr>
+<td>R073 — Operating cost/unit economics sensitivity</td>
+<td>Compute full variable/fixed/review/rights/support economics</td>
+<td>A0/A1</td>
+<td>Owned product/application logic</td>
+</tr>
+<tr>
+<td>R074 — Optimize cost per successful learning outcome</td>
+<td>Measure cost per valid independent activity/retained skill</td>
+<td>A3–A6</td>
+<td>Owned product/application logic</td>
+</tr>
+<tr>
+<td>R075 — Domain/data model and API contracts</td>
+<td>Version entities, commands/events and integrity constraints</td>
+<td>A0/A1</td>
+<td>Owned product/application logic</td>
+</tr>
+<tr>
+<td>R076 — QA/evals and language slices</td>
+<td>Maintain frozen grounding/grading/safety/language holdouts</td>
+<td>A3–A6</td>
+<td>Own fixtures + pytest/Playwright/Promptfoo</td>
+</tr>
+<tr>
+<td>R077 — Architecture ADRs and decisions</td>
+<td>Record stack choices, evidence, alternatives and reversal triggers</td>
+<td>A0/A1</td>
+<td>Owned product/application logic</td>
+</tr>
+<tr>
+<td>R078 — CI/CD and release lineage</td>
+<td>Build/test/promote immutable release lineage with rollback</td>
+<td>A3–A6</td>
+<td>Owned product/application logic</td>
+</tr>
+<tr>
+<td>R079 — Observability and redacted incident/cost metrics</td>
+<td>Emit redacted latency/error/cost/job metrics and restricted audit</td>
+<td>A3–A6</td>
+<td>Own allowlisted fields + OpenTelemetry</td>
+</tr>
+<tr>
+<td>R080 — Operational runbooks/recovery/support</td>
+<td>Operate recovery/dead-letter/support/deletion/incident runbooks</td>
+<td>A3–A6</td>
+<td>Owned product/application logic</td>
+</tr>
+<tr>
+<td>R081 — Security/licensing source findings</td>
+<td>Resolve exact dependency/security/license/model-rights findings</td>
+<td>A0/A1</td>
+<td>Owned product/application logic</td>
+</tr>
+<tr>
+<td>R082 — Quarantine inspected EduStudio revision</td>
+<td>Prevent execution/reuse of quarantined EduStudio pin</td>
+<td>A0/A1</td>
+<td>Excluded/quarantined audited pin</td>
+</tr>
+<tr>
+<td>R083 — Selective DeepTutor reuse only</td>
+<td>Reference DeepTutor; optional bounded extraction with closure proof</td>
+<td>A4; rollout conditional</td>
+<td>DeepTutor reference only; no baseline runtime dependency</td>
+</tr>
+<tr>
+<td>R084 — LearnHouse LMS fallback with AGPL/EE review</td>
+<td>Keep LearnHouse fallback separate pending AGPL/EE decision</td>
+<td>A7</td>
+<td>LearnHouse deferred; no baseline integration</td>
+</tr>
+<tr>
+<td>R085 — Framework choice remains reversible</td>
+<td>Use selected stack; revise only with evidence-backed ADR</td>
+<td>A0/A1</td>
+<td>Owned product/application logic</td>
+</tr>
+<tr>
+<td>R086 — Roadmap/milestones/work breakdown</td>
+<td>Phase work with dependencies, bounded tasks and honest not-run results</td>
+<td>A0/A1</td>
+<td>Owned product/application logic</td>
+</tr>
+<tr>
+<td>R087 — Risks/unknowns/decision log</td>
+<td>Track risk owners, unknown triggers and decision lineage</td>
+<td>A0/A1</td>
+<td>Owned product/application logic</td>
+</tr>
+<tr>
+<td>R088 — Codex instructions and phased prompts</td>
+<td>Give agents requirement-linked gated implementation prompts</td>
+<td>A0/A1</td>
+<td>Owned product/application logic</td>
+</tr>
+<tr>
+<td>R089 — Version-controlled editable master artifacts</td>
+<td>Version editable artifacts and reproducible checks locally</td>
+<td>A0/A1</td>
+<td>Owned product/application logic</td>
+</tr>
+<tr>
+<td>R090 — No premature implementation; bounded PoC after gates</td>
+<td>Separate finalized technical design from permission to execute/deploy</td>
+<td>A0/A1</td>
+<td>Owned product/application logic</td>
+</tr>
+<tr>
+<td>R091 — Multimodal/photo/diagram tutoring</td>
+<td>Interpret authorized images/diagrams with uncertainty and source anchors</td>
+<td>A7; contracts now</td>
+<td>Owned product/application logic</td>
+</tr>
+<tr>
+<td>R092 — Independent assessment/grade appeal and teacher correction</td>
+<td>Hold disputed grades, adjudicate and replay affected projections</td>
+<td>A3–A6</td>
+<td>Owned product/application logic</td>
+</tr>
+<tr>
+<td>R093 — Learning outcomes without unsupported efficacy claims</td>
+<td>Measure independent delayed transfer/retention without unsupported claims</td>
+<td>A3–A6</td>
+<td>Owned product/application logic</td>
+</tr>
+<tr>
+<td>R094 — Global-ready architecture without premature breadth</td>
+<td>Separate subject profiles, curriculum versions and providers from core</td>
+<td>A0/A1</td>
+<td>Owned product/application logic</td>
+</tr>
+<tr>
+<td>R095 — German tutoring using the learner-uploaded school curriculum</td>
+<td>Configure initial German example through ordinary subject/content path</td>
+<td>A5 initial content example; not architecture dependency</td>
+<td>Owned product/application logic</td>
+</tr>
+<tr>
+<td>R096 — Brand name, logo, slogan and guidelines before implementation</td>
+<td>Apply selected identity and review wording independently</td>
+<td>A0/A1</td>
+<td>Design/documentation; React UI later</td>
+</tr>
+<tr>
+<td>R097 — Arabic-first brand/product experience</td>
+<td>Lead with Arabic typography/navigation and mixed-language layouts</td>
+<td>A0/A1</td>
+<td>Design/documentation; React UI later</td>
+</tr>
+<tr>
+<td>R098 — Latin-only Sebaverse logo</td>
+<td>Use Latin Sebaverse vector logo without mirroring</td>
+<td>A0/A1</td>
+<td>Design/documentation; React UI later</td>
+</tr>
+<tr>
+<td>R099 — Subject-independent platform architecture and audit handoff</td>
+<td>Deliver auditor-ready maps, feature coverage, repo boundaries and phases</td>
+<td>A0/A1</td>
+<td>Owned product/application logic</td>
+</tr>
+</tbody></table>
+</section><section id="section-7"><div class="section-tag">08 / Deployment, security and delivery</div><h1>Deployment, security and delivery architecture</h1>
+<p>Selected design v1 · U11/U12 · R053–R061/R070/R078–R082. No hosting provisioned, workflow installed or application deployed.</p>
+<h2>Runtime and permissions</h2>
+<p>One same-origin HTTPS reverse proxy serves immutable React assets and routes /api and /admin to Django ASGI. Start with Uvicorn as ASGI runtime, explicit proxy buffering/timeouts for SSE. Browser cache stores public assets only; no offline cache/service worker of private learning content by default. Django admin is staff-only and not the child product UI. Asset origin policy/CSP excludes arbitrary uploaded HTML/SVG execution.</p>
+<p>Run web, worker/scheduler, scanner and parser with separate process identities/resource limits. General worker may access required domain tables; scanner/parser receive only scoped quarantine objects/result destinations with expiry. Broker validates outputs before DB commits. Parser/model assets are fetched and verified during controlled build/provisioning, not by arbitrary runtime download. Disable parser network unless an explicitly reviewed model requires a separately approved path. Restrict file types to PDF/JPEG/PNG initially; reject encrypted/unsupported payloads, executable attachments and archives. Content/type verification, malware scanning (ClamAV process interface), page/byte/time/memory limits and safe preview generation are cumulative controls; a clean scan is not a security guarantee. Scanner outage or stale required definitions fails readiness closed. Scanner distribution/license obligations are reviewed; it is not copied into proprietary core.</p>
+<p>PostgreSQL is private network only with app/worker/migration/read-only roles and limited ingestion commit services. App credentials cannot alter roles or schema; migration credentials unavailable to model tools. Tenant/learner/course predicates and join constraints are mandatory. Row-level security is defense in depth once tested under pooled connections; do not claim RLS alone solves authorization. Private S3-compatible storage has no public ACLs; use application-mediated reads or short-lived signed access. Signed access cannot be retroactively revoked in general: use mediated reads for sensitive content or accept/document a very short expiry as a risk, never promise instantaneous URL revocation.</p>
+<h2>Environments and releases</h2>
+<p>Local: Docker Compose with synthetic identities, PostgreSQL, private storage adapter and deterministic mock providers; parser can use its separately pinned environment. Staging: isolated database/bucket/keys, authored fixtures only. Production: managed PostgreSQL with backups/PITR capability, private storage with deletion/version policy, independently restartable stateless app/worker processes. Provider/region selected after terms/transfer/operational review; no cloud vendor account is assumed. Avoid public database/object exposure and persistent secrets in images.</p>
+<p>Build once and promote immutable images. Pin Python/JS dependencies and container base digests; generate SBOM and third-party notices. Keep dev/eval dependencies out of web runtime; isolate Docling/OCR heavy dependencies. Restore rehearsal before pilot; initial engineering objectives RPO &lt;=24h and RTO &lt;=4h are proposed PoC targets, not service promises. Actual pilot recovery targets/costs require founder review. Backup access is restricted/encrypted; deletion tombstones apply after restore.</p>
+<p>GitHub Actions is the selected future CI host, not a created remote. PR pipeline: docs checks → schema/type/lint/unit checks → PostgreSQL integration and tenant/state negatives → RTL/mixed-language UI/keyboard checks → offline grounding/grading/abstention regressions → dependency/secret/license scan → image build/SBOM. Paid live evaluations run only manually within authorized budget; fork PRs receive no secrets. Actions pinned by full commit SHA, minimal read permissions, no untrusted privileged checkout; deploy credentials restricted to approved environment. Human approval required for promotion/deploy; current task contains no deployment authorization.</p>
+<p>ReleaseManifest records code SHA, dependency locks/image digests, schema/migration and UI-token versions, curriculum/profile/item/rubric/prompt/policy/grader versions, model identity, retrieval/index/embedding version and eval report. Canary/feature flags can disable one provider/course/modality without rewriting evidence. Expand/contract migrations; test old app compatibility and projection rebuild. Rollback cannot undo already sent messages or bills; external effects require compensating/idempotent handling.</p>
+<h2>Observability and operations</h2>
+<p>Emit request/turn/job IDs, minimized pseudonymous scope, status/error category, provider/model release, latency, queue age, parse stage, actual tokens/cache/audio units, reserved/settled spend and review workload. Never use names, raw prompts/transcripts, filenames or child identifiers as metrics labels. Configure OpenTelemetry exporter payload allowlist and sampling; trace capture off for bodies. Separate restricted security/consent audit from learning and operations telemetry. No third-party analytics recording of learner screens by default.</p>
+<p>Alerts: authorization failure clusters, stale/failed scanner, queue/lease failures, orphan reservations, provider usage mismatch, budget exhaustion, grounding/grading regression, backup failure and deletion backlog. Runbooks name owner/action/stop/restore steps; no invented 24/7 coverage. Default safe failure: pause affected teaching, retain checkpoint, deny risky content, communicate a resumable error. Never fall back from a failed scan to direct parsing, or from an ineligible provider to a cheaper unreviewed endpoint.</p>
+<h2>Scaling and cost triggers</h2>
+<p>Measure concurrency, long-lived SSE connections, DB connection/query load, parsing pages/minute, worker job age, embedding retrieval recall/latency and total billed spend. Scale worker pools separately from web; cap scanner/parser CPU so uploads cannot starve tutor turns. Add PgBouncer only after ASGI/driver/transaction compatibility tests; add broker when DB polling materially harms tutoring p95. Add ANN indexes only after exact scoped vector comparison. Region/local GPU/CDN changes require privacy and rights review. Recompute full economics with measured bills/support/rights costs before price or margin claims.</p>
+</section><section id="section-8"><div class="section-tag">09 / Phases, work packages and PoC acceptance</div><h1>Subject-independent implementation phases and bounded PoC</h1>
+<p>U11/U12 supersede any claim that a German curriculum must arrive before architectural design. Technical baseline is selected; this document does not authorize product code, paid calls or real-minor use. Architecture finalization and deployment readiness are separate.</p>
+<h2>Phase map</h2>
+<table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>Outputs / work</th>
+<th>Dependencies and exit</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A0 Architecture audit (current)</td>
+<td>Baseline, ADRs, complete feature/function map, repo decisions, source/unknown logs</td>
+<td>Founder/external auditor reviews concrete design; no curriculum upload prerequisite</td>
+</tr>
+<tr>
+<td>A1 Execution readiness</td>
+<td>Resolve dependency pins/SBOM/license closure; approved synthetic fixtures; exact time/spend envelope; security/processor plan for chosen PoC mode</td>
+<td>Record actual G1–G3 applicable decisions; offline fixtures need no real school textbook. Missing production legal choices can stay gated behind mock providers</td>
+</tr>
+<tr>
+<td>A2 Foundation</td>
+<td>Scoped actors/learners/relationships/grants, immutable editions/profiles, auth/session API, local storage, outbox/usage, shared UI shell</td>
+<td>Negative isolation, schema/migration/idempotency tests pass; no actual minors/payments</td>
+</tr>
+<tr>
+<td>A3 Multi-subject vertical slice</td>
+<td>Built-in authored fixtures + private upload, parse/review/index, grounded tutor, independent attempt/evidence/progress</td>
+<td>Same core runs language, quantitative and factual-science fixtures without subject-specific schema or state-machine edits</td>
+</tr>
+<tr>
+<td>A4 Comparative experiments</td>
+<td>Retrieval ablations, rules/classifier/Jev comparison, graded free response, provider/voice economics, DeepTutor extraction feasibility</td>
+<td>Quality/privacy gates before cost ranking; experiments may be not-run under cap, never claimed complete by design</td>
+</tr>
+<tr>
+<td>A5 Pilot product</td>
+<td>Reviewed real content and consent/account route, parent views, support/deletion/restore, capped text/voice and grants</td>
+<td>G4 evidence + G5 readiness, actual qualified review and authorized recruitment</td>
+</tr>
+<tr>
+<td>A6 Commercial hardening</td>
+<td>Gateway/refunds, quota disclosures, incident coverage, load/cost review and retention operations</td>
+<td>G6 commercial authorization; no fixed launch date invented</td>
+</tr>
+<tr>
+<td>A7 Expansion</td>
+<td>Teacher/school workflows, richer interactive lessons, more curricula, realtime/local inference and optional training</td>
+<td>Feature-specific evidence/rights/ADRs; deferred requirements remain in register</td>
+</tr>
+</tbody></table>
+<h2>PoC envelope</h2>
+<p>Synthetic adult/child-like test identities only, no real child data. Author short original materials for three different subject profiles, 20–30 pages total including digital/scanned/Arabic/bilingual/table/equation cases. Private worksheet overlay, two tenant scopes, at least two editions and a withdrawn source. Produce 120 reviewed grading cases, 100 retrieval questions, 30 prompt-injection documents and &gt;=100 authorization-negative cases; shared item families must not leak across evaluation splits. Sources are fixtures, not licensed global curriculum coverage.</p>
+<p>Use a proposed 15-engineering-day timebox, drawing on the earlier 10–15 day research estimate but <strong>not promising completion of every optional comparison</strong>. Prioritize runnable safe baseline; report incomplete items and reasons when timebox ends. Offline mock mode has no paid provider calls. Any live comparison requires a separately recorded monetary cap, allowed providers/data and actor authorization; amount remains null until supplied. Do not interpret a suggested envelope as procurement permission. No external sends/payments/deployment. Voice begins with licensed/consented adult data only after authorization.</p>
+<h2>Work packages and acceptance</h2>
+<table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Requirements</th>
+<th>Acceptance</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>T01 Contracts / dependency closure</td>
+<td>R075/R077/R081/R088/R099</td>
+<td>Exact release/hash, license/notices and dependency plan; subject profile schema; no missing authority boundary</td>
+</tr>
+<tr>
+<td>T02 Auth / consent / object scope</td>
+<td>R057/R060/R067</td>
+<td>&gt;=100 negative cases: cross-learner/course/edition/file/citation/job/stream access; zero unauthorized successes</td>
+</tr>
+<tr>
+<td>T03 Curriculum / upload</td>
+<td>R035–R042/R046/R099</td>
+<td>Private and built-in paths, quarantine/scanner failure closed, manifest validation, edition switch and revocation; original provenance intact</td>
+</tr>
+<tr>
+<td>T04 Retrieval</td>
+<td>R044/R045/R069</td>
+<td>Lexical vs dense vs hybrid results by fixture; recall@5 &gt;=90% on answerable set; zero fabricated citations/unauthorized retrieval; abstention &gt;=90%</td>
+</tr>
+<tr>
+<td>T05 Tutor / multi-subject</td>
+<td>R017/R019/R028/R062/R067/R099</td>
+<td>Same commands for three profiles; third added with config/content only for supported capabilities; no arbitrary tools; safe unknown/cancel/resume behavior</td>
+</tr>
+<tr>
+<td>T06 Assessment / evidence</td>
+<td>R020/R024/R025/R029/R030/R092</td>
+<td>Deterministic reference items exact; duplicates/corrections/replay stable; assisted/exposed/ambiguous never counted independent; subjective scores reviewed before projection</td>
+</tr>
+<tr>
+<td>T07 Usage / resilience</td>
+<td>R068–R074/R080</td>
+<td>Every call attempt reconciled or explicitly outstanding; cancel/retry/worker crash fixtures; hard configured quota stops new billable work; no false exactly-once vendor claim</td>
+</tr>
+<tr>
+<td>T08 UI / reporting</td>
+<td>R047/R054–R056/R097/R098</td>
+<td>Mobile RTL and mixed-language views, keyboard/focus, source inspection, parent scope; progress labels show evidence uncertainty</td>
+</tr>
+<tr>
+<td>T09 Evals / release</td>
+<td>R076/R078/R079/R089</td>
+<td>Versioned frozen fixtures, exact manifests/raw receipts, regression report, backup/restore/deletion replay; not-run experiments explicit</td>
+</tr>
+<tr>
+<td>T10 Optional comparisons</td>
+<td>R016/R034/R063–R066/R071/R083</td>
+<td>Matched baseline comparison within remaining authorized cap; no installation/extraction accepted solely because it appears in research</td>
+</tr>
+</tbody></table>
+<p>Thresholds are engineering targets retained from research/proposed QA, not measured outcomes or all-subject certification. For free-response grading, define educator agreement/false-acceptance thresholds before tuning; until then, do not auto-promote model-scored mastery. A failed isolation/privacy/critical safety check blocks pilot regardless of average grounding quality. Supported factual claims target &gt;=90%, reported per subject/language and uncertainty; correctness of a citation does not prove pedagogy.</p>
+<h2>Exit report</h2>
+<p>List each requirement/task as passed/failed/not-run, fixture/version, raw results, failures, actual total spend and reviewer decisions. Give a go/no-go for the bounded baseline, not permission for global subject launch. Architecture changes require an ADR amendment; content tuning alone changes profile/curriculum/prompt versions. No real learner recruitment occurs as a side effect of finishing PoC code.</p>
+</section><section id="section-9"><div class="section-tag">10 / Evidence, limitations and unknowns</div><h1>Audit readiness, evidence labels and unresolved decisions</h1>
+<p>This handoff finalizes engineering design, not a claim of a built or certified platform. Use labels throughout review: Founder instruction (U), observed limited page/artifact check (OBS/E), reported source finding (REP/A/G), vendor claim (VENDOR), engineering decision (DECISION/ADR), inference (INF), and unknown/not-run (UNK). Source availability and repeated wording are not independent corroboration.</p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Design decision / ready for audit</th>
+<th>Still unknown or untested</th>
+<th>When it blocks</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Stack and modules</td>
+<td>Django/DRF + static React + PostgreSQL, shared module authority</td>
+<td>Exact patch locks, dependency closure/runtime tests</td>
+<td>Install/build readiness</td>
+</tr>
+<tr>
+<td>Multi-subject core</td>
+<td>Profiles, edition/source manifests, reviewed adapters, no subject-specific core</td>
+<td>Quality of each real subject/course</td>
+<td>Content enablement; not design</td>
+</tr>
+<tr>
+<td>GitHub reuse</td>
+<td>All 22 dispositions; no whole tutoring/LMS</td>
+<td>Exact copied files (none now), releases, transitive/model rights</td>
+<td>Before install/extraction</td>
+</tr>
+<tr>
+<td>Ingestion/RAG</td>
+<td>Isolation, scoped hybrid retrieval, versioned citations</td>
+<td>OCR/grounding recall/latency actual results</td>
+<td>PoC/pilot evidence</td>
+</tr>
+<tr>
+<td>Learning</td>
+<td>Evidence/assistance authority, reviewed grading, replay</td>
+<td>Policy threshold validity, open-response agreement, delayed outcomes</td>
+<td>Scoring autonomy/claims/pilot</td>
+</tr>
+<tr>
+<td>Providers</td>
+<td>Portable contracts and deterministic eligibility</td>
+<td>Endpoints/models/terms, matched quality, actual receipts</td>
+<td>Before provider receives eligible data</td>
+</tr>
+<tr>
+<td>Jev</td>
+<td>Shadow comparison port; no business authority</td>
+<td>Availability/terms/classifier advantage and calibration</td>
+<td>Before any promotion</td>
+</tr>
+<tr>
+<td>Voice</td>
+<td>Capped push-to-talk baseline, realtime seam</td>
+<td>Dialect/child speech accuracy, actual latency/cost and retention</td>
+<td>Before live voice rollout</td>
+</tr>
+<tr>
+<td>Hosting/privacy</td>
+<td>Private persistence, role split, deletion/recovery design</td>
+<td>Region/provider/processor eligibility, exact retention/consent procedure</td>
+<td>Before affected real data/pilot</td>
+</tr>
+<tr>
+<td>Costs/commerce</td>
+<td>Reserve/reconcile/grants separate from payments</td>
+<td>Spend cap, exact prices/FX/full overheads/gateway/merchant terms</td>
+<td>Before paid calls/collection/commercial claims</td>
+</tr>
+<tr>
+<td>Gates/history</td>
+<td>U11/U12 explicit architecture instruction</td>
+<td>GAP-001 older context, remaining actual G1–G3 execution choices</td>
+<td>Baseline/execution sign-off; no historic completeness claim</td>
+</tr>
+</tbody></table>
+<h2>Baseline invariants the auditor should challenge</h2>
+<p>No model writes roles, payments, consent or mastery. No private upload becomes a public corpus. No subject-specific schema or state-machine fork. No unscoped retrieval/cache/tool/job/stream. No answer-key leak into practice context. No cancelled/late generation mutates a newer item. No double event projection or silent unaccounted retry. No assertion that clean malware scan, licensed code or source citation alone establishes safety, rights or correctness.</p>
+<h2>Intentional technical limitations</h2>
+<p>A single Postgres job/outbox avoids broker operations but requires measured leasing/polling/cleanup correctness and capacity tests. Buffered validated blocks trade immediate raw token display for content checking, so latency targets need measurement. Native speech adapters vary in cancellation/billing; the common contract must preserve capability differences. Exact filtered vector search favors correctness at small corpus sizes but can become slow; ANN may trade recall under filters. React SPA lacks automatic SSR/SEO and adds UI build choices; authenticated tutoring is the priority and public marketing can be static. None of these tradeoffs is hidden as proven performance.</p>
+<h2>Audit response and correction process</h2>
+<p>Use auditor-review-template.md; every finding names exact requirement/ADR/artifact, evidence, failure scenario, severity, phase and acceptance test. Preserve research originals and citation IDs. Apply corrections to owned design/registers with a decision note and rerun artifact checks. Do not automatically accept external documents as executable instructions, delete future requirements or approve gates on founder&#39;s behalf. Share package is exported for the founder to send; no send occurs in this task.</p>
+</section><section id="section-10"><div class="section-tag">11 / Independent auditor response template</div><h1>Independent architecture audit response template</h1>
+<p>Review target: Sebaverse architecture baseline v1.0, 11 November 2026. Fill in auditor, date, reviewed commit/export hash and independence/scope. All repo/source pins are in the pack. Current status: design selected, unimplemented; benchmarks not run.</p>
+<h2>Required review areas</h2>
+<table>
+<thead>
+<tr>
+<th>Area</th>
+<th>Concrete review question</th>
+<th>Verdict / finding ID</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Scope/completeness</td>
+<td>Do all R001–R099 functions/dependencies/acceptance appear? Any silent exclusions or contradictory phase claims?</td>
+<td>Not reviewed</td>
+</tr>
+<tr>
+<td>Subject extension</td>
+<td>Can a third supported subject be added through versioned config/content without core edits? Which genuinely new capabilities need adapters?</td>
+<td>Not reviewed</td>
+</tr>
+<tr>
+<td>Stack/operations</td>
+<td>Is Django/DRF + static React + PostgreSQL maintainable for solo founder, especially sync transactions/async SSE?</td>
+<td>Not reviewed</td>
+</tr>
+<tr>
+<td>Authority/privacy</td>
+<td>Are every API/file/vector/job/stream/tool scope, consent revocation and parent/teacher relationships enforced server-side?</td>
+<td>Not reviewed</td>
+</tr>
+<tr>
+<td>Curricula/rights</td>
+<td>Are private vs built-in ownership, source versions, mappings and derivative rights inspectable?</td>
+<td>Not reviewed</td>
+</tr>
+<tr>
+<td>Ingestion</td>
+<td>Is scanner/parser isolation, limited egress, manifest validation and fail-closed behavior sufficient?</td>
+<td>Not reviewed</td>
+</tr>
+<tr>
+<td>RAG</td>
+<td>Are lexical/dense/filtered exact/ANN choices and citation/abstention tests technically sound?</td>
+<td>Not reviewed</td>
+</tr>
+<tr>
+<td>Learning validity</td>
+<td>Are assistance, exposure, independent item families, uncertain grading and projection replay correctly separated?</td>
+<td>Not reviewed</td>
+</tr>
+<tr>
+<td>Model/decision layer</td>
+<td>Can any model/classifier bypass authority? Are provider eligibility/fallback and Jev comparisons unbiased?</td>
+<td>Not reviewed</td>
+</tr>
+<tr>
+<td>Reliability/accounting</td>
+<td>Are idempotency, lease fences, cancellation, unknown vendor billing and quota reconciliation complete?</td>
+<td>Not reviewed</td>
+</tr>
+<tr>
+<td>Reuse/licensing</td>
+<td>Which selected components require deeper source/dependency/model-rights review? Is DeepTutor extraction worth its cost?</td>
+<td>Not reviewed</td>
+</tr>
+<tr>
+<td>UI/accessibility/voice</td>
+<td>Are RTL/code-switching, consent/transcripts/cancel and accessible controls covered?</td>
+<td>Not reviewed</td>
+</tr>
+<tr>
+<td>Delivery/security</td>
+<td>Are secrets/CI/images/migrations/deletion/backups/restore/incident and rollout gates credible?</td>
+<td>Not reviewed</td>
+</tr>
+<tr>
+<td>Economics</td>
+<td>Which costs/latency/quality assumptions lack data? Does baseline leave a path to affordable capped service?</td>
+<td>Not reviewed</td>
+</tr>
+<tr>
+<td>Phases</td>
+<td>Does multi-subject PoC prove boundaries within time/cap? Which claims must remain not-run?</td>
+<td>Not reviewed</td>
+</tr>
+</tbody></table>
+<h2>Finding form — repeat per issue</h2>
+<p>ID: AUD-001. Severity: critical/high/medium/low. Type: security / rights / architecture / quality / cost / completeness. Requirement IDs and ADR IDs: __. Exact artifact/section/locator: __. Observed evidence vs inference: __. Failure scenario and affected actor/data: __. Proposed correction/alternative and tradeoff: __. Acceptance test: __. Blocking phase: __. Owner/due trigger/status: __.</p>
+<h2>Final recommendation</h2>
+<p>Choose: proceed with conditions / revise before PoC / architecture unsuitable. State blocking findings, nonblocking improvements, unresolved external dependencies, audit limitations and claims not tested. Do not certify implemented security/efficacy/performance for this documentation-only design. Founder decision is recorded separately after review; auditor comments are not silently applied as requirements deletion.</p>
+</section><section id="section-11"><div class="section-tag">12 / Primary-source references</div><h1>Architecture primary-source checks — 11 November 2026</h1>
+<p>These are limited readable-page checks, not new source-code/security/runtime audits. Historical A01–A13 remain unchanged. Mutable pages are dated references, not deployment locks. No dependency installed or paid provider called.</p>
+<table>
+<thead>
+<tr>
+<th>Evidence ID</th>
+<th>Type / observed locator</th>
+<th>Consequence</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>E22</td>
+<td>OBS: <a href="https://www.djangoproject.com/download/">Django supported versions</a> lists 5.2 LTS and extended support through April 2028</td>
+<td>Select supported LTS family, resolve patched release at install; no claim currently locked</td>
+</tr>
+<tr>
+<td>E23</td>
+<td>OBS: <a href="https://docs.djangoproject.com/en/5.2/topics/async/">Django 5.2 async docs</a> explains ASGI async support and sync/async adaptation</td>
+<td>Use native ASGI streams, keep transactions in short sync services; do not assume DRF or entire ORM is async</td>
+</tr>
+<tr>
+<td>E24</td>
+<td>OBS: <a href="https://react.dev/learn/build-a-react-app-from-scratch">React from-scratch guide</a> documents Vite, routing and query-layer choices; <a href="https://react.dev/learn/creating-a-react-app">framework guidance</a> recommends frameworks generally</td>
+<td>Select custom client app deliberately because Django owns backend; accept explicit router/query/toolchain work</td>
+</tr>
+<tr>
+<td>E25</td>
+<td>OBS: <a href="https://github.com/docling-project/docling#license">Docling repository license section</a> states MIT code and separately licensed model packages</td>
+<td>Parser library chosen; exact model/asset rights still required</td>
+</tr>
+<tr>
+<td>E26</td>
+<td>OBS: <a href="https://github.com/pgvector/pgvector#filtering">pgvector filtering guidance</a> documents scoped exact search and ANN filtering considerations</td>
+<td>Start exact authorized search; ANN requires filtered-recall/security testing</td>
+</tr>
+<tr>
+<td>E27</td>
+<td>OBS: <a href="https://raw.githubusercontent.com/open-spaced-repetition/py-fsrs/main/LICENSE">py-fsrs license</a> and <a href="https://open-spaced-repetition.github.io/py-fsrs/">API docs</a></td>
+<td>Package API comparator for recall; no result validating learning improvement</td>
+</tr>
+<tr>
+<td>E28</td>
+<td>OBS: <a href="https://raw.githubusercontent.com/promptfoo/promptfoo/main/LICENSE">Promptfoo core license</a> contains permissive notice terms; <a href="https://raw.githubusercontent.com/encode/django-rest-framework/main/LICENSE.md">DRF license</a> contains redistribution/notice conditions</td>
+<td>Exact adopted releases/features/transitive notices still checked; no blanket commercial clearance</td>
+</tr>
+<tr>
+<td>E29</td>
+<td>OBS: <a href="https://docs.clamav.net/">ClamAV intro</a> describes GPLv2 scanning toolkit and limits of its endpoint protection role</td>
+<td>Separate scanner boundary; clean scan does not establish file safety; distribution review remains</td>
+</tr>
+<tr>
+<td>E30</td>
+<td>OBS: <a href="https://www.postgresql.org/support/versioning/">PostgreSQL version policy</a> describes five-year major support and regular minor fixes</td>
+<td>PostgreSQL 17 selected family; patch and upgrade planning required</td>
+</tr>
+<tr>
+<td>E31</td>
+<td>OBS: <a href="https://docs.github.com/en/actions/reference/security/secure-use">GitHub Actions secure use</a> describes least privilege and third-party action risks</td>
+<td>Plan SHA-pinned actions, unprivileged PR jobs and gated deployment credentials</td>
+</tr>
+<tr>
+<td>E32</td>
+<td>OBS: <a href="https://github.com/HKUDS/DeepTutor">DeepTutor root</a> identifies Apache-2.0</td>
+<td>Corroborates code-license label only; A02 pin/source audit, not current README feature claims, governs extraction review</td>
+</tr>
+</tbody></table>
+<p>INF: this stack reduces duplicate domain authority and operations for a solo founder while retaining rich UI boundaries. This is engineering judgment, not a measured stack comparison. DECISION: U11 authorizes final technical selection documented in ADRs. UNK: exact lockfiles, hosting/processor eligibility, production model endpoints, retention periods, all performance/quality benchmarks.</p>
+</section></main></body></html>

@@ -54,3 +54,6 @@ Exact research files/bytes/checksums: [manifest](research-manifest.json). Suppor
 - U9: [C identity selected; two palette candidates](c-identity-palette-selection.md), founder instruction 11 November 2026.
 
 - U10: [Blue/orange selection, wording and brand-system/folder instruction](brand-system-approval-scope.md), 11 November 2026.
+
+- U11/U12: [Subject-independent architecture finalization and audit handoff](subject-independent-architecture-instruction.md), 11 November 2026.
+- E22–E32: [Architecture primary checks](architecture-primary-checks.md), limited readable owning-source checks, 11 November 2026.

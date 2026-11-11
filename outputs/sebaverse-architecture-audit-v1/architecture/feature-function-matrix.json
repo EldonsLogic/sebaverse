@@ -1,0 +1,1897 @@
+[
+  {
+    "requirement_id": "R001",
+    "feature": "Audit context completeness before final specifications",
+    "functions": "Inventory sources, disclose historical gaps, append reconciliations",
+    "phase": "A0/A1",
+    "build_reuse": "Owned product/application logic",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [],
+    "acceptance_criteria": "All 27 pack files inventoried and historical GAP-001 explicit",
+    "specification": "docs/00-context-completeness-audit.md",
+    "status": "Specified; not implemented",
+    "priority": "P0",
+    "requirement_phase": "Gates"
+  },
+  {
+    "requirement_id": "R002",
+    "feature": "Preserve research originals and citations",
+    "functions": "Hash and preserve all research originals and citations",
+    "phase": "A0/A1",
+    "build_reuse": "Owned product/application logic",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [
+      "R001"
+    ],
+    "acceptance_criteria": "36 research/evidence files hash-verified and unchanged",
+    "specification": "sources/source-catalog.md",
+    "status": "Specified; not implemented",
+    "priority": "P0",
+    "requirement_phase": "Gates"
+  },
+  {
+    "requirement_id": "R003",
+    "feature": "Trace every available founder requirement without silently dropping future scope",
+    "functions": "Maintain IDs, source/phase/dependency coverage and change control",
+    "phase": "A0/A1",
+    "build_reuse": "Owned product/application logic",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [
+      "R001"
+    ],
+    "acceptance_criteria": "Stable IDs have source, phase, priority, dependencies, acceptance and spec; historical limitation declared",
+    "specification": "execution/roadmap-and-gates.md",
+    "status": "Specified; not implemented",
+    "priority": "P0",
+    "requirement_phase": "Gates"
+  },
+  {
+    "requirement_id": "R004",
+    "feature": "Product vision, target users and jobs",
+    "functions": "Maintain user/job/outcome and service scope contracts",
+    "phase": "A0/A1",
+    "build_reuse": "Owned product/application logic",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [],
+    "acceptance_criteria": "Student/guardian/educator/teacher/operator jobs and primary outcome reviewed",
+    "specification": "docs/01-product-vision-prd.md",
+    "status": "Specified; not implemented",
+    "priority": "P1",
+    "requirement_phase": "Gates"
+  },
+  {
+    "requirement_id": "R005",
+    "feature": "Choose first Egypt curriculum/age/subject unit",
+    "functions": "Configure pilot content/age/buyer; not architecture prerequisite",
+    "phase": "A0/A1",
+    "build_reuse": "Owned product/application logic",
+    "sources": [
+      "U1",
+      "U2",
+      "U4"
+    ],
+    "dependencies": [],
+    "acceptance_criteria": "German/national-language-school/uploaded-curriculum starting scope recorded; remaining grade, level, edition, reviewer and buyer resolved before full G1 approval",
+    "specification": "docs/01-product-vision-prd.md",
+    "status": "Specified; not implemented",
+    "priority": "P0",
+    "requirement_phase": "Gates"
+  },
+  {
+    "requirement_id": "R006",
+    "feature": "Solo-founder maintainability",
+    "functions": "Keep single domain and minimal operations footprint",
+    "phase": "A0/A1",
+    "build_reuse": "Owned product/application logic",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [],
+    "acceptance_criteria": "Work breakdown includes educator/legal/support effort and bounded scope",
+    "specification": "execution/roadmap-and-gates.md",
+    "status": "Specified; not implemented",
+    "priority": "P1",
+    "requirement_phase": "Gates"
+  },
+  {
+    "requirement_id": "R007",
+    "feature": "Affordability and pricing hypotheses",
+    "functions": "Model plans, quotas and willingness-to-pay hypotheses",
+    "phase": "A0/A1",
+    "build_reuse": "Owned product/application logic",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [],
+    "acceptance_criteria": "EGP 300/month and EGP 300–500/course/semester modeled separately, not asserted viable",
+    "specification": "economics/README.md",
+    "status": "Specified; not implemented",
+    "priority": "P1",
+    "requirement_phase": "Gates"
+  },
+  {
+    "requirement_id": "R008",
+    "feature": "Preserve ~100 prospects and supervised family/friends pilot context",
+    "functions": "Manage permitted prospect/pilot readiness; no assumed conversion",
+    "phase": "A3–A6",
+    "build_reuse": "Owned product/application logic",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [
+      "R005",
+      "R058"
+    ],
+    "acceptance_criteria": "Interest not counted as revenue; appropriate pilot permissions and cohort plan documented",
+    "specification": "docs/01-product-vision-prd.md",
+    "status": "Specified; not implemented",
+    "priority": "P1",
+    "requirement_phase": "Pilot"
+  },
+  {
+    "requirement_id": "R009",
+    "feature": "Brand naming strategy and candidate screening",
+    "functions": "Manage selected name and clearance evidence",
+    "phase": "A0/A1",
+    "build_reuse": "Design/documentation; React UI later",
+    "sources": [
+      "U1",
+      "U2",
+      "U5"
+    ],
+    "dependencies": [],
+    "acceptance_criteria": "Candidate list plus language, similarity, mark/domain screening and founder decision",
+    "specification": "design/brand-and-design-system.md",
+    "status": "Specified; not implemented",
+    "priority": "P1",
+    "requirement_phase": "Gates"
+  },
+  {
+    "requirement_id": "R010",
+    "feature": "Identity/design system",
+    "functions": "Version design tokens, components and branding rules",
+    "phase": "A0/A1",
+    "build_reuse": "Design/documentation; React UI later",
+    "sources": [
+      "U1",
+      "U2",
+      "U5",
+      "U10"
+    ],
+    "dependencies": [
+      "R009"
+    ],
+    "acceptance_criteria": "Bilingual direction, editable tokens, components/states and contrast review specified",
+    "specification": "design/brand-and-design-system.md",
+    "status": "Brand system v1 documented; detailed founder review pending; no product implemented",
+    "priority": "P1",
+    "requirement_phase": "Gates"
+  },
+  {
+    "requirement_id": "R011",
+    "feature": "UX journeys",
+    "functions": "Compose student/parent/upload/voice/teacher journeys",
+    "phase": "A0/A1",
+    "build_reuse": "Design/documentation; React UI later",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [
+      "R004"
+    ],
+    "acceptance_criteria": "Student, parent, upload, voice and teacher flows reviewed",
+    "specification": "design/brand-and-design-system.md",
+    "status": "Specified; not implemented",
+    "priority": "P1",
+    "requirement_phase": "Gates"
+  },
+  {
+    "requirement_id": "R012",
+    "feature": "Use existing TBD project folder; rename after chosen brand",
+    "functions": "Preserve canonical project path and local history",
+    "phase": "A0/A1",
+    "build_reuse": "Design/documentation; React UI later",
+    "sources": [
+      "U3",
+      "U10"
+    ],
+    "dependencies": [],
+    "acceptance_criteria": "Documents/Sebaverse is canonical; Git/research preserved, no duplicate master; app registration compatibility documented",
+    "specification": "README.md",
+    "status": "Completed: original repository renamed Sebaverse; legacy path is compatibility symlink",
+    "priority": "P1",
+    "requirement_phase": "Gates"
+  },
+  {
+    "requirement_id": "R013",
+    "feature": "Egyptian Arabic conversational text",
+    "functions": "Explain/converse in Egyptian Arabic with rubric slices",
+    "phase": "A3–A6",
+    "build_reuse": "Owned product/application logic",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [],
+    "acceptance_criteria": "Educator-scored dialect explanations pass agreed rubric",
+    "specification": "docs/05-model-routing-and-voice.md",
+    "status": "Specified; not implemented",
+    "priority": "P1",
+    "requirement_phase": "Pilot"
+  },
+  {
+    "requirement_id": "R014",
+    "feature": "MSA text and academic terminology",
+    "functions": "Support MSA academic terminology and formal notices",
+    "phase": "A3–A6",
+    "build_reuse": "Owned product/application logic",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [],
+    "acceptance_criteria": "Formal terms and understandable MSA tested separately",
+    "specification": "docs/05-model-routing-and-voice.md",
+    "status": "Specified; not implemented",
+    "priority": "P1",
+    "requirement_phase": "Pilot"
+  },
+  {
+    "requirement_id": "R015",
+    "feature": "English and code-switching text",
+    "functions": "Handle English and language switching with bidi isolation",
+    "phase": "A3–A6",
+    "build_reuse": "Owned product/application logic",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [],
+    "acceptance_criteria": "Language switching preserves math meaning and source scope",
+    "specification": "docs/05-model-routing-and-voice.md",
+    "status": "Specified; not implemented",
+    "priority": "P1",
+    "requirement_phase": "Pilot"
+  },
+  {
+    "requirement_id": "R016",
+    "feature": "Egyptian Arabic/MSA/English voice",
+    "functions": "Record/transcribe/synthesize/cancel speech with text fallback",
+    "phase": "A4; rollout conditional",
+    "build_reuse": "Owned product/application logic",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [
+      "R013",
+      "R014",
+      "R015"
+    ],
+    "acceptance_criteria": "Each language meets speech fidelity, privacy and cost gates; text fallback remains",
+    "specification": "docs/05-model-routing-and-voice.md",
+    "status": "Specified; not implemented",
+    "priority": "P1",
+    "requirement_phase": "PoC then conditional Pilot"
+  },
+  {
+    "requirement_id": "R017",
+    "feature": "Adaptive explanations",
+    "functions": "Select explanation strategy from evidence and subject profile",
+    "phase": "A3–A6",
+    "build_reuse": "Owned product/application logic",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [
+      "R025"
+    ],
+    "acceptance_criteria": "Explanations change with valid evidence and preference within allowed action",
+    "specification": "docs/03-learning-intelligence.md",
+    "status": "Specified; not implemented",
+    "priority": "P1",
+    "requirement_phase": "Pilot"
+  },
+  {
+    "requirement_id": "R018",
+    "feature": "Interactive lessons and visual manipulatives",
+    "functions": "Render reviewed interactive learning representations",
+    "phase": "A7; contracts now",
+    "build_reuse": "Owned product/application logic",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [
+      "R017"
+    ],
+    "acceptance_criteria": "Reviewed interactive activities map to objectives with accessibility equivalents",
+    "specification": "design/brand-and-design-system.md",
+    "status": "Specified; not implemented",
+    "priority": "P1",
+    "requirement_phase": "Future"
+  },
+  {
+    "requirement_id": "R019",
+    "feature": "Guided problem-solving and hint ladder",
+    "functions": "Offer bounded hints and track assistance/exposure",
+    "phase": "A3–A6",
+    "build_reuse": "Owned product/application logic",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [
+      "R025"
+    ],
+    "acceptance_criteria": "Hints record assistance; learner can switch to independent check",
+    "specification": "docs/03-learning-intelligence.md",
+    "status": "Specified; not implemented",
+    "priority": "P1",
+    "requirement_phase": "Pilot"
+  },
+  {
+    "requirement_id": "R020",
+    "feature": "Exercises and quizzes",
+    "functions": "Serve reviewed items, collect attempts and validate grading",
+    "phase": "A3–A6",
+    "build_reuse": "Owned product/application logic",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [
+      "R043"
+    ],
+    "acceptance_criteria": "Reviewed item/rubric versions, independent mode and appeals work",
+    "specification": "docs/03-learning-intelligence.md",
+    "status": "Specified; not implemented",
+    "priority": "P1",
+    "requirement_phase": "Pilot"
+  },
+  {
+    "requirement_id": "R021",
+    "feature": "Timed mock exams",
+    "functions": "Build reviewed exam blueprint, timer/accommodations and post-exam remediation",
+    "phase": "A7",
+    "build_reuse": "Owned product/application logic",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [
+      "R020",
+      "R035"
+    ],
+    "acceptance_criteria": "Syllabus blueprint, timing/accommodations, reviewed marking and post-exam plan",
+    "specification": "docs/03-learning-intelligence.md",
+    "status": "Specified; not implemented",
+    "priority": "P1",
+    "requirement_phase": "Future"
+  },
+  {
+    "requirement_id": "R022",
+    "feature": "Personalized exam preparation",
+    "functions": "Plan revision from objectives, time availability and uncertainty",
+    "phase": "A7",
+    "build_reuse": "Owned product/application logic",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [
+      "R025",
+      "R035"
+    ],
+    "acceptance_criteria": "Availability, objective coverage and delayed checks drive explainable plan",
+    "specification": "docs/01-product-vision-prd.md",
+    "status": "Specified; not implemented",
+    "priority": "P1",
+    "requirement_phase": "Future"
+  },
+  {
+    "requirement_id": "R023",
+    "feature": "Persistent progress across sessions",
+    "functions": "Resume checkpoints and preserve evidence across sessions",
+    "phase": "A3–A6",
+    "build_reuse": "Owned product/application logic",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [
+      "R025"
+    ],
+    "acceptance_criteria": "Resume and projection replay preserve valid learning evidence",
+    "specification": "docs/03-learning-intelligence.md",
+    "status": "Specified; not implemented",
+    "priority": "P1",
+    "requirement_phase": "Pilot"
+  },
+  {
+    "requirement_id": "R024",
+    "feature": "Mastery tracking with uncertainty",
+    "functions": "Project evidence-backed status and uncertainty",
+    "phase": "A3–A6",
+    "build_reuse": "Owned product/application logic",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [
+      "R025"
+    ],
+    "acceptance_criteria": "Unknown distinct from low; assisted success cannot promote status",
+    "specification": "docs/03-learning-intelligence.md",
+    "status": "Specified; not implemented",
+    "priority": "P1",
+    "requirement_phase": "Pilot"
+  },
+  {
+    "requirement_id": "R025",
+    "feature": "Immutable evidence ledger and correction lineage",
+    "functions": "Append/deduplicate/correct/replay assessment evidence",
+    "phase": "A3–A6",
+    "build_reuse": "Owned product/application logic",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [
+      "R043"
+    ],
+    "acceptance_criteria": "Duplicate/out-of-order/corrected evidence replays deterministically",
+    "specification": "docs/03-learning-intelligence.md",
+    "status": "Specified; not implemented",
+    "priority": "P1",
+    "requirement_phase": "PoC"
+  },
+  {
+    "requirement_id": "R026",
+    "feature": "Misconception diagnosis",
+    "functions": "Maintain expiring misconception hypotheses and disambiguating probes",
+    "phase": "A3–A6",
+    "build_reuse": "Owned product/application logic",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [
+      "R025"
+    ],
+    "acceptance_criteria": "Wrong answer is hypothesis; distinguishing probe and expiry/review recorded",
+    "specification": "docs/03-learning-intelligence.md",
+    "status": "Specified; not implemented",
+    "priority": "P1",
+    "requirement_phase": "Pilot"
+  },
+  {
+    "requirement_id": "R027",
+    "feature": "Prerequisite knowledge graph",
+    "functions": "Review prerequisite edges and validate graph",
+    "phase": "A3–A6",
+    "build_reuse": "Owned product/application logic",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [
+      "R035"
+    ],
+    "acceptance_criteria": "Reviewed edges/provenance, cycle detection and safe fallback",
+    "specification": "docs/03-learning-intelligence.md",
+    "status": "Specified; not implemented",
+    "priority": "P1",
+    "requirement_phase": "Pilot"
+  },
+  {
+    "requirement_id": "R028",
+    "feature": "Explainable adaptive learning paths",
+    "functions": "Rank eligible next actions with reason codes and safe choice",
+    "phase": "A3–A6",
+    "build_reuse": "Owned product/application logic",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [
+      "R024",
+      "R027"
+    ],
+    "acceptance_criteria": "Eligible next actions have stored reasons and override path",
+    "specification": "docs/03-learning-intelligence.md",
+    "status": "Specified; not implemented",
+    "priority": "P1",
+    "requirement_phase": "Pilot"
+  },
+  {
+    "requirement_id": "R029",
+    "feature": "Active recall and independent assessment",
+    "functions": "Select unseen item families and track independent checks",
+    "phase": "A3–A6",
+    "build_reuse": "Owned product/application logic",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [
+      "R020"
+    ],
+    "acceptance_criteria": "Unseen-family checks separate hinted/exposed answers",
+    "specification": "docs/03-learning-intelligence.md",
+    "status": "Specified; not implemented",
+    "priority": "P1",
+    "requirement_phase": "Pilot"
+  },
+  {
+    "requirement_id": "R030",
+    "feature": "Spaced repetition and delayed retention",
+    "functions": "Schedule/review recall with versioned strategy",
+    "phase": "A3–A6",
+    "build_reuse": "Owned schedule boundary + fixed rule / py-fsrs comparison",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [
+      "R029"
+    ],
+    "acceptance_criteria": "Due reviews and independent delayed results recorded separately from completion",
+    "specification": "docs/03-learning-intelligence.md",
+    "status": "Specified; not implemented",
+    "priority": "P1",
+    "requirement_phase": "Pilot"
+  },
+  {
+    "requirement_id": "R031",
+    "feature": "Individual adaptation loop",
+    "functions": "Update learner policy inputs after validated events",
+    "phase": "A3–A6",
+    "build_reuse": "Owned product/application logic",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [
+      "R025"
+    ],
+    "acceptance_criteria": "Only validated learner evidence changes that learner projection",
+    "specification": "docs/03-learning-intelligence.md",
+    "status": "Specified; not implemented",
+    "priority": "P1",
+    "requirement_phase": "Pilot"
+  },
+  {
+    "requirement_id": "R032",
+    "feature": "System-wide evaluated feedback loop",
+    "functions": "Triage failure categories and promote reviewed fixes after regression",
+    "phase": "A3–A6",
+    "build_reuse": "Owned product/application logic",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [
+      "R031"
+    ],
+    "acceptance_criteria": "Human triage, frozen regressions, versioned releases and rollback",
+    "specification": "docs/03-learning-intelligence.md",
+    "status": "Specified; not implemented",
+    "priority": "P1",
+    "requirement_phase": "Pilot"
+  },
+  {
+    "requirement_id": "R033",
+    "feature": "Optional controlled model improvement",
+    "functions": "Curate separately authorized training data and gated model release",
+    "phase": "A7; contracts now",
+    "build_reuse": "Owned product/application logic",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [
+      "R032",
+      "R059"
+    ],
+    "acceptance_criteria": "Authorized curated training corpus, lineage and held-out evaluation before release",
+    "specification": "docs/03-learning-intelligence.md",
+    "status": "Specified; not implemented",
+    "priority": "P1",
+    "requirement_phase": "Future"
+  },
+  {
+    "requirement_id": "R034",
+    "feature": "Compare rules/BKT/logistic/IRT/deep KT",
+    "functions": "Run offline estimator comparisons with lawful adequate data",
+    "phase": "A4; rollout conditional",
+    "build_reuse": "Owned product/application logic",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [
+      "R025",
+      "R076"
+    ],
+    "acceptance_criteria": "Calibration and held-out learning outcomes justify complexity; no AUC-only promotion",
+    "specification": "docs/03-learning-intelligence.md",
+    "status": "Specified; not implemented",
+    "priority": "P1",
+    "requirement_phase": "Future"
+  },
+  {
+    "requirement_id": "R035",
+    "feature": "Built-in versioned Egyptian curricula",
+    "functions": "Publish rights-reviewed built-in Egyptian editions",
+    "phase": "A3 core; A5 reviewed content",
+    "build_reuse": "Owned product/application logic",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [
+      "R005",
+      "R041"
+    ],
+    "acceptance_criteria": "Exact authority/year/grade/subject/term/language pinned and approved",
+    "specification": "docs/04-curriculum-and-rag.md",
+    "status": "Specified; not implemented",
+    "priority": "P1",
+    "requirement_phase": "Pilot"
+  },
+  {
+    "requirement_id": "R036",
+    "feature": "National/language/IGCSE/IB/American and global curricula",
+    "functions": "Configure multiple systems/specifications/curricula without hardcoding",
+    "phase": "A3 core; A5 reviewed content",
+    "build_reuse": "Owned product/application logic",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [
+      "R035"
+    ],
+    "acceptance_criteria": "Each system gets independent reviewed syllabus mappings and rights, not translation-only labels",
+    "specification": "docs/04-curriculum-and-rag.md",
+    "status": "Specified; not implemented",
+    "priority": "P1",
+    "requirement_phase": "Future"
+  },
+  {
+    "requirement_id": "R037",
+    "feature": "Student-uploaded materials/custom curriculum",
+    "functions": "Upload private learner materials and custom objectives",
+    "phase": "A3 core; A5 reviewed content",
+    "build_reuse": "Owned product/application logic",
+    "sources": [
+      "U1",
+      "U2",
+      "U4"
+    ],
+    "dependencies": [
+      "R041",
+      "R058"
+    ],
+    "acceptance_criteria": "Private upload, relationship/purpose scope, quarantine and reviewed mapping",
+    "specification": "docs/04-curriculum-and-rag.md",
+    "status": "Specified; not implemented",
+    "priority": "P1",
+    "requirement_phase": "Pilot"
+  },
+  {
+    "requirement_id": "R038",
+    "feature": "Parent-uploaded textbooks/notes/worksheets",
+    "functions": "Verify parent upload authority and learner sharing scope",
+    "phase": "A3 core; A5 reviewed content",
+    "build_reuse": "Owned product/application logic",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [
+      "R037"
+    ],
+    "acceptance_criteria": "Verified guardian scope; private source/version/progress state visible",
+    "specification": "docs/04-curriculum-and-rag.md",
+    "status": "Specified; not implemented",
+    "priority": "P1",
+    "requirement_phase": "Pilot"
+  },
+  {
+    "requirement_id": "R039",
+    "feature": "OCR/layout/math/table/diagram extraction",
+    "functions": "Extract layout/text/table/equation/image anchors and quality flags",
+    "phase": "A3 core; A5 reviewed content",
+    "build_reuse": "Own controls + isolated Docling; OCR fallback conditional",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [
+      "R040"
+    ],
+    "acceptance_criteria": "Arabic and bilingual representative corpus checked for critical notation loss",
+    "specification": "docs/04-curriculum-and-rag.md",
+    "status": "Specified; not implemented",
+    "priority": "P1",
+    "requirement_phase": "PoC"
+  },
+  {
+    "requirement_id": "R040",
+    "feature": "Safe upload ingestion and quotas",
+    "functions": "Reserve upload quota, quarantine, scan, parse, cancel/retry safely",
+    "phase": "A3 core; A5 reviewed content",
+    "build_reuse": "Own controls + isolated Docling; OCR fallback conditional",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [
+      "R060"
+    ],
+    "acceptance_criteria": "Streaming caps, magic/MIME, malware/quarantine and bounded parser fixtures pass",
+    "specification": "docs/04-curriculum-and-rag.md",
+    "status": "Specified; not implemented",
+    "priority": "P1",
+    "requirement_phase": "PoC"
+  },
+  {
+    "requirement_id": "R041",
+    "feature": "Content rights/provenance/permissions",
+    "functions": "Record processing/display/derivative rights and restrictions",
+    "phase": "A3 core; A5 reviewed content",
+    "build_reuse": "Owned product/application logic",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [],
+    "acceptance_criteria": "Every published source has hash, permission scope, expiry and reviewer",
+    "specification": "docs/04-curriculum-and-rag.md",
+    "status": "Specified; not implemented",
+    "priority": "P0",
+    "requirement_phase": "Gates"
+  },
+  {
+    "requirement_id": "R042",
+    "feature": "Versioning, curriculum mapping and supersession",
+    "functions": "Version editions, mappings and supersession/migration manifests",
+    "phase": "A3 core; A5 reviewed content",
+    "build_reuse": "Owned product/application logic",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [
+      "R035"
+    ],
+    "acceptance_criteria": "New edition does not silently relabel old evidence; reviewed migration exists",
+    "specification": "docs/04-curriculum-and-rag.md",
+    "status": "Specified; not implemented",
+    "priority": "P1",
+    "requirement_phase": "Pilot"
+  },
+  {
+    "requirement_id": "R043",
+    "feature": "Original reviewed item bank/rubrics",
+    "functions": "Review original items, variants, rubrics and answer-key scope",
+    "phase": "A3 core; A5 reviewed content",
+    "build_reuse": "Owned product/application logic",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [
+      "R041"
+    ],
+    "acceptance_criteria": "100 clear plus 20 ambiguous/adversarial item cases with reviewed keys",
+    "specification": "docs/03-learning-intelligence.md",
+    "status": "Specified; not implemented",
+    "priority": "P1",
+    "requirement_phase": "PoC"
+  },
+  {
+    "requirement_id": "R044",
+    "feature": "RAG retrieval architecture",
+    "functions": "Index scoped chunks; compare lexical/dense/hybrid retrieval",
+    "phase": "A3 core; A5 reviewed content",
+    "build_reuse": "Own scope/citations + PostgreSQL/pgvector",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [
+      "R039",
+      "R041"
+    ],
+    "acceptance_criteria": "ACL/edition/approval filters apply before ranking and citation resolution",
+    "specification": "docs/04-curriculum-and-rag.md",
+    "status": "Specified; not implemented",
+    "priority": "P1",
+    "requirement_phase": "PoC"
+  },
+  {
+    "requirement_id": "R045",
+    "feature": "Document-grounded answers and exact citations",
+    "functions": "Resolve exact authorized source/version/page citations and abstain",
+    "phase": "A3 core; A5 reviewed content",
+    "build_reuse": "Owned product/application logic",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [
+      "R044"
+    ],
+    "acceptance_criteria": "No fabricated source references; support/abstention gates pass per language",
+    "specification": "docs/04-curriculum-and-rag.md",
+    "status": "Specified; not implemented",
+    "priority": "P1",
+    "requirement_phase": "PoC"
+  },
+  {
+    "requirement_id": "R046",
+    "feature": "Private upload isolation and deletion",
+    "functions": "Isolate/purge originals, derived indexes/cache and pending jobs",
+    "phase": "A3 core; A5 reviewed content",
+    "build_reuse": "Owned product/application logic",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [
+      "R044",
+      "R061"
+    ],
+    "acceptance_criteria": "No cross-user chunks/cache leaks; withdrawal purges derived artifacts",
+    "specification": "docs/04-curriculum-and-rag.md",
+    "status": "Specified; not implemented",
+    "priority": "P1",
+    "requirement_phase": "Pilot"
+  },
+  {
+    "requirement_id": "R047",
+    "feature": "Parent dashboard and meaningful progress",
+    "functions": "Render permitted parent progress and uncertainty summaries",
+    "phase": "A3–A6",
+    "build_reuse": "Owned product/application logic",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [
+      "R024",
+      "R058"
+    ],
+    "acceptance_criteria": "Evidence/uncertainty/next action plus plan and permissions, no default full chat",
+    "specification": "design/brand-and-design-system.md",
+    "status": "Specified; not implemented",
+    "priority": "P1",
+    "requirement_phase": "Pilot"
+  },
+  {
+    "requirement_id": "R048",
+    "feature": "WhatsApp progress reports",
+    "functions": "Queue minimal opt-in WhatsApp message with authenticated portal link",
+    "phase": "A6; external actions gated",
+    "build_reuse": "Owned product/application logic",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [
+      "R047",
+      "R049"
+    ],
+    "acceptance_criteria": "Verified opt-in recipient, minimal template, quiet hours, price/privacy review before send",
+    "specification": "docs/06-safety-privacy-security.md",
+    "status": "Specified; not implemented",
+    "priority": "P1",
+    "requirement_phase": "Future"
+  },
+  {
+    "requirement_id": "R049",
+    "feature": "Notification preferences and revocation",
+    "functions": "Manage notification purpose/channel/opt-out and revocation",
+    "phase": "A6; external actions gated",
+    "build_reuse": "Owned product/application logic",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [
+      "R058"
+    ],
+    "acceptance_criteria": "Deduplication/quiet hours/opt-out; revoked relationships cancel jobs",
+    "specification": "docs/06-safety-privacy-security.md",
+    "status": "Specified; not implemented",
+    "priority": "P1",
+    "requirement_phase": "Pilot"
+  },
+  {
+    "requirement_id": "R050",
+    "feature": "Future teacher/classroom functionality",
+    "functions": "Add scoped educator/class/course authoring and reports",
+    "phase": "A7",
+    "build_reuse": "Owned product/application logic",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [
+      "R047",
+      "R060"
+    ],
+    "acceptance_criteria": "Scoped roster, assignments, reviewed overrides and privacy-safe summaries",
+    "specification": "design/brand-and-design-system.md",
+    "status": "Specified; not implemented",
+    "priority": "P1",
+    "requirement_phase": "Future"
+  },
+  {
+    "requirement_id": "R051",
+    "feature": "Subscriptions/course-semester entitlements",
+    "functions": "Enforce course/term/subscription grants and quotas",
+    "phase": "A3–A6",
+    "build_reuse": "Owned product/application logic",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [
+      "R007"
+    ],
+    "acceptance_criteria": "Server-side grants/expiry/quotas; manual prepaid path while gateway unresolved",
+    "specification": "architecture/system-and-data-model.md",
+    "status": "Specified; not implemented",
+    "priority": "P1",
+    "requirement_phase": "Pilot"
+  },
+  {
+    "requirement_id": "R052",
+    "feature": "Payment integration and refunds",
+    "functions": "Validate signed payment/refund events and reconcile entitlements",
+    "phase": "A6; external actions gated",
+    "build_reuse": "Owned product/application logic",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [
+      "R051"
+    ],
+    "acceptance_criteria": "Signed idempotent webhooks, reversals and settlement reconciliation; actual terms verified",
+    "specification": "architecture/system-and-data-model.md",
+    "status": "Specified; not implemented",
+    "priority": "P1",
+    "requirement_phase": "Commercial"
+  },
+  {
+    "requirement_id": "R053",
+    "feature": "Child safety and age-appropriate interactions",
+    "functions": "Apply age-appropriate safety policy, pause/report/review workflow",
+    "phase": "A0/A1",
+    "build_reuse": "Owned product/application logic",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [],
+    "acceptance_criteria": "Three-language severe safety suite and named human escalation owner",
+    "specification": "docs/06-safety-privacy-security.md",
+    "status": "Specified; not implemented",
+    "priority": "P0",
+    "requirement_phase": "Gates"
+  },
+  {
+    "requirement_id": "R054",
+    "feature": "Accessibility and low-bandwidth/mobile UX",
+    "functions": "Responsive/low-bandwidth keyboard/screen-reader UI and text fallback",
+    "phase": "A3–A6",
+    "build_reuse": "Owned product/application logic",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [
+      "R011"
+    ],
+    "acceptance_criteria": "Critical journeys pass keyboard/screen-reader/zoom/slow-network checks",
+    "specification": "design/brand-and-design-system.md",
+    "status": "Specified; not implemented",
+    "priority": "P1",
+    "requirement_phase": "Pilot"
+  },
+  {
+    "requirement_id": "R055",
+    "feature": "RTL/LTR and accessible mathematics",
+    "functions": "Render RTL/LTR text and accessible equations/alternatives",
+    "phase": "A3–A6",
+    "build_reuse": "Owned product/application logic",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [
+      "R054"
+    ],
+    "acceptance_criteria": "Mixed equations/units/English terms preserve reading order and alternatives",
+    "specification": "design/brand-and-design-system.md",
+    "status": "Specified; not implemented",
+    "priority": "P1",
+    "requirement_phase": "Pilot"
+  },
+  {
+    "requirement_id": "R056",
+    "feature": "Child understandable notices and student agency",
+    "functions": "Explain limits/privacy in child-understandable copy and allow correction/skip",
+    "phase": "A3–A6",
+    "build_reuse": "Owned product/application logic",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [
+      "R053"
+    ],
+    "acceptance_criteria": "Explain AI uncertainty, independent checks, recording and help/appeal paths",
+    "specification": "docs/06-safety-privacy-security.md",
+    "status": "Specified; not implemented",
+    "priority": "P1",
+    "requirement_phase": "Pilot"
+  },
+  {
+    "requirement_id": "R057",
+    "feature": "Guardian verification and consent lifecycle",
+    "functions": "Verify guardian edge and purpose-scoped consent/revocation",
+    "phase": "A0/A1",
+    "build_reuse": "Owned product/application logic",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [],
+    "acceptance_criteria": "Counsel-approved age/purpose method with withdrawal/dispute evidence",
+    "specification": "docs/06-safety-privacy-security.md",
+    "status": "Specified; not implemented",
+    "priority": "P0",
+    "requirement_phase": "Gates"
+  },
+  {
+    "requirement_id": "R058",
+    "feature": "Privacy/data processing and transfer review",
+    "functions": "Review processor/region/transfer and minimize disclosure",
+    "phase": "A0/A1",
+    "build_reuse": "Owned product/application logic",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [
+      "R057"
+    ],
+    "acceptance_criteria": "Purpose/data/processor register and current legal route signed before minors",
+    "specification": "docs/06-safety-privacy-security.md",
+    "status": "Specified; not implemented",
+    "priority": "P0",
+    "requirement_phase": "Gates"
+  },
+  {
+    "requirement_id": "R059",
+    "feature": "No automatic training on identifiable child chat",
+    "functions": "Exclude child chat from automatic training and default fixtures",
+    "phase": "A0/A1",
+    "build_reuse": "Owned product/application logic",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [
+      "R058"
+    ],
+    "acceptance_criteria": "Optional training requires separate rights/purpose review and deletion lineage",
+    "specification": "docs/06-safety-privacy-security.md",
+    "status": "Specified; not implemented",
+    "priority": "P0",
+    "requirement_phase": "Gates"
+  },
+  {
+    "requirement_id": "R060",
+    "feature": "Secure data/tenant/object/tool isolation",
+    "functions": "Authorize all object/query/tool/job/stream/file boundaries",
+    "phase": "A3–A6",
+    "build_reuse": "Owned product/application logic",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [],
+    "acceptance_criteria": "Zero unauthorized access across >=100 negative cases, including vectors/files/exports",
+    "specification": "docs/06-safety-privacy-security.md",
+    "status": "Specified; not implemented",
+    "priority": "P0",
+    "requirement_phase": "PoC"
+  },
+  {
+    "requirement_id": "R061",
+    "feature": "Retention/export/deletion/backups",
+    "functions": "Export/delete/expire records and replay purge after restore",
+    "phase": "A3–A6",
+    "build_reuse": "Owned product/application logic",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [
+      "R058",
+      "R060"
+    ],
+    "acceptance_criteria": "Approved schedule, derived-store purge and restore deletion reapplication demonstrated",
+    "specification": "docs/06-safety-privacy-security.md",
+    "status": "Specified; not implemented",
+    "priority": "P1",
+    "requirement_phase": "Pilot"
+  },
+  {
+    "requirement_id": "R062",
+    "feature": "Provider-agnostic adapters",
+    "functions": "Normalize text/embed/STT/TTS capabilities, errors, usage and cancellation",
+    "phase": "A3–A6",
+    "build_reuse": "Owned adapters/policy + qualified vendor/library interfaces",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [
+      "R058"
+    ],
+    "acceptance_criteria": "Generate/stream/usage/cancel/error contracts survive provider substitution",
+    "specification": "docs/05-model-routing-and-voice.md",
+    "status": "Specified; not implemented",
+    "priority": "P1",
+    "requirement_phase": "PoC"
+  },
+  {
+    "requirement_id": "R063",
+    "feature": "Benchmark OpenAI/Claude/Gemini",
+    "functions": "Compare eligible OpenAI/Claude/Gemini routes on matched tasks",
+    "phase": "A4; rollout conditional",
+    "build_reuse": "Owned adapters/policy + qualified vendor/library interfaces",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [
+      "R062"
+    ],
+    "acceptance_criteria": "Matched eligible tasks record quality, language, latency and actual bills",
+    "specification": "docs/05-model-routing-and-voice.md",
+    "status": "Specified; not implemented",
+    "priority": "P1",
+    "requirement_phase": "PoC"
+  },
+  {
+    "requirement_id": "R064",
+    "feature": "Benchmark Qwen/DeepSeek/Chinese model options",
+    "functions": "Compare eligible Qwen/DeepSeek/other hosted Chinese routes",
+    "phase": "A4; rollout conditional",
+    "build_reuse": "Owned adapters/policy + qualified vendor/library interfaces",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [
+      "R062"
+    ],
+    "acceptance_criteria": "Same rubric/terms/rights gates, no adoption based solely on nominal token cost",
+    "specification": "docs/05-model-routing-and-voice.md",
+    "status": "Specified; not implemented",
+    "priority": "P1",
+    "requirement_phase": "PoC"
+  },
+  {
+    "requirement_id": "R065",
+    "feature": "Open-weight/local inference path",
+    "functions": "Benchmark local/open-weight serving behind same adapter",
+    "phase": "A4; rollout conditional",
+    "build_reuse": "Owned adapters/policy + qualified vendor/library interfaces",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [
+      "R062",
+      "R072"
+    ],
+    "acceptance_criteria": "Weight rights, dialect quality, utilization and full operations cost justify hosting",
+    "specification": "docs/05-model-routing-and-voice.md",
+    "status": "Specified; not implemented",
+    "priority": "P1",
+    "requirement_phase": "Future"
+  },
+  {
+    "requirement_id": "R066",
+    "feature": "Jev-style classifier experiment",
+    "functions": "Compare rules/classifier/small LLM/Jev in shadow",
+    "phase": "A4; rollout conditional",
+    "build_reuse": "Owned adapters/policy + qualified vendor/library interfaces",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [
+      "R025",
+      "R062"
+    ],
+    "acceptance_criteria": "Frozen labeled comparison against rules and small LLM; calibration/cost/error report",
+    "specification": "docs/05-model-routing-and-voice.md",
+    "status": "Specified; not implemented",
+    "priority": "P1",
+    "requirement_phase": "PoC"
+  },
+  {
+    "requirement_id": "R067",
+    "feature": "Deterministic state/business authority",
+    "functions": "Validate authority/state transitions and own score acceptance",
+    "phase": "A3–A6",
+    "build_reuse": "Owned product/application logic",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [
+      "R060"
+    ],
+    "acceptance_criteria": "Models cannot overwrite grade/mastery/consent/entitlement or tool scopes",
+    "specification": "architecture/system-and-data-model.md",
+    "status": "Specified; not implemented",
+    "priority": "P0",
+    "requirement_phase": "PoC"
+  },
+  {
+    "requirement_id": "R068",
+    "feature": "Model routing and qualified fallback",
+    "functions": "Route only eligible qualified options with bounded retries/fallback",
+    "phase": "A3–A6",
+    "build_reuse": "Owned adapters/policy + qualified vendor/library interfaces",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [
+      "R062",
+      "R067"
+    ],
+    "acceptance_criteria": "Privacy/quality eligibility precedes cost; no unapproved provider on failure",
+    "specification": "docs/05-model-routing-and-voice.md",
+    "status": "Specified; not implemented",
+    "priority": "P1",
+    "requirement_phase": "PoC"
+  },
+  {
+    "requirement_id": "R069",
+    "feature": "Token/context/cache optimization",
+    "functions": "Bound context/history, summarize checkpoints and scope caches",
+    "phase": "A3–A6",
+    "build_reuse": "Owned product/application logic",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [
+      "R062"
+    ],
+    "acceptance_criteria": "Bounded prompts and summaries, isolated versioned caches; savings from actual receipts",
+    "specification": "docs/05-model-routing-and-voice.md",
+    "status": "Specified; not implemented",
+    "priority": "P1",
+    "requirement_phase": "PoC"
+  },
+  {
+    "requirement_id": "R070",
+    "feature": "Token/audio usage accounting and limits",
+    "functions": "Reserve/reconcile exact units, quota/concurrency and cancelled cost",
+    "phase": "A3–A6",
+    "build_reuse": "Owned product/application logic",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [
+      "R062"
+    ],
+    "acceptance_criteria": "Atomic reservations, cached units, retries/cancel receipts reconciled",
+    "specification": "architecture/system-and-data-model.md",
+    "status": "Specified; not implemented",
+    "priority": "P1",
+    "requirement_phase": "PoC"
+  },
+  {
+    "requirement_id": "R071",
+    "feature": "Voice economics and quotas",
+    "functions": "Compare cascade/realtime bills and enforce voice caps",
+    "phase": "A4; rollout conditional",
+    "build_reuse": "Owned product/application logic",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [
+      "R016",
+      "R070"
+    ],
+    "acceptance_criteria": "Cascade vs realtime matched workloads, connected/input/output units distinguished",
+    "specification": "economics/README.md",
+    "status": "Specified; not implemented",
+    "priority": "P1",
+    "requirement_phase": "PoC"
+  },
+  {
+    "requirement_id": "R072",
+    "feature": "GPU/self-hosting sensitivity at 100/1k/10k users",
+    "functions": "Model GPU idle/peak/operations at 100/1k/10k active workloads",
+    "phase": "A4; rollout conditional",
+    "build_reuse": "Owned product/application logic",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [
+      "R062",
+      "R070"
+    ],
+    "acceptance_criteria": "Measured throughput/peak utilization plus idle/redundancy/ops; explicit break-even",
+    "specification": "economics/README.md",
+    "status": "Specified; not implemented",
+    "priority": "P1",
+    "requirement_phase": "Future"
+  },
+  {
+    "requirement_id": "R073",
+    "feature": "Operating cost/unit economics sensitivity",
+    "functions": "Compute full variable/fixed/review/rights/support economics",
+    "phase": "A0/A1",
+    "build_reuse": "Owned product/application logic",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [
+      "R007"
+    ],
+    "acceptance_criteria": "Usage/FX/cache/voice/support/fees/tax/paid-active ratios modeled transparently",
+    "specification": "economics/README.md",
+    "status": "Specified; not implemented",
+    "priority": "P1",
+    "requirement_phase": "Gates"
+  },
+  {
+    "requirement_id": "R074",
+    "feature": "Optimize cost per successful learning outcome",
+    "functions": "Measure cost per valid independent activity/retained skill",
+    "phase": "A3–A6",
+    "build_reuse": "Owned product/application logic",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [
+      "R029",
+      "R070"
+    ],
+    "acceptance_criteria": "All-cost numerator and valid independent-activity denominator; delayed endpoint tracked",
+    "specification": "economics/README.md",
+    "status": "Specified; not implemented",
+    "priority": "P1",
+    "requirement_phase": "Pilot"
+  },
+  {
+    "requirement_id": "R075",
+    "feature": "Domain/data model and API contracts",
+    "functions": "Version entities, commands/events and integrity constraints",
+    "phase": "A0/A1",
+    "build_reuse": "Owned product/application logic",
+    "sources": [
+      "U1",
+      "U2",
+      "U11"
+    ],
+    "dependencies": [],
+    "acceptance_criteria": "Entity authority, scopes, versions, idempotency and failure semantics reviewed",
+    "specification": "architecture/system-and-data-model.md",
+    "status": "Technical baseline v1 selected for audit; unimplemented and unbenchmarked",
+    "priority": "P1",
+    "requirement_phase": "Gates"
+  },
+  {
+    "requirement_id": "R076",
+    "feature": "QA/evals and language slices",
+    "functions": "Maintain frozen grounding/grading/safety/language holdouts",
+    "phase": "A3–A6",
+    "build_reuse": "Own fixtures + pytest/Playwright/Promptfoo",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [
+      "R043"
+    ],
+    "acceptance_criteria": "Frozen holdout, rubric agreement and per-language result counts; no leakage",
+    "specification": "docs/07-qa-evals-and-operations.md",
+    "status": "Specified; not implemented",
+    "priority": "P1",
+    "requirement_phase": "PoC"
+  },
+  {
+    "requirement_id": "R077",
+    "feature": "Architecture ADRs and decisions",
+    "functions": "Record stack choices, evidence, alternatives and reversal triggers",
+    "phase": "A0/A1",
+    "build_reuse": "Owned product/application logic",
+    "sources": [
+      "U1",
+      "U2",
+      "U11"
+    ],
+    "dependencies": [
+      "R075"
+    ],
+    "acceptance_criteria": "Selected stack, boundaries, tradeoffs and reversal triggers recorded in ADRs; execution/legal gates distinct from technical selection",
+    "specification": "execution/roadmap-and-gates.md",
+    "status": "Technical baseline v1 selected for audit; unimplemented and unbenchmarked",
+    "priority": "P1",
+    "requirement_phase": "Gates"
+  },
+  {
+    "requirement_id": "R078",
+    "feature": "CI/CD and release lineage",
+    "functions": "Build/test/promote immutable release lineage with rollback",
+    "phase": "A3–A6",
+    "build_reuse": "Owned product/application logic",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [
+      "R076"
+    ],
+    "acceptance_criteria": "Checks/artifact/manifest/staging/flag/rollback process reviewed and exercised",
+    "specification": "docs/07-qa-evals-and-operations.md",
+    "status": "Specified; not implemented",
+    "priority": "P1",
+    "requirement_phase": "Pilot"
+  },
+  {
+    "requirement_id": "R079",
+    "feature": "Observability and redacted incident/cost metrics",
+    "functions": "Emit redacted latency/error/cost/job metrics and restricted audit",
+    "phase": "A3–A6",
+    "build_reuse": "Own allowlisted fields + OpenTelemetry",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [
+      "R070"
+    ],
+    "acceptance_criteria": "Health/quality/spend/review dashboards without raw child data in labels",
+    "specification": "docs/07-qa-evals-and-operations.md",
+    "status": "Specified; not implemented",
+    "priority": "P1",
+    "requirement_phase": "Pilot"
+  },
+  {
+    "requirement_id": "R080",
+    "feature": "Operational runbooks/recovery/support",
+    "functions": "Operate recovery/dead-letter/support/deletion/incident runbooks",
+    "phase": "A3–A6",
+    "build_reuse": "Owned product/application logic",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [
+      "R061"
+    ],
+    "acceptance_criteria": "Outage/leak/content/spend/deletion runbooks plus timed restore and workload budget",
+    "specification": "docs/07-qa-evals-and-operations.md",
+    "status": "Specified; not implemented",
+    "priority": "P1",
+    "requirement_phase": "Pilot"
+  },
+  {
+    "requirement_id": "R081",
+    "feature": "Security/licensing source findings",
+    "functions": "Resolve exact dependency/security/license/model-rights findings",
+    "phase": "A0/A1",
+    "build_reuse": "Owned product/application logic",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [
+      "R002"
+    ],
+    "acceptance_criteria": "Audit findings retained with bounded confidence and adoption gates",
+    "specification": "docs/06-safety-privacy-security.md",
+    "status": "Specified; not implemented",
+    "priority": "P0",
+    "requirement_phase": "Gates"
+  },
+  {
+    "requirement_id": "R082",
+    "feature": "Quarantine inspected EduStudio revision",
+    "functions": "Prevent execution/reuse of quarantined EduStudio pin",
+    "phase": "A0/A1",
+    "build_reuse": "Excluded/quarantined audited pin",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [
+      "R081"
+    ],
+    "acceptance_criteria": "Exact pin excluded from execution until independent provenance resolution",
+    "specification": "docs/06-safety-privacy-security.md",
+    "status": "Specified; not implemented",
+    "priority": "P0",
+    "requirement_phase": "Gates"
+  },
+  {
+    "requirement_id": "R083",
+    "feature": "Selective DeepTutor reuse only",
+    "functions": "Reference DeepTutor; optional bounded extraction with closure proof",
+    "phase": "A4; rollout conditional",
+    "build_reuse": "DeepTutor reference only; no baseline runtime dependency",
+    "sources": [
+      "U1",
+      "U2",
+      "U11"
+    ],
+    "dependencies": [
+      "R081"
+    ],
+    "acceptance_criteria": "Apache provenance/dependency closure; abandon extraction >3 repair days",
+    "specification": "architecture/system-and-data-model.md",
+    "status": "Technical baseline v1 selected for audit; unimplemented and unbenchmarked",
+    "priority": "P1",
+    "requirement_phase": "PoC"
+  },
+  {
+    "requirement_id": "R084",
+    "feature": "LearnHouse LMS fallback with AGPL/EE review",
+    "functions": "Keep LearnHouse fallback separate pending AGPL/EE decision",
+    "phase": "A7",
+    "build_reuse": "LearnHouse deferred; no baseline integration",
+    "sources": [
+      "U1",
+      "U2",
+      "U11"
+    ],
+    "dependencies": [
+      "R081"
+    ],
+    "acceptance_criteria": "Actual feature/license terms and combined-work analysis before use",
+    "specification": "architecture/system-and-data-model.md",
+    "status": "Technical baseline v1 selected for audit; unimplemented and unbenchmarked",
+    "priority": "P1",
+    "requirement_phase": "Future"
+  },
+  {
+    "requirement_id": "R085",
+    "feature": "Framework choice remains reversible",
+    "functions": "Use selected stack; revise only with evidence-backed ADR",
+    "phase": "A0/A1",
+    "build_reuse": "Owned product/application logic",
+    "sources": [
+      "U1",
+      "U2",
+      "U11"
+    ],
+    "dependencies": [
+      "R075"
+    ],
+    "acceptance_criteria": "Django/DRF + React/TypeScript/Vite selected under U11; framework changes require an evidence-backed ADR amendment, not indefinite open comparison",
+    "specification": "architecture/system-and-data-model.md",
+    "status": "Technical baseline v1 selected for audit; unimplemented and unbenchmarked",
+    "priority": "P1",
+    "requirement_phase": "Gates"
+  },
+  {
+    "requirement_id": "R086",
+    "feature": "Roadmap/milestones/work breakdown",
+    "functions": "Phase work with dependencies, bounded tasks and honest not-run results",
+    "phase": "A0/A1",
+    "build_reuse": "Owned product/application logic",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [
+      "R003"
+    ],
+    "acceptance_criteria": "Each milestone has dependencies, deliverable, owner, gate and stop condition",
+    "specification": "execution/roadmap-and-gates.md",
+    "status": "Specified; not implemented",
+    "priority": "P1",
+    "requirement_phase": "Gates"
+  },
+  {
+    "requirement_id": "R087",
+    "feature": "Risks/unknowns/decision log",
+    "functions": "Track risk owners, unknown triggers and decision lineage",
+    "phase": "A0/A1",
+    "build_reuse": "Owned product/application logic",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [
+      "R001"
+    ],
+    "acceptance_criteria": "Unknowns assigned owners/resolution evidence; no invented approval",
+    "specification": "execution/roadmap-and-gates.md",
+    "status": "Specified; not implemented",
+    "priority": "P1",
+    "requirement_phase": "Gates"
+  },
+  {
+    "requirement_id": "R088",
+    "feature": "Codex instructions and phased prompts",
+    "functions": "Give agents requirement-linked gated implementation prompts",
+    "phase": "A0/A1",
+    "build_reuse": "Owned product/application logic",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [
+      "R003",
+      "R077"
+    ],
+    "acceptance_criteria": "Agents read authoritative docs; each prompt bounded by gates and evidence",
+    "specification": "AGENTS.md",
+    "status": "Specified; not implemented",
+    "priority": "P1",
+    "requirement_phase": "Gates"
+  },
+  {
+    "requirement_id": "R089",
+    "feature": "Version-controlled editable master artifacts",
+    "functions": "Version editable artifacts and reproducible checks locally",
+    "phase": "A0/A1",
+    "build_reuse": "Owned product/application logic",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [
+      "R002"
+    ],
+    "acceptance_criteria": "Markdown/JSON originals and reproducible checks committed locally; no product code",
+    "specification": "README.md",
+    "status": "Specified; not implemented",
+    "priority": "P1",
+    "requirement_phase": "Gates"
+  },
+  {
+    "requirement_id": "R090",
+    "feature": "No premature implementation; bounded PoC after gates",
+    "functions": "Separate finalized technical design from permission to execute/deploy",
+    "phase": "A0/A1",
+    "build_reuse": "Owned product/application logic",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [
+      "R003",
+      "R077"
+    ],
+    "acceptance_criteria": "G1–G3 approvals recorded before product code; PoC has budget/time/data limits",
+    "specification": "execution/roadmap-and-gates.md",
+    "status": "Specified; not implemented",
+    "priority": "P0",
+    "requirement_phase": "Gates"
+  },
+  {
+    "requirement_id": "R091",
+    "feature": "Multimodal/photo/diagram tutoring",
+    "functions": "Interpret authorized images/diagrams with uncertainty and source anchors",
+    "phase": "A7; contracts now",
+    "build_reuse": "Owned product/application logic",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [
+      "R039",
+      "R053"
+    ],
+    "acceptance_criteria": "Authorized image interpretation cites source and confirms uncertain notation",
+    "specification": "docs/04-curriculum-and-rag.md",
+    "status": "Specified; not implemented",
+    "priority": "P1",
+    "requirement_phase": "Future"
+  },
+  {
+    "requirement_id": "R092",
+    "feature": "Independent assessment/grade appeal and teacher correction",
+    "functions": "Hold disputed grades, adjudicate and replay affected projections",
+    "phase": "A3–A6",
+    "build_reuse": "Owned product/application logic",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [
+      "R025",
+      "R043"
+    ],
+    "acceptance_criteria": "Disputed grades held/reviewed, correction lineage and affected replay",
+    "specification": "docs/03-learning-intelligence.md",
+    "status": "Specified; not implemented",
+    "priority": "P1",
+    "requirement_phase": "Pilot"
+  },
+  {
+    "requirement_id": "R093",
+    "feature": "Learning outcomes without unsupported efficacy claims",
+    "functions": "Measure independent delayed transfer/retention without unsupported claims",
+    "phase": "A3–A6",
+    "build_reuse": "Owned product/application logic",
+    "sources": [
+      "U1",
+      "U2"
+    ],
+    "dependencies": [
+      "R029",
+      "R030"
+    ],
+    "acceptance_criteria": "Delayed retention/transfer, attrition and uncertainty reported separately from engagement",
+    "specification": "docs/07-qa-evals-and-operations.md",
+    "status": "Specified; not implemented",
+    "priority": "P1",
+    "requirement_phase": "Pilot"
+  },
+  {
+    "requirement_id": "R094",
+    "feature": "Global-ready architecture without premature breadth",
+    "functions": "Separate subject profiles, curriculum versions and providers from core",
+    "phase": "A0/A1",
+    "build_reuse": "Owned product/application logic",
+    "sources": [
+      "U1",
+      "U2",
+      "U11"
+    ],
+    "dependencies": [
+      "R036"
+    ],
+    "acceptance_criteria": "Adding a supported subject uses reviewed content/profile/grader configuration without core schema or state-machine edits; specialist new capabilities use reviewed adapters; multi-subject fixture tests specified",
+    "specification": "architecture/system-and-data-model.md",
+    "status": "Technical baseline v1 selected for audit; unimplemented and unbenchmarked",
+    "priority": "P1",
+    "requirement_phase": "Gates"
+  },
+  {
+    "requirement_id": "R095",
+    "feature": "German tutoring using the learner-uploaded school curriculum",
+    "functions": "Configure initial German example through ordinary subject/content path",
+    "phase": "A5 initial content example; not architecture dependency",
+    "build_reuse": "Owned product/application logic",
+    "sources": [
+      "U4"
+    ],
+    "dependencies": [
+      "R037",
+      "R041",
+      "R045"
+    ],
+    "acceptance_criteria": "Tutor uses the approved uploaded German unit as initial source; vocabulary/grammar/practice map to that version; no invented CEFR level or syllabus coverage",
+    "specification": "docs/08-german-upload-first.md",
+    "status": "Specified; not implemented",
+    "priority": "P1",
+    "requirement_phase": "Pilot"
+  },
+  {
+    "requirement_id": "R096",
+    "feature": "Brand name, logo, slogan and guidelines before implementation",
+    "functions": "Apply selected identity and review wording independently",
+    "phase": "A0/A1",
+    "build_reuse": "Design/documentation; React UI later",
+    "sources": [
+      "U5",
+      "U10"
+    ],
+    "dependencies": [
+      "R009",
+      "R010"
+    ],
+    "acceptance_criteria": "Founder reviews coherent name/logo/slogan concepts and selects a direction; screening limitations explicit; selected identity documented with usage rules",
+    "specification": "design/brand-and-design-system.md",
+    "status": "Brand system v1 documented; detailed founder review pending; no product implemented",
+    "priority": "P1",
+    "requirement_phase": "Gates"
+  },
+  {
+    "requirement_id": "R097",
+    "feature": "Arabic-first brand/product experience",
+    "functions": "Lead with Arabic typography/navigation and mixed-language layouts",
+    "phase": "A0/A1",
+    "build_reuse": "Design/documentation; React UI later",
+    "sources": [
+      "U8",
+      "U10"
+    ],
+    "dependencies": [
+      "R010",
+      "R096"
+    ],
+    "acceptance_criteria": "Arabic typography, RTL/mixed German content, Arabic messaging and parent/student tone lead all three identity trials; English is supported rather than the design default",
+    "specification": "outputs/sebaverse-brand-system-v1/README.md",
+    "status": "Brand system v1 documented; detailed founder review pending; no product implemented",
+    "priority": "P1",
+    "requirement_phase": "Gates"
+  },
+  {
+    "requirement_id": "R098",
+    "feature": "Latin-only Sebaverse logo",
+    "functions": "Use Latin Sebaverse vector logo without mirroring",
+    "phase": "A0/A1",
+    "build_reuse": "Design/documentation; React UI later",
+    "sources": [
+      "U8",
+      "U10"
+    ],
+    "dependencies": [
+      "R010",
+      "R096"
+    ],
+    "acceptance_criteria": "All logo/wordmark proposals use Latin Sebaverse; RTL layouts do not mirror the mark and do not add an Arabic logo",
+    "specification": "outputs/sebaverse-brand-system-v1/README.md",
+    "status": "Brand system v1 documented; detailed founder review pending; no product implemented",
+    "priority": "P1",
+    "requirement_phase": "Gates"
+  },
+  {
+    "requirement_id": "R099",
+    "feature": "Subject-independent platform architecture and audit handoff",
+    "functions": "Deliver auditor-ready maps, feature coverage, repo boundaries and phases",
+    "phase": "A0/A1",
+    "build_reuse": "Owned product/application logic",
+    "sources": [
+      "U11",
+      "U12"
+    ],
+    "dependencies": [
+      "R075",
+      "R077",
+      "R094"
+    ],
+    "acceptance_criteria": "Full system/data/runtime maps, every feature/function and phase, all audited repo dispositions and build/reuse boundaries; curriculum-independent extension contracts and multi-subject PoC; no German upload prerequisite",
+    "specification": "architecture/technical-baseline.md",
+    "status": "Technical baseline v1 selected for audit; unimplemented and unbenchmarked",
+    "priority": "P0",
+    "requirement_phase": "Gates"
+  }
+]

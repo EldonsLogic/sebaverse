@@ -1,0 +1,412 @@
+{
+  "version": "1.0",
+  "source": "U11/U12; audit A01–A13 2026-11-10",
+  "status": "selected integration boundaries, not installed dependencies",
+  "repositories": [
+    {
+      "name": "DeepTutor",
+      "url": "https://github.com/HKUDS/DeepTutor",
+      "audited_commit": "60fb3bdfddb30b7740c7ce3bd9b28d908f2af6db",
+      "audited_license": "[Apache-2.0](https://github.com/HKUDS/DeepTutor/blob/60fb3bdfddb30b7740c7ce3bd9b28d908f2af6db/LICENSE)",
+      "evidence": "A01; research/open-source-audit/01-repository-inventory.md inventory row DeepTutor",
+      "disposition": "reference_only",
+      "phase": "A4",
+      "boundary": "No runtime dependency in baseline. Study durable turn service and provider/cancellation patterns; optional extraction experiment only.",
+      "requirements": [
+        "R062",
+        "R067",
+        "R083"
+      ],
+      "production_release": null,
+      "dependency_lock": null,
+      "copied_files": [],
+      "integration_results": "not run",
+      "release_gate": "Exact release/closure/security/license/model rights and contract tests before adoption"
+    },
+    {
+      "name": "LearnHouse",
+      "url": "https://github.com/learnhouse/learnhouse",
+      "audited_commit": "7dc39bc0e116437d564e4c7f96974397e913c338",
+      "audited_license": "[AGPL-3.0 / separate EE](https://github.com/learnhouse/learnhouse/blob/7dc39bc0e116437d564e4c7f96974397e913c338/LICENSE)",
+      "evidence": "A01; research/open-source-audit/01-repository-inventory.md inventory row LearnHouse",
+      "disposition": "deferred_lms_alternative",
+      "phase": "A7",
+      "boundary": "No source in proprietary core; retain LMS fallback if school workflows justify rights/AGPL/EE decision.",
+      "requirements": [
+        "R050",
+        "R084"
+      ],
+      "production_release": null,
+      "dependency_lock": null,
+      "copied_files": [],
+      "integration_results": "not run",
+      "release_gate": "Exact release/closure/security/license/model rights and contract tests before adoption"
+    },
+    {
+      "name": "EduStudio",
+      "url": "https://github.com/HFUT-LEC/EduStudio",
+      "audited_commit": "4acedad91be841a3c3c109944b4180997b8a7260",
+      "audited_license": "[MIT](https://github.com/HFUT-LEC/EduStudio/blob/4acedad91be841a3c3c109944b4180997b8a7260/LICENSE)",
+      "evidence": "A01; research/open-source-audit/01-repository-inventory.md inventory row EduStudio",
+      "disposition": "quarantined",
+      "phase": "none",
+      "boundary": "Audited pin remains quarantined; do not run its workflows/install scripts. No proven compromise is asserted.",
+      "requirements": [
+        "R081",
+        "R082"
+      ],
+      "production_release": null,
+      "dependency_lock": null,
+      "copied_files": [],
+      "integration_results": "not run",
+      "release_gate": "Exact release/closure/security/license/model rights and contract tests before adoption"
+    },
+    {
+      "name": "pyKT",
+      "url": "https://github.com/pykt-team/pykt-toolkit",
+      "audited_commit": "ccbaf37b07e3e7ff7b2415475b2faacb967d54ea",
+      "audited_license": "[MIT](https://github.com/pykt-team/pykt-toolkit/blob/ccbaf37b07e3e7ff7b2415475b2faacb967d54ea/LICENSE)",
+      "evidence": "A01; research/open-source-audit/01-repository-inventory.md inventory row pyKT",
+      "disposition": "deferred_offline",
+      "phase": "A7",
+      "boundary": "Deep knowledge-tracing benchmark only after representative lawful sequence data.",
+      "requirements": [
+        "R034"
+      ],
+      "production_release": null,
+      "dependency_lock": null,
+      "copied_files": [],
+      "integration_results": "not run",
+      "release_gate": "Exact release/closure/security/license/model rights and contract tests before adoption"
+    },
+    {
+      "name": "PyEdmine",
+      "url": "https://github.com/ZhijieXiong/pyedmine",
+      "audited_commit": "31e434ae5b2d3bf9823044a4bd4582b184c0190b",
+      "audited_license": "[MIT](https://github.com/ZhijieXiong/pyedmine/blob/31e434ae5b2d3bf9823044a4bd4582b184c0190b/LICENSE)",
+      "evidence": "A01; research/open-source-audit/01-repository-inventory.md inventory row PyEdmine",
+      "disposition": "not_selected",
+      "phase": "A7",
+      "boundary": "Research alternative; no role in baseline runtime.",
+      "requirements": [
+        "R034"
+      ],
+      "production_release": null,
+      "dependency_lock": null,
+      "copied_files": [],
+      "integration_results": "not run",
+      "release_gate": "Exact release/closure/security/license/model rights and contract tests before adoption"
+    },
+    {
+      "name": "pyBKT",
+      "url": "https://github.com/CAHLR/pyBKT",
+      "audited_commit": "0f4ea412e18f6bcbd396fdf2be68fdd43aebebb6",
+      "audited_license": "[MIT](https://github.com/CAHLR/pyBKT/blob/0f4ea412e18f6bcbd396fdf2be68fdd43aebebb6/LICENSE)",
+      "evidence": "A01; research/open-source-audit/01-repository-inventory.md inventory row pyBKT",
+      "disposition": "deferred_offline",
+      "phase": "A4/A7",
+      "boundary": "Compare estimator only after adequate labeled evidence; no fitted baseline dependency.",
+      "requirements": [
+        "R034"
+      ],
+      "production_release": null,
+      "dependency_lock": null,
+      "copied_files": [],
+      "integration_results": "not run",
+      "release_gate": "Exact release/closure/security/license/model rights and contract tests before adoption"
+    },
+    {
+      "name": "py-irt",
+      "url": "https://github.com/nd-ball/py-irt",
+      "audited_commit": "d4f4dbda1e591f2b2f471556b9664c6b2829131c",
+      "audited_license": "[MIT](https://github.com/nd-ball/py-irt/blob/d4f4dbda1e591f2b2f471556b9664c6b2829131c/LICENSE)",
+      "evidence": "A01; research/open-source-audit/01-repository-inventory.md inventory row py-irt",
+      "disposition": "deferred_offline",
+      "phase": "A7",
+      "boundary": "Item calibration only when connected item-bank data supports fitting.",
+      "requirements": [
+        "R034"
+      ],
+      "production_release": null,
+      "dependency_lock": null,
+      "copied_files": [],
+      "integration_results": "not run",
+      "release_gate": "Exact release/closure/security/license/model rights and contract tests before adoption"
+    },
+    {
+      "name": "py-fsrs",
+      "url": "https://github.com/open-spaced-repetition/py-fsrs",
+      "audited_commit": "9446cb06605c597a063aeee49f7d188d42e34dc2",
+      "audited_license": "[MIT](https://github.com/open-spaced-repetition/py-fsrs/blob/9446cb06605c597a063aeee49f7d188d42e34dc2/LICENSE)",
+      "evidence": "A01; research/open-source-audit/01-repository-inventory.md inventory row py-fsrs",
+      "disposition": "selected_adapter_comparison",
+      "phase": "A3/A4",
+      "boundary": "Use package API behind ReviewScheduler; compare fixed intervals; no source fork or mastery authority.",
+      "requirements": [
+        "R030"
+      ],
+      "production_release": null,
+      "dependency_lock": null,
+      "copied_files": [],
+      "integration_results": "not run",
+      "release_gate": "Exact release/closure/security/license/model rights and contract tests before adoption"
+    },
+    {
+      "name": "pgvector",
+      "url": "https://github.com/pgvector/pgvector",
+      "audited_commit": "bcbb135db5f6f7539965e18565ddd5990efcf165",
+      "audited_license": "[PostgreSQL License](https://github.com/pgvector/pgvector/blob/bcbb135db5f6f7539965e18565ddd5990efcf165/LICENSE)",
+      "evidence": "A01; research/open-source-audit/01-repository-inventory.md inventory row pgvector",
+      "disposition": "selected_extension",
+      "phase": "A3",
+      "boundary": "PostgreSQL extension for scoped dense retrieval; exact search first; no separate vector service.",
+      "requirements": [
+        "R044"
+      ],
+      "production_release": null,
+      "dependency_lock": null,
+      "copied_files": [],
+      "integration_results": "not run",
+      "release_gate": "Exact release/closure/security/license/model rights and contract tests before adoption"
+    },
+    {
+      "name": "Docling",
+      "url": "https://github.com/docling-project/docling",
+      "audited_commit": "1ae470a1f4580881ed73853f64e0bf178f623c5e",
+      "audited_license": "[MIT code; models separate](https://github.com/docling-project/docling/blob/1ae470a1f4580881ed73853f64e0bf178f623c5e/LICENSE)",
+      "evidence": "A01; research/open-source-audit/01-repository-inventory.md inventory row Docling",
+      "disposition": "selected_library_isolated",
+      "phase": "A3",
+      "boundary": "Document conversion API in sandboxed parser worker; no upstream service/UI/tool framework.",
+      "requirements": [
+        "R039",
+        "R040"
+      ],
+      "production_release": null,
+      "dependency_lock": null,
+      "copied_files": [],
+      "integration_results": "not run",
+      "release_gate": "Exact release/closure/security/license/model rights and contract tests before adoption"
+    },
+    {
+      "name": "PaddleOCR",
+      "url": "https://github.com/PaddlePaddle/PaddleOCR",
+      "audited_commit": "dab3fe35379033fdcb2d0e9572fac0b36c9a9ebf",
+      "audited_license": "[Apache-2.0 code; models separate](https://github.com/PaddlePaddle/PaddleOCR/blob/dab3fe35379033fdcb2d0e9572fac0b36c9a9ebf/LICENSE)",
+      "evidence": "A01; research/open-source-audit/01-repository-inventory.md inventory row PaddleOCR",
+      "disposition": "conditional_fallback",
+      "phase": "A4",
+      "boundary": "Separate OCR adapter only if targeted page benchmark improves extraction within rights/runtime limits.",
+      "requirements": [
+        "R039"
+      ],
+      "production_release": null,
+      "dependency_lock": null,
+      "copied_files": [],
+      "integration_results": "not run",
+      "release_gate": "Exact release/closure/security/license/model rights and contract tests before adoption"
+    },
+    {
+      "name": "SymPy",
+      "url": "https://github.com/sympy/sympy",
+      "audited_commit": "8424f95e5fd61df195d490b8f9a22f075e450f9b",
+      "audited_license": "[BSD-3-Clause + bundled notices](https://github.com/sympy/sympy/blob/8424f95e5fd61df195d490b8f9a22f075e450f9b/LICENSE)",
+      "evidence": "A01; research/open-source-audit/01-repository-inventory.md inventory row SymPy",
+      "disposition": "conditional_subject_adapter",
+      "phase": "A4/A7",
+      "boundary": "Restricted typed symbolic checker for supported quantitative activities; never raw untrusted parse_expr.",
+      "requirements": [
+        "R020",
+        "R067"
+      ],
+      "production_release": null,
+      "dependency_lock": null,
+      "copied_files": [],
+      "integration_results": "not run",
+      "release_gate": "Exact release/closure/security/license/model rights and contract tests before adoption"
+    },
+    {
+      "name": "NetworkX",
+      "url": "https://github.com/networkx/networkx",
+      "audited_commit": "e59d71890e745effb3724dc4b5620b23f92e0ee3",
+      "audited_license": "[BSD-3-Clause](https://github.com/networkx/networkx/blob/e59d71890e745effb3724dc4b5620b23f92e0ee3/LICENSE.txt)",
+      "evidence": "A01; research/open-source-audit/01-repository-inventory.md inventory row NetworkX",
+      "disposition": "not_required_baseline",
+      "phase": "A4",
+      "boundary": "Optional offline graph validation utility; relational edge tables are canonical.",
+      "requirements": [
+        "R027"
+      ],
+      "production_release": null,
+      "dependency_lock": null,
+      "copied_files": [],
+      "integration_results": "not run",
+      "release_gate": "Exact release/closure/security/license/model rights and contract tests before adoption"
+    },
+    {
+      "name": "faster-whisper",
+      "url": "https://github.com/SYSTRAN/faster-whisper",
+      "audited_commit": "3ec025c4b7526e3fa121e527724ac43afa275a95",
+      "audited_license": "[MIT code; weights separate](https://github.com/SYSTRAN/faster-whisper/blob/3ec025c4b7526e3fa121e527724ac43afa275a95/LICENSE)",
+      "evidence": "A01; research/open-source-audit/01-repository-inventory.md inventory row faster-whisper",
+      "disposition": "deferred_voice_comparator",
+      "phase": "A4/A7",
+      "boundary": "Benchmark local ASR only after eligible model weights and CPU/GPU economics.",
+      "requirements": [
+        "R016",
+        "R065"
+      ],
+      "production_release": null,
+      "dependency_lock": null,
+      "copied_files": [],
+      "integration_results": "not run",
+      "release_gate": "Exact release/closure/security/license/model rights and contract tests before adoption"
+    },
+    {
+      "name": "Pipecat",
+      "url": "https://github.com/pipecat-ai/pipecat",
+      "audited_commit": "36d53278fd296bb63a8a2f9a3ffbfbf16fa84112",
+      "audited_license": "[BSD-2-Clause](https://github.com/pipecat-ai/pipecat/blob/36d53278fd296bb63a8a2f9a3ffbfbf16fa84112/LICENSE)",
+      "evidence": "A01; research/open-source-audit/01-repository-inventory.md inventory row Pipecat",
+      "disposition": "deferred_realtime",
+      "phase": "A7",
+      "boundary": "Optional separate realtime media runtime after voice benchmarks; not needed for push-to-talk.",
+      "requirements": [
+        "R016",
+        "R071"
+      ],
+      "production_release": null,
+      "dependency_lock": null,
+      "copied_files": [],
+      "integration_results": "not run",
+      "release_gate": "Exact release/closure/security/license/model rights and contract tests before adoption"
+    },
+    {
+      "name": "OpenTelemetry",
+      "url": "https://github.com/open-telemetry/opentelemetry-python",
+      "audited_commit": "5546285fc885858ce580350563e861681aa642fb",
+      "audited_license": "[Apache-2.0](https://github.com/open-telemetry/opentelemetry-python/blob/5546285fc885858ce580350563e861681aa642fb/LICENSE)",
+      "evidence": "A01; research/open-source-audit/01-repository-inventory.md inventory row OpenTelemetry",
+      "disposition": "selected_library",
+      "phase": "A2",
+      "boundary": "Python instrumentation APIs and allowlisted metadata exporter; no child payload capture.",
+      "requirements": [
+        "R079"
+      ],
+      "production_release": null,
+      "dependency_lock": null,
+      "copied_files": [],
+      "integration_results": "not run",
+      "release_gate": "Exact release/closure/security/license/model rights and contract tests before adoption"
+    },
+    {
+      "name": "Promptfoo",
+      "url": "https://github.com/promptfoo/promptfoo",
+      "audited_commit": "b3603fab85bb331da98a8b68ca442e1f4af7e368",
+      "audited_license": "[MIT core; review any separately licensed additions](https://github.com/promptfoo/promptfoo/blob/b3603fab85bb331da98a8b68ca442e1f4af7e368/LICENSE)",
+      "evidence": "A01; research/open-source-audit/01-repository-inventory.md inventory row Promptfoo",
+      "disposition": "selected_dev_tool",
+      "phase": "A3/A4",
+      "boundary": "Offline prompt/provider evaluation runner; core features only after exact release-license check.",
+      "requirements": [
+        "R076"
+      ],
+      "production_release": null,
+      "dependency_lock": null,
+      "copied_files": [],
+      "integration_results": "not run",
+      "release_gate": "Exact release/closure/security/license/model rights and contract tests before adoption"
+    },
+    {
+      "name": "Langfuse",
+      "url": "https://github.com/langfuse/langfuse",
+      "audited_commit": "47a70342f1736561dfa157a654d011aac29db79d",
+      "audited_license": "[MIT core / commercial EE paths](https://github.com/langfuse/langfuse/blob/47a70342f1736561dfa157a654d011aac29db79d/LICENSE)",
+      "evidence": "A01; research/open-source-audit/01-repository-inventory.md inventory row Langfuse",
+      "disposition": "deferred_ops_tool",
+      "phase": "A7",
+      "boundary": "No full self-hosted observability stack now; separate core/EE and data handling review.",
+      "requirements": [
+        "R079"
+      ],
+      "production_release": null,
+      "dependency_lock": null,
+      "copied_files": [],
+      "integration_results": "not run",
+      "release_gate": "Exact release/closure/security/license/model rights and contract tests before adoption"
+    },
+    {
+      "name": "Celery",
+      "url": "https://github.com/celery/celery",
+      "audited_commit": "40a3154d457f085770ee7ed85ee892b4608cfb94",
+      "audited_license": "[BSD-3-Clause](https://github.com/celery/celery/blob/40a3154d457f085770ee7ed85ee892b4608cfb94/LICENSE)",
+      "evidence": "A01; research/open-source-audit/01-repository-inventory.md inventory row Celery",
+      "disposition": "deferred_queue",
+      "phase": "A7",
+      "boundary": "Add only when measured job/DB contention justifies broker operations.",
+      "requirements": [
+        "R080"
+      ],
+      "production_release": null,
+      "dependency_lock": null,
+      "copied_files": [],
+      "integration_results": "not run",
+      "release_gate": "Exact release/closure/security/license/model rights and contract tests before adoption"
+    },
+    {
+      "name": "Moodle",
+      "url": "https://github.com/moodle/moodle",
+      "audited_commit": "0580991669815767026aea115a2053e2040378af",
+      "audited_license": "[GPL-3.0-or-later](https://github.com/moodle/moodle/blob/0580991669815767026aea115a2053e2040378af/COPYING.txt)",
+      "evidence": "A01; research/open-source-audit/01-repository-inventory.md inventory row Moodle",
+      "disposition": "not_selected_lms_alternative",
+      "phase": "A7",
+      "boundary": "No baseline dependency; stable LMS/rights/integration review if school demand changes.",
+      "requirements": [
+        "R050"
+      ],
+      "production_release": null,
+      "dependency_lock": null,
+      "copied_files": [],
+      "integration_results": "not run",
+      "release_gate": "Exact release/closure/security/license/model rights and contract tests before adoption"
+    },
+    {
+      "name": "FrappeLMS",
+      "url": "https://github.com/frappe/lms",
+      "audited_commit": "7f7c78b5c43698420ef5a3bc9871f29647e67e31",
+      "audited_license": "[AGPL-3.0](https://github.com/frappe/lms/blob/7f7c78b5c43698420ef5a3bc9871f29647e67e31/license.txt)",
+      "evidence": "A01; research/open-source-audit/01-repository-inventory.md inventory row FrappeLMS",
+      "disposition": "not_selected_lms_alternative",
+      "phase": "A7",
+      "boundary": "No baseline dependency; avoid merging identity and application runtimes.",
+      "requirements": [
+        "R050"
+      ],
+      "production_release": null,
+      "dependency_lock": null,
+      "copied_files": [],
+      "integration_results": "not run",
+      "release_gate": "Exact release/closure/security/license/model rights and contract tests before adoption"
+    },
+    {
+      "name": "Chatterbox",
+      "url": "https://github.com/resemble-ai/chatterbox",
+      "audited_commit": "ab55923c27757c90cfcc407baa57dc25a7d25217",
+      "audited_license": "[MIT code](https://github.com/resemble-ai/chatterbox/blob/ab55923c27757c90cfcc407baa57dc25a7d25217/LICENSE)",
+      "evidence": "A01; research/open-source-audit/01-repository-inventory.md inventory row Chatterbox",
+      "disposition": "not_selected",
+      "phase": "none",
+      "boundary": "Do not choose audited retired implementation as maintained default; any future revisit needs new provenance/maintenance review.",
+      "requirements": [
+        "R016",
+        "R081"
+      ],
+      "production_release": null,
+      "dependency_lock": null,
+      "copied_files": [],
+      "integration_results": "not run",
+      "release_gate": "Exact release/closure/security/license/model rights and contract tests before adoption"
+    }
+  ]
+}

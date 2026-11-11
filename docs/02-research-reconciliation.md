@@ -6,7 +6,7 @@ Evidence labels: OBS = observed by this consolidation (file existence, hashes, a
 |---|---|---|---|
 | E01 | OBS: 27 Markdown reports/READMEs and nine audit evidence files available | research manifest | Both full packs preserved; no attachment gap remains |
 | E02 | OBS: five recent conversation turns returned, no older cursor | C1 raw response | Cannot assert full historical coverage; U2 restores many requirements, GAP-001 stays open |
-| E03 | PROP: owned modular monolith, one bounded orchestrator | G10; A07/A12/A13 | Convergent design recommendations, not proof of best stack; ADR-001/002 remain proposed |
+| E03 | PROP: owned modular monolith, one bounded orchestrator | G10; A07/A12/A13 | Convergent design recommendations, not proof of best stack; ADR-001/002 selected as technical decisions under U11; not validated outcomes |
 | E04 | REP: DeepTutor has memory, mastery, guardians, retrieval and voice | A02 Verified capability classification; pinned source links | Reject outdated assumption it is merely a stateless chatbot. Capability existence does not establish learning validity or safe commercial deployment |
 | E05 | REP: DeepTutor mastery is a recent-attempt heuristic | A02 mastery source; evidence/test-results.md | May study/extract a small module; do not equate heuristic score with calibrated mastery |
 | E06 | REP: LearnHouse duplicates LMS/AI/RAG and has AGPL/EE boundaries | A03; A06; A08 | LMS fallback only; do not copy AGPL code under a proprietary assumption |
@@ -23,7 +23,7 @@ Evidence labels: OBS = observed by this consolidation (file existence, hashes, a
 | E17 | UNK: Jev independent 37-dataset claim quoted by prior assistant | C1 only; underlying paper absent from packs | Do not repeat as verified evidence; retrieve actual study before relying on it |
 | E18 | UNK: Egyptian regulatory implementation and provider-specific minor terms | A08; regulator home page unreadable in this session | Counsel/official-source confirmation before real-minor processing; no checkbox-compliance claim |
 | E19 | Founder-reported: ~100 prospects, EGP hypotheses, family/friends pilot | U2 | Useful planning constraints; not independently verified conversion or authorization |
-| E20 | PROP: Django/Postgres baseline | A12 vs C1 caution | Compare Django with a thin alternative during architecture review; preserve modular application regardless of framework |
+| E20 | PROP: Django/Postgres baseline | A12 vs C1 caution | Superseded by selected Django/DRF + React/PostgreSQL baseline under U11; previous comparison preserved in Git |
 | E21 | REP: Chatterbox retired at inspected source, model rights separate | A01/A05; evidence/chatterbox-source-audit.md | Not a maintained pilot default; any later status requires fresh owning-source verification |
 
 ## Build/reuse disposition
@@ -35,3 +35,7 @@ Conditional: DeepTutor extraction limited by dependency closure and rights; Lear
 ## Evidence maintenance
 
 New claim row requires proposition, exact source/version/date/locator, type, confidence scope, contradiction, decision affected and owner. Separate publication certainty from effect size/generalization. Record negative results and inaccessible sources. Promotion from research recommendation to project decision requires a dated ADR/gate; a repeated assistant assertion never promotes evidence.
+
+## Architecture decision evidence update
+
+E22–E32 are limited [primary-source checks](../sources/architecture-primary-checks.md), not runtime/security validation. U11/U12 promote explicit technical choices to the selected design baseline, not historical research recommendations to proven outcomes. [Repo dispositions](../architecture/repository-adoption.md) and [ADRs](../architecture/adr/ADR-001-owned-modular-monolith.md) resolve current design.
