@@ -18,4 +18,4 @@ Python bootstrap initially created a task-owned executable shortcut outside proj
 
 ## Remaining before F1 exit
 
-Independent final F1 review and actual clean Ubuntu CI still pending at this checkpoint. F1 remains in_progress; F2–F8 not_started. No phase pass inferred from the local smoke alone.
+Actual clean Ubuntu CI passed on ba2edb2df95ce584f9408e4a3822b7ec91a60f8c: Dependency readiness run43052547533 and Foundation checks run43052547439. Exact hosted job/step evidence is in f1-github-ci.json. Independent closing review passed; F1 is closed for its explicitly scoped backend/web readiness. F2–F8 remain not_started. Original local/remote main SHA matched at publication; later metadata checkpoints are tracked in Git and separately verified on push.

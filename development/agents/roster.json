@@ -13,7 +13,7 @@
         "Integration",
         "Infrastructure"
       ],
-      "status": "active",
+      "status": "completed",
       "files": [
         "development/ shared state except worker evidence",
         "tools/check_dependencies.py",
@@ -59,11 +59,11 @@
         "Reviewer",
         "Audit"
       ],
-      "status": "completed_local_review_pending_hosted_ci",
+      "status": "completed",
       "files": [],
       "evidence": "development/evidence/f1-independent-review.md"
     }
   ],
-  "run_status": "in_progress under U15",
+  "run_status": "completed scoped F1 dependency/readiness with actual local and hosted verification",
   "scope": "Local backend/web locks and isolated installs; no product app, model assets, paid calls, data or deployment"
 }

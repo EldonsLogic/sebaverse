@@ -274,7 +274,7 @@
       "id": "DEV-005",
       "title": "Resolve minimal toolchain and dependency locks",
       "phase": "F1",
-      "status": "in_progress",
+      "status": "done",
       "requirements": [
         "R006",
         "R075",
@@ -299,7 +299,12 @@
         "make foundation-check"
       ],
       "execution_condition": "All preceding mandatory phase exit tests passed with recorded evidence/review. Applicable G1–G3 execution decisions recorded; synthetic fixtures only; exact dependency/license/security closure reviewed. No paid calls or deployment implied.",
-      "evidence": [],
+      "evidence": [
+        "development/evidence/f1-run.md",
+        "development/evidence/f1-independent-review.md",
+        "development/evidence/f1-github-ci.json",
+        "development/evidence/f1-dependency-snapshot.json"
+      ],
       "files": [
         "backend/pyproject.toml",
         "backend/*lock*",

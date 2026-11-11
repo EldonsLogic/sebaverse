@@ -93,7 +93,7 @@
       "id": "F1",
       "name": "Execution readiness and dependency locks",
       "architecture_phase": "A1",
-      "status": "in_progress",
+      "status": "passed",
       "depends_on": [
         "F0"
       ],
@@ -107,8 +107,10 @@
           "result": "pass",
           "evidence": [
             "development/evidence/f1-run.md",
+            "development/evidence/f1-github-ci.json",
             "development/evidence/f1-dependency-snapshot.json"
-          ]
+          ],
+          "verified_date": "2026-11-11"
         },
         {
           "id": "F1-suite-2",
@@ -119,17 +121,24 @@
           "result": "pass",
           "evidence": [
             "development/evidence/f1-run.md",
+            "development/evidence/f1-github-ci.json",
             "development/evidence/f1-dependency-snapshot.json"
-          ]
+          ],
+          "verified_date": "2026-11-11"
         },
         {
           "id": "F1-suite-3",
-          "command": null,
+          "command": "gh run view 43052547533 --repo EldonsLogic/sebaverse --json conclusion,headSha,jobs,url",
           "suite": "Reproducible clean dependency install",
-          "availability": "planned",
+          "availability": "existing",
           "required": true,
-          "result": "not_run",
-          "evidence": []
+          "result": "pass",
+          "evidence": [
+            "development/evidence/f1-run.md",
+            "development/evidence/f1-github-ci.json",
+            "development/evidence/f1-dependency-snapshot.json"
+          ],
+          "verified_date": "2026-11-11"
         },
         {
           "id": "F1-suite-4",
@@ -140,19 +149,25 @@
           "result": "pass",
           "evidence": [
             "development/evidence/f1-run.md",
+            "development/evidence/f1-github-ci.json",
             "development/evidence/f1-dependency-snapshot.json"
-          ]
+          ],
+          "verified_date": "2026-11-11"
         }
       ],
       "review": {
-        "result": "pending",
-        "reviewer": null,
-        "evidence": []
+        "result": "pass",
+        "reviewer": "/root/independent_reviewer (actual separate agent)",
+        "evidence": [
+          "development/evidence/f1-independent-review.md"
+        ]
       },
       "blockers": [],
       "transition_rule": "All required checks pass with real evidence, independent review passes, required blockers cleared; no next phase until then",
       "external_conditions": "Applicable real-data/provider/spend/deployment/pilot conditions remain separate; no blanket approval",
-      "scope": "Locked backend/web local toolchain only; native DB/network/image and parser/model gates remain required before their use. No blanket security/legal clearance."
+      "scope": "Locked backend/web local toolchain only; native DB/network/image and parser/model gates remain required before their use. No blanket security/legal clearance.",
+      "completed_date": "2026-11-11",
+      "limits": "Local backend/web readiness and actual clean Ubuntu CI only; native DB connections/image use, distribution obligations and disabled parser/model integrations retain their own required gates."
     },
     {
       "id": "F2",
