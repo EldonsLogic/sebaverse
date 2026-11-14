@@ -1,6 +1,6 @@
 # Current development checkpoint
 
-11 November 2026. Shared private repo: https://github.com/EldonsLogic/sebaverse. **F0 and F1 passed; F2–F8 not started.** DEV-001–005 complete. No product application implemented yet.
+14 November 2026. Shared private repo: https://github.com/EldonsLogic/sebaverse. **F0/F1 passed; F2 in_progress under U16/AUTH-003. F3–F8 not_started.** DEV-001–005 complete. Local skeleton implementation started; no real learner/model/paid/deployment use.
 
 ## Verified latest work
 
@@ -10,10 +10,12 @@ Tested work commit: ba2edb2df95ce584f9408e4a3822b7ec91a60f8c. Dependency CI43052
 
 ## Next action — DEV-006 / F2
 
-Prepare/record the concrete local authored/synthetic application-skeleton scope, then implement Django health/configuration + Arabic-first React shell using selected design tokens and same-origin contract. No provider keys, real children, payments, parser/model downloads or deployment. Keep selected stack and multi-subject architecture; no German textbook dependency. Respect actual applicable G1–G3 execution conditions and AUTH records rather than inferring legal/production approval from F1.
+Implemented local Django/React empty skeleton. Actual 14 November rerun:83 DB-free tests pass; TypeScript and production build pass;22 existing foundation/dependency regressions pass. Desktop/mobile browser checks pass with complete screenshots (1314/1872px), keyboard/main-focus/RTL/routes/no-overflow and actual local server teardown. Evidence:outputs/f2-local-skeleton/. No real content, model, account or learner feature enabled.
 
-Before any native DB connection, database/container image use or redistribution, complete F2’s mandatory native/image version, notice and known-CVE checks. Postgres17 manifest is pinned-only, not scanned/started; Psycopg binary and native frontend tooling inventories have explicit scope/notice limitations. Docling/scanner/OCR remains disabled at DEV-010/F3; all model/eval integrations need their own closure. No security/legal/educational certification claimed.
+F2 remains in progress. Independent review identified scanner-report identity/schema/evidence-binding gaps; fixes and negative regression fixtures are underway. No pre-use pass or PostgreSQL integration result exists yet. First clean Linux workflow must inventory actual system-libpq linked packages/notices, scan the pinned image/core/native inventory, enforce unchanged pre-use policy, then run real PG migrations/readiness/cleanup. macOS DB stays held; no SQLite fallback.
+
+Previous 12 November scanner verification command was not executed because automatic approval review hit the account usage limit. The completed Syft archive is cached but not claimed verified/executed. No security/legal/educational certification claimed.
 
 ## Resume and gate rules
 
-Read START-HERE.md, AGENTS.md, engineering/workflow/handover docs, tasks.json and phase-gates.json. Inspect actual Git branch/HEAD/dirty tree before claiming files. F2 has not started. At every phase exit run meaningful required tests, record actual evidence and independent review, clear blockers and only then advance. Frozen audit/brand exports are historical, not active instructions. Avoid a competing master, untracked progress, force pushes or false test claims.
+Read START-HERE.md, AGENTS.md, engineering/workflow/handover docs, tasks.json and phase-gates.json. Inspect actual Git branch/HEAD/dirty tree before claiming files. F2 is active; native DB/image use is held until pre-use evidence passes. At every phase exit run meaningful required tests, record actual evidence and independent review, clear blockers and only then advance. Frozen audit/brand exports are historical, not active instructions. Avoid a competing master, untracked progress, force pushes or false test claims.

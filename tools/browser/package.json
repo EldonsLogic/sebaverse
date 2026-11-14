@@ -1,0 +1,14 @@
+{
+  "name": "@sebaverse/browser-checks",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24.22.1 <25",
+    "npm": "10.8.2"
+  },
+  "packageManager": "npm@10.8.2",
+  "devDependencies": {
+    "playwright": "1.62.1"
+  }
+}

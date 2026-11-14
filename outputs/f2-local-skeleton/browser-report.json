@@ -1,0 +1,43 @@
+{
+  "date": "2026-11-14T12:35:35.633Z",
+  "browser": "156.0.8078.4",
+  "tool": "playwright1.62.1",
+  "base_url": "http://127.0.0.1:54142",
+  "checks": [
+    {
+      "viewport": "desktop",
+      "width": 1440,
+      "height": 1050,
+      "routes": 4,
+      "rtl": true,
+      "skip_link": true,
+      "overflow": false,
+      "ui_errors": 0,
+      "asset_failures": 0,
+      "health": 200,
+      "unknown_api": 404,
+      "client_not_found": true,
+      "main_focus": true,
+      "document_height": 1314,
+      "image_height": 1314
+    },
+    {
+      "viewport": "mobile",
+      "width": 390,
+      "height": 844,
+      "routes": 4,
+      "rtl": true,
+      "skip_link": true,
+      "overflow": false,
+      "ui_errors": 0,
+      "asset_failures": 0,
+      "health": 200,
+      "unknown_api": 404,
+      "client_not_found": true,
+      "main_focus": true,
+      "document_height": 1872,
+      "image_height": 1872
+    }
+  ],
+  "scope": "Local authored empty shell only; no learner/model/data/API feature or accessibility certification"
+}

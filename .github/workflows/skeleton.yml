@@ -1,0 +1,91 @@
+name: Local skeleton phase checks
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+concurrency:
+  group: skeleton-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  skeleton:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      UV_CACHE_DIR: ${{ github.workspace }}/work/cache/uv
+      GRYPE_DB_CACHE_DIR: ${{ github.workspace }}/work/cache/grype-db
+      GRYPE_CHECK_FOR_APP_UPDATE: 'false'
+      SYFT_CHECK_FOR_APP_UPDATE: 'false'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version-file: .python-version
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version-file: .node-version
+      - uses: astral-sh/setup-uv@d0cc045d04ccac9d8b7881df0226f9e82c39688e
+        with:
+          version: '0.11.14'
+          enable-cache: false
+      - name: Install exact dependency tools and locked packages
+        run: |
+          npm install --global npm@10.8.2 --ignore-scripts --no-fund --no-audit --registry=https://registry.npmjs.org
+          uv sync --project backend --locked --no-build --no-install-project --python 3.12.13 --no-python-downloads --default-index https://pypi.org/simple
+          npm --prefix web ci --ignore-scripts --engine-strict --no-fund --no-audit --registry=https://registry.npmjs.org
+          npm --prefix tools/browser ci --ignore-scripts --engine-strict --no-fund --no-audit --registry=https://registry.npmjs.org
+      - name: Compile web and test DB-free API/config boundaries
+        run: |
+          npm --prefix web run typecheck
+          npm --prefix web run build
+          SEBAVERSE_ENV=local DJANGO_DEBUG=1 backend/.venv/bin/python -m pytest backend/tests -q -k 'not postgres_integration'
+      - name: Download exact checksum-verified static scanners
+        run: python3 tools/security/bootstrap.py --platform linux_amd64
+      - name: Identify actual system libpq and transitive package/notice chain
+        run: python3 tools/security/native_chain.py --output-root work/f2-security
+      - name: Catalog actual native packages and pinned DB image before execution
+        run: |
+          IMAGE=$(python3 -c "import json;print(json.load(open('infra/images.lock.json'))['postgres']['reference'])")
+          .local/security-tools/syft dir:work/f2-security/native-root --select-catalogers dpkg-db-cataloger -o syft-json=work/f2-security/system-native-sbom.json --quiet
+          .local/security-tools/syft registry:$IMAGE --platform linux/amd64 -o syft-json=work/f2-security/image-sbom.json --quiet
+          python3 tools/security/postgres_core.py
+      - name: Record all advisory reports without starting database
+        run: |
+          set +e
+          .local/security-tools/grype sbom:work/f2-security/system-native-sbom.json -o json --file work/f2-security/system-native-cves.json --quiet
+          A=$?
+          .local/security-tools/grype sbom:work/f2-security/image-sbom.json -o json --file work/f2-security/image-cves.json --quiet
+          B=$?
+          .local/security-tools/grype sbom:work/f2-security/postgres-core.cdx.json -o json --file work/f2-security/postgres-core-cves.json --quiet
+          C=$?
+          if [ "$A" -ne 0 ] || [ "$B" -ne 0 ] || [ "$C" -ne 0 ]; then exit 1; fi
+          python3 - <<'PY'
+          from pathlib import Path
+          import urllib.request
+          url='https://raw.githubusercontent.com/cisagov/kev-data/main/known_exploited_vulnerabilities.json'
+          with urllib.request.urlopen(url,timeout=60) as response:
+              Path('work/f2-security/kev.json').write_bytes(response.read())
+          PY
+      - name: Enforce native/image pre-use policy
+        run: python3 tools/security/check_reports.py
+      - name: Real PostgreSQL migration, readiness and teardown smoke
+        run: python3 tools/run_postgres_smoke.py
+      - name: Browser runtime for authored local UI checks
+        run: node tools/browser/node_modules/playwright/cli.js install --with-deps chromium
+      - name: Loopback server, desktop/mobile browser and teardown
+        run: python3 tools/smoke_local.py
+      - name: Foundation, dependency and phase regressions
+        run: make foundation-check
+      - name: Preserve actual phase evidence even on failure
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: f2-evidence
+          path: |
+            work/f2-security/*.json
+            outputs/f2-local-skeleton/*.png
+            outputs/f2-local-skeleton/browser-report.json
+          retention-days: 7
+          if-no-files-found: warn

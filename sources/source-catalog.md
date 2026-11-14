@@ -62,3 +62,5 @@ Exact research files/bytes/checksums: [manifest](research-manifest.json). Suppor
 - External coding guidance and user image: [pinned provenance and adaptation](agent-guidance/provenance.json), [image transcription](agent-guidance/agent-team-transcription.md).
 
 - U15: [Start F1 dependency and local execution readiness](f1-start-instruction.md), 11 November 2026.
+
+- U16: [Continue F2 local skeleton](f2-continue-instruction.md), 12 November2026.

@@ -7,3 +7,11 @@ foundation-check:
 
 dependency-check:
 	python3 tools/check_dependencies.py
+
+.PHONY: backend-check smoke-local
+backend-check:
+	SEBAVERSE_ENV=local DJANGO_DEBUG=1 backend/.venv/bin/python -m pytest backend/tests -q -k 'not postgres_integration'
+	SEBAVERSE_ENV=local DJANGO_DEBUG=1 backend/.venv/bin/python backend/manage.py check
+
+smoke-local:
+	python3 tools/smoke_local.py

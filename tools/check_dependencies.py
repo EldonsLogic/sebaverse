@@ -16,7 +16,8 @@ def check_snapshot(root):
     errors = []
     try:
         read = lambda p: json.loads((root / p).read_text())
-        manifest = read('development/evidence/f1-dependency-snapshot.json')
+        snapshot='third-party/dependency-snapshot.json' if (root/'third-party/dependency-snapshot.json').is_file() else 'development/evidence/f1-dependency-snapshot.json'
+        manifest=read(snapshot)
         for file, expected in manifest['sha256'].items():
             path = root / file
             if not path.is_file() or hashlib.sha256(path.read_bytes()).hexdigest() != expected:

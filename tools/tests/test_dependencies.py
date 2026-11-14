@@ -16,8 +16,9 @@ class DependencyEvidenceTests(unittest.TestCase):
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()
         self.root = Path(self.temp.name)
-        manifest = json.loads((ROOT / 'development/evidence/f1-dependency-snapshot.json').read_text())
-        paths = list(manifest['sha256']) + ['development/evidence/f1-dependency-snapshot.json', 'development/dependency-scope.json']
+        snapshot='third-party/dependency-snapshot.json' if (ROOT/'third-party/dependency-snapshot.json').is_file() else 'development/evidence/f1-dependency-snapshot.json'
+        manifest = json.loads((ROOT / snapshot).read_text())
+        paths = list(manifest['sha256']) + [snapshot, 'development/dependency-scope.json']
         for file in paths:
             p = self.root / file
             p.parent.mkdir(parents=True, exist_ok=True)

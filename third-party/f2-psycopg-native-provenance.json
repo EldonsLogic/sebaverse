@@ -1,0 +1,305 @@
+{
+  "schema_version": 1,
+  "reviewed_date": "2026-11-12",
+  "reviewer": "/root/independent_reviewer",
+  "scope": "Static public upstream source/API and installed CPython3.12 macOS arm64 wheel inspection only; no build scripts, DB connections or application service executed",
+  "package": {
+    "name": "psycopg-binary",
+    "version": "3.3.8",
+    "wheel": "psycopg_binary-3.3.8-cp312-cp312-macosx_11_0_arm64.whl",
+    "wheel_sha256": "e0972d8de5a0d855d76624f559a6ce5dd068fb4bbfa01e1d7cf929e6800dc4f0",
+    "source": "backend/uv.lock exact URL/hash; installed binary hashes corroborate local F1 inventory"
+  },
+  "upstream_psycopg": {
+    "tag": "3.3.8",
+    "annotated_tag_object": "64538bb283518a59955a9fc1d854f93818a9a97d",
+    "commit": "b9e2f3535777cffb679ce3e6dc7f2b758dc9ac06",
+    "signature_status": "GitHub API reports tag verification valid; not independently cryptographically verified by this reviewer",
+    "build_sources": [
+      {
+        "repository": "https://github.com/psycopg/psycopg",
+        "commit": "b9e2f3535777cffb679ce3e6dc7f2b758dc9ac06",
+        "path": ".github/workflows/build-and-cache-libpq.yml",
+        "blob_sha": "575279c5384f12233c8e084710283bb3e1e71d79",
+        "sha256": "cf6d074209b3f716276544dc196928915db0a3224019c39d69d56a3676bc54dc",
+        "bytes": 5610,
+        "url": "https://github.com/psycopg/psycopg/blob/b9e2f3535777cffb679ce3e6dc7f2b758dc9ac06/.github/workflows/build-and-cache-libpq.yml"
+      },
+      {
+        "repository": "https://github.com/psycopg/psycopg",
+        "commit": "b9e2f3535777cffb679ce3e6dc7f2b758dc9ac06",
+        "path": ".github/workflows/packages-bin.yml",
+        "blob_sha": "32966744f9266514ee47b5c9f8de008ddf83c29d",
+        "sha256": "49f318595f1b88d9166eb7cd4bff09c6bfa990b02d0f15a2bf957af944858610",
+        "bytes": 9615,
+        "url": "https://github.com/psycopg/psycopg/blob/b9e2f3535777cffb679ce3e6dc7f2b758dc9ac06/.github/workflows/packages-bin.yml"
+      },
+      {
+        "repository": "https://github.com/psycopg/psycopg",
+        "commit": "b9e2f3535777cffb679ce3e6dc7f2b758dc9ac06",
+        "path": "tools/ci/build_libpq.sh",
+        "blob_sha": "de78782ffd1022edf33377eb23fe6a205f2e785b",
+        "sha256": "d8af811255cd7569babb9402ba558f5923146af3c79b84c36841fecff4d3ecba",
+        "bytes": 7992,
+        "url": "https://github.com/psycopg/psycopg/blob/b9e2f3535777cffb679ce3e6dc7f2b758dc9ac06/tools/ci/build_libpq.sh"
+      }
+    ],
+    "package_notice": {
+      "path": "backend/.venv/lib/python3.12/site-packages/psycopg_binary-3.3.8.dist-info/licenses/LICENSE.txt",
+      "sha256": "e3a994d82e644b03a792a930f574002658412f62407f5fee083f2555c5f23118",
+      "license": "LGPL-3.0-only from package metadata"
+    }
+  },
+  "identified_components": [
+    {
+      "name": "libpq",
+      "version": "18.6",
+      "supplier_tag": "REL_18_6",
+      "supplier_notice": {
+        "repository": "https://github.com/postgres/postgres",
+        "commit": "724edf9bde9d356724ad384a2e196edc3c9f80f7",
+        "path": "COPYRIGHT",
+        "blob_sha": "0a397648dcd3c2177acc58bd7daecd11ad64be62",
+        "sha256": "3d6af92ff8a4c2cdf69afb1cf44edea727922f5cd0cf8b5f72b11cdecac8fdfd",
+        "bytes": 1198,
+        "url": "https://github.com/postgres/postgres/blob/724edf9bde9d356724ad384a2e196edc3c9f80f7/COPYRIGHT"
+      },
+      "license_observation": "PostgreSQL",
+      "license_scope": "Observed upstream source notice; no complete legal/distribution clearance or component-to-object license adjudication asserted"
+    },
+    {
+      "name": "openssl",
+      "version": "3.5.8",
+      "supplier_tag": "openssl-3.5.8",
+      "supplier_notice": {
+        "repository": "https://github.com/openssl/openssl",
+        "commit": "f4dc4d58b48d346a8270183f89acf826d459b0ca",
+        "path": "LICENSE.txt",
+        "blob_sha": "49cc83d2ee29d13453188217f0e4edd70c7f842f",
+        "sha256": "7d5450cb2d142651b8afa315b5f238efc805dad827d91ba367d8516bc9d49e7a",
+        "bytes": 10175,
+        "url": "https://github.com/openssl/openssl/blob/f4dc4d58b48d346a8270183f89acf826d459b0ca/LICENSE.txt"
+      },
+      "license_observation": "Apache-2.0",
+      "license_scope": "Observed upstream source notice; no complete legal/distribution clearance or component-to-object license adjudication asserted"
+    },
+    {
+      "name": "krb5",
+      "version": "1.22.2",
+      "supplier_tag": "krb5-1.22.2-final",
+      "supplier_notice": {
+        "repository": "https://github.com/krb5/krb5",
+        "commit": "8570e77819563e036027e1da789d08ec9333ed4d",
+        "path": "NOTICE",
+        "blob_sha": "20d8ef24e6040dc566de1a1c8ca8309ed2f67a8c",
+        "sha256": "d37fcb886de2ad1c602f61c99c6893bcbd9a1949f54d9a6bb40d191204eb605e",
+        "bytes": 63690,
+        "url": "https://github.com/krb5/krb5/blob/8570e77819563e036027e1da789d08ec9333ed4d/NOTICE"
+      },
+      "license_observation": "Composite upstream MIT Kerberos/third-party notice; not simplified to a single SPDX expression here",
+      "license_scope": "Observed upstream source notice; no complete legal/distribution clearance or component-to-object license adjudication asserted"
+    },
+    {
+      "name": "openldap",
+      "version": "2.6.14",
+      "supplier_tag": "OPENLDAP_REL_ENG_2_6_14",
+      "supplier_notice": {
+        "repository": "https://github.com/openldap/openldap",
+        "commit": "ad7277264dd744eb2f294c7f0afffab4bd07c4a1",
+        "path": "LICENSE",
+        "blob_sha": "05ad7571e448b9d83ead5d4691274d9484574714",
+        "sha256": "310fe25c858a9515fc8c8d7d1f24a67c9496f84a91e0a0e41ea9975b1371e569",
+        "bytes": 2214,
+        "url": "https://github.com/openldap/openldap/blob/ad7277264dd744eb2f294c7f0afffab4bd07c4a1/LICENSE"
+      },
+      "license_observation": "OLDAP-2.8",
+      "license_scope": "Observed upstream source notice; no complete legal/distribution clearance or component-to-object license adjudication asserted"
+    }
+  ],
+  "installed_bundled_libraries": [
+    {
+      "path": "backend/.venv/lib/python3.12/site-packages/psycopg_binary/.dylibs/libcom_err.3.0.dylib",
+      "sha256": "4d068a381d4b2b1515d9af6d194ea532c9a024fbc9e9c36eb8030eb9fb2e6aeb",
+      "bytes": 73456,
+      "component": "krb5",
+      "static_version_evidence": [
+        "/Users/runner/work/psycopg/psycopg/krb5-1.22.2/src/util/et/",
+        "/Users/runner/work/psycopg/psycopg/krb5-1.22.2/src/util/et/error_message.so"
+      ],
+      "linkage": [
+        "\t/DLC/psycopg_binary/.dylibs/libcom_err.3.0.dylib (compatibility version 3.0.0, current version 3.0.0)",
+        "\t@loader_path/libkrb5support.1.1.dylib (compatibility version 1.0.0, current version 1.1.0)",
+        "\t/usr/lib/libresolv.9.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1356.0.0)"
+      ]
+    },
+    {
+      "path": "backend/.venv/lib/python3.12/site-packages/psycopg_binary/.dylibs/libcrypto.3.dylib",
+      "sha256": "29c6186115387ef6bfaa7508f6e76a58a2c9cd9c457a9a53f710dcfc5e33384d",
+      "bytes": 4975456,
+      "component": "openssl",
+      "static_version_evidence": [
+        "OpenSSL 3.5.8 25 Aug 2026"
+      ],
+      "linkage": [
+        "\t/DLC/psycopg_binary/.dylibs/libcrypto.3.dylib (compatibility version 3.0.0, current version 3.0.0)",
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1356.0.0)"
+      ]
+    },
+    {
+      "path": "backend/.venv/lib/python3.12/site-packages/psycopg_binary/.dylibs/libgssapi_krb5.2.2.dylib",
+      "sha256": "0da762d0dbc472b56fd53cc406868f7a6c432e5904d48347428a81cc1c0422b5",
+      "bytes": 396400,
+      "component": "krb5",
+      "static_version_evidence": [
+        "/Users/runner/work/psycopg/psycopg/krb5-1.22.2/src/lib/gssapi/generic/",
+        "/Users/runner/work/psycopg/psycopg/krb5-1.22.2/src/lib/gssapi/generic/disp_com_err_status.so"
+      ],
+      "linkage": [
+        "\t/DLC/psycopg_binary/.dylibs/libgssapi_krb5.2.2.dylib (compatibility version 2.0.0, current version 2.2.0)",
+        "\t@loader_path/libkrb5.3.3.dylib (compatibility version 3.0.0, current version 3.3.0)",
+        "\t@loader_path/libk5crypto.3.1.dylib (compatibility version 3.0.0, current version 3.1.0)",
+        "\t@loader_path/libcom_err.3.0.dylib (compatibility version 3.0.0, current version 3.0.0)",
+        "\t@loader_path/libkrb5support.1.1.dylib (compatibility version 1.0.0, current version 1.1.0)",
+        "\t/usr/lib/libresolv.9.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1356.0.0)"
+      ]
+    },
+    {
+      "path": "backend/.venv/lib/python3.12/site-packages/psycopg_binary/.dylibs/libk5crypto.3.1.dylib",
+      "sha256": "9c05d406a2e92a9afe82cd6b48b12d0964cf172f01dabc6d269861577014d99c",
+      "bytes": 247632,
+      "component": "krb5",
+      "static_version_evidence": [
+        "/Users/runner/work/psycopg/psycopg/krb5-1.22.2/src/lib/crypto/krb/",
+        "/Users/runner/work/psycopg/psycopg/krb5-1.22.2/src/lib/crypto/krb/aead.so"
+      ],
+      "linkage": [
+        "\t/DLC/psycopg_binary/.dylibs/libk5crypto.3.1.dylib (compatibility version 3.0.0, current version 3.1.0)",
+        "\t@loader_path/libkrb5support.1.1.dylib (compatibility version 1.0.0, current version 1.1.0)",
+        "\t/usr/lib/libresolv.9.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1356.0.0)"
+      ]
+    },
+    {
+      "path": "backend/.venv/lib/python3.12/site-packages/psycopg_binary/.dylibs/libkrb5.3.3.dylib",
+      "sha256": "1a91e22c99a7fc378940f5a2feec51e76312c8b6ab74d2458f74944902eed861",
+      "bytes": 982192,
+      "component": "krb5",
+      "static_version_evidence": [
+        "KRB5_BRAND: krb5-1.22.2-final 1.22.2 20260129",
+        "/Users/runner/work/psycopg/psycopg/krb5-1.22.2/src/lib/krb5/"
+      ],
+      "linkage": [
+        "\t/DLC/psycopg_binary/.dylibs/libkrb5.3.3.dylib (compatibility version 3.0.0, current version 3.3.0)",
+        "\t@loader_path/libk5crypto.3.1.dylib (compatibility version 3.0.0, current version 3.1.0)",
+        "\t@loader_path/libcom_err.3.0.dylib (compatibility version 3.0.0, current version 3.0.0)",
+        "\t@loader_path/libkrb5support.1.1.dylib (compatibility version 1.0.0, current version 1.1.0)",
+        "\t/System/Library/Frameworks/Kerberos.framework/Versions/A/Kerberos (compatibility version 5.0.0, current version 6.0.0)",
+        "\t/usr/lib/libresolv.9.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1356.0.0)"
+      ]
+    },
+    {
+      "path": "backend/.venv/lib/python3.12/site-packages/psycopg_binary/.dylibs/libkrb5support.1.1.dylib",
+      "sha256": "50bd796d2a104fbbbd7d7eafa8d9b92c17ceebd83c40651325a1ef1d8505e42c",
+      "bytes": 110048,
+      "component": "krb5",
+      "static_version_evidence": [
+        "/Users/runner/work/psycopg/psycopg/krb5-1.22.2/src/util/support/",
+        "/Users/runner/work/psycopg/psycopg/krb5-1.22.2/src/util/support/threads.so"
+      ],
+      "linkage": [
+        "\t/DLC/psycopg_binary/.dylibs/libkrb5support.1.1.dylib (compatibility version 1.0.0, current version 1.1.0)",
+        "\t/usr/lib/libresolv.9.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1356.0.0)"
+      ]
+    },
+    {
+      "path": "backend/.venv/lib/python3.12/site-packages/psycopg_binary/.dylibs/liblber.2.dylib",
+      "sha256": "073e551586b28a51399d8db1fd62b33254cc6257e3435f524c78d243a4b18903",
+      "bytes": 138608,
+      "component": "openldap",
+      "static_version_evidence": [
+        "/Users/runner/work/psycopg/psycopg/openldap-2.6.14/libraries/liblber/",
+        "/Users/runner/work/psycopg/psycopg/openldap-2.6.14/libraries/liblber/.libs/decode.o"
+      ],
+      "linkage": [
+        "\t/DLC/psycopg_binary/.dylibs/liblber.2.dylib (compatibility version 3.0.0, current version 3.200.0)",
+        "\t/usr/lib/libresolv.9.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1356.0.0)"
+      ]
+    },
+    {
+      "path": "backend/.venv/lib/python3.12/site-packages/psycopg_binary/.dylibs/libldap.2.dylib",
+      "sha256": "cdcb49e14ab16b35f564099289d85fd5c261177721fba269db0c0e158066fce3",
+      "bytes": 477936,
+      "component": "openldap",
+      "static_version_evidence": [
+        "/Users/runner/work/psycopg/psycopg/openldap-2.6.14/libraries/libldap/",
+        "/Users/runner/work/psycopg/psycopg/openldap-2.6.14/libraries/libldap/.libs/bind.o"
+      ],
+      "linkage": [
+        "\t/DLC/psycopg_binary/.dylibs/libldap.2.dylib (compatibility version 3.0.0, current version 3.200.0)",
+        "\t@loader_path/liblber.2.dylib (compatibility version 3.0.0, current version 3.200.0)",
+        "\t/usr/lib/libresolv.9.dylib (compatibility version 1.0.0, current version 1.0.0)",
+        "\t/usr/lib/libsasl2.2.dylib (compatibility version 3.0.0, current version 3.15.0)",
+        "\t@loader_path/libssl.3.dylib (compatibility version 3.0.0, current version 3.0.0)",
+        "\t@loader_path/libcrypto.3.dylib (compatibility version 3.0.0, current version 3.0.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1356.0.0)"
+      ]
+    },
+    {
+      "path": "backend/.venv/lib/python3.12/site-packages/psycopg_binary/.dylibs/libpq.5.dylib",
+      "sha256": "1ea8caf53acd564665c9bc12342c654549b2833011eaac6aa7595fc11b034d51",
+      "bytes": 371120,
+      "component": "libpq",
+      "static_version_evidence": [
+        "_PQlibVersion:\n000000000000f1a0\tmov\tw0, #0xbf26\n000000000000f1a4\tmovk\tw0, #0x2, lsl #16\n000000000000f1a8\tret\n_pqGetc:\n000000000000f1ac\tldrsw\tx9, [x1, #0x46",
+        "Decoded w0 constant 180006 = libpq 18.6"
+      ],
+      "linkage": [
+        "\t/DLC/psycopg_binary/.dylibs/libpq.5.dylib (compatibility version 5.0.0, current version 5.18.0)",
+        "\t@loader_path/libssl.3.dylib (compatibility version 3.0.0, current version 3.0.0)",
+        "\t@loader_path/libcrypto.3.dylib (compatibility version 3.0.0, current version 3.0.0)",
+        "\t@loader_path/libgssapi_krb5.2.2.dylib (compatibility version 2.0.0, current version 2.2.0)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1356.0.0)",
+        "\t@loader_path/libldap.2.dylib (compatibility version 3.0.0, current version 3.200.0)"
+      ]
+    },
+    {
+      "path": "backend/.venv/lib/python3.12/site-packages/psycopg_binary/.dylibs/libssl.3.dylib",
+      "sha256": "c6c865d93b10b06fb40f51d5b6d3a281dcfcca549ce69ded417dfa01c0db757d",
+      "bytes": 1032368,
+      "component": "openssl",
+      "static_version_evidence": [],
+      "linkage": [
+        "\t/DLC/psycopg_binary/.dylibs/libssl.3.dylib (compatibility version 3.0.0, current version 3.0.0)",
+        "\t@loader_path/libcrypto.3.dylib (compatibility version 3.0.0, current version 3.0.0)",
+        "\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)",
+        "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1356.0.0)"
+      ]
+    }
+  ],
+  "external_host_dependencies": [
+    "/usr/lib/libSystem.B.dylib",
+    "/usr/lib/libresolv.9.dylib",
+    "/usr/lib/libsasl2.2.dylib",
+    "/usr/lib/libz.1.dylib"
+  ],
+  "publishing_attestation": {
+    "url": "https://pypi.org/integrity/psycopg-binary/3.3.8/psycopg_binary-3.3.8-cp312-cp312-macosx_11_0_arm64.whl/provenance",
+    "http_status_observed": 404,
+    "consequence": "No artifact-to-build attestation established by this endpoint; tag/source plus static binary correspondence is not a reproducible-build proof"
+  },
+  "coverage_limits": [
+    "This identifies the installed Darwin arm64 wheel only. Linux/Alpine/Windows wheels may contain different system-sourced native libraries and require their own inventory/advisory review.",
+    "Psycopg macOS wheel workflow restores cached libpq keyed by libpq/OpenSSL/PQ_FLAGS, not Kerberos/OpenLDAP; source constants alone do not prove cached binary versions. Static installed strings/disassembly supply additional corroboration here.",
+    "Kerberos 1.22.2 is built by build_libpq.sh only on macOS; Linux uses distribution-supplied Kerberos components. Do not transfer Darwin version labels to Linux.",
+    "Complete upstream Kerberos NOTICE has composite third-party terms. Full attribution/distribution assembly and component-to-linked-object mapping are not declared complete.",
+    "Apple host libraries are dynamically referenced and outside bundled-wheel CVE coverage.",
+    "No native CVE scanner/advisory result is provided by this artifact. Root scanner findings and identification coverage must determine the pre-use gate."
+  ],
+  "gate_verdict": "Native identities/provenance documented; no CVE pass, complete notice closure, production/legal approval or F2 gate approval"
+}

@@ -44,7 +44,7 @@ Project files are editable Markdown/JSON with preserved Git history. The founder
 
 ## Selected architecture and audit handoff
 
-[Technical baseline](architecture/technical-baseline.md), [all 104 features/functions](architecture/feature-function-matrix.md), [all 22 repo decisions](architecture/repository-adoption.md), and [subject-independent phases/PoC](execution/subject-independent-poc.md). [Shareable audit package](outputs/sebaverse-architecture-audit-v1/README.md). Design selected; no product or paid benchmarks built.
+[Technical baseline](architecture/technical-baseline.md), [all 104 features/functions](architecture/feature-function-matrix.md), [all 22 repo decisions](architecture/repository-adoption.md), and [subject-independent phases/PoC](execution/subject-independent-poc.md). [Shareable audit package](outputs/sebaverse-architecture-audit-v1/README.md). Design selected. F2 now contains a local empty application shell; tutoring and paid benchmarks remain unbuilt.
 
 ## Development starts here — U13/U14
 
@@ -55,3 +55,9 @@ Every phase must pass its relevant required tests and independent review before 
 ## Dependency readiness
 
 [Dependency setup](development/DEPENDENCIES.md), backend/uv.lock and web/package-lock.json define the minimal locked environments. `make dependency-check` validates committed closure/evidence and local library smoke; `make foundation-check` runs document, phase and evidence regressions. F1 status and actual Linux/local results are recorded in development/CURRENT-STATE.md and evidence files; installed dependencies are ignored, not committed. No product app is implied by dependency readiness.
+
+## Local application skeleton — F2 in progress
+
+The Arabic-first authored shell now has home, materials, practice and progress routes, same-origin health/readiness endpoints and no real accounts or learner content. See [local preview evidence](outputs/f2-local-skeleton/README.md) and [backend setup](backend/README.md). `make backend-check` runs DB-free boundary tests; build with the pinned Node runtime using `npm --prefix web run build`. `make smoke-local` starts a temporary loopback app, checks desktop/mobile in an installed reviewed Playwright browser and stops only its own app. No credentials are required.
+
+F2 is **not complete** until native/image evidence, actual PostgreSQL integration and independent review pass. The Linux workflow enforces that order; macOS DB execution stays held until its separate native prerequisites are met.

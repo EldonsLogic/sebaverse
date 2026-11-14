@@ -173,7 +173,7 @@
       "id": "F2",
       "name": "Runnable local skeleton",
       "architecture_phase": "A2",
-      "status": "not_started",
+      "status": "in_progress",
       "depends_on": [
         "F1"
       ],

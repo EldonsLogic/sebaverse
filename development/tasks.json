@@ -342,7 +342,7 @@
       "id": "DEV-006",
       "title": "Create runnable local application skeleton",
       "phase": "F2",
-      "status": "planned",
+      "status": "in_progress",
       "requirements": [
         "R054",
         "R075",
@@ -373,7 +373,16 @@
         "web/src/app/",
         "web/src/ui/",
         "infra/local/",
-        "Makefile"
+        "Makefile",
+        "backend/manage.py",
+        "backend/tests/",
+        "web/index.html",
+        "web/tsconfig*.json",
+        "web/vite.config.ts",
+        "web/public/",
+        "tools/smoke_local.py",
+        "tools/tests/",
+        "development/evidence/f2*"
       ],
       "verification_contracts": [
         {

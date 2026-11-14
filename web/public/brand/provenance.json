@@ -1,0 +1,51 @@
+{
+  "source": "Current founder-selected C identity with B blue/orange, frozen brand kit v1",
+  "assets": [
+    {
+      "source": "outputs/sebaverse-brand-system-v1/assets/sebaverse-primary-color.svg",
+      "served_path": "/brand/sebaverse-primary-color.svg",
+      "sha256": "b3ecdb56981f3f18ee76fc32746be765bbce6d518ac149e157d7b9a21bd24ba5"
+    },
+    {
+      "source": "outputs/sebaverse-brand-system-v1/assets/sebaverse-symbol-color.svg",
+      "served_path": "/brand/sebaverse-symbol-color.svg",
+      "sha256": "fd50d266b71ae326ff0b2cbd8d8ae1caf891537ca7c1c9f8e2e313e725729f67"
+    },
+    {
+      "source": "outputs/sebaverse-brand-system-v1/assets/sebaverse-favicon.svg",
+      "served_path": "/brand/sebaverse-favicon.svg",
+      "sha256": "8bdb77747b0077b897a0f46c2ee04a7b490eca055978ab79ed83eb76d32e4321"
+    },
+    {
+      "source": "outputs/sebaverse-brand-system-v1/fonts/OFL-NotoNaskhArabic.txt",
+      "served_path": "/brand/fonts/OFL-NotoNaskhArabic.txt",
+      "sha256": "a7a5a25eb188bf1cd96982030d53e23c33485c69b1044a562254226857ee13af"
+    },
+    {
+      "source": "outputs/sebaverse-brand-system-v1/fonts/Alexandria-VF.ttf",
+      "served_path": "/brand/fonts/Alexandria-VF.ttf",
+      "sha256": "db8ae03b62d55a65aa4e04307878df8c00d6e5388e4800635cbe0e22b6411b64"
+    },
+    {
+      "source": "outputs/sebaverse-brand-system-v1/fonts/OFL-Alexandria.txt",
+      "served_path": "/brand/fonts/OFL-Alexandria.txt",
+      "sha256": "56372aed19c2701f50e6e784110af55bf8796ed51648805324ad1adb0a3860bb"
+    },
+    {
+      "source": "outputs/sebaverse-brand-system-v1/fonts/NotoNaskhArabic-VF.ttf",
+      "served_path": "/brand/fonts/NotoNaskhArabic-VF.ttf",
+      "sha256": "67b5a525a661b607971fbd3f96a81b89d3a768e74534fca84f18ac97e6fab72f"
+    },
+    {
+      "source": "outputs/sebaverse-brand-system-v1/fonts/OFL-Rubik.txt",
+      "served_path": "/brand/fonts/OFL-Rubik.txt",
+      "sha256": "472cbe7c25441df63e9c7864b43eb3c0f4b3df950c66a76224e6cfe1eae843fb"
+    },
+    {
+      "source": "outputs/sebaverse-brand-system-v1/fonts/Rubik-VF.ttf",
+      "served_path": "/brand/fonts/Rubik-VF.ttf",
+      "sha256": "1b3a7437ba2af80e465e773ed60c5036d1ba6ace492d89046dbcf18fb31e4e88"
+    }
+  ],
+  "font_licenses": "Original bundled OFL texts retained alongside each font. No glyph/wordmark geometry changed."
+}

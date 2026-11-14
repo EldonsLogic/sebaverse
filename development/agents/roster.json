@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "run": "f1-dependency-readiness-2026-11-11",
+  "run": "f2-local-skeleton-2026-11-12",
   "max_concurrent_including_orchestrator": 4,
   "paid_provider_budget_usd": 0,
   "token_budget": null,
@@ -10,33 +10,33 @@
       "agent": "/root",
       "roles": [
         "Orchestrator",
-        "Integration",
-        "Infrastructure"
+        "Infrastructure",
+        "Integration"
       ],
-      "status": "completed",
+      "status": "active",
       "files": [
-        "development/ shared state except worker evidence",
-        "tools/check_dependencies.py",
+        "infra/",
+        "tools/",
+        "development/ shared state/evidence",
         "Makefile",
-        ".github/workflows/dependencies.yml",
-        "workers/parser/DEPENDENCIES.md",
-        "third-party/README.md",
-        "registers/",
-        "sources/"
+        ".github/",
+        "sources/",
+        "registers/"
       ],
       "evidence": "Actual F1 coordination and tool calls"
     },
     {
       "agent": "/root/development_plan",
       "roles": [
-        "Infrastructure",
         "Backend"
       ],
-      "status": "completed",
+      "status": "active",
       "files": [
-        "backend/",
-        "third-party/backend-licenses.json",
-        "development/evidence/f1-backend*"
+        "backend/manage.py",
+        "backend/config/",
+        "backend/modules/",
+        "backend/tests/",
+        "backend/README.md"
       ],
       "evidence": "development/evidence/f1-backend-checks.json"
     },
@@ -45,25 +45,31 @@
       "roles": [
         "Frontend"
       ],
-      "status": "completed",
+      "status": "active",
       "files": [
-        "web/",
-        "third-party/web-licenses.json",
-        "development/evidence/f1-web*"
+        "web/src/",
+        "web/public/",
+        "web/index.html",
+        "web/config/",
+        "web/package.json scripts",
+        "web/README.md"
       ],
       "evidence": "development/evidence/f1-web-summary.json"
     },
     {
       "agent": "/root/independent_reviewer",
       "roles": [
-        "Reviewer",
-        "Audit"
+        "Security",
+        "Reviewer"
       ],
-      "status": "completed",
-      "files": [],
-      "evidence": "development/evidence/f1-independent-review.md"
+      "status": "active",
+      "files": [
+        "third-party/f2-psycopg-native-provenance.json",
+        "development/evidence/f2-native-research.md"
+      ],
+      "evidence": "Static provenance research; app-code fresh review later, no DB/model use"
     }
   ],
-  "run_status": "completed scoped F1 dependency/readiness with actual local and hosted verification",
-  "scope": "Local backend/web locks and isolated installs; no product app, model assets, paid calls, data or deployment"
+  "run_status": "in_progress",
+  "scope": "Bounded authored/synthetic backend/web skeleton, static native/image review before DB use, loopback tests/CI, no paid/deploy/realdata"
 }
