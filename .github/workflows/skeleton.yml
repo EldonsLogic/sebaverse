@@ -48,17 +48,17 @@ jobs:
       - name: Catalog actual native packages and pinned DB image before execution
         run: |
           IMAGE=$(python3 -c "import json;print(json.load(open('infra/images.lock.json'))['postgres']['reference'])")
-          .local/security-tools/syft dir:work/f2-security/native-root --select-catalogers dpkg-db-cataloger -o syft-json=work/f2-security/system-native-sbom.json --quiet
-          .local/security-tools/syft registry:$IMAGE --platform linux/amd64 -o syft-json=work/f2-security/image-sbom.json --quiet
+          .local/security-tools/syft dir:work/f2-security/native-root --override-default-catalogers dpkg-db-cataloger -o syft-json=work/f2-security/system-native-sbom.json
+          .local/security-tools/syft registry:$IMAGE --platform linux/amd64 -o syft-json=work/f2-security/image-sbom.json
           python3 tools/security/postgres_core.py
       - name: Record all advisory reports without starting database
         run: |
           set +e
-          .local/security-tools/grype sbom:work/f2-security/system-native-sbom.json -o json --file work/f2-security/system-native-cves.json --quiet
+          .local/security-tools/grype sbom:work/f2-security/system-native-sbom.json -o json --file work/f2-security/system-native-cves.json
           A=$?
-          .local/security-tools/grype sbom:work/f2-security/image-sbom.json -o json --file work/f2-security/image-cves.json --quiet
+          .local/security-tools/grype sbom:work/f2-security/image-sbom.json -o json --file work/f2-security/image-cves.json
           B=$?
-          .local/security-tools/grype sbom:work/f2-security/postgres-core.cdx.json -o json --file work/f2-security/postgres-core-cves.json --quiet
+          .local/security-tools/grype sbom:work/f2-security/postgres-core.cdx.json -o json --file work/f2-security/postgres-core-cves.json
           C=$?
           if [ "$A" -ne 0 ] || [ "$B" -ne 0 ] || [ "$C" -ne 0 ]; then exit 1; fi
           python3 - <<'PY'
