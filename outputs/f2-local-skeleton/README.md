@@ -5,4 +5,4 @@
 - [Desktop](desktop.png) / [mobile](mobile.png)
 - [Actual browser assertions](browser-report.json): four navigation routes, RTL, first-tab skip link, main focus, no horizontal overflow or failed assets, client not-found, health200 and unknown API404. Full-page capture heights equal settled document heights.
 
-83 DB-free backend checks and TypeScript/build passed on the same worktree. Native/database integration and F2 independent phase closure remain pending. No real learners, model calls, uploads or grading enabled. Browser checks are bounded functional checks, not comprehensive accessibility certification.
+83 DB-free backend checks and TypeScript/build passed on the same worktree. Both evaluated database images were held by actual advisory scans; no database started. Native patching/review, real PostgreSQL integration and F2 phase closure remain pending. The selected interface is not affected by that phase hold. No real learners, model calls, uploads or grading enabled. Browser checks are bounded functional checks, not comprehensive accessibility certification.

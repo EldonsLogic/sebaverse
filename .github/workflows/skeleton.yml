@@ -43,6 +43,12 @@ jobs:
           SEBAVERSE_ENV=local DJANGO_DEBUG=1 backend/.venv/bin/python -m pytest backend/tests -q -k 'not postgres_integration'
       - name: Download exact checksum-verified static scanners
         run: python3 tools/security/bootstrap.py --platform linux_amd64
+      - name: Inspect signed Ubuntu native patch candidates without installing
+        run: |
+          mkdir -p work/f2-security
+          sudo apt-get update --error-on=any
+          apt-cache policy libc6 libc-bin > work/f2-security/ubuntu-patch-candidates.txt
+          python3 tools/security/prepare_ci_native.py
       - name: Identify actual system libpq and transitive package/notice chain
         run: python3 tools/security/native_chain.py --output-root work/f2-security
       - name: Catalog actual native packages and pinned DB image before execution
@@ -53,14 +59,7 @@ jobs:
           python3 tools/security/postgres_core.py
       - name: Record all advisory reports without starting database
         run: |
-          set +e
-          .local/security-tools/grype sbom:work/f2-security/system-native-sbom.json -o json --file work/f2-security/system-native-cves.json
-          A=$?
-          .local/security-tools/grype sbom:work/f2-security/image-sbom.json -o json --file work/f2-security/image-cves.json
-          B=$?
-          .local/security-tools/grype sbom:work/f2-security/postgres-core.cdx.json -o json --file work/f2-security/postgres-core-cves.json
-          C=$?
-          if [ "$A" -ne 0 ] || [ "$B" -ne 0 ] || [ "$C" -ne 0 ]; then exit 1; fi
+          python3 tools/security/check_reports.py --capture-scans
           python3 - <<'PY'
           from pathlib import Path
           import urllib.request
@@ -85,7 +84,13 @@ jobs:
           name: f2-evidence
           path: |
             work/f2-security/*.json
+            work/f2-security/grype-empty.yaml
+            work/f2-security/native-root/
+            .local/security-tools/*-LICENSE
+            .local/security-tools/*-NOTICE
+            work/f2-security/ubuntu-patch-*.txt
             outputs/f2-local-skeleton/*.png
             outputs/f2-local-skeleton/browser-report.json
+          include-hidden-files: true
           retention-days: 7
           if-no-files-found: warn

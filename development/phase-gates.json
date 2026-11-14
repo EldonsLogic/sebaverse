@@ -226,12 +226,17 @@
         },
         {
           "id": "F2-native-image-closure",
-          "command": null,
+          "command": "python3 tools/security/check_reports.py --capture-scans; python3 tools/security/check_reports.py; python3 tools/run_postgres_smoke.py",
           "suite": "Before DB/network/image use: native library and container version/notices/known-CVE review, immutable artifacts and startup/teardown tests",
-          "availability": "planned",
+          "availability": "implemented",
           "required": true,
-          "result": "not_run",
-          "evidence": []
+          "result": "fail",
+          "evidence": [
+            "development/evidence/f2-local-run.md",
+            "development/evidence/f2-rejected-image-43595873985/preuse-result.json",
+            "development/evidence/f2-alpine-candidate-43596204128/preuse-result.json"
+          ],
+          "verified_date": "2026-11-14"
         }
       ],
       "review": {
@@ -240,8 +245,9 @@
         "evidence": []
       },
       "blockers": [
-        "Native/image checker hardening and regression fixtures pending independent review",
-        "Actual Linux PostgreSQL migration/readiness/teardown not yet run after passing native pre-use gate"
+        "Both official DB image candidates blocked by actual High/Critical matches; preserve reports and patch/rebuild before use",
+        "Runner native libc6 has six fixable Medium matches; signed candidate metadata/companion package review, patch and rescan pending",
+        "Other Medium/Low matches require case-specific review; actual PG migration/readiness/teardown still not run"
       ],
       "transition_rule": "All required checks pass with real evidence, independent review passes, required blockers cleared; no next phase until then",
       "external_conditions": "Applicable real-data/provider/spend/deployment/pilot conditions remain separate; no blanket approval Native database libraries and container layer license/security closure are required before DB/network/image use; F1 Python/npm advisory scans do not cover them."
