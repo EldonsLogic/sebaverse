@@ -1,29 +1,29 @@
 {
   "postgres": {
-    "reference": "docker.io/library/postgres@sha256:ff87138949ad9a46f32ff23bd6852b52ce024a13dffe9b4087be98292cdd3b4f",
-    "observed_tag": "17",
-    "index_digest": "sha256:ff87138949ad9a46f32ff23bd6852b52ce024a13dffe9b4087be98292cdd3b4f",
+    "reference": "docker.io/library/postgres@sha256:d3244e8ce3f165ee3c93d9c4a4b1d0fe48b3a89e2287b717fdcbbde92d405065",
+    "observed_tag": "17-alpine",
+    "index_digest": "sha256:d3244e8ce3f165ee3c93d9c4a4b1d0fe48b3a89e2287b717fdcbbde92d405065",
     "source": "https://hub.docker.com/_/postgres",
-    "observed_date": "2026-11-11",
-    "status": "manifest pinned only; not pulled, executed, scanned or deployed",
-    "runtime_gate": "F2 must inspect/pull immutable image, scan applicable layers and run startup/migration/teardown tests before use",
+    "observed_date": "2026-11-14",
+    "status": "replacement candidate pinned only; no pre-use pass or execution",
+    "runtime_gate": "Unchanged F2 native/image policy; scan actual immutable candidate before execution",
     "platforms": [
       {
         "platform": {
           "architecture": "amd64",
           "os": "linux"
         },
-        "digest": "sha256:996e9dc583ba9f0265a2c75547a9c95fb22c251e394749cab205a0a00e1856a1",
-        "version": "17.11"
+        "digest": "sha256:005c5c37db96c1e6652a79ea31f9886402fba81ac95dc2db897739121dd7f8f2",
+        "version": "17.12"
       },
       {
         "platform": {
           "architecture": "arm",
           "os": "linux",
-          "variant": "v5"
+          "variant": "v6"
         },
-        "digest": "sha256:d0430277b9f9025dbc331693e83f7a0caaf7dbe1bbdc7b25720c352c9500df3c",
-        "version": "17.11"
+        "digest": "sha256:91219fb8460ad6f922e63c9cfa78c2b7745e41082d69588e49a0dda995d8791a",
+        "version": "17.12"
       },
       {
         "platform": {
@@ -31,8 +31,8 @@
           "os": "linux",
           "variant": "v7"
         },
-        "digest": "sha256:3299b82f2a49de87de01c90712eb36635f3b2b606a2e5e9c0ba72217366f6145",
-        "version": "17.11"
+        "digest": "sha256:403a69215416e38fe215b46f4ffbf8bb8f7a4f62962ccef635e502c8d7e4e8dc",
+        "version": "17.12"
       },
       {
         "platform": {
@@ -40,41 +40,43 @@
           "os": "linux",
           "variant": "v8"
         },
-        "digest": "sha256:f998bd5067cabb2b023800c6fbf04f24bd22fbb7f8430cfd8c8503a6c3834777",
-        "version": "17.11"
+        "digest": "sha256:93f3c32bafb7d4d20965c4df530899ae40923f0ccd63deede2f36681fa0aeceb",
+        "version": "17.12"
       },
       {
         "platform": {
           "architecture": "386",
           "os": "linux"
         },
-        "digest": "sha256:5ce94ee95043496e7bdd7eff405dfecd8f148507db76d38481810459847a99a7",
-        "version": "17.11"
+        "digest": "sha256:4b78b1659fa1df724512a906c0fe23bf47a0181d84150f7d8b250bfc62b613de",
+        "version": "17.12"
       },
       {
         "platform": {
           "architecture": "ppc64le",
           "os": "linux"
         },
-        "digest": "sha256:bfad1e1dfa3363062ed5066ac0985e12b58c41f1094aff66b4971ad86c438dc9",
-        "version": "17.11"
+        "digest": "sha256:b23bd1a52f3c73934f194a1026ddabffe8585173b421e748e66145e935f6c3ef",
+        "version": "17.12"
       },
       {
         "platform": {
           "architecture": "riscv64",
           "os": "linux"
         },
-        "digest": "sha256:7bff085d21cc40a04703bc77c3fba87eaeff782990ed9ca1d0c6bd4f78ad0e46",
-        "version": "17.11"
+        "digest": "sha256:10e5819b6a127a37ed5cb39b3ae7e5f51a3d0ea70df3530a9a54718237313026",
+        "version": "17.12"
       },
       {
         "platform": {
           "architecture": "s390x",
           "os": "linux"
         },
-        "digest": "sha256:bc680dc405ed4131976630abc93434e5132fe54d2bbcb452525307534d9a49f3",
-        "version": "17.11"
+        "digest": "sha256:78bdcca3af7b8ad9d91ecf35e938bc71f713d9431285bf5f24a8c140acb6c81e",
+        "version": "17.12"
       }
-    ]
+    ],
+    "reason": "Original Debian pin blocked by actual Grype scan43595873985:221 High/Critical matches. Same PostgreSQL17 family; official Alpine17.12 candidate must independently pass.",
+    "previous_candidate_evidence": "development/evidence/f2-rejected-image-43595873985"
   }
 }

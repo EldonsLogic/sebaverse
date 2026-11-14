@@ -42,7 +42,7 @@ def main():
             required=(ROOT/'.node-version').read_text().strip()
             selected=next((p for p in candidates if p and Path(p).is_file() and subprocess.check_output([p,'--version'],text=True).strip()=='v'+required),None)
             if not selected:raise RuntimeError('Pinned Node runtime unavailable')
-            subprocess.run([selected,'tools/browser/smoke.mjs'],cwd=ROOT,env=env,check=True)
+            subprocess.run([selected,'tools/browser/smoke.mjs'],cwd=ROOT,env=env,check=True,timeout=180)
         finally:
             child.terminate()
             try:child.wait(timeout=10)

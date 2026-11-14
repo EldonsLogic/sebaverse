@@ -1,0 +1,410 @@
+{
+  "schema_version": 1,
+  "status": "identified",
+  "binding": "python/system-libpq",
+  "created_at_utc": "2026-11-14T12:39:57.437940+00:00",
+  "platform": "Linux-7.0.0-1017-azure-x86_64-with-glibc2.39",
+  "libpq_path": "/lib/x86_64-linux-gnu/libpq.so.5",
+  "libraries": [
+    {
+      "path": "/lib/x86_64-linux-gnu/libpq.so.5",
+      "canonical_path": "/usr/lib/x86_64-linux-gnu/libpq.so.5.18",
+      "sha256": "e6f752c5ad7005afab0d9ea2932b93d6ad2d863b4333a55aafa1cdd734e74bde",
+      "owner": "libpq5:amd64"
+    },
+    {
+      "path": "/lib/x86_64-linux-gnu/libssl.so.3",
+      "canonical_path": "/usr/lib/x86_64-linux-gnu/libssl.so.3",
+      "sha256": "a40e7b67489bbd257e432c700ff8f6a1ad796425b5eccecdc2930127fdd86624",
+      "owner": "libssl3t64:amd64"
+    },
+    {
+      "path": "/lib/x86_64-linux-gnu/libcrypto.so.3",
+      "canonical_path": "/usr/lib/x86_64-linux-gnu/libcrypto.so.3",
+      "sha256": "6866ed711dab8927e1bf82bf1cd30e828bdfc34f3cc1e83b1c9eb01ce6c37d9a",
+      "owner": "libssl3t64:amd64"
+    },
+    {
+      "path": "/lib/x86_64-linux-gnu/libgssapi_krb5.so.2",
+      "canonical_path": "/usr/lib/x86_64-linux-gnu/libgssapi_krb5.so.2.2",
+      "sha256": "c7aa00cf51646f7c32f196d329a562bc873ff32906c9caf6554ca489dd657507",
+      "owner": "libgssapi-krb5-2:amd64"
+    },
+    {
+      "path": "/lib/x86_64-linux-gnu/libldap.so.2",
+      "canonical_path": "/usr/lib/x86_64-linux-gnu/libldap.so.2.0.200",
+      "sha256": "a9829b999c95452eb0a34cc7b5349427b76dbf3e5d5c8672a5ca69e454c1b151",
+      "owner": "libldap2:amd64"
+    },
+    {
+      "path": "/lib/x86_64-linux-gnu/libc.so.6",
+      "canonical_path": "/usr/lib/x86_64-linux-gnu/libc.so.6",
+      "sha256": "3a15d66867d83762c7f2f1e37359cb8f6c5743edb369c65285cb0b1c4f7498bf",
+      "owner": "libc6:amd64"
+    },
+    {
+      "path": "/lib/x86_64-linux-gnu/libkrb5.so.3",
+      "canonical_path": "/usr/lib/x86_64-linux-gnu/libkrb5.so.3.3",
+      "sha256": "fad617a72b5839d30143e7db03281279089def6f18788cbb0b7f86385301bf04",
+      "owner": "libkrb5-3:amd64"
+    },
+    {
+      "path": "/lib/x86_64-linux-gnu/libk5crypto.so.3",
+      "canonical_path": "/usr/lib/x86_64-linux-gnu/libk5crypto.so.3.1",
+      "sha256": "b37407fb2930939bf78b47267019cd201a8af1f4b6a3852249c849cf3a985798",
+      "owner": "libk5crypto3:amd64"
+    },
+    {
+      "path": "/lib/x86_64-linux-gnu/libcom_err.so.2",
+      "canonical_path": "/usr/lib/x86_64-linux-gnu/libcom_err.so.2.1",
+      "sha256": "022943b3b11c860b049bce41342f1c2594941b7b401d95dfdf235521099fee08",
+      "owner": "libcom-err2:amd64"
+    },
+    {
+      "path": "/lib/x86_64-linux-gnu/libkrb5support.so.0",
+      "canonical_path": "/usr/lib/x86_64-linux-gnu/libkrb5support.so.0.1",
+      "sha256": "936bae947a838bd47676a419dfcfb036d0163249215b58ec706ec7d46b7497aa",
+      "owner": "libkrb5support0:amd64"
+    },
+    {
+      "path": "/lib/x86_64-linux-gnu/liblber.so.2",
+      "canonical_path": "/usr/lib/x86_64-linux-gnu/liblber.so.2.0.200",
+      "sha256": "ddf14275b1fb70ba06510094071adcc1462e675f15ae6cdcadbf40c1dabe5a03",
+      "owner": "libldap2:amd64"
+    },
+    {
+      "path": "/lib/x86_64-linux-gnu/libsasl2.so.2",
+      "canonical_path": "/usr/lib/x86_64-linux-gnu/libsasl2.so.2.0.25",
+      "sha256": "a0f410ad093236856eee59c4ff2838dc04d932ea0993400f23ed77d67d85af34",
+      "owner": "libsasl2-2:amd64"
+    },
+    {
+      "path": "/lib/x86_64-linux-gnu/libgnutls.so.30",
+      "canonical_path": "/usr/lib/x86_64-linux-gnu/libgnutls.so.30.37.1",
+      "sha256": "ddbae2995750875c07bc218d12a062d73f8250678f54dedda7e9be5068781c98",
+      "owner": "libgnutls30t64:amd64"
+    },
+    {
+      "path": "/lib64/ld-linux-x86-64.so.2",
+      "canonical_path": "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2",
+      "sha256": "c20a2dc8917c755f02b94049356320fe1f62ac7d9f8994731f807d9df39302da",
+      "owner": "libc6:amd64"
+    },
+    {
+      "path": "/lib/x86_64-linux-gnu/libkeyutils.so.1",
+      "canonical_path": "/usr/lib/x86_64-linux-gnu/libkeyutils.so.1.10",
+      "sha256": "f48214417757f18793ed6e180cc14ee1d6f04252a518fc7270e8ca1d0b4260fe",
+      "owner": "libkeyutils1:amd64"
+    },
+    {
+      "path": "/lib/x86_64-linux-gnu/libresolv.so.2",
+      "canonical_path": "/usr/lib/x86_64-linux-gnu/libresolv.so.2",
+      "sha256": "1d730ea434da5a5595bc6a961d7a9ace83e03703205df9644044b3dca79c362f",
+      "owner": "libc6:amd64"
+    },
+    {
+      "path": "/lib/x86_64-linux-gnu/libp11-kit.so.0",
+      "canonical_path": "/usr/lib/x86_64-linux-gnu/libp11-kit.so.0.3.1",
+      "sha256": "a59efd4792d3343dedea1d26a28f5597abfe3369082deb504c4802a31b014897",
+      "owner": "libp11-kit0:amd64"
+    },
+    {
+      "path": "/lib/x86_64-linux-gnu/libidn2.so.0",
+      "canonical_path": "/usr/lib/x86_64-linux-gnu/libidn2.so.0.4.0",
+      "sha256": "6e632fd9a3125db60bbc623719bbc17b0470330321c5b1c57f1ff7190e5551ad",
+      "owner": "libidn2-0:amd64"
+    },
+    {
+      "path": "/lib/x86_64-linux-gnu/libunistring.so.5",
+      "canonical_path": "/usr/lib/x86_64-linux-gnu/libunistring.so.5.0.0",
+      "sha256": "7bcf825cd449892db5105ad2aed91dcf94a27b796426600c765720c584c54dd1",
+      "owner": "libunistring5:amd64"
+    },
+    {
+      "path": "/lib/x86_64-linux-gnu/libtasn1.so.6",
+      "canonical_path": "/usr/lib/x86_64-linux-gnu/libtasn1.so.6.6.3",
+      "sha256": "59994414d0cdec4f678ef91eaaafc44b26b00bca507e4cc7978caaf79f584173",
+      "owner": "libtasn1-6:amd64"
+    },
+    {
+      "path": "/lib/x86_64-linux-gnu/libnettle.so.8",
+      "canonical_path": "/usr/lib/x86_64-linux-gnu/libnettle.so.8.8",
+      "sha256": "a245ed916229583d6fe0b07657b3ed945bc148c28cc08b5266295f620d2b91cc",
+      "owner": "libnettle8t64:amd64"
+    },
+    {
+      "path": "/lib/x86_64-linux-gnu/libhogweed.so.6",
+      "canonical_path": "/usr/lib/x86_64-linux-gnu/libhogweed.so.6.8",
+      "sha256": "c3c606139d4f7776efa4dbd4a6b62e30c916b07a0cafd8c3ef173d6f093607e3",
+      "owner": "libhogweed6t64:amd64"
+    },
+    {
+      "path": "/lib/x86_64-linux-gnu/libgmp.so.10",
+      "canonical_path": "/usr/lib/x86_64-linux-gnu/libgmp.so.10.5.0",
+      "sha256": "0ccdfb6d6f5c039465f6d002cf7e4c072d48ac6a2cffc8dd6c748dec31592804",
+      "owner": "libgmp10:amd64"
+    },
+    {
+      "path": "/lib/x86_64-linux-gnu/libffi.so.8",
+      "canonical_path": "/usr/lib/x86_64-linux-gnu/libffi.so.8.1.4",
+      "sha256": "00f593fe192f2851b8ce23b25cec2488d769beb5a8f63e8c9e563071e1075153",
+      "owner": "libffi8:amd64"
+    }
+  ],
+  "owners": [
+    {
+      "name": "libpq5",
+      "binary_package": "libpq5:amd64",
+      "architecture": "amd64",
+      "version": "18.6-1.pgdg24.04+2",
+      "source_name": "postgresql-18",
+      "source_version": "18.6-1.pgdg24.04+2",
+      "source_field": "postgresql-18",
+      "status_block_sha256": "443300c7a8479ff8eb6991e082780ed8ccb4296d3c0490691738131944994196",
+      "notice_path": "/usr/share/doc/libpq5/copyright",
+      "notice_sha256": "afcc052a946b4117667527211b4ca303f07044f5585222f4c8f577e0764b2123"
+    },
+    {
+      "name": "libssl3t64",
+      "binary_package": "libssl3t64:amd64",
+      "architecture": "amd64",
+      "version": "3.0.13-0ubuntu3.16",
+      "source_name": "openssl",
+      "source_version": "3.0.13-0ubuntu3.16",
+      "source_field": "openssl",
+      "status_block_sha256": "94dc6f65b8553457c1c73440bfcc1b0409415e13f96a083b2283cc73ded6eb7d",
+      "notice_path": "/usr/share/doc/libssl3t64/copyright",
+      "notice_sha256": "6a7da622fe0637a334d2a8fc470852d2ffb77d9a2b2f930f854e32a41ad6ef35"
+    },
+    {
+      "name": "libgssapi-krb5-2",
+      "binary_package": "libgssapi-krb5-2:amd64",
+      "architecture": "amd64",
+      "version": "1.20.1-6ubuntu2.10",
+      "source_name": "krb5",
+      "source_version": "1.20.1-6ubuntu2.10",
+      "source_field": "krb5",
+      "status_block_sha256": "b513b9de2b146883238a425dd8f28bb027147b91c62793129eefef9491c92dcd",
+      "notice_path": "/usr/share/doc/libgssapi-krb5-2/copyright",
+      "notice_sha256": "936728f4181718f42951b881c1e8f1386bf6b2723c4fbc533c374d6f42c71816"
+    },
+    {
+      "name": "libldap2",
+      "binary_package": "libldap2:amd64",
+      "architecture": "amd64",
+      "version": "2.6.10+dfsg-0ubuntu0.24.04.1",
+      "source_name": "openldap",
+      "source_version": "2.6.10+dfsg-0ubuntu0.24.04.1",
+      "source_field": "openldap",
+      "status_block_sha256": "c0151e81dbcfe0f99caa826508148d46b11ecc387abbfc4fc284c78031dc6f99",
+      "notice_path": "/usr/share/doc/libldap2/copyright",
+      "notice_sha256": "b4081907f0d9a4110736fa6540dc8ca9d7d60a20878b5d78f84916cc04907bdc"
+    },
+    {
+      "name": "libc6",
+      "binary_package": "libc6:amd64",
+      "architecture": "amd64",
+      "version": "2.39-0ubuntu8.9",
+      "source_name": "glibc",
+      "source_version": "2.39-0ubuntu8.9",
+      "source_field": "glibc",
+      "status_block_sha256": "ef79640e1f681ace5799410a0e31106d65c1fa469b6726dfde8ed8c2416af250",
+      "notice_path": "/usr/share/doc/libc6/copyright",
+      "notice_sha256": "d3c95b56fa33e28b57860580f0baf4e4f4de2a268a2b80f1d031a5191bade265"
+    },
+    {
+      "name": "libkrb5-3",
+      "binary_package": "libkrb5-3:amd64",
+      "architecture": "amd64",
+      "version": "1.20.1-6ubuntu2.10",
+      "source_name": "krb5",
+      "source_version": "1.20.1-6ubuntu2.10",
+      "source_field": "krb5",
+      "status_block_sha256": "d27b3c470ec434ee76f585704db418e26e86f4292db038f60f2bd8be0454c383",
+      "notice_path": "/usr/share/doc/libkrb5-3/copyright",
+      "notice_sha256": "936728f4181718f42951b881c1e8f1386bf6b2723c4fbc533c374d6f42c71816"
+    },
+    {
+      "name": "libk5crypto3",
+      "binary_package": "libk5crypto3:amd64",
+      "architecture": "amd64",
+      "version": "1.20.1-6ubuntu2.10",
+      "source_name": "krb5",
+      "source_version": "1.20.1-6ubuntu2.10",
+      "source_field": "krb5",
+      "status_block_sha256": "eac4f35dbfbe2a286a2eea975c3b1eac411fdde51e66fb4611282059abf3e5d5",
+      "notice_path": "/usr/share/doc/libk5crypto3/copyright",
+      "notice_sha256": "936728f4181718f42951b881c1e8f1386bf6b2723c4fbc533c374d6f42c71816"
+    },
+    {
+      "name": "libcom-err2",
+      "binary_package": "libcom-err2:amd64",
+      "architecture": "amd64",
+      "version": "1.47.0-2.4~exp1ubuntu4.1",
+      "source_name": "e2fsprogs",
+      "source_version": "1.47.0-2.4~exp1ubuntu4.1",
+      "source_field": "e2fsprogs",
+      "status_block_sha256": "6d6ceff4476d598c1e68737e19fd531024dfd73f0921de8445a0a03a49575b58",
+      "notice_path": "/usr/share/doc/libcom-err2/copyright",
+      "notice_sha256": "1ca415a294c0e56958c4f795b3f1f69ea3479bca53d7811f5cdd020a258949db"
+    },
+    {
+      "name": "libkrb5support0",
+      "binary_package": "libkrb5support0:amd64",
+      "architecture": "amd64",
+      "version": "1.20.1-6ubuntu2.10",
+      "source_name": "krb5",
+      "source_version": "1.20.1-6ubuntu2.10",
+      "source_field": "krb5",
+      "status_block_sha256": "f8eea48f88e955f8182b9192bd8b7e034af2cc8c10993436d7581b7c75aa0332",
+      "notice_path": "/usr/share/doc/libkrb5support0/copyright",
+      "notice_sha256": "936728f4181718f42951b881c1e8f1386bf6b2723c4fbc533c374d6f42c71816"
+    },
+    {
+      "name": "libsasl2-2",
+      "binary_package": "libsasl2-2:amd64",
+      "architecture": "amd64",
+      "version": "2.1.28+dfsg1-5ubuntu3.1",
+      "source_name": "cyrus-sasl2",
+      "source_version": "2.1.28+dfsg1-5ubuntu3.1",
+      "source_field": "cyrus-sasl2",
+      "status_block_sha256": "bfa5b0abc2972109e540c2b2cb987ee694ed1a98a830a99c1568fe20031b97e2",
+      "notice_path": "/usr/share/doc/libsasl2-2/copyright",
+      "notice_sha256": "ddb128a81d3a140ef5b3574ae000a1a50d0cb9a2ec59917121a155f91b670166"
+    },
+    {
+      "name": "libgnutls30t64",
+      "binary_package": "libgnutls30t64:amd64",
+      "architecture": "amd64",
+      "version": "3.8.3-1.1ubuntu3.6",
+      "source_name": "gnutls28",
+      "source_version": "3.8.3-1.1ubuntu3.6",
+      "source_field": "gnutls28",
+      "status_block_sha256": "e2b205808b4d94b8fb2646763f59080bf455b562e2b32c794692e6f7574ad4ee",
+      "notice_path": "/usr/share/doc/libgnutls30t64/copyright",
+      "notice_sha256": "51da5214308b87d6a0a2fbcaea1f7dbd15510be733e5921d9548ff6b88d84dd8"
+    },
+    {
+      "name": "libkeyutils1",
+      "binary_package": "libkeyutils1:amd64",
+      "architecture": "amd64",
+      "version": "1.6.3-3build1",
+      "source_name": "keyutils",
+      "source_version": "1.6.3-3build1",
+      "source_field": "keyutils",
+      "status_block_sha256": "98b2727e389e86d140f57a616134697491726931fc230b0f62debf47c7f9d165",
+      "notice_path": "/usr/share/doc/libkeyutils1/copyright",
+      "notice_sha256": "c62fe37d22203046611112bc10a9e03a39a7f73bec1b061e7c615326166d9ff5"
+    },
+    {
+      "name": "libp11-kit0",
+      "binary_package": "libp11-kit0:amd64",
+      "architecture": "amd64",
+      "version": "0.25.3-4ubuntu2.2",
+      "source_name": "p11-kit",
+      "source_version": "0.25.3-4ubuntu2.2",
+      "source_field": "p11-kit",
+      "status_block_sha256": "41e660941aec378983256eb18cf0d2ee708398dc6ff57aa8d362fa567b3a4110",
+      "notice_path": "/usr/share/doc/libp11-kit0/copyright",
+      "notice_sha256": "d33af1e069981d1c1b576cb22e4bc260a134ffa2fce6ddd3cbbbb5b181113f0c"
+    },
+    {
+      "name": "libidn2-0",
+      "binary_package": "libidn2-0:amd64",
+      "architecture": "amd64",
+      "version": "2.3.7-2build1.1",
+      "source_name": "libidn2",
+      "source_version": "2.3.7-2build1.1",
+      "source_field": "libidn2",
+      "status_block_sha256": "f558a1723a97e366b6f6bf72682dae2889fbdf73d21be45f69004b7eace55c14",
+      "notice_path": "/usr/share/doc/libidn2-0/copyright",
+      "notice_sha256": "41702469f28e8ff406345e3d1dd0c741f11bdfca319264f67036efd6aaa79e4b"
+    },
+    {
+      "name": "libunistring5",
+      "binary_package": "libunistring5:amd64",
+      "architecture": "amd64",
+      "version": "1.1-2build1.1",
+      "source_name": "libunistring",
+      "source_version": "1.1-2build1.1",
+      "source_field": "libunistring",
+      "status_block_sha256": "ef71513240dd78d20eeb2a3d2e42674e645538dbeabc0800e9b135396dd61e43",
+      "notice_path": "/usr/share/doc/libunistring5/copyright",
+      "notice_sha256": "dbbfee567c5eb53ad1c75ce666779e596b5f794b52be7f5834685ddd633185ea"
+    },
+    {
+      "name": "libtasn1-6",
+      "binary_package": "libtasn1-6:amd64",
+      "architecture": "amd64",
+      "version": "4.19.0-3ubuntu0.24.04.2",
+      "source_name": "libtasn1-6",
+      "source_version": "4.19.0-3ubuntu0.24.04.2",
+      "source_field": null,
+      "status_block_sha256": "d57b6f912f75e51cae97316afe4a6d20c87914438a5572b966ddf355dddd97f8",
+      "notice_path": "/usr/share/doc/libtasn1-6/copyright",
+      "notice_sha256": "572ad60ad184d8f52c6dc66d83a61a68f137db560b3452ce00588c9ecf128a65"
+    },
+    {
+      "name": "libnettle8t64",
+      "binary_package": "libnettle8t64:amd64",
+      "architecture": "amd64",
+      "version": "3.9.1-2.2build1.1",
+      "source_name": "nettle",
+      "source_version": "3.9.1-2.2build1.1",
+      "source_field": "nettle",
+      "status_block_sha256": "02a4ebd8906e4d163057ef99aa0975bbe773eee9f815606a816cc08a2722265a",
+      "notice_path": "/usr/share/doc/libnettle8t64/copyright",
+      "notice_sha256": "2cecdc7ac1913beb31299a41a8092fc936d9e6a1d00872fc3bf6e2263aecf842"
+    },
+    {
+      "name": "libhogweed6t64",
+      "binary_package": "libhogweed6t64:amd64",
+      "architecture": "amd64",
+      "version": "3.9.1-2.2build1.1",
+      "source_name": "nettle",
+      "source_version": "3.9.1-2.2build1.1",
+      "source_field": "nettle",
+      "status_block_sha256": "d76d0605e992dc988b9127ae1d1bf0e14b9c5b5150a63b0b695e00a34747f7b3",
+      "notice_path": "/usr/share/doc/libhogweed6t64/copyright",
+      "notice_sha256": "2cecdc7ac1913beb31299a41a8092fc936d9e6a1d00872fc3bf6e2263aecf842"
+    },
+    {
+      "name": "libgmp10",
+      "binary_package": "libgmp10:amd64",
+      "architecture": "amd64",
+      "version": "2:6.3.0+dfsg-2ubuntu6.1",
+      "source_name": "gmp",
+      "source_version": "2:6.3.0+dfsg-2ubuntu6.1",
+      "source_field": "gmp",
+      "status_block_sha256": "23c41cae834588b8b8cd6cbb9e270d340811d2774040680a1792fbd3e61a7f0a",
+      "notice_path": "/usr/share/doc/libgmp10/copyright",
+      "notice_sha256": "7d366aef5ba325150246de1d7820c4c9926cd27ca61a69948492b26cd3b61601"
+    },
+    {
+      "name": "libffi8",
+      "binary_package": "libffi8:amd64",
+      "architecture": "amd64",
+      "version": "3.4.6-1build1",
+      "source_name": "libffi",
+      "source_version": "3.4.6-1build1",
+      "source_field": "libffi",
+      "status_block_sha256": "6c19c86d41acf042ab83182bdd109160f1f652a59bd6f39de4a523177f6756cd",
+      "notice_path": "/usr/share/doc/libffi8/copyright",
+      "notice_sha256": "737ff68f0eb104d3b0d96b291c3a8f40a775a3ec2b53f9b2e4bcfe3188bde118"
+    }
+  ],
+  "native_root": "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-root",
+  "source_status_sha256": "90fa0b31c190aa6d31c146657b325a9c6884e1bda587d850e30857fd26b34bfc",
+  "minimal_status_sha256": "269ef9614d335e01777d21a69ded83dc5ccac983deceae1c9c61e7314358a709",
+  "os_release_sha256": "87458b3b1f1ca0e5c693ade771de7007c3783bdc692fa6b39eb6414bf2af2763",
+  "ldd_output": "\tlinux-vdso.so.1 (0x00007ff95295b000)\n\tlibssl.so.3 => /lib/x86_64-linux-gnu/libssl.so.3 (0x00007ff95283f000)\n\tlibcrypto.so.3 => /lib/x86_64-linux-gnu/libcrypto.so.3 (0x00007ff952200000)\n\tlibgssapi_krb5.so.2 => /lib/x86_64-linux-gnu/libgssapi_krb5.so.2 (0x00007ff9527eb000)\n\tlibldap.so.2 => /lib/x86_64-linux-gnu/libldap.so.2 (0x00007ff95278d000)\n\tlibc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007ff951e00000)\n\tlibkrb5.so.3 => /lib/x86_64-linux-gnu/libkrb5.so.3 (0x00007ff952137000)\n\tlibk5crypto.so.3 => /lib/x86_64-linux-gnu/libk5crypto.so.3 (0x00007ff95275f000)\n\tlibcom_err.so.2 => /lib/x86_64-linux-gnu/libcom_err.so.2 (0x00007ff952759000)\n\tlibkrb5support.so.0 => /lib/x86_64-linux-gnu/libkrb5support.so.0 (0x00007ff95274c000)\n\tliblber.so.2 => /lib/x86_64-linux-gnu/liblber.so.2 (0x00007ff95273c000)\n\tlibsasl2.so.2 => /lib/x86_64-linux-gnu/libsasl2.so.2 (0x00007ff952720000)\n\tlibgnutls.so.30 => /lib/x86_64-linux-gnu/libgnutls.so.30 (0x00007ff951c05000)\n\t/lib64/ld-linux-x86-64.so.2 (0x00007ff95295d000)\n\tlibkeyutils.so.1 => /lib/x86_64-linux-gnu/libkeyutils.so.1 (0x00007ff952719000)\n\tlibresolv.so.2 => /lib/x86_64-linux-gnu/libresolv.so.2 (0x00007ff952125000)\n\tlibp11-kit.so.0 => /lib/x86_64-linux-gnu/libp11-kit.so.0 (0x00007ff951a61000)\n\tlibidn2.so.0 => /lib/x86_64-linux-gnu/libidn2.so.0 (0x00007ff952103000)\n\tlibunistring.so.5 => /lib/x86_64-linux-gnu/libunistring.so.5 (0x00007ff9518b4000)\n\tlibtasn1.so.6 => /lib/x86_64-linux-gnu/libtasn1.so.6 (0x00007ff9520ed000)\n\tlibnettle.so.8 => /lib/x86_64-linux-gnu/libnettle.so.8 (0x00007ff952098000)\n\tlibhogweed.so.6 => /lib/x86_64-linux-gnu/libhogweed.so.6 (0x00007ff952050000)\n\tlibgmp.so.10 => /lib/x86_64-linux-gnu/libgmp.so.10 (0x00007ff951830000)\n\tlibffi.so.8 => /lib/x86_64-linux-gnu/libffi.so.8 (0x00007ff952044000)\n",
+  "virtual_entries_without_files": [
+    "linux-vdso.so.1"
+  ],
+  "limitations": [
+    "No DB connection, installation or vulnerability verdict is performed.",
+    "Installed dpkg provenance is not a fresh signature or upstream-file-integrity verification.",
+    "ldd identifies the current linked closure, not future optional dlopen plugins.",
+    "Scanner coverage must match every owner/version before any DB use."
+  ]
+}

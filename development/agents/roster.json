@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "run": "f2-local-skeleton-2026-11-12",
+  "run": "f2-local-skeleton-2026-11-14",
   "max_concurrent_including_orchestrator": 4,
   "paid_provider_budget_usd": 0,
   "token_budget": null,
@@ -28,33 +28,30 @@
     {
       "agent": "/root/development_plan",
       "roles": [
-        "Backend"
+        "Backend",
+        "Testing"
       ],
       "status": "active",
       "files": [
-        "backend/manage.py",
-        "backend/config/",
-        "backend/modules/",
-        "backend/tests/",
-        "backend/README.md"
+        "backend/ (completed skeleton)",
+        "tools/security/native_chain.py",
+        "tools/tests/test_security_reports.py"
       ],
-      "evidence": "development/evidence/f1-backend-checks.json"
+      "evidence": "Actual F2 backend implementation, native inventory helper and synthetic policy regressions"
     },
     {
       "agent": "/root/handover_contracts",
       "roles": [
-        "Frontend"
+        "Frontend",
+        "Security"
       ],
       "status": "active",
       "files": [
-        "web/src/",
-        "web/public/",
-        "web/index.html",
-        "web/config/",
-        "web/package.json scripts",
-        "web/README.md"
+        "web/ (completed shell)",
+        "tools/security/check_reports.py",
+        "tools/run_postgres_smoke.py"
       ],
-      "evidence": "development/evidence/f1-web-summary.json"
+      "evidence": "Actual F2 frontend implementation, fresh backend review and native gate hardening"
     },
     {
       "agent": "/root/independent_reviewer",
@@ -65,9 +62,10 @@
       "status": "active",
       "files": [
         "third-party/f2-psycopg-native-provenance.json",
-        "development/evidence/f2-native-research.md"
+        "development/evidence/f2-native-research.md",
+        "read-only phase review"
       ],
-      "evidence": "Static provenance research; app-code fresh review later, no DB/model use"
+      "evidence": "Pinned source research, fresh frontend review and synthetic before/after native gate verification"
     }
   ],
   "run_status": "in_progress",

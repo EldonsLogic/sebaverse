@@ -189,30 +189,40 @@
         },
         {
           "id": "F2-suite-2",
-          "command": null,
+          "command": "npm --prefix web run typecheck; npm --prefix web run build; python3 tools/smoke_local.py",
           "suite": "Frontend type/build/RTL smoke",
-          "availability": "planned",
+          "availability": "implemented",
           "required": true,
-          "result": "not_run",
-          "evidence": []
+          "result": "pass",
+          "evidence": [
+            "development/evidence/f2-local-run.md",
+            "outputs/f2-local-skeleton/browser-report.json"
+          ],
+          "verified_date": "2026-11-14"
         },
         {
           "id": "F2-suite-3",
-          "command": null,
+          "command": "python3 tools/smoke_local.py",
           "suite": "Local setup teardown smoke",
-          "availability": "planned",
+          "availability": "implemented",
           "required": true,
-          "result": "not_run",
-          "evidence": []
+          "result": "pass",
+          "evidence": [
+            "development/evidence/f2-local-run.md"
+          ],
+          "verified_date": "2026-11-14"
         },
         {
           "id": "F2-suite-4",
-          "command": null,
+          "command": "make backend-check; python3 tools/smoke_local.py",
           "suite": "No credentials/real data required",
-          "availability": "planned",
+          "availability": "implemented",
           "required": true,
-          "result": "not_run",
-          "evidence": []
+          "result": "pass",
+          "evidence": [
+            "development/evidence/f2-local-run.md"
+          ],
+          "verified_date": "2026-11-14"
         },
         {
           "id": "F2-native-image-closure",
@@ -229,7 +239,10 @@
         "reviewer": null,
         "evidence": []
       },
-      "blockers": [],
+      "blockers": [
+        "Native/image checker hardening and regression fixtures pending independent review",
+        "Actual Linux PostgreSQL migration/readiness/teardown not yet run after passing native pre-use gate"
+      ],
       "transition_rule": "All required checks pass with real evidence, independent review passes, required blockers cleared; no next phase until then",
       "external_conditions": "Applicable real-data/provider/spend/deployment/pilot conditions remain separate; no blanket approval Native database libraries and container layer license/security closure are required before DB/network/image use; F1 Python/npm advisory scans do not cover them."
     },
