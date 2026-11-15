@@ -23,3 +23,7 @@ Read START-HERE.md, AGENTS.md, engineering/workflow/handover docs, tasks.json an
 ## Bounded remediation draft —15 November
 
 `infra/local/postgres/` contains an unbuilt test-only recipe:immutable official Alpine parent, no RUN, replace merged gosu path with deterministic fail126 script, USER postgres. Root verified the script exits126. This is not a scanned/approved image, and current verifier/runner are deliberately not relabeled to accept it. Next implementation must bind the actual derived digest/provenance and scan its effective filesystem; lower-layer bytes and release rights remain explicit. See development/F2-REMEDIATION.md.
+
+## Latest verified source checkpoint
+
+87ba3f9 pushed to origin/main15November; GitHub foundation43689700548 and dependency43689700711 passed. Skeleton43689700627 completed and correctly failed at the unchanged native/image findings gate; no DB step ran. Exact final-run evidence retained in development/evidence/f2-linux-43689700627.zip with SHA256/source metadata in its companionJSON. Latest Git/remote must be checked rather than assuming this storedSHA is current.33-ID native advisory review register saved in development/evidence/f2-native-findings-review.md, with every unapproved finding retained. No exceptions/blanket reviews added.

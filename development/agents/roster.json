@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "run": "f2-local-skeleton-2026-11-14",
+  "run": "f2-remediation-checkpoint-2026-11-15",
   "max_concurrent_including_orchestrator": 4,
   "paid_provider_budget_usd": 0,
   "token_budget": null,
@@ -31,13 +31,13 @@
         "Backend",
         "Testing"
       ],
-      "status": "active",
+      "status": "interrupted",
       "files": [
         "backend/ (completed skeleton)",
         "tools/security/native_chain.py",
         "tools/tests/test_security_reports.py"
       ],
-      "evidence": "Actual F2 backend implementation, native inventory helper and synthetic policy regressions"
+      "evidence": "Primary-source advisory research delivered in messages; root completed33-ID register after interrupt to bound remaining research. No approval."
     },
     {
       "agent": "/root/handover_contracts",
@@ -45,7 +45,7 @@
         "Frontend",
         "Security"
       ],
-      "status": "active",
+      "status": "completed",
       "files": [
         "web/ (completed shell)",
         "tools/security/check_reports.py",
@@ -59,7 +59,7 @@
         "Security",
         "Reviewer"
       ],
-      "status": "active",
+      "status": "completed",
       "files": [
         "third-party/f2-psycopg-native-provenance.json",
         "development/evidence/f2-native-research.md",
@@ -69,5 +69,5 @@
     }
   ],
   "run_status": "in_progress",
-  "scope": "Bounded authored/synthetic backend/web skeleton, static native/image review before DB use, loopback tests/CI, no paid/deploy/realdata"
+  "scope": "F2 held: reviewed loader/configuration fixes and retained real scan failures; no DB execution, phase approval, paid calls or deployment"
 }

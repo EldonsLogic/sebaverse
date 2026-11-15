@@ -1,0 +1,24 @@
+{
+  "source_commit": "87ba3f9",
+  "run_id": 43689700627,
+  "run_url": "https://github.com/EldonsLogic/sebaverse/actions/runs/43689700627",
+  "result": "held_at_native_image_policy",
+  "database_execution": "skipped",
+  "archive": "development/evidence/f2-linux-43689700627.zip",
+  "archive_sha256": "8e8b16a2945fdf3010a5d906a4702970c54443f09c39fbae6103f08a88c9c8fb",
+  "errors": [
+    "image-cves.json: unresolved high/critical/unknown advisories=36",
+    "image-cves.json: findings require explicit review=65",
+    "system-native-cves.json: findings require explicit review=72",
+    "postgres-core-cves.json: findings require explicit review=1"
+  ],
+  "foundation_run": {
+    "id": 43689700548,
+    "result": "success"
+  },
+  "dependency_run": {
+    "id": 43689700711,
+    "result": "success"
+  },
+  "scope": "Actual Linux execution receipts and reports; no PG integration or F2 phase pass"
+}
