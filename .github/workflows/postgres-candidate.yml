@@ -65,6 +65,17 @@ jobs:
           sudo apt-get update --error-on=any
           python3 tools/security/prepare_ci_native.py
           python3 tools/security/download_ci_native.py
+      - name: Preserve small review metadata separately from OCI archive
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: postgres-static-metadata
+          path: |
+            work/f2-security/*.json
+            work/f2-security/postgres-entrypoint-source.txt
+            work/f2-security/transaction-notices/
+          retention-days: 7
+          if-no-files-found: warn
       - name: Preserve experiment evidence even on failure
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
