@@ -14,6 +14,18 @@ import time
 ROOT = Path(__file__).resolve().parents[1]
 
 
+LOADER_OVERRIDES = ("LD_LIBRARY_PATH", "LD_PRELOAD", "LD_AUDIT")
+
+
+def validate_loader_environment(environment=None):
+    """Recheck loader redirection before accepting reviewed native bindings."""
+    values = os.environ if environment is None else environment
+    if any(values.get(name) for name in LOADER_OVERRIDES) or any(
+        name.startswith("DYLD_") and value for name, value in values.items()
+    ):
+        raise ValueError("Dynamic-loader overrides must be absent before PostgreSQL native use.")
+
+
 def sha256(path):
     result = hashlib.sha256()
     with Path(path).open("rb") as source:
@@ -24,6 +36,7 @@ def sha256(path):
 
 def verify_preuse(root=ROOT):
     """Read-only gate replay. No Docker, DB connection, scanner or download."""
+    validate_loader_environment()
     root = Path(root).resolve()
     directory = root / "work/f2-security"
     stored = json.loads((directory / "preuse-result.json").read_text())

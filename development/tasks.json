@@ -366,7 +366,10 @@
         "make smoke-local"
       ],
       "execution_condition": "All preceding mandatory phase exit tests passed with recorded evidence/review. Applicable G1–G3 execution decisions recorded; synthetic fixtures only; exact dependency/license/security closure reviewed. No paid calls or deployment implied.",
-      "evidence": [],
+      "evidence": [
+        "development/evidence/f2-local-run.md",
+        "outputs/f2-local-skeleton/browser-report.json"
+      ],
       "files": [
         "backend/config/",
         "backend/modules/",
@@ -387,8 +390,8 @@
       "verification_contracts": [
         {
           "command": "make smoke-local",
-          "availability": "planned",
-          "notes": "Command/test location must be created and recorded by this task; not currently runnable or passed."
+          "availability": "implemented",
+          "notes": "Actual local desktop/mobile/lifecycle passed14November; requires built web and reviewed installed browser. Does not replace held native/PG integration gate."
         }
       ],
       "architecture_phase": "A2",

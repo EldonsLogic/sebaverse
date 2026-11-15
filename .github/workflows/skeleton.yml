@@ -50,7 +50,7 @@ jobs:
           apt-cache policy libc6 libc-bin > work/f2-security/ubuntu-patch-candidates.txt
           python3 tools/security/prepare_ci_native.py
       - name: Identify actual system libpq and transitive package/notice chain
-        run: python3 tools/security/native_chain.py --output-root work/f2-security
+        run: env -u LD_LIBRARY_PATH -u LD_PRELOAD -u LD_AUDIT python3 tools/security/native_chain.py --output-root work/f2-security
       - name: Catalog actual native packages and pinned DB image before execution
         run: |
           IMAGE=$(python3 -c "import json;print(json.load(open('infra/images.lock.json'))['postgres']['reference'])")
@@ -70,7 +70,7 @@ jobs:
       - name: Enforce native/image pre-use policy
         run: python3 tools/security/check_reports.py
       - name: Real PostgreSQL migration, readiness and teardown smoke
-        run: python3 tools/run_postgres_smoke.py
+        run: env -u LD_LIBRARY_PATH -u LD_PRELOAD -u LD_AUDIT python3 tools/run_postgres_smoke.py
       - name: Browser runtime for authored local UI checks
         run: node tools/browser/node_modules/playwright/cli.js install --with-deps chromium
       - name: Loopback server, desktop/mobile browser and teardown

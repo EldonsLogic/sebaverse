@@ -1,0 +1,12 @@
+# DEV-006 / F2 remaining work
+
+Requirements:R054,R075,R078,R094,R097,R098. Acceptance remains DEV-006 + F2-SCOPE; no phase waiver. Local Arabic shell is implemented and checked. This continuation preserves all raw failures and does not start F3.
+
+1. Confirm hardened CI emits valid real execution receipts and reaches findings review. A policy failure on the known image findings is expected; schema/runtime failures must separately be fixed. Preserve new receipts/DBtimestamps/notices.
+2. Review authenticated Ubuntu libc6 candidate and complete simulated companion package set from `prepare_ci_native.py` output. Before installation, record exact versions/hashes/publisher/license notices for the actual transaction; use only the disposableCI runner. Patch six fixable findings, inventory the resulting linked chain and rescan. Metadata-only simulation is not an installed fix.
+3. Remediate database image:both immutable official candidates contain Go1.24.6 inside gosu with blocking advisories. A concrete unbuilt static recipe now exists at infra/local/postgres/. Review a genuinely patched official image or this minimal derived image with exact source/license/notice/build-tool provenance. Do not suppress based on planned `--user postgres`; an unused binary is still present. A derived image needs a new immutable digest, actual image/native/core scan and independently reviewed build provenance. No image execution merely to examine it.
+4. Review every remaining finding against exact publisher evidence/component/platform. Supplier-coreCVE-2017-8806 describes Debianpostgresql-common scripts, requiring component applicability evidence rather than generic server-version guessing. Retain findings and rationale; do not blanket-accept Medium/Low or vendor severity as risk proof. Unknown and High/Critical remain blocked by verifier.
+5. Only after actual pre-use pass, run `tools/run_postgres_smoke.py` on Linux:real PostgreSQL17 migration/no-pending-migrations, synthetic session roundtrip/readiness200, and task-owned teardown. Existing mocks/83 DB-free checks cannot substitute. macOS database remains separately gated.
+6. Rerun appropriate backend/browser/foundation tests, obtain fresh independent review, record actual F2 evidence and verified GitHub sync. Mark phase passed only when every required result passes; then start later tasks.
+
+No paid providers, real child records, deployment, release certification or new commercial/legal approval is part of this work.

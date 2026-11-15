@@ -61,7 +61,8 @@ def load_environment(env: Mapping[str, str]) -> dict:
             "PORT": str(port),
             "CONN_MAX_AGE": 0,
             "CONN_HEALTH_CHECKS": True,
-            "OPTIONS": {"connect_timeout": 3, "sslmode": "disable" if local else "verify-full"},
+            "OPTIONS": ({"connect_timeout": 3, "sslmode": "disable", "gssencmode": "disable", "require_auth": "scram-sha-256"}
+                        if local else {"connect_timeout": 3, "sslmode": "verify-full"}),
         }
     elif local:
         database = {"ENGINE": "django.db.backends.dummy"}

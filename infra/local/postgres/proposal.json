@@ -1,0 +1,24 @@
+{
+  "status": "draft_unbuilt",
+  "task": "DEV-006",
+  "requirements": [
+    "R054",
+    "R075",
+    "R078",
+    "R094",
+    "R097",
+    "R098"
+  ],
+  "parent_platform_manifest": "sha256:005c5c37db96c1e6652a79ea31f9886402fba81ac95dc2db897739121dd7f8f2",
+  "platform": "linux/amd64",
+  "recipe_sha256": "e5363b370b4827203bfb0e02da19315127b754cbb0ab53e9594c064ed9280455",
+  "authored_replacement_sha256": "3db9af363830ea981c2d589316ed85e9fb796ba401edb183c8ecf20e4e0af47a",
+  "build_or_execution_receipt": null,
+  "derived_manifest_digest": null,
+  "gate": "No use until independently reviewed actual derived-image/source/digest scan and remaining native/core closure pass",
+  "limitations": [
+    "Effective filesystem replacement leaves lower-layer bytes",
+    "Test-only nonroot startup; no release/rights/production clearance",
+    "Current evaluated image pin is unchanged by this draft"
+  ]
+}

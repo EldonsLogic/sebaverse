@@ -17,6 +17,18 @@ import subprocess
 import sys
 
 
+LOADER_OVERRIDES = ("LD_LIBRARY_PATH", "LD_PRELOAD", "LD_AUDIT")
+
+
+def validate_loader_environment(environment=None):
+    """Reject inherited loader redirection before inspecting the linked closure."""
+    values = os.environ if environment is None else environment
+    if any(values.get(name) for name in LOADER_OVERRIDES) or any(
+        name.startswith("DYLD_") and value for name, value in values.items()
+    ):
+        raise RuntimeError("Dynamic-loader overrides must be absent for trusted native inspection.")
+
+
 def run(*args, optional=False):
     result = subprocess.run(args, capture_output=True, text=True, timeout=30)
     if result.returncode and not optional:
@@ -108,10 +120,9 @@ def package_owner(original, canonical):
 
 
 def inventory(output):
+    validate_loader_environment()
     if sys.platform != "linux":
         raise RuntimeError("Linux/Debian-only inspection: native checks were not run on this platform.")
-    if os.environ.get("LD_PRELOAD") or os.environ.get("LD_AUDIT"):
-        raise RuntimeError("Loader injection variables must be absent for trusted native inspection.")
     database = Path("/var/lib/dpkg/status")
     blocks = status_blocks(database.read_text())
     libpq = locate_libpq()

@@ -1,0 +1,22 @@
+libc6:
+  Installed: 2.39-0ubuntu8.9
+  Candidate: 2.39-0ubuntu8.12
+  Version table:
+     2.39-0ubuntu8.12 500
+        500 mirror+file:/etc/apt/apt-mirrors.txt noble-updates/main amd64 Packages
+        500 mirror+file:/etc/apt/apt-mirrors.txt noble-security/main amd64 Packages
+ *** 2.39-0ubuntu8.9 100
+        100 /var/lib/dpkg/status
+     2.39-0ubuntu8 500
+        500 mirror+file:/etc/apt/apt-mirrors.txt noble/main amd64 Packages
+libc-bin:
+  Installed: 2.39-0ubuntu8.9
+  Candidate: 2.39-0ubuntu8.12
+  Version table:
+     2.39-0ubuntu8.12 500
+        500 mirror+file:/etc/apt/apt-mirrors.txt noble-updates/main amd64 Packages
+        500 mirror+file:/etc/apt/apt-mirrors.txt noble-security/main amd64 Packages
+ *** 2.39-0ubuntu8.9 100
+        100 /var/lib/dpkg/status
+     2.39-0ubuntu8 500
+        500 mirror+file:/etc/apt/apt-mirrors.txt noble/main amd64 Packages

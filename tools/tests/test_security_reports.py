@@ -5,13 +5,16 @@ shaped like the pinned Syft/Grype models. A synthetic pass is not phase evidence
 """
 from datetime import datetime, timedelta, timezone
 import hashlib
+import importlib.util
 import json
+import os
 from pathlib import Path
 import shutil
 import subprocess
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parents[2]
 REPORTS = {
@@ -27,6 +30,13 @@ def digest(path):
 
 class SecurityReportPolicyTests(unittest.TestCase):
     def setUp(self):
+        # Synthetic receipt/replay fixtures use an explicit clean loader baseline.
+        # Hostile loader behavior is tested independently in test_native_environment.
+        clean = {k: v for k, v in os.environ.items()
+                 if k not in {"LD_LIBRARY_PATH", "LD_PRELOAD", "LD_AUDIT"} and not k.startswith("DYLD_")}
+        environment = patch.dict(os.environ, clean, clear=True)
+        environment.start()
+        self.addCleanup(environment.stop)
         self.temp = tempfile.TemporaryDirectory()
         self.root = Path(self.temp.name).resolve()
         self.directory = self.root / "work/f2-security"
@@ -138,7 +148,7 @@ class SecurityReportPolicyTests(unittest.TestCase):
     def grype(self, source, distro):
         return {"matches": [], "source": source, "distro": distro,
                 "descriptor": {"name": "grype", "version": "0.121.3", "timestamp": self.stamp(),
-                               "db": {"status": {"valid": True, "schemaVersion": "v6.1.10", "built": self.stamp()}, "providers": {"ubuntu": {"captured": self.stamp(), "input": "synthetic"}}}}}
+                               "db": {"status": {"valid": True, "schemaVersion": "v6.1.10", "built": self.stamp()}, "providers": {name: {"captured": self.stamp(), "input": "xxh64:synthetic"} for name in ("ubuntu", "debian", "nvd")}}}}
 
     def make_sboms_and_reports(self):
         image_artifacts = [self.artifact(name, "1.0-1") for name in ("libc6", "libssl3", "bash", "coreutils", "ca-certificates")]
@@ -352,6 +362,99 @@ class SecurityReportPolicyTests(unittest.TestCase):
     def test_stale_kev_catalog_fails(self):
         self.mutate("work/f2-security/kev.json", lambda data: data.update(dateReleased=self.stamp(self.now - timedelta(days=31))))
         self.assert_fail('KEV release is stale')
+
+
+    def runner(self):
+        path = self.root / "tools/run_postgres_smoke.py"
+        spec = importlib.util.spec_from_file_location("synthetic_postgres_runner", path)
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        return module
+
+    def test_runner_replays_complete_approval_without_executing_commands(self):
+        approved = self.assert_pass()
+        runner = self.runner()
+        with patch.object(runner.subprocess, "run", side_effect=AssertionError("Replay must not execute Docker, scanner or DB commands")):
+            stored, pin = runner.verify_preuse(self.root)
+        self.assertEqual(stored, approved)
+        self.assertEqual(pin["reference"], approved["image_reference"])
+
+    def test_runner_invalidates_each_changed_source_and_policy_input(self):
+        self.assert_pass()
+        runner = self.runner()
+        files = ["work/f2-security/system-native.json", "work/f2-security/system-native-sbom.json",
+                 "work/f2-security/kev.json", "infra/security-reviewed-findings.json",
+                 "infra/images.lock.json", "tools/security/check_reports.py",
+                 "work/f2-security/native-root/usr/share/doc/libpq5/copyright"]
+        for name in files:
+            with self.subTest(input=name):
+                path = self.root / name
+                original = path.read_bytes()
+                try:
+                    path.write_bytes(original + b"\n")
+                    with self.assertRaisesRegex(ValueError, "evidence/policy/native bytes changed"):
+                        runner.verify_preuse(self.root)
+                finally:
+                    path.write_bytes(original)
+        runner.verify_preuse(self.root)
+
+    def test_runner_invalidates_review_file_appearing_after_approval(self):
+        path = self.root / "infra/security-reviewed-findings.json"
+        path.unlink()
+        approved = self.assert_pass()
+        self.assertIsNone(approved["input_hashes"][str(path)])
+        self.write("infra/security-reviewed-findings.json", {"findings": []})
+        with self.assertRaisesRegex(ValueError, "policy/review presence changed"):
+            self.runner().verify_preuse(self.root)
+
+    def test_runner_rejects_expired_approval_without_starting_a_database(self):
+        self.assert_pass()
+        self.mutate("work/f2-security/preuse-result.json", lambda data: data.update(created_at_utc=self.stamp(self.now - timedelta(hours=25))), receipt=False)
+        with self.assertRaisesRegex(ValueError, "pre-use evidence expired"):
+            self.runner().verify_preuse(self.root)
+
+    def test_runner_rejects_missing_input_hash_map(self):
+        self.assert_pass()
+        self.mutate("work/f2-security/preuse-result.json", lambda data: data.update(input_hashes={}), receipt=False)
+        with self.assertRaisesRegex(ValueError, "no complete input binding"):
+            self.runner().verify_preuse(self.root)
+
+    def test_runner_rejects_pruned_input_hash_map(self):
+        self.assert_pass()
+        self.mutate("work/f2-security/preuse-result.json", lambda data: data["input_hashes"].pop(str(self.directory / "kev.json")), receipt=False)
+        with self.assertRaisesRegex(ValueError, "source coverage no longer passes"):
+            self.runner().verify_preuse(self.root)
+
+    def test_runner_rejects_tampered_approved_report_summary(self):
+        self.assert_pass()
+        self.mutate("work/f2-security/preuse-result.json", lambda data: data["reports"][0].update(matches=999), receipt=False)
+        with self.assertRaisesRegex(ValueError, "identity/findings differ"):
+            self.runner().verify_preuse(self.root)
+
+    def test_unapplied_pinned_upstream_ignore_default_is_not_a_suppressed_finding(self):
+        rule = {"vulnerability": "", "include-aliases": False, "reason": "", "namespace": "",
+                "fix-state": "", "package": {"name": "linux-libc-dev", "version": "", "language": "",
+                "type": "deb", "location": "", "upstream-name": "linux"},
+                "vex-status": "", "vex-justification": "", "match-type": "exact-indirect-match"}
+        self.mutate("work/f2-security/system-native-cves.json", lambda data: data["descriptor"].update(configuration={"ignore": [rule]}))
+        self.assert_pass()
+
+
+    def test_malformed_scanner_provider_metadata_fails(self):
+        self.mutate("work/f2-security/image-cves.json", lambda data: data["descriptor"]["db"].update(providers={"debian": []}))
+        self.assert_fail("Grype provider metadata must be an object")
+
+    def test_missing_scanned_os_database_provider_fails(self):
+        self.mutate("work/f2-security/image-cves.json", lambda data: data["descriptor"]["db"]["providers"].pop("debian"))
+        self.assert_fail("database lacks the scanned OS provider")
+
+    def test_missing_supplier_core_nvd_provider_fails(self):
+        self.mutate("work/f2-security/postgres-core-cves.json", lambda data: data["descriptor"]["db"]["providers"].pop("nvd"))
+        self.assert_fail("supplier-core NVD provider")
+
+    def test_stale_scanner_provider_metadata_fails(self):
+        self.mutate("work/f2-security/image-cves.json", lambda data: data["descriptor"]["db"]["providers"]["debian"].update(captured=self.stamp(self.now - timedelta(days=6))))
+        self.assert_fail("Grype provider capture is stale")
 
 
 if __name__ == "__main__":

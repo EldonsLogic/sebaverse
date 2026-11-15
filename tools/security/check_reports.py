@@ -167,6 +167,11 @@ def scan_database(descriptor, now):
     require(re.fullmatch(r"v?6(?:\.\d+){0,2}", str(status.get("schemaVersion", ""))) is not None, "Grype database schema is unsupported")
     fresh(status.get("built"), "Grype DB build", now, timedelta(days=5))
     require(isinstance(db.get("providers"), dict) and bool(db["providers"]), "Grype provider DB coverage missing")
+    for name, provider in db["providers"].items():
+        text(name, "Grype provider name")
+        mapping(provider, "Grype provider metadata")
+        text(provider.get("input"), "Grype provider input")
+        fresh(provider.get("captured"), "Grype provider capture", now, timedelta(days=5))
     configuration = descriptor.get("configuration", {})
     mapping(configuration, "Grype configuration")
     for key in ("exclude", "only-fixed", "only-notfixed", "ignore-states", "ignore-wontfix"):
@@ -383,6 +388,9 @@ def evaluate(directory, root=None, now=None):
                 sbom = image if name == "image-cves.json" else system
                 distro = mapping(report.get("distro"), name + " distro")
                 require(distro.get("name") == sbom["distro"]["id"] and distro.get("version") == sbom["distro"]["versionID"], "Report/SBOM distro differs")
+                require(sbom["distro"]["id"] in db["providers"], "Grype database lacks the scanned OS provider")
+            else:
+                require("nvd" in db["providers"], "Grype database lacks the supplier-core NVD provider")
             blocking = exploited = unreviewed = 0
             for match in matches:
                 mapping(match, "Grype match")

@@ -82,7 +82,9 @@ def test_local_rejects_complete_remote_postgres_configuration(host):
 def test_local_postgres_accepts_only_explicit_loopback_configuration(host):
     config = load_environment(production(SEBAVERSE_ENV="local", DJANGO_DEBUG="1", DJANGO_ALLOWED_HOSTS="localhost", POSTGRES_HOST=host, PSYCOPG_IMPL="python"))
     assert config["database"]["HOST"] == host
-    assert config["database"]["OPTIONS"]["sslmode"] == "disable"
+    assert config["database"]["OPTIONS"] == {
+        "connect_timeout": 3, "sslmode": "disable", "gssencmode": "disable", "require_auth": "scram-sha-256"
+    }
 
 
 @pytest.mark.parametrize("implementation", [None, "binary", "c", "PYTHON"])
