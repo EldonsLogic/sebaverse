@@ -7,11 +7,23 @@ import re
 import subprocess
 import tarfile
 import urllib.request
+from urllib.parse import urlsplit
 
 ROOT = Path(__file__).resolve().parents[2]
 SHA = re.compile(r"sha256:([0-9a-f]{64})")
 MAX_JSON = 4 * 1024 * 1024
 MAX_ARCHIVE = 2 * 1024 * 1024 * 1024
+
+
+class RegistryRedirect(urllib.request.HTTPRedirectHandler):
+    """Never forward a scoped registry bearer token to a redirected CDN origin."""
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        if urlsplit(newurl).scheme != "https":
+            raise ValueError("Registry metadata redirect must remain HTTPS")
+        redirected = super().redirect_request(req, fp, code, msg, headers, newurl)
+        if redirected is not None and urlsplit(req.full_url).netloc != urlsplit(newurl).netloc:
+            redirected.remove_header("Authorization")
+        return redirected
 
 
 def require(ok, message):
@@ -55,7 +67,7 @@ def fetch_parent(parent, output=None):
         headers = {"Accept": "application/vnd.oci.image.manifest.v1+json, application/vnd.docker.distribution.manifest.v2+json"}
         if token:
             headers["Authorization"] = "Bearer " + token
-        with urllib.request.urlopen(urllib.request.Request(url, headers=headers), timeout=30) as response:
+        with urllib.request.build_opener(RegistryRedirect()).open(urllib.request.Request(url, headers=headers), timeout=30) as response:
             data = response.read(MAX_JSON + 1)
         require(len(data) <= MAX_JSON, "Registry metadata exceeds bound")
         return data

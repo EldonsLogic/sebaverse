@@ -86,7 +86,7 @@ def validate(root, directory, bind):
     rootfs = json.loads(config_bytes)["rootfs"]["diff_ids"]
     return {"type": "derived-oci", "reference": "oci-archive:" + PATHS["archive"], "archive_path": PATHS["archive"],
             "archive_sha256": receipt["archive_sha256"], "platform_manifest_digest": actual["platform_manifest_digest"],
-            "config_digest": actual["config_digest"], "rootfs_diff_ids": rootfs, "platform": actual["platform"], "user": actual["user"],
+            "config_digest": actual["config_digest"], "index_digest": actual["index_digest"], "rootfs_diff_ids": rootfs, "platform": actual["platform"], "user": actual["user"],
             "parent_platform_manifest": policy["parent_platform_manifest"], "parent_index_digest": pin["index_digest"]}
 
 

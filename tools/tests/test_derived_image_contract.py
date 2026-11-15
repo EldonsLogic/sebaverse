@@ -204,6 +204,13 @@ class DerivedContractTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             runner.client_environment(self.root, '../escape', 'synthetic-only', 5432)
 
+    def test_static_import_rejects_wrong_manifest_config_link_before_docker(self):
+        runtime = self.validate()
+        runtime['config_digest'] = 'sha256:' + 'f' * 64
+        with self.assertRaisesRegex(ValueError, 'linkage'):
+            runner.load_derived_image(runtime, self.root,
+                lambda *args, **kwargs: self.fail('Docker must not run before identity proof'))
+
     def test_static_docker_import_verifies_exact_config_and_rootfs(self):
         runtime = self.validate()
         commands = []
@@ -213,10 +220,10 @@ class DerivedContractTests(unittest.TestCase):
             commands.append(command)
             result = Result()
             if command[2] == 'inspect':
-                result.stdout = json.dumps({'Id': runtime['config_digest'], 'Os': 'linux', 'Architecture': 'amd64',
+                result.stdout = json.dumps({'Id': command[3], 'Descriptor': {'digest': command[3]}, 'Os': 'linux', 'Architecture': 'amd64',
                     'Config': {'User': 'postgres'}, 'RootFS': {'Layers': runtime['rootfs_diff_ids']}})
             return result
-        self.assertEqual(runner.load_derived_image(runtime, self.root, execute), runtime['config_digest'])
+        self.assertEqual(runner.load_derived_image(runtime, self.root, execute), runtime['platform_manifest_digest'])
         self.assertEqual(len(commands), 2)
         self.assertTrue(all('run' not in command for command in commands))
         def wrong(command, **kwargs):

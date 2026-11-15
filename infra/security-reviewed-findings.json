@@ -34,7 +34,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "1033012c23341445ed59360ec0a08a8dfa98cae67fa5f85d87818a69a373c86e",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "7eae528d5af7e78674e93941b024e598ff6ff1adba374a3ce98dbd4f69363da1"
+        "tools/run_postgres_smoke.py": "45d4d888566ef22d3aa7c86ec53bd6b0fb546cd28fde3cf29834b2ee2200442d"
       }
     },
     {
@@ -70,7 +70,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "1033012c23341445ed59360ec0a08a8dfa98cae67fa5f85d87818a69a373c86e",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "7eae528d5af7e78674e93941b024e598ff6ff1adba374a3ce98dbd4f69363da1"
+        "tools/run_postgres_smoke.py": "45d4d888566ef22d3aa7c86ec53bd6b0fb546cd28fde3cf29834b2ee2200442d"
       }
     },
     {
@@ -106,7 +106,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "1033012c23341445ed59360ec0a08a8dfa98cae67fa5f85d87818a69a373c86e",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "7eae528d5af7e78674e93941b024e598ff6ff1adba374a3ce98dbd4f69363da1"
+        "tools/run_postgres_smoke.py": "45d4d888566ef22d3aa7c86ec53bd6b0fb546cd28fde3cf29834b2ee2200442d"
       }
     },
     {
@@ -142,7 +142,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "1033012c23341445ed59360ec0a08a8dfa98cae67fa5f85d87818a69a373c86e",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "7eae528d5af7e78674e93941b024e598ff6ff1adba374a3ce98dbd4f69363da1"
+        "tools/run_postgres_smoke.py": "45d4d888566ef22d3aa7c86ec53bd6b0fb546cd28fde3cf29834b2ee2200442d"
       }
     },
     {
@@ -174,7 +174,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "1033012c23341445ed59360ec0a08a8dfa98cae67fa5f85d87818a69a373c86e",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "7eae528d5af7e78674e93941b024e598ff6ff1adba374a3ce98dbd4f69363da1"
+        "tools/run_postgres_smoke.py": "45d4d888566ef22d3aa7c86ec53bd6b0fb546cd28fde3cf29834b2ee2200442d"
       },
       "rationale": "Scoped component candidate: libgssrpc is absent from captured DT_NEEDED closure and no GSS-RPC client is used by the planned SCRAM test. Absence is evidence about this linked closure, not all installed packages or optional dlopen; verify no RPC/plugin loading. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-112314",
@@ -212,7 +212,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "1033012c23341445ed59360ec0a08a8dfa98cae67fa5f85d87818a69a373c86e",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "7eae528d5af7e78674e93941b024e598ff6ff1adba374a3ce98dbd4f69363da1"
+        "tools/run_postgres_smoke.py": "45d4d888566ef22d3aa7c86ec53bd6b0fb546cd28fde3cf29834b2ee2200442d"
       },
       "rationale": "Scoped component candidate: libgssrpc is absent from captured DT_NEEDED closure and no GSS-RPC client is used by the planned SCRAM test. Absence is evidence about this linked closure, not all installed packages or optional dlopen; verify no RPC/plugin loading. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-112314",
@@ -250,7 +250,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "1033012c23341445ed59360ec0a08a8dfa98cae67fa5f85d87818a69a373c86e",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "7eae528d5af7e78674e93941b024e598ff6ff1adba374a3ce98dbd4f69363da1"
+        "tools/run_postgres_smoke.py": "45d4d888566ef22d3aa7c86ec53bd6b0fb546cd28fde3cf29834b2ee2200442d"
       },
       "rationale": "Scoped component candidate: libgssrpc is absent from captured DT_NEEDED closure and no GSS-RPC client is used by the planned SCRAM test. Absence is evidence about this linked closure, not all installed packages or optional dlopen; verify no RPC/plugin loading. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-112314",
@@ -288,7 +288,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "1033012c23341445ed59360ec0a08a8dfa98cae67fa5f85d87818a69a373c86e",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "7eae528d5af7e78674e93941b024e598ff6ff1adba374a3ce98dbd4f69363da1"
+        "tools/run_postgres_smoke.py": "45d4d888566ef22d3aa7c86ec53bd6b0fb546cd28fde3cf29834b2ee2200442d"
       },
       "rationale": "Scoped component candidate: libgssrpc is absent from captured DT_NEEDED closure and no GSS-RPC client is used by the planned SCRAM test. Absence is evidence about this linked closure, not all installed packages or optional dlopen; verify no RPC/plugin loading. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-112314",
@@ -326,7 +326,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "1033012c23341445ed59360ec0a08a8dfa98cae67fa5f85d87818a69a373c86e",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "7eae528d5af7e78674e93941b024e598ff6ff1adba374a3ce98dbd4f69363da1"
+        "tools/run_postgres_smoke.py": "45d4d888566ef22d3aa7c86ec53bd6b0fb546cd28fde3cf29834b2ee2200442d"
       },
       "rationale": "Scoped role candidate: synthetic test does not expose an AUTH_GSSAPI initialization endpoint; no kadmind/GSS-RPC service is allowed. Reopen if a Kerberos service is added. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-112321",
@@ -364,7 +364,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "1033012c23341445ed59360ec0a08a8dfa98cae67fa5f85d87818a69a373c86e",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "7eae528d5af7e78674e93941b024e598ff6ff1adba374a3ce98dbd4f69363da1"
+        "tools/run_postgres_smoke.py": "45d4d888566ef22d3aa7c86ec53bd6b0fb546cd28fde3cf29834b2ee2200442d"
       },
       "rationale": "Scoped role candidate: synthetic test does not expose an AUTH_GSSAPI initialization endpoint; no kadmind/GSS-RPC service is allowed. Reopen if a Kerberos service is added. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-112321",
@@ -402,7 +402,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "1033012c23341445ed59360ec0a08a8dfa98cae67fa5f85d87818a69a373c86e",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "7eae528d5af7e78674e93941b024e598ff6ff1adba374a3ce98dbd4f69363da1"
+        "tools/run_postgres_smoke.py": "45d4d888566ef22d3aa7c86ec53bd6b0fb546cd28fde3cf29834b2ee2200442d"
       },
       "rationale": "Scoped role candidate: synthetic test does not expose an AUTH_GSSAPI initialization endpoint; no kadmind/GSS-RPC service is allowed. Reopen if a Kerberos service is added. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-112321",
@@ -440,7 +440,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "1033012c23341445ed59360ec0a08a8dfa98cae67fa5f85d87818a69a373c86e",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "7eae528d5af7e78674e93941b024e598ff6ff1adba374a3ce98dbd4f69363da1"
+        "tools/run_postgres_smoke.py": "45d4d888566ef22d3aa7c86ec53bd6b0fb546cd28fde3cf29834b2ee2200442d"
       },
       "rationale": "Scoped role candidate: synthetic test does not expose an AUTH_GSSAPI initialization endpoint; no kadmind/GSS-RPC service is allowed. Reopen if a Kerberos service is added. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-112321",
@@ -478,7 +478,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "1033012c23341445ed59360ec0a08a8dfa98cae67fa5f85d87818a69a373c86e",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "7eae528d5af7e78674e93941b024e598ff6ff1adba374a3ce98dbd4f69363da1"
+        "tools/run_postgres_smoke.py": "45d4d888566ef22d3aa7c86ec53bd6b0fb546cd28fde3cf29834b2ee2200442d"
       },
       "rationale": "Scoped role candidate: no AUTH_GSSAPI client-context server/cache is used in this test. No kadmind/GSS-RPC service may be launched; input quotas alone would not remediate this defect. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-112322",
@@ -516,7 +516,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "1033012c23341445ed59360ec0a08a8dfa98cae67fa5f85d87818a69a373c86e",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "7eae528d5af7e78674e93941b024e598ff6ff1adba374a3ce98dbd4f69363da1"
+        "tools/run_postgres_smoke.py": "45d4d888566ef22d3aa7c86ec53bd6b0fb546cd28fde3cf29834b2ee2200442d"
       },
       "rationale": "Scoped role candidate: no AUTH_GSSAPI client-context server/cache is used in this test. No kadmind/GSS-RPC service may be launched; input quotas alone would not remediate this defect. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-112322",
@@ -554,7 +554,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "1033012c23341445ed59360ec0a08a8dfa98cae67fa5f85d87818a69a373c86e",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "7eae528d5af7e78674e93941b024e598ff6ff1adba374a3ce98dbd4f69363da1"
+        "tools/run_postgres_smoke.py": "45d4d888566ef22d3aa7c86ec53bd6b0fb546cd28fde3cf29834b2ee2200442d"
       },
       "rationale": "Scoped role candidate: no AUTH_GSSAPI client-context server/cache is used in this test. No kadmind/GSS-RPC service may be launched; input quotas alone would not remediate this defect. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-112322",
@@ -592,7 +592,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "1033012c23341445ed59360ec0a08a8dfa98cae67fa5f85d87818a69a373c86e",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "7eae528d5af7e78674e93941b024e598ff6ff1adba374a3ce98dbd4f69363da1"
+        "tools/run_postgres_smoke.py": "45d4d888566ef22d3aa7c86ec53bd6b0fb546cd28fde3cf29834b2ee2200442d"
       },
       "rationale": "Scoped role candidate: no AUTH_GSSAPI client-context server/cache is used in this test. No kadmind/GSS-RPC service may be launched; input quotas alone would not remediate this defect. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-112322",
@@ -630,7 +630,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "1033012c23341445ed59360ec0a08a8dfa98cae67fa5f85d87818a69a373c86e",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "7eae528d5af7e78674e93941b024e598ff6ff1adba374a3ce98dbd4f69363da1"
+        "tools/run_postgres_smoke.py": "45d4d888566ef22d3aa7c86ec53bd6b0fb546cd28fde3cf29834b2ee2200442d"
       },
       "rationale": "Scoped component/role candidate: no kadmind/GSS-RPC decoder is invoked by the SCRAM fixture; libgssrpc absent from closure. Resource limits reduce consequences but are not the reason for non-reachability. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-112319",
@@ -668,7 +668,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "1033012c23341445ed59360ec0a08a8dfa98cae67fa5f85d87818a69a373c86e",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "7eae528d5af7e78674e93941b024e598ff6ff1adba374a3ce98dbd4f69363da1"
+        "tools/run_postgres_smoke.py": "45d4d888566ef22d3aa7c86ec53bd6b0fb546cd28fde3cf29834b2ee2200442d"
       },
       "rationale": "Scoped component/role candidate: no kadmind/GSS-RPC decoder is invoked by the SCRAM fixture; libgssrpc absent from closure. Resource limits reduce consequences but are not the reason for non-reachability. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-112319",
@@ -706,7 +706,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "1033012c23341445ed59360ec0a08a8dfa98cae67fa5f85d87818a69a373c86e",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "7eae528d5af7e78674e93941b024e598ff6ff1adba374a3ce98dbd4f69363da1"
+        "tools/run_postgres_smoke.py": "45d4d888566ef22d3aa7c86ec53bd6b0fb546cd28fde3cf29834b2ee2200442d"
       },
       "rationale": "Scoped component/role candidate: no kadmind/GSS-RPC decoder is invoked by the SCRAM fixture; libgssrpc absent from closure. Resource limits reduce consequences but are not the reason for non-reachability. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-112319",
@@ -744,7 +744,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "1033012c23341445ed59360ec0a08a8dfa98cae67fa5f85d87818a69a373c86e",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "7eae528d5af7e78674e93941b024e598ff6ff1adba374a3ce98dbd4f69363da1"
+        "tools/run_postgres_smoke.py": "45d4d888566ef22d3aa7c86ec53bd6b0fb546cd28fde3cf29834b2ee2200442d"
       },
       "rationale": "Scoped component/role candidate: no kadmind/GSS-RPC decoder is invoked by the SCRAM fixture; libgssrpc absent from closure. Resource limits reduce consequences but are not the reason for non-reachability. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-112319",
@@ -782,7 +782,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "1033012c23341445ed59360ec0a08a8dfa98cae67fa5f85d87818a69a373c86e",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "7eae528d5af7e78674e93941b024e598ff6ff1adba374a3ce98dbd4f69363da1"
+        "tools/run_postgres_smoke.py": "45d4d888566ef22d3aa7c86ec53bd6b0fb546cd28fde3cf29834b2ee2200442d"
       },
       "rationale": "Scoped role candidate: no Kerberos administration RPC transport or auth-flavor switching is part of PostgreSQL SCRAM. Verify no such server/client plugin is launched or loaded. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-112320",
@@ -820,7 +820,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "1033012c23341445ed59360ec0a08a8dfa98cae67fa5f85d87818a69a373c86e",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "7eae528d5af7e78674e93941b024e598ff6ff1adba374a3ce98dbd4f69363da1"
+        "tools/run_postgres_smoke.py": "45d4d888566ef22d3aa7c86ec53bd6b0fb546cd28fde3cf29834b2ee2200442d"
       },
       "rationale": "Scoped role candidate: no Kerberos administration RPC transport or auth-flavor switching is part of PostgreSQL SCRAM. Verify no such server/client plugin is launched or loaded. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-112320",
@@ -858,7 +858,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "1033012c23341445ed59360ec0a08a8dfa98cae67fa5f85d87818a69a373c86e",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "7eae528d5af7e78674e93941b024e598ff6ff1adba374a3ce98dbd4f69363da1"
+        "tools/run_postgres_smoke.py": "45d4d888566ef22d3aa7c86ec53bd6b0fb546cd28fde3cf29834b2ee2200442d"
       },
       "rationale": "Scoped role candidate: no Kerberos administration RPC transport or auth-flavor switching is part of PostgreSQL SCRAM. Verify no such server/client plugin is launched or loaded. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-112320",
@@ -896,7 +896,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "1033012c23341445ed59360ec0a08a8dfa98cae67fa5f85d87818a69a373c86e",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "7eae528d5af7e78674e93941b024e598ff6ff1adba374a3ce98dbd4f69363da1"
+        "tools/run_postgres_smoke.py": "45d4d888566ef22d3aa7c86ec53bd6b0fb546cd28fde3cf29834b2ee2200442d"
       },
       "rationale": "Scoped role candidate: no Kerberos administration RPC transport or auth-flavor switching is part of PostgreSQL SCRAM. Verify no such server/client plugin is launched or loaded. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-112320",
@@ -934,7 +934,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "1033012c23341445ed59360ec0a08a8dfa98cae67fa5f85d87818a69a373c86e",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "7eae528d5af7e78674e93941b024e598ff6ff1adba374a3ce98dbd4f69363da1"
+        "tools/run_postgres_smoke.py": "45d4d888566ef22d3aa7c86ec53bd6b0fb546cd28fde3cf29834b2ee2200442d"
       },
       "rationale": "Scoped role candidate: no Kerberos administration RPC server or authenticated admin requests are planned. Verify no kadmind process/listener; a loaded krb5 client library is not an admin endpoint. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-112316",
@@ -972,7 +972,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "1033012c23341445ed59360ec0a08a8dfa98cae67fa5f85d87818a69a373c86e",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "7eae528d5af7e78674e93941b024e598ff6ff1adba374a3ce98dbd4f69363da1"
+        "tools/run_postgres_smoke.py": "45d4d888566ef22d3aa7c86ec53bd6b0fb546cd28fde3cf29834b2ee2200442d"
       },
       "rationale": "Scoped role candidate: no Kerberos administration RPC server or authenticated admin requests are planned. Verify no kadmind process/listener; a loaded krb5 client library is not an admin endpoint. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-112316",
@@ -1010,7 +1010,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "1033012c23341445ed59360ec0a08a8dfa98cae67fa5f85d87818a69a373c86e",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "7eae528d5af7e78674e93941b024e598ff6ff1adba374a3ce98dbd4f69363da1"
+        "tools/run_postgres_smoke.py": "45d4d888566ef22d3aa7c86ec53bd6b0fb546cd28fde3cf29834b2ee2200442d"
       },
       "rationale": "Scoped role candidate: no Kerberos administration RPC server or authenticated admin requests are planned. Verify no kadmind process/listener; a loaded krb5 client library is not an admin endpoint. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-112316",
@@ -1048,7 +1048,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "1033012c23341445ed59360ec0a08a8dfa98cae67fa5f85d87818a69a373c86e",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "7eae528d5af7e78674e93941b024e598ff6ff1adba374a3ce98dbd4f69363da1"
+        "tools/run_postgres_smoke.py": "45d4d888566ef22d3aa7c86ec53bd6b0fb546cd28fde3cf29834b2ee2200442d"
       },
       "rationale": "Scoped role candidate: no Kerberos administration RPC server or authenticated admin requests are planned. Verify no kadmind process/listener; a loaded krb5 client library is not an admin endpoint. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-112316",
@@ -1086,7 +1086,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "1033012c23341445ed59360ec0a08a8dfa98cae67fa5f85d87818a69a373c86e",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "7eae528d5af7e78674e93941b024e598ff6ff1adba374a3ce98dbd4f69363da1"
+        "tools/run_postgres_smoke.py": "45d4d888566ef22d3aa7c86ec53bd6b0fb546cd28fde3cf29834b2ee2200442d"
       },
       "rationale": "Scoped component/role candidate: no kadmind or GSS-RPC server endpoint is part of the test; libgssrpc absent from captured closure. Require process/network scope enforcement; not a blanket krb5 waiver. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-112315",
@@ -1124,7 +1124,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "1033012c23341445ed59360ec0a08a8dfa98cae67fa5f85d87818a69a373c86e",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "7eae528d5af7e78674e93941b024e598ff6ff1adba374a3ce98dbd4f69363da1"
+        "tools/run_postgres_smoke.py": "45d4d888566ef22d3aa7c86ec53bd6b0fb546cd28fde3cf29834b2ee2200442d"
       },
       "rationale": "Scoped component/role candidate: no kadmind or GSS-RPC server endpoint is part of the test; libgssrpc absent from captured closure. Require process/network scope enforcement; not a blanket krb5 waiver. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-112315",
@@ -1162,7 +1162,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "1033012c23341445ed59360ec0a08a8dfa98cae67fa5f85d87818a69a373c86e",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "7eae528d5af7e78674e93941b024e598ff6ff1adba374a3ce98dbd4f69363da1"
+        "tools/run_postgres_smoke.py": "45d4d888566ef22d3aa7c86ec53bd6b0fb546cd28fde3cf29834b2ee2200442d"
       },
       "rationale": "Scoped component/role candidate: no kadmind or GSS-RPC server endpoint is part of the test; libgssrpc absent from captured closure. Require process/network scope enforcement; not a blanket krb5 waiver. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-112315",
@@ -1200,7 +1200,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "1033012c23341445ed59360ec0a08a8dfa98cae67fa5f85d87818a69a373c86e",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "7eae528d5af7e78674e93941b024e598ff6ff1adba374a3ce98dbd4f69363da1"
+        "tools/run_postgres_smoke.py": "45d4d888566ef22d3aa7c86ec53bd6b0fb546cd28fde3cf29834b2ee2200442d"
       },
       "rationale": "Scoped component/role candidate: no kadmind or GSS-RPC server endpoint is part of the test; libgssrpc absent from captured closure. Require process/network scope enforcement; not a blanket krb5 waiver. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-112315",
@@ -1238,7 +1238,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "1033012c23341445ed59360ec0a08a8dfa98cae67fa5f85d87818a69a373c86e",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "7eae528d5af7e78674e93941b024e598ff6ff1adba374a3ce98dbd4f69363da1"
+        "tools/run_postgres_smoke.py": "45d4d888566ef22d3aa7c86ec53bd6b0fb546cd28fde3cf29834b2ee2200442d"
       },
       "rationale": "Scoped role candidate: planned process does not implement a KDC or accept AS/TGS requests. Disable GSS credential paths and prohibit a KDC listener; broad krb5 package matches do not establish the four artifacts expose that endpoint. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-119079",
@@ -1276,7 +1276,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "1033012c23341445ed59360ec0a08a8dfa98cae67fa5f85d87818a69a373c86e",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "7eae528d5af7e78674e93941b024e598ff6ff1adba374a3ce98dbd4f69363da1"
+        "tools/run_postgres_smoke.py": "45d4d888566ef22d3aa7c86ec53bd6b0fb546cd28fde3cf29834b2ee2200442d"
       },
       "rationale": "Scoped role candidate: planned process does not implement a KDC or accept AS/TGS requests. Disable GSS credential paths and prohibit a KDC listener; broad krb5 package matches do not establish the four artifacts expose that endpoint. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-119079",
@@ -1314,7 +1314,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "1033012c23341445ed59360ec0a08a8dfa98cae67fa5f85d87818a69a373c86e",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "7eae528d5af7e78674e93941b024e598ff6ff1adba374a3ce98dbd4f69363da1"
+        "tools/run_postgres_smoke.py": "45d4d888566ef22d3aa7c86ec53bd6b0fb546cd28fde3cf29834b2ee2200442d"
       },
       "rationale": "Scoped role candidate: planned process does not implement a KDC or accept AS/TGS requests. Disable GSS credential paths and prohibit a KDC listener; broad krb5 package matches do not establish the four artifacts expose that endpoint. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-119079",
@@ -1352,7 +1352,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "1033012c23341445ed59360ec0a08a8dfa98cae67fa5f85d87818a69a373c86e",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "7eae528d5af7e78674e93941b024e598ff6ff1adba374a3ce98dbd4f69363da1"
+        "tools/run_postgres_smoke.py": "45d4d888566ef22d3aa7c86ec53bd6b0fb546cd28fde3cf29834b2ee2200442d"
       },
       "rationale": "Scoped role candidate: planned process does not implement a KDC or accept AS/TGS requests. Disable GSS credential paths and prohibit a KDC listener; broad krb5 package matches do not establish the four artifacts expose that endpoint. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-119079",
@@ -1390,7 +1390,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "1033012c23341445ed59360ec0a08a8dfa98cae67fa5f85d87818a69a373c86e",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "7eae528d5af7e78674e93941b024e598ff6ff1adba374a3ce98dbd4f69363da1"
+        "tools/run_postgres_smoke.py": "45d4d888566ef22d3aa7c86ec53bd6b0fb546cd28fde3cf29834b2ee2200442d"
       },
       "rationale": "Scoped role candidate: no AUTH_GSSAPI initialization handler or kadmind process in the planned SCRAM client test. Verify no extra service starts; do not assume localhost prevents a malformed peer. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-112323",
@@ -1428,7 +1428,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "1033012c23341445ed59360ec0a08a8dfa98cae67fa5f85d87818a69a373c86e",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "7eae528d5af7e78674e93941b024e598ff6ff1adba374a3ce98dbd4f69363da1"
+        "tools/run_postgres_smoke.py": "45d4d888566ef22d3aa7c86ec53bd6b0fb546cd28fde3cf29834b2ee2200442d"
       },
       "rationale": "Scoped role candidate: no AUTH_GSSAPI initialization handler or kadmind process in the planned SCRAM client test. Verify no extra service starts; do not assume localhost prevents a malformed peer. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-112323",
@@ -1466,7 +1466,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "1033012c23341445ed59360ec0a08a8dfa98cae67fa5f85d87818a69a373c86e",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "7eae528d5af7e78674e93941b024e598ff6ff1adba374a3ce98dbd4f69363da1"
+        "tools/run_postgres_smoke.py": "45d4d888566ef22d3aa7c86ec53bd6b0fb546cd28fde3cf29834b2ee2200442d"
       },
       "rationale": "Scoped role candidate: no AUTH_GSSAPI initialization handler or kadmind process in the planned SCRAM client test. Verify no extra service starts; do not assume localhost prevents a malformed peer. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-112323",
@@ -1504,7 +1504,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "1033012c23341445ed59360ec0a08a8dfa98cae67fa5f85d87818a69a373c86e",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "7eae528d5af7e78674e93941b024e598ff6ff1adba374a3ce98dbd4f69363da1"
+        "tools/run_postgres_smoke.py": "45d4d888566ef22d3aa7c86ec53bd6b0fb546cd28fde3cf29834b2ee2200442d"
       },
       "rationale": "Scoped role candidate: no AUTH_GSSAPI initialization handler or kadmind process in the planned SCRAM client test. Verify no extra service starts; do not assume localhost prevents a malformed peer. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-112323",
@@ -1542,7 +1542,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "1033012c23341445ed59360ec0a08a8dfa98cae67fa5f85d87818a69a373c86e",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "7eae528d5af7e78674e93941b024e598ff6ff1adba374a3ce98dbd4f69363da1"
+        "tools/run_postgres_smoke.py": "45d4d888566ef22d3aa7c86ec53bd6b0fb546cd28fde3cf29834b2ee2200442d"
       },
       "rationale": "Scoped role candidate: no KDB backend, KDC/kadmind service or keytab is needed for password-only PostgreSQL. Verify those services/configuration are absent from the test invocation; do not equate gssencmode alone with removal of this code. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-112317",
@@ -1580,7 +1580,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "1033012c23341445ed59360ec0a08a8dfa98cae67fa5f85d87818a69a373c86e",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "7eae528d5af7e78674e93941b024e598ff6ff1adba374a3ce98dbd4f69363da1"
+        "tools/run_postgres_smoke.py": "45d4d888566ef22d3aa7c86ec53bd6b0fb546cd28fde3cf29834b2ee2200442d"
       },
       "rationale": "Scoped role candidate: no KDB backend, KDC/kadmind service or keytab is needed for password-only PostgreSQL. Verify those services/configuration are absent from the test invocation; do not equate gssencmode alone with removal of this code. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-112317",
@@ -1618,7 +1618,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "1033012c23341445ed59360ec0a08a8dfa98cae67fa5f85d87818a69a373c86e",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "7eae528d5af7e78674e93941b024e598ff6ff1adba374a3ce98dbd4f69363da1"
+        "tools/run_postgres_smoke.py": "45d4d888566ef22d3aa7c86ec53bd6b0fb546cd28fde3cf29834b2ee2200442d"
       },
       "rationale": "Scoped role candidate: no KDB backend, KDC/kadmind service or keytab is needed for password-only PostgreSQL. Verify those services/configuration are absent from the test invocation; do not equate gssencmode alone with removal of this code. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-112317",
@@ -1656,7 +1656,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "1033012c23341445ed59360ec0a08a8dfa98cae67fa5f85d87818a69a373c86e",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "7eae528d5af7e78674e93941b024e598ff6ff1adba374a3ce98dbd4f69363da1"
+        "tools/run_postgres_smoke.py": "45d4d888566ef22d3aa7c86ec53bd6b0fb546cd28fde3cf29834b2ee2200442d"
       },
       "rationale": "Scoped role candidate: no KDB backend, KDC/kadmind service or keytab is needed for password-only PostgreSQL. Verify those services/configuration are absent from the test invocation; do not equate gssencmode alone with removal of this code. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-112317",
@@ -1694,7 +1694,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "1033012c23341445ed59360ec0a08a8dfa98cae67fa5f85d87818a69a373c86e",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "7eae528d5af7e78674e93941b024e598ff6ff1adba374a3ce98dbd4f69363da1"
+        "tools/run_postgres_smoke.py": "45d4d888566ef22d3aa7c86ec53bd6b0fb546cd28fde3cf29834b2ee2200442d"
       },
       "rationale": "Scoped role candidate: no policy administration RPC endpoint exists in the planned client test. Require explicit absence of kadmind service; no claim that the distribution source is patched. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-112318",
@@ -1732,7 +1732,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "1033012c23341445ed59360ec0a08a8dfa98cae67fa5f85d87818a69a373c86e",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "7eae528d5af7e78674e93941b024e598ff6ff1adba374a3ce98dbd4f69363da1"
+        "tools/run_postgres_smoke.py": "45d4d888566ef22d3aa7c86ec53bd6b0fb546cd28fde3cf29834b2ee2200442d"
       },
       "rationale": "Scoped role candidate: no policy administration RPC endpoint exists in the planned client test. Require explicit absence of kadmind service; no claim that the distribution source is patched. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-112318",
@@ -1770,7 +1770,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "1033012c23341445ed59360ec0a08a8dfa98cae67fa5f85d87818a69a373c86e",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "7eae528d5af7e78674e93941b024e598ff6ff1adba374a3ce98dbd4f69363da1"
+        "tools/run_postgres_smoke.py": "45d4d888566ef22d3aa7c86ec53bd6b0fb546cd28fde3cf29834b2ee2200442d"
       },
       "rationale": "Scoped role candidate: no policy administration RPC endpoint exists in the planned client test. Require explicit absence of kadmind service; no claim that the distribution source is patched. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-112318",
@@ -1808,7 +1808,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "1033012c23341445ed59360ec0a08a8dfa98cae67fa5f85d87818a69a373c86e",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "7eae528d5af7e78674e93941b024e598ff6ff1adba374a3ce98dbd4f69363da1"
+        "tools/run_postgres_smoke.py": "45d4d888566ef22d3aa7c86ec53bd6b0fb546cd28fde3cf29834b2ee2200442d"
       },
       "rationale": "Scoped role candidate: no policy administration RPC endpoint exists in the planned client test. Require explicit absence of kadmind service; no claim that the distribution source is patched. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-112318",
@@ -1846,7 +1846,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "1033012c23341445ed59360ec0a08a8dfa98cae67fa5f85d87818a69a373c86e",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "7eae528d5af7e78674e93941b024e598ff6ff1adba374a3ce98dbd4f69363da1"
+        "tools/run_postgres_smoke.py": "45d4d888566ef22d3aa7c86ec53bd6b0fb546cd28fde3cf29834b2ee2200442d"
       },
       "rationale": "Scoped component/role candidate: planned process is a PostgreSQL client, not a KDC processing S4U2Proxy. Require no KDC daemon/request endpoint or Kerberos credential use; package-wide match is not proof this server routine resides in each of four libraries. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-107708",
@@ -1884,7 +1884,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "1033012c23341445ed59360ec0a08a8dfa98cae67fa5f85d87818a69a373c86e",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "7eae528d5af7e78674e93941b024e598ff6ff1adba374a3ce98dbd4f69363da1"
+        "tools/run_postgres_smoke.py": "45d4d888566ef22d3aa7c86ec53bd6b0fb546cd28fde3cf29834b2ee2200442d"
       },
       "rationale": "Scoped component/role candidate: planned process is a PostgreSQL client, not a KDC processing S4U2Proxy. Require no KDC daemon/request endpoint or Kerberos credential use; package-wide match is not proof this server routine resides in each of four libraries. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-107708",
@@ -1922,7 +1922,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "1033012c23341445ed59360ec0a08a8dfa98cae67fa5f85d87818a69a373c86e",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "7eae528d5af7e78674e93941b024e598ff6ff1adba374a3ce98dbd4f69363da1"
+        "tools/run_postgres_smoke.py": "45d4d888566ef22d3aa7c86ec53bd6b0fb546cd28fde3cf29834b2ee2200442d"
       },
       "rationale": "Scoped component/role candidate: planned process is a PostgreSQL client, not a KDC processing S4U2Proxy. Require no KDC daemon/request endpoint or Kerberos credential use; package-wide match is not proof this server routine resides in each of four libraries. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-107708",
@@ -1960,7 +1960,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "1033012c23341445ed59360ec0a08a8dfa98cae67fa5f85d87818a69a373c86e",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "7eae528d5af7e78674e93941b024e598ff6ff1adba374a3ce98dbd4f69363da1"
+        "tools/run_postgres_smoke.py": "45d4d888566ef22d3aa7c86ec53bd6b0fb546cd28fde3cf29834b2ee2200442d"
       },
       "rationale": "Scoped component/role candidate: planned process is a PostgreSQL client, not a KDC processing S4U2Proxy. Require no KDC daemon/request endpoint or Kerberos credential use; package-wide match is not proof this server routine resides in each of four libraries. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-107708",
@@ -1998,7 +1998,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "1033012c23341445ed59360ec0a08a8dfa98cae67fa5f85d87818a69a373c86e",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "7eae528d5af7e78674e93941b024e598ff6ff1adba374a3ce98dbd4f69363da1"
+        "tools/run_postgres_smoke.py": "45d4d888566ef22d3aa7c86ec53bd6b0fb546cd28fde3cf29834b2ee2200442d"
       },
       "rationale": "Conditional scoped candidate, not fixed: client test must never serve a GSS acceptor. gssencmode=disable and require_auth=scram-sha-256 exclude negotiated GSS on this connection; verify no other acceptor/service is started. Library remains linked. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-107778",
@@ -2036,7 +2036,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "1033012c23341445ed59360ec0a08a8dfa98cae67fa5f85d87818a69a373c86e",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "7eae528d5af7e78674e93941b024e598ff6ff1adba374a3ce98dbd4f69363da1"
+        "tools/run_postgres_smoke.py": "45d4d888566ef22d3aa7c86ec53bd6b0fb546cd28fde3cf29834b2ee2200442d"
       },
       "rationale": "Conditional scoped candidate, not fixed: client test must never serve a GSS acceptor. gssencmode=disable and require_auth=scram-sha-256 exclude negotiated GSS on this connection; verify no other acceptor/service is started. Library remains linked. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-107778",
@@ -2074,7 +2074,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "1033012c23341445ed59360ec0a08a8dfa98cae67fa5f85d87818a69a373c86e",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "7eae528d5af7e78674e93941b024e598ff6ff1adba374a3ce98dbd4f69363da1"
+        "tools/run_postgres_smoke.py": "45d4d888566ef22d3aa7c86ec53bd6b0fb546cd28fde3cf29834b2ee2200442d"
       },
       "rationale": "Conditional scoped candidate, not fixed: client test must never serve a GSS acceptor. gssencmode=disable and require_auth=scram-sha-256 exclude negotiated GSS on this connection; verify no other acceptor/service is started. Library remains linked. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-107778",
@@ -2112,7 +2112,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "1033012c23341445ed59360ec0a08a8dfa98cae67fa5f85d87818a69a373c86e",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "7eae528d5af7e78674e93941b024e598ff6ff1adba374a3ce98dbd4f69363da1"
+        "tools/run_postgres_smoke.py": "45d4d888566ef22d3aa7c86ec53bd6b0fb546cd28fde3cf29834b2ee2200442d"
       },
       "rationale": "Conditional scoped candidate, not fixed: client test must never serve a GSS acceptor. gssencmode=disable and require_auth=scram-sha-256 exclude negotiated GSS on this connection; verify no other acceptor/service is started. Library remains linked. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-107778",
@@ -2150,7 +2150,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "1033012c23341445ed59360ec0a08a8dfa98cae67fa5f85d87818a69a373c86e",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "7eae528d5af7e78674e93941b024e598ff6ff1adba374a3ce98dbd4f69363da1"
+        "tools/run_postgres_smoke.py": "45d4d888566ef22d3aa7c86ec53bd6b0fb546cd28fde3cf29834b2ee2200442d"
       },
       "rationale": "Conditional scoped candidate: explicit PostgreSQL SCRAM uses libpq authentication, not the Cyrus DIGEST-MD5 mechanism. LDAP/Cyrus remain in the linked closure, so require no LDAP/service discovery or SASL plugin invocation and sanitized ambient configuration before any scoped review. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-107161",
@@ -2188,7 +2188,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "1033012c23341445ed59360ec0a08a8dfa98cae67fa5f85d87818a69a373c86e",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "7eae528d5af7e78674e93941b024e598ff6ff1adba374a3ce98dbd4f69363da1"
+        "tools/run_postgres_smoke.py": "45d4d888566ef22d3aa7c86ec53bd6b0fb546cd28fde3cf29834b2ee2200442d"
       },
       "rationale": "Operational bounded-risk acceptance: measured static imports place regcomp/regexec only in libkrb5 among106 inspected objects. Explicit no-GSS/SCRAM client, empty Kerberos/LDAP/service configuration and fixed generated inputs exclude intended Kerberos mapping use. Allocation-failure risk is not fixed; unknown internal/dynamic reachability and potential CI crash retained. No claim of whole-process non-reachability. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-100290",
@@ -2226,7 +2226,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "1033012c23341445ed59360ec0a08a8dfa98cae67fa5f85d87818a69a373c86e",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "7eae528d5af7e78674e93941b024e598ff6ff1adba374a3ce98dbd4f69363da1"
+        "tools/run_postgres_smoke.py": "45d4d888566ef22d3aa7c86ec53bd6b0fb546cd28fde3cf29834b2ee2200442d"
       },
       "rationale": "Operational bounded-risk acceptance: no wide-scanf imports observed among106 inspected library/Python objects. Workload accepts no untrusted wide strings or format input; reviewed pure-Psycopg ctypes API names are fixed. Dynamic/internal/transitive gaps remain; library not declared unaffected. Accepted only for bounded disposable synthetic run. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-115819",
@@ -2264,7 +2264,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "1033012c23341445ed59360ec0a08a8dfa98cae67fa5f85d87818a69a373c86e",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "7eae528d5af7e78674e93941b024e598ff6ff1adba374a3ce98dbd4f69363da1"
+        "tools/run_postgres_smoke.py": "45d4d888566ef22d3aa7c86ec53bd6b0fb546cd28fde3cf29834b2ee2200442d"
       },
       "rationale": "Conditional scoped candidate only without GnuTLS hostname/certificate validation. Explicit PostgreSQL sslmode=disable is insufficient evidence about LDAP/plugins; prohibit those paths and future certificate inputs. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-88647",
@@ -2302,7 +2302,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "1033012c23341445ed59360ec0a08a8dfa98cae67fa5f85d87818a69a373c86e",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "7eae528d5af7e78674e93941b024e598ff6ff1adba374a3ce98dbd4f69363da1"
+        "tools/run_postgres_smoke.py": "45d4d888566ef22d3aa7c86ec53bd6b0fb546cd28fde3cf29834b2ee2200442d"
       },
       "rationale": "Scoped non-reachability candidate: PostgreSQL SCRAM does not call Unix password crypt. Keep generated password length bounded; prohibit system-account/crypt verification in this test. No general password-service approval. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2016-20013",
@@ -2340,7 +2340,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "1033012c23341445ed59360ec0a08a8dfa98cae67fa5f85d87818a69a373c86e",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "7eae528d5af7e78674e93941b024e598ff6ff1adba374a3ce98dbd4f69363da1"
+        "tools/run_postgres_smoke.py": "45d4d888566ef22d3aa7c86ec53bd6b0fb546cd28fde3cf29834b2ee2200442d"
       },
       "rationale": "Version non-applicability candidate: upstream excludes OpenSSL 3.0. Confirm Ubuntu build lineage for the exact scanned binary; source-specific disposition remains separate from CMS issue CVE-2026-107496. Operational decision relies on no QUIC/AES-GCM-SIV/TLS certificate workload, not an unproven Ubuntu source-backport exemption. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-95692",
@@ -2378,7 +2378,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "1033012c23341445ed59360ec0a08a8dfa98cae67fa5f85d87818a69a373c86e",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "7eae528d5af7e78674e93941b024e598ff6ff1adba374a3ce98dbd4f69363da1"
+        "tools/run_postgres_smoke.py": "45d4d888566ef22d3aa7c86ec53bd6b0fb546cd28fde3cf29834b2ee2200442d"
       },
       "rationale": "Conditional scoped candidate with no GnuTLS certificate/CA/name-constraint policy input. Retain as vulnerable outside this restricted test; no global TLS or certificate-use approval. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-95184",
@@ -2416,7 +2416,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "1033012c23341445ed59360ec0a08a8dfa98cae67fa5f85d87818a69a373c86e",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "7eae528d5af7e78674e93941b024e598ff6ff1adba374a3ce98dbd4f69363da1"
+        "tools/run_postgres_smoke.py": "45d4d888566ef22d3aa7c86ec53bd6b0fb546cd28fde3cf29834b2ee2200442d"
       },
       "rationale": "Conditional scoped candidate: no X.509 constraint processing is required for generated password-only traffic. Verify no LDAP/GnuTLS certificate processing; no inference that installed 3.8.3 is unaffected because description mentions 3.8.13. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-88648",
@@ -2454,7 +2454,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "1033012c23341445ed59360ec0a08a8dfa98cae67fa5f85d87818a69a373c86e",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "7eae528d5af7e78674e93941b024e598ff6ff1adba374a3ce98dbd4f69363da1"
+        "tools/run_postgres_smoke.py": "45d4d888566ef22d3aa7c86ec53bd6b0fb546cd28fde3cf29834b2ee2200442d"
       },
       "rationale": "Conditional scoped candidate: no peer X.509 input or GnuTLS validation in restricted fixture. Requires actual connection/configuration evidence and prohibition on LDAP TLS paths; no reliance on vendor dispute. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-95210",
@@ -2492,7 +2492,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "1033012c23341445ed59360ec0a08a8dfa98cae67fa5f85d87818a69a373c86e",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "7eae528d5af7e78674e93941b024e598ff6ff1adba374a3ce98dbd4f69363da1"
+        "tools/run_postgres_smoke.py": "45d4d888566ef22d3aa7c86ec53bd6b0fb546cd28fde3cf29834b2ee2200442d"
       },
       "rationale": "Version non-applicability candidate: upstream advisory explicitly excludes OpenSSL 3.0; captured package is 3.0.13-based. Ubuntu still Needs evaluation. Verify distribution source/build lineage has not introduced QUIC support before accepting exact artifact/version only. Operational decision relies on no QUIC/AES-GCM-SIV/TLS certificate workload, not an unproven Ubuntu source-backport exemption. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-88822",
@@ -2530,7 +2530,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "1033012c23341445ed59360ec0a08a8dfa98cae67fa5f85d87818a69a373c86e",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "7eae528d5af7e78674e93941b024e598ff6ff1adba374a3ce98dbd4f69363da1"
+        "tools/run_postgres_smoke.py": "45d4d888566ef22d3aa7c86ec53bd6b0fb546cd28fde3cf29834b2ee2200442d"
       },
       "rationale": "Version non-applicability candidate: upstream excludes OpenSSL 3.0. Confirm actual distribution build lacks the affected QUIC implementation; otherwise held. Do not describe every OpenSSL finding as false positive. Operational decision relies on no QUIC/AES-GCM-SIV/TLS certificate workload, not an unproven Ubuntu source-backport exemption. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-95691",
@@ -2568,7 +2568,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "1033012c23341445ed59360ec0a08a8dfa98cae67fa5f85d87818a69a373c86e",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "7eae528d5af7e78674e93941b024e598ff6ff1adba374a3ce98dbd4f69363da1"
+        "tools/run_postgres_smoke.py": "45d4d888566ef22d3aa7c86ec53bd6b0fb546cd28fde3cf29834b2ee2200442d"
       },
       "rationale": "Conditional scoped candidate: no GnuTLS certificate validation should occur in explicit non-TLS SCRAM test. GnuTLS is linked through LDAP; require no LDAP TLS/certificate or plugin path. Disputed does not mean fixed or Not affected. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-67693",
@@ -2606,7 +2606,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "1033012c23341445ed59360ec0a08a8dfa98cae67fa5f85d87818a69a373c86e",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "7eae528d5af7e78674e93941b024e598ff6ff1adba374a3ce98dbd4f69363da1"
+        "tools/run_postgres_smoke.py": "45d4d888566ef22d3aa7c86ec53bd6b0fb546cd28fde3cf29834b2ee2200442d"
       },
       "rationale": "Version non-applicability candidate: upstream excludes OpenSSL 3.0; captured 3.0.13-based package requires distribution feature/backport confirmation. Ubuntu Needs evaluation is retained; no blanket scanner suppression. Operational decision relies on no QUIC/AES-GCM-SIV/TLS certificate workload, not an unproven Ubuntu source-backport exemption. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-88823",
@@ -2644,7 +2644,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "1033012c23341445ed59360ec0a08a8dfa98cae67fa5f85d87818a69a373c86e",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "7eae528d5af7e78674e93941b024e598ff6ff1adba374a3ce98dbd4f69363da1"
+        "tools/run_postgres_smoke.py": "45d4d888566ef22d3aa7c86ec53bd6b0fb546cd28fde3cf29834b2ee2200442d"
       },
       "rationale": "Conditional scoped candidate: no CMS encryption or recipient certificates are part of synthetic PostgreSQL traffic. Ordinary TLS is not this CMS path; current sslmode=disable further bounds this test. Not a source-version false positive; future certificate/document features reopen review. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-107496",

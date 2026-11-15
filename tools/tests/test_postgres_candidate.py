@@ -8,6 +8,7 @@ from pathlib import Path
 import tarfile
 import tempfile
 import unittest
+import urllib.request
 from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -70,6 +71,16 @@ class CandidateTests(unittest.TestCase):
                 info.size = 1
                 output.addfile(info, io.BytesIO(b"x"))
         return image
+
+    def test_registry_redirect_does_not_forward_bearer_to_cdn(self):
+        request = urllib.request.Request('https://registry-1.docker.io/v2/library/postgres/blobs/synthetic',
+                                         headers={'Authorization': 'Bearer synthetic-test-token'})
+        redirected = module.RegistryRedirect().redirect_request(request, None, 302, 'Found', {}, 'https://cdn.example.invalid/blob')
+        self.assertIsNone(redirected.get_header('Authorization'))
+        same = module.RegistryRedirect().redirect_request(request, None, 302, 'Found', {}, 'https://registry-1.docker.io/next')
+        self.assertEqual(same.get_header('Authorization'), 'Bearer synthetic-test-token')
+        with self.assertRaisesRegex(ValueError, 'HTTPS'):
+            module.RegistryRedirect().redirect_request(request, None, 302, 'Found', {}, 'http://cdn.example.invalid/blob')
 
     def test_exact_authored_recipe_and_source_pin_pass(self):
         context, proposal, pin = module.recipe(self.root)

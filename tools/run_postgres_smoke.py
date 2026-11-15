@@ -12,6 +12,7 @@ import subprocess
 import sys
 import uuid
 import time
+import tarfile
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -91,16 +92,47 @@ def load_derived_image(runtime, root=ROOT, executor=None):
     archive = root / "work/f2-security/postgres-derived.oci.tar"
     if runtime.get("archive_path") != str(archive.relative_to(root)) or sha256(archive) != runtime.get("archive_sha256"):
         raise ValueError("Derived archive changed before Docker import")
+    with tarfile.open(archive, "r:*") as content:
+        name = "blobs/sha256/" + runtime["platform_manifest_digest"].split(":", 1)[1]
+        member = content.getmember(name)
+        if not member.isfile() or member.size > 4 * 1024 * 1024:
+            raise ValueError("Imported manifest metadata is invalid")
+        data = content.extractfile(member).read()
+        if "sha256:" + hashlib.sha256(data).hexdigest() != runtime["platform_manifest_digest"] or json.loads(data)["config"]["digest"] != runtime["config_digest"]:
+            raise ValueError("Imported manifest/config linkage changed")
+        index = content.extractfile("index.json").read(4 * 1024 * 1024 + 1)
+        if "sha256:" + hashlib.sha256(index).hexdigest() != runtime.get("index_digest"):
+            raise ValueError("Imported index identity changed")
     execute(["docker", "image", "load", "--input", str(archive)], capture_output=True)
-    result = execute(["docker", "image", "inspect", runtime["config_digest"], "--format", "{{json .}}"], capture_output=True)
-    identity = json.loads(result.stdout)
-    if not (identity.get("Id") == runtime["config_digest"] and identity.get("Os") == "linux" and
-            identity.get("Architecture") == "amd64" and identity.get("Config", {}).get("User") == "postgres" and
-            identity.get("RootFS", {}).get("Layers") == runtime.get("rootfs_diff_ids")):
-        raise ValueError("Docker imported config/platform/rootfs differs from scanned OCI artifact")
-    if sha256(archive) != runtime["archive_sha256"]:
-        raise ValueError("Derived archive changed during Docker import")
-    return runtime["config_digest"]
+    # Docker's containerd store addresses images by target (manifest/index)
+    # digest, unlike the classic store's config-digest image ID. Each candidate
+    # below is an immutable digest independently verified from this OCI archive.
+    candidates = [runtime.get("platform_manifest_digest"), runtime.get("index_digest")]
+    failures = []
+    for target in dict.fromkeys(candidates):
+        if not isinstance(target, str) or not re.fullmatch(r"sha256:[0-9a-f]{64}", target):
+            raise ValueError("Derived imported target digest missing")
+        try:
+            response = execute(["docker", "image", "inspect", target, "--format", "{{json .}}"], capture_output=True)
+        except subprocess.CalledProcessError as error:
+            failures.append({"target": target, "lookup_exit_code": error.returncode})
+            continue
+        identity = json.loads(response.stdout)
+        if not (identity.get("Id") == target and identity.get("Descriptor", {}).get("digest") == target and
+                identity.get("Os") == "linux" and identity.get("Architecture") == "amd64" and
+                identity.get("Config", {}).get("User") == "postgres" and
+                identity.get("RootFS", {}).get("Layers") == runtime.get("rootfs_diff_ids")):
+            raise ValueError("Docker imported manifest/platform/rootfs differs from scanned OCI artifact")
+        if sha256(archive) != runtime["archive_sha256"]:
+            raise ValueError("Derived archive changed during Docker import")
+        evidence = {"status": "static_import_verified_not_started", "target_digest": target,
+                    "platform_manifest_digest": runtime["platform_manifest_digest"],
+                    "config_digest_verified_from_oci": runtime["config_digest"],
+                    "archive_sha256": runtime["archive_sha256"], "docker_inspect": identity}
+        folder = root / "work/f2-security"
+        (folder / "docker-import.json").write_text(json.dumps(evidence, indent=2) + "\n")
+        return target
+    raise ValueError("Docker did not resolve either verified OCI target digest: " + json.dumps(failures))
 
 
 def client_environment(root, suffix, password, port):
