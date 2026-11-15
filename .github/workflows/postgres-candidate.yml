@@ -32,11 +32,6 @@ jobs:
         run: |
           python3 -m unittest discover -s tools/tests -p test_postgres_candidate.py
           python3 -m unittest discover -s tools/tests -p 'test_ci_native_*.py'
-      - name: Record authenticated Ubuntu transaction metadata without install
-        run: |
-          sudo apt-get update --error-on=any
-          python3 tools/security/prepare_ci_native.py
-          python3 tools/security/download_ci_native.py
       - name: Build OCI artifact without RUN or starting the database
         run: python3 tools/security/build_postgres_candidate.py
       - name: Download checksum-verified scanners
@@ -46,6 +41,11 @@ jobs:
           .local/security-tools/syft oci-archive:work/f2-security/postgres-derived.oci.tar -o syft-json=work/f2-security/postgres-derived-sbom.json
           .local/security-tools/grype sbom:work/f2-security/postgres-derived-sbom.json -o json --file work/f2-security/postgres-derived-cves.json
           python3 tools/security/summarize_postgres_candidate.py
+      - name: Record authenticated Ubuntu transaction metadata without install
+        run: |
+          sudo apt-get update --error-on=any
+          python3 tools/security/prepare_ci_native.py
+          python3 tools/security/download_ci_native.py
       - name: Preserve experiment evidence even on failure
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02

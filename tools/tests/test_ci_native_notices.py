@@ -26,6 +26,16 @@ def fixture(entries):
 
 
 class NoticeTests(unittest.TestCase):
+    def test_observed_i386_companion_requires_exact_trusted_metadata(self):
+        row = {'name': 'libc6-i386', 'candidate': '2.39-0ubuntu8.12', 'metadata': {
+            'candidate': '2.39-0ubuntu8.12', 'sha256': 'a' * 64,
+            'origins': [{'trusted': True, 'origin': 'Ubuntu', 'label': 'Ubuntu',
+                         'archive': 'noble-security', 'component': 'main'}]}}
+        self.assertEqual(m.validate_row(row)[0], 'libc6-i386')
+        row['metadata']['candidate'] = '2.39-0ubuntu8.9'
+        with self.assertRaises(ValueError):
+            m.validate_row(row)
+
     def test_regular_and_cross_package_symlink(self):
         one = fixture([('./usr/share/doc/libc6/copyright', 'license example', 'file')])
         two = fixture([('usr/share/doc/libc-bin', 'libc6', 'symlink')])

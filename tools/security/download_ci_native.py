@@ -9,7 +9,7 @@ import subprocess
 import tarfile
 
 ROOT = Path(__file__).resolve().parents[2]
-ALLOWED = {'libc6', 'libc-bin', 'libc-dev-bin', 'libc6-dev', 'libc-devtools', 'locales', 'libc-l10n'}
+ALLOWED = {'libc6', 'libc6-i386', 'libc-bin', 'libc-dev-bin', 'libc6-dev', 'libc-devtools', 'locales', 'libc-l10n'}
 MAX_ARCHIVE = 64 * 1024 * 1024
 MAX_TAR = 256 * 1024 * 1024
 MAX_NOTICE = 2 * 1024 * 1024
