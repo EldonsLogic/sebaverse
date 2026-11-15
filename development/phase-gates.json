@@ -235,7 +235,8 @@
             "development/evidence/f2-local-run.md",
             "development/evidence/f2-rejected-image-43595873985/preuse-result.json",
             "development/evidence/f2-alpine-candidate-43596204128/preuse-result.json",
-            "development/evidence/f2-linux-43689700627.json"
+            "development/evidence/f2-linux-43689700627.json",
+            "development/evidence/f2-static-experiment.md"
           ],
           "verified_date": "2026-11-15"
         }
@@ -244,14 +245,15 @@
         "result": "pending",
         "reviewer": "/root/independent_reviewer",
         "evidence": [
-          "development/evidence/f2-independent-review.md"
+          "development/evidence/f2-independent-review.md",
+          "development/evidence/f2-derived-review.md"
         ],
         "notes": "Bounded fixes independently checked; native/image findings and actual DB integration remain held, so phase approval is not granted."
       },
       "blockers": [
-        "Both official DB image candidates blocked by actual High/Critical matches; preserve reports and patch/rebuild before use",
-        "Runner native libc6 has six fixable Medium matches; signed candidate metadata/companion package review, patch and rescan pending",
-        "Other Medium/Low matches require case-specific review; actual PG migration/readiness/teardown still not run"
+        "Derived artifact has3Medium findings; remaining native rescan66matches and supplier-core applicability review unapproved",
+        "Actual derived archive/provenance/import/runtime identity not yet supported by the official-only pre-use contract",
+        "Real PostgreSQL migration/SCRAM readiness/roundtrip/teardown not run; source-equivalent build output digests differ and require artifact-specific binding"
       ],
       "transition_rule": "All required checks pass with real evidence, independent review passes, required blockers cleared; no next phase until then",
       "external_conditions": "Applicable real-data/provider/spend/deployment/pilot conditions remain separate; no blanket approval Native database libraries and container layer license/security closure are required before DB/network/image use; F1 Python/npm advisory scans do not cover them."

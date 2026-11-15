@@ -1,5 +1,5 @@
 {
-  "status": "draft_unbuilt",
+  "status": "recipe_built_and_scanned_held",
   "task": "DEV-006",
   "requirements": [
     "R054",
@@ -13,12 +13,13 @@
   "platform": "linux/amd64",
   "recipe_sha256": "e5363b370b4827203bfb0e02da19315127b754cbb0ab53e9594c064ed9280455",
   "authored_replacement_sha256": "3db9af363830ea981c2d589316ed85e9fb796ba401edb183c8ecf20e4e0af47a",
-  "build_or_execution_receipt": null,
-  "derived_manifest_digest": null,
+  "build_or_execution_receipt": "development/evidence/f2-static-patched-43691875268/postgres-derived-build.json",
+  "derived_manifest_digest": "sha256:18560309771449379dec4759b4f1d07ad8a5d008ef3f45a336e995b89d48a01f",
   "gate": "No use until independently reviewed actual derived-image/source/digest scan and remaining native/core closure pass",
   "limitations": [
     "Effective filesystem replacement leaves lower-layer bytes",
     "Test-only nonroot startup; no release/rights/production clearance",
-    "Current evaluated image pin is unchanged by this draft"
+    "Current evaluated image pin is unchanged by this draft",
+    "Observed output digests differ across builds; each actual artifact must be bound independently. No reproducible-release build claim."
   ]
 }

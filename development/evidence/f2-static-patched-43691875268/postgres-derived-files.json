@@ -1,0 +1,10 @@
+{
+  "status": "static_files_inspected_not_cleared",
+  "archive_sha256": "347a7dc09c98be7114360139f1eaec1dbb10696d8a7e8e1c8fa40705bcbd4662",
+  "platform_manifest_digest": "sha256:18560309771449379dec4759b4f1d07ad8a5d008ef3f45a336e995b89d48a01f",
+  "copy_delta": "only intended directories plus regular0755 gosu stub; exact authored hash",
+  "stub_sha256": "3db9af363830ea981c2d589316ed85e9fb796ba401edb183c8ecf20e4e0af47a",
+  "entrypoint_sha256": "9c440299ae04a0a79d55b8bf03307036d890a40979d2fb698073c9050d4b20a5",
+  "entrypoint_source": "postgres-entrypoint-source.txt",
+  "limits": "Source extracted for manual branch review; no shell/image/DB execution. Lower-layer bytes retained."
+}

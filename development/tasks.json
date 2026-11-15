@@ -368,7 +368,9 @@
       "execution_condition": "All preceding mandatory phase exit tests passed with recorded evidence/review. Applicable G1–G3 execution decisions recorded; synthetic fixtures only; exact dependency/license/security closure reviewed. No paid calls or deployment implied.",
       "evidence": [
         "development/evidence/f2-local-run.md",
-        "outputs/f2-local-skeleton/browser-report.json"
+        "outputs/f2-local-skeleton/browser-report.json",
+        "development/evidence/f2-static-experiment.md",
+        "development/evidence/f2-derived-review.md"
       ],
       "files": [
         "backend/config/",

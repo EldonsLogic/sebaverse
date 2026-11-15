@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "run": "f2-remediation-checkpoint-2026-11-15",
+  "run": "f2-static-remediation-2026-11-15",
   "max_concurrent_including_orchestrator": 4,
   "paid_provider_budget_usd": 0,
   "token_budget": null,
@@ -31,13 +31,14 @@
         "Backend",
         "Testing"
       ],
-      "status": "interrupted",
+      "status": "completed",
       "files": [
-        "backend/ (completed skeleton)",
-        "tools/security/native_chain.py",
-        "tools/tests/test_security_reports.py"
+        "tools/security/prepare_ci_native.py",
+        "tools/security/download_ci_native.py",
+        "tools/security/apply_ci_native_patch.py",
+        "corresponding synthetic tests"
       ],
-      "evidence": "Primary-source advisory research delivered in messages; root completed33-ID register after interrupt to bound remaining research. No approval."
+      "evidence": "Actual metadata/download/patch helpers; independent review and CI43691875268 verify exact patch/rescan outcome"
     },
     {
       "agent": "/root/handover_contracts",
@@ -47,11 +48,10 @@
       ],
       "status": "completed",
       "files": [
-        "web/ (completed shell)",
-        "tools/security/check_reports.py",
-        "tools/run_postgres_smoke.py"
+        "tools/security/build_postgres_candidate.py",
+        "tools/tests/test_postgres_candidate.py"
       ],
-      "evidence": "Actual F2 frontend implementation, fresh backend review and native gate hardening"
+      "evidence": "Static OCI builder and13 tests; actual artifact/provenance inspection in CI43691875268"
     },
     {
       "agent": "/root/independent_reviewer",
@@ -61,13 +61,11 @@
       ],
       "status": "completed",
       "files": [
-        "third-party/f2-psycopg-native-provenance.json",
-        "development/evidence/f2-native-research.md",
-        "read-only phase review"
+        "development/evidence/f2-derived-review.md"
       ],
-      "evidence": "Pinned source research, fresh frontend review and synthetic before/after native gate verification"
+      "evidence": "Actual helper/rights/source/BusyBox review and independently checked final raw install/scan receipts; no phase approval"
     }
   ],
   "run_status": "in_progress",
-  "scope": "F2 held: reviewed loader/configuration fixes and retained real scan failures; no DB execution, phase approval, paid calls or deployment"
+  "scope": "Static derived OCI + exact disposable-CI library remediation; F2 held pending remaining reviews, derived runtime binding and actual DB test"
 }

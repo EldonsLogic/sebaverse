@@ -25,3 +25,15 @@ Run43690950105 at32d666c completed successfully. Actual derived manifest:sha256:
 Actual OCI hash/config/lineage and exactCOPYdelta checks passed; entrypoint source was retained as data. The116.7MB artifact download was slow, so a compact metadata/notices artifact was added for subsequent review; the full payload remains available in the originating run. Do not infer manual entrypoint review from successful extraction.
 
 Local root checks after helper/parser fixes:106 foundation/policy/helper tests pass,83 backend tests pass (realPGcase deselected), Django0issues, dependencycheckerpass. Independent reviewer ran17 image/filesystem +13 nativehelper tests successfully and found no blocker in the bounded static experiment.
+
+## Actual reviewed patch and rescan
+
+Run43691875268 at51d17a4 completed successfully. Six exact trusted Ubuntu archives installed only on its disposable runner after committed review, matching copyright hashes and fresh transaction replay. All installed versions verified2.39-0ubuntu8.12; fresh linked-file inventory identified20 native owner packages. Actual native scan66matches:65Medium+1Negligible; the six targeted libc6 advisories are absent, versus72matches before patching. Remaining findings remain unapproved.
+
+The actual derived image scan again reports46packages/3Medium matches/noHigh,CriticalorUnknown. Latest manifestsha256:18560309771449379dec4759b4f1d07ad8a5d008ef3f45a336e995b89d48a01f; archiveSHA256:347a7dc09c98be7114360139f1eaec1dbb10696d8a7e8e1c8fa40705bcbd4662. Full compact reports, raw entrypoint, notices, install receipts and linked-file inventory retained at f2-static-patched-43691875268/.
+
+Root locally rehashed the downloaded first actual OCI archive and replayed exact COPYdelta/stub proof; retained entrypoint source hash matches its receipt. The exact source root branch invokes gosu only at UID0; inherited Userpostgres is verified. Init scripts remain executable entrypoint inputs and must be absent/reviewed for any future synthetic start. No startup compatibility or migration result inferred.
+
+Output digests differed between source-equivalent recipe runs; timestamp-related build nondeterminism is a hypothesis, not isolated proof. Each artifact has its own actual immutable receipt. No reproducible-release artifact, whole-archive Go erasure, legal clearance, pre-use or phase approval claimed.
+
+The original full OCI116.7MB payload from43690950105 is retained in ignored work/ci-43690950105/ and the GitHub7-day artifact; binary image payload is not committed. Exact digest/provenance/SBOM/reports and notices are committed; do not assume a short-lived hosted artifact is permanent storage.

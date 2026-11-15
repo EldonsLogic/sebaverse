@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "status": "downloaded_not_installed",
+  "candidate_record_sha256": "ce80c91fdb2495cfd6f671ab94a6e6bed14198a9a756bae1ae819afa9b45b517",
+  "packages": [
+    {
+      "name": "libc6-dev",
+      "version": "2.39-0ubuntu8.12",
+      "path": "/home/runner/work/sebaverse/sebaverse/work/f2-security/candidate-archives/libc6-dev/libc6-dev_2.39-0ubuntu8.12_amd64.deb",
+      "sha256": "d81dd6dc9d515762cc93f338efa6219252acf3e2e87b5b89dd7dc517741e6eed",
+      "copyright": {
+        "archive_path": "usr/share/doc/libc6-dev/copyright",
+        "sha256": "d3c95b56fa33e28b57860580f0baf4e4f4de2a268a2b80f1d031a5191bade265",
+        "bytes": 26462,
+        "copied_path": "/home/runner/work/sebaverse/sebaverse/work/f2-security/candidate-archives/libc6-dev/copyright"
+      }
+    },
+    {
+      "name": "libc-dev-bin",
+      "version": "2.39-0ubuntu8.12",
+      "path": "/home/runner/work/sebaverse/sebaverse/work/f2-security/candidate-archives/libc-dev-bin/libc-dev-bin_2.39-0ubuntu8.12_amd64.deb",
+      "sha256": "74ac21dab2a0a6524a2cf9de623adf1bb1f7d9b672e6b0f70adec0c40452bae3",
+      "copyright": {
+        "archive_path": "usr/share/doc/libc-dev-bin/copyright",
+        "sha256": "d3c95b56fa33e28b57860580f0baf4e4f4de2a268a2b80f1d031a5191bade265",
+        "bytes": 26462,
+        "copied_path": "/home/runner/work/sebaverse/sebaverse/work/f2-security/candidate-archives/libc-dev-bin/copyright"
+      }
+    },
+    {
+      "name": "libc6-i386",
+      "version": "2.39-0ubuntu8.12",
+      "path": "/home/runner/work/sebaverse/sebaverse/work/f2-security/candidate-archives/libc6-i386/libc6-i386_2.39-0ubuntu8.12_amd64.deb",
+      "sha256": "f3357fcee4a907404f5231381834cf31647326496d5bb4259338a717b3544c89",
+      "copyright": {
+        "archive_path": "usr/share/doc/libc6-i386/copyright",
+        "sha256": "d3c95b56fa33e28b57860580f0baf4e4f4de2a268a2b80f1d031a5191bade265",
+        "bytes": 26462,
+        "copied_path": "/home/runner/work/sebaverse/sebaverse/work/f2-security/candidate-archives/libc6-i386/copyright"
+      }
+    },
+    {
+      "name": "libc6",
+      "version": "2.39-0ubuntu8.12",
+      "path": "/home/runner/work/sebaverse/sebaverse/work/f2-security/candidate-archives/libc6/libc6_2.39-0ubuntu8.12_amd64.deb",
+      "sha256": "d821b41fc59cb4978ecd53bc83e5c964ac15d305c8d2ac4c8a35aebe55010fb9",
+      "copyright": {
+        "archive_path": "usr/share/doc/libc6/copyright",
+        "sha256": "d3c95b56fa33e28b57860580f0baf4e4f4de2a268a2b80f1d031a5191bade265",
+        "bytes": 26462,
+        "copied_path": "/home/runner/work/sebaverse/sebaverse/work/f2-security/candidate-archives/libc6/copyright"
+      }
+    },
+    {
+      "name": "libc-bin",
+      "version": "2.39-0ubuntu8.12",
+      "path": "/home/runner/work/sebaverse/sebaverse/work/f2-security/candidate-archives/libc-bin/libc-bin_2.39-0ubuntu8.12_amd64.deb",
+      "sha256": "22f0393621e72ed1b53d228ee332180269182b5445761c7d7b74f5cba75a1dd6",
+      "copyright": {
+        "archive_path": "usr/share/doc/libc-bin/copyright",
+        "sha256": "d3c95b56fa33e28b57860580f0baf4e4f4de2a268a2b80f1d031a5191bade265",
+        "bytes": 26462,
+        "copied_path": "/home/runner/work/sebaverse/sebaverse/work/f2-security/candidate-archives/libc-bin/copyright"
+      }
+    },
+    {
+      "name": "locales",
+      "version": "2.39-0ubuntu8.12",
+      "path": "/home/runner/work/sebaverse/sebaverse/work/f2-security/candidate-archives/locales/locales_2.39-0ubuntu8.12_all.deb",
+      "sha256": "0047f997c3799818514d1d08fece7cf2614a61e5505678bcf0c9558587a85d1d",
+      "copyright": {
+        "archive_path": "usr/share/doc/locales/copyright",
+        "sha256": "d3c95b56fa33e28b57860580f0baf4e4f4de2a268a2b80f1d031a5191bade265",
+        "bytes": 26462,
+        "copied_path": "/home/runner/work/sebaverse/sebaverse/work/f2-security/candidate-archives/locales/copyright"
+      }
+    }
+  ],
+  "limitations": [
+    "Notice inspection is evidence for review, not rights clearance or install authorization.",
+    "No maintainer scripts executed; no system packages changed."
+  ]
+}

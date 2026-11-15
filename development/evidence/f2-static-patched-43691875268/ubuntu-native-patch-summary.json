@@ -1,0 +1,27 @@
+{
+  "status": "installed_rescanned_not_cleared",
+  "phase_approval": false,
+  "database_execution": "not_performed",
+  "installed_versions": {
+    "libc-bin": "2.39-0ubuntu8.12",
+    "libc-dev-bin": "2.39-0ubuntu8.12",
+    "libc6": "2.39-0ubuntu8.12",
+    "libc6-dev": "2.39-0ubuntu8.12",
+    "libc6-i386": "2.39-0ubuntu8.12",
+    "locales": "2.39-0ubuntu8.12"
+  },
+  "native_packages": 20,
+  "matches": 66,
+  "severity_counts": {
+    "Medium": 65,
+    "Negligible": 1
+  },
+  "six_reviewed_libc6_matches_absent": true,
+  "input_hashes": {
+    "ubuntu-native-patch.json": "c56c49043a514d6596a2de67ac040f508ac6679edef64db7db6502f2c03cac89",
+    "system-native.json": "8da4e7d9e6c40d337583a791ec65dc30dc339c94411c2ec9b073b18edc37fa90",
+    "system-native-sbom.json": "4ea97b64e250a4311a50bb689abe1555667e60dda795243b82c9be7328d8748e",
+    "system-native-cves.json": "136d8de391b64fce4bcda0ab31b148e3ad62adcbd6545e4c14a5102d76fee05a"
+  },
+  "scope": "Reviewed disposable-CI upgrade and actual native rescan only; remaining findings, derived runtime binding and real PostgreSQL integration remain gated."
+}
