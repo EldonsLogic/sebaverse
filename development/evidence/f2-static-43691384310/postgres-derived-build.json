@@ -1,0 +1,52 @@
+{
+  "index_digest": "sha256:8dca21cfbc209d0cbcb704ad1670d60b76ce72fc02f2643618182df2ed4d0ade",
+  "platform_manifest_digest": "sha256:7328376b57a323ebe5a5a29ed98d3745d8ae20934644ea76f6a9a5bad35f7532",
+  "config_digest": "sha256:e129080b2999fdac503ecd1ca63ebec23cc3e37ba113d3110cf14da8e4763d06",
+  "platform": {
+    "os": "linux",
+    "architecture": "amd64"
+  },
+  "user": "postgres",
+  "inherited_config_verified": true,
+  "parent_layer_prefix_verified": true,
+  "layer_count": 11,
+  "schema_version": 1,
+  "status": "built_static_not_cleared",
+  "task": "DEV-006",
+  "created_at_utc": "2026-11-15T07:46:21.245725+00:00",
+  "archive_path": "work/f2-security/postgres-derived.oci.tar",
+  "archive_sha256": "984d77025ef6180636da677569f3bab30a7d64fff53600caafdbcd5fa72fdba5",
+  "input_hashes": {
+    "infra/local/postgres/Dockerfile": "e5363b370b4827203bfb0e02da19315127b754cbb0ab53e9594c064ed9280455",
+    "infra/local/postgres/gosu-disabled.sh": "3db9af363830ea981c2d589316ed85e9fb796ba401edb183c8ecf20e4e0af47a",
+    "infra/local/postgres/proposal.json": "8050b009ef1273976f780fc53de4901488612fc5b9701372b53928045673b7c1",
+    "infra/images.lock.json": "d2b81fcecfe9440b9ff1567ebfa4740ab757092461ae9d5b24bb72027c3dcb87"
+  },
+  "recipe_sha256": "e5363b370b4827203bfb0e02da19315127b754cbb0ab53e9594c064ed9280455",
+  "authored_replacement_sha256": "3db9af363830ea981c2d589316ed85e9fb796ba401edb183c8ecf20e4e0af47a",
+  "parent_platform_manifest": "sha256:005c5c37db96c1e6652a79ea31f9886402fba81ac95dc2db897739121dd7f8f2",
+  "parent_index_digest": "sha256:d3244e8ce3f165ee3c93d9c4a4b1d0fe48b3a89e2287b717fdcbbde92d405065",
+  "parent_config_digest": "sha256:6b75136145ddabf3d9a4b69660402082de7c56b734cfe50555b0674774dd742a",
+  "buildx_version": "github.com/docker/buildx v0.38.2 3c4cbd35852fc1a476923627a780a7836c28b654",
+  "command": [
+    "docker",
+    "buildx",
+    "build",
+    "--platform",
+    "linux/amd64",
+    "--network",
+    "none",
+    "--provenance=false",
+    "--sbom=false",
+    "--output",
+    "type=oci,dest=/home/runner/work/sebaverse/sebaverse/work/f2-security/postgres-derived.oci.tar",
+    "--file",
+    "/home/runner/work/sebaverse/sebaverse/infra/local/postgres/Dockerfile",
+    "/home/runner/work/sebaverse/sebaverse/infra/local/postgres"
+  ],
+  "limitations": [
+    "Static FROM/COPY/USER only; no RUN, image startup, DB connection or vulnerability gate pass.",
+    "Replacing a merged path leaves original bytes in lower layers; no archive eradication/redistribution clearance.",
+    "Entrypoint behavior, effective filesystem stub content/mode and native/core findings require separate actual review/scans before any image use."
+  ]
+}

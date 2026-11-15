@@ -65,6 +65,13 @@ jobs:
           sudo apt-get update --error-on=any
           python3 tools/security/prepare_ci_native.py
           python3 tools/security/download_ci_native.py
+      - name: Apply exact reviewed CI patch and rescan native files; no database use
+        run: |
+          python3 tools/security/apply_ci_native_patch.py
+          env -u LD_LIBRARY_PATH -u LD_PRELOAD -u LD_AUDIT python3 tools/security/native_chain.py --output-root work/f2-security
+          .local/security-tools/syft dir:work/f2-security/native-root --override-default-catalogers dpkg-db-cataloger -o syft-json=work/f2-security/system-native-sbom.json
+          .local/security-tools/grype sbom:work/f2-security/system-native-sbom.json -o json --file work/f2-security/system-native-cves.json
+          python3 tools/security/summarize_ci_patch.py
       - name: Preserve small review metadata separately from OCI archive
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
@@ -73,7 +80,8 @@ jobs:
           path: |
             work/f2-security/*.json
             work/f2-security/postgres-entrypoint-source.txt
-            work/f2-security/transaction-notices/
+            work/f2-security/candidate-archives/*/copyright
+            work/f2-security/native-root/
           retention-days: 7
           if-no-files-found: warn
       - name: Preserve experiment evidence even on failure
@@ -85,6 +93,7 @@ jobs:
             work/f2-security/*.json
             work/f2-security/*.tar
             work/f2-security/postgres-entrypoint-source.txt
-            work/f2-security/transaction-notices/
+            work/f2-security/candidate-archives/*/copyright
+            work/f2-security/native-root/
           retention-days: 7
           if-no-files-found: warn

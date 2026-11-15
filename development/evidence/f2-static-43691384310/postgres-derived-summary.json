@@ -1,0 +1,20 @@
+{
+  "status": "held_findings",
+  "task": "DEV-006",
+  "created_at_utc": "2026-11-15T07:47:24.931624+00:00",
+  "database_execution": "not_performed",
+  "phase_approval": false,
+  "platform_manifest_digest": "sha256:7328376b57a323ebe5a5a29ed98d3745d8ae20934644ea76f6a9a5bad35f7532",
+  "archive_sha256": "984d77025ef6180636da677569f3bab30a7d64fff53600caafdbcd5fa72fdba5",
+  "packages": 46,
+  "matches": 3,
+  "severity_counts": {
+    "Medium": 3
+  },
+  "input_hashes": {
+    "postgres-derived-build.json": "dcf663d568c3b7d7894ca825a9c93bb861a5e0222e366c38e06523a71e33e8e7",
+    "postgres-derived-sbom.json": "0c0b209eeac2af59043aa5db471e1e425803321c7ea8aaa6c11be8ab5f9a5e52",
+    "postgres-derived-cves.json": "5afbf1c6c59a55f095ceb5cb1eece0f849b0fd2b4a65feb05a430e0524bebbbc"
+  },
+  "scope": "Static derived merged-filesystem experiment only. Native chain/core review, final source/runner binding and actual database integration remain gated. Lower-layer bytes are retained."
+}

@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "status": "approved_ci_only",
+  "scope": "ubuntu24.04-amd64-glibc-six-package-patch",
+  "review_date": "2026-11-15",
+  "reviewer": "root dependency review; not founder phase approval",
+  "authorization": "DEV-006 / U16 / AUTH-003 bounded synthetic CI dependency remediation",
+  "source_run": 43691384310,
+  "copyright_evidence": "development/evidence/f2-hardened-run-43596679254/native-root/usr/share/doc/libc6/copyright",
+  "rights_review": "Exact archive-extracted copyright bytes match retained upstream notice. Composite LGPL/GPL and other notices retained; upgrade existing distro packages only on disposable CI, no app redistribution, commercial clearance or phase approval. Notice historical version text is not binary version evidence.",
+  "source_review": "Exact artifacts bound to signed Ubuntu Noble updates/security metadata, SHA256 and full six-package dry-run; no new packages, removals or unreviewed companions.",
+  "packages": [
+    {
+      "name": "libc-bin",
+      "version": "2.39-0ubuntu8.12",
+      "archive_sha256": "22f0393621e72ed1b53d228ee332180269182b5445761c7d7b74f5cba75a1dd6",
+      "copyright_sha256": "d3c95b56fa33e28b57860580f0baf4e4f4de2a268a2b80f1d031a5191bade265"
+    },
+    {
+      "name": "libc-dev-bin",
+      "version": "2.39-0ubuntu8.12",
+      "archive_sha256": "74ac21dab2a0a6524a2cf9de623adf1bb1f7d9b672e6b0f70adec0c40452bae3",
+      "copyright_sha256": "d3c95b56fa33e28b57860580f0baf4e4f4de2a268a2b80f1d031a5191bade265"
+    },
+    {
+      "name": "libc6",
+      "version": "2.39-0ubuntu8.12",
+      "archive_sha256": "d821b41fc59cb4978ecd53bc83e5c964ac15d305c8d2ac4c8a35aebe55010fb9",
+      "copyright_sha256": "d3c95b56fa33e28b57860580f0baf4e4f4de2a268a2b80f1d031a5191bade265"
+    },
+    {
+      "name": "libc6-dev",
+      "version": "2.39-0ubuntu8.12",
+      "archive_sha256": "d81dd6dc9d515762cc93f338efa6219252acf3e2e87b5b89dd7dc517741e6eed",
+      "copyright_sha256": "d3c95b56fa33e28b57860580f0baf4e4f4de2a268a2b80f1d031a5191bade265"
+    },
+    {
+      "name": "libc6-i386",
+      "version": "2.39-0ubuntu8.12",
+      "archive_sha256": "f3357fcee4a907404f5231381834cf31647326496d5bb4259338a717b3544c89",
+      "copyright_sha256": "d3c95b56fa33e28b57860580f0baf4e4f4de2a268a2b80f1d031a5191bade265"
+    },
+    {
+      "name": "locales",
+      "version": "2.39-0ubuntu8.12",
+      "archive_sha256": "0047f997c3799818514d1d08fece7cf2614a61e5505678bcf0c9558587a85d1d",
+      "copyright_sha256": "d3c95b56fa33e28b57860580f0baf4e4f4de2a268a2b80f1d031a5191bade265"
+    }
+  ],
+  "conditions": [
+    "Committed exact approval required",
+    "Fresh exact dry-run and every archive/notice rehashed before install",
+    "Actual post-install version, native-chain inventory, notices and fresh scanner reports required",
+    "No native/database use or F2 gate approved by this record"
+  ]
+}
