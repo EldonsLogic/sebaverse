@@ -26,7 +26,7 @@ def command(args):
 
 
 
-ALLOWED_PACKAGES = {"libc6", "libc-bin", "libc-dev-bin", "libc6-dev", "libc-devtools", "locales", "libc-l10n"}
+ALLOWED_PACKAGES = {"libc6", "libc6-i386", "libc-bin", "libc-dev-bin", "libc6-dev", "libc-devtools", "locales", "libc-l10n"}
 
 
 def parse_transaction(text):
@@ -37,7 +37,7 @@ def parse_transaction(text):
             raise RuntimeError("Simulation proposes removals")
         if not line.startswith("Inst "):
             continue
-        match = re.fullmatch(r"Inst ([a-z0-9+.-]+)(?::([a-z0-9]+))?(?: \[([^\]]+)\])? \(([^ ]+) .+\)", line)
+        match = re.fullmatch(r"Inst ([a-z0-9+.-]+)(?::([a-z0-9]+))?(?: \[([^\]]+)\])? \(([^ ]+) .+\)(?: \[\])?", line)
         if not match:
             raise RuntimeError("Malformed simulated installation")
         name, arch, installed, version = match.groups()

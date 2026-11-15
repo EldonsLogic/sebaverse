@@ -22,6 +22,14 @@ class TransactionTests(unittest.TestCase):
         self.assertEqual([r['name'] for r in rows], ['libc6', 'libc-bin'])
         m.validate_metadata(self.row, self.metadata, lambda a, b: True)
 
+    def test_observed_apt_companion_status_suffix(self):
+        # Actual apt simulation in CI43690540793 has optional empty breakage lists.
+        plan = self.line + '\n' + self.line.replace('libc6 ', 'libc6-i386 ') + ' []'
+        rows = m.parse_transaction(plan)
+        self.assertEqual([r['name'] for r in rows], ['libc6', 'libc6-i386'])
+        with self.assertRaises(RuntimeError):
+            m.parse_transaction(self.line + ' [unrecognized status]')
+
     def test_reject_transactions(self):
         for text in ['', self.line + '\nRemv bash [1]', self.line + '\nPurg bash [1]',
                      self.line.replace('libc6 ', 'bash '), self.line.replace(' [2.39-0ubuntu8.9]', ''),
