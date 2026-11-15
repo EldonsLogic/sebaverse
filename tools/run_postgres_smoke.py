@@ -158,7 +158,7 @@ def main():
                          "--tmpfs", "/var/run/postgresql:rw,mode=3777", "--cap-drop", "ALL",
                          "--security-opt", "no-new-privileges", "--publish", "127.0.0.1::5432",
                          "--env-file", str(envfile), "--platform", "linux/amd64", image,
-                         "postgres", "-c", "unix_socket_directories=/tmp"], capture_output=True).stdout.strip()
+                         "postgres"], capture_output=True).stdout.strip()
         if not container:
             raise RuntimeError("Task-owned PostgreSQL container ID missing")
         ready = False

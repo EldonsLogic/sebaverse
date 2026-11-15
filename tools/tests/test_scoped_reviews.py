@@ -1,0 +1,61 @@
+"""Scope/expiry/code-drift tests; synthetic source only, no native or DB use."""
+from datetime import datetime, timezone, timedelta
+import copy
+import hashlib
+import importlib.util
+from pathlib import Path
+import tempfile
+import unittest
+
+ROOT = Path(__file__).resolve().parents[2]
+spec = importlib.util.spec_from_file_location('review_scope_tests', ROOT / 'tools/security/check_reports.py')
+m = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(m)
+
+
+class ScopedReviewTests(unittest.TestCase):
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.temp.cleanup)
+        self.root = Path(self.temp.name).resolve()
+        for name in ['backend/manage.py', 'backend/pyproject.toml', 'backend/uv.lock', 'tools/run_postgres_smoke.py']:
+            p = self.root / name
+            p.parent.mkdir(parents=True, exist_ok=True)
+            p.write_text('synthetic source, never executed')
+        self.now = datetime.now(timezone.utc)
+        self.row = {'scope_id': 'DEV-006-synthetic-ci', 'reviewed_at_utc': self.now.isoformat(),
+                    'expires_at_utc': (self.now + timedelta(days=1)).isoformat(),
+                    'scope_inputs': {name: hashlib.sha256(path.read_bytes()).hexdigest()
+                                     for name, path in m.scoped_workload_paths(self.root).items()}}
+
+    def bind(self, path, expected):
+        m.require(hashlib.sha256(path.read_bytes()).hexdigest() == expected, 'Scoped source bytes changed')
+
+    def check(self, row=None, runtime=None):
+        m.validate_scoped_review(row or self.row, runtime or {'type': 'derived-oci'}, self.root, self.bind, self.now)
+
+    def test_exact_current_short_lived_review_passes(self):
+        self.check()
+
+    def test_missing_authority_wrong_scope_or_expired_review_fails(self):
+        with self.assertRaisesRegex(ValueError, 'authority'):
+            m.validate_scoped_review(self.row, None, self.root, self.bind, self.now)
+        for field, value in [('scope_id', 'production'), ('expires_at_utc', (self.now - timedelta(seconds=1)).isoformat()),
+                             ('expires_at_utc', (self.now + timedelta(days=8)).isoformat())]:
+            row = copy.deepcopy(self.row)
+            row[field] = value
+            with self.subTest(field=field, value=value), self.assertRaises(ValueError):
+                self.check(row)
+
+    def test_changed_or_added_workload_source_requires_fresh_review(self):
+        source = self.root / 'backend/manage.py'
+        original = source.read_bytes()
+        source.write_text('changed synthetic behavior')
+        with self.assertRaisesRegex(ValueError, 'bytes'):
+            self.check()
+        source.write_bytes(original)
+        new = self.root / 'backend/modules/new_feature.py'
+        new.parent.mkdir()
+        new.write_text('new synthetic feature')
+        with self.assertRaisesRegex(ValueError, 'file set'):
+            self.check()

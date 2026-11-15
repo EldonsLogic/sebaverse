@@ -60,3 +60,21 @@ Independently counted raw native matches: previous official Alpine experiment72 
 Derived raw image report contains exactly3Medium matches, no High/Critical/Unknown. Retained summary reports46 packages, status held_findings, database_execution not_performed and phase_approval false. Derived platform manifest: sha256:18560309771449379dec4759b4f1d07ad8a5d008ef3f45a336e995b89d48a01f. Reported archive SHA256:347a7dc09c98be7114360139f1eaec1dbb10696d8a7e8e1c8fa40705bcbd4662. Full OCI archive bytes were not independently replayed in this outcome review.
 
 Remaining66 native findings,3 image findings, supplier-core applicability, final immutable scan-to-runner binding and actual PostgreSQL integration remain held. A successful static experiment is evidence of this bounded improvement, not an F2 phase pass, production certification or database-use approval.
+
+## Derived runtime authority review — 9582228 and current runner changes
+
+Read derived_image_contract.py, current checker/runner changes, infra/local/postgres/runtime-source.json and the four adopted operational finding rows. Independent targeted tests: derived contract7 passed, security policy46 passed, loader environment8 passed. No image import or database executed by this review.
+
+The explicit authority now binds parent/recipe/stub and exact work paths, independently replays archive lineage/config and COPY/entrypoint proofs, requires empty initdb/helper inputs, and validates scanner raw manifest/config digests plus source path. Runner replays the complete gate, imports the checked archive, verifies Docker config/platform/rootfs identity, executes by config digest with pull-never, and uses a task-owned inspected internal network. Current resource bounds and explicit synthetic client environment remove ambient service/plugin configuration and retain task-owned cleanup. These changes align with the conditional BusyBox mitigation; they do not certify actual hosted startup or native findings.
+
+One concrete remaining scope-integrity finding was sent to root: finding rows are currently accepted by report/id/package/version alone. Their restricted_synthetic_ci_only/component_not_present_in_bound_artifact dispositions need an explicit valid-derived-runtime requirement. Otherwise removing runtime-source.json enables the official fallback path to reuse those rows without the derived empty-initdb/helper proof required by their rationale. Current committed authority exists, but the fallback should fail closed for these scoped reviews; add a negative regression rather than relying on prose. No severity threshold change is recommended.
+
+Native66 remains held; current hosted evidence collection was not independently asserted successful here. Operational image/core review is restricted to the exact replayed synthetic authority and runner conditions; no production/phase approval follows.
+
+## Pre-run operational adoption check
+
+Independent review of70 operational rows and new scope/symbol validators found the earlier official-fallback scope gap corrected. Fresh3 scoped tests and4 symbol-gate tests pass. Per-ID decisions remain conditional residual-risk acceptance under exact synthetic workload/expiry/source binding; thresholds and raw findings remain intact. A symbol-coverage pruning gap was reported: require the full reviewed object set, not merely native closure plus Python executable, before relying on the106-object libc evidence. See f2-native-operational-decisions.md addendum. No actual pre-use success, migration or phase approval is asserted.
+
+### Focused final corrections
+
+Verified shared object discovery/exact-set equality and independently replayed5 symbol +3 scoped tests, all pass. This corrects the reported coverage-pruning gap. Reviewed removal of the custom unix_socket_directories=/tmp server argument: retained entrypoint passes server arguments to its temporary server, while docker_process_sql clears PGHOST/PGHOSTADDR and uses the compiled default socket. Keeping upstream socket defaults aligns those initialization paths with the already writable /var/run/postgresql tmpfs. This is a justified compatibility correction; actual startup remains untested by this review. Network/user/resource restrictions remain intact. No new concrete blocker identified in these focused changes, and no phase or actual database result approved.

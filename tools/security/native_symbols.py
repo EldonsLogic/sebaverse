@@ -17,8 +17,11 @@ DYNAMIC = {'dlopen', 'dlmopen', 'dlsym', '__libc_dlopen_mode'}
 
 
 def digest(path):
+    value = hashlib.sha256()
     with path.open('rb') as handle:
-        return hashlib.file_digest(handle, 'sha256').hexdigest()
+        for block in iter(lambda: handle.read(1024 * 1024), b''):
+            value.update(block)
+    return value.hexdigest()
 
 
 def parse_symbols(text):
@@ -53,6 +56,48 @@ def inspect(path, output):
                 **parse_symbols(result.stdout.decode('utf-8', errors='strict')))
 
 
+def discover_objects(root, native):
+    """Recompute the full reviewed Linux layout without loading any object."""
+    root = Path(root).resolve()
+    version = (root / '.python-version').read_text().strip()
+    if not re.fullmatch(r'3\.12\.\d+', version):
+        raise ValueError('Unsupported scoped Python version')
+    series = '.'.join(version.split('.')[:2])
+    venv = root / 'backend/.venv'
+    executable = (venv / 'bin/python').resolve(strict=True)
+    base = executable.parent.parent
+    stdlib = (base / 'lib' / ('python' + series)).resolve(strict=True)
+    platlib = (venv / 'lib' / ('python' + series) / 'site-packages').resolve(strict=True)
+    cfg = dict(line.split('=', 1) for line in (venv / 'pyvenv.cfg').read_text().splitlines() if '=' in line)
+    cfg = {key.strip(): value.strip() for key, value in cfg.items()}
+    if cfg.get('include-system-site-packages') != 'false' or Path(cfg.get('home', '')).resolve() != executable.parent:
+        raise ValueError('Unexpected virtual environment source/layout')
+    paths, categories = set(), {}
+    for row in native['libraries']:
+        path = Path(row.get('canonical_path', row['path'])).resolve(strict=True)
+        if digest(path) != row['sha256']:
+            raise ValueError('Reviewed native library hash mismatch')
+        paths.add(path)
+        categories[str(path)] = 'reviewed_libpq_closure'
+    paths.add(executable)
+    categories[str(executable)] = 'python_executable'
+    for name in ('libpython' + series + '.so', 'libpython' + series + '.so.1.0'):
+        if (base / 'lib' / name).is_file():
+            path = (base / 'lib' / name).resolve()
+            paths.add(path)
+            categories[str(path)] = 'libpython'
+    for tree in {stdlib, platlib}:
+        for file in tree.rglob('*.so'):
+            path = file.resolve(strict=True)
+            if not path.is_relative_to(tree):
+                raise ValueError('Extension symlink escapes interpreter tree')
+            paths.add(path)
+            categories[str(path)] = 'available_python_extension_not_observed_loaded'
+            if len(paths) > 2000:
+                raise ValueError('Extension inventory exceeds bound')
+    return paths, categories, stdlib, platlib
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--output-root', default='work/f2-security')
@@ -66,32 +111,9 @@ def main():
         raise ValueError('Output outside repository work')
     manifest_path = output / 'system-native.json'
     native = json.loads(manifest_path.read_text())
-    paths, categories = set(), {}
-    for row in native['libraries']:
-        path = Path(row.get('resolved_path', row.get('path', ''))).resolve(strict=True)
-        if digest(path) != row['sha256']:
-            raise ValueError('Reviewed native library hash mismatch')
-        paths.add(path)
-        categories[str(path)] = 'reviewed_libpq_closure'
-    executable = Path(sys.executable).resolve(strict=True)
-    paths.add(executable)
-    categories[str(executable)] = 'python_executable'
-    roots = {Path(sysconfig.get_path('stdlib')).resolve(), Path(sysconfig.get_path('platlib')).resolve()}
-    libdir = Path(sysconfig.get_config_var('LIBDIR') or '/nonexistent')
-    library = sysconfig.get_config_var('LDLIBRARY')
-    if library and (libdir / library).is_file():
-        path = (libdir / library).resolve()
-        paths.add(path)
-        categories[str(path)] = 'libpython'
-    for root in roots:
-        for file in root.rglob('*.so'):
-            path = file.resolve(strict=True)
-            if not path.is_relative_to(root):
-                raise ValueError('Extension symlink escapes interpreter tree')
-            paths.add(path)
-            categories[str(path)] = 'available_python_extension_not_observed_loaded'
-            if len(paths) > 2000:
-                raise ValueError('Extension inventory exceeds bound')
+    paths, categories, stdlib, platlib = discover_objects(ROOT, native)
+    if Path(sysconfig.get_path('stdlib')).resolve() != stdlib or Path(sysconfig.get_path('platlib')).resolve() != platlib:
+        raise ValueError('Actual interpreter discovery differs from scoped layout')
     raw = output / 'native-symbols'
     raw.mkdir(exist_ok=True)
     entries = [dict(category=categories[str(path)], **inspect(path, raw)) for path in sorted(paths)]

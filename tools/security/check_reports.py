@@ -9,6 +9,7 @@ from pathlib import Path
 import argparse
 import hashlib
 import json
+import os
 import re
 import subprocess
 import sys
@@ -244,6 +245,76 @@ def read_version(output):
     return value.get("version")
 
 
+def scoped_workload_paths(root):
+    """Changes to synthetic code or its runner invalidate narrowly scoped reviews."""
+    paths = {root / "tools/run_postgres_smoke.py", root / "backend/manage.py",
+             root / "backend/pyproject.toml", root / "backend/uv.lock"}
+    for directory, subdirs, files in os.walk(root / "backend"):
+        subdirs[:] = [name for name in subdirs if name not in {".venv", "__pycache__", ".pytest_cache", "work", "node_modules"}]
+        require(all(not (Path(directory) / name).is_symlink() for name in subdirs), "Scoped source directory redirected")
+        paths.update(Path(directory) / name for name in files if name.endswith(".py"))
+    require(all(path.is_file() and not path.is_symlink() and path.resolve().is_relative_to(root.resolve())
+                for path in paths), "Scoped workload source missing or redirected")
+    return {str(path.relative_to(root)): path for path in paths}
+
+
+def validate_scoped_review(row, runtime, root, bind, now):
+    require(runtime is not None and runtime.get("type") == "derived-oci",
+            "Scoped finding review requires valid derived runtime authority")
+    require(row.get("scope_id") == "DEV-006-synthetic-ci", "Finding review workload scope mismatch")
+    fresh(row.get("reviewed_at_utc"), "Scoped review time", now, timedelta(days=7))
+    expires = timestamp(row.get("expires_at_utc"), "Scoped review expiry")
+    require(now < expires <= now + timedelta(days=7), "Scoped finding review expired or overlong")
+    inputs = mapping(row.get("scope_inputs"), "Scoped review code inputs")
+    expected = scoped_workload_paths(root)
+    require(set(inputs) == set(expected), "Scoped workload file set changed; fresh review required")
+    for name, path in expected.items():
+        bind(path, inputs[name])
+
+
+def validate_symbol_evidence(directory, root, native, bind, now):
+    """Bind the measured static importer boundary used by CI-only dispositions."""
+    import importlib.util
+    path = directory / "native-symbols.json"
+    bind(path)
+    report = mapping(read_json(path), "Native symbol evidence")
+    require(report.get("schema_version") == 1 and report.get("native_manifest_sha256") == sha256(directory / "system-native.json"),
+            "Symbol evidence native inventory differs")
+    fresh(report.get("created_at_utc"), "Symbol evidence", now, timedelta(days=1))
+    helper = root / "tools/security/native_symbols.py"
+    bind(helper)
+    spec = importlib.util.spec_from_file_location("scoped_native_symbols", helper)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    objects = report.get("objects")
+    require(isinstance(objects, list) and 0 < len(objects) <= 2000, "Static object coverage missing")
+    expected_native = {str(Path(row.get("canonical_path", row["path"])).resolve()): row["owner"] for row in native["libraries"]}
+    seen = set()
+    python_seen = False
+    for obj in objects:
+        filename = Path(text(obj.get("path"), "Symbol object path")).resolve()
+        require(str(filename) not in seen, "Duplicate symbol object")
+        seen.add(str(filename))
+        bind(filename, obj.get("sha256"))
+        raw = Path(text(obj.get("symbol_output"), "Raw symbol output")).resolve()
+        require(raw == (directory / "native-symbols" / (obj["sha256"] + ".symbols.txt")).resolve(), "Symbol output path differs")
+        bind(raw, obj.get("symbol_output_sha256"))
+        actual = module.parse_symbols(raw.read_text())
+        require(all(obj.get(key) == value for key, value in actual.items()), "Recorded symbol classification differs from raw output")
+        for name in actual["target_imports"]:
+            name = name.split("@", 1)[0]
+            require(name in {"regcomp", "regexec"}, "Wide-scanf importer invalidates scoped review")
+            require(expected_native.get(str(filename), "").startswith("libkrb5-3:"), "Unexpected regex importer invalidates scoped review")
+        if obj.get("category") == "python_executable":
+            require(filename == (root / "backend/.venv/bin/python").resolve(), "Different Python executable inspected")
+            python_seen = True
+    bind(root / ".python-version")
+    bind(root / "backend/.venv/pyvenv.cfg")
+    expected_objects, _, _, _ = module.discover_objects(root, native)
+    require(seen == {str(path) for path in expected_objects} and python_seen,
+            "Static native/Python object coverage incomplete or changed")
+
+
 def evaluate(directory, root=None, now=None):
     root = Path(root or ROOT).resolve()
     directory = Path(directory).resolve()
@@ -356,6 +427,8 @@ def evaluate(directory, root=None, now=None):
             linked_owners.add(library["owner"])
             bind(resolved_path(library.get("canonical_path", library.get("path")), root), library.get("sha256"))
         require(linked_owners == set(owners), "Native owners and linked closure differ")
+        if runtime is not None:
+            validate_symbol_evidence(directory, root, native, bind, now)
         image = read_json(directory / "image-sbom.json")
         image_ids = syft_sbom(image, "Image SBOM")
         require(len(image_ids) >= 5 and any(x[2] in {"deb", "apk", "rpm"} for x in image_ids.values()), "Image OS package coverage incomplete")
@@ -382,8 +455,7 @@ def evaluate(directory, root=None, now=None):
             for field in ("report", "id", "package", "version", "rationale", "source", "reviewer"):
                 text(row.get(field), "Finding review " + field)
             if row.get("disposition") in {"restricted_synthetic_ci_only", "component_not_present_in_bound_artifact"}:
-                require(runtime is not None and runtime.get("type") == "derived-oci",
-                        "Scoped finding review requires valid derived runtime authority")
+                validate_scoped_review(row, runtime, root, bind, now)
             reviewed.add(tuple(row[k] for k in ("report", "id", "package", "version")))
         for name, input_name in REPORT_INPUTS.items():
             report = mapping(read_json(directory / name), name)
