@@ -23,7 +23,7 @@ class ScopedReviewTests(unittest.TestCase):
             p.parent.mkdir(parents=True, exist_ok=True)
             p.write_text('synthetic source, never executed')
         self.now = datetime.now(timezone.utc)
-        self.row = {'scope_id': 'DEV-006-synthetic-ci', 'reviewed_at_utc': self.now.isoformat(),
+        self.row = {'disposition': 'restricted_synthetic_ci_only', 'scope_id': 'DEV-006-synthetic-ci', 'reviewed_at_utc': self.now.isoformat(),
                     'expires_at_utc': (self.now + timedelta(days=1)).isoformat(),
                     'scope_inputs': {name: hashlib.sha256(path.read_bytes()).hexdigest()
                                      for name, path in m.scoped_workload_paths(self.root).items()}}
@@ -40,7 +40,7 @@ class ScopedReviewTests(unittest.TestCase):
     def test_missing_authority_wrong_scope_or_expired_review_fails(self):
         with self.assertRaisesRegex(ValueError, 'authority'):
             m.validate_scoped_review(self.row, None, self.root, self.bind, self.now)
-        for field, value in [('scope_id', 'production'), ('expires_at_utc', (self.now - timedelta(seconds=1)).isoformat()),
+        for field, value in [('disposition', 'unscoped'), ('scope_id', 'production'), ('expires_at_utc', (self.now - timedelta(seconds=1)).isoformat()),
                              ('expires_at_utc', (self.now + timedelta(days=8)).isoformat())]:
             row = copy.deepcopy(self.row)
             row[field] = value

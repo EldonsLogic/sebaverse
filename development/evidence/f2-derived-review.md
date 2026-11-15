@@ -78,3 +78,13 @@ Independent review of70 operational rows and new scope/symbol validators found t
 ### Focused final corrections
 
 Verified shared object discovery/exact-set equality and independently replayed5 symbol +3 scoped tests, all pass. This corrects the reported coverage-pruning gap. Reviewed removal of the custom unix_socket_directories=/tmp server argument: retained entrypoint passes server arguments to its temporary server, while docker_process_sql clears PGHOST/PGHOSTADDR and uses the compiled default socket. Keeping upstream socket defaults aligns those initialization paths with the already writable /var/run/postgresql tmpfs. This is a justified compatibility correction; actual startup remains untested by this review. Network/user/resource restrictions remain intact. No new concrete blocker identified in these focused changes, and no phase or actual database result approved.
+
+## Internal-network relay and containerd identity correction review
+
+Independently replayed8 derived-contract tests and1 internal-network test, all passed. Reviewed verified archive manifest/config/index linkage and containerd target-digest import checks, exact rootfs/platform/User matching, and execution by immutable verified target. Reviewed relay binding solely127.0.0.1 to a private container IPv4, checked against inspected internal NetworkID/IPAM membership; no external network is enabled. TCP pg_isready inside the container now distinguishes the final listening server from Unix-only initialization. The orchestrator reported a benign TCP echo/closed-port relay check; this review did not independently rerun that socket experiment or database integration.
+
+One concrete teardown concern was sent to root: relay.close and container removal share a try block, so an exception in close skips task-owned container removal. Container removal should run in a nested finally even when relay shutdown fails. No other concrete blocker identified in these bounded relay/import changes; actual fresh integration evidence remains pending. This review grants no phase approval.
+
+### Relay cleanup blocker closed
+
+Fresh review confirms cleanup_owned_resources attempts relay, container, network, credential file and client home independently; failures retain safe step/type categories. Main records teardown status and preserves an active primary exception, while otherwise preventing success on teardown errors. Independently replayed2 failure-injection cleanup tests and1 endpoint test, all passed. The reported relay-close-skips-container-removal blocker is closed. Actual hosted integration outcome remains pending; no phase approval follows.

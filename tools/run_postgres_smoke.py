@@ -13,6 +13,11 @@ import sys
 import uuid
 import time
 import tarfile
+import socket
+import socketserver
+import threading
+import select
+import ipaddress
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -135,6 +140,71 @@ def load_derived_image(runtime, root=ROOT, executor=None):
     raise ValueError("Docker did not resolve either verified OCI target digest: " + json.dumps(failures))
 
 
+class LoopbackRelay:
+    """Owned localhost TCP relay to one verified internal-network endpoint."""
+    def __init__(self, address, port):
+        ip = ipaddress.ip_address(address)
+        if ip.version != 4 or not ip.is_private or ip.is_unspecified or not 1 <= int(port) <= 65535:
+            raise ValueError("Relay target must be an owned private IPv4 endpoint")
+        self.target = (str(ip), int(port))
+        self.stop = threading.Event()
+        self.lock = threading.Lock()
+        self.connections = set()
+        relay = self
+        class Handler(socketserver.BaseRequestHandler):
+            def handle(self):
+                with socket.create_connection(relay.target, timeout=5) as remote:
+                    pair = (self.request, remote)
+                    with relay.lock:
+                        relay.connections.add(pair)
+                    try:
+                        while not relay.stop.is_set():
+                            readable, _, _ = select.select(pair, [], [], .2)
+                            for source in readable:
+                                data = source.recv(65536)
+                                if not data:
+                                    return
+                                (remote if source is self.request else self.request).sendall(data)
+                    except OSError:
+                        if not relay.stop.is_set():
+                            raise
+                    finally:
+                        with relay.lock:
+                            relay.connections.discard(pair)
+        class Server(socketserver.ThreadingTCPServer):
+            daemon_threads = True
+            allow_reuse_address = False
+        self.server = Server(("127.0.0.1", 0), Handler)
+        self.port = self.server.server_address[1]
+        self.thread = threading.Thread(target=self.server.serve_forever, kwargs={"poll_interval": .1}, daemon=True)
+        self.thread.start()
+
+    def close(self):
+        self.stop.set()
+        with self.lock:
+            connections = list(self.connections)
+        for pair in connections:
+            for stream in pair:
+                try:
+                    stream.shutdown(socket.SHUT_RDWR)
+                except OSError:
+                    pass
+        self.server.shutdown()
+        self.server.server_close()
+        self.thread.join(timeout=2)
+
+
+def internal_database_address(container_networks, network_name, network):
+    endpoint = container_networks.get(network_name, {})
+    address = ipaddress.ip_address(endpoint.get("IPAddress", ""))
+    subnets = [ipaddress.ip_network(row["Subnet"]) for row in network.get("IPAM", {}).get("Config", []) if row.get("Subnet")]
+    if (network.get("Internal") is not True or endpoint.get("NetworkID") != network.get("Id") or
+            address.version != 4 or not address.is_private or address.is_loopback or
+            not any(address in subnet for subnet in subnets if subnet.version == 4)):
+        raise ValueError("Database endpoint does not belong to the verified internal network")
+    return str(address)
+
+
 def client_environment(root, suffix, password, port):
     """Explicit synthetic connection environment; no ambient service/plugin inputs."""
     root = Path(root).resolve()
@@ -151,6 +221,28 @@ def client_environment(root, suffix, password, port):
             "PGSYSCONFDIR": str(empty), "LDAPNOINIT": "1", "LDAPCONF": "/dev/null", "LDAPRC": "/dev/null",
             "KRB5_CONFIG": "/dev/null", "KRB5_KTNAME": "FILE:/dev/null", "KRB5CCNAME": "FILE:/dev/null",
             "SASL_PATH": str(empty), "OPENSSL_CONF": "/dev/null", "OPENSSL_MODULES": str(empty)}
+
+
+def cleanup_owned_resources(relay, container, network, envfile, home, executor=None):
+    """Attempt every task-owned cleanup even if an earlier teardown action fails."""
+    execute = executor or run
+    actions = []
+    if relay:
+        actions.append(("relay", relay.close))
+    if container:
+        actions.append(("container", lambda: execute(["docker", "rm", "-f", "-v", container], capture_output=True)))
+    if network:
+        actions.append(("network", lambda: execute(["docker", "network", "rm", network], capture_output=True)))
+    actions.append(("credential_file", lambda: envfile.unlink(missing_ok=True)))
+    if home.exists():
+        actions.append(("client_home", lambda: shutil.rmtree(home)))
+    errors = []
+    for label, action in actions:
+        try:
+            action()
+        except Exception as error:
+            errors.append({"step": label, "error_type": type(error).__name__})
+    return errors
 
 
 def main():
@@ -177,6 +269,7 @@ def main():
         output.write("POSTGRES_DB=sebaverse_f2\nPOSTGRES_USER=postgres\nPOSTGRES_PASSWORD=" + password + "\nPGDATA=/tmp/pgdata\nPOSTGRES_HOST_AUTH_METHOD=scram-sha-256\n")
     container = None
     network = None
+    relay = None
     result = None
     try:
         image = load_derived_image(runtime) if runtime else pin["reference"]
@@ -188,48 +281,44 @@ def main():
         container = run(["docker", "run", "-d", "--name", name, "--pull=never", "--network", network, "--label", "dev.sebaverse.task=DEV-006",
                          "--user", "postgres", "--read-only", "--memory", "512m", "--pids-limit", "128", "--cpus", "1", "--tmpfs", "/tmp:rw,mode=1777",
                          "--tmpfs", "/var/run/postgresql:rw,mode=3777", "--cap-drop", "ALL",
-                         "--security-opt", "no-new-privileges", "--publish", "127.0.0.1::5432",
+                         "--security-opt", "no-new-privileges",
                          "--env-file", str(envfile), "--platform", "linux/amd64", image,
                          "postgres"], capture_output=True).stdout.strip()
         if not container:
             raise RuntimeError("Task-owned PostgreSQL container ID missing")
         ready = False
         for _ in range(60):
-            probe = subprocess.run(["docker", "exec", container, "pg_isready", "-U", "postgres", "-d", "sebaverse_f2"], capture_output=True, timeout=5)
+            probe = subprocess.run(["docker", "exec", container, "pg_isready", "-h", "127.0.0.1", "-U", "postgres", "-d", "sebaverse_f2"], capture_output=True, timeout=5)
             if probe.returncode == 0:
                 ready = True
                 break
             time.sleep(1)
         if not ready:
             raise RuntimeError("Ephemeral PostgreSQL did not become ready")
-        port = run(["docker", "port", container, "5432/tcp"], capture_output=True).stdout.strip().split(":")[-1]
-        if not port.isdigit() or not 1 <= int(port) <= 65535:
-            raise RuntimeError("Ephemeral PostgreSQL loopback port is invalid")
+        endpoints = json.loads(run(["docker", "inspect", container, "--format", "{{json .NetworkSettings.Networks}}"], capture_output=True).stdout)
+        address = internal_database_address(endpoints, network, net)
+        relay = LoopbackRelay(address, 5432)
+        port = str(relay.port)
         environment = client_environment(ROOT, suffix, password, port)
         run([str(ROOT / "backend/.venv/bin/python"), "-m", "pytest", "backend/tests/test_postgres_integration.py", "-q"], env=environment)
         result = {"status": "pass", "task": "DEV-006", "database": "PostgreSQL17 real instance",
                   "image": image, "source_reference": report["image_reference"], "platform_manifest_digest": report["platform_manifest_digest"],
-                  "network": "task-owned internal Docker bridge; host loopback publication only",
+                  "network": "task-owned internal Docker bridge; verified endpoint exposed only through owned127.0.0.1 relay",
                   "native_preuse_report": "work/f2-security/preuse-result.json",
                   "native_preuse_sha256": sha256(ROOT / "work/f2-security/preuse-result.json"),
                   "binding": "PSYCOPG_IMPL=python with reviewed system libpq",
                   "checks": ["actual framework migrations", "server major17", "no pending migrations",
                              "synthetic session roundtrip/cleanup", "database readiness200"], "teardown": "pending"}
     finally:
-        try:
-            if container:
-                run(["docker", "rm", "-f", "-v", container], capture_output=True)
-        finally:
-            try:
-                if network:
-                    run(["docker", "network", "rm", network], capture_output=True)
-            finally:
-                envfile.unlink(missing_ok=True)
-                home = envdir / (suffix + "-home")
-                if home.exists():
-                    shutil.rmtree(home)
+        primary_failure = sys.exc_info()[0] is not None
+        cleanup_errors = cleanup_owned_resources(relay, container, network, envfile, envdir / (suffix + "-home"))
+        cleanup_report = {"status": "fail" if cleanup_errors else "pass", "task": "DEV-006",
+                          "errors": cleanup_errors, "scope": "Only task-owned relay/container/network/credential/home cleanup attempted"}
+        (ROOT / "work/f2-security/postgres-teardown.json").write_text(json.dumps(cleanup_report, indent=2) + "\n")
+        if cleanup_errors and not primary_failure:
+            raise RuntimeError("Task-owned teardown failed; inspect postgres-teardown.json")
     if result is not None:
-        result["teardown"] = "task-owned container/volumes/internal network removed; synthetic env removed; static imported image cache remains only on disposable runner"
+        result["teardown"] = "task-owned relay/container/volumes/internal network removed; synthetic env removed; static imported image cache remains only on disposable runner"
         (ROOT / "work/f2-security/postgres-integration.json").write_text(json.dumps(result, indent=2) + "\n")
         print(json.dumps(result, indent=2))
 

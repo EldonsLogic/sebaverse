@@ -261,6 +261,7 @@ def scoped_workload_paths(root):
 def validate_scoped_review(row, runtime, root, bind, now):
     require(runtime is not None and runtime.get("type") == "derived-oci",
             "Scoped finding review requires valid derived runtime authority")
+    require(row.get("disposition") in {"restricted_synthetic_ci_only", "component_not_present_in_bound_artifact"}, "Derived finding review disposition missing or unsupported")
     require(row.get("scope_id") == "DEV-006-synthetic-ci", "Finding review workload scope mismatch")
     fresh(row.get("reviewed_at_utc"), "Scoped review time", now, timedelta(days=7))
     expires = timestamp(row.get("expires_at_utc"), "Scoped review expiry")
@@ -454,7 +455,7 @@ def evaluate(directory, root=None, now=None):
             mapping(row, "Finding review")
             for field in ("report", "id", "package", "version", "rationale", "source", "reviewer"):
                 text(row.get(field), "Finding review " + field)
-            if row.get("disposition") in {"restricted_synthetic_ci_only", "component_not_present_in_bound_artifact"}:
+            if runtime is not None or row.get("disposition") in {"restricted_synthetic_ci_only", "component_not_present_in_bound_artifact"}:
                 validate_scoped_review(row, runtime, root, bind, now)
             reviewed.add(tuple(row[k] for k in ("report", "id", "package", "version")))
         for name, input_name in REPORT_INPUTS.items():
