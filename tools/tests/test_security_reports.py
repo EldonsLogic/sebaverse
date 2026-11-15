@@ -295,6 +295,12 @@ class SecurityReportPolicyTests(unittest.TestCase):
         self.finding(self.match(), reviewed=True)
         self.assert_pass()
 
+    def test_scoped_review_cannot_fall_back_to_official_source(self):
+        self.finding(self.match(), reviewed=True)
+        for disposition in ['restricted_synthetic_ci_only', 'component_not_present_in_bound_artifact']:
+            self.mutate("infra/security-reviewed-findings.json", lambda data: data['findings'][0].update(disposition=disposition))
+            self.assert_fail('Scoped finding review requires valid derived runtime authority')
+
     def test_review_for_wrong_package_version_does_not_authorize_finding(self):
         self.finding(self.match(), reviewed=True)
         self.mutate("infra/security-reviewed-findings.json", lambda data: data["findings"][0].update(version="different"))

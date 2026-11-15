@@ -70,7 +70,7 @@ jobs:
       - name: Identify actual patched system libpq chain and static symbol imports
         run: |
           env -u LD_LIBRARY_PATH -u LD_PRELOAD -u LD_AUDIT python3 tools/security/native_chain.py --output-root work/f2-security
-          backend/.venv/bin/python tools/security/native_symbols.py --output-root work/f2-security
+          env -u LD_LIBRARY_PATH -u LD_PRELOAD -u LD_AUDIT backend/.venv/bin/python tools/security/native_symbols.py --output-root work/f2-security
       - name: Catalog actual native packages and exact derived artifact
         run: |
           .local/security-tools/syft dir:work/f2-security/native-root --override-default-catalogers dpkg-db-cataloger -o syft-json=work/f2-security/system-native-sbom.json

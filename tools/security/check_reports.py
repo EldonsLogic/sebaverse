@@ -381,6 +381,9 @@ def evaluate(directory, root=None, now=None):
             mapping(row, "Finding review")
             for field in ("report", "id", "package", "version", "rationale", "source", "reviewer"):
                 text(row.get(field), "Finding review " + field)
+            if row.get("disposition") in {"restricted_synthetic_ci_only", "component_not_present_in_bound_artifact"}:
+                require(runtime is not None and runtime.get("type") == "derived-oci",
+                        "Scoped finding review requires valid derived runtime authority")
             reviewed.add(tuple(row[k] for k in ("report", "id", "package", "version")))
         for name, input_name in REPORT_INPUTS.items():
             report = mapping(read_json(directory / name), name)
