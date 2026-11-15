@@ -30,7 +30,7 @@ jobs:
           python-version-file: .python-version
       - name: Verify authored candidate and static-only build helpers
         run: |
-          python3 -m unittest discover -s tools/tests -p test_postgres_candidate.py
+          python3 -m unittest discover -s tools/tests -p 'test_postgres_*.py'
           python3 -m unittest discover -s tools/tests -p 'test_ci_native_*.py'
       - name: Enable existing daemon OCI storage on this disposable runner only
         run: |
@@ -50,7 +50,9 @@ jobs:
           docker version --format '{{json .}}' > work/f2-security/docker-version.json
           docker info --format '{{json .DriverStatus}}' > work/f2-security/docker-storage.json
       - name: Build OCI artifact without RUN or starting the database
-        run: python3 tools/security/build_postgres_candidate.py
+        run: |
+          python3 tools/security/build_postgres_candidate.py
+          python3 tools/security/inspect_postgres_files.py
       - name: Download checksum-verified scanners
         run: python3 tools/security/bootstrap.py --platform linux_amd64
       - name: Scan actual derived artifact only; no native or database approval
@@ -71,6 +73,7 @@ jobs:
           path: |
             work/f2-security/*.json
             work/f2-security/*.tar
+            work/f2-security/postgres-entrypoint-source.txt
             work/f2-security/transaction-notices/
           retention-days: 7
           if-no-files-found: warn
