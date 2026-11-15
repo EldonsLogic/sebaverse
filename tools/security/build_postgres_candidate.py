@@ -39,7 +39,7 @@ def recipe(root):
     require(SHA.fullmatch(parent) is not None and proposal.get("platform") == "linux/amd64", "Malformed proposal parent/platform")
     require(any(p.get("digest") == parent and p.get("platform") == {"os": "linux", "architecture": "amd64"} for p in pin["platforms"]), "Proposal parent differs from reviewed image pin")
     for path in context.iterdir():
-        require(path.name in {"Dockerfile", "gosu-disabled.sh", "proposal.json", "README.md"} and path.is_file() and not path.is_symlink(), "Unexpected/symlink build-context input")
+        require(path.name in {"Dockerfile", "gosu-disabled.sh", "proposal.json", "README.md", "runtime-source.json"} and path.is_file() and not path.is_symlink(), "Unexpected/symlink build-context input")
     dockerfile, stub = context / "Dockerfile", context / "gosu-disabled.sh"
     require(digest(dockerfile) == proposal.get("recipe_sha256") and digest(stub) == proposal.get("authored_replacement_sha256"), "Authored recipe/stub hashes changed")
     source = dockerfile.read_text()
@@ -49,7 +49,7 @@ def recipe(root):
     return context, proposal, pin
 
 
-def fetch_parent(parent):
+def fetch_parent(parent, output=None):
     """Metadata only: verify immutable public manifest/config and reject ONBUILD."""
     def get(url, token=None):
         headers = {"Accept": "application/vnd.oci.image.manifest.v1+json, application/vnd.docker.distribution.manifest.v2+json"}
@@ -71,6 +71,10 @@ def fetch_parent(parent):
     config = json.loads(config_bytes)
     require(config.get("os") == "linux" and config.get("architecture") == "amd64", "Parent platform mismatch")
     require(not config.get("config", {}).get("OnBuild"), "Parent ONBUILD could execute during static derivation")
+    if output is not None:
+        output.mkdir(parents=True, exist_ok=True)
+        (output / "postgres-parent-manifest.json").write_bytes(manifest_bytes)
+        (output / "postgres-parent-config.json").write_bytes(config_bytes)
     return manifest, config
 
 
@@ -147,7 +151,8 @@ def build(root=ROOT):
     output.mkdir(parents=True, exist_ok=True)
     (output / "postgres-derived-build.json").unlink(missing_ok=True)
     context, proposal, pin = recipe(root)
-    parent_manifest, parent_config = fetch_parent(proposal["parent_platform_manifest"])
+    output = root / "work/f2-security"
+    parent_manifest, parent_config = fetch_parent(proposal["parent_platform_manifest"], output)
     require(not parent_config.get("config", {}).get("OnBuild"), "Parent ONBUILD is forbidden")
     target = output / "postgres-derived.oci.tar"
     target.unlink(missing_ok=True)
@@ -161,7 +166,9 @@ def build(root=ROOT):
                    "archive_path": str(target.relative_to(root)), "archive_sha256": digest(target), "input_hashes": inputs,
                    "recipe_sha256": proposal["recipe_sha256"], "authored_replacement_sha256": proposal["authored_replacement_sha256"],
                    "parent_platform_manifest": proposal["parent_platform_manifest"], "parent_index_digest": pin["index_digest"],
-                   "parent_config_digest": parent_manifest["config"]["digest"], "buildx_version": version, "command": command,
+                   "parent_config_digest": parent_manifest["config"]["digest"],
+                   "parent_manifest_path": "work/f2-security/postgres-parent-manifest.json",
+                   "parent_config_path": "work/f2-security/postgres-parent-config.json", "buildx_version": version, "command": command,
                    "limitations": ["Static FROM/COPY/USER only; no RUN, image startup, DB connection or vulnerability gate pass.", "Replacing a merged path leaves original bytes in lower layers; no archive eradication/redistribution clearance.", "Entrypoint behavior, effective filesystem stub content/mode and native/core findings require separate actual review/scans before any image use."]})
     (output / "postgres-derived-build.json").write_text(json.dumps(result, indent=2) + "\n")
     return result

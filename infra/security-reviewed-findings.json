@@ -1,0 +1,54 @@
+{
+  "status": "operational_reviews_for_exact_synthetic_scope_not_phase_approval",
+  "findings": [
+    {
+      "report": "image-cves.json",
+      "id": "CVE-2025-60876",
+      "package": "busybox",
+      "version": "1.37.0-r31",
+      "reviewer": "root operational dependency review after independent_reviewer proposal; not founder phase approval",
+      "disposition": "restricted_synthetic_ci_only",
+      "rationale": "Wget attacker-controlled URL trigger; synthetic SQL-only workload, no init scripts/untrusted URLs and enforced private internal network required. Vulnerable component remains; not patched. Hold if any condition unproven. Adopted only with committed runtime-source authority, replayed empty initdb/helper inputs, clean client configuration and runner-enforced task-owned internal network/resource bounds. Raw match remains visible; any scope/artifact change requires fresh review.",
+      "source": "https://lists.busybox.net/pipermail/busybox/2025-November/091840.html",
+      "evidence": "development/evidence/f2-image-core-dispositions.md",
+      "scope": "Only DEV-006 synthetic CI runner; no child data, uploads, production, or phase approval"
+    },
+    {
+      "report": "image-cves.json",
+      "id": "CVE-2025-60876",
+      "package": "busybox-binsh",
+      "version": "1.37.0-r31",
+      "reviewer": "root operational dependency review after independent_reviewer proposal; not founder phase approval",
+      "disposition": "restricted_synthetic_ci_only",
+      "rationale": "Wget attacker-controlled URL trigger; synthetic SQL-only workload, no init scripts/untrusted URLs and enforced private internal network required. Vulnerable component remains; not patched. Hold if any condition unproven. Adopted only with committed runtime-source authority, replayed empty initdb/helper inputs, clean client configuration and runner-enforced task-owned internal network/resource bounds. Raw match remains visible; any scope/artifact change requires fresh review.",
+      "source": "https://lists.busybox.net/pipermail/busybox/2025-November/091840.html",
+      "evidence": "development/evidence/f2-image-core-dispositions.md",
+      "scope": "Only DEV-006 synthetic CI runner; no child data, uploads, production, or phase approval"
+    },
+    {
+      "report": "image-cves.json",
+      "id": "CVE-2025-60876",
+      "package": "ssl_client",
+      "version": "1.37.0-r31",
+      "reviewer": "root operational dependency review after independent_reviewer proposal; not founder phase approval",
+      "disposition": "restricted_synthetic_ci_only",
+      "rationale": "Wget attacker-controlled URL trigger; synthetic SQL-only workload, no init scripts/untrusted URLs and enforced private internal network required. Vulnerable component remains; not patched. Hold if any condition unproven. Adopted only with committed runtime-source authority, replayed empty initdb/helper inputs, clean client configuration and runner-enforced task-owned internal network/resource bounds. Raw match remains visible; any scope/artifact change requires fresh review.",
+      "source": "https://lists.busybox.net/pipermail/busybox/2025-November/091840.html",
+      "evidence": "development/evidence/f2-image-core-dispositions.md",
+      "scope": "Only DEV-006 synthetic CI runner; no child data, uploads, production, or phase approval"
+    },
+    {
+      "report": "postgres-core-cves.json",
+      "id": "CVE-2017-8806",
+      "package": "postgresql",
+      "version": "17.12",
+      "reviewer": "root operational dependency review after independent_reviewer proposal; not founder phase approval",
+      "disposition": "component_not_present_in_bound_artifact",
+      "rationale": "CVE concerns Debian postgresql-common helper scripts, absent from inspected earlier actual OCI layers/current SBOM. Require final runtime manifest-bound helper absence proof; broad supplier CPE alone is not engine applicability. Adopted only with committed runtime-source authority, replayed empty initdb/helper inputs, clean client configuration and runner-enforced task-owned internal network/resource bounds. Raw match remains visible; any scope/artifact change requires fresh review.",
+      "source": "https://security-tracker.debian.org/tracker/CVE-2017-8806",
+      "evidence": "development/evidence/f2-image-core-dispositions.md",
+      "scope": "Only DEV-006 synthetic CI runner; no child data, uploads, production, or phase approval"
+    }
+  ],
+  "source": "development/evidence/f2-image-core-dispositions.md"
+}

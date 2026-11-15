@@ -1,0 +1,19 @@
+# Proposed F2 image/core finding dispositions — 2026-11-15
+
+Reviewer: independent_reviewer. These are evidence-backed proposals under the unchanged finding policy, not scanner suppressions, phase approvals or permission to start PostgreSQL. Root must bind the final runtime artifact and enforce the stated conditions before accepting a scoped disposition.
+
+## CVE-2025-60876 — three derived image package matches
+
+Exact retained image artifacts: busybox, busybox-binsh and ssl_client1.37.0-r31, Alpine APK identities in f2-static-patched-43691875268/postgres-derived-sbom.json. The three raw Medium matches remain retained. [Alpine's tracker](https://security.alpinelinux.org/vuln/CVE-2025-60876) lists this3.24 version as possibly vulnerable; no fixed package was identified. [BusyBox's proposed fix](https://lists.busybox.net/pipermail/busybox/2025-November/091840.html) rejects control/space bytes when parsing wget URLs. Thus malicious URL input to wget is the demonstrated trigger; package/source inheritance is not evidence that a PostgreSQL SQL request invokes the affected applet.
+
+**Proposed disposition: mitigated for one bounded synthetic CI workload only, conditional on enforced controls.** Retained actual entrypoint only invokes gosu in the UID0 branch and contains no wget/curl invocation. It does execute initdb scripts, so final filesystem proof must establish no unreviewed initdb contents. The runner must use a private internal Docker network with no external route, synthetic Django/SQL tests only, no attacker-controlled URLs, no extra init hooks/mounts or arbitrary commands, exact reviewed image bytes and task-owned teardown. Keep findings visible; describe containment, not patching. Nonroot/read-only filesystem alone does not justify this disposition. If any condition is absent, changed or unproven, keep all three held. No production/general-purpose acceptance is proposed.
+
+## CVE-2017-8806 — PostgreSQL17.12 supplier CPE match
+
+[Debian's primary tracker](https://security-tracker.debian.org/tracker/CVE-2017-8806) identifies insecure symlink handling in pg_ctlcluster, pg_createcluster and pg_upgradecluster from postgresql-common, fixed for stretch in181+deb9u1. [Ubuntu's notice](https://ubuntu.com/security/notices/USN-3476-1) independently identifies the distribution's cluster-manager helper scripts. These are separate from the upstream PostgreSQL engine. The retained actual Alpine derived SBOM identifies PostgreSQL17.12 binary/.postgresql-rundeps, with no postgresql-common package.
+
+Independent read-only archive inspection of work/ci-43690950105/postgres-derived.oci.tar checked all4058 tar members across11 layers, including lower layers: no path contained pg_ctlcluster, pg_createcluster, pg_upgradecluster or postgresql-common. Archive SHA256a32f108521c466d9ec3b14c632bf37f0afafdba5e6f0e6c1f9d77026a0221c37; manifestsha256:62b638d968c3d89ed09f8de2220edbe7029a9166cf2c1c7683727140be92db5a. This is the older actual candidate archive, not the current experiment's different derived manifest.
+
+**Proposed disposition: component not present / broad CPE mismatch, contingent on current artifact proof.** The old archive inspection plus current SBOM supports the mismatch; root's exact final OCI filesystem proof must bind absence of those helpers and package metadata to the current runtime manifest before accepting it. Do not infer absence solely from a major version or Alpine label. Preserve the original core match and evidence; this does not remove the need to scan upstream engine CVEs or validate actual server version after the pre-use gate.
+
+Proposed machine-readable rows are in work/f2-image-proposed-reviews.json and deliberately carry proposed/conditional scope. They must not be loaded as unrestricted approvals. Remaining native findings, final image source-to-runner binding and real database checks remain outstanding.

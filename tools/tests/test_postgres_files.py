@@ -43,6 +43,18 @@ class FilesystemProofTests(unittest.TestCase):
         result = inspect_layer(layer([('usr/local/bin/docker-entrypoint.sh', source, 0o755)]), False, '')
         self.assertEqual(result, source)
 
+    def test_unreviewed_initdb_inputs_and_debian_wrappers_are_recorded(self):
+        observed = {}
+        payload = layer([('docker-entrypoint-initdb.d/injected.sql', b'not executed', 0o644),
+                         ('usr/bin/pg_ctlcluster', b'not executed', 0o755)])
+        inspect_layer(payload, False, '', observed)
+        self.assertEqual(observed['initdb_inputs'], {'docker-entrypoint-initdb.d/injected.sql'})
+        self.assertEqual(observed['debian_wrappers'], {'usr/bin/pg_ctlcluster'})
+
+    def test_initdb_directory_link_or_file_is_rejected(self):
+        with self.assertRaisesRegex(ValueError, 'directory'):
+            inspect_layer(layer([('docker-entrypoint-initdb.d', b'x', 0o755)]), False, '', {})
+
     def test_path_escape_and_entrypoint_whiteout(self):
         with self.assertRaises(ValueError):
             inspect_layer(layer([('../escape', b'x', 0o644)]), False, '')

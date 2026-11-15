@@ -43,19 +43,38 @@ jobs:
           SEBAVERSE_ENV=local DJANGO_DEBUG=1 backend/.venv/bin/python -m pytest backend/tests -q -k 'not postgres_integration'
       - name: Download exact checksum-verified static scanners
         run: python3 tools/security/bootstrap.py --platform linux_amd64
-      - name: Inspect signed Ubuntu native patch candidates without installing
+      - name: Enable OCI storage on disposable runner only
         run: |
-          mkdir -p work/f2-security
+          test "$GITHUB_ACTIONS" = "true"
+          test -z "$(docker ps -aq)"
+          sudo python3 - <<'PYCONFIG'
+          from pathlib import Path
+          import json
+          path=Path('/etc/docker/daemon.json')
+          data=json.loads(path.read_text()) if path.exists() else {}
+          data.setdefault('features',{})['containerd-snapshotter']=True
+          path.parent.mkdir(parents=True,exist_ok=True)
+          path.write_text(json.dumps(data))
+          PYCONFIG
+          sudo systemctl restart docker
+      - name: Build and inspect exact derived OCI without executing database
+        run: |
+          python3 tools/security/build_postgres_candidate.py
+          python3 tools/security/inspect_postgres_files.py
+      - name: Apply exact reviewed Ubuntu CI native patch
+        run: |
           sudo apt-get update --error-on=any
-          apt-cache policy libc6 libc-bin > work/f2-security/ubuntu-patch-candidates.txt
           python3 tools/security/prepare_ci_native.py
-      - name: Identify actual system libpq and transitive package/notice chain
-        run: env -u LD_LIBRARY_PATH -u LD_PRELOAD -u LD_AUDIT python3 tools/security/native_chain.py --output-root work/f2-security
-      - name: Catalog actual native packages and pinned DB image before execution
+          python3 tools/security/download_ci_native.py
+          python3 tools/security/apply_ci_native_patch.py
+      - name: Identify actual patched system libpq chain and static symbol imports
         run: |
-          IMAGE=$(python3 -c "import json;print(json.load(open('infra/images.lock.json'))['postgres']['reference'])")
+          env -u LD_LIBRARY_PATH -u LD_PRELOAD -u LD_AUDIT python3 tools/security/native_chain.py --output-root work/f2-security
+          backend/.venv/bin/python tools/security/native_symbols.py --output-root work/f2-security
+      - name: Catalog actual native packages and exact derived artifact
+        run: |
           .local/security-tools/syft dir:work/f2-security/native-root --override-default-catalogers dpkg-db-cataloger -o syft-json=work/f2-security/system-native-sbom.json
-          .local/security-tools/syft registry:$IMAGE --platform linux/amd64 -o syft-json=work/f2-security/image-sbom.json
+          .local/security-tools/syft oci-archive:work/f2-security/postgres-derived.oci.tar -o syft-json=work/f2-security/image-sbom.json
           python3 tools/security/postgres_core.py
       - name: Record all advisory reports without starting database
         run: |
@@ -85,6 +104,9 @@ jobs:
           path: |
             work/f2-security/*.json
             work/f2-security/grype-empty.yaml
+            work/f2-security/postgres-entrypoint-source.txt
+            work/f2-security/candidate-archives/*/copyright
+            work/f2-security/native-symbols/
             work/f2-security/native-root/
             .local/security-tools/*-LICENSE
             .local/security-tools/*-NOTICE

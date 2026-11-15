@@ -13,7 +13,7 @@ MAX_LAYER_CONTENT = 1024 * 1024 * 1024
 MAX_SOURCE = 128 * 1024
 
 
-def inspect_layer(stream, final, expected_stub):
+def inspect_layer(stream, final, expected_stub, observed=None):
     """Never extract or execute foreign files. Retain only the one target source."""
     entrypoint = None
     seen = set()
@@ -37,6 +37,21 @@ def inspect_layer(stream, final, expected_stub):
                     data = layer.extractfile(member).read()
                     require(hashlib.sha256(data).hexdigest() == expected_stub, 'Effective stub differs from authored bytes')
                     stub_found = True
+            if observed is not None:
+                observed.setdefault('initdb_inputs', set())
+                observed.setdefault('debian_wrappers', set())
+                if name == 'docker-entrypoint-initdb.d':
+                    require(member.isdir(), 'Initdb input directory must not be replaced by a link/file')
+                if name.startswith('docker-entrypoint-initdb.d/'):
+                    leaf = PurePosixPath(name).name
+                    if leaf == '.wh..wh..opq':
+                        observed['initdb_inputs'].clear()
+                    elif leaf.startswith('.wh.'):
+                        observed['initdb_inputs'].discard(str(PurePosixPath(name).with_name(leaf[4:])))
+                    elif not member.isdir():
+                        observed['initdb_inputs'].add(name)
+                if PurePosixPath(name).name in {'pg_ctlcluster', 'pg_createcluster', 'pg_upgradecluster'} and not member.isdir():
+                    observed['debian_wrappers'].add(name)
             if name in {'usr/.wh..wh..opq', 'usr/local/.wh..wh..opq',
                         'usr/local/bin/.wh..wh..opq', 'usr/local/bin/.wh.docker-entrypoint.sh'}:
                 entrypoint = b''
@@ -48,33 +63,41 @@ def inspect_layer(stream, final, expected_stub):
     return entrypoint
 
 
-def main():
-    directory = ROOT / 'work/f2-security'
+def inspect_artifact(directory, write=True):
+    directory = Path(directory)
     path = directory / 'postgres-derived.oci.tar'
     receipt = json.loads((directory / 'postgres-derived-build.json').read_text())
     require(digest(path) == receipt['archive_sha256'], 'Derived archive differs from inspected build')
     manifest_name = 'blobs/sha256/' + receipt['platform_manifest_digest'].split(':')[1]
     manifest = json.loads(archive_member(path, manifest_name))
     source = None
+    observed = {}
     with tarfile.open(path, 'r:*') as archive:
         for index, layer in enumerate(manifest['layers']):
             name = 'blobs/sha256/' + layer['digest'].split(':')[1]
             data = inspect_layer(archive.extractfile(name), index == len(manifest['layers']) - 1,
-                                 receipt['authored_replacement_sha256'])
+                                 receipt['authored_replacement_sha256'], observed)
             if data is not None:
                 source = data
     require(bool(source), 'Retained entrypoint not found or removed')
-    (directory / 'postgres-entrypoint-source.txt').write_bytes(source)
+    require(not observed['initdb_inputs'], 'Unexpected executable/source initdb inputs')
+    require(not observed['debian_wrappers'], 'Debian helper wrappers require component applicability review')
+    if write:
+        (directory / 'postgres-entrypoint-source.txt').write_bytes(source)
     result = {'status': 'static_files_inspected_not_cleared', 'archive_sha256': receipt['archive_sha256'],
               'platform_manifest_digest': receipt['platform_manifest_digest'],
               'copy_delta': 'only intended directories plus regular0755 gosu stub; exact authored hash',
               'stub_sha256': receipt['authored_replacement_sha256'],
               'entrypoint_sha256': hashlib.sha256(source).hexdigest(),
               'entrypoint_source': 'postgres-entrypoint-source.txt',
+              'initdb_inputs': sorted(observed['initdb_inputs']),
+              'debian_wrappers': sorted(observed['debian_wrappers']),
               'limits': 'Source extracted for manual branch review; no shell/image/DB execution. Lower-layer bytes retained.'}
-    (directory / 'postgres-derived-files.json').write_text(json.dumps(result, indent=2) + '\n')
-    print(json.dumps(result, indent=2))
+    if write:
+        (directory / 'postgres-derived-files.json').write_text(json.dumps(result, indent=2) + '\n')
+    return result
 
 
 if __name__ == '__main__':
-    main()
+    result = inspect_artifact(ROOT / 'work/f2-security')
+    print(json.dumps(result, indent=2))

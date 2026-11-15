@@ -249,7 +249,7 @@ def evaluate(directory, root=None, now=None):
     directory = Path(directory).resolve()
     now = now or datetime.now(timezone.utc)
     errors, reports, hashes = [], [], {}
-    pin, selected = {}, {}
+    pin, selected, runtime, derived = {}, {}, None, None
 
     def bind(path, expected=MISSING):
         path = Path(path).resolve()
@@ -275,6 +275,18 @@ def evaluate(directory, root=None, now=None):
             reviews = {"findings": []}
         pin = mapping(read_json(root / "infra/images.lock.json").get("postgres"), "Image pin")
         selected = pin_platform(pin)
+        runtime_policy = root / "infra/local/postgres/runtime-source.json"
+        if runtime_policy.exists():
+            import importlib.util
+            helper_path = root / "tools/security/derived_image_contract.py"
+            bind(helper_path)
+            spec = importlib.util.spec_from_file_location("sebaverse_derived_image_contract", helper_path)
+            require(spec is not None and spec.loader is not None, "Derived runtime contract is unavailable")
+            derived = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(derived)
+            runtime = derived.validate(root, directory, bind)
+        else:
+            hashes[str(runtime_policy.resolve())] = None
         tools = tool_inventory(directory)
         for tool in tools:
             for notice in tool["notices"]:
@@ -348,7 +360,10 @@ def evaluate(directory, root=None, now=None):
         image_ids = syft_sbom(image, "Image SBOM")
         require(len(image_ids) >= 5 and any(x[2] in {"deb", "apk", "rpm"} for x in image_ids.values()), "Image OS package coverage incomplete")
         require(image["source"].get("type") == "image", "Image SBOM source is not image")
-        image_source(image["source"]["metadata"], pin, selected)
+        if runtime is None:
+            image_source(image["source"]["metadata"], pin, selected)
+        else:
+            derived.validate_source(image["source"]["metadata"], runtime, root)
         system = read_json(directory / "system-native-sbom.json")
         system_ids = syft_sbom(system, "System native SBOM")
         require(system["source"].get("type") == "directory" and resolved_path(system["source"]["metadata"].get("path"), root) == native_root, "System SBOM source is not the native root")
@@ -378,7 +393,10 @@ def evaluate(directory, root=None, now=None):
             source = mapping(report.get("source"), name + " source")
             if name == "image-cves.json":
                 require(source.get("type") == "image", "Image report source missing")
-                image_source(source.get("target"), pin, selected)
+                if runtime is None:
+                    image_source(source.get("target"), pin, selected)
+                else:
+                    derived.validate_source(source.get("target"), runtime, root)
                 require(source["target"] == image["source"]["metadata"], "Image report/SBOM metadata differ")
             elif name == "system-native-cves.json":
                 require(source.get("type") == "directory" and resolved_path(source.get("target"), root) == native_root, "Native report/SBOM source differ")
@@ -419,9 +437,10 @@ def evaluate(directory, root=None, now=None):
             if unreviewed:
                 errors.append(name + ": findings require explicit review=" + str(unreviewed))
             reports.append({"file": name, "input": input_name, "matches": len(matches), "blocking": blocking, "sha256": sha256(directory / name), "input_sha256": sha256(directory / input_name), "database": db})
-    except (OSError, ValueError, KeyError, TypeError, AttributeError) as exc:
+    except (OSError, ValueError, KeyError, TypeError, AttributeError, ImportError) as exc:
         errors.append("Incomplete or invalid pre-use evidence: " + str(exc))
-    return {"schema_version": 2, "image_reference": pin.get("reference"), "platform_manifest_digest": selected.get("digest"),
+    return {"schema_version": 2, "image_reference": runtime["reference"] if runtime else pin.get("reference"),
+            "platform_manifest_digest": runtime["platform_manifest_digest"] if runtime else selected.get("digest"), "image_runtime": runtime,
             "created_at_utc": now.isoformat(), "policy": "No unresolved high/critical/unknown or KEV findings; no suppressed/unreviewed findings; exact versioned source coverage and immutable scan receipts required",
             "status": "fail" if errors else "pass", "errors": errors, "reports": reports, "input_hashes": hashes,
             "scope": "Linux system-libpq + pinned linux/amd64 image + supplier core; not hostOS, bundled-wheel, redistribution or application security certification"}

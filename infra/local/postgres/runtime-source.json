@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "type": "derived-oci",
+  "platform": {
+    "os": "linux",
+    "architecture": "amd64"
+  },
+  "user": "postgres",
+  "parent_platform_manifest": "sha256:005c5c37db96c1e6652a79ea31f9886402fba81ac95dc2db897739121dd7f8f2",
+  "recipe_sha256": "e5363b370b4827203bfb0e02da19315127b754cbb0ab53e9594c064ed9280455",
+  "authored_replacement_sha256": "3db9af363830ea981c2d589316ed85e9fb796ba401edb183c8ecf20e4e0af47a",
+  "archive": "work/f2-security/postgres-derived.oci.tar",
+  "build_receipt": "work/f2-security/postgres-derived-build.json",
+  "files_receipt": "work/f2-security/postgres-derived-files.json",
+  "parent_manifest": "work/f2-security/postgres-parent-manifest.json",
+  "parent_config": "work/f2-security/postgres-parent-config.json",
+  "scope": "Synthetic F2 CI only. No standalone phase or native-use permission. Every actual artifact and report must pass current policy."
+}

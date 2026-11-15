@@ -32,6 +32,12 @@ from django.test import Client
 with connection.cursor() as cursor:
     cursor.execute("SHOW server_version_num")
     version = int(cursor.fetchone()[0])
+    cursor.execute("SELECT ssl FROM pg_stat_ssl WHERE pid = pg_backend_pid()")
+    assert cursor.fetchone() == (False,), "Synthetic connection unexpectedly negotiated TLS."
+    cursor.execute("SELECT gss_authenticated, encrypted FROM pg_stat_gssapi WHERE pid = pg_backend_pid()")
+    assert cursor.fetchone() == (False, False), "Synthetic connection unexpectedly used GSS."
+assert connection.settings_dict["OPTIONS"]["require_auth"] == "scram-sha-256"
+assert connection.settings_dict["OPTIONS"]["gssencmode"] == "disable"
 assert 170000 <= version < 180000, "Expected the selected PostgreSQL17 family."
 executor = MigrationExecutor(connection)
 assert not executor.migration_plan(executor.loader.graph.leaf_nodes()), "Unapplied migrations remain."
