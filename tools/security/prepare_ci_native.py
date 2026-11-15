@@ -6,6 +6,7 @@ The output requires phase-owner review; it is not native pre-use approval.
 """
 from pathlib import Path
 import argparse
+import hashlib
 from datetime import datetime, timezone
 import json
 import re
@@ -23,6 +24,81 @@ def command(args):
         raise RuntimeError("Metadata/dry-run command failed: " + args[0])
     return result.stdout
 
+
+
+ALLOWED_PACKAGES = {"libc6", "libc-bin", "libc-dev-bin", "libc6-dev", "libc-devtools", "locales", "libc-l10n"}
+
+
+def parse_transaction(text):
+    """Parse the bounded apt simulation, rejecting removals and unknown companions."""
+    rows = []
+    for line in text.splitlines():
+        if line.startswith(("Remv ", "Purg ")):
+            raise RuntimeError("Simulation proposes removals")
+        if not line.startswith("Inst "):
+            continue
+        match = re.fullmatch(r"Inst ([a-z0-9+.-]+)(?::([a-z0-9]+))?(?: \[([^\]]+)\])? \(([^ ]+) .+\)", line)
+        if not match:
+            raise RuntimeError("Malformed simulated installation")
+        name, arch, installed, version = match.groups()
+        if name not in ALLOWED_PACKAGES or not installed:
+            raise RuntimeError("Unknown companion or new installation: " + name)
+        if any(row["name"] == name for row in rows):
+            raise RuntimeError("Duplicate simulated installation")
+        rows.append({"name": name, "architecture": arch, "installed": installed, "candidate": version})
+    if not rows or "libc6" not in {row["name"] for row in rows}:
+        raise RuntimeError("No complete libc6 upgrade transaction")
+    return rows
+
+
+def validate_metadata(row, metadata, compare):
+    if metadata.get("candidate") != row["candidate"] or metadata.get("installed") != row["installed"]:
+        raise RuntimeError("Simulated version differs from package metadata")
+    if row["architecture"] and row["architecture"] != metadata.get("architecture"):
+        raise RuntimeError("Simulated architecture differs from metadata")
+    if not re.fullmatch(r"[0-9a-f]{64}", metadata.get("sha256") or ""):
+        raise RuntimeError("Missing authenticated package checksum")
+    filename = metadata.get("filename", "")
+    if not isinstance(filename, str) or not filename.startswith("pool/main/g/glibc/") or ".." in filename.split("/") or not filename.endswith(".deb"):
+        raise RuntimeError("Unexpected glibc package archive path")
+    if not any(o.get("trusted") is True and o.get("origin") == "Ubuntu" and o.get("label") == "Ubuntu"
+               and o.get("archive") in {"noble-security", "noble-updates"} and o.get("component") == "main"
+               for o in metadata.get("origins", [])):
+        raise RuntimeError("Companion lacks trusted Ubuntu Noble origin")
+    if not compare(row["candidate"], row["installed"]) or not compare(row["candidate"], MINIMUM):
+        raise RuntimeError("Companion downgrade or below fixed baseline")
+
+
+def package_metadata(name):
+    probe = """
+import apt, json, sys
+package = apt.Cache()[sys.argv[1]]
+version = package.candidate
+if version is None or package.installed is None:
+    raise RuntimeError("Installed package/candidate metadata missing")
+def field(name):
+    try: return version.record[name]
+    except KeyError: return None
+print(json.dumps({"installed":package.installed.version,"candidate":version.version,"architecture":version.architecture,"uri":version.uri,"filename":field("Filename"),"sha256":field("SHA256"),"origins":[{"origin":o.origin,"label":o.label,"archive":o.archive,"site":o.site,"component":o.component,"trusted":o.trusted} for o in version.origins]}))
+"""
+    return json.loads(command(["/usr/bin/python3", "-c", probe, name]))
+
+
+def transaction_record(simulation):
+    rows = parse_transaction(simulation)
+    for row in rows:
+        metadata = package_metadata(row["name"])
+        validate_metadata(row, metadata, lambda new, old: subprocess.run(
+            ["dpkg", "--compare-versions", new, "ge", old], check=False).returncode == 0)
+        notice = Path("/usr/share/doc") / row["name"] / "copyright"
+        data = notice.read_bytes()
+        if not data:
+            raise RuntimeError("Missing existing package notice")
+        row["metadata"] = metadata
+        row["existing_copyright"] = {"path": str(notice), "sha256": hashlib.sha256(data).hexdigest(),
+                                     "scope": "Installed version notice only; candidate archive notice not extracted"}
+        row["candidate_copyright"] = {"status": "not_downloaded_or_verified", "blocks_install": True}
+    return rows
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
@@ -72,6 +148,8 @@ print(json.dumps({"installed":package.installed.version,"candidate":version.vers
         record["simulation"] = simulation
         if any(line.startswith("Remv ") for line in simulation.splitlines()):
             raise RuntimeError("Simulation proposes removals; separate remediation review required")
+        record["transaction"] = transaction_record(simulation)
+        record["candidate_notice_review_required"] = True
         record["status"] = "candidate_recorded_review_required"
         record["next_action"] = "Phase owner reviews exact candidate, trusted-index evidence and every simulated companion package before any explicit CI-only upgrade; re-inventory/rescan afterward"
         record["limitations"] = ["APT trusted origin/checksum is observed, not an independent signature re-verification by this script.",
