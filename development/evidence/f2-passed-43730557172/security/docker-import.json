@@ -1,0 +1,89 @@
+{
+  "status": "static_import_verified_not_started",
+  "target_digest": "sha256:cc93c53da93c8e18b677d82b28afc2ec6e6d93ce4fc41da49d1344382c0c709a",
+  "platform_manifest_digest": "sha256:cc93c53da93c8e18b677d82b28afc2ec6e6d93ce4fc41da49d1344382c0c709a",
+  "config_digest_verified_from_oci": "sha256:d964922191b511f07df85610fdac9a95c6e691cbd1ce2a9eb248fc3377dfaeb7",
+  "archive_sha256": "4c1a411573e60210f0f990c5dc2c9fcaf72cb4573cda7e0d252d119cc13dd73e",
+  "docker_inspect": {
+    "Id": "sha256:cc93c53da93c8e18b677d82b28afc2ec6e6d93ce4fc41da49d1344382c0c709a",
+    "RepoTags": [],
+    "RepoDigests": [],
+    "Parent": "",
+    "Comment": "buildkit.dockerfile.v0",
+    "Created": "2026-11-15T15:34:26.961782615Z",
+    "DockerVersion": "",
+    "Author": "",
+    "Config": {
+      "Hostname": "",
+      "Domainname": "",
+      "User": "postgres",
+      "AttachStdin": false,
+      "AttachStdout": false,
+      "AttachStderr": false,
+      "ExposedPorts": {
+        "5432/tcp": {}
+      },
+      "Tty": false,
+      "OpenStdin": false,
+      "StdinOnce": false,
+      "Env": [
+        "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+        "GOSU_VERSION=1.19",
+        "LANG=en_US.utf8",
+        "PG_MAJOR=17",
+        "PG_VERSION=17.12",
+        "PG_SHA256=9cf136a703d8ee2f83465c43be4e9e8e7930c82b0bfba13be7e2537be769ac55",
+        "DOCKER_PG_LLVM_DEPS=llvm21-dev \t\tclang21",
+        "PGDATA=/var/lib/postgresql/data"
+      ],
+      "Cmd": [
+        "postgres"
+      ],
+      "Image": "",
+      "Volumes": {
+        "/var/lib/postgresql/data": {}
+      },
+      "WorkingDir": "/",
+      "Entrypoint": [
+        "docker-entrypoint.sh"
+      ],
+      "OnBuild": null,
+      "Labels": null,
+      "StopSignal": "SIGINT"
+    },
+    "Architecture": "amd64",
+    "Os": "linux",
+    "Size": 117374409,
+    "GraphDriver": {
+      "Data": null,
+      "Name": "overlayfs"
+    },
+    "RootFS": {
+      "Type": "layers",
+      "Layers": [
+        "sha256:75f1d9657d880da5f75298e8f40e9928bb6e260c50d26f97af196845307e3064",
+        "sha256:b8825f98857f33809d43213ea4c266b1f4163848111cf9efe59e163d0292facc",
+        "sha256:662f61949e1c711c63e1777c0aded783a11a07e1c631d5411116faad07aa82af",
+        "sha256:cea4fd64022c69cbbef574966bf52b75e25546d7fe51f9a22e505968f8d6ba1a",
+        "sha256:394cdf194731fa5a19abba1b8ccd76f220c0e41ccd6add2766e0fb868bfe98bf",
+        "sha256:081172ac1c396fd830fa6bd93bae12390886a4bc8948be3c0b5dbcdb49d1d0da",
+        "sha256:b416ad031345387fe169979bb2400eedbf02821016344ec7fb3f282867f6f546",
+        "sha256:3ce02c519c7b89c83d16fe98c79c1d2eceb85aa2e25a0bd20fc47c6a85199397",
+        "sha256:a27105ff7bc1ef29e34d619cb7f2436b137cacb6f96bf7c88b016d4d6e63acb2",
+        "sha256:659d1fff1b7bdade57d427a066876385c7893528c4f89c5bb8fa5c1ae5eb456c",
+        "sha256:fe45dd5f32977f3bf09f25366cd28559065aa93f7cb1470f2c5b2e1aa886c453"
+      ]
+    },
+    "Metadata": {
+      "LastTagTime": "2026-11-15T15:36:30.337505833Z"
+    },
+    "Descriptor": {
+      "mediaType": "application/vnd.oci.image.manifest.v1+json",
+      "digest": "sha256:cc93c53da93c8e18b677d82b28afc2ec6e6d93ce4fc41da49d1344382c0c709a",
+      "size": 2372,
+      "annotations": {
+        "org.opencontainers.image.created": "2026-11-15T15:34:27Z"
+      }
+    }
+  }
+}

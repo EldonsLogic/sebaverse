@@ -1,0 +1,6 @@
+{
+  "status": "pass",
+  "task": "DEV-006",
+  "errors": [],
+  "scope": "Only task-owned relay/container/network/credential/home cleanup attempted"
+}

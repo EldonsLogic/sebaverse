@@ -1,0 +1,21 @@
+# Independent technical F2 exit review — 2026-11-15
+
+Reviewer: independent_reviewer. Scope: DEV-006 bounded synthetic skeleton and its CI evidence. **Technical result: PASS on inspected artifacts and independent local checks; hosted job metadata/count confirmation noted below.** This is not founder G1/G3, production, legal, real-minor, paid-provider or deployment approval. No PostgreSQL instance was started locally on macOS by this reviewer.
+
+Inspected development/evidence/f2-passed-43730557172/run.json and security records: preuse-result, scan-execution, derived build/files, Docker import, native patch/inventory/symbols, PostgreSQL integration/teardown and local lifecycle; current desktop/mobile browser-report.json and integration assertion source.
+
+Observed actual retained pre-use record passes with no errors;291 input bindings,106 symbol objects, three scanner invocations with exit0. Raw findings remain3 image,66 native,1 supplier-core; none is represented as globally patched or harmless. Scoped reviews retain expiry/workload/artifact restrictions. File proof reports empty initdb/helper inputs. Independently recomputed all three scan-report and input-SBOM hashes and the integration record's gate hash: all match. Derived build, pre-use, import and integration share manifest sha256:cc93c53da93c8e18b677d82b28afc2ec6e6d93ce4fc41da49d1344382c0c709a; import retains verified archive/config/rootfs identity.
+
+Actual retained PostgreSQL record passes real framework migrations, PostgreSQL17 identity, no pending migrations, synthetic session roundtrip and readiness200, with pure-Psycopg/system-libpq binding. Reviewed integration source also asserts actual TLS/GSS disabled and required SCRAM configuration; successful test completion is required for the record. Internal-network/loopback-relay scope is retained. Teardown record passes with no errors. Local lifecycle passes loopback health200, unconfigured database readiness503 and stopped owned process/closed port.
+
+Browser records cover four routes each at desktop1440 and mobile390 widths, RTL, skip link/main focus, client404, healthy assets and zero UI errors/overflow. Screenshot/document heights match1285desktop and1885mobile. These are authored shell smoke checks, not full accessibility or educational-feature certification.
+
+Fresh independent local commands: `python3 -m unittest discover -s tools/tests -p 'test_*.py'` —138 passed; `SEBAVERSE_ENV=local DJANGO_DEBUG=1 backend/.venv/bin/python -m pytest backend/tests -q -k 'not postgres_integration'` —83 passed,1 deselected. These independently confirm current helper and DB-free counts, not a local database result.
+
+Retained authored run summary identifies hosted run43730557172, source f952d7ffbdf5b03131abf5dbcd2909839e218eea and success including one actual PostgreSQL case. Direct GitHub metadata/log retrieval was attempted twice but network connection failed in this reviewer environment. Raw hosted job receipt/log confirmation is requested from the orchestrator; do not mislabel the authored run summary as a direct GitHub response. No functional/security artifact blocker was found in this exit review.
+
+Remaining product/business gates and broader native/security risks remain visible. This technical skeleton exit cannot authorize new model/upload/learner capabilities; bounded F3 work must follow its own task scope and gates. Operational finding allowances expire or invalidate on scoped source/artifact changes and require fresh review before reuse.
+
+## Hosted receipt confirmation — pending detail closed
+
+Independently read subsequently retained github-run.json and github-job.log. Raw GitHub metadata confirms run43730557172 success at head f952d7ffbdf5b03131abf5dbcd2909839e218eea; skeleton job success and no failed/non-success executed step. Raw job log confirms83 DB-free passed/1 deselected,1 actual PostgreSQL integration passed in1.21s, and138 foundation/helper tests in3.551s. This closes the requested hosted confirmation detail. **Final independent technical F2 exit recommendation: PASS**, within the exact synthetic scope and limitations above. No remaining blocker identified for this technical phase exit. Broader founder/product/legal/real-data/deployment permissions remain unapproved.

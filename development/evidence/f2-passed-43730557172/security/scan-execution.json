@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "scanner_version": "0.121.3",
+  "scanner_sha256": "30f8f7de5dda71952a20d4955034d30a081a5d10e6bd00d67ce78b56fd0251dc",
+  "scans": [
+    {
+      "report": "image-cves.json",
+      "input": "image-sbom.json",
+      "input_sha256": "ec3d6037927870ccc30a643dfad5ae5f0c4ed08e6e1dbb684c83a3c54778aa1c",
+      "report_sha256": "bf10cd8f85de6cfc5a8b799c1b310341b08e157cad461c4c9ef0731f83c41e22",
+      "exit_code": 0,
+      "started_at_utc": "2026-11-15T15:35:03.822387+00:00",
+      "finished_at_utc": "2026-11-15T15:36:17.933366+00:00",
+      "command": [
+        "/home/runner/work/sebaverse/sebaverse/.local/security-tools/grype",
+        "--config",
+        "/home/runner/work/sebaverse/sebaverse/work/f2-security/grype-empty.yaml",
+        "sbom:/home/runner/work/sebaverse/sebaverse/work/f2-security/image-sbom.json",
+        "-o",
+        "json",
+        "--file",
+        "/home/runner/work/sebaverse/sebaverse/work/f2-security/image-cves.json",
+        "--quiet"
+      ]
+    },
+    {
+      "report": "system-native-cves.json",
+      "input": "system-native-sbom.json",
+      "input_sha256": "4ea97b64e250a4311a50bb689abe1555667e60dda795243b82c9be7328d8748e",
+      "report_sha256": "d46e1be2f5d9b41eb6915bc6e7bfc6c74f0c742167f786d7f1da563c7f5b210b",
+      "exit_code": 0,
+      "started_at_utc": "2026-11-15T15:36:17.933537+00:00",
+      "finished_at_utc": "2026-11-15T15:36:19.755880+00:00",
+      "command": [
+        "/home/runner/work/sebaverse/sebaverse/.local/security-tools/grype",
+        "--config",
+        "/home/runner/work/sebaverse/sebaverse/work/f2-security/grype-empty.yaml",
+        "sbom:/home/runner/work/sebaverse/sebaverse/work/f2-security/system-native-sbom.json",
+        "-o",
+        "json",
+        "--file",
+        "/home/runner/work/sebaverse/sebaverse/work/f2-security/system-native-cves.json",
+        "--quiet"
+      ]
+    },
+    {
+      "report": "postgres-core-cves.json",
+      "input": "postgres-core.cdx.json",
+      "input_sha256": "e56ea8254d05641fbc96431f7e52448d6b4ba79b040605895eb9f55d833ee452",
+      "report_sha256": "06f0b26bf7da12fa7b21848bbe567a82732f047206f6e43a3febf25c36d0035e",
+      "exit_code": 0,
+      "started_at_utc": "2026-11-15T15:36:19.755999+00:00",
+      "finished_at_utc": "2026-11-15T15:36:21.406221+00:00",
+      "command": [
+        "/home/runner/work/sebaverse/sebaverse/.local/security-tools/grype",
+        "--config",
+        "/home/runner/work/sebaverse/sebaverse/work/f2-security/grype-empty.yaml",
+        "sbom:/home/runner/work/sebaverse/sebaverse/work/f2-security/postgres-core.cdx.json",
+        "-o",
+        "json",
+        "--file",
+        "/home/runner/work/sebaverse/sebaverse/work/f2-security/postgres-core-cves.json",
+        "--quiet"
+      ]
+    }
+  ],
+  "configuration_sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+}

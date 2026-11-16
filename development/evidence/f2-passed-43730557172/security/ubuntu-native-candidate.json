@@ -1,0 +1,308 @@
+{
+  "status": "candidate_recorded_review_required",
+  "created_at_utc": "2026-11-15T15:34:37.086970+00:00",
+  "package": "libc6",
+  "minimum_fixed_version": "2.39-0ubuntu8.12",
+  "reported_fixable_ids": [
+    "CVE-2026-8674",
+    "CVE-2026-84243",
+    "CVE-2026-97399",
+    "CVE-2026-18374",
+    "CVE-2026-95818",
+    "CVE-2026-86805"
+  ],
+  "scope": "Metadata and simulated transaction only; no install or gate approval",
+  "metadata_api_reference": "https://apt-team.pages.debian.net/python-apt/library/apt.package.html#origin-information",
+  "candidate_metadata": {
+    "installed": "2.39-0ubuntu8.9",
+    "candidate": "2.39-0ubuntu8.12",
+    "architecture": "amd64",
+    "uri": "mirror+file:/etc/apt/apt-mirrors.txt/pool/main/g/glibc/libc6_2.39-0ubuntu8.12_amd64.deb",
+    "filename": "pool/main/g/glibc/libc6_2.39-0ubuntu8.12_amd64.deb",
+    "sha256": "d821b41fc59cb4978ecd53bc83e5c964ac15d305c8d2ac4c8a35aebe55010fb9",
+    "origins": [
+      {
+        "origin": "Ubuntu",
+        "label": "Ubuntu",
+        "archive": "noble-updates",
+        "site": "",
+        "component": "main",
+        "trusted": true
+      },
+      {
+        "origin": "Ubuntu",
+        "label": "Ubuntu",
+        "archive": "noble-security",
+        "site": "",
+        "component": "main",
+        "trusted": true
+      }
+    ]
+  },
+  "apt_policy": "libc6:\n  Installed: 2.39-0ubuntu8.9\n  Candidate: 2.39-0ubuntu8.12\n  Version table:\n     2.39-0ubuntu8.12 500\n        500 mirror+file:/etc/apt/apt-mirrors.txt noble-updates/main amd64 Packages\n        500 mirror+file:/etc/apt/apt-mirrors.txt noble-security/main amd64 Packages\n *** 2.39-0ubuntu8.9 100\n        100 /var/lib/dpkg/status\n     2.39-0ubuntu8 500\n        500 mirror+file:/etc/apt/apt-mirrors.txt noble/main amd64 Packages\n",
+  "simulation_command": [
+    "apt-get",
+    "--simulate",
+    "--no-install-recommends",
+    "--only-upgrade",
+    "install",
+    "libc6=2.39-0ubuntu8.12"
+  ],
+  "simulation": "NOTE: This is only a simulation!\n      apt-get needs root privileges for real execution.\n      Keep also in mind that locking is deactivated,\n      so don't depend on the relevance to the real current situation!\nReading package lists...\nBuilding dependency tree...\nReading state information...\nThe following additional packages will be installed:\n  libc-bin libc-dev-bin libc6-dev libc6-i386 locales\nSuggested packages:\n  glibc-doc libnss-nis libnss-nisplus manpages-dev\nRecommended packages:\n  manpages-dev libc-devtools\nThe following packages will be upgraded:\n  libc-bin libc-dev-bin libc6 libc6-dev libc6-i386 locales\n6 upgraded, 0 newly installed, 0 to remove and 14 not upgraded.\nInst libc6-dev [2.39-0ubuntu8.9] (2.39-0ubuntu8.12 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64]) []\nInst libc-dev-bin [2.39-0ubuntu8.9] (2.39-0ubuntu8.12 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64]) []\nInst libc6-i386 [2.39-0ubuntu8.9] (2.39-0ubuntu8.12 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64]) []\nInst libc6 [2.39-0ubuntu8.9] (2.39-0ubuntu8.12 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])\nConf libc6 (2.39-0ubuntu8.12 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])\nInst libc-bin [2.39-0ubuntu8.9] (2.39-0ubuntu8.12 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])\nConf libc-bin (2.39-0ubuntu8.12 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])\nInst locales [2.39-0ubuntu8.9] (2.39-0ubuntu8.12 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [all])\nConf libc6-dev (2.39-0ubuntu8.12 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])\nConf libc-dev-bin (2.39-0ubuntu8.12 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])\nConf libc6-i386 (2.39-0ubuntu8.12 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])\nConf locales (2.39-0ubuntu8.12 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [all])\n",
+  "transaction": [
+    {
+      "name": "libc6-dev",
+      "architecture": null,
+      "installed": "2.39-0ubuntu8.9",
+      "candidate": "2.39-0ubuntu8.12",
+      "metadata": {
+        "installed": "2.39-0ubuntu8.9",
+        "candidate": "2.39-0ubuntu8.12",
+        "architecture": "amd64",
+        "uri": "mirror+file:/etc/apt/apt-mirrors.txt/pool/main/g/glibc/libc6-dev_2.39-0ubuntu8.12_amd64.deb",
+        "filename": "pool/main/g/glibc/libc6-dev_2.39-0ubuntu8.12_amd64.deb",
+        "sha256": "d81dd6dc9d515762cc93f338efa6219252acf3e2e87b5b89dd7dc517741e6eed",
+        "origins": [
+          {
+            "origin": "Ubuntu",
+            "label": "Ubuntu",
+            "archive": "noble-updates",
+            "site": "",
+            "component": "main",
+            "trusted": true
+          },
+          {
+            "origin": "Ubuntu",
+            "label": "Ubuntu",
+            "archive": "noble-security",
+            "site": "",
+            "component": "main",
+            "trusted": true
+          }
+        ]
+      },
+      "existing_copyright": {
+        "path": "/usr/share/doc/libc6-dev/copyright",
+        "sha256": "d3c95b56fa33e28b57860580f0baf4e4f4de2a268a2b80f1d031a5191bade265",
+        "scope": "Installed version notice only; candidate archive notice not extracted"
+      },
+      "candidate_copyright": {
+        "status": "not_downloaded_or_verified",
+        "blocks_install": true
+      }
+    },
+    {
+      "name": "libc-dev-bin",
+      "architecture": null,
+      "installed": "2.39-0ubuntu8.9",
+      "candidate": "2.39-0ubuntu8.12",
+      "metadata": {
+        "installed": "2.39-0ubuntu8.9",
+        "candidate": "2.39-0ubuntu8.12",
+        "architecture": "amd64",
+        "uri": "mirror+file:/etc/apt/apt-mirrors.txt/pool/main/g/glibc/libc-dev-bin_2.39-0ubuntu8.12_amd64.deb",
+        "filename": "pool/main/g/glibc/libc-dev-bin_2.39-0ubuntu8.12_amd64.deb",
+        "sha256": "74ac21dab2a0a6524a2cf9de623adf1bb1f7d9b672e6b0f70adec0c40452bae3",
+        "origins": [
+          {
+            "origin": "Ubuntu",
+            "label": "Ubuntu",
+            "archive": "noble-updates",
+            "site": "",
+            "component": "main",
+            "trusted": true
+          },
+          {
+            "origin": "Ubuntu",
+            "label": "Ubuntu",
+            "archive": "noble-security",
+            "site": "",
+            "component": "main",
+            "trusted": true
+          }
+        ]
+      },
+      "existing_copyright": {
+        "path": "/usr/share/doc/libc-dev-bin/copyright",
+        "sha256": "d3c95b56fa33e28b57860580f0baf4e4f4de2a268a2b80f1d031a5191bade265",
+        "scope": "Installed version notice only; candidate archive notice not extracted"
+      },
+      "candidate_copyright": {
+        "status": "not_downloaded_or_verified",
+        "blocks_install": true
+      }
+    },
+    {
+      "name": "libc6-i386",
+      "architecture": null,
+      "installed": "2.39-0ubuntu8.9",
+      "candidate": "2.39-0ubuntu8.12",
+      "metadata": {
+        "installed": "2.39-0ubuntu8.9",
+        "candidate": "2.39-0ubuntu8.12",
+        "architecture": "amd64",
+        "uri": "mirror+file:/etc/apt/apt-mirrors.txt/pool/main/g/glibc/libc6-i386_2.39-0ubuntu8.12_amd64.deb",
+        "filename": "pool/main/g/glibc/libc6-i386_2.39-0ubuntu8.12_amd64.deb",
+        "sha256": "f3357fcee4a907404f5231381834cf31647326496d5bb4259338a717b3544c89",
+        "origins": [
+          {
+            "origin": "Ubuntu",
+            "label": "Ubuntu",
+            "archive": "noble-updates",
+            "site": "",
+            "component": "main",
+            "trusted": true
+          },
+          {
+            "origin": "Ubuntu",
+            "label": "Ubuntu",
+            "archive": "noble-security",
+            "site": "",
+            "component": "main",
+            "trusted": true
+          }
+        ]
+      },
+      "existing_copyright": {
+        "path": "/usr/share/doc/libc6-i386/copyright",
+        "sha256": "d3c95b56fa33e28b57860580f0baf4e4f4de2a268a2b80f1d031a5191bade265",
+        "scope": "Installed version notice only; candidate archive notice not extracted"
+      },
+      "candidate_copyright": {
+        "status": "not_downloaded_or_verified",
+        "blocks_install": true
+      }
+    },
+    {
+      "name": "libc6",
+      "architecture": null,
+      "installed": "2.39-0ubuntu8.9",
+      "candidate": "2.39-0ubuntu8.12",
+      "metadata": {
+        "installed": "2.39-0ubuntu8.9",
+        "candidate": "2.39-0ubuntu8.12",
+        "architecture": "amd64",
+        "uri": "mirror+file:/etc/apt/apt-mirrors.txt/pool/main/g/glibc/libc6_2.39-0ubuntu8.12_amd64.deb",
+        "filename": "pool/main/g/glibc/libc6_2.39-0ubuntu8.12_amd64.deb",
+        "sha256": "d821b41fc59cb4978ecd53bc83e5c964ac15d305c8d2ac4c8a35aebe55010fb9",
+        "origins": [
+          {
+            "origin": "Ubuntu",
+            "label": "Ubuntu",
+            "archive": "noble-updates",
+            "site": "",
+            "component": "main",
+            "trusted": true
+          },
+          {
+            "origin": "Ubuntu",
+            "label": "Ubuntu",
+            "archive": "noble-security",
+            "site": "",
+            "component": "main",
+            "trusted": true
+          }
+        ]
+      },
+      "existing_copyright": {
+        "path": "/usr/share/doc/libc6/copyright",
+        "sha256": "d3c95b56fa33e28b57860580f0baf4e4f4de2a268a2b80f1d031a5191bade265",
+        "scope": "Installed version notice only; candidate archive notice not extracted"
+      },
+      "candidate_copyright": {
+        "status": "not_downloaded_or_verified",
+        "blocks_install": true
+      }
+    },
+    {
+      "name": "libc-bin",
+      "architecture": null,
+      "installed": "2.39-0ubuntu8.9",
+      "candidate": "2.39-0ubuntu8.12",
+      "metadata": {
+        "installed": "2.39-0ubuntu8.9",
+        "candidate": "2.39-0ubuntu8.12",
+        "architecture": "amd64",
+        "uri": "mirror+file:/etc/apt/apt-mirrors.txt/pool/main/g/glibc/libc-bin_2.39-0ubuntu8.12_amd64.deb",
+        "filename": "pool/main/g/glibc/libc-bin_2.39-0ubuntu8.12_amd64.deb",
+        "sha256": "22f0393621e72ed1b53d228ee332180269182b5445761c7d7b74f5cba75a1dd6",
+        "origins": [
+          {
+            "origin": "Ubuntu",
+            "label": "Ubuntu",
+            "archive": "noble-updates",
+            "site": "",
+            "component": "main",
+            "trusted": true
+          },
+          {
+            "origin": "Ubuntu",
+            "label": "Ubuntu",
+            "archive": "noble-security",
+            "site": "",
+            "component": "main",
+            "trusted": true
+          }
+        ]
+      },
+      "existing_copyright": {
+        "path": "/usr/share/doc/libc-bin/copyright",
+        "sha256": "d3c95b56fa33e28b57860580f0baf4e4f4de2a268a2b80f1d031a5191bade265",
+        "scope": "Installed version notice only; candidate archive notice not extracted"
+      },
+      "candidate_copyright": {
+        "status": "not_downloaded_or_verified",
+        "blocks_install": true
+      }
+    },
+    {
+      "name": "locales",
+      "architecture": null,
+      "installed": "2.39-0ubuntu8.9",
+      "candidate": "2.39-0ubuntu8.12",
+      "metadata": {
+        "installed": "2.39-0ubuntu8.9",
+        "candidate": "2.39-0ubuntu8.12",
+        "architecture": "all",
+        "uri": "mirror+file:/etc/apt/apt-mirrors.txt/pool/main/g/glibc/locales_2.39-0ubuntu8.12_all.deb",
+        "filename": "pool/main/g/glibc/locales_2.39-0ubuntu8.12_all.deb",
+        "sha256": "0047f997c3799818514d1d08fece7cf2614a61e5505678bcf0c9558587a85d1d",
+        "origins": [
+          {
+            "origin": "Ubuntu",
+            "label": "Ubuntu",
+            "archive": "noble-updates",
+            "site": "",
+            "component": "main",
+            "trusted": true
+          },
+          {
+            "origin": "Ubuntu",
+            "label": "Ubuntu",
+            "archive": "noble-security",
+            "site": "",
+            "component": "main",
+            "trusted": true
+          }
+        ]
+      },
+      "existing_copyright": {
+        "path": "/usr/share/doc/locales/copyright",
+        "sha256": "d3c95b56fa33e28b57860580f0baf4e4f4de2a268a2b80f1d031a5191bade265",
+        "scope": "Installed version notice only; candidate archive notice not extracted"
+      },
+      "candidate_copyright": {
+        "status": "not_downloaded_or_verified",
+        "blocks_install": true
+      }
+    }
+  ],
+  "candidate_notice_review_required": true,
+  "next_action": "Phase owner reviews exact candidate, trusted-index evidence and every simulated companion package before any explicit CI-only upgrade; re-inventory/rescan afterward",
+  "limitations": [
+    "APT trusted origin/checksum is observed, not an independent signature re-verification by this script.",
+    "Fresh apt-get update success must be recorded separately; this script does not refresh indexes.",
+    "Companion package provenance/notice checks are not automatically approved by the simulation.",
+    "No CVE or native/image policy pass is asserted."
+  ]
+}

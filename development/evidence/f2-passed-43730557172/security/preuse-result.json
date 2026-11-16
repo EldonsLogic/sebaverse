@@ -1,0 +1,703 @@
+{
+  "schema_version": 2,
+  "image_reference": "oci-archive:work/f2-security/postgres-derived.oci.tar",
+  "platform_manifest_digest": "sha256:cc93c53da93c8e18b677d82b28afc2ec6e6d93ce4fc41da49d1344382c0c709a",
+  "image_runtime": {
+    "type": "derived-oci",
+    "reference": "oci-archive:work/f2-security/postgres-derived.oci.tar",
+    "archive_path": "work/f2-security/postgres-derived.oci.tar",
+    "archive_sha256": "4c1a411573e60210f0f990c5dc2c9fcaf72cb4573cda7e0d252d119cc13dd73e",
+    "platform_manifest_digest": "sha256:cc93c53da93c8e18b677d82b28afc2ec6e6d93ce4fc41da49d1344382c0c709a",
+    "config_digest": "sha256:d964922191b511f07df85610fdac9a95c6e691cbd1ce2a9eb248fc3377dfaeb7",
+    "index_digest": "sha256:4220166a55b96b3f3b9a578bcbf21483ef0d2a31637d8bf78a2d411e364a642a",
+    "rootfs_diff_ids": [
+      "sha256:75f1d9657d880da5f75298e8f40e9928bb6e260c50d26f97af196845307e3064",
+      "sha256:b8825f98857f33809d43213ea4c266b1f4163848111cf9efe59e163d0292facc",
+      "sha256:662f61949e1c711c63e1777c0aded783a11a07e1c631d5411116faad07aa82af",
+      "sha256:cea4fd64022c69cbbef574966bf52b75e25546d7fe51f9a22e505968f8d6ba1a",
+      "sha256:394cdf194731fa5a19abba1b8ccd76f220c0e41ccd6add2766e0fb868bfe98bf",
+      "sha256:081172ac1c396fd830fa6bd93bae12390886a4bc8948be3c0b5dbcdb49d1d0da",
+      "sha256:b416ad031345387fe169979bb2400eedbf02821016344ec7fb3f282867f6f546",
+      "sha256:3ce02c519c7b89c83d16fe98c79c1d2eceb85aa2e25a0bd20fc47c6a85199397",
+      "sha256:a27105ff7bc1ef29e34d619cb7f2436b137cacb6f96bf7c88b016d4d6e63acb2",
+      "sha256:659d1fff1b7bdade57d427a066876385c7893528c4f89c5bb8fa5c1ae5eb456c",
+      "sha256:fe45dd5f32977f3bf09f25366cd28559065aa93f7cb1470f2c5b2e1aa886c453"
+    ],
+    "platform": {
+      "os": "linux",
+      "architecture": "amd64"
+    },
+    "user": "postgres",
+    "parent_platform_manifest": "sha256:005c5c37db96c1e6652a79ea31f9886402fba81ac95dc2db897739121dd7f8f2",
+    "parent_index_digest": "sha256:d3244e8ce3f165ee3c93d9c4a4b1d0fe48b3a89e2287b717fdcbbde92d405065"
+  },
+  "created_at_utc": "2026-11-15T15:36:21.659841+00:00",
+  "policy": "No unresolved high/critical/unknown or KEV findings; no suppressed/unreviewed findings; exact versioned source coverage and immutable scan receipts required",
+  "status": "pass",
+  "errors": [],
+  "reports": [
+    {
+      "file": "image-cves.json",
+      "input": "image-sbom.json",
+      "matches": 3,
+      "blocking": 0,
+      "sha256": "bf10cd8f85de6cfc5a8b799c1b310341b08e157cad461c4c9ef0731f83c41e22",
+      "input_sha256": "ec3d6037927870ccc30a643dfad5ae5f0c4ed08e6e1dbb684c83a3c54778aa1c",
+      "database": {
+        "status": {
+          "schemaVersion": "v6.1.10",
+          "from": "https://grype.anchore.io/databases/v6/vulnerability-db_v6.1.10_2026-11-15T00:23:02Z_1794723579.tar.zst?checksum=sha256%3A96ada30f3287fd04be595a8f419df98efdf19955e7bfa28eae80ef7c5fe27eb7",
+          "built": "2026-11-15T06:19:39Z",
+          "path": "/home/runner/work/sebaverse/sebaverse/work/cache/grype-db/6/vulnerability.db",
+          "valid": true
+        },
+        "providers": {
+          "alma": {
+            "captured": "2026-11-15T00:23:05Z",
+            "input": "xxh64:66787c2858efc7ff"
+          },
+          "alpine": {
+            "captured": "2026-11-15T00:23:02Z",
+            "input": "xxh64:e0e44e3a641d785d"
+          },
+          "amazon": {
+            "captured": "2026-11-15T00:23:08Z",
+            "input": "xxh64:8c07f49d395f5562"
+          },
+          "arch": {
+            "captured": "2026-11-15T00:23:13Z",
+            "input": "xxh64:db8b4998ab00141d"
+          },
+          "bitnami": {
+            "captured": "2026-11-15T00:23:15Z",
+            "input": "xxh64:86509bf68da90029"
+          },
+          "chainguard": {
+            "captured": "2026-11-15T00:23:10Z",
+            "input": "xxh64:4f46ad6f59b73e74"
+          },
+          "chainguard-libraries": {
+            "captured": "2026-11-15T00:23:06Z",
+            "input": "xxh64:9af0f7af1581e02d"
+          },
+          "debian": {
+            "captured": "2026-11-15T00:23:55Z",
+            "input": "xxh64:86848175fedeacb3"
+          },
+          "echo": {
+            "captured": "2026-11-15T00:23:04Z",
+            "input": "xxh64:06744ed3f9108311"
+          },
+          "eol": {
+            "captured": "2026-11-15T00:23:06Z",
+            "input": "xxh64:a7ec31c80585f7ae"
+          },
+          "epss": {
+            "captured": "2026-11-15T00:23:13Z",
+            "input": "xxh64:286c57121f9acf03"
+          },
+          "fedora": {
+            "captured": "2026-11-15T00:23:08Z",
+            "input": "xxh64:a2c679da034fa4ac"
+          },
+          "github": {
+            "captured": "2026-11-15T00:23:23Z",
+            "input": "xxh64:37a1f4c4efb08325"
+          },
+          "govulndb": {
+            "captured": "2026-11-15T00:23:15Z",
+            "input": "xxh64:66490c654353472b"
+          },
+          "hummingbird": {
+            "captured": "2026-11-15T00:26:14Z",
+            "input": "xxh64:a0e26b96324ff59a"
+          },
+          "kev": {
+            "captured": "2026-11-15T00:23:12Z",
+            "input": "xxh64:4568728f33b4c2af"
+          },
+          "mariner": {
+            "captured": "2026-11-15T00:23:15Z",
+            "input": "xxh64:64b488170f6c947c"
+          },
+          "minimos": {
+            "captured": "2026-11-15T00:23:07Z",
+            "input": "xxh64:53a50171d85ce5db"
+          },
+          "nvd": {
+            "captured": "2026-11-15T00:24:38Z",
+            "input": "xxh64:061aa35eec760ef3"
+          },
+          "oracle": {
+            "captured": "2026-11-15T00:23:15Z",
+            "input": "xxh64:0719d876023dad58"
+          },
+          "photon": {
+            "captured": "2026-11-15T00:23:22Z",
+            "input": "xxh64:a6b41779d3619690"
+          },
+          "rhel": {
+            "captured": "2026-11-15T00:24:40Z",
+            "input": "xxh64:1053c5369852e30f"
+          },
+          "secureos": {
+            "captured": "2026-11-15T00:23:03Z",
+            "input": "xxh64:a0a8347160466cdc"
+          },
+          "sles": {
+            "captured": "2026-11-15T00:25:23Z",
+            "input": "xxh64:ccdc5171d000bcc9"
+          },
+          "ubuntu": {
+            "captured": "2026-11-15T01:30:42Z",
+            "input": "xxh64:9c866d01d8bae104"
+          },
+          "wolfi": {
+            "captured": "2026-11-15T00:23:10Z",
+            "input": "xxh64:fe8952b91086c579"
+          }
+        }
+      }
+    },
+    {
+      "file": "system-native-cves.json",
+      "input": "system-native-sbom.json",
+      "matches": 66,
+      "blocking": 0,
+      "sha256": "d46e1be2f5d9b41eb6915bc6e7bfc6c74f0c742167f786d7f1da563c7f5b210b",
+      "input_sha256": "4ea97b64e250a4311a50bb689abe1555667e60dda795243b82c9be7328d8748e",
+      "database": {
+        "status": {
+          "schemaVersion": "v6.1.10",
+          "from": "https://grype.anchore.io/databases/v6/vulnerability-db_v6.1.10_2026-11-15T00:23:02Z_1794723579.tar.zst?checksum=sha256%3A96ada30f3287fd04be595a8f419df98efdf19955e7bfa28eae80ef7c5fe27eb7",
+          "built": "2026-11-15T06:19:39Z",
+          "path": "/home/runner/work/sebaverse/sebaverse/work/cache/grype-db/6/vulnerability.db",
+          "valid": true
+        },
+        "providers": {
+          "alma": {
+            "captured": "2026-11-15T00:23:05Z",
+            "input": "xxh64:66787c2858efc7ff"
+          },
+          "alpine": {
+            "captured": "2026-11-15T00:23:02Z",
+            "input": "xxh64:e0e44e3a641d785d"
+          },
+          "amazon": {
+            "captured": "2026-11-15T00:23:08Z",
+            "input": "xxh64:8c07f49d395f5562"
+          },
+          "arch": {
+            "captured": "2026-11-15T00:23:13Z",
+            "input": "xxh64:db8b4998ab00141d"
+          },
+          "bitnami": {
+            "captured": "2026-11-15T00:23:15Z",
+            "input": "xxh64:86509bf68da90029"
+          },
+          "chainguard": {
+            "captured": "2026-11-15T00:23:10Z",
+            "input": "xxh64:4f46ad6f59b73e74"
+          },
+          "chainguard-libraries": {
+            "captured": "2026-11-15T00:23:06Z",
+            "input": "xxh64:9af0f7af1581e02d"
+          },
+          "debian": {
+            "captured": "2026-11-15T00:23:55Z",
+            "input": "xxh64:86848175fedeacb3"
+          },
+          "echo": {
+            "captured": "2026-11-15T00:23:04Z",
+            "input": "xxh64:06744ed3f9108311"
+          },
+          "eol": {
+            "captured": "2026-11-15T00:23:06Z",
+            "input": "xxh64:a7ec31c80585f7ae"
+          },
+          "epss": {
+            "captured": "2026-11-15T00:23:13Z",
+            "input": "xxh64:286c57121f9acf03"
+          },
+          "fedora": {
+            "captured": "2026-11-15T00:23:08Z",
+            "input": "xxh64:a2c679da034fa4ac"
+          },
+          "github": {
+            "captured": "2026-11-15T00:23:23Z",
+            "input": "xxh64:37a1f4c4efb08325"
+          },
+          "govulndb": {
+            "captured": "2026-11-15T00:23:15Z",
+            "input": "xxh64:66490c654353472b"
+          },
+          "hummingbird": {
+            "captured": "2026-11-15T00:26:14Z",
+            "input": "xxh64:a0e26b96324ff59a"
+          },
+          "kev": {
+            "captured": "2026-11-15T00:23:12Z",
+            "input": "xxh64:4568728f33b4c2af"
+          },
+          "mariner": {
+            "captured": "2026-11-15T00:23:15Z",
+            "input": "xxh64:64b488170f6c947c"
+          },
+          "minimos": {
+            "captured": "2026-11-15T00:23:07Z",
+            "input": "xxh64:53a50171d85ce5db"
+          },
+          "nvd": {
+            "captured": "2026-11-15T00:24:38Z",
+            "input": "xxh64:061aa35eec760ef3"
+          },
+          "oracle": {
+            "captured": "2026-11-15T00:23:15Z",
+            "input": "xxh64:0719d876023dad58"
+          },
+          "photon": {
+            "captured": "2026-11-15T00:23:22Z",
+            "input": "xxh64:a6b41779d3619690"
+          },
+          "rhel": {
+            "captured": "2026-11-15T00:24:40Z",
+            "input": "xxh64:1053c5369852e30f"
+          },
+          "secureos": {
+            "captured": "2026-11-15T00:23:03Z",
+            "input": "xxh64:a0a8347160466cdc"
+          },
+          "sles": {
+            "captured": "2026-11-15T00:25:23Z",
+            "input": "xxh64:ccdc5171d000bcc9"
+          },
+          "ubuntu": {
+            "captured": "2026-11-15T01:30:42Z",
+            "input": "xxh64:9c866d01d8bae104"
+          },
+          "wolfi": {
+            "captured": "2026-11-15T00:23:10Z",
+            "input": "xxh64:fe8952b91086c579"
+          }
+        }
+      }
+    },
+    {
+      "file": "postgres-core-cves.json",
+      "input": "postgres-core.cdx.json",
+      "matches": 1,
+      "blocking": 0,
+      "sha256": "06f0b26bf7da12fa7b21848bbe567a82732f047206f6e43a3febf25c36d0035e",
+      "input_sha256": "e56ea8254d05641fbc96431f7e52448d6b4ba79b040605895eb9f55d833ee452",
+      "database": {
+        "status": {
+          "schemaVersion": "v6.1.10",
+          "from": "https://grype.anchore.io/databases/v6/vulnerability-db_v6.1.10_2026-11-15T00:23:02Z_1794723579.tar.zst?checksum=sha256%3A96ada30f3287fd04be595a8f419df98efdf19955e7bfa28eae80ef7c5fe27eb7",
+          "built": "2026-11-15T06:19:39Z",
+          "path": "/home/runner/work/sebaverse/sebaverse/work/cache/grype-db/6/vulnerability.db",
+          "valid": true
+        },
+        "providers": {
+          "alma": {
+            "captured": "2026-11-15T00:23:05Z",
+            "input": "xxh64:66787c2858efc7ff"
+          },
+          "alpine": {
+            "captured": "2026-11-15T00:23:02Z",
+            "input": "xxh64:e0e44e3a641d785d"
+          },
+          "amazon": {
+            "captured": "2026-11-15T00:23:08Z",
+            "input": "xxh64:8c07f49d395f5562"
+          },
+          "arch": {
+            "captured": "2026-11-15T00:23:13Z",
+            "input": "xxh64:db8b4998ab00141d"
+          },
+          "bitnami": {
+            "captured": "2026-11-15T00:23:15Z",
+            "input": "xxh64:86509bf68da90029"
+          },
+          "chainguard": {
+            "captured": "2026-11-15T00:23:10Z",
+            "input": "xxh64:4f46ad6f59b73e74"
+          },
+          "chainguard-libraries": {
+            "captured": "2026-11-15T00:23:06Z",
+            "input": "xxh64:9af0f7af1581e02d"
+          },
+          "debian": {
+            "captured": "2026-11-15T00:23:55Z",
+            "input": "xxh64:86848175fedeacb3"
+          },
+          "echo": {
+            "captured": "2026-11-15T00:23:04Z",
+            "input": "xxh64:06744ed3f9108311"
+          },
+          "eol": {
+            "captured": "2026-11-15T00:23:06Z",
+            "input": "xxh64:a7ec31c80585f7ae"
+          },
+          "epss": {
+            "captured": "2026-11-15T00:23:13Z",
+            "input": "xxh64:286c57121f9acf03"
+          },
+          "fedora": {
+            "captured": "2026-11-15T00:23:08Z",
+            "input": "xxh64:a2c679da034fa4ac"
+          },
+          "github": {
+            "captured": "2026-11-15T00:23:23Z",
+            "input": "xxh64:37a1f4c4efb08325"
+          },
+          "govulndb": {
+            "captured": "2026-11-15T00:23:15Z",
+            "input": "xxh64:66490c654353472b"
+          },
+          "hummingbird": {
+            "captured": "2026-11-15T00:26:14Z",
+            "input": "xxh64:a0e26b96324ff59a"
+          },
+          "kev": {
+            "captured": "2026-11-15T00:23:12Z",
+            "input": "xxh64:4568728f33b4c2af"
+          },
+          "mariner": {
+            "captured": "2026-11-15T00:23:15Z",
+            "input": "xxh64:64b488170f6c947c"
+          },
+          "minimos": {
+            "captured": "2026-11-15T00:23:07Z",
+            "input": "xxh64:53a50171d85ce5db"
+          },
+          "nvd": {
+            "captured": "2026-11-15T00:24:38Z",
+            "input": "xxh64:061aa35eec760ef3"
+          },
+          "oracle": {
+            "captured": "2026-11-15T00:23:15Z",
+            "input": "xxh64:0719d876023dad58"
+          },
+          "photon": {
+            "captured": "2026-11-15T00:23:22Z",
+            "input": "xxh64:a6b41779d3619690"
+          },
+          "rhel": {
+            "captured": "2026-11-15T00:24:40Z",
+            "input": "xxh64:1053c5369852e30f"
+          },
+          "secureos": {
+            "captured": "2026-11-15T00:23:03Z",
+            "input": "xxh64:a0a8347160466cdc"
+          },
+          "sles": {
+            "captured": "2026-11-15T00:25:23Z",
+            "input": "xxh64:ccdc5171d000bcc9"
+          },
+          "ubuntu": {
+            "captured": "2026-11-15T01:30:42Z",
+            "input": "xxh64:9c866d01d8bae104"
+          },
+          "wolfi": {
+            "captured": "2026-11-15T00:23:10Z",
+            "input": "xxh64:fe8952b91086c579"
+          }
+        }
+      }
+    }
+  ],
+  "input_hashes": {
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/tools.json": "4db91e58fe637cba3660a6c8215c198e51baefe58c01416aa673727276173022",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/kev.json": "4028ec035856331a717d3305e87e45be37d400fc500da34a5464f05fc2773764",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/system-native.json": "1fb3c362b92a6c7b17dda1877a756beedf6a3c6161610b3152c91279b6fc1393",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/image-sbom.json": "ec3d6037927870ccc30a643dfad5ae5f0c4ed08e6e1dbb684c83a3c54778aa1c",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/system-native-sbom.json": "4ea97b64e250a4311a50bb689abe1555667e60dda795243b82c9be7328d8748e",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/postgres-core.cdx.json": "e56ea8254d05641fbc96431f7e52448d6b4ba79b040605895eb9f55d833ee452",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/image-cves.json": "bf10cd8f85de6cfc5a8b799c1b310341b08e157cad461c4c9ef0731f83c41e22",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/system-native-cves.json": "d46e1be2f5d9b41eb6915bc6e7bfc6c74f0c742167f786d7f1da563c7f5b210b",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/postgres-core-cves.json": "06f0b26bf7da12fa7b21848bbe567a82732f047206f6e43a3febf25c36d0035e",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/scan-execution.json": "2ec8bf5079d81efeca31e94a33d09168ffc14ce839e0ab4f80b0b48c2f93a2b8",
+    "/home/runner/work/sebaverse/sebaverse/infra/images.lock.json": "d2b81fcecfe9440b9ff1567ebfa4740ab757092461ae9d5b24bb72027c3dcb87",
+    "/home/runner/work/sebaverse/sebaverse/tools/security/check_reports.py": "64ed88ddd7685a639011c6b8f132ea99ead679f00dd257d15fa1f11ec94cb52c",
+    "/home/runner/work/sebaverse/sebaverse/tools/security/bootstrap.py": "fbe4674289235bef0d9d1f645f26e1912c290cc8a916bb4afb4f926e2f226f3e",
+    "/home/runner/work/sebaverse/sebaverse/tools/security/native_chain.py": "db1a2de241434606a257c61494f4d6d905a093aaaeb8e2ca1cccd82791160a11",
+    "/home/runner/work/sebaverse/sebaverse/tools/security/postgres_core.py": "ef06a76275d9cf4cb5d73107866c181d1bf14a0efb0e3abe9d4f66d8076a19fd",
+    "/home/runner/work/sebaverse/sebaverse/tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053",
+    "/home/runner/work/sebaverse/sebaverse/infra/security-reviewed-findings.json": "117dfa9e69a1528ac613319efa78445ab83789f7392226aa136a4f3c8b629498",
+    "/home/runner/work/sebaverse/sebaverse/tools/security/derived_image_contract.py": "2b6bd69eee61d0c1ce0d1142bd13fc6c9e26c9118635c4eb730bab1977b5d965",
+    "/home/runner/work/sebaverse/sebaverse/infra/local/postgres/runtime-source.json": "2a45819efc484e46cdce86ba8e71222b34df7cf51b288340e90c05bc482ae927",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/postgres-derived.oci.tar": "4c1a411573e60210f0f990c5dc2c9fcaf72cb4573cda7e0d252d119cc13dd73e",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/postgres-derived-build.json": "6c79a36aa5d5c67497a190a8c5e45ddbcfb5fb9d292d933f3c9de503f608afef",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/postgres-derived-files.json": "3d7166f3871dedd52340cf7223750979835649a915bdf1a1c8b70de69dcc37cb",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/postgres-parent-manifest.json": "005c5c37db96c1e6652a79ea31f9886402fba81ac95dc2db897739121dd7f8f2",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/postgres-parent-config.json": "6b75136145ddabf3d9a4b69660402082de7c56b734cfe50555b0674774dd742a",
+    "/home/runner/work/sebaverse/sebaverse/tools/security/build_postgres_candidate.py": "1fb9ebc458c27379415d8e4c9c445375228112081cdbf671bcc672799518e129",
+    "/home/runner/work/sebaverse/sebaverse/tools/security/inspect_postgres_files.py": "4e24affcfeabbc30870f8ec98e3b19d13ea936fe386659c9b6789602b89d0cff",
+    "/home/runner/work/sebaverse/sebaverse/infra/local/postgres/Dockerfile": "e5363b370b4827203bfb0e02da19315127b754cbb0ab53e9594c064ed9280455",
+    "/home/runner/work/sebaverse/sebaverse/infra/local/postgres/gosu-disabled.sh": "3db9af363830ea981c2d589316ed85e9fb796ba401edb183c8ecf20e4e0af47a",
+    "/home/runner/work/sebaverse/sebaverse/infra/local/postgres/proposal.json": "2d546be828fc15094b95c1e908b889685a707b32e8d21923cc13b5d93ca08209",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/postgres-entrypoint-source.txt": "9c440299ae04a0a79d55b8bf03307036d890a40979d2fb698073c9050d4b20a5",
+    "/home/runner/work/sebaverse/sebaverse/.local/security-tools/syft-LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+    "/home/runner/work/sebaverse/sebaverse/.local/security-tools/grype-LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+    "/home/runner/work/sebaverse/sebaverse/.local/security-tools/grype": "30f8f7de5dda71952a20d4955034d30a081a5d10e6bd00d67ce78b56fd0251dc",
+    "/home/runner/work/sebaverse/sebaverse/.local/security-tools/syft": "de3982edbbc250c4a40764c7b1f30bbf54b681f9b99391ee6b85bfdfa5d4dffe",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/grype-empty.yaml": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-root/var/lib/dpkg/status": "f6ab0f302eb165878176df4b95653fd05b6879febbcd00f3e430a3ac3fd89d27",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-root/etc/os-release": "87458b3b1f1ca0e5c693ade771de7007c3783bdc692fa6b39eb6414bf2af2763",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-root/usr/share/doc/libpq5/copyright": "afcc052a946b4117667527211b4ca303f07044f5585222f4c8f577e0764b2123",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-root/usr/share/doc/libssl3t64/copyright": "6a7da622fe0637a334d2a8fc470852d2ffb77d9a2b2f930f854e32a41ad6ef35",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-root/usr/share/doc/libgssapi-krb5-2/copyright": "936728f4181718f42951b881c1e8f1386bf6b2723c4fbc533c374d6f42c71816",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-root/usr/share/doc/libldap2/copyright": "b4081907f0d9a4110736fa6540dc8ca9d7d60a20878b5d78f84916cc04907bdc",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-root/usr/share/doc/libc6/copyright": "d3c95b56fa33e28b57860580f0baf4e4f4de2a268a2b80f1d031a5191bade265",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-root/usr/share/doc/libkrb5-3/copyright": "936728f4181718f42951b881c1e8f1386bf6b2723c4fbc533c374d6f42c71816",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-root/usr/share/doc/libk5crypto3/copyright": "936728f4181718f42951b881c1e8f1386bf6b2723c4fbc533c374d6f42c71816",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-root/usr/share/doc/libcom-err2/copyright": "1ca415a294c0e56958c4f795b3f1f69ea3479bca53d7811f5cdd020a258949db",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-root/usr/share/doc/libkrb5support0/copyright": "936728f4181718f42951b881c1e8f1386bf6b2723c4fbc533c374d6f42c71816",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-root/usr/share/doc/libsasl2-2/copyright": "ddb128a81d3a140ef5b3574ae000a1a50d0cb9a2ec59917121a155f91b670166",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-root/usr/share/doc/libgnutls30t64/copyright": "51da5214308b87d6a0a2fbcaea1f7dbd15510be733e5921d9548ff6b88d84dd8",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-root/usr/share/doc/libkeyutils1/copyright": "c62fe37d22203046611112bc10a9e03a39a7f73bec1b061e7c615326166d9ff5",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-root/usr/share/doc/libp11-kit0/copyright": "d33af1e069981d1c1b576cb22e4bc260a134ffa2fce6ddd3cbbbb5b181113f0c",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-root/usr/share/doc/libidn2-0/copyright": "41702469f28e8ff406345e3d1dd0c741f11bdfca319264f67036efd6aaa79e4b",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-root/usr/share/doc/libunistring5/copyright": "dbbfee567c5eb53ad1c75ce666779e596b5f794b52be7f5834685ddd633185ea",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-root/usr/share/doc/libtasn1-6/copyright": "572ad60ad184d8f52c6dc66d83a61a68f137db560b3452ce00588c9ecf128a65",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-root/usr/share/doc/libnettle8t64/copyright": "2cecdc7ac1913beb31299a41a8092fc936d9e6a1d00872fc3bf6e2263aecf842",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-root/usr/share/doc/libhogweed6t64/copyright": "2cecdc7ac1913beb31299a41a8092fc936d9e6a1d00872fc3bf6e2263aecf842",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-root/usr/share/doc/libgmp10/copyright": "7d366aef5ba325150246de1d7820c4c9926cd27ca61a69948492b26cd3b61601",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-root/usr/share/doc/libffi8/copyright": "737ff68f0eb104d3b0d96b291c3a8f40a775a3ec2b53f9b2e4bcfe3188bde118",
+    "/usr/lib/x86_64-linux-gnu/libpq.so.5.18": "e6f752c5ad7005afab0d9ea2932b93d6ad2d863b4333a55aafa1cdd734e74bde",
+    "/usr/lib/x86_64-linux-gnu/libssl.so.3": "a40e7b67489bbd257e432c700ff8f6a1ad796425b5eccecdc2930127fdd86624",
+    "/usr/lib/x86_64-linux-gnu/libcrypto.so.3": "6866ed711dab8927e1bf82bf1cd30e828bdfc34f3cc1e83b1c9eb01ce6c37d9a",
+    "/usr/lib/x86_64-linux-gnu/libgssapi_krb5.so.2.2": "c7aa00cf51646f7c32f196d329a562bc873ff32906c9caf6554ca489dd657507",
+    "/usr/lib/x86_64-linux-gnu/libldap.so.2.0.200": "a9829b999c95452eb0a34cc7b5349427b76dbf3e5d5c8672a5ca69e454c1b151",
+    "/usr/lib/x86_64-linux-gnu/libc.so.6": "755a371e86cc9f564ab54f66140747700fb0a103f698f659f2060f707897e09a",
+    "/usr/lib/x86_64-linux-gnu/libkrb5.so.3.3": "fad617a72b5839d30143e7db03281279089def6f18788cbb0b7f86385301bf04",
+    "/usr/lib/x86_64-linux-gnu/libk5crypto.so.3.1": "b37407fb2930939bf78b47267019cd201a8af1f4b6a3852249c849cf3a985798",
+    "/usr/lib/x86_64-linux-gnu/libcom_err.so.2.1": "022943b3b11c860b049bce41342f1c2594941b7b401d95dfdf235521099fee08",
+    "/usr/lib/x86_64-linux-gnu/libkrb5support.so.0.1": "936bae947a838bd47676a419dfcfb036d0163249215b58ec706ec7d46b7497aa",
+    "/usr/lib/x86_64-linux-gnu/liblber.so.2.0.200": "ddf14275b1fb70ba06510094071adcc1462e675f15ae6cdcadbf40c1dabe5a03",
+    "/usr/lib/x86_64-linux-gnu/libsasl2.so.2.0.25": "a0f410ad093236856eee59c4ff2838dc04d932ea0993400f23ed77d67d85af34",
+    "/usr/lib/x86_64-linux-gnu/libgnutls.so.30.37.1": "ddbae2995750875c07bc218d12a062d73f8250678f54dedda7e9be5068781c98",
+    "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2": "5fc0940888e9d2e1a00e66d6b1a559c36364ee867683652e1074fa576952cc3f",
+    "/usr/lib/x86_64-linux-gnu/libkeyutils.so.1.10": "f48214417757f18793ed6e180cc14ee1d6f04252a518fc7270e8ca1d0b4260fe",
+    "/usr/lib/x86_64-linux-gnu/libresolv.so.2": "4dcb01645dbeea5d17f28fd96a730430a808d828b3b7d6a097cfbc311501f69f",
+    "/usr/lib/x86_64-linux-gnu/libp11-kit.so.0.3.1": "a59efd4792d3343dedea1d26a28f5597abfe3369082deb504c4802a31b014897",
+    "/usr/lib/x86_64-linux-gnu/libidn2.so.0.4.0": "6e632fd9a3125db60bbc623719bbc17b0470330321c5b1c57f1ff7190e5551ad",
+    "/usr/lib/x86_64-linux-gnu/libunistring.so.5.0.0": "7bcf825cd449892db5105ad2aed91dcf94a27b796426600c765720c584c54dd1",
+    "/usr/lib/x86_64-linux-gnu/libtasn1.so.6.6.3": "59994414d0cdec4f678ef91eaaafc44b26b00bca507e4cc7978caaf79f584173",
+    "/usr/lib/x86_64-linux-gnu/libnettle.so.8.8": "a245ed916229583d6fe0b07657b3ed945bc148c28cc08b5266295f620d2b91cc",
+    "/usr/lib/x86_64-linux-gnu/libhogweed.so.6.8": "c3c606139d4f7776efa4dbd4a6b62e30c916b07a0cafd8c3ef173d6f093607e3",
+    "/usr/lib/x86_64-linux-gnu/libgmp.so.10.5.0": "0ccdfb6d6f5c039465f6d002cf7e4c072d48ac6a2cffc8dd6c748dec31592804",
+    "/usr/lib/x86_64-linux-gnu/libffi.so.8.1.4": "00f593fe192f2851b8ce23b25cec2488d769beb5a8f63e8c9e563071e1075153",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols.json": "f15efd603ff1355b91920eb81b49f8bd539fc3e9390fbd29441a596ff707642d",
+    "/home/runner/work/sebaverse/sebaverse/tools/security/native_symbols.py": "b4ba3d9f2bc502fccbe2041024fb6d96f86116722475375561f23a52a94b198a",
+    "/home/runner/work/sebaverse/sebaverse/backend/.venv/lib/python3.12/site-packages/psycopg_binary/_psycopg.cpython-312-x86_64-linux-gnu.so": "d3dd5eccc9d72daac39d19fa56348973a0e2b41ecee9ef7384ac874801f491ee",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/d3dd5eccc9d72daac39d19fa56348973a0e2b41ecee9ef7384ac874801f491ee.symbols.txt": "389e7166b4384dfba937bde6435d3db24b6274356e72de83e99416e09dc0989d",
+    "/home/runner/work/sebaverse/sebaverse/backend/.venv/lib/python3.12/site-packages/psycopg_binary/pq.cpython-312-x86_64-linux-gnu.so": "16468c67fd85b13951d1b95ea0207ba693ec485bd840f67c200051fd8bd13882",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/16468c67fd85b13951d1b95ea0207ba693ec485bd840f67c200051fd8bd13882.symbols.txt": "57bb3bcf67b43efbd7a4198e3f07f6e69635278cb68efe56e8985f91f53242dd",
+    "/opt/hostedtoolcache/Python/3.12.13/x64/bin/python3.12": "edcdaf07e49bb241cbccb0f18fdb2c8f2e6e1be36a583fce9fc703894d814238",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/edcdaf07e49bb241cbccb0f18fdb2c8f2e6e1be36a583fce9fc703894d814238.symbols.txt": "63d25a6794dcbd2908bfcced7832a29f2887761ea32ea172525aa277081a0115",
+    "/opt/hostedtoolcache/Python/3.12.13/x64/lib/libpython3.12.so.1.0": "5aa44491272f12bef15eff72c37b94f58898e00876712f991684bb4258010339",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/5aa44491272f12bef15eff72c37b94f58898e00876712f991684bb4258010339.symbols.txt": "7e26d161df0be17ff61a8c4667614ded914839f02084fcd4c872402bba54149c",
+    "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/lib-dynload/_asyncio.cpython-312-x86_64-linux-gnu.so": "7bb4f8bcaaac4759bbd3bd274f70f72377e64353fd56bd81226d521d5da697a8",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/7bb4f8bcaaac4759bbd3bd274f70f72377e64353fd56bd81226d521d5da697a8.symbols.txt": "c7d1ecb99bb5034cffb4022e85a9002123a61fa78227d88db6e70ab7d71d80b8",
+    "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/lib-dynload/_bisect.cpython-312-x86_64-linux-gnu.so": "949aaeacb0a2d8e47657716c0a126464657fc2f56a9e79d8b3487279263cd971",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/949aaeacb0a2d8e47657716c0a126464657fc2f56a9e79d8b3487279263cd971.symbols.txt": "17ec6a6209b8d6aa63247f71f18f8f511eef32d1e3bdf29a06e1ce9210ee1605",
+    "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/lib-dynload/_blake2.cpython-312-x86_64-linux-gnu.so": "87b220eea4b8b43cc249eb52a09a1be96b8e5743ebe73659c915e127e9e4edb0",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/87b220eea4b8b43cc249eb52a09a1be96b8e5743ebe73659c915e127e9e4edb0.symbols.txt": "9382987d66dd1d911c5750e7872786851d252b2309f6d1c5d2da3900e88550c7",
+    "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/lib-dynload/_bz2.cpython-312-x86_64-linux-gnu.so": "fad5fd1ccadade18b365afb3244108a7223093bb1ab69443e44a16c4e785eb17",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/fad5fd1ccadade18b365afb3244108a7223093bb1ab69443e44a16c4e785eb17.symbols.txt": "7dbf51aacfb92986d3d297ffff34b305e59abe4c6e996a19bf874b9978946e77",
+    "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/lib-dynload/_codecs_cn.cpython-312-x86_64-linux-gnu.so": "ad425c71fdf2a4474acdad92a49d45bead988245440e1d0be54f1f0bc64d1982",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/ad425c71fdf2a4474acdad92a49d45bead988245440e1d0be54f1f0bc64d1982.symbols.txt": "30f6230a981fc6a647612436165eebbab1f70d9a95a6b24ed84d940686707a80",
+    "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/lib-dynload/_codecs_hk.cpython-312-x86_64-linux-gnu.so": "0fefd9db95878496dd7ca92b85de08790b020b636e46226ecf0017ff483cd6fd",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/0fefd9db95878496dd7ca92b85de08790b020b636e46226ecf0017ff483cd6fd.symbols.txt": "7e1571e2a98724aa63495a89d03d00cc14141323374bf74854026fda32986b01",
+    "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/lib-dynload/_codecs_iso2022.cpython-312-x86_64-linux-gnu.so": "83f242ba2d798b0a1e14ead4462cb957fc1fba4fe78d1e08e8f2be27d1e2c165",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/83f242ba2d798b0a1e14ead4462cb957fc1fba4fe78d1e08e8f2be27d1e2c165.symbols.txt": "626607bff0819d0964804c9bd8dc0e2c9be8e90ed54039790e6d5766024f8069",
+    "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/lib-dynload/_codecs_jp.cpython-312-x86_64-linux-gnu.so": "5a35a3d4e84d76fd11ca84f9a0ca7764a87df9141521b5a68c0296c1f0a1f3e3",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/5a35a3d4e84d76fd11ca84f9a0ca7764a87df9141521b5a68c0296c1f0a1f3e3.symbols.txt": "61ce89630bfdf2ca594df4a5f42f9eb8665a1a853011ac79f925a3484f992665",
+    "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/lib-dynload/_codecs_kr.cpython-312-x86_64-linux-gnu.so": "0ac275d956c1c7281dc95aa43bd1bbd55f180185c51892b6a2476590625c6e31",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/0ac275d956c1c7281dc95aa43bd1bbd55f180185c51892b6a2476590625c6e31.symbols.txt": "be0bc2ca09ab17aa716536561e1e2f695570b4c2290e89be279f50430d7678f8",
+    "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/lib-dynload/_codecs_tw.cpython-312-x86_64-linux-gnu.so": "0652720874da9889f9a63d445a81acb799c02cb626980bfe5acc3598c0abc2ff",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/0652720874da9889f9a63d445a81acb799c02cb626980bfe5acc3598c0abc2ff.symbols.txt": "34b41e60451ee0a83bff9a1dd18905ed357a6822f7a1f9d9fc029107c1596dd6",
+    "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/lib-dynload/_contextvars.cpython-312-x86_64-linux-gnu.so": "560613e5f484c16bc729e91a59b0fa8f68309c47b741c91887d1396513ba151c",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/560613e5f484c16bc729e91a59b0fa8f68309c47b741c91887d1396513ba151c.symbols.txt": "b2974e39cd12e9afa9737a61519bf8062392f983edef28df30bb47ccde952c46",
+    "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/lib-dynload/_crypt.cpython-312-x86_64-linux-gnu.so": "e4949a0f581abcffc0dc8067fad6ee932a1cdbd4e712a7408b2d0f4f3ee13cf6",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/e4949a0f581abcffc0dc8067fad6ee932a1cdbd4e712a7408b2d0f4f3ee13cf6.symbols.txt": "d07a22d7305216fa5de64adcb5689714901ddb208205b1c0159ab821e8b4c76e",
+    "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/lib-dynload/_csv.cpython-312-x86_64-linux-gnu.so": "127fd64390d2450074465c5ca1652419dd8cbe3e462b8b281b6c88daff8e639a",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/127fd64390d2450074465c5ca1652419dd8cbe3e462b8b281b6c88daff8e639a.symbols.txt": "5b13c510cbf166c4cb8ee08f303a391321442ebe3ddd61bc273ded2c1eeeb218",
+    "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/lib-dynload/_ctypes.cpython-312-x86_64-linux-gnu.so": "098241019b282a3a7a42f3e582a5df534ee43ee5e0133fd079c74d8503b85447",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/098241019b282a3a7a42f3e582a5df534ee43ee5e0133fd079c74d8503b85447.symbols.txt": "6bff6e20bf31d847317a1e7effce3488c5ad3bdfb16d47a6c98252c0fba91b08",
+    "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/lib-dynload/_ctypes_test.cpython-312-x86_64-linux-gnu.so": "6911b3d6e8da0bb83a2eecc8874890960d647431ba39322d88aeb8e062ee39af",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/6911b3d6e8da0bb83a2eecc8874890960d647431ba39322d88aeb8e062ee39af.symbols.txt": "a4998fda25b10fdacbbac52b924269e2f9b38c3163a80a638dd15ea44b0be538",
+    "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/lib-dynload/_curses.cpython-312-x86_64-linux-gnu.so": "c37310e564f0a72494742ecd80d23ab375060d7108504b5e6378680310cb65cf",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/c37310e564f0a72494742ecd80d23ab375060d7108504b5e6378680310cb65cf.symbols.txt": "5251e71bce2074c13b9555e71fbe977543a6503d039d57d5dbedf46b51f79803",
+    "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/lib-dynload/_curses_panel.cpython-312-x86_64-linux-gnu.so": "d405dda886f43d58d1d7c1f477bbe0b2041b971fe810aaf376367adacaf96f9f",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/d405dda886f43d58d1d7c1f477bbe0b2041b971fe810aaf376367adacaf96f9f.symbols.txt": "4e0b3da6df6b6f36b697dd29b4064f5936178374c9b95a44475de12cb81a7327",
+    "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/lib-dynload/_datetime.cpython-312-x86_64-linux-gnu.so": "6ddcbc3f0c9703a4ccfaed503ccf68cbf3d9bec7da70a3f83b1321cca41d5d1d",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/6ddcbc3f0c9703a4ccfaed503ccf68cbf3d9bec7da70a3f83b1321cca41d5d1d.symbols.txt": "6f11e246203fda1b2579dce9606fd5259b4dd30736ae0acc417c53394023601d",
+    "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/lib-dynload/_dbm.cpython-312-x86_64-linux-gnu.so": "9ec52201daee4e4bbb20f168cd1de05be59b2d7397db6e01a61e8b3aaa1d7087",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/9ec52201daee4e4bbb20f168cd1de05be59b2d7397db6e01a61e8b3aaa1d7087.symbols.txt": "72487478262153951fcb8c610abed0f1ebc316f2090dbfde8f23d2b4fd6a9c80",
+    "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/lib-dynload/_decimal.cpython-312-x86_64-linux-gnu.so": "401fb3a77a66be5858c183701ce1998d533891070afc38dad6adf749a4fa39ab",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/401fb3a77a66be5858c183701ce1998d533891070afc38dad6adf749a4fa39ab.symbols.txt": "1804ee706ca241803d096376b8ce9fa8f626c56d70042d4409f21ce0750d27f1",
+    "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/lib-dynload/_elementtree.cpython-312-x86_64-linux-gnu.so": "f48002b0e6cab8b054993a3f73270c91b57fa13c64c022a15f6d42e6b21fc2e6",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/f48002b0e6cab8b054993a3f73270c91b57fa13c64c022a15f6d42e6b21fc2e6.symbols.txt": "eca8099d50082b6b7d9f93c86cbc84ade1d29939729d6eb5a5d94eb3964dbab3",
+    "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/lib-dynload/_gdbm.cpython-312-x86_64-linux-gnu.so": "6354fda034e12c408939f9624852536760983837f62dbe26cfaaf7f39b006b88",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/6354fda034e12c408939f9624852536760983837f62dbe26cfaaf7f39b006b88.symbols.txt": "e1545f2e729d3e55312ebf10646cc1ca3ae240e874e81227233a69efeb632432",
+    "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/lib-dynload/_hashlib.cpython-312-x86_64-linux-gnu.so": "ad95add2800d9e2dcee5dc0c34a92bcfe17828bba983c88eec34ee3b03255da2",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/ad95add2800d9e2dcee5dc0c34a92bcfe17828bba983c88eec34ee3b03255da2.symbols.txt": "df18681fa9e6fec5e63838745e8275d1c169554d20bb4fff1ce853ab9a8391c0",
+    "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/lib-dynload/_heapq.cpython-312-x86_64-linux-gnu.so": "bc17ed6b58878d58832c1289355771eec1860f0f9a7c0445abf5ac72b20c0dd4",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/bc17ed6b58878d58832c1289355771eec1860f0f9a7c0445abf5ac72b20c0dd4.symbols.txt": "a848ef7e0c1f2b83c05884a5490be53e9960272259378f5e70225627122d4733",
+    "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/lib-dynload/_json.cpython-312-x86_64-linux-gnu.so": "e1eb258c1154c93b98cce53b8dc8a25516603807d023f4993eccfdc842e94604",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/e1eb258c1154c93b98cce53b8dc8a25516603807d023f4993eccfdc842e94604.symbols.txt": "b41e37428316f3d86746f9036f41a69e21466a14655f148f4ccb4b4bf97df03b",
+    "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/lib-dynload/_lsprof.cpython-312-x86_64-linux-gnu.so": "ad34b3225af56955682c90cb9d40c8a0a0c27c3394637e5fa67fa93ab2319e3b",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/ad34b3225af56955682c90cb9d40c8a0a0c27c3394637e5fa67fa93ab2319e3b.symbols.txt": "625eadddb78bcecbce3eb818f49770bc2e98e9d9ab92fa3adfe7f5e19f6d4395",
+    "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/lib-dynload/_lzma.cpython-312-x86_64-linux-gnu.so": "1ea6e777cb81a4b43bf275c931dcbd84531ffe43e2efa38de3201e226cd88294",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/1ea6e777cb81a4b43bf275c931dcbd84531ffe43e2efa38de3201e226cd88294.symbols.txt": "e1cd1fb1565bb7b17234970e263cbe39dc4b0484181009accf30565a76f24261",
+    "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/lib-dynload/_md5.cpython-312-x86_64-linux-gnu.so": "868d7e4fd1c2289f662172995c41964c339202fea72b469fcbc220ce6324a2ae",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/868d7e4fd1c2289f662172995c41964c339202fea72b469fcbc220ce6324a2ae.symbols.txt": "0df0ade7db4e726b6258e77a636687d78f3945ca4779e22b2a09b94f970dfc67",
+    "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/lib-dynload/_multibytecodec.cpython-312-x86_64-linux-gnu.so": "5b46ebb5c731bce84910889d2c541b4f1f347d71205ea5ad727ff112cbfd40d8",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/5b46ebb5c731bce84910889d2c541b4f1f347d71205ea5ad727ff112cbfd40d8.symbols.txt": "66589dd4c1f93e582171d0c4912f4c5d134043eb451af155c7404982c181cc60",
+    "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/lib-dynload/_multiprocessing.cpython-312-x86_64-linux-gnu.so": "ed9a591d605914702e73b721702e874f756525c2c1ebb10d4a658eff973bc7ef",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/ed9a591d605914702e73b721702e874f756525c2c1ebb10d4a658eff973bc7ef.symbols.txt": "f2979980f557e4eb63cdee897dfaa0b52b618e47692212be330009ea708b0668",
+    "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/lib-dynload/_opcode.cpython-312-x86_64-linux-gnu.so": "71f9da7ac43ceadb319022e02aa382c415d9f74d20b28e3037b3adcfd1a451c6",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/71f9da7ac43ceadb319022e02aa382c415d9f74d20b28e3037b3adcfd1a451c6.symbols.txt": "456d2f53e1414964d3c4fb6fee5949601ee8a0a03b97d698ebe7f10490c2e4b2",
+    "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/lib-dynload/_pickle.cpython-312-x86_64-linux-gnu.so": "7593978af1cf312f471f39d37c9ea84bc4435e33cebaa08067e09307e8995875",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/7593978af1cf312f471f39d37c9ea84bc4435e33cebaa08067e09307e8995875.symbols.txt": "3086da0ca93ab02c524e86a2b6ed92d9657a855417f5454128f1be130adf82ec",
+    "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/lib-dynload/_posixshmem.cpython-312-x86_64-linux-gnu.so": "f9449d9db223feceed2e75e1c4809547fb4f6f25bbc103650efaac6eaca89d71",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/f9449d9db223feceed2e75e1c4809547fb4f6f25bbc103650efaac6eaca89d71.symbols.txt": "3775b792d7f9bbcb6fd103ef2404b0c2ab51b259f8a398c69f52ce3f10a5180d",
+    "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/lib-dynload/_posixsubprocess.cpython-312-x86_64-linux-gnu.so": "6347400eb2a2691bfe96e95bb6758b19939db4872a8ef7f79173b078e1a0253f",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/6347400eb2a2691bfe96e95bb6758b19939db4872a8ef7f79173b078e1a0253f.symbols.txt": "0fcfed80ce19c952e589eba9460de5261239a32fc35b3300f183be5e05112a6c",
+    "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/lib-dynload/_queue.cpython-312-x86_64-linux-gnu.so": "e5c241e5dc04795af9a2c8e9bb25adbc0ffa4650c9b2834fd9c4f06591af0f4e",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/e5c241e5dc04795af9a2c8e9bb25adbc0ffa4650c9b2834fd9c4f06591af0f4e.symbols.txt": "1ab1c9f624073a77de4f7b7958957ef1c817aa01571ae2ef6bd934cba4db50ed",
+    "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/lib-dynload/_random.cpython-312-x86_64-linux-gnu.so": "94da683a85c8b1be085ba2d8730424a722389e3b47345c221a1e98fb37a132aa",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/94da683a85c8b1be085ba2d8730424a722389e3b47345c221a1e98fb37a132aa.symbols.txt": "e51e71982882e90738409af5991514f7ae1ab38a71f591f8d81134c10e423e13",
+    "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/lib-dynload/_sha1.cpython-312-x86_64-linux-gnu.so": "333ab85be03c9da1812d4339325c7dd8bfcef785ce8af8bcc69d2b859209832c",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/333ab85be03c9da1812d4339325c7dd8bfcef785ce8af8bcc69d2b859209832c.symbols.txt": "241d4ffd4a6fa20d1d15832f46e18cb9fe284c36644d72cd48ec3ad0b94bca17",
+    "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/lib-dynload/_sha2.cpython-312-x86_64-linux-gnu.so": "729d8b1e7cd9bcb773748f102a6178da3134abd21c851a14f93d22f8d25eaf2a",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/729d8b1e7cd9bcb773748f102a6178da3134abd21c851a14f93d22f8d25eaf2a.symbols.txt": "e685fca4ef09f943a062aa53e1ea60e2168ab37f11fc3c2f0ae81f101821f5b1",
+    "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/lib-dynload/_sha3.cpython-312-x86_64-linux-gnu.so": "7fd9eb761acfa81029e4cdda54193011bfe39d3010fa4bb093141a7c659ba47a",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/7fd9eb761acfa81029e4cdda54193011bfe39d3010fa4bb093141a7c659ba47a.symbols.txt": "4cd43c786e4974ab1d0d767a6ce66074ec9313b7dc1e7da75d5ae6cba566dd65",
+    "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/lib-dynload/_socket.cpython-312-x86_64-linux-gnu.so": "7c3b5b4bfaf6eab8c123135ead64e54f093a3fd2e160b5d177c5cce5089ab2e3",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/7c3b5b4bfaf6eab8c123135ead64e54f093a3fd2e160b5d177c5cce5089ab2e3.symbols.txt": "7159db2c21fb2432a4535ec103471802b4f2de52ce538c7706513d35bd1f03e9",
+    "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/lib-dynload/_sqlite3.cpython-312-x86_64-linux-gnu.so": "f86879ef70e1c065dd9755f84661887c4e03f698dabb0b54228b21bb3058b296",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/f86879ef70e1c065dd9755f84661887c4e03f698dabb0b54228b21bb3058b296.symbols.txt": "d70ea4e8992f123b48b38f7ca9f481bf3834c1bb281d1522474cacee85198193",
+    "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/lib-dynload/_ssl.cpython-312-x86_64-linux-gnu.so": "8d604b0a10ef05cc263bdf0be0073121b828179e8951ef6d451979781f90a414",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/8d604b0a10ef05cc263bdf0be0073121b828179e8951ef6d451979781f90a414.symbols.txt": "1ac2a53db3cd9960a18ecb3f5b5f9bdca13c378909ec8db152384323e051f674",
+    "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/lib-dynload/_statistics.cpython-312-x86_64-linux-gnu.so": "dc933ef8c67b36504cef1c1965b29bf005be0c5d3147dd0695969cc21fb6f0cf",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/dc933ef8c67b36504cef1c1965b29bf005be0c5d3147dd0695969cc21fb6f0cf.symbols.txt": "831e3dbaa3c2c11c7683010c0bc34c7b08f5460458a477200e30e65ba44da898",
+    "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/lib-dynload/_struct.cpython-312-x86_64-linux-gnu.so": "909808217f7a04f48258736a45738e86b1e60d71cf86c6f8cdb0e14f1b8e5f58",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/909808217f7a04f48258736a45738e86b1e60d71cf86c6f8cdb0e14f1b8e5f58.symbols.txt": "1943c61f56d04dbe4fec410c4dc78c5fd744b8fa31633d6d5b86e8a8e8d59098",
+    "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/lib-dynload/_testbuffer.cpython-312-x86_64-linux-gnu.so": "bbe835b94a7b6fca402786fcd7a320814a5905c79325c43864540986e30339ba",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/bbe835b94a7b6fca402786fcd7a320814a5905c79325c43864540986e30339ba.symbols.txt": "b0ebb5c1a9e6f0547d96e44b78e757c8fffdf72c31229227b873a92cfbb22027",
+    "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/lib-dynload/_testcapi.cpython-312-x86_64-linux-gnu.so": "80c294a55d6332c62adefbbcaf0a8448baa4af3f3fb45dfc0dc6173ba468743d",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/80c294a55d6332c62adefbbcaf0a8448baa4af3f3fb45dfc0dc6173ba468743d.symbols.txt": "33e9c168a55e12ecfd777ddfac853a69109db0a87d1d83e7cbffc5127432cff1",
+    "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/lib-dynload/_testclinic.cpython-312-x86_64-linux-gnu.so": "1c2eed4c06071a9afaccd85ffdfdd7e75f9548ce247420d3f4709cd766cbf0e7",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/1c2eed4c06071a9afaccd85ffdfdd7e75f9548ce247420d3f4709cd766cbf0e7.symbols.txt": "e722dbc2bbaeb059ff5c2059871f2a62c77aa67df369efa6eb337ec000792dd6",
+    "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/lib-dynload/_testimportmultiple.cpython-312-x86_64-linux-gnu.so": "30840b5075fa4876a9f85e7b64f88292a4b88c42662872648422e8a9d63a8e15",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/30840b5075fa4876a9f85e7b64f88292a4b88c42662872648422e8a9d63a8e15.symbols.txt": "bc934ab19444eb5361d69416acc39454c3a1629570f6b4bcddab16fc62690c6a",
+    "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/lib-dynload/_testinternalcapi.cpython-312-x86_64-linux-gnu.so": "73e004135320699ef92fa63970cc2c274bf9978f5461dee7a01a284c8c437deb",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/73e004135320699ef92fa63970cc2c274bf9978f5461dee7a01a284c8c437deb.symbols.txt": "f89da0f4d9933c21bcfd0618a909c55300415e3e544ef2d92daba19d5438726c",
+    "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/lib-dynload/_testmultiphase.cpython-312-x86_64-linux-gnu.so": "b724e173b4a9a48a8feb50ad9aa984b58ffab5d49e2e955ba5f46cb9e6ca6c55",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/b724e173b4a9a48a8feb50ad9aa984b58ffab5d49e2e955ba5f46cb9e6ca6c55.symbols.txt": "0e1131f794d6a6a8ddbd71a77fb5035935e62949ebf78e09ffe0d09b8972f751",
+    "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/lib-dynload/_testsinglephase.cpython-312-x86_64-linux-gnu.so": "70265158453bcfcaebfab56ebdc71787d13882f937dbe353bace08afa55c6e26",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/70265158453bcfcaebfab56ebdc71787d13882f937dbe353bace08afa55c6e26.symbols.txt": "3979aa87fc71eb74593861c25e00581a40ac22a906933a8043a8f7312692ca8e",
+    "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/lib-dynload/_tkinter.cpython-312-x86_64-linux-gnu.so": "d61f1128f52fcc69f0c41a509d9d8f505a0ff0947aaf27d0bf4b579d60b1dd21",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/d61f1128f52fcc69f0c41a509d9d8f505a0ff0947aaf27d0bf4b579d60b1dd21.symbols.txt": "9dda909d49cbf185d9a295f9e064f45d10aeabc1dba1829f7ff3bb4cea52917e",
+    "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/lib-dynload/_uuid.cpython-312-x86_64-linux-gnu.so": "cccf5c2a06d1d20fcdd937de630aadc58017269803e937930900c88f999a2c4d",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/cccf5c2a06d1d20fcdd937de630aadc58017269803e937930900c88f999a2c4d.symbols.txt": "b8584a2091d23756de680510e98493827a0d71164edc00b5a255d5ac280f1fdc",
+    "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/lib-dynload/_xxinterpchannels.cpython-312-x86_64-linux-gnu.so": "aeebe46219c7cde5e95399201219994ba10cc1afc1a15a8c91eb1899be04b98f",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/aeebe46219c7cde5e95399201219994ba10cc1afc1a15a8c91eb1899be04b98f.symbols.txt": "ca863a64c51b2642f503298887d81fba7f46dad274ffa84a2f1d011df9d36f46",
+    "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/lib-dynload/_xxsubinterpreters.cpython-312-x86_64-linux-gnu.so": "2d40e863e65ba8406b7f10adb0dd2bacf4562135a3a991fa5eaa2f9665ecc744",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/2d40e863e65ba8406b7f10adb0dd2bacf4562135a3a991fa5eaa2f9665ecc744.symbols.txt": "5b11bbc26a90472d4964251d17afb81c19b55acf26b69afdb4640b2cacb6b43d",
+    "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/lib-dynload/_xxtestfuzz.cpython-312-x86_64-linux-gnu.so": "16a29a6c9a0c0f2932742eec6d3d943efa586813f7219a5eda23106c7c32e992",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/16a29a6c9a0c0f2932742eec6d3d943efa586813f7219a5eda23106c7c32e992.symbols.txt": "84c133ce7bae707f4f39c27e20849cdec4145ccb0d3f77efe03938af88baca3a",
+    "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/lib-dynload/_zoneinfo.cpython-312-x86_64-linux-gnu.so": "d58e9e1dbd865d5b74326e5e51ce55de914098b23d60ec02bc3ff54c58c1aa33",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/d58e9e1dbd865d5b74326e5e51ce55de914098b23d60ec02bc3ff54c58c1aa33.symbols.txt": "3ddf878ef51e215d39ab7d87aa6ac94ce3c72f9d369f13714c8a7929ec792f4c",
+    "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/lib-dynload/array.cpython-312-x86_64-linux-gnu.so": "fc6391a6c7ff6dc1fa8989d930b973292191b47245df2a852de2033dea8f081a",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/fc6391a6c7ff6dc1fa8989d930b973292191b47245df2a852de2033dea8f081a.symbols.txt": "50e8337f3c44f690343ba8ba6f7a9318c699ca14047c6429f5d9a1e918638634",
+    "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/lib-dynload/audioop.cpython-312-x86_64-linux-gnu.so": "f637912f4b290b8b58ba421b539018df1ad9efb52c01207843edfe7f72937412",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/f637912f4b290b8b58ba421b539018df1ad9efb52c01207843edfe7f72937412.symbols.txt": "a1fa86bf0e4f0c4558df8c8cb50fcafa99016424ff7531d90072178eb86256a8",
+    "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/lib-dynload/binascii.cpython-312-x86_64-linux-gnu.so": "ac9bded43820f64d17cb386663e51ea4e9e1473c049f1d6d7eb3256227bcdc8e",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/ac9bded43820f64d17cb386663e51ea4e9e1473c049f1d6d7eb3256227bcdc8e.symbols.txt": "31570c8909dbf6ac61e9abb8a961d543f43cee612a3950713f4aa9a8c1dd1905",
+    "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/lib-dynload/cmath.cpython-312-x86_64-linux-gnu.so": "5c46ae076c9d3b7d4e30d0f665328d6d0c2760baf86c3d137500043e22525ed5",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/5c46ae076c9d3b7d4e30d0f665328d6d0c2760baf86c3d137500043e22525ed5.symbols.txt": "719b9ed3c7bde0c2743a2db0a52bf2c4021c81011bf21b93646a19c6a6034d89",
+    "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/lib-dynload/fcntl.cpython-312-x86_64-linux-gnu.so": "be541a4988bd60c68f2c9c306b78664b0e826da9268c84366e66a1c72ed5c01a",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/be541a4988bd60c68f2c9c306b78664b0e826da9268c84366e66a1c72ed5c01a.symbols.txt": "8fa99f6f5a3509356cd7f065e2adaa3609abfb2a1d02b6bc2aa78398c0053749",
+    "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/lib-dynload/grp.cpython-312-x86_64-linux-gnu.so": "8f86de4dde3e16bddf22a63ea4c99467f0194cec4e3c0039ce86bf1a2d603c3d",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/8f86de4dde3e16bddf22a63ea4c99467f0194cec4e3c0039ce86bf1a2d603c3d.symbols.txt": "94d6a6bfefd2ee318395fe500635252750af33655cb6ccdea25f70de1a3bd58c",
+    "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/lib-dynload/math.cpython-312-x86_64-linux-gnu.so": "8793aec664a4f34b957215c1d2505cd155da4122dee9564cb2ca87f13ca5dc2e",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/8793aec664a4f34b957215c1d2505cd155da4122dee9564cb2ca87f13ca5dc2e.symbols.txt": "4f9a3b656dbdea544bc0c1396c12ebd9bb5e5e119360b350f47ba9f01873c489",
+    "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/lib-dynload/mmap.cpython-312-x86_64-linux-gnu.so": "4b2f4540ad86db03c63ed6bbbcce3ad044afab70a138017106b54d476a26e4e2",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/4b2f4540ad86db03c63ed6bbbcce3ad044afab70a138017106b54d476a26e4e2.symbols.txt": "45b6a389c7f342b605a82cc3aacc3c8a69717e060b69a1d2c4db4bf0dc4bb9c3",
+    "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/lib-dynload/ossaudiodev.cpython-312-x86_64-linux-gnu.so": "8ffa5a2748f410017af8dbc6039ac1a140b7b315779849b7b8793b17de5a06b2",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/8ffa5a2748f410017af8dbc6039ac1a140b7b315779849b7b8793b17de5a06b2.symbols.txt": "709eade5195bdbaa08cc0894bae096239952534a779839f89605889d27b3e9ef",
+    "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/lib-dynload/pyexpat.cpython-312-x86_64-linux-gnu.so": "76544a11e2f3016127f88f1ea7bbbae27d5bec4d14b80604261d4da68e1525d4",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/76544a11e2f3016127f88f1ea7bbbae27d5bec4d14b80604261d4da68e1525d4.symbols.txt": "acd198d5fed685bcba0f25d9925febc8944e9dfa288057a707d4e84ad33f510b",
+    "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/lib-dynload/readline.cpython-312-x86_64-linux-gnu.so": "72a7a6cdd9104fd16744ecb60c64a59c061aa977e5f255700cdffd6293350305",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/72a7a6cdd9104fd16744ecb60c64a59c061aa977e5f255700cdffd6293350305.symbols.txt": "e8e07dc7a442abc2cac85c0c2505e3f4a03394f1c767976ae18c01b5bc69a2b4",
+    "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/lib-dynload/resource.cpython-312-x86_64-linux-gnu.so": "b66fcbe8ff4523935c2f8e04647690a0a8329eb98720171ad3fd42ebc9955004",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/b66fcbe8ff4523935c2f8e04647690a0a8329eb98720171ad3fd42ebc9955004.symbols.txt": "15797d29c7f28cf20ef7e1213ee75086cfb1184ff1ae30dbde3417236bd4192c",
+    "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/lib-dynload/select.cpython-312-x86_64-linux-gnu.so": "df14c7abdcab8ccfa40e528566106d53339cbc3f9d8cedc8bf707c70aa009355",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/df14c7abdcab8ccfa40e528566106d53339cbc3f9d8cedc8bf707c70aa009355.symbols.txt": "26ce7f1e518290594151e4f9caf73149ec7fe1a1186536916d9e103c55320205",
+    "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/lib-dynload/spwd.cpython-312-x86_64-linux-gnu.so": "dd69c7385556bc63274019d73058ec738ad1dd16e3c7ea9c166217b921d40ce7",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/dd69c7385556bc63274019d73058ec738ad1dd16e3c7ea9c166217b921d40ce7.symbols.txt": "8f95b49278681871add1996a21b97e3f8cd7e3c99ce563af9937cff05482be90",
+    "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/lib-dynload/syslog.cpython-312-x86_64-linux-gnu.so": "df88d974a1a54e6a72cbf4563b664dcf225a411b612d30d19cae11bcbda02a42",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/df88d974a1a54e6a72cbf4563b664dcf225a411b612d30d19cae11bcbda02a42.symbols.txt": "75f7cb4e05e85a9098f5f6ed608164c7b03075605d5a5aabb7d1d25760ed8e1d",
+    "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/lib-dynload/termios.cpython-312-x86_64-linux-gnu.so": "449b23c78057a4518e72417ae5d354a95b0ac6882ae805b06b81a90f16745d7c",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/449b23c78057a4518e72417ae5d354a95b0ac6882ae805b06b81a90f16745d7c.symbols.txt": "dbc59c82cd60941fa2f8068a96d24c28d1975f1aa43c73f8025389a7b6b8fd13",
+    "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/lib-dynload/unicodedata.cpython-312-x86_64-linux-gnu.so": "ac267559a6d6c1da79eb0fd063ab6e74047006a469ca223163b5a526449e4d30",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/ac267559a6d6c1da79eb0fd063ab6e74047006a469ca223163b5a526449e4d30.symbols.txt": "b13fecd40eb09affbf407ff3460b36f83f549ad04fea594de1df1f71994a138d",
+    "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/lib-dynload/xxlimited.cpython-312-x86_64-linux-gnu.so": "118bd6f3af51817efa2070a052bab3bacbe328d625d2bc1660cb603badc84033",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/118bd6f3af51817efa2070a052bab3bacbe328d625d2bc1660cb603badc84033.symbols.txt": "4a9d3ae8acc04d1c26a72a159de5b25e58e3211bf1fc0885aba500b60972075c",
+    "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/lib-dynload/xxlimited_35.cpython-312-x86_64-linux-gnu.so": "c64947f934b874414fdcd3016abfa594a7d57557fbbf4ff92c195327ced4a7c3",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/c64947f934b874414fdcd3016abfa594a7d57557fbbf4ff92c195327ced4a7c3.symbols.txt": "c0de67a48bf96d460bc627cee368bb7dfe5d9b42dcc2ae193fafb3520591578d",
+    "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/lib-dynload/xxsubtype.cpython-312-x86_64-linux-gnu.so": "8aba5d7d110fae221f0c3813398af6b7cf6164123b9be4949a4f02f8e564566a",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/8aba5d7d110fae221f0c3813398af6b7cf6164123b9be4949a4f02f8e564566a.symbols.txt": "9baf4708f9c2446ea47151e25c4814ea3d7a2a3a412c9ceb8f0577ea1b2811c9",
+    "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/lib-dynload/zlib.cpython-312-x86_64-linux-gnu.so": "9ea6d1096ffe2a6b3bf2e5d1601a56e33d5dfd297edecfcf5291920c8a08cacd",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/9ea6d1096ffe2a6b3bf2e5d1601a56e33d5dfd297edecfcf5291920c8a08cacd.symbols.txt": "afbc98666b47b2654a3ea42457a4d0a05b9abf135aa902fbc54c6b13232bd79d",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/5fc0940888e9d2e1a00e66d6b1a559c36364ee867683652e1074fa576952cc3f.symbols.txt": "6631d3abaac91fe2a0cc49024f9160f55b19060c53e1e25f6b1780f8604ac1dc",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/755a371e86cc9f564ab54f66140747700fb0a103f698f659f2060f707897e09a.symbols.txt": "681187e837666826e614dd8fa5a7e6d8b5063ef537496b1af089241af4a04ccf",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/022943b3b11c860b049bce41342f1c2594941b7b401d95dfdf235521099fee08.symbols.txt": "f098ca89501e4d74b904a6c9851c2a29b39229997aaa24af64ddaff01bbfef86",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/6866ed711dab8927e1bf82bf1cd30e828bdfc34f3cc1e83b1c9eb01ce6c37d9a.symbols.txt": "bbe5e905ce446372a07bbfc9f8cd99dc959849b8743e7094aa04999d536bff37",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/00f593fe192f2851b8ce23b25cec2488d769beb5a8f63e8c9e563071e1075153.symbols.txt": "4f0824b1ede09ae1cf1c11456d2b7f76906e0b66073dc556ae798b99dd100f29",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/0ccdfb6d6f5c039465f6d002cf7e4c072d48ac6a2cffc8dd6c748dec31592804.symbols.txt": "77a404daabf10e3770857fbfa18ba603973c7012dfac240c9d67047983263b57",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/ddbae2995750875c07bc218d12a062d73f8250678f54dedda7e9be5068781c98.symbols.txt": "f31a74908912f6690fc7754a4d6ca6a67ce908bfa979bbad08bc3c9154fe7d58",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/c7aa00cf51646f7c32f196d329a562bc873ff32906c9caf6554ca489dd657507.symbols.txt": "c60b5bdde0bd42931c842bec5c30ed0c6a2c4c1319f74593f49b2dbaf7310113",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/c3c606139d4f7776efa4dbd4a6b62e30c916b07a0cafd8c3ef173d6f093607e3.symbols.txt": "2d2fc8ac057177cd381573d920ef770f09352522e6c0b16ef2f88d4b779fb284",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/6e632fd9a3125db60bbc623719bbc17b0470330321c5b1c57f1ff7190e5551ad.symbols.txt": "76a2ebb7bb7cf84a7764bc03c776cbf3c09d12b197645eb59202e197cf5fa424",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/b37407fb2930939bf78b47267019cd201a8af1f4b6a3852249c849cf3a985798.symbols.txt": "adca6609ba314e734efd05156a4813d45bf2a51398d313b368785ac26f42a51a",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/f48214417757f18793ed6e180cc14ee1d6f04252a518fc7270e8ca1d0b4260fe.symbols.txt": "49932eb73e61d0b2f2c8eb356be2ee0f1b05b97f0c8a268ba8d1196a04530c17",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/fad617a72b5839d30143e7db03281279089def6f18788cbb0b7f86385301bf04.symbols.txt": "9d5bf07e39b865aace25c47f2298930890a172105714ce3bc3cb6ba2942cbde0",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/936bae947a838bd47676a419dfcfb036d0163249215b58ec706ec7d46b7497aa.symbols.txt": "7a25527e9fdb6ad4464a8dc936cdaeb558ab264a857b1d2a3becb182e6fac2be",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/ddf14275b1fb70ba06510094071adcc1462e675f15ae6cdcadbf40c1dabe5a03.symbols.txt": "9c451b9825860001e47eea02fc9e523e16483c5374fbf3ec2598dc00790dd00f",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/a9829b999c95452eb0a34cc7b5349427b76dbf3e5d5c8672a5ca69e454c1b151.symbols.txt": "3a942e7ed85d55c806aa4756d628e87ab3ef465b5cd80f5b74ff97c88f1df85c",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/a245ed916229583d6fe0b07657b3ed945bc148c28cc08b5266295f620d2b91cc.symbols.txt": "856bd230c819d0a85ee163ebb8a9480c557317a3d412785ec0d017e91affa51f",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/a59efd4792d3343dedea1d26a28f5597abfe3369082deb504c4802a31b014897.symbols.txt": "dec3c3e7a1893e23970d59247c7f37f3da4b87ff20487bdfa837e3fbba18807d",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/e6f752c5ad7005afab0d9ea2932b93d6ad2d863b4333a55aafa1cdd734e74bde.symbols.txt": "01a194f818622c1aaabe6e0d21a0f9f5a9e7c0a2eeebce9dc273b5d64bffc3da",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/4dcb01645dbeea5d17f28fd96a730430a808d828b3b7d6a097cfbc311501f69f.symbols.txt": "8cc004fb8ab6fdec5e1c575f10ef46ffbf9af7a36df8c714bf5154ff6c6e08a4",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/a0f410ad093236856eee59c4ff2838dc04d932ea0993400f23ed77d67d85af34.symbols.txt": "289678937489a8dc6a320c112c114a77b0fa07696dfdbcbf1608ebe738738b72",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/a40e7b67489bbd257e432c700ff8f6a1ad796425b5eccecdc2930127fdd86624.symbols.txt": "211c2aab834b047b45353543ab4124702234326e78bda712de71f2ad9b1be45e",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/59994414d0cdec4f678ef91eaaafc44b26b00bca507e4cc7978caaf79f584173.symbols.txt": "914eb9392b6d3f3d45eaabd3a91050b02e12e7ee8abcaa21ae62328735b5d594",
+    "/home/runner/work/sebaverse/sebaverse/work/f2-security/native-symbols/7bcf825cd449892db5105ad2aed91dcf94a27b796426600c765720c584c54dd1.symbols.txt": "85e9014703017ee2ca3ff8578dfe8d63f7db7f24dd241e232d6d49b0a8fcf7ab",
+    "/home/runner/work/sebaverse/sebaverse/.python-version": "aa0d6581054e6e4ff3f91839deca7a854ad37221b8784d060b42d0f847ff1a3b",
+    "/home/runner/work/sebaverse/sebaverse/backend/.venv/pyvenv.cfg": "eb9a8626a28a1b5911f45e59a94810131206cfbfb1fcac85b9d6102c822430a5",
+    "/home/runner/work/sebaverse/sebaverse/backend/tests/test_postgres_integration.py": "1033012c23341445ed59360ec0a08a8dfa98cae67fa5f85d87818a69a373c86e",
+    "/home/runner/work/sebaverse/sebaverse/backend/pyproject.toml": "9a331cd26885abf81ae9b4aab1a00f8f3455cae3fbb08685a862fd300cb7d9e5",
+    "/home/runner/work/sebaverse/sebaverse/backend/modules/__init__.py": "f331739e3741a5641219e169532e13f35f01668455973df432c7ed2de3f09de1",
+    "/home/runner/work/sebaverse/sebaverse/backend/config/settings.py": "74c378d4a7e08c68191d3ccef54bfb7b3130995dac63a8165227fe99b637a5fa",
+    "/home/runner/work/sebaverse/sebaverse/backend/modules/core/middleware.py": "f96cf8cc3f4af2ec8bf193975afa061b2ab23f80ac58d71f835428a429083520",
+    "/home/runner/work/sebaverse/sebaverse/backend/modules/core/logging.py": "7b5583e68fd4eb21b72ca165d6aeb59e9287f6d32d8f4bbd4c3aeb284c87799b",
+    "/home/runner/work/sebaverse/sebaverse/backend/tests/conftest.py": "c36f7e3fbab9758b03446f1d16715918a13a6c40c3e3fb22ac3c6cd99b5ce54e",
+    "/home/runner/work/sebaverse/sebaverse/backend/modules/core/views.py": "ede39d3a272796352c923cc489b2ad54cc447238a6e5f17b8725a44c73700a25",
+    "/home/runner/work/sebaverse/sebaverse/backend/config/__init__.py": "508100725b7346baa9dd3e29be555bf6aa006c1119d423c3aadd138952ccea93",
+    "/home/runner/work/sebaverse/sebaverse/backend/manage.py": "0cb15ec1be301fd162cadaebba70534f278eceeca057cb7e4b0f4052c1126283",
+    "/home/runner/work/sebaverse/sebaverse/backend/tests/__init__.py": "4f2355f7683727ba0db065f1a3c8be81e1ee7d53552f117bdfa931e04603116d",
+    "/home/runner/work/sebaverse/sebaverse/backend/config/urls.py": "120f4733ebb13f4216c981659ff7a8184c172f943ff2c260e1da95cce8feee39",
+    "/home/runner/work/sebaverse/sebaverse/backend/modules/core/__init__.py": "98744a08ab9306d6df4558489b9b1c3cecba9fe55d4f4a941e6fabe74ed0b197",
+    "/home/runner/work/sebaverse/sebaverse/backend/config/asgi.py": "7dca82160e71bf6b94ce65dd7acb4b6dd87a981ef4d0dbfa4dd833472bcc0df5",
+    "/home/runner/work/sebaverse/sebaverse/backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
+    "/home/runner/work/sebaverse/sebaverse/backend/config/environment.py": "8c774ecc11f21dc79852a531eba15821ab8a275f89ea3076d50cd13f4e21ee3a",
+    "/home/runner/work/sebaverse/sebaverse/backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
+    "/home/runner/work/sebaverse/sebaverse/backend/tests/test_environment.py": "20e581e91e384087b258b8b0e802389855c36ea8ab2723b3b2548d7aa64c97a2"
+  },
+  "scope": "Linux system-libpq + pinned linux/amd64 image + supplier core; not hostOS, bundled-wheel, redistribution or application security certification"
+}

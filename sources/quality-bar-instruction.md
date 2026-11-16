@@ -7,5 +7,3 @@
 Operational interpretation, not a literal approval of each rule: review the existing work, then add standing agent instructions covering product function, interface quality, security, token consumption and learning quality. Implemented as [development/QUALITY-BAR.md](../development/QUALITY-BAR.md), [tools/brief.py](../tools/brief.py) and the review record [development/evidence/review-2026-11-16.md](../development/evidence/review-2026-11-16.md).
 
 This instruction changes how agents load context and how much effort they spend per risk. It does not change a phase gate, a test threshold, a requirement, the selected architecture or any permission. No paid call, real learner data, external message or deployment is authorized by it.
-
-Registration in [source-catalog.md](source-catalog.md) is pending: that file carried another agent's uncommitted U17 edit when this was written, so it was left untouched. Add the U18 line at the next checkpoint that commits the catalog.

@@ -342,7 +342,7 @@
       "id": "DEV-006",
       "title": "Create runnable local application skeleton",
       "phase": "F2",
-      "status": "in_progress",
+      "status": "done",
       "requirements": [
         "R054",
         "R075",
@@ -370,7 +370,9 @@
         "development/evidence/f2-local-run.md",
         "outputs/f2-local-skeleton/browser-report.json",
         "development/evidence/f2-static-experiment.md",
-        "development/evidence/f2-derived-review.md"
+        "development/evidence/f2-derived-review.md",
+        "development/evidence/f2-passed-43730557172/run.json",
+        "development/evidence/f2-phase-review.md"
       ],
       "files": [
         "backend/config/",

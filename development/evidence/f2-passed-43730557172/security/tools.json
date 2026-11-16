@@ -1,0 +1,32 @@
+[
+  {
+    "name": "syft",
+    "version": "1.57.1",
+    "platform": "linux_amd64",
+    "source": "https://github.com/anchore/syft/releases/download/v1.57.1/syft_1.57.1_linux_amd64.tar.gz",
+    "archive_sha256": "bf52519eb57f675d47c07d43213cb6dff6449f3d6d1147ff6701ed91f44eef0c",
+    "checksum_source": "https://github.com/anchore/syft/releases/download/v1.57.1/syft_1.57.1_checksums.txt",
+    "notices": [
+      {
+        "path": ".local/security-tools/syft-LICENSE",
+        "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+      }
+    ],
+    "limitations": "Checksum over HTTPS; no independent signing/whole-source audit claimed"
+  },
+  {
+    "name": "grype",
+    "version": "0.121.3",
+    "platform": "linux_amd64",
+    "source": "https://github.com/anchore/grype/releases/download/v0.121.3/grype_0.121.3_linux_amd64.tar.gz",
+    "archive_sha256": "e9da18cc1429e786722e32161288103600efffd8e483c90761f90485bd1bec85",
+    "checksum_source": "https://github.com/anchore/grype/releases/download/v0.121.3/grype_0.121.3_checksums.txt",
+    "notices": [
+      {
+        "path": ".local/security-tools/grype-LICENSE",
+        "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+      }
+    ],
+    "limitations": "Checksum over HTTPS; no independent signing/whole-source audit claimed"
+  }
+]

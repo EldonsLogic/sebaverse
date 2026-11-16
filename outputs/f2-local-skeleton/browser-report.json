@@ -1,8 +1,8 @@
 {
-  "date": "2026-11-14T12:35:35.633Z",
-  "browser": "156.0.8078.4",
+  "date": "2026-11-15T15:37:00.392Z",
+  "browser": "151.0.7922.34",
   "tool": "playwright1.62.1",
-  "base_url": "http://127.0.0.1:54142",
+  "base_url": "http://127.0.0.1:49491",
   "checks": [
     {
       "viewport": "desktop",
@@ -18,8 +18,8 @@
       "unknown_api": 404,
       "client_not_found": true,
       "main_focus": true,
-      "document_height": 1314,
-      "image_height": 1314
+      "document_height": 1285,
+      "image_height": 1285
     },
     {
       "viewport": "mobile",
@@ -35,8 +35,8 @@
       "unknown_api": 404,
       "client_not_found": true,
       "main_focus": true,
-      "document_height": 1872,
-      "image_height": 1872
+      "document_height": 1885,
+      "image_height": 1885
     }
   ],
   "scope": "Local authored empty shell only; no learner/model/data/API feature or accessibility certification"

@@ -173,88 +173,87 @@
       "id": "F2",
       "name": "Runnable local skeleton",
       "architecture_phase": "A2",
-      "status": "in_progress",
+      "status": "passed",
       "depends_on": [
         "F1"
       ],
       "tests": [
         {
           "id": "F2-suite-1",
-          "command": null,
+          "command": "make backend-check; python3 tools/run_postgres_smoke.py",
           "suite": "Backend health/DB migration smoke",
-          "availability": "planned",
+          "availability": "existing",
           "required": true,
-          "result": "not_run",
-          "evidence": []
+          "result": "pass",
+          "evidence": [
+            "development/evidence/f2-passed-43730557172/run.json",
+            "development/evidence/f2-phase-review.md"
+          ],
+          "verified_date": "2026-11-15"
         },
         {
           "id": "F2-suite-2",
           "command": "npm --prefix web run typecheck; npm --prefix web run build; python3 tools/smoke_local.py",
           "suite": "Frontend type/build/RTL smoke",
-          "availability": "implemented",
+          "availability": "existing",
           "required": true,
           "result": "pass",
           "evidence": [
-            "development/evidence/f2-local-run.md",
+            "development/evidence/f2-passed-43730557172/run.json",
+            "development/evidence/f2-phase-review.md",
             "outputs/f2-local-skeleton/browser-report.json"
           ],
-          "verified_date": "2026-11-14"
+          "verified_date": "2026-11-15"
         },
         {
           "id": "F2-suite-3",
           "command": "python3 tools/smoke_local.py",
           "suite": "Local setup teardown smoke",
-          "availability": "implemented",
+          "availability": "existing",
           "required": true,
           "result": "pass",
           "evidence": [
-            "development/evidence/f2-local-run.md"
+            "development/evidence/f2-passed-43730557172/run.json",
+            "development/evidence/f2-phase-review.md"
           ],
-          "verified_date": "2026-11-14"
+          "verified_date": "2026-11-15"
         },
         {
           "id": "F2-suite-4",
           "command": "make backend-check; python3 tools/smoke_local.py",
           "suite": "No credentials/real data required",
-          "availability": "implemented",
+          "availability": "existing",
           "required": true,
           "result": "pass",
           "evidence": [
-            "development/evidence/f2-local-run.md"
+            "development/evidence/f2-passed-43730557172/run.json",
+            "development/evidence/f2-phase-review.md"
           ],
-          "verified_date": "2026-11-14"
+          "verified_date": "2026-11-15"
         },
         {
           "id": "F2-native-image-closure",
           "command": "python3 tools/security/check_reports.py --capture-scans; python3 tools/security/check_reports.py; python3 tools/run_postgres_smoke.py",
           "suite": "Before DB/network/image use: native library and container version/notices/known-CVE review, immutable artifacts and startup/teardown tests",
-          "availability": "implemented",
+          "availability": "existing",
           "required": true,
-          "result": "fail",
+          "result": "pass",
           "evidence": [
-            "development/evidence/f2-local-run.md",
-            "development/evidence/f2-rejected-image-43595873985/preuse-result.json",
-            "development/evidence/f2-alpine-candidate-43596204128/preuse-result.json",
-            "development/evidence/f2-linux-43689700627.json",
-            "development/evidence/f2-static-experiment.md"
+            "development/evidence/f2-passed-43730557172/run.json",
+            "development/evidence/f2-phase-review.md"
           ],
           "verified_date": "2026-11-15"
         }
       ],
       "review": {
-        "result": "pending",
+        "result": "pass",
         "reviewer": "/root/independent_reviewer",
         "evidence": [
-          "development/evidence/f2-independent-review.md",
-          "development/evidence/f2-derived-review.md"
+          "development/evidence/f2-phase-review.md"
         ],
-        "notes": "Bounded fixes independently checked; native/image findings and actual DB integration remain held, so phase approval is not granted."
+        "notes": "Technical synthetic F2 exit only; source/expiry-scoped operational risk reviews, broader product/real-data/deployment gates unchanged."
       },
-      "blockers": [
-        "Derived artifact has3Medium findings; remaining native rescan66matches and supplier-core applicability review unapproved",
-        "Actual derived archive/provenance/import/runtime identity not yet supported by the official-only pre-use contract",
-        "Real PostgreSQL migration/SCRAM readiness/roundtrip/teardown not run; source-equivalent build output digests differ and require artifact-specific binding"
-      ],
+      "blockers": [],
       "transition_rule": "All required checks pass with real evidence, independent review passes, required blockers cleared; no next phase until then",
       "external_conditions": "Applicable real-data/provider/spend/deployment/pilot conditions remain separate; no blanket approval Native database libraries and container layer license/security closure are required before DB/network/image use; F1 Python/npm advisory scans do not cover them."
     },
