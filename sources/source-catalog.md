@@ -63,4 +63,8 @@ Exact research files/bytes/checksums: [manifest](research-manifest.json). Suppor
 
 - U15: [Start F1 dependency and local execution readiness](f1-start-instruction.md), 11 November 2026.
 
-- U16: [Continue F2 local skeleton](f2-continue-instruction.md), 12 November2026.
+- U16: [Continue F2 local skeleton](f2-continue-instruction.md), 12 November 2026.
+
+- U17: [Continue bounded synthetic product development after preview](f3-continue-instruction.md), 15 November 2026. Exact quoted request distinguished from operational scope interpretation.
+
+- U18: [Review and quality-bar instructions for all agents](quality-bar-instruction.md), 16 November 2026. Exact quoted request distinguished from operational interpretation.

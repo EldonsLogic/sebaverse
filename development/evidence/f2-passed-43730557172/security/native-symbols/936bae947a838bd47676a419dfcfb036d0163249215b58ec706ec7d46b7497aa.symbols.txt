@@ -1,0 +1,166 @@
+
+Symbol table '.dynsym' contains 163 entries:
+   Num:    Value          Size Type    Bind   Vis      Ndx Name
+     0: 0000000000000000     0 NOTYPE  LOCAL  DEFAULT  UND 
+     1: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __snprintf_chk@GLIBC_2.3.4 (4)
+     2: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND dlerror@GLIBC_2.34 (5)
+     3: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND free@GLIBC_2.2.5 (6)
+     4: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND abort@GLIBC_2.2.5 (6)
+     5: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __errno_location@GLIBC_2.2.5 (6)
+     6: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND strncmp@GLIBC_2.2.5 (6)
+     7: 0000000000000000     0 NOTYPE  WEAK   DEFAULT  UND _ITM_deregisterTMCloneTable
+     8: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND qsort@GLIBC_2.2.5 (6)
+     9: 0000000000000000     0 FUNC    WEAK   DEFAULT  UND pthread_getspecific@GLIBC_2.34 (5)
+    10: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND opendir@GLIBC_2.2.5 (6)
+    11: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND dcgettext@GLIBC_2.2.5 (6)
+    12: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND strlen@GLIBC_2.2.5 (6)
+    13: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __stack_chk_fail@GLIBC_2.4 (7)
+    14: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND strchr@GLIBC_2.2.5 (6)
+    15: 0000000000000000     0 FUNC    WEAK   DEFAULT  UND pthread_mutex_destroy@GLIBC_2.2.5 (6)
+    16: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND gai_strerror@GLIBC_2.2.5 (6)
+    17: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND strrchr@GLIBC_2.2.5 (6)
+    18: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __assert_fail@GLIBC_2.2.5 (6)
+    19: 0000000000000000     0 FUNC    WEAK   DEFAULT  UND pthread_key_create@GLIBC_2.34 (5)
+    20: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND getnameinfo@GLIBC_2.2.5 (6)
+    21: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND closedir@GLIBC_2.2.5 (6)
+    22: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND strcspn@GLIBC_2.2.5 (6)
+    23: 0000000000000000     0 FUNC    WEAK   DEFAULT  UND pthread_key_delete@GLIBC_2.34 (5)
+    24: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND memcmp@GLIBC_2.2.5 (6)
+    25: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asprintf_chk@GLIBC_2.8 (8)
+    26: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND calloc@GLIBC_2.2.5 (6)
+    27: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND strcmp@GLIBC_2.2.5 (6)
+    28: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND dlopen@GLIBC_2.34 (5)
+    29: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __memcpy_chk@GLIBC_2.3.4 (4)
+    30: 0000000000000000     0 NOTYPE  WEAK   DEFAULT  UND __gmon_start__
+    31: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND memcpy@GLIBC_2.14 (9)
+    32: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND readdir@GLIBC_2.2.5 (6)
+    33: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND strerror_r@GLIBC_2.2.5 (6)
+    34: 0000000000000000     0 FUNC    WEAK   DEFAULT  UND pthread_mutex_unlock@GLIBC_2.2.5 (6)
+    35: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND malloc@GLIBC_2.2.5 (6)
+    36: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __vasprintf_chk@GLIBC_2.8 (8)
+    37: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND strlcpy@GLIBC_2.38 (10)
+    38: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __vsnprintf_chk@GLIBC_2.3.4 (4)
+    39: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND realloc@GLIBC_2.2.5 (6)
+    40: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND timegm@GLIBC_2.2.5 (6)
+    41: 0000000000000000     0 FUNC    WEAK   DEFAULT  UND pthread_create@GLIBC_2.34 (5)
+    42: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND memmove@GLIBC_2.2.5 (6)
+    43: 0000000000000000     0 FUNC    WEAK   DEFAULT  UND pthread_equal@GLIBC_2.2.5 (6)
+    44: 0000000000000000     0 FUNC    WEAK   DEFAULT  UND pthread_self@GLIBC_2.2.5 (6)
+    45: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __explicit_bzero_chk@GLIBC_2.25 (11)
+    46: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND dlsym@GLIBC_2.34 (5)
+    47: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __fprintf_chk@GLIBC_2.3.4 (4)
+    48: 0000000000000000     0 NOTYPE  WEAK   DEFAULT  UND _ITM_registerTMCloneTable
+    49: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND getaddrinfo@GLIBC_2.2.5 (6)
+    50: 0000000000000000     0 FUNC    WEAK   DEFAULT  UND pthread_join@GLIBC_2.34 (5)
+    51: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND strdup@GLIBC_2.2.5 (6)
+    52: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND strerror@GLIBC_2.2.5 (6)
+    53: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND dlclose@GLIBC_2.34 (5)
+    54: 0000000000000000     0 FUNC    WEAK   DEFAULT  UND pthread_mutex_init@GLIBC_2.2.5 (6)
+    55: 0000000000000000     0 FUNC    WEAK   DEFAULT  UND pthread_once@GLIBC_2.34 (5)
+    56: 0000000000000000     0 FUNC    WEAK   DEFAULT  UND __cxa_finalize@GLIBC_2.2.5 (6)
+    57: 0000000000000000     0 FUNC    WEAK   DEFAULT  UND pthread_mutex_lock@GLIBC_2.2.5 (6)
+    58: 0000000000000000     0 FUNC    WEAK   DEFAULT  UND pthread_setspecific@GLIBC_2.34 (5)
+    59: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __ctype_b_loc@GLIBC_2.3 (12)
+    60: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND freeaddrinfo@GLIBC_2.2.5 (6)
+    61: 0000000000000000     0 OBJECT  GLOBAL DEFAULT  UND stderr@GLIBC_2.2.5 (6)
+    62: 0000000000006600   247 FUNC    GLOBAL DEFAULT   15 k5_path_join@@krb5support_0_MIT
+    63: 00000000000060a0    38 FUNC    GLOBAL DEFAULT   15 krb5int_utf8_next@@krb5support_0_MIT
+    64: 0000000000004040    34 FUNC    GLOBAL DEFAULT   15 krb5int_mutex_free@@krb5support_0_MIT
+    65: 0000000000007170   124 FUNC    GLOBAL DEFAULT   15 k5_json_string_unbase64@@krb5support_0_MIT
+    66: 0000000000008330    16 FUNC    GLOBAL DEFAULT   15 k5_siphash24@@krb5support_0_MIT
+    67: 0000000000004b70    33 FUNC    GLOBAL DEFAULT   15 k5_free_error@@krb5support_0_MIT
+    68: 0000000000005740   255 FUNC    GLOBAL DEFAULT   15 k5_set_error_info_callout_fn@@krb5support_0_MIT
+    69: 0000000000005910   103 FUNC    GLOBAL DEFAULT   15 k5_buf_add_len@@krb5support_0_MIT
+    70: 0000000000005f00   205 FUNC    GLOBAL DEFAULT   15 krb5int_utf8_to_ucs4@@krb5support_0_MIT
+    71: 00000000000083d0   130 FUNC    GLOBAL DEFAULT   15 k5_hashtab_free@@krb5support_0_MIT
+    72: 0000000000004430   140 FUNC    GLOBAL DEFAULT   15 k5_once@@krb5support_0_MIT
+    73: 0000000000007f80   156 FUNC    GLOBAL DEFAULT   15 k5_json_encode@@krb5support_0_MIT
+    74: 00000000000053e0   115 FUNC    GLOBAL DEFAULT   15 krb5int_get_plugin_func@@krb5support_0_MIT
+    75: 0000000000004de0  1531 FUNC    GLOBAL DEFAULT   15 krb5int_open_plugin_dirs@@krb5support_0_MIT
+    76: 0000000000004bd0   119 FUNC    GLOBAL DEFAULT   15 k5_vset_error@@krb5support_0_MIT
+    77: 0000000000000000     0 OBJECT  GLOBAL DEFAULT  ABS HIDDEN
+    78: 0000000000005ee0     9 FUNC    GLOBAL DEFAULT   15 krb5int_gai_strerror@@krb5support_0_MIT
+    79: 00000000000048d0     9 FUNC    GLOBAL DEFAULT   15 krb5int_free_plugin_dir_func@@krb5support_0_MIT
+    80: 0000000000005890    78 FUNC    GLOBAL DEFAULT   15 k5_buf_init_dynamic@@krb5support_0_MIT
+    81: 00000000000080e0   200 FUNC    GLOBAL DEFAULT   15 k5_hex_encode@@krb5support_0_MIT
+    82: 0000000000006700   315 FUNC    GLOBAL DEFAULT   15 k5_base64_encode@@krb5support_0_MIT
+    83: 0000000000008800    62 FUNC    GLOBAL DEFAULT   15 k5_free_filenames@@krb5support_0_MIT
+    84: 0000000000004000    53 FUNC    GLOBAL DEFAULT   15 k5_os_mutex_destroy@@krb5support_0_MIT
+    85: 0000000000003f60    55 FUNC    GLOBAL DEFAULT   15 k5_os_mutex_init@@krb5support_0_MIT
+    86: 0000000000000000     0 OBJECT  GLOBAL DEFAULT  ABS krb5support_0_MIT
+    87: 00000000000043c0   102 FUNC    GLOBAL DEFAULT   15 krb5int_mutex_unlock@@krb5support_0_MIT
+    88: 00000000000094e0    32 OBJECT  GLOBAL DEFAULT   17 krb5int_utf8_mintab@@krb5support_0_MIT
+    89: 0000000000004580   297 FUNC    GLOBAL DEFAULT   15 krb5int_setspecific@@krb5support_0_MIT
+    90: 0000000000006b90    78 FUNC    GLOBAL DEFAULT   15 k5_json_null_create_val@@krb5support_0_MIT
+    91: 00000000000070e0    40 FUNC    GLOBAL DEFAULT   15 k5_json_string_create@@krb5support_0_MIT
+    92: 00000000000044c0   190 FUNC    GLOBAL DEFAULT   15 krb5int_getspecific@@krb5support_0_MIT
+    93: 00000000000069d0    61 FUNC    GLOBAL DEFAULT   15 k5_json_retain@@krb5support_0_MIT
+    94: 0000000000005840    70 FUNC    GLOBAL DEFAULT   15 k5_buf_init_fixed@@krb5support_0_MIT
+    95: 00000000000058e0    38 FUNC    GLOBAL DEFAULT   15 k5_buf_init_dynamic_zap@@krb5support_0_MIT
+    96: 00000000000060d0   471 FUNC    GLOBAL DEFAULT   15 k5_utf8_to_utf16le@@krb5support_0_MIT
+    97: 0000000000004ba0    39 FUNC    GLOBAL DEFAULT   15 k5_clear_error@@krb5support_0_MIT
+    98: 00000000000065f0    13 FUNC    GLOBAL DEFAULT   15 k5_path_isabs@@krb5support_0_MIT
+    99: 0000000000004860    89 FUNC    GLOBAL DEFAULT   15 krb5int_close_plugin_dirs@@krb5support_0_MIT
+   100: 0000000000007250  1052 FUNC    GLOBAL DEFAULT   15 k5_json_array_fmt@@krb5support_0_MIT
+   101: 0000000000006d30     9 FUNC    GLOBAL DEFAULT   15 k5_json_array_length@@krb5support_0_MIT
+   102: 0000000000006a10   112 FUNC    GLOBAL DEFAULT   15 k5_json_release@@krb5support_0_MIT
+   103: 0000000000006490    32 FUNC    GLOBAL DEFAULT   15 krb5int_zap@@krb5support_0_MIT
+   104: 0000000000007110    78 FUNC    GLOBAL DEFAULT   15 k5_json_string_create_base64@@krb5support_0_MIT
+   105: 00000000000042a0   282 FUNC    GLOBAL DEFAULT   15 krb5int_key_delete@@krb5support_0_MIT
+   106: 00000000000093e0    16 OBJECT  GLOBAL DEFAULT   17 krb5int_in6addr_any@@krb5support_0_MIT
+   107: 0000000000005610   304 FUNC    GLOBAL DEFAULT   15 krb5int_get_plugin_dir_data@@krb5support_0_MIT
+   108: 0000000000005a00    64 FUNC    GLOBAL DEFAULT   15 k5_buf_truncate@@krb5support_0_MIT
+   109: 0000000000007ce0     8 FUNC    GLOBAL DEFAULT   15 k5_json_number_value@@krb5support_0_MIT
+   110: 0000000000005d00   179 FUNC    GLOBAL DEFAULT   15 k5_buf_add_fmt@@krb5support_0_MIT
+   111: 0000000000005ed0     9 FUNC    GLOBAL DEFAULT   15 krb5int_freeaddrinfo@@krb5support_0_MIT
+   112: 0000000000005ec0     9 FUNC    GLOBAL DEFAULT   15 krb5int_getaddrinfo@@krb5support_0_MIT
+   113: 0000000000003fa0    94 FUNC    GLOBAL DEFAULT   15 krb5int_mutex_alloc@@krb5support_0_MIT
+   114: 0000000000005ae0   543 FUNC    GLOBAL DEFAULT   15 k5_buf_add_vfmt@@krb5support_0_MIT
+   115: 0000000000005fd0   195 FUNC    GLOBAL DEFAULT   15 krb5int_ucs4_to_utf8@@krb5support_0_MIT
+   116: 0000000000008020   181 FUNC    GLOBAL DEFAULT   15 k5_json_decode@@krb5support_0_MIT
+   117: 0000000000006b40    78 FUNC    GLOBAL DEFAULT   15 k5_json_null_create@@krb5support_0_MIT
+   118: 0000000000006d60    79 FUNC    GLOBAL DEFAULT   15 k5_json_array_set@@krb5support_0_MIT
+   119: 00000000000062b0   476 FUNC    GLOBAL DEFAULT   15 k5_utf16le_to_utf8@@krb5support_0_MIT
+   120: 0000000000007160     8 FUNC    GLOBAL DEFAULT   15 k5_json_string_utf8@@krb5support_0_MIT
+   121: 0000000000008610   210 FUNC    GLOBAL DEFAULT   15 k5_hashtab_remove@@krb5support_0_MIT
+   122: 0000000000005a50   141 FUNC    GLOBAL DEFAULT   15 k5_buf_free@@krb5support_0_MIT
+   123: 0000000000004120    53 FUNC    GLOBAL DEFAULT   15 k5_os_mutex_unlock@@krb5support_0_MIT
+   124: 00000000000040b0   102 FUNC    GLOBAL DEFAULT   15 krb5int_mutex_lock@@krb5support_0_MIT
+   125: 00000000000081b0   374 FUNC    GLOBAL DEFAULT   15 k5_hex_decode@@krb5support_0_MIT
+   126: 0000000000006840   388 FUNC    GLOBAL DEFAULT   15 k5_base64_decode@@krb5support_0_MIT
+   127: 0000000000005590   115 FUNC    GLOBAL DEFAULT   15 krb5int_get_plugin_data@@krb5support_0_MIT
+   128: 0000000000009500   128 OBJECT  GLOBAL DEFAULT   17 krb5int_utf8_lentab@@krb5support_0_MIT
+   129: 0000000000006db0    78 FUNC    GLOBAL DEFAULT   15 k5_json_object_create@@krb5support_0_MIT
+   130: 0000000000006e80   368 FUNC    GLOBAL DEFAULT   15 k5_json_object_set@@krb5support_0_MIT
+   131: 00000000000064b0   315 FUNC    GLOBAL DEFAULT   15 k5_path_split@@krb5support_0_MIT
+   132: 0000000000006be0    89 FUNC    GLOBAL DEFAULT   15 k5_json_bool_create@@krb5support_0_MIT
+   133: 00000000000048c0     9 FUNC    GLOBAL DEFAULT   15 krb5int_free_plugin_dir_data@@krb5support_0_MIT
+   134: 0000000000004830    42 FUNC    GLOBAL DEFAULT   15 krb5int_close_plugin@@krb5support_0_MIT
+   135: 00000000000059b0    71 FUNC    GLOBAL DEFAULT   15 k5_buf_get_space@@krb5support_0_MIT
+   136: 0000000000008840   244 FUNC    GLOBAL DEFAULT   15 k5_dir_filenames@@krb5support_0_MIT
+   137: 0000000000005980    43 FUNC    GLOBAL DEFAULT   15 k5_buf_add@@krb5support_0_MIT
+   138: 0000000000005ef0     9 FUNC    GLOBAL DEFAULT   15 krb5int_getnameinfo@@krb5support_0_MIT
+   139: 0000000000006ff0    89 FUNC    GLOBAL DEFAULT   15 k5_json_object_iterate@@krb5support_0_MIT
+   140: 0000000000004070    53 FUNC    GLOBAL DEFAULT   15 k5_os_mutex_lock@@krb5support_0_MIT
+   141: 00000000000086f0   123 FUNC    GLOBAL DEFAULT   15 k5_hashtab_get@@krb5support_0_MIT
+   142: 0000000000008340   142 FUNC    GLOBAL DEFAULT   15 k5_hashtab_create@@krb5support_0_MIT
+   143: 0000000000008770    51 FUNC    GLOBAL DEFAULT   15 k5_bcmp@@krb5support_0_MIT
+   144: 0000000000006e00     9 FUNC    GLOBAL DEFAULT   15 k5_json_object_count@@krb5support_0_MIT
+   145: 0000000000005eb0     9 FUNC    GLOBAL DEFAULT   15 krb5int_gmt_mktime@@krb5support_0_MIT
+   146: 0000000000004d00   216 FUNC    GLOBAL DEFAULT   15 krb5int_open_plugin@@krb5support_0_MIT
+   147: 0000000000006d40    22 FUNC    GLOBAL DEFAULT   15 k5_json_array_get@@krb5support_0_MIT
+   148: 00000000000087b0    71 FUNC    GLOBAL DEFAULT   15 k5_strerror_r@@krb5support_0_MIT
+   149: 0000000000006b30    11 FUNC    GLOBAL DEFAULT   15 k5_json_get_tid@@krb5support_0_MIT
+   150: 0000000000006c40     8 FUNC    GLOBAL DEFAULT   15 k5_json_bool_value@@krb5support_0_MIT
+   151: 00000000000048e0   654 FUNC    GLOBAL DEFAULT   15 k5_get_error@@krb5support_0_MIT
+   152: 0000000000007050   130 FUNC    GLOBAL DEFAULT   15 k5_json_string_create_len@@krb5support_0_MIT
+   153: 0000000000006c50    78 FUNC    GLOBAL DEFAULT   15 k5_json_array_create@@krb5support_0_MIT
+   154: 0000000000003e00   281 FUNC    GLOBAL DEFAULT   15 krb5int_pthread_loaded@@krb5support_0_MIT
+   155: 00000000000071f0    86 FUNC    GLOBAL DEFAULT   15 k5_json_number_create@@krb5support_0_MIT
+   156: 0000000000006e10    99 FUNC    GLOBAL DEFAULT   15 k5_json_object_get@@krb5support_0_MIT
+   157: 0000000000005460   301 FUNC    GLOBAL DEFAULT   15 krb5int_get_plugin_dir_func@@krb5support_0_MIT
+   158: 0000000000008460   424 FUNC    GLOBAL DEFAULT   15 k5_hashtab_add@@krb5support_0_MIT
+   159: 0000000000005a40    13 FUNC    GLOBAL DEFAULT   15 k5_buf_status@@krb5support_0_MIT
+   160: 00000000000046b0   369 FUNC    GLOBAL DEFAULT   15 krb5int_key_register@@krb5support_0_MIT
+   161: 0000000000004c50   172 FUNC    GLOBAL DEFAULT   15 k5_set_error@@krb5support_0_MIT
+   162: 0000000000006ca0   134 FUNC    GLOBAL DEFAULT   15 k5_json_array_add@@krb5support_0_MIT

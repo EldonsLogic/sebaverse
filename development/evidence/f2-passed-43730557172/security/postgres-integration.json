@@ -1,0 +1,20 @@
+{
+  "status": "pass",
+  "task": "DEV-006",
+  "database": "PostgreSQL17 real instance",
+  "image": "sha256:cc93c53da93c8e18b677d82b28afc2ec6e6d93ce4fc41da49d1344382c0c709a",
+  "source_reference": "oci-archive:work/f2-security/postgres-derived.oci.tar",
+  "platform_manifest_digest": "sha256:cc93c53da93c8e18b677d82b28afc2ec6e6d93ce4fc41da49d1344382c0c709a",
+  "network": "task-owned internal Docker bridge; verified endpoint exposed only through owned127.0.0.1 relay",
+  "native_preuse_report": "work/f2-security/preuse-result.json",
+  "native_preuse_sha256": "15c909d5c706dbc39d3a7ab67d2b6b9f8167aa10c3a66cb98b9e0055ef76fa64",
+  "binding": "PSYCOPG_IMPL=python with reviewed system libpq",
+  "checks": [
+    "actual framework migrations",
+    "server major17",
+    "no pending migrations",
+    "synthetic session roundtrip/cleanup",
+    "database readiness200"
+  ],
+  "teardown": "task-owned relay/container/volumes/internal network removed; synthetic env removed; static imported image cache remains only on disposable runner"
+}

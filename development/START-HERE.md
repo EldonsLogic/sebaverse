@@ -17,4 +17,4 @@ python3 tools/validate_project.py
 python3 tools/check_foundation.py
 ```
 
-These are foundation/document integrity checks, not product/security/learning tests. Later phase-specific suites must be implemented and pass before those phases exit. The current product runtime has not been built. [Roadmap](ROADMAP.md) and tasks.json define the sequence. The frozen v1 audit export remains historical; live architecture/registers/development files are current.
+These are foundation/document integrity checks, not product/security/learning tests. Later phase-specific suites must be implemented and pass before those phases exit. The local Arabic shell and synthetic PostgreSQL foundation passed F2; current implementation and remaining scope are recorded in CURRENT-STATE.md. [Roadmap](ROADMAP.md) and tasks.json define the sequence. The frozen v1 audit export remains historical; live architecture/registers/development files are current.

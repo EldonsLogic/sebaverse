@@ -1,0 +1,21 @@
+{
+  "source_commit": "f952d7ffbdf5b03131abf5dbcd2909839e218eea",
+  "run_id": 43730557172,
+  "url": "https://github.com/EldonsLogic/sebaverse/actions/runs/43730557172",
+  "conclusion": "success",
+  "actual_checks": [
+    "83 DB-free backend tests",
+    "one actual PostgreSQL integration case with migrations, pinned Python/system-libpq, no pending migrations, synthetic session, TLS/GSS/SCRAM constraints and readiness200",
+    "native pre-use pass with retained findings/operational reviews",
+    "typecheck and production build",
+    "desktop/mobile RTL/navigation/keyboard/browser checks",
+    "local process and internal-network/relay/container/credentials teardown",
+    "138 foundation/policy/helper tests"
+  ],
+  "limits": [
+    "Synthetic disposable-CI scope only",
+    "Source/expiry-bound operational native risk reviews; findings retained, not globally fixed",
+    "No product or founder business/real-data/deployment gate approval",
+    "Local Mac database remains separately gated"
+  ]
+}

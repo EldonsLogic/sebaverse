@@ -1,32 +1,36 @@
 # Current development checkpoint
 
-15 November 2026. Shared private repo: https://github.com/EldonsLogic/sebaverse. **F0/F1 passed; F2 in_progress under U16/AUTH-003. F3–F8 not_started.** DEV-001–005 complete. Local skeleton implementation started; no real learner/model/paid/deployment use.
+16 November 2026. Shared private repository: https://github.com/EldonsLogic/sebaverse.
 
-## Verified latest work
+**F0, F1 and F2 passed. F3 not started. F4 to F8 not started.** DEV-001 to DEV-006 are done. The next task is DEV-007.
 
-F1 U15/AUTH-002: exact backend/web manifests and hashed locks, isolated wheel-only/lifecycle-disabled local installs, official metadata/license inventories, raw published-advisory reports, toolchain pins and dependency integrity checker. Python3.12.13/uv0.11.14, Node24.22.1/npm10.8.2. Root and independent reviewer verified import/render/exact-version checks plus22 phase/dependency regressions. Both local macOS arm64 and actual clean Ubuntu CI succeeded. Original36 research files remain hash-identical.
+Check the actual branch, HEAD and remote before trusting any commit named here.
 
-Tested work commit: ba2edb2df95ce584f9408e4a3822b7ec91a60f8c. Dependency CI43052547533 and foundation CI43052547439 passed. Exact evidence: f1-run.md, f1-independent-review.md, f1-github-ci.json and f1-dependency-snapshot.json under evidence/. Later status checkpoint SHA comes from actual Git/remote; do not assume a stored SHA is latest.
+## What exists
 
-## Current F2 results and next action —DEV-006
+A local Arabic-first shell (Django and React) with home, materials, practice and progress routes, health and readiness endpoints, and a PostgreSQL foundation proven on disposable CI with synthetic data only. There are no accounts, uploads, tutoring, grading or model calls yet. No real learner data, paid provider or deployment has been used.
 
-Local authored Arabic Django/React empty shell is implemented.83 DB-free backend tests pass; realPG integration still deselected. Desktop/mobile browser, TypeScript/build and loopback lifecycle evidence remain in outputs/f2-local-skeleton/. No learner/model/account/upload/grading features enabled.112 current foundation/policy/helper tests pass locally; original36 research files remain unchanged.
+## F2 exit, 15 November 2026
 
-Static remediation and exact CI patch are now measured, not drafts. Successful run43691875268 at51d17a4:
-- Derived OCI46packages,3Medium matches; noHigh/Critical/Unknown. Original official Alpine candidate had35High/Critical matches in the overwritten Go helper. Lower layers retain original bytes.
-- Exact authored0755 stub delta, immutable parent/config/layer lineage and retained entrypoint source checked. The root UID branch calls gosu; Userpostgres avoids that branch by design, not yet proven by actual startup.
-- Six exact signed Ubuntu glibc package archives reviewed/installed only on disposable CI, allpostinstall2.39-0ubuntu8.12. Fresh linked-native inventory/rescan66matches (65Medium+1Negligible), six targeted libc6 findings absent versus72before. Remaining findings stay unapproved.
+- Hosted run 43730557172 at commit f952d7f succeeded: 83 backend tests without a database, 1 real PostgreSQL integration case (migrations, SCRAM, readiness, teardown), the native and image pre-use policy, typecheck and build, desktop and mobile browser checks, and 138 foundation and helper tests.
+- Independent review verdict: PASS for the synthetic technical scope. See [evidence/f2-phase-review.md](evidence/f2-phase-review.md) and [evidence/f2-passed-43730557172/run.json](evidence/f2-passed-43730557172/run.json).
+- Findings kept open, not fixed: 3 in the image, 66 native, 1 supplier-core. Their reviews are scoped to this source, artifact and workload and expire; they need fresh review before any reuse.
+- The local macOS database path stays held behind its own native prerequisites.
 
-Evidence:development/evidence/f2-static-patched-43691875268/ and f2-static-experiment.md. Independent actual/helper review:f2-derived-review.md. Main phase status remains F2 in_progress/held; F3–F8 untouched. No DB container/startup/migration, realchilddata, paidmodel or deployment use occurred.
+## Since F2
 
-Next: resolve remaining image/native/core applicability reviews under unchanged policy; bind the actual derived artifact and its provenance/import/runtime identity into the pre-use validator/runner with negative tests; then run real PostgreSQL migrations/authentication/readiness/teardown only after full pre-use pass. The current official-only runtime gate deliberately does not accept a local derivative. CI experiment success is not a phase pass. Source-equivalent builds produced differing digests, so each actual artifact needs its own binding; reproducible-release output is not established.
+- 16 November: founder instruction U18 added [QUALITY-BAR.md](QUALITY-BAR.md) and `tools/brief.py`. An engineering review is in [evidence/review-2026-11-16.md](evidence/review-2026-11-16.md); its findings 7 to 14 are to be handled inside the F3 tasks that touch those files.
+- 16 November: GitHub moved `ubuntu-latest` to 26.04 and the native patch step refused it (run 43946770491). All workflows are now pinned to `ubuntu-24.04`, the reviewed baseline. Run 43947283433 at 63b66c3 then passed in full, including the real PostgreSQL case.
 
-Historical official-image failures and raw findings remain preserved, never relabeled clean.12November scanner verification was blocked by account usage; cached Syft was later checksum/version verified14November, recorded in f2-local-run.md. No security/legal/educational certification claimed.
+## Next action
 
-## Resume and gate rules
+1. Run `python3 tools/brief.py DEV-007`.
+2. Define real commands for the four F3 gate suites in phase-gates.json before writing feature code.
+3. Implement DEV-007: versioned subject, curriculum, item and rubric contracts with authored language, quantitative and science fixtures. Synthetic data only.
 
-Read START-HERE.md, AGENTS.md, engineering/workflow/handover docs, tasks.json and phase-gates.json. Inspect actual Git branch/HEAD/dirty tree before claiming files. F2 is active; native DB/image use is held until pre-use evidence passes. At every phase exit run meaningful required tests, record actual evidence and independent review, clear blockers and only then advance. Frozen audit/brand exports are historical, not active instructions. Avoid a competing master, untracked progress, force pushes or false test claims.
+Authority for F3 is AUTH-004 (U17) in [APPROVALS.md](APPROVALS.md): existing reviewed dependencies, zero paid providers, no real child records, no copyrighted textbook ingestion, no deployment. Each new dependency, parser, scanner or model asset still needs its own review.
 
-## Current review pointers
+## Known limits
 
-Read development/F2-REMEDIATION.md, f2-static-experiment.md and f2-derived-review.md before changing runtime selection or finding dispositions. infra/local/postgres/proposal.json records an observed artifact identity, not permission to execute. CI-only native patch approval is exact dependency review, not founder phase/product/production approval. Check actual Git/remote for latest checkpoint rather than trusting a stored SHA.
+- The runner pin is a holding measure. Ubuntu 24.04 runners will be retired eventually; plan the native review for the next baseline before then, sized by QUALITY-BAR.md section 2.
+- No security, legal or educational certification is claimed. The 15 November database result was read from retained CI records and has not been reproduced locally.

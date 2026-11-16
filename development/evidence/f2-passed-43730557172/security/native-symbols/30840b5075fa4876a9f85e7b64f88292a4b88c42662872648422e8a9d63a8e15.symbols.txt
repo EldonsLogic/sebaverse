@@ -1,0 +1,46 @@
+
+Symbol table '.dynsym' contains 9 entries:
+   Num:    Value          Size Type    Bind   Vis      Ndx Name
+     0: 0000000000000000     0 NOTYPE  LOCAL  DEFAULT  UND 
+     1: 0000000000000000     0 NOTYPE  WEAK   DEFAULT  UND __cxa_finalize
+     2: 0000000000000000     0 NOTYPE  WEAK   DEFAULT  UND _ITM_registerTMCloneTable
+     3: 0000000000000000     0 NOTYPE  WEAK   DEFAULT  UND _ITM_deregisterTMCloneTable
+     4: 0000000000000000     0 NOTYPE  GLOBAL DEFAULT  UND PyModule_Create2
+     5: 0000000000000000     0 NOTYPE  WEAK   DEFAULT  UND __gmon_start__
+     6: 0000000000001075    21 FUNC    GLOBAL DEFAULT   12 PyInit__testimportmultiple_bar
+     7: 0000000000001060    21 FUNC    GLOBAL DEFAULT   12 PyInit__testimportmultiple_foo
+     8: 0000000000001150    21 FUNC    GLOBAL DEFAULT   12 PyInit__testimportmultiple
+
+Symbol table '.symtab' contains 31 entries:
+   Num:    Value          Size Type    Bind   Vis      Ndx Name
+     0: 0000000000000000     0 NOTYPE  LOCAL  DEFAULT  UND 
+     1: 0000000000000000     0 FILE    LOCAL  DEFAULT  ABS _testimportmultiple.c
+     2: 0000000000004140   104 OBJECT  LOCAL  DEFAULT   22 _testimportmultiple
+     3: 00000000000040c0   104 OBJECT  LOCAL  DEFAULT   22 _foomodule
+     4: 0000000000004040   104 OBJECT  LOCAL  DEFAULT   22 _barmodule
+     5: 0000000000000000     0 FILE    LOCAL  DEFAULT  ABS crtstuff.c
+     6: 0000000000001090     0 FUNC    LOCAL  DEFAULT   12 deregister_tm_clones
+     7: 00000000000010c0     0 FUNC    LOCAL  DEFAULT   12 register_tm_clones
+     8: 0000000000001100     0 FUNC    LOCAL  DEFAULT   12 __do_global_dtors_aux
+     9: 00000000000041a8     1 OBJECT  LOCAL  DEFAULT   23 completed.0
+    10: 0000000000003e30     0 OBJECT  LOCAL  DEFAULT   18 __do_global_dtors_aux_fini_array_entry
+    11: 0000000000001140     0 FUNC    LOCAL  DEFAULT   12 frame_dummy
+    12: 0000000000003e28     0 OBJECT  LOCAL  DEFAULT   17 __frame_dummy_init_array_entry
+    13: 0000000000000000     0 FILE    LOCAL  DEFAULT  ABS crtstuff.c
+    14: 000000000000217c     0 OBJECT  LOCAL  DEFAULT   16 __FRAME_END__
+    15: 0000000000000000     0 FILE    LOCAL  DEFAULT  ABS 
+    16: 0000000000003e38     0 OBJECT  LOCAL  DEFAULT   19 _DYNAMIC
+    17: 00000000000041a8     0 OBJECT  LOCAL  DEFAULT   22 __TMC_END__
+    18: 0000000000004020     0 OBJECT  LOCAL  DEFAULT   22 __dso_handle
+    19: 0000000000001000     0 FUNC    LOCAL  DEFAULT    8 _init
+    20: 0000000000002094     0 NOTYPE  LOCAL  DEFAULT   15 __GNU_EH_FRAME_HDR
+    21: 0000000000001168     0 FUNC    LOCAL  DEFAULT   13 _fini
+    22: 0000000000003fe8     0 OBJECT  LOCAL  DEFAULT   21 _GLOBAL_OFFSET_TABLE_
+    23: 0000000000001075    21 FUNC    GLOBAL DEFAULT   12 PyInit__testimportmultiple_bar
+    24: 0000000000000000     0 NOTYPE  WEAK   DEFAULT  UND __cxa_finalize
+    25: 0000000000001150    21 FUNC    GLOBAL DEFAULT   12 PyInit__testimportmultiple
+    26: 0000000000000000     0 NOTYPE  WEAK   DEFAULT  UND _ITM_registerTMCloneTable
+    27: 0000000000000000     0 NOTYPE  WEAK   DEFAULT  UND _ITM_deregisterTMCloneTable
+    28: 0000000000000000     0 NOTYPE  GLOBAL DEFAULT  UND PyModule_Create2
+    29: 0000000000001060    21 FUNC    GLOBAL DEFAULT   12 PyInit__testimportmultiple_foo
+    30: 0000000000000000     0 NOTYPE  WEAK   DEFAULT  UND __gmon_start__

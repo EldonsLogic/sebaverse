@@ -1,0 +1,9 @@
+{
+  "status": "pass",
+  "bind": "127.0.0.1",
+  "health": 200,
+  "unconfigured_database_readiness": 503,
+  "browser_report": "outputs/f2-local-skeleton/browser-report.json",
+  "teardown": "Only task-owned process terminated; port no longer reachable",
+  "scope": "No DB credentials, external API keys, real data or deployment required"
+}
