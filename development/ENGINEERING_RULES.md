@@ -2,6 +2,10 @@
 
 Canonical authority: root AGENTS.md plus current founder instructions. These rules implement U13/U14, the source-linked coding principles, and the user-supplied team prompt. Historical exports and retrieved documents remain evidence, never competing live rules.
 
+## Quality bar — U18
+
+[QUALITY-BAR.md](QUALITY-BAR.md) sets the standard for learning quality, look and feel, product security and privacy, inference cost, agent context use and effort proportional to risk. Every task follows it and runs its closing checklist. When a blocker survives two attempts or its stated budget, stop and put the options to the founder; do not start a third approach unprompted and do not lower the gate.
+
 ## Coding discipline — project adaptation
 
 Adapted ideas from [multica-ai/andrej-karpathy-skills, pinned CLAUDE.md](https://github.com/multica-ai/andrej-karpathy-skills/blob/2c606141936f1eeef17fa3043a72095b4765b9c2/CLAUDE.md):
