@@ -51,6 +51,13 @@ jobs:
           PY
           uv tool run --isolated --from pip-audit==2.10.1 --no-build --python 3.12.13 --no-python-downloads --default-index https://pypi.org/simple pip-audit --disable-pip --no-deps --requirement work/ci/backend.requirements.txt --format json --output work/ci/backend-audit.json --progress-spinner off
       - name: Audit locked npm dependencies
-        run: npm --prefix web audit --audit-level=low --json --registry=https://registry.npmjs.org
+        run: python3 tools/check_npm_audit.py --scope synthetic-development
       - name: Verify phase barriers and evidence regressions
         run: make foundation-check
+      - name: Retain unsuppressed audit and policy receipts
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: dependency-audit-evidence
+          path: work/ci/*.json
+          retention-days: 7
