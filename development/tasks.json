@@ -453,7 +453,7 @@
       "id": "DEV-008",
       "title": "Implement actor/learner access and consent boundaries",
       "phase": "F3",
-      "status": "review",
+      "status": "done",
       "requirements": [
         "R051",
         "R053",
@@ -487,8 +487,8 @@
       "verification_contracts": [
         {
           "command": "make test-authorization",
-          "availability": "planned",
-          "notes": "Command/test location must be created and recorded by this task; not currently runnable or passed."
+          "availability": "available",
+          "notes": "Task tests and native-gated PostgreSQL integration passed at b9da886; see development/evidence/dev-008.md. Full F3 exit remains pending."
         }
       ],
       "architecture_phase": "A2",

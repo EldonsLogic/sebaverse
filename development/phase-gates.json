@@ -270,19 +270,21 @@
           "id": "F3-suite-1",
           "command": "make test-authorization",
           "suite": "Cross-actor/tenant/learner/course negatives",
-          "availability": "planned",
+          "availability": "available",
           "required": true,
           "result": "not_run",
-          "evidence": []
+          "evidence": [],
+          "notes": "Task-level contracts/access/consent checks passed at b9da886 (development/evidence/dev-008.md). Full phase-exit execution remains pending the rest of F3; this result stays not_run."
         },
         {
           "id": "F3-suite-2",
           "command": "make test-consent",
           "suite": "Consent/grant revocation",
-          "availability": "planned",
+          "availability": "available",
           "required": true,
           "result": "not_run",
-          "evidence": []
+          "evidence": [],
+          "notes": "Task-level contracts/access/consent checks passed at b9da886 (development/evidence/dev-008.md). Full phase-exit execution remains pending the rest of F3; this result stays not_run."
         },
         {
           "id": "F3-suite-3",
@@ -297,10 +299,11 @@
           "id": "F3-suite-4",
           "command": "make test-content-isolation",
           "suite": "Version/source/rights and private isolation tests",
-          "availability": "planned",
+          "availability": "available",
           "required": true,
           "result": "not_run",
-          "evidence": []
+          "evidence": [],
+          "notes": "Task-level contracts/access/consent checks passed at b9da886 (development/evidence/dev-008.md). Full phase-exit execution remains pending the rest of F3; this result stays not_run."
         }
       ],
       "review": {
