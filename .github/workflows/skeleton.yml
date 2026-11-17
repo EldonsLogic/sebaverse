@@ -41,6 +41,7 @@ jobs:
           npm --prefix web run typecheck
           npm --prefix web run build
           SEBAVERSE_ENV=local DJANGO_DEBUG=1 backend/.venv/bin/python -m pytest backend/tests -q -k 'not postgres_integration'
+          SEBAVERSE_ENV=local DJANGO_DEBUG=1 backend/.venv/bin/python tools/export_curriculum_schema.py --check
       - name: Download exact checksum-verified static scanners
         run: python3 tools/security/bootstrap.py --platform linux_amd64
       - name: Enable OCI storage on disposable runner only

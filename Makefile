@@ -15,3 +15,19 @@ backend-check:
 
 smoke-local:
 	python3 tools/smoke_local.py
+
+.PHONY: test-contracts test-authorization test-consent test-ingestion test-content-isolation
+test-contracts:
+	SEBAVERSE_ENV=local DJANGO_DEBUG=1 backend/.venv/bin/python tools/export_curriculum_schema.py --check
+	SEBAVERSE_ENV=local DJANGO_DEBUG=1 backend/.venv/bin/python -m pytest backend/tests/curriculum -q
+
+test-authorization:
+	SEBAVERSE_ENV=local DJANGO_DEBUG=1 backend/.venv/bin/python -m pytest backend/tests/authorization -q
+
+test-consent:
+	SEBAVERSE_ENV=local DJANGO_DEBUG=1 backend/.venv/bin/python -m pytest backend/tests/consent -q
+
+test-ingestion:
+	SEBAVERSE_ENV=local DJANGO_DEBUG=1 backend/.venv/bin/python -m pytest backend/tests/ingestion -q
+
+test-content-isolation: test-contracts test-authorization

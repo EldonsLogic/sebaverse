@@ -1,0 +1,1405 @@
+{
+  "schema_version": "1.0",
+  "fixture_only": true,
+  "records": [
+    {
+      "kind": "profile",
+      "id": "profile.language",
+      "version": 1,
+      "status": "draft",
+      "reviewer_ref": null,
+      "audience": {
+        "type": "shared_fixture",
+        "tenant_id": null,
+        "learner_id": null
+      },
+      "subject_tags": [
+        "language"
+      ],
+      "instruction_locales": [
+        "ar-EG",
+        "ar",
+        "en"
+      ],
+      "target_language": "de",
+      "representations": [
+        "text",
+        "bilingual-span"
+      ],
+      "graders": [
+        "exact-set.v1",
+        "human-review.v1"
+      ],
+      "strategies": [
+        "diagnose",
+        "explain",
+        "guided-step",
+        "independent-practice",
+        "delayed-retrieval"
+      ],
+      "evidence_policy": "evidence.proposed-v1",
+      "retrieval_policy": "retrieval.scoped-v1",
+      "allowed_tools": [
+        "none"
+      ]
+    },
+    {
+      "kind": "rights",
+      "id": "rights.language",
+      "version": 1,
+      "status": "draft",
+      "reviewer_ref": null,
+      "audience": {
+        "type": "shared_fixture",
+        "tenant_id": null,
+        "learner_id": null
+      },
+      "source_ref": "urn:sebaverse:authored-fixture:language:1",
+      "owner_ref": "project.authored-fixtures",
+      "artifact_sha256": "8cee201d10aae3fe93635e22d2607d17cb9e05c5b6bf151ecf7bcba89f220f07",
+      "acquisition_date": "2026-11-17",
+      "permission_basis": "Project-authored synthetic test text; no third-party curriculum or student data.",
+      "permissions": {
+        "process": true,
+        "display": true,
+        "derivatives": true,
+        "redistribute": false,
+        "train": false
+      },
+      "expires_at": "2027-11-17T00:00:00Z",
+      "territory": [
+        "synthetic-test-only"
+      ],
+      "restrictions": "Not educator-approved, not official alignment, not a training corpus."
+    },
+    {
+      "kind": "material",
+      "id": "material.language",
+      "version": 1,
+      "status": "draft",
+      "reviewer_ref": null,
+      "audience": {
+        "type": "shared_fixture",
+        "tenant_id": null,
+        "learner_id": null
+      },
+      "rights": {
+        "id": "rights.language",
+        "version": 1
+      },
+      "content": "في الجملة الألمانية البسيطة يأتي الفعل في الموضع الثاني. المثال: Heute lerne ich Deutsch.",
+      "sha256": "8cee201d10aae3fe93635e22d2607d17cb9e05c5b6bf151ecf7bcba89f220f07",
+      "media_type": "text/plain",
+      "anchors": [
+        "paragraph-1"
+      ]
+    },
+    {
+      "kind": "collection",
+      "id": "collection.language",
+      "version": 1,
+      "status": "draft",
+      "reviewer_ref": null,
+      "audience": {
+        "type": "shared_fixture",
+        "tenant_id": null,
+        "learner_id": null
+      },
+      "materials": [
+        {
+          "id": "material.language",
+          "version": 1
+        }
+      ]
+    },
+    {
+      "kind": "edition",
+      "id": "edition.language",
+      "version": 1,
+      "status": "draft",
+      "reviewer_ref": null,
+      "audience": {
+        "type": "shared_fixture",
+        "tenant_id": null,
+        "learner_id": null
+      },
+      "profile": {
+        "id": "profile.language",
+        "version": 1
+      },
+      "collection": {
+        "id": "collection.language",
+        "version": 1
+      },
+      "specification_id": null,
+      "curriculum_key": {
+        "country": null,
+        "system": null,
+        "authority": null,
+        "qualification": null,
+        "specification": null,
+        "academic_year": null,
+        "grade": null,
+        "subject": "language",
+        "term": null,
+        "language": "de"
+      },
+      "supersedes": null
+    },
+    {
+      "kind": "objective",
+      "id": "objective.language",
+      "version": 1,
+      "status": "draft",
+      "reviewer_ref": null,
+      "audience": {
+        "type": "shared_fixture",
+        "tenant_id": null,
+        "learner_id": null
+      },
+      "edition": {
+        "id": "edition.language",
+        "version": 1
+      },
+      "description": "هدف اختبار مؤلف محليًا، يحتاج مراجعة تربوية قبل النشر.",
+      "source": {
+        "id": "material.language",
+        "version": 1,
+        "anchor": "paragraph-1"
+      }
+    },
+    {
+      "kind": "rubric",
+      "id": "rubric.language",
+      "version": 1,
+      "status": "draft",
+      "reviewer_ref": null,
+      "audience": {
+        "type": "shared_fixture",
+        "tenant_id": null,
+        "learner_id": null
+      },
+      "grader_id": "exact-set.v1",
+      "visibility": "assessment_only",
+      "config": {
+        "accepted": [
+          "lerne"
+        ],
+        "case_sensitive": false
+      }
+    },
+    {
+      "kind": "item",
+      "id": "item.language",
+      "version": 1,
+      "status": "draft",
+      "reviewer_ref": null,
+      "audience": {
+        "type": "shared_fixture",
+        "tenant_id": null,
+        "learner_id": null
+      },
+      "edition": {
+        "id": "edition.language",
+        "version": 1
+      },
+      "objectives": [
+        {
+          "id": "objective.language",
+          "version": 1
+        }
+      ],
+      "family_id": "family.language",
+      "prompt": "Morgen ___ ich Deutsch. (lernen، المتحدث: ich)",
+      "options": [],
+      "rubric": {
+        "id": "rubric.language",
+        "version": 1
+      },
+      "source": {
+        "id": "material.language",
+        "version": 1,
+        "anchor": "paragraph-1"
+      }
+    },
+    {
+      "kind": "rights",
+      "id": "rights.language",
+      "version": 2,
+      "status": "draft",
+      "reviewer_ref": null,
+      "audience": {
+        "type": "shared_fixture",
+        "tenant_id": null,
+        "learner_id": null
+      },
+      "source_ref": "urn:sebaverse:authored-fixture:language:2",
+      "owner_ref": "project.authored-fixtures",
+      "artifact_sha256": "408ffb7040a253978d389d03bd06091649ba3a0a44b0f2bc8d7744d99730ea27",
+      "acquisition_date": "2026-11-17",
+      "permission_basis": "Project-authored synthetic test text; no third-party curriculum or student data.",
+      "permissions": {
+        "process": true,
+        "display": true,
+        "derivatives": true,
+        "redistribute": false,
+        "train": false
+      },
+      "expires_at": "2027-11-17T00:00:00Z",
+      "territory": [
+        "synthetic-test-only"
+      ],
+      "restrictions": "Not educator-approved, not official alignment, not a training corpus."
+    },
+    {
+      "kind": "material",
+      "id": "material.language",
+      "version": 2,
+      "status": "draft",
+      "reviewer_ref": null,
+      "audience": {
+        "type": "shared_fixture",
+        "tenant_id": null,
+        "learner_id": null
+      },
+      "rights": {
+        "id": "rights.language",
+        "version": 2
+      },
+      "content": "في الجملة الألمانية البسيطة يأتي الفعل في الموضع الثاني. المثال: Heute lerne ich Deutsch. هذا إصدار اختبار ثانٍ بملاحظة إضافية.",
+      "sha256": "408ffb7040a253978d389d03bd06091649ba3a0a44b0f2bc8d7744d99730ea27",
+      "media_type": "text/plain",
+      "anchors": [
+        "paragraph-1"
+      ]
+    },
+    {
+      "kind": "collection",
+      "id": "collection.language",
+      "version": 2,
+      "status": "draft",
+      "reviewer_ref": null,
+      "audience": {
+        "type": "shared_fixture",
+        "tenant_id": null,
+        "learner_id": null
+      },
+      "materials": [
+        {
+          "id": "material.language",
+          "version": 2
+        }
+      ]
+    },
+    {
+      "kind": "edition",
+      "id": "edition.language",
+      "version": 2,
+      "status": "draft",
+      "reviewer_ref": null,
+      "audience": {
+        "type": "shared_fixture",
+        "tenant_id": null,
+        "learner_id": null
+      },
+      "profile": {
+        "id": "profile.language",
+        "version": 1
+      },
+      "collection": {
+        "id": "collection.language",
+        "version": 2
+      },
+      "specification_id": null,
+      "curriculum_key": {
+        "country": null,
+        "system": null,
+        "authority": null,
+        "qualification": null,
+        "specification": null,
+        "academic_year": null,
+        "grade": null,
+        "subject": "language",
+        "term": null,
+        "language": "de"
+      },
+      "supersedes": {
+        "id": "edition.language",
+        "version": 1
+      }
+    },
+    {
+      "kind": "objective",
+      "id": "objective.language",
+      "version": 2,
+      "status": "draft",
+      "reviewer_ref": null,
+      "audience": {
+        "type": "shared_fixture",
+        "tenant_id": null,
+        "learner_id": null
+      },
+      "edition": {
+        "id": "edition.language",
+        "version": 2
+      },
+      "description": "هدف اختبار مؤلف محليًا، يحتاج مراجعة تربوية قبل النشر.",
+      "source": {
+        "id": "material.language",
+        "version": 2,
+        "anchor": "paragraph-1"
+      }
+    },
+    {
+      "kind": "rubric",
+      "id": "rubric.language",
+      "version": 2,
+      "status": "draft",
+      "reviewer_ref": null,
+      "audience": {
+        "type": "shared_fixture",
+        "tenant_id": null,
+        "learner_id": null
+      },
+      "grader_id": "exact-set.v1",
+      "visibility": "assessment_only",
+      "config": {
+        "accepted": [
+          "lerne"
+        ],
+        "case_sensitive": false
+      }
+    },
+    {
+      "kind": "item",
+      "id": "item.language",
+      "version": 2,
+      "status": "draft",
+      "reviewer_ref": null,
+      "audience": {
+        "type": "shared_fixture",
+        "tenant_id": null,
+        "learner_id": null
+      },
+      "edition": {
+        "id": "edition.language",
+        "version": 2
+      },
+      "objectives": [
+        {
+          "id": "objective.language",
+          "version": 2
+        }
+      ],
+      "family_id": "family.language",
+      "prompt": "Morgen ___ ich Deutsch. (lernen، المتحدث: ich)",
+      "options": [],
+      "rubric": {
+        "id": "rubric.language",
+        "version": 2
+      },
+      "source": {
+        "id": "material.language",
+        "version": 2,
+        "anchor": "paragraph-1"
+      }
+    },
+    {
+      "kind": "profile",
+      "id": "profile.quantitative",
+      "version": 1,
+      "status": "draft",
+      "reviewer_ref": null,
+      "audience": {
+        "type": "shared_fixture",
+        "tenant_id": null,
+        "learner_id": null
+      },
+      "subject_tags": [
+        "quantitative"
+      ],
+      "instruction_locales": [
+        "ar-EG",
+        "ar",
+        "en"
+      ],
+      "target_language": null,
+      "representations": [
+        "text",
+        "equation",
+        "table"
+      ],
+      "graders": [
+        "numeric.v1",
+        "human-review.v1"
+      ],
+      "strategies": [
+        "diagnose",
+        "explain",
+        "guided-step",
+        "independent-practice",
+        "delayed-retrieval"
+      ],
+      "evidence_policy": "evidence.proposed-v1",
+      "retrieval_policy": "retrieval.scoped-v1",
+      "allowed_tools": [
+        "none"
+      ]
+    },
+    {
+      "kind": "rights",
+      "id": "rights.quantitative",
+      "version": 1,
+      "status": "draft",
+      "reviewer_ref": null,
+      "audience": {
+        "type": "shared_fixture",
+        "tenant_id": null,
+        "learner_id": null
+      },
+      "source_ref": "urn:sebaverse:authored-fixture:quantitative:1",
+      "owner_ref": "project.authored-fixtures",
+      "artifact_sha256": "564bb379eec99fecf011ec0523b30144d9444b58ba6a26a7037d0b981912aad1",
+      "acquisition_date": "2026-11-17",
+      "permission_basis": "Project-authored synthetic test text; no third-party curriculum or student data.",
+      "permissions": {
+        "process": true,
+        "display": true,
+        "derivatives": true,
+        "redistribute": false,
+        "train": false
+      },
+      "expires_at": "2027-11-17T00:00:00Z",
+      "territory": [
+        "synthetic-test-only"
+      ],
+      "restrictions": "Not educator-approved, not official alignment, not a training corpus."
+    },
+    {
+      "kind": "material",
+      "id": "material.quantitative",
+      "version": 1,
+      "status": "draft",
+      "reviewer_ref": null,
+      "audience": {
+        "type": "shared_fixture",
+        "tenant_id": null,
+        "learner_id": null
+      },
+      "rights": {
+        "id": "rights.quantitative",
+        "version": 1
+      },
+      "content": "للحفاظ على تساوي الطرفين، نطرح نفس العدد من الطرفين ثم نراجع بالتعويض.",
+      "sha256": "564bb379eec99fecf011ec0523b30144d9444b58ba6a26a7037d0b981912aad1",
+      "media_type": "text/plain",
+      "anchors": [
+        "paragraph-1"
+      ]
+    },
+    {
+      "kind": "collection",
+      "id": "collection.quantitative",
+      "version": 1,
+      "status": "draft",
+      "reviewer_ref": null,
+      "audience": {
+        "type": "shared_fixture",
+        "tenant_id": null,
+        "learner_id": null
+      },
+      "materials": [
+        {
+          "id": "material.quantitative",
+          "version": 1
+        }
+      ]
+    },
+    {
+      "kind": "edition",
+      "id": "edition.quantitative",
+      "version": 1,
+      "status": "draft",
+      "reviewer_ref": null,
+      "audience": {
+        "type": "shared_fixture",
+        "tenant_id": null,
+        "learner_id": null
+      },
+      "profile": {
+        "id": "profile.quantitative",
+        "version": 1
+      },
+      "collection": {
+        "id": "collection.quantitative",
+        "version": 1
+      },
+      "specification_id": null,
+      "curriculum_key": {
+        "country": null,
+        "system": null,
+        "authority": null,
+        "qualification": null,
+        "specification": null,
+        "academic_year": null,
+        "grade": null,
+        "subject": "quantitative",
+        "term": null,
+        "language": "ar"
+      },
+      "supersedes": null
+    },
+    {
+      "kind": "objective",
+      "id": "objective.quantitative",
+      "version": 1,
+      "status": "draft",
+      "reviewer_ref": null,
+      "audience": {
+        "type": "shared_fixture",
+        "tenant_id": null,
+        "learner_id": null
+      },
+      "edition": {
+        "id": "edition.quantitative",
+        "version": 1
+      },
+      "description": "هدف اختبار مؤلف محليًا، يحتاج مراجعة تربوية قبل النشر.",
+      "source": {
+        "id": "material.quantitative",
+        "version": 1,
+        "anchor": "paragraph-1"
+      }
+    },
+    {
+      "kind": "rubric",
+      "id": "rubric.quantitative",
+      "version": 1,
+      "status": "draft",
+      "reviewer_ref": null,
+      "audience": {
+        "type": "shared_fixture",
+        "tenant_id": null,
+        "learner_id": null
+      },
+      "grader_id": "numeric.v1",
+      "visibility": "assessment_only",
+      "config": {
+        "expected": "7",
+        "tolerance": "0",
+        "unit": null
+      }
+    },
+    {
+      "kind": "item",
+      "id": "item.quantitative",
+      "version": 1,
+      "status": "draft",
+      "reviewer_ref": null,
+      "audience": {
+        "type": "shared_fixture",
+        "tenant_id": null,
+        "learner_id": null
+      },
+      "edition": {
+        "id": "edition.quantitative",
+        "version": 1
+      },
+      "objectives": [
+        {
+          "id": "objective.quantitative",
+          "version": 1
+        }
+      ],
+      "family_id": "family.quantitative",
+      "prompt": "حلّ: x + 4 = 11",
+      "options": [],
+      "rubric": {
+        "id": "rubric.quantitative",
+        "version": 1
+      },
+      "source": {
+        "id": "material.quantitative",
+        "version": 1,
+        "anchor": "paragraph-1"
+      }
+    },
+    {
+      "kind": "rights",
+      "id": "rights.quantitative",
+      "version": 2,
+      "status": "draft",
+      "reviewer_ref": null,
+      "audience": {
+        "type": "shared_fixture",
+        "tenant_id": null,
+        "learner_id": null
+      },
+      "source_ref": "urn:sebaverse:authored-fixture:quantitative:2",
+      "owner_ref": "project.authored-fixtures",
+      "artifact_sha256": "261b1c59e03bc20d6baddffe16d3a2eb14215d7c0424a5836464b2aeb7623b84",
+      "acquisition_date": "2026-11-17",
+      "permission_basis": "Project-authored synthetic test text; no third-party curriculum or student data.",
+      "permissions": {
+        "process": true,
+        "display": true,
+        "derivatives": true,
+        "redistribute": false,
+        "train": false
+      },
+      "expires_at": "2027-11-17T00:00:00Z",
+      "territory": [
+        "synthetic-test-only"
+      ],
+      "restrictions": "Not educator-approved, not official alignment, not a training corpus."
+    },
+    {
+      "kind": "material",
+      "id": "material.quantitative",
+      "version": 2,
+      "status": "draft",
+      "reviewer_ref": null,
+      "audience": {
+        "type": "shared_fixture",
+        "tenant_id": null,
+        "learner_id": null
+      },
+      "rights": {
+        "id": "rights.quantitative",
+        "version": 2
+      },
+      "content": "للحفاظ على تساوي الطرفين، نطرح نفس العدد من الطرفين ثم نراجع بالتعويض. هذا إصدار اختبار ثانٍ بملاحظة إضافية.",
+      "sha256": "261b1c59e03bc20d6baddffe16d3a2eb14215d7c0424a5836464b2aeb7623b84",
+      "media_type": "text/plain",
+      "anchors": [
+        "paragraph-1"
+      ]
+    },
+    {
+      "kind": "collection",
+      "id": "collection.quantitative",
+      "version": 2,
+      "status": "draft",
+      "reviewer_ref": null,
+      "audience": {
+        "type": "shared_fixture",
+        "tenant_id": null,
+        "learner_id": null
+      },
+      "materials": [
+        {
+          "id": "material.quantitative",
+          "version": 2
+        }
+      ]
+    },
+    {
+      "kind": "edition",
+      "id": "edition.quantitative",
+      "version": 2,
+      "status": "draft",
+      "reviewer_ref": null,
+      "audience": {
+        "type": "shared_fixture",
+        "tenant_id": null,
+        "learner_id": null
+      },
+      "profile": {
+        "id": "profile.quantitative",
+        "version": 1
+      },
+      "collection": {
+        "id": "collection.quantitative",
+        "version": 2
+      },
+      "specification_id": null,
+      "curriculum_key": {
+        "country": null,
+        "system": null,
+        "authority": null,
+        "qualification": null,
+        "specification": null,
+        "academic_year": null,
+        "grade": null,
+        "subject": "quantitative",
+        "term": null,
+        "language": "ar"
+      },
+      "supersedes": {
+        "id": "edition.quantitative",
+        "version": 1
+      }
+    },
+    {
+      "kind": "objective",
+      "id": "objective.quantitative",
+      "version": 2,
+      "status": "draft",
+      "reviewer_ref": null,
+      "audience": {
+        "type": "shared_fixture",
+        "tenant_id": null,
+        "learner_id": null
+      },
+      "edition": {
+        "id": "edition.quantitative",
+        "version": 2
+      },
+      "description": "هدف اختبار مؤلف محليًا، يحتاج مراجعة تربوية قبل النشر.",
+      "source": {
+        "id": "material.quantitative",
+        "version": 2,
+        "anchor": "paragraph-1"
+      }
+    },
+    {
+      "kind": "rubric",
+      "id": "rubric.quantitative",
+      "version": 2,
+      "status": "draft",
+      "reviewer_ref": null,
+      "audience": {
+        "type": "shared_fixture",
+        "tenant_id": null,
+        "learner_id": null
+      },
+      "grader_id": "numeric.v1",
+      "visibility": "assessment_only",
+      "config": {
+        "expected": "7",
+        "tolerance": "0",
+        "unit": null
+      }
+    },
+    {
+      "kind": "item",
+      "id": "item.quantitative",
+      "version": 2,
+      "status": "draft",
+      "reviewer_ref": null,
+      "audience": {
+        "type": "shared_fixture",
+        "tenant_id": null,
+        "learner_id": null
+      },
+      "edition": {
+        "id": "edition.quantitative",
+        "version": 2
+      },
+      "objectives": [
+        {
+          "id": "objective.quantitative",
+          "version": 2
+        }
+      ],
+      "family_id": "family.quantitative",
+      "prompt": "حلّ: x + 4 = 11",
+      "options": [],
+      "rubric": {
+        "id": "rubric.quantitative",
+        "version": 2
+      },
+      "source": {
+        "id": "material.quantitative",
+        "version": 2,
+        "anchor": "paragraph-1"
+      }
+    },
+    {
+      "kind": "profile",
+      "id": "profile.science",
+      "version": 1,
+      "status": "draft",
+      "reviewer_ref": null,
+      "audience": {
+        "type": "shared_fixture",
+        "tenant_id": null,
+        "learner_id": null
+      },
+      "subject_tags": [
+        "science"
+      ],
+      "instruction_locales": [
+        "ar-EG",
+        "ar",
+        "en"
+      ],
+      "target_language": null,
+      "representations": [
+        "text",
+        "equation",
+        "table"
+      ],
+      "graders": [
+        "choice.v1",
+        "human-review.v1"
+      ],
+      "strategies": [
+        "diagnose",
+        "explain",
+        "guided-step",
+        "independent-practice",
+        "delayed-retrieval"
+      ],
+      "evidence_policy": "evidence.proposed-v1",
+      "retrieval_policy": "retrieval.scoped-v1",
+      "allowed_tools": [
+        "none"
+      ]
+    },
+    {
+      "kind": "rights",
+      "id": "rights.science",
+      "version": 1,
+      "status": "draft",
+      "reviewer_ref": null,
+      "audience": {
+        "type": "shared_fixture",
+        "tenant_id": null,
+        "learner_id": null
+      },
+      "source_ref": "urn:sebaverse:authored-fixture:science:1",
+      "owner_ref": "project.authored-fixtures",
+      "artifact_sha256": "7e95f7529df96fc16eeca90b8ce2833484cc42a1963e194ef4566a3bf472bb64",
+      "acquisition_date": "2026-11-17",
+      "permission_basis": "Project-authored synthetic test text; no third-party curriculum or student data.",
+      "permissions": {
+        "process": true,
+        "display": true,
+        "derivatives": true,
+        "redistribute": false,
+        "train": false
+      },
+      "expires_at": "2027-11-17T00:00:00Z",
+      "territory": [
+        "synthetic-test-only"
+      ],
+      "restrictions": "Not educator-approved, not official alignment, not a training corpus."
+    },
+    {
+      "kind": "material",
+      "id": "material.science",
+      "version": 1,
+      "status": "draft",
+      "reviewer_ref": null,
+      "audience": {
+        "type": "shared_fixture",
+        "tenant_id": null,
+        "learner_id": null
+      },
+      "rights": {
+        "id": "rights.science",
+        "version": 1
+      },
+      "content": "انصهار الثلج تغيّر من الحالة الصلبة إلى السائلة. لا يعني ذلك تكوّن مادة جديدة.",
+      "sha256": "7e95f7529df96fc16eeca90b8ce2833484cc42a1963e194ef4566a3bf472bb64",
+      "media_type": "text/plain",
+      "anchors": [
+        "paragraph-1"
+      ]
+    },
+    {
+      "kind": "collection",
+      "id": "collection.science",
+      "version": 1,
+      "status": "draft",
+      "reviewer_ref": null,
+      "audience": {
+        "type": "shared_fixture",
+        "tenant_id": null,
+        "learner_id": null
+      },
+      "materials": [
+        {
+          "id": "material.science",
+          "version": 1
+        }
+      ]
+    },
+    {
+      "kind": "edition",
+      "id": "edition.science",
+      "version": 1,
+      "status": "draft",
+      "reviewer_ref": null,
+      "audience": {
+        "type": "shared_fixture",
+        "tenant_id": null,
+        "learner_id": null
+      },
+      "profile": {
+        "id": "profile.science",
+        "version": 1
+      },
+      "collection": {
+        "id": "collection.science",
+        "version": 1
+      },
+      "specification_id": null,
+      "curriculum_key": {
+        "country": null,
+        "system": null,
+        "authority": null,
+        "qualification": null,
+        "specification": null,
+        "academic_year": null,
+        "grade": null,
+        "subject": "science",
+        "term": null,
+        "language": "ar"
+      },
+      "supersedes": null
+    },
+    {
+      "kind": "objective",
+      "id": "objective.science",
+      "version": 1,
+      "status": "draft",
+      "reviewer_ref": null,
+      "audience": {
+        "type": "shared_fixture",
+        "tenant_id": null,
+        "learner_id": null
+      },
+      "edition": {
+        "id": "edition.science",
+        "version": 1
+      },
+      "description": "هدف اختبار مؤلف محليًا، يحتاج مراجعة تربوية قبل النشر.",
+      "source": {
+        "id": "material.science",
+        "version": 1,
+        "anchor": "paragraph-1"
+      }
+    },
+    {
+      "kind": "rubric",
+      "id": "rubric.science",
+      "version": 1,
+      "status": "draft",
+      "reviewer_ref": null,
+      "audience": {
+        "type": "shared_fixture",
+        "tenant_id": null,
+        "learner_id": null
+      },
+      "grader_id": "choice.v1",
+      "visibility": "assessment_only",
+      "config": {
+        "correct_option": "physical"
+      }
+    },
+    {
+      "kind": "item",
+      "id": "item.science",
+      "version": 1,
+      "status": "draft",
+      "reviewer_ref": null,
+      "audience": {
+        "type": "shared_fixture",
+        "tenant_id": null,
+        "learner_id": null
+      },
+      "edition": {
+        "id": "edition.science",
+        "version": 1
+      },
+      "objectives": [
+        {
+          "id": "objective.science",
+          "version": 1
+        }
+      ],
+      "family_id": "family.science",
+      "prompt": "عندما يتحول الثلج إلى ماء سائل، ما نوع التغير؟",
+      "options": [
+        {
+          "id": "physical",
+          "text": "تغيّر فيزيائي"
+        },
+        {
+          "id": "chemical",
+          "text": "تغيّر كيميائي"
+        }
+      ],
+      "rubric": {
+        "id": "rubric.science",
+        "version": 1
+      },
+      "source": {
+        "id": "material.science",
+        "version": 1,
+        "anchor": "paragraph-1"
+      }
+    },
+    {
+      "kind": "rights",
+      "id": "rights.science",
+      "version": 2,
+      "status": "draft",
+      "reviewer_ref": null,
+      "audience": {
+        "type": "shared_fixture",
+        "tenant_id": null,
+        "learner_id": null
+      },
+      "source_ref": "urn:sebaverse:authored-fixture:science:2",
+      "owner_ref": "project.authored-fixtures",
+      "artifact_sha256": "c688d97a58d43a75efd9ba7740fd9899a43feba144e417d8326ef8eb06b4c23d",
+      "acquisition_date": "2026-11-17",
+      "permission_basis": "Project-authored synthetic test text; no third-party curriculum or student data.",
+      "permissions": {
+        "process": true,
+        "display": true,
+        "derivatives": true,
+        "redistribute": false,
+        "train": false
+      },
+      "expires_at": "2027-11-17T00:00:00Z",
+      "territory": [
+        "synthetic-test-only"
+      ],
+      "restrictions": "Not educator-approved, not official alignment, not a training corpus."
+    },
+    {
+      "kind": "material",
+      "id": "material.science",
+      "version": 2,
+      "status": "draft",
+      "reviewer_ref": null,
+      "audience": {
+        "type": "shared_fixture",
+        "tenant_id": null,
+        "learner_id": null
+      },
+      "rights": {
+        "id": "rights.science",
+        "version": 2
+      },
+      "content": "انصهار الثلج تغيّر من الحالة الصلبة إلى السائلة. لا يعني ذلك تكوّن مادة جديدة. هذا إصدار اختبار ثانٍ بملاحظة إضافية.",
+      "sha256": "c688d97a58d43a75efd9ba7740fd9899a43feba144e417d8326ef8eb06b4c23d",
+      "media_type": "text/plain",
+      "anchors": [
+        "paragraph-1"
+      ]
+    },
+    {
+      "kind": "collection",
+      "id": "collection.science",
+      "version": 2,
+      "status": "draft",
+      "reviewer_ref": null,
+      "audience": {
+        "type": "shared_fixture",
+        "tenant_id": null,
+        "learner_id": null
+      },
+      "materials": [
+        {
+          "id": "material.science",
+          "version": 2
+        }
+      ]
+    },
+    {
+      "kind": "edition",
+      "id": "edition.science",
+      "version": 2,
+      "status": "draft",
+      "reviewer_ref": null,
+      "audience": {
+        "type": "shared_fixture",
+        "tenant_id": null,
+        "learner_id": null
+      },
+      "profile": {
+        "id": "profile.science",
+        "version": 1
+      },
+      "collection": {
+        "id": "collection.science",
+        "version": 2
+      },
+      "specification_id": null,
+      "curriculum_key": {
+        "country": null,
+        "system": null,
+        "authority": null,
+        "qualification": null,
+        "specification": null,
+        "academic_year": null,
+        "grade": null,
+        "subject": "science",
+        "term": null,
+        "language": "ar"
+      },
+      "supersedes": {
+        "id": "edition.science",
+        "version": 1
+      }
+    },
+    {
+      "kind": "objective",
+      "id": "objective.science",
+      "version": 2,
+      "status": "draft",
+      "reviewer_ref": null,
+      "audience": {
+        "type": "shared_fixture",
+        "tenant_id": null,
+        "learner_id": null
+      },
+      "edition": {
+        "id": "edition.science",
+        "version": 2
+      },
+      "description": "هدف اختبار مؤلف محليًا، يحتاج مراجعة تربوية قبل النشر.",
+      "source": {
+        "id": "material.science",
+        "version": 2,
+        "anchor": "paragraph-1"
+      }
+    },
+    {
+      "kind": "rubric",
+      "id": "rubric.science",
+      "version": 2,
+      "status": "draft",
+      "reviewer_ref": null,
+      "audience": {
+        "type": "shared_fixture",
+        "tenant_id": null,
+        "learner_id": null
+      },
+      "grader_id": "choice.v1",
+      "visibility": "assessment_only",
+      "config": {
+        "correct_option": "physical"
+      }
+    },
+    {
+      "kind": "item",
+      "id": "item.science",
+      "version": 2,
+      "status": "draft",
+      "reviewer_ref": null,
+      "audience": {
+        "type": "shared_fixture",
+        "tenant_id": null,
+        "learner_id": null
+      },
+      "edition": {
+        "id": "edition.science",
+        "version": 2
+      },
+      "objectives": [
+        {
+          "id": "objective.science",
+          "version": 2
+        }
+      ],
+      "family_id": "family.science",
+      "prompt": "عندما يتحول الثلج إلى ماء سائل، ما نوع التغير؟",
+      "options": [
+        {
+          "id": "physical",
+          "text": "تغيّر فيزيائي"
+        },
+        {
+          "id": "chemical",
+          "text": "تغيّر كيميائي"
+        }
+      ],
+      "rubric": {
+        "id": "rubric.science",
+        "version": 2
+      },
+      "source": {
+        "id": "material.science",
+        "version": 2,
+        "anchor": "paragraph-1"
+      }
+    },
+    {
+      "kind": "rights",
+      "id": "rights.language.private",
+      "version": 1,
+      "status": "draft",
+      "reviewer_ref": null,
+      "audience": {
+        "type": "learner_private",
+        "tenant_id": "fixture.tenant-a",
+        "learner_id": "fixture.learner-a"
+      },
+      "source_ref": "urn:sebaverse:authored-fixture:language.private:1",
+      "owner_ref": "project.authored-fixtures",
+      "artifact_sha256": "3d2e27c3c017d63db33fc5bcdd8b480dbdb436fa22318a9cafde1d51f7370020",
+      "acquisition_date": "2026-11-17",
+      "permission_basis": "Project-authored synthetic test text; no third-party curriculum or student data.",
+      "permissions": {
+        "process": true,
+        "display": true,
+        "derivatives": true,
+        "redistribute": false,
+        "train": false
+      },
+      "expires_at": "2027-11-17T00:00:00Z",
+      "territory": [
+        "synthetic-test-only"
+      ],
+      "restrictions": "Not educator-approved, not official alignment, not a training corpus."
+    },
+    {
+      "kind": "material",
+      "id": "material.language.private",
+      "version": 1,
+      "status": "draft",
+      "reviewer_ref": null,
+      "audience": {
+        "type": "learner_private",
+        "tenant_id": "fixture.tenant-a",
+        "learner_id": "fixture.learner-a"
+      },
+      "rights": {
+        "id": "rights.language.private",
+        "version": 1
+      },
+      "content": "ورقة اختبار خاصة: اكتب جملة قصيرة عن شيء تتعلمه، من غير بيانات شخصية.",
+      "sha256": "3d2e27c3c017d63db33fc5bcdd8b480dbdb436fa22318a9cafde1d51f7370020",
+      "media_type": "text/plain",
+      "anchors": [
+        "paragraph-1"
+      ]
+    },
+    {
+      "kind": "collection",
+      "id": "collection.language.private",
+      "version": 1,
+      "status": "draft",
+      "reviewer_ref": null,
+      "audience": {
+        "type": "learner_private",
+        "tenant_id": "fixture.tenant-a",
+        "learner_id": "fixture.learner-a"
+      },
+      "materials": [
+        {
+          "id": "material.language",
+          "version": 2
+        },
+        {
+          "id": "material.language.private",
+          "version": 1
+        }
+      ]
+    },
+    {
+      "kind": "edition",
+      "id": "edition.language.private",
+      "version": 1,
+      "status": "draft",
+      "reviewer_ref": null,
+      "audience": {
+        "type": "learner_private",
+        "tenant_id": "fixture.tenant-a",
+        "learner_id": "fixture.learner-a"
+      },
+      "profile": {
+        "id": "profile.language",
+        "version": 1
+      },
+      "collection": {
+        "id": "collection.language.private",
+        "version": 1
+      },
+      "specification_id": null,
+      "curriculum_key": {
+        "country": null,
+        "system": null,
+        "authority": null,
+        "qualification": null,
+        "specification": null,
+        "academic_year": null,
+        "grade": null,
+        "subject": "language",
+        "term": null,
+        "language": "de"
+      },
+      "supersedes": null
+    },
+    {
+      "kind": "objective",
+      "id": "objective.language.private",
+      "version": 1,
+      "status": "draft",
+      "reviewer_ref": null,
+      "audience": {
+        "type": "learner_private",
+        "tenant_id": "fixture.tenant-a",
+        "learner_id": "fixture.learner-a"
+      },
+      "edition": {
+        "id": "edition.language.private",
+        "version": 1
+      },
+      "description": "تعبير قصير مفتوح يحتاج مراجعة بشرية.",
+      "source": {
+        "id": "material.language.private",
+        "version": 1,
+        "anchor": "paragraph-1"
+      }
+    },
+    {
+      "kind": "rubric",
+      "id": "rubric.language.private",
+      "version": 1,
+      "status": "draft",
+      "reviewer_ref": null,
+      "audience": {
+        "type": "learner_private",
+        "tenant_id": "fixture.tenant-a",
+        "learner_id": "fixture.learner-a"
+      },
+      "grader_id": "human-review.v1",
+      "visibility": "assessment_only",
+      "config": {
+        "criteria": "راجع المعنى وترتيب الكلمات دون تخمين درجة تلقائية.",
+        "reason": "تعبير مفتوح متعدد الإجابات؛ لم تُعاير له أداة تصحيح."
+      }
+    },
+    {
+      "kind": "item",
+      "id": "item.language.private",
+      "version": 1,
+      "status": "draft",
+      "reviewer_ref": null,
+      "audience": {
+        "type": "learner_private",
+        "tenant_id": "fixture.tenant-a",
+        "learner_id": "fixture.learner-a"
+      },
+      "edition": {
+        "id": "edition.language.private",
+        "version": 1
+      },
+      "objectives": [
+        {
+          "id": "objective.language.private",
+          "version": 1
+        }
+      ],
+      "family_id": "family.language.private",
+      "prompt": "اكتب جملة قصيرة عما تتعلمه. لا تذكر اسمك أو معلوماتك الشخصية.",
+      "options": [],
+      "rubric": {
+        "id": "rubric.language.private",
+        "version": 1
+      },
+      "source": {
+        "id": "material.language.private",
+        "version": 1,
+        "anchor": "paragraph-1"
+      }
+    }
+  ]
+}

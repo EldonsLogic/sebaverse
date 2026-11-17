@@ -261,14 +261,14 @@
       "id": "F3",
       "name": "Identity, consent, curriculum and safe upload",
       "architecture_phase": "A2/A3",
-      "status": "not_started",
+      "status": "in_progress",
       "depends_on": [
         "F2"
       ],
       "tests": [
         {
           "id": "F3-suite-1",
-          "command": null,
+          "command": "make test-authorization",
           "suite": "Cross-actor/tenant/learner/course negatives",
           "availability": "planned",
           "required": true,
@@ -277,7 +277,7 @@
         },
         {
           "id": "F3-suite-2",
-          "command": null,
+          "command": "make test-consent",
           "suite": "Consent/grant revocation",
           "availability": "planned",
           "required": true,
@@ -286,7 +286,7 @@
         },
         {
           "id": "F3-suite-3",
-          "command": null,
+          "command": "make test-ingestion",
           "suite": "Quarantine/parser limits/failure closed",
           "availability": "planned",
           "required": true,
@@ -295,7 +295,7 @@
         },
         {
           "id": "F3-suite-4",
-          "command": null,
+          "command": "make test-content-isolation",
           "suite": "Version/source/rights and private isolation tests",
           "availability": "planned",
           "required": true,

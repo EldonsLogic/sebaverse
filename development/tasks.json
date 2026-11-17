@@ -405,7 +405,7 @@
       "id": "DEV-007",
       "title": "Create schemas and authored multi-subject fixtures",
       "phase": "F3",
-      "status": "planned",
+      "status": "done",
       "requirements": [
         "R035",
         "R036",
@@ -430,7 +430,9 @@
         "make test-contracts"
       ],
       "execution_condition": "All preceding mandatory phase exit tests passed with recorded evidence/review. Applicable G1–G3 execution decisions recorded; synthetic fixtures only; exact dependency/license/security closure reviewed. No paid calls or deployment implied.",
-      "evidence": [],
+      "evidence": [
+        "development/evidence/dev-007.md"
+      ],
       "files": [
         "contracts/",
         "backend/modules/curriculum/",
@@ -439,8 +441,8 @@
       "verification_contracts": [
         {
           "command": "make test-contracts",
-          "availability": "planned",
-          "notes": "Command/test location must be created and recorded by this task; not currently runnable or passed."
+          "availability": "available",
+          "notes": "Schema parity and 33 contract tests passed on 17 November 2026; see task evidence. F3 gate remains open."
         }
       ],
       "architecture_phase": "A2",
