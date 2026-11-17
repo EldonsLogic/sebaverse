@@ -405,7 +405,7 @@
       "id": "DEV-007",
       "title": "Create schemas and authored multi-subject fixtures",
       "phase": "F3",
-      "status": "review",
+      "status": "done",
       "requirements": [
         "R035",
         "R036",
@@ -431,7 +431,8 @@
       ],
       "execution_condition": "All preceding mandatory phase exit tests passed with recorded evidence/review. Applicable G1–G3 execution decisions recorded; synthetic fixtures only; exact dependency/license/security closure reviewed. No paid calls or deployment implied.",
       "evidence": [
-        "development/evidence/dev-007.md"
+        "development/evidence/dev-007.md",
+        "development/evidence/auth-005-advisory-review.md"
       ],
       "files": [
         "contracts/",

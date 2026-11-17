@@ -23,3 +23,10 @@ Ten negative/positive npm boundary tests cover production refusal, expiry/future
 ## Actual local result
 
 `python3 tools/check_npm_audit.py --scope synthetic-development` completed an actual registry audit and returned `pass_with_temporary_development_exception`, four propagated entries, expiry 20 November 2026 at 19:38:23 UTC. Raw report SHA-256: `1e47b8bdacc240f3960e2221855882325a550a172a7084ad00d662096ac6d313`. No advisory was removed from the report. Foundation checks passed with 152 helper/negative-fixture tests, economics and artifact validation; backend checks passed 116 tests, one database integration case deselected. Full hosted pre-use/database/browser checks remain pending until this commit is pushed.
+
+
+## Hosted result — verified
+
+All three workflows passed against `c38bb04c717d4e61a9ea4e9ea6188d15334ca4f1`: [dependency readiness 44161448859](https://github.com/EldonsLogic/sebaverse/actions/runs/44161448859), [foundation 44161448845](https://github.com/EldonsLogic/sebaverse/actions/runs/44161448845), and [full skeleton 44161448815](https://github.com/EldonsLogic/sebaverse/actions/runs/44161448815). The full skeleton's actual step results include native/image pre-use policy, real PostgreSQL migration/readiness/teardown, desktop/mobile browser checks and final regressions, all successful. This restores DEV-007 integration readiness only; F3 remains in progress with its four full exit suites not yet passed. The advisories remain unresolved, and temporary dispositions still expire.
+
+Hosted run metadata SHA-256: `44ea0ea9034dd7c59ec71aff6bf23bb19c2a191d17a78ec08f0415f7f96dbf37`. Canonical metadata/logs/artifacts remain in the linked run.
