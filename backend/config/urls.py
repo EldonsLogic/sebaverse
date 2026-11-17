@@ -1,8 +1,11 @@
 from django.urls import path, re_path
 
 from modules.core import views
+from modules.access import views as access_views
 
 urlpatterns = [
+    path("api/v1/account/csrf/", access_views.csrf_token, name="csrf-token"),
+    path("api/v1/access/resources/<uuid:resource_id>/", access_views.resource_scope, name="resource-scope"),
     path("api/v1/health/", views.health, name="health"),
     path("api/v1/ready/", views.ready, name="ready"),
     path("", views.shell, name="shell"),

@@ -60,5 +60,13 @@ print(json.dumps({"migrations": "applied", "postgres_family": 17, "psycopg_impl"
     )
     if verified.returncode:
         pytest.fail(f"Synthetic PostgreSQL readiness/session probe failed with exit {verified.returncode}; connection details withheld.")
+    access_probe = subprocess.run(
+        [sys.executable, "backend/tests/authorization/postgres_probe.py"], cwd=root, env=env,
+        capture_output=True, text=True, timeout=60,
+    )
+    if access_probe.returncode:
+        pytest.fail(f"Synthetic PostgreSQL authorization probe failed with exit {access_probe.returncode}; connection details withheld.")
+    assert json.loads(access_probe.stdout) == {"negative_scope_cases": 120, "positive_cases": 24,
+                                              "revocation_cases": 8, "constraint_cases": 3, "actor_specific_negative_cases": 8}
     result = json.loads(verified.stdout)
     assert result == {"migrations": "applied", "postgres_family": 17, "psycopg_impl": "python", "session_round_trip": "pass", "readiness": "ready"}

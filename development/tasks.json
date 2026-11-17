@@ -453,7 +453,7 @@
       "id": "DEV-008",
       "title": "Implement actor/learner access and consent boundaries",
       "phase": "F3",
-      "status": "planned",
+      "status": "review",
       "requirements": [
         "R051",
         "R053",
@@ -476,7 +476,9 @@
         "make test-authorization"
       ],
       "execution_condition": "All preceding mandatory phase exit tests passed with recorded evidence/review. Applicable G1–G3 execution decisions recorded; synthetic fixtures only; exact dependency/license/security closure reviewed. No paid calls or deployment implied.",
-      "evidence": [],
+      "evidence": [
+        "development/evidence/dev-008.md"
+      ],
       "files": [
         "backend/modules/identity/",
         "backend/modules/access/",

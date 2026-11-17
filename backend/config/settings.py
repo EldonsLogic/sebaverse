@@ -21,6 +21,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.staticfiles",
     "rest_framework",
+    "modules.identity",
+    "modules.access",
 ]
 MIDDLEWARE = [
     "modules.core.middleware.RequestPolicyMiddleware",
