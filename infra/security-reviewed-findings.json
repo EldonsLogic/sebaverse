@@ -2871,7 +2871,7 @@
       "reviewer": "root operational adoption under AUTH-005 after independent review by /root/independent_reviewer, 17 November 2026",
       "disposition": "restricted_synthetic_ci_only",
       "scope_id": "DEV-006-synthetic-ci",
-      "reviewed_at_utc": "2026-11-15T15:05:45.011633+00:00",
+      "reviewed_at_utc": "2026-11-17T19:38:23.667468+00:00",
       "expires_at_utc": "2026-11-21T15:05:45.011633+00:00",
       "scope_inputs": {
         "backend/config/__init__.py": "508100725b7346baa9dd3e29be555bf6aa006c1119d423c3aadd138952ccea93",
@@ -2912,7 +2912,7 @@
       "reviewer": "root operational adoption under AUTH-005 after independent review by /root/independent_reviewer, 17 November 2026",
       "disposition": "restricted_synthetic_ci_only",
       "scope_id": "DEV-006-synthetic-ci",
-      "reviewed_at_utc": "2026-11-15T15:05:45.011633+00:00",
+      "reviewed_at_utc": "2026-11-17T19:38:23.667468+00:00",
       "expires_at_utc": "2026-11-21T15:05:45.011633+00:00",
       "scope_inputs": {
         "backend/config/__init__.py": "508100725b7346baa9dd3e29be555bf6aa006c1119d423c3aadd138952ccea93",
@@ -2953,7 +2953,7 @@
       "reviewer": "root operational adoption under AUTH-005 after independent review by /root/independent_reviewer, 17 November 2026",
       "disposition": "restricted_synthetic_ci_only",
       "scope_id": "DEV-006-synthetic-ci",
-      "reviewed_at_utc": "2026-11-15T15:05:45.011633+00:00",
+      "reviewed_at_utc": "2026-11-17T19:38:23.667468+00:00",
       "expires_at_utc": "2026-11-21T15:05:45.011633+00:00",
       "scope_inputs": {
         "backend/config/__init__.py": "508100725b7346baa9dd3e29be555bf6aa006c1119d423c3aadd138952ccea93",
@@ -2994,7 +2994,7 @@
       "reviewer": "root operational adoption under AUTH-005 after independent review by /root/independent_reviewer, 17 November 2026",
       "disposition": "restricted_synthetic_ci_only",
       "scope_id": "DEV-006-synthetic-ci",
-      "reviewed_at_utc": "2026-11-15T15:05:45.011633+00:00",
+      "reviewed_at_utc": "2026-11-17T19:38:23.667468+00:00",
       "expires_at_utc": "2026-11-21T15:05:45.011633+00:00",
       "scope_inputs": {
         "backend/config/__init__.py": "508100725b7346baa9dd3e29be555bf6aa006c1119d423c3aadd138952ccea93",
@@ -3035,7 +3035,7 @@
       "reviewer": "root operational adoption under AUTH-005 after independent review by /root/independent_reviewer, 17 November 2026",
       "disposition": "restricted_synthetic_ci_only",
       "scope_id": "DEV-006-synthetic-ci",
-      "reviewed_at_utc": "2026-11-15T15:05:45.011633+00:00",
+      "reviewed_at_utc": "2026-11-17T19:38:23.667468+00:00",
       "expires_at_utc": "2026-11-21T15:05:45.011633+00:00",
       "scope_inputs": {
         "backend/config/__init__.py": "508100725b7346baa9dd3e29be555bf6aa006c1119d423c3aadd138952ccea93",
@@ -3076,7 +3076,7 @@
       "reviewer": "root operational adoption under AUTH-005 after independent review by /root/independent_reviewer, 17 November 2026",
       "disposition": "restricted_synthetic_ci_only",
       "scope_id": "DEV-006-synthetic-ci",
-      "reviewed_at_utc": "2026-11-15T15:05:45.011633+00:00",
+      "reviewed_at_utc": "2026-11-17T19:38:23.667468+00:00",
       "expires_at_utc": "2026-11-21T15:05:45.011633+00:00",
       "scope_inputs": {
         "backend/config/__init__.py": "508100725b7346baa9dd3e29be555bf6aa006c1119d423c3aadd138952ccea93",
@@ -3117,7 +3117,7 @@
       "reviewer": "root operational adoption under AUTH-005 after independent review by /root/independent_reviewer, 17 November 2026",
       "disposition": "restricted_synthetic_ci_only",
       "scope_id": "DEV-006-synthetic-ci",
-      "reviewed_at_utc": "2026-11-15T15:05:45.011633+00:00",
+      "reviewed_at_utc": "2026-11-17T19:38:23.667468+00:00",
       "expires_at_utc": "2026-11-21T15:05:45.011633+00:00",
       "scope_inputs": {
         "backend/config/__init__.py": "508100725b7346baa9dd3e29be555bf6aa006c1119d423c3aadd138952ccea93",
@@ -3158,7 +3158,7 @@
       "reviewer": "root operational adoption under AUTH-005 after independent review by /root/independent_reviewer, 17 November 2026",
       "disposition": "restricted_synthetic_ci_only",
       "scope_id": "DEV-006-synthetic-ci",
-      "reviewed_at_utc": "2026-11-15T15:05:45.011633+00:00",
+      "reviewed_at_utc": "2026-11-17T19:38:23.667468+00:00",
       "expires_at_utc": "2026-11-21T15:05:45.011633+00:00",
       "scope_inputs": {
         "backend/config/__init__.py": "508100725b7346baa9dd3e29be555bf6aa006c1119d423c3aadd138952ccea93",
@@ -3199,7 +3199,7 @@
       "reviewer": "root operational adoption under AUTH-005 after independent review by /root/independent_reviewer, 17 November 2026",
       "disposition": "restricted_synthetic_ci_only",
       "scope_id": "DEV-006-synthetic-ci",
-      "reviewed_at_utc": "2026-11-15T15:05:45.011633+00:00",
+      "reviewed_at_utc": "2026-11-17T19:38:23.667468+00:00",
       "expires_at_utc": "2026-11-21T15:05:45.011633+00:00",
       "scope_inputs": {
         "backend/config/__init__.py": "508100725b7346baa9dd3e29be555bf6aa006c1119d423c3aadd138952ccea93",
@@ -3240,7 +3240,7 @@
       "reviewer": "root operational adoption under AUTH-005 after independent review by /root/independent_reviewer, 17 November 2026",
       "disposition": "restricted_synthetic_ci_only",
       "scope_id": "DEV-006-synthetic-ci",
-      "reviewed_at_utc": "2026-11-15T15:05:45.011633+00:00",
+      "reviewed_at_utc": "2026-11-17T19:38:23.667468+00:00",
       "expires_at_utc": "2026-11-21T15:05:45.011633+00:00",
       "scope_inputs": {
         "backend/config/__init__.py": "508100725b7346baa9dd3e29be555bf6aa006c1119d423c3aadd138952ccea93",
@@ -3281,7 +3281,7 @@
       "reviewer": "root operational adoption under AUTH-005 after independent review by /root/independent_reviewer, 17 November 2026",
       "disposition": "restricted_synthetic_ci_only",
       "scope_id": "DEV-006-synthetic-ci",
-      "reviewed_at_utc": "2026-11-15T15:05:45.011633+00:00",
+      "reviewed_at_utc": "2026-11-17T19:38:23.667468+00:00",
       "expires_at_utc": "2026-11-21T15:05:45.011633+00:00",
       "scope_inputs": {
         "backend/config/__init__.py": "508100725b7346baa9dd3e29be555bf6aa006c1119d423c3aadd138952ccea93",
@@ -3322,7 +3322,7 @@
       "reviewer": "root operational adoption under AUTH-005 after independent review by /root/independent_reviewer, 17 November 2026",
       "disposition": "restricted_synthetic_ci_only",
       "scope_id": "DEV-006-synthetic-ci",
-      "reviewed_at_utc": "2026-11-15T15:05:45.011633+00:00",
+      "reviewed_at_utc": "2026-11-17T19:38:23.667468+00:00",
       "expires_at_utc": "2026-11-21T15:05:45.011633+00:00",
       "scope_inputs": {
         "backend/config/__init__.py": "508100725b7346baa9dd3e29be555bf6aa006c1119d423c3aadd138952ccea93",
@@ -3363,7 +3363,7 @@
       "reviewer": "root operational adoption under AUTH-005 after independent review by /root/independent_reviewer, 17 November 2026",
       "disposition": "restricted_synthetic_ci_only",
       "scope_id": "DEV-006-synthetic-ci",
-      "reviewed_at_utc": "2026-11-15T15:05:45.011633+00:00",
+      "reviewed_at_utc": "2026-11-17T19:38:23.667468+00:00",
       "expires_at_utc": "2026-11-21T15:05:45.011633+00:00",
       "scope_inputs": {
         "backend/config/__init__.py": "508100725b7346baa9dd3e29be555bf6aa006c1119d423c3aadd138952ccea93",
@@ -3404,7 +3404,7 @@
       "reviewer": "root operational adoption under AUTH-005 after independent review by /root/independent_reviewer, 17 November 2026",
       "disposition": "restricted_synthetic_ci_only",
       "scope_id": "DEV-006-synthetic-ci",
-      "reviewed_at_utc": "2026-11-15T15:05:45.011633+00:00",
+      "reviewed_at_utc": "2026-11-17T19:38:23.667468+00:00",
       "expires_at_utc": "2026-11-21T15:05:45.011633+00:00",
       "scope_inputs": {
         "backend/config/__init__.py": "508100725b7346baa9dd3e29be555bf6aa006c1119d423c3aadd138952ccea93",
@@ -3445,7 +3445,7 @@
       "reviewer": "root operational adoption under AUTH-005 after independent review by /root/independent_reviewer, 17 November 2026",
       "disposition": "restricted_synthetic_ci_only",
       "scope_id": "DEV-006-synthetic-ci",
-      "reviewed_at_utc": "2026-11-15T15:05:45.011633+00:00",
+      "reviewed_at_utc": "2026-11-17T19:38:23.667468+00:00",
       "expires_at_utc": "2026-11-21T15:05:45.011633+00:00",
       "scope_inputs": {
         "backend/config/__init__.py": "508100725b7346baa9dd3e29be555bf6aa006c1119d423c3aadd138952ccea93",
@@ -3486,7 +3486,7 @@
       "reviewer": "root operational adoption under AUTH-005 after independent review by /root/independent_reviewer, 17 November 2026",
       "disposition": "restricted_synthetic_ci_only",
       "scope_id": "DEV-006-synthetic-ci",
-      "reviewed_at_utc": "2026-11-15T15:05:45.011633+00:00",
+      "reviewed_at_utc": "2026-11-17T19:38:23.667468+00:00",
       "expires_at_utc": "2026-11-21T15:05:45.011633+00:00",
       "scope_inputs": {
         "backend/config/__init__.py": "508100725b7346baa9dd3e29be555bf6aa006c1119d423c3aadd138952ccea93",
@@ -3527,7 +3527,7 @@
       "reviewer": "root operational adoption under AUTH-005 after independent review by /root/independent_reviewer, 17 November 2026",
       "disposition": "restricted_synthetic_ci_only",
       "scope_id": "DEV-006-synthetic-ci",
-      "reviewed_at_utc": "2026-11-15T15:05:45.011633+00:00",
+      "reviewed_at_utc": "2026-11-17T19:38:23.667468+00:00",
       "expires_at_utc": "2026-11-21T15:05:45.011633+00:00",
       "scope_inputs": {
         "backend/config/__init__.py": "508100725b7346baa9dd3e29be555bf6aa006c1119d423c3aadd138952ccea93",
@@ -3568,7 +3568,7 @@
       "reviewer": "root operational adoption under AUTH-005 after independent review by /root/independent_reviewer, 17 November 2026",
       "disposition": "restricted_synthetic_ci_only",
       "scope_id": "DEV-006-synthetic-ci",
-      "reviewed_at_utc": "2026-11-15T15:05:45.011633+00:00",
+      "reviewed_at_utc": "2026-11-17T19:38:23.667468+00:00",
       "expires_at_utc": "2026-11-21T15:05:45.011633+00:00",
       "scope_inputs": {
         "backend/config/__init__.py": "508100725b7346baa9dd3e29be555bf6aa006c1119d423c3aadd138952ccea93",
@@ -3609,7 +3609,7 @@
       "reviewer": "root operational adoption under AUTH-005 after independent review by /root/independent_reviewer, 17 November 2026",
       "disposition": "restricted_synthetic_ci_only",
       "scope_id": "DEV-006-synthetic-ci",
-      "reviewed_at_utc": "2026-11-15T15:05:45.011633+00:00",
+      "reviewed_at_utc": "2026-11-17T19:38:23.667468+00:00",
       "expires_at_utc": "2026-11-21T15:05:45.011633+00:00",
       "scope_inputs": {
         "backend/config/__init__.py": "508100725b7346baa9dd3e29be555bf6aa006c1119d423c3aadd138952ccea93",
@@ -3650,7 +3650,7 @@
       "reviewer": "root operational adoption under AUTH-005 after independent review by /root/independent_reviewer, 17 November 2026",
       "disposition": "restricted_synthetic_ci_only",
       "scope_id": "DEV-006-synthetic-ci",
-      "reviewed_at_utc": "2026-11-15T15:05:45.011633+00:00",
+      "reviewed_at_utc": "2026-11-17T19:38:23.667468+00:00",
       "expires_at_utc": "2026-11-21T15:05:45.011633+00:00",
       "scope_inputs": {
         "backend/config/__init__.py": "508100725b7346baa9dd3e29be555bf6aa006c1119d423c3aadd138952ccea93",
@@ -3691,7 +3691,7 @@
       "reviewer": "root operational adoption under AUTH-005 after independent review by /root/independent_reviewer, 17 November 2026",
       "disposition": "restricted_synthetic_ci_only",
       "scope_id": "DEV-006-synthetic-ci",
-      "reviewed_at_utc": "2026-11-15T15:05:45.011633+00:00",
+      "reviewed_at_utc": "2026-11-17T19:38:23.667468+00:00",
       "expires_at_utc": "2026-11-21T15:05:45.011633+00:00",
       "scope_inputs": {
         "backend/config/__init__.py": "508100725b7346baa9dd3e29be555bf6aa006c1119d423c3aadd138952ccea93",
@@ -3732,7 +3732,7 @@
       "reviewer": "root operational adoption under AUTH-005 after independent review by /root/independent_reviewer, 17 November 2026",
       "disposition": "restricted_synthetic_ci_only",
       "scope_id": "DEV-006-synthetic-ci",
-      "reviewed_at_utc": "2026-11-15T15:05:45.011633+00:00",
+      "reviewed_at_utc": "2026-11-17T19:38:23.667468+00:00",
       "expires_at_utc": "2026-11-21T15:05:45.011633+00:00",
       "scope_inputs": {
         "backend/config/__init__.py": "508100725b7346baa9dd3e29be555bf6aa006c1119d423c3aadd138952ccea93",
@@ -3773,7 +3773,7 @@
       "reviewer": "root operational adoption under AUTH-005 after independent review by /root/independent_reviewer, 17 November 2026",
       "disposition": "restricted_synthetic_ci_only",
       "scope_id": "DEV-006-synthetic-ci",
-      "reviewed_at_utc": "2026-11-15T15:05:45.011633+00:00",
+      "reviewed_at_utc": "2026-11-17T19:38:23.667468+00:00",
       "expires_at_utc": "2026-11-21T15:05:45.011633+00:00",
       "scope_inputs": {
         "backend/config/__init__.py": "508100725b7346baa9dd3e29be555bf6aa006c1119d423c3aadd138952ccea93",
@@ -3814,7 +3814,7 @@
       "reviewer": "root operational adoption under AUTH-005 after independent review by /root/independent_reviewer, 17 November 2026",
       "disposition": "restricted_synthetic_ci_only",
       "scope_id": "DEV-006-synthetic-ci",
-      "reviewed_at_utc": "2026-11-15T15:05:45.011633+00:00",
+      "reviewed_at_utc": "2026-11-17T19:38:23.667468+00:00",
       "expires_at_utc": "2026-11-21T15:05:45.011633+00:00",
       "scope_inputs": {
         "backend/config/__init__.py": "508100725b7346baa9dd3e29be555bf6aa006c1119d423c3aadd138952ccea93",
