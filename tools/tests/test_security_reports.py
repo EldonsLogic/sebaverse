@@ -295,6 +295,18 @@ class SecurityReportPolicyTests(unittest.TestCase):
         self.finding(self.match(), reviewed=True)
         self.assert_pass()
 
+    def test_reviewed_medium_with_unreleased_fix_passes(self):
+        match = self.match()
+        match["vulnerability"]["fix"] = {"state": "not-fixed", "versions": []}
+        self.finding(match, reviewed=True)
+        self.assert_pass()
+
+    def test_released_fix_ends_reviewed_finding(self):
+        match = self.match()
+        match["vulnerability"]["fix"] = {"state": "fixed", "versions": ["17.12-1"]}
+        self.finding(match, reviewed=True)
+        self.assert_fail('fix released for reviewed findings')
+
     def test_scoped_review_cannot_fall_back_to_official_source(self):
         self.finding(self.match(), reviewed=True)
         for disposition in ['restricted_synthetic_ci_only', 'component_not_present_in_bound_artifact']:

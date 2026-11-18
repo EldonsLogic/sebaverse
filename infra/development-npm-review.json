@@ -3,7 +3,7 @@
   "authority": "AUTH-005",
   "scope": "synthetic-development",
   "reviewed_at_utc": "2026-11-17T19:38:23.667468+00:00",
-  "expires_at_utc": "2026-11-20T19:38:23.667468+00:00",
+  "expires_at_utc": "2026-12-17T19:38:23.667468+00:00",
   "advisory": "GHSA-fc5q-39xc-vjpf",
   "source": "https://github.com/advisories/GHSA-fc5q-39xc-vjpf",
   "review_status": "reviewed",
@@ -18,14 +18,8 @@
     "web/package.json": "f7d6d68870965c4f84b21baef8ebe00665356fff4c669b061895aeb425f3434a",
     "web/package-lock.json": "8a5bc3f103357d02aa408266b13037e8cf2a737a1a51c179225aa88bd4055dc3",
     "web/vite.config.ts": "f97031ef7fcdd85232be49a3a50a45cc5c8fd575c1b4c5ce4ab29f55d0d0bcb8",
-    "web/index.html": "68ca97a6f1cbf47b76a4c3d74e0e1c1a972b60dd4851851d8ae044f9f38d9036",
     ".github/workflows/dependencies.yml": "7e56d062260565ad91eff803a65ba584202821cb411087fc108f34d18403a631",
-    "tools/check_npm_audit.py": "d501427b66008eb436c5faa2771c819a8d6b37d389462825ecb5b3db79b7e3c7",
-    "web/src/app/App.tsx": "af3639e55cd7628c6720d56f2433b401b16030f5695ef6b160ed1b7fe2bb0090",
-    "web/src/app/styles.css": "7ba5afb13f0a461d77b838086d2d9696c11e00bf821c06f4655d08e0169d1e27",
-    "web/src/main.tsx": "b81128f116e7c2f3f67d962cb17e22591cf1a33a8241da37387b1f95690a8df2",
-    "web/src/ui/EmptyState.tsx": "f37fdf93e43fe40f69f3338aa906aa592d0c067e22cc867a7e49b456a138d57f",
-    "web/src/ui/Icon.tsx": "38b333c2e02200fb48b975c1c60f7d3a3cdcf36a578ade202393a862d7a70275"
+    "tools/check_npm_audit.py": "7292a2d91bf2ff950b904d287f4db4d42edb778329f9f67e4ed64a6f06e454ab"
   },
   "reviewed_vulnerabilities": {
     "fdir": {
@@ -122,5 +116,10 @@
     "critical": 0,
     "total": 4
   },
-  "reviewer": "/root/independent_reviewer, 17 November 2026, correction 1 independently verified"
+  "reviewer": "/root/independent_reviewer, 17 November 2026, correction 1 independently verified",
+  "fix_watch": {
+    "picomatch": "4.0.7"
+  },
+  "expiry_rule": "AUTH-011: ends when a fixed version is published (scanner or registry), or 30 days after review, whichever comes first.",
+  "status_note": "GHSA-fc5q-39xc-vjpf was withdrawn on 2026-11-18T15:38:56Z; npm audit reports no findings, so this exception is not in use. It applies only if the exact reviewed findings return."
 }
