@@ -96,3 +96,6 @@ ADR-013 / U19 — 18 November 2026: founder requested AG-UI integration. R105, a
 
 
 RISK-F3-002 update — AUTH-006 static assessment completed on 18 November in run 44294630688; both allowed official PG17 alternatives contain blocking matches, including native non-Go components. No pin/gate change or database use. DEV-009 remains in review; no third candidate is authorized under this budget. See development/evidence/runtime-candidate-assessment.md.
+
+
+RISK-F3-002 update — 18 November: AUTH-007 explicitly permitted the exact independently reviewed synthetic-only OpenSSL exception. Hosted gate/actual PostgreSQL/browser tests at bc211558 passed, and independent execution review released DEV-009. Findings remain unresolved; exact expiry/source/artifact/CI constraints remain. This supersedes the integration hold, not the historical scan findings, candidate rejections or production restrictions. See development/evidence/auth-007-openssl-review.md.

@@ -1,0 +1,22 @@
+{
+  "evidence_id": "AUTH-007-EXEC-001",
+  "source_commit": "bc2115581aa52d1dbaadcbc7ae4044f53618f8b5",
+  "run": 44297534813,
+  "status": "pass_synthetic_ci_only",
+  "execution_scope": "synthetic-ci",
+  "temporary_exception": {
+    "authority": "AUTH-007",
+    "scope": "synthetic-ci",
+    "expires_at_utc": "2026-11-20T11:39:06.165579+00:00"
+  },
+  "exceptions_by_report": {
+    "image-cves.json": 8,
+    "system-native-cves.json": 0,
+    "postgres-core-cves.json": 0
+  },
+  "gate_sha256": "5a57c5798a81aca8a957478ec8a5cbfb61f92bfa46b06c9b837cae439275eeac",
+  "hosted_metadata_sha256": "c59bf6dd06b1725b573a1278db1c59b3239a63425383ac6003e84f1a32f00e80",
+  "database_probe_resilience_scenarios": 14,
+  "phase_exit_approved": false,
+  "raw_evidence": "https://github.com/EldonsLogic/sebaverse/actions/runs/44297534813"
+}

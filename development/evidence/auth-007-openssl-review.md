@@ -28,3 +28,12 @@ Independent reviewer /root/independent_reviewer verified publisher descriptions 
 The eight High image pairs and three additional Medium package matches were adopted only for their stated synthetic scope. The new High policy expires after two days (maximum allowed duration three days); original reviews retain their original expiry. New reviewed rows do not claim components are absent or fixed. Product/real-data/production use remains unapproved.
 
 Local foundation/economics/artifact checks and 163 helper tests passed. The 14-scenario actual PostgreSQL probe, native gate replay and browser/regression run still must execute successfully on hosted CI before DEV-009 completion. No phase pass is inferred from policy tests.
+
+
+## Actual hosted execution — passed, restricted scope only
+
+At `bc2115581aa52d1dbaadcbc7ae4044f53618f8b5`, [full skeleton 44297534813](https://github.com/EldonsLogic/sebaverse/actions/runs/44297534813), [dependency readiness 44297534706](https://github.com/EldonsLogic/sebaverse/actions/runs/44297534706), [foundation 44297534679](https://github.com/EldonsLogic/sebaverse/actions/runs/44297534679) and [static remediation experiment 44297534686](https://github.com/EldonsLogic/sebaverse/actions/runs/44297534686) succeeded. Static experiment completion does not claim its affected packages are fixed.
+
+The actual pre-use receipt reports pass in explicit synthetic-ci scope, AUTH-007 expiry 20 November 2026 at 11:39:06 UTC, eight exact High image exceptions, zero native/core High exceptions, and zero blocking findings after the scoped rule. Raw High findings remain in the unsuppressed scan. The PostgreSQL migration/readiness/teardown step, 14 durable-job resilience scenarios and all prior access assertions actually executed successfully, followed by browser checks and regressions.
+
+Independent execution review /root/independent_reviewer verified the hosted head/status, raw gate/receipt hashes and image identity, teardown, frozen integration assertions and successful PostgreSQL/browser/regression steps. It returned PASS for DEV-009 acceptance and release of that task's hold only. F3 has not exited; production, real data and general package clearance remain prohibited. See [compact execution receipt](auth-007-execution.json); canonical raw evidence stays in hosted CI.

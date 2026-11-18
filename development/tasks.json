@@ -498,7 +498,7 @@
       "id": "DEV-009",
       "title": "Implement durable jobs, usage reservations and cancellation",
       "phase": "F3",
-      "status": "review",
+      "status": "done",
       "requirements": [
         "R062",
         "R067",
@@ -523,7 +523,9 @@
       ],
       "execution_condition": "All preceding mandatory phase exit tests passed with recorded evidence/review. Applicable G1–G3 execution decisions recorded; synthetic fixtures only; exact dependency/license/security closure reviewed. No paid calls or deployment implied.",
       "evidence": [
-        "development/evidence/dev-009.md"
+        "development/evidence/dev-009.md",
+        "development/evidence/auth-007-openssl-review.md",
+        "development/evidence/auth-007-execution.json"
       ],
       "files": [
         "backend/modules/operations/",
@@ -534,8 +536,8 @@
       "verification_contracts": [
         {
           "command": "make test-resilience",
-          "availability": "planned",
-          "notes": "Command/test location must be created and recorded by this task; not currently runnable or passed."
+          "availability": "available",
+          "notes": "25 resilience unit cases and actual 14-scenario PostgreSQL probe passed at bc211558; independent acceptance in task report. F3 exit remains pending."
         }
       ],
       "architecture_phase": "A2",
