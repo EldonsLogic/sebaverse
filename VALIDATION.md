@@ -1,6 +1,6 @@
 # Artifact validation
 
-Run date: 17 November 2026. Status: PASS.
+Run date: 18 November 2026. Status: PASS.
 
 - 36 preserved research/evidence files match SHA-256 manifest.
 - 13 global + 14 audit Markdown deliverables present.
