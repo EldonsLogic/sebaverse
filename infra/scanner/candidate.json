@@ -1,5 +1,5 @@
 {
-  "status": "release_candidate_not_cleared",
+  "status": "static_hold_unresolved_advisories_and_native_provenance",
   "name": "ClamAV",
   "release": {
     "html_url": "https://github.com/Cisco-Talos/clamav/releases/tag/clamav-1.5.4",
@@ -8,12 +8,13 @@
   },
   "artifact_digest": "sha256:c811c2c86ab39282ce0a2edadbe935b837c6792a76f745b08a2bb2246ac03baf",
   "signature_database": null,
-  "rights_security_isolation_review": "not completed",
+  "rights_security_isolation_review": "Static review holds candidate; direct Grype scan incomplete, package overlap and exact Debian tracker evidence show unresolved findings; runtime/isolation not run",
   "runtime_enabled": false,
   "operational_cost_unknown": "Vendor documentation recommends 3 GiB minimum/4 GiB preferred RAM for full definitions; actual bounded workload not measured. This is a vendor claim, not a budget or benchmark.",
   "source": "https://docs.clamav.net/manual/Installing/Docker.html",
   "artifact_platform": "linux/amd64",
   "artifact_tag_observed": "clamav/clamav:1.5.4_base-debian",
   "manifest_index_digest": "sha256:ef703dff572941648578d6e112d9b1f2b02d2480085d1fb9c8ca5628750071a1",
-  "identity_evidence": "infra/scanner/review-plan.md"
+  "identity_evidence": "infra/scanner/review-plan.md",
+  "static_review": "infra/scanner/static-review.json"
 }

@@ -1,0 +1,302 @@
+{
+  "schema_version": 1,
+  "task": "DEV-010",
+  "recorded_at_utc": "2026-11-18T16:59:09.732372+00:00",
+  "status": "static_hold_unresolved_advisories_and_native_provenance",
+  "image_executed": false,
+  "definitions_fetched_or_executed": false,
+  "asset_approved": false,
+  "reference": "docker.io/clamav/clamav@sha256:c811c2c86ab39282ce0a2edadbe935b837c6792a76f745b08a2bb2246ac03baf",
+  "registry": {
+    "observed_at_utc": "2026-11-18T16:55:48.616893+00:00",
+    "index": "sha256:ef703dff572941648578d6e112d9b1f2b02d2480085d1fb9c8ca5628750071a1",
+    "manifest": "sha256:c811c2c86ab39282ce0a2edadbe935b837c6792a76f745b08a2bb2246ac03baf",
+    "config": "sha256:40d2e1d143f9fa3e24e14bb00c526a22414b5dedcaaa75585310b74c9a2ce0c7",
+    "image_created_utc": "2026-11-16T06:04:26.077493764Z",
+    "visible_labels": {
+      "maintainer": "ClamAV bugs <clamav-bugs@external.cisco.com>"
+    },
+    "entrypoint": [
+      "/init"
+    ],
+    "healthcheck": {
+      "Test": [
+        "CMD-SHELL",
+        "clamdcheck.sh"
+      ],
+      "StartPeriod": 360000000000
+    },
+    "image_user": null,
+    "declared_ports": [
+      "3310/tcp",
+      "7357/tcp"
+    ],
+    "layers": [
+      {
+        "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+        "digest": "sha256:37fb86c2a767b88d500c6872195f88078f64765fe0d2f9cc375cc2efbd4c0a41",
+        "size": 29856132
+      },
+      {
+        "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+        "digest": "sha256:482b4e8071e7ac1aa230df53e2b8e0a508a34743dcb7f3eb6916ef80cabf2afe",
+        "size": 7401266
+      },
+      {
+        "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+        "digest": "sha256:8b4dce3a1f267983530e18d570b31adbf4dd9f1f1d5ba210899ea0d6bb9b05a2",
+        "size": 42970074
+      },
+      {
+        "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+        "digest": "sha256:f9f432f1f7955b33ddfb78e55ceda2f6f9f03ca973934d3808e18cca5b023c35",
+        "size": 343
+      },
+      {
+        "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+        "digest": "sha256:3f17914f933d22bcb66f16f19d506a726a85ca9144f1fcb70a5e519a609ed0f9",
+        "size": 1561
+      },
+      {
+        "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+        "digest": "sha256:94bb71af32367a9671d75f05313422607e845dfdf4cff7e6d7e1f58cdb743ca8",
+        "size": 1227
+      }
+    ],
+    "history": [
+      "# debian.sh --arch 'amd64' out/ 'trixie' '@1793827419'",
+      "RUN /bin/sh -c apt-get update && apt-get install -y         libbz2-1.0         libcurl4         libssl3         libjson-c5         libmilter1.0.1         libncurses6         libpcre2-8-0         libxml2         zlib1g         tzdata         netcat-openbsd     &&     apt-get clean && rm -rf /var/lib/apt/lists/* &&     rm -rf /var/cache/apt/archives &&     groupadd -g 1000 \"clamav\" &&     useradd -m -g clamav -s /bin/false --home-dir /var/lib/clamav -u 1000 -c \"Clam Antivirus\" clamav &&     install -d -m 755 -g \"clamav\" -o \"clamav\" \"/var/log/clamav\" &&     chown -R clamav:clamav /var/lib/clamav # buildkit",
+      "COPY /clamav / # buildkit",
+      "COPY ./scripts/clamdcheck.sh /usr/local/bin/ # buildkit",
+      "COPY ./scripts/docker-entrypoint.sh /init # buildkit",
+      "COPY ./scripts/docker-entrypoint-unprivileged.sh /init-unprivileged # buildkit"
+    ],
+    "attestations_listed_in_index": [
+      {
+        "mediaType": "application/vnd.oci.image.manifest.v1+json",
+        "digest": "sha256:a4e2c018922d07df4628e979fe73e170f8fe16f0429040c9cafb971fce8146aa",
+        "size": 841,
+        "annotations": {
+          "vnd.docker.reference.digest": "sha256:c811c2c86ab39282ce0a2edadbe935b837c6792a76f745b08a2bb2246ac03baf",
+          "vnd.docker.reference.type": "attestation-manifest"
+        },
+        "platform": {
+          "architecture": "unknown",
+          "os": "unknown"
+        }
+      }
+    ]
+  },
+  "publisher_attestations": {
+    "subject_platform_digest_verified": true,
+    "verification": "Verified registry bytes and both in-toto subject digest bindings. Signer identity was not independently verified.",
+    "builder": "https://clamav-jenkins.talos.cisco.com/job/ClamAV/job/clamav-docker/job/clamav-debian/job/clamav-debian-docker-1.5/70/",
+    "base_material": {
+      "uri": "pkg:docker/debian@13-slim?platform=linux%2Famd64",
+      "digest": {
+        "sha256": "a72b4433de1cf7d6bae0c4cee74d0547f58601a643b3375f070c51600d63b6b2"
+      }
+    },
+    "materials_complete": false,
+    "source_revision": null,
+    "spdx_package_entries": 113,
+    "spdx_engine_package_present": false
+  },
+  "local_inventory": {
+    "tool": "Syft 1.57.1 darwin_arm64",
+    "tool_sha256": "d991548e2410d494c2a0da0bf0ac433111fe842f3475f59aee1904484a3aa549",
+    "mode": "registry, linux/amd64, effective filesystem",
+    "distro": "Debian GNU/Linux 13 (trixie)",
+    "distro_version": "13.7",
+    "debian_packages": 112,
+    "packages_with_extracted_license_names": 112,
+    "cataloged_files": 2736,
+    "engine_package_present": false,
+    "binaries": {
+      "/usr/bin/clamscan": {
+        "build_id": "1170e0001063965cc5e91a253924efa13b105f2b",
+        "imports": [
+          "libclamav.so.12",
+          "libc.so.6"
+        ]
+      },
+      "/usr/lib/libclamav.so.12.1.0": {
+        "build_id": "fb7e9741456147d34cdaa0c157e4ddd3521b7b95",
+        "imports": [
+          "libclammspack.so.0",
+          "libssl.so.3",
+          "libcrypto.so.3",
+          "libz.so.1",
+          "libbz2.so.1.0",
+          "libpcre2-8.so.0",
+          "libxml2.so.2",
+          "libjson-c.so.5",
+          "libm.so.6",
+          "libgcc_s.so.1",
+          "libc.so.6",
+          "ld-linux-x86-64.so.2"
+        ]
+      }
+    }
+  },
+  "advisories": {
+    "direct_grype_status": "failed_database_missing_no_report",
+    "direct_grype_exit_code": 1,
+    "direct_grype_db_status": "invalid: database does not exist",
+    "grype_tool_version": "0.121.3",
+    "grype_tool_sha256": "13904166719c73277fe6b1ebc2636063627b802302787f5831ad4a545a9b93ab",
+    "comparison_method": "Join exact Debian purl including upstream identity, Debian version, architecture and distro from candidate Syft SBOM against the prior other-image Grype matches. This is positive evidence for shared identities and is not a direct or complete candidate scan.",
+    "comparison_source": "GitHub Actions run 44294630688, runtime-17-trixie artifact, runtime-assessment/advisories.json",
+    "comparison_report_sha256": "1a87c327c6794034cf4f301db65978e0dc6edae5c1644bd770ef4deab31395c1",
+    "comparison_db": {
+      "schemaVersion": "v6.1.10",
+      "built": "2026-11-18T06:21:08Z",
+      "from": "https://grype.anchore.io/databases/v6/vulnerability-db_v6.1.10_2026-11-18T00:21:05Z_1794982868.tar.zst?checksum=sha256%3A5029e15a80ebb0ac53cad3413d2768fa241f6e2b71336d8ef73ec5a87e5a4cc0"
+    },
+    "overlapping_package_identities_with_matches": 50,
+    "overlapping_matches": 332,
+    "severity_counts_on_overlap": {
+      "Critical": 1,
+      "High": 113,
+      "Low": 17,
+      "Medium": 98,
+      "Negligible": 79,
+      "Unknown": 24
+    },
+    "critical_matches_on_overlap": [
+      {
+        "package": "libxml2",
+        "version": "2.12.7+dfsg+really2.9.14-2.1+deb13u3",
+        "purl": "pkg:deb/debian/libxml2@2.12.7%2Bdfsg%2Breally2.9.14-2.1%2Bdeb13u3?arch=amd64&distro=debian-13.7",
+        "id": "CVE-2026-6653",
+        "severity": "Critical",
+        "source": "https://security-tracker.debian.org/tracker/CVE-2026-6653"
+      }
+    ],
+    "high_matches_in_direct_engine_imports_on_overlap": [
+      {
+        "package": "libxml2",
+        "version": "2.12.7+dfsg+really2.9.14-2.1+deb13u3",
+        "purl": "pkg:deb/debian/libxml2@2.12.7%2Bdfsg%2Breally2.9.14-2.1%2Bdeb13u3?arch=amd64&distro=debian-13.7",
+        "id": "CVE-2026-74860",
+        "severity": "High",
+        "source": "https://security-tracker.debian.org/tracker/CVE-2026-74860"
+      },
+      {
+        "package": "libssl3t64",
+        "version": "3.5.7-1~deb13u3",
+        "purl": "pkg:deb/debian/libssl3t64@3.5.7-1~deb13u3?arch=amd64&distro=debian-13.7&upstream=openssl",
+        "id": "CVE-2026-95692",
+        "severity": "High",
+        "source": "https://security-tracker.debian.org/tracker/CVE-2026-95692"
+      },
+      {
+        "package": "libssl3t64",
+        "version": "3.5.7-1~deb13u3",
+        "purl": "pkg:deb/debian/libssl3t64@3.5.7-1~deb13u3?arch=amd64&distro=debian-13.7&upstream=openssl",
+        "id": "CVE-2026-107496",
+        "severity": "High",
+        "source": "https://security-tracker.debian.org/tracker/CVE-2026-107496"
+      },
+      {
+        "package": "libssl3t64",
+        "version": "3.5.7-1~deb13u3",
+        "purl": "pkg:deb/debian/libssl3t64@3.5.7-1~deb13u3?arch=amd64&distro=debian-13.7&upstream=openssl",
+        "id": "CVE-2026-95691",
+        "severity": "High",
+        "source": "https://security-tracker.debian.org/tracker/CVE-2026-95691"
+      },
+      {
+        "package": "libssl3t64",
+        "version": "3.5.7-1~deb13u3",
+        "purl": "pkg:deb/debian/libssl3t64@3.5.7-1~deb13u3?arch=amd64&distro=debian-13.7&upstream=openssl",
+        "id": "CVE-2026-88823",
+        "severity": "High",
+        "source": "https://security-tracker.debian.org/tracker/CVE-2026-88823"
+      },
+      {
+        "package": "libxml2",
+        "version": "2.12.7+dfsg+really2.9.14-2.1+deb13u3",
+        "purl": "pkg:deb/debian/libxml2@2.12.7%2Bdfsg%2Breally2.9.14-2.1%2Bdeb13u3?arch=amd64&distro=debian-13.7",
+        "id": "CVE-2026-86143",
+        "severity": "High",
+        "source": "https://security-tracker.debian.org/tracker/CVE-2026-86143"
+      },
+      {
+        "package": "libssl3t64",
+        "version": "3.5.7-1~deb13u3",
+        "purl": "pkg:deb/debian/libssl3t64@3.5.7-1~deb13u3?arch=amd64&distro=debian-13.7&upstream=openssl",
+        "id": "CVE-2026-124709",
+        "severity": "High",
+        "source": "https://security-tracker.debian.org/tracker/CVE-2026-124709"
+      },
+      {
+        "package": "libxml2",
+        "version": "2.12.7+dfsg+really2.9.14-2.1+deb13u3",
+        "purl": "pkg:deb/debian/libxml2@2.12.7%2Bdfsg%2Breally2.9.14-2.1%2Bdeb13u3?arch=amd64&distro=debian-13.7",
+        "id": "CVE-2026-86144",
+        "severity": "High",
+        "source": "https://security-tracker.debian.org/tracker/CVE-2026-86144"
+      },
+      {
+        "package": "libxml2",
+        "version": "2.12.7+dfsg+really2.9.14-2.1+deb13u3",
+        "purl": "pkg:deb/debian/libxml2@2.12.7%2Bdfsg%2Breally2.9.14-2.1%2Bdeb13u3?arch=amd64&distro=debian-13.7",
+        "id": "CVE-2026-86139",
+        "severity": "High",
+        "source": "https://security-tracker.debian.org/tracker/CVE-2026-86139"
+      },
+      {
+        "package": "libxml2",
+        "version": "2.12.7+dfsg+really2.9.14-2.1+deb13u3",
+        "purl": "pkg:deb/debian/libxml2@2.12.7%2Bdfsg%2Breally2.9.14-2.1%2Bdeb13u3?arch=amd64&distro=debian-13.7",
+        "id": "CVE-2026-86140",
+        "severity": "High",
+        "source": "https://security-tracker.debian.org/tracker/CVE-2026-86140"
+      },
+      {
+        "package": "libxml2",
+        "version": "2.12.7+dfsg+really2.9.14-2.1+deb13u3",
+        "purl": "pkg:deb/debian/libxml2@2.12.7%2Bdfsg%2Breally2.9.14-2.1%2Bdeb13u3?arch=amd64&distro=debian-13.7",
+        "id": "CVE-2026-86142",
+        "severity": "High",
+        "source": "https://security-tracker.debian.org/tracker/CVE-2026-86142"
+      },
+      {
+        "package": "libxml2",
+        "version": "2.12.7+dfsg+really2.9.14-2.1+deb13u3",
+        "purl": "pkg:deb/debian/libxml2@2.12.7%2Bdfsg%2Breally2.9.14-2.1%2Bdeb13u3?arch=amd64&distro=debian-13.7",
+        "id": "CVE-2026-86138",
+        "severity": "High",
+        "source": "https://security-tracker.debian.org/tracker/CVE-2026-86138"
+      },
+      {
+        "package": "libssl3t64",
+        "version": "3.5.7-1~deb13u3",
+        "purl": "pkg:deb/debian/libssl3t64@3.5.7-1~deb13u3?arch=amd64&distro=debian-13.7&upstream=openssl",
+        "id": "CVE-2026-107493",
+        "severity": "High",
+        "source": "https://security-tracker.debian.org/tracker/CVE-2026-107493"
+      }
+    ],
+    "kev_catalog_version": "2026.11.17",
+    "kev_count": 1782,
+    "kev_matches_on_overlap": []
+  },
+  "rights_security_closure": {
+    "rights": "Upstream declares GPLv2. Debian package license metadata is extracted. Exact engine build source/revision, bundled native/Rust components and notices, and definition terms remain open.",
+    "security": "Direct scan and complete engine/native advisory coverage are open. Debian identifies the exact imported libxml2 package as vulnerable to CVE-2026-6653; the referenced Grype result rates it Critical and Debian triage describes it as minor without a DSA. The project gate remains held.",
+    "next": "The one-candidate review budget is exhausted. The founder can authorize one focused static assessment of one updated official immutable image with a verified libxml2 fix and identifiable engine build materials, or keep DEV-010 open and uploads quarantined."
+  },
+  "scratch_evidence_sha256": {
+    "attestation-manifest.json": "a4e2c018922d07df4628e979fe73e170f8fe16f0429040c9cafb971fce8146aa",
+    "config.json": "40d2e1d143f9fa3e24e14bb00c526a22414b5dedcaaa75585310b74c9a2ce0c7",
+    "index.json": "ef703dff572941648578d6e112d9b1f2b02d2480085d1fb9c8ca5628750071a1",
+    "kev.json": "11ee3c54a8c3f112047bb0088763acd8d2d3513259a8d08b89a327e8a2ce7dee",
+    "manifest.json": "c811c2c86ab39282ce0a2edadbe935b837c6792a76f745b08a2bb2246ac03baf",
+    "provenance.json": "b3cfb58c8222581a58b715814d63e79467f616cffdd6043b68690fa7b2b19d9c",
+    "publisher-sbom.json": "2506c96ed621077e4ffd032cc2a5f1e8b8e405fb96f2baf27b666387d1c8469c",
+    "registry-receipt.json": "0c255cef6863aea2e94549f25c0929a12444253791c3b80c2f589c3736f64138",
+    "sbom.json": "c6e88c74a3f229dc9a08e1d6982fa0d72dcf8ceb4f580d4415ebf1f43434ec56"
+  }
+}

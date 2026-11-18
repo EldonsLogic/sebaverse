@@ -332,5 +332,14 @@
     "parser-audit.json": "43eab16cad6857479d3a0646b28fddfedb56888384764798147dc13c519da096",
     "parser-license-metadata.json": "ca890a7b09b698c369be3b0252e441972cff70482efaad89a0405bc6ccc326c1",
     "missing-license-wheel-review.json": "4a0daeff98ed8e9cd51139951f1876377402c68f899cf02d181f3df45967ca87"
+  },
+  "static_wheel_review": {
+    "package": "docling-parse",
+    "version": "7.26.0",
+    "sha256": "dcced0095a91eed73892fb0825729b81e8f56e83693940106f75707ce619f4cf",
+    "receipt": "development/evidence/dev-010-docling-wheel-inspection.json",
+    "execution": "not installed or executed",
+    "rights_status": "Bundled third-party AFM permission route unresolved; no infringement determination",
+    "native_status": "Static symbols identify bundled native components; exact revisions, notices and advisory closure unresolved"
   }
 }
