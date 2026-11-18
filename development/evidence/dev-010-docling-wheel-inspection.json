@@ -1,0 +1,146 @@
+{
+  "wheel": "docling_parse-7.26.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl",
+  "wheel_sha256": "dcced0095a91eed73892fb0825729b81e8f56e83693940106f75707ce619f4cf",
+  "native": [
+    {
+      "member": "docling_parse/pdf_parsers.cpython-312-x86_64-linux-gnu.so",
+      "sha256": "5df51dba8769bd55ccbd0bf6dfdaf9302a0d4a33f2331b8664dad45f16463fc6",
+      "dynamic_deps": [
+        "libpthread.so.0",
+        "libz.so.1",
+        "libdl.so.2",
+        "librt.so.1",
+        "libresolv.so.2",
+        "libstdc++.so.6",
+        "libm.so.6",
+        "libc.so.6",
+        "ld-linux-x86-64.so.2",
+        "libgcc_s.so.1"
+      ]
+    }
+  ],
+  "notices": [
+    {
+      "member": "docling_parse/pdf_resources/cmap-resources/LICENSE.md",
+      "sha256": "feb8b068a417681821823ef2e8995072aa111121fa11f8664038f78717f4497c",
+      "excerpt": [
+        "Copyright 1990-2019 Adobe. All rights reserved.",
+        "",
+        "Redistribution and use in source and binary forms, with or without",
+        "modification, are permitted provided that the following conditions are",
+        "met:",
+        "",
+        "Redistributions of source code must retain the above copyright notice,",
+        "this list of conditions and the following disclaimer."
+      ]
+    },
+    {
+      "member": "docling_parse/pdf_resources/cmap-resources/README.md",
+      "sha256": "1122f5dc1d18113b3b7f3cf544b64ac91414641bedb86bbc795ec775c752d25f",
+      "excerpt": [
+        "# CMap Resources",
+        "",
+        "This open source project provides the latest CMap resources for Adobe\u2019s public character collections.",
+        "",
+        "CMap (*Character Map*) resources are used to unidirectionally map character codes, such as a Unicode encoding form, to CIDs (*Characters IDs*, meaning glyphs) of a CIDFont resource. CMap resources, like CIDFont resources, include a /CIDSystemInfo dictionary that specifies /Registry and /Ordering strings that must match for compatibility between the two resources. In other words, a CMap resource can be used with a CIDFont resource only if their /Registry and /Ordering strings match.",
+        "",
+        "A character collection is sometimes referred to as an **ROS**, which is an abbreviation for the three elements of the /CIDSystemInfo dictionary, specifically the **/Registry** string, the **/Ordering** string, and the **/Supplement** value (an integer). When fully specified, the three elements are separate using single hyphens, such as **Adobe-Japan1-7** (broken down into /Registry = *Adobe*, /Ordering = *Japan1*, and /Supplement = *7*).",
+        ""
+      ]
+    },
+    {
+      "member": "docling_parse/pdf_resources/fonts/custom/_unloaded/pdf2svg-misc/README.md",
+      "sha256": "41fb9d87f6d89c7ef25f18eec0c0cf6d80210bcca0a04560ff09ca36f2b019f0",
+      "excerpt": [
+        "# Upstream pdf2svg font mappings",
+        "",
+        "This directory contains candidate font-specific Unicode mappings copied from",
+        "ContentMine/pdf2svg commit",
+        "`30f0bf8a0c39bfa65e30c2eb3ed4f96b9fdd744d`:",
+        "",
+        "<https://github.com/ContentMine/pdf2svg/tree/30f0bf8a0c39bfa65e30c2eb3ed4f96b9fdd744d/src/main/resources/org/xmlcml/pdf2svg/codepoints/misc>",
+        ""
+      ]
+    },
+    {
+      "member": "docling_parse-7.26.0.dist-info/licenses/LICENSE",
+      "sha256": "002c2696d92b5c8cf956c11072baa58eaf9f6ade995c031ea635c6a1ee342ad1",
+      "excerpt": [
+        "MIT License",
+        "",
+        "Copyright (c) [year] [fullname]",
+        "",
+        "Permission is hereby granted, free of charge, to any person obtaining a copy",
+        "of this software and associated documentation files (the \"Software\"), to deal",
+        "in the Software without restriction, including without limitation the rights",
+        "to use, copy, modify, merge, publish, distribute, sublicense, and/or sell"
+      ]
+    }
+  ],
+  "archive_members": 544,
+  "resource_counts": {
+    "cmap-resources.txt": 1,
+    "cmap-resources": 211,
+    "encodings": 4,
+    "fonts": 269,
+    "glyphs": 13
+  },
+  "all_top_level_entries": [
+    "docling_parse",
+    "docling_parse-7.26.0.dist-info"
+  ],
+  "license_metadata": [
+    "License-Expression: MIT",
+    "License-File: LICENSE"
+  ],
+  "executed": false,
+  "static_evidence_sha256": {
+    "docling-parse-wheel.dynamic-symbols.txt": "7374f228f4cf9ccb01c0a11e7e2b2e109bb6a95fab11c571eb348015e6042594",
+    "docling-parse-wheel.strings.txt": "f24f68f74c63a9a12c40bff73a844e6c5aede87b2ac2866708ff9a3467c65a6f",
+    "pdf_parsers.cpython-312-x86_64-linux-gnu.so.headers.txt": "1e77724e38d46fee7984b7f510bc10d389159fc1bb5a7d03dba8aa263e85babe"
+  },
+  "defined_symbol_samples": [
+    "00000000002ae2d0 g    DF .text\t0000000000000008              QPDF::QPDFVersion[abi:cxx11]()",
+    "00000000007edbe0 g    DF .text\t0000000000000f13              CJBig2_Context::DecodeSequential(PauseIndicatorIface*)",
+    "0000000000402ad0 g    DF .text\t0000000000000146              jpeg_CreateDecompress",
+    "0000000000528eb2 g    DF .text\t000000000000000b              cmsGetEncodedCMMversion",
+    "000000000048e547 g    DF .text\t000000000000000d              opj_version",
+    "0000000000757dd0 g    DF .text\t000000000000003a              FT_Library_Version"
+  ],
+  "library_version_string_samples": [
+    "libjpeg-turbo version 3.1.1 (build 20261113)",
+    "2.5.4",
+    "12.4.2"
+  ],
+  "font_resource_samples": [
+    {
+      "member": "docling_parse/pdf_resources/fonts/custom/Microsoft/Arial.afm",
+      "sha256": "324559aadfbb4afa7ee296a30cf90f08b18c3ceee759f98b98189c8f658d38c6",
+      "notice_samples": [
+        "Notice Typeface \ufffd The Monotype Corporation plc. Data \ufffd The Monotype Corporation plc/Type Solutions Inc. 1990-1992. All Rights Reserved"
+      ]
+    },
+    {
+      "member": "docling_parse/pdf_resources/fonts/custom/Microsoft/Georgia.afm",
+      "sha256": "f12dc439fb4e98915617f5eff7f13dca7c9fdace33811cd4debff9d5f0b565ef",
+      "notice_samples": [
+        "Notice Typeface and data copyright 1996 Microsoft Corporation. All Rights Reserved."
+      ]
+    },
+    {
+      "member": "docling_parse/pdf_resources/fonts/custom/Microsoft/Times_New_Roman.afm",
+      "sha256": "b21659082e0cf0fc95881a5824d46ef9afbcdc84c216c4589d0374988def99f8",
+      "notice_samples": [
+        "Notice Typeface \ufffd The Monotype Corporation plc. Data \ufffd The Monotype Corporation plc/Type Solutions Inc. 1990-1992. All Rights Reserved"
+      ]
+    },
+    {
+      "member": "docling_parse/pdf_resources/fonts/custom/_unloaded/pdf2svg-misc/AdvCORRESAST.xml",
+      "sha256": "9b396825f5d4b4aad585112f8a93db8b4c8476fdcf578f6dfa1b0f9a171762cd",
+      "notice_samples": [
+        "    Copyright (C) 2012 pm286 <peter.murray.rust@googlemail.com>",
+        "    Licensed under the Apache License, Version 2.0 (the \"License\");"
+      ]
+    }
+  ]
+}
