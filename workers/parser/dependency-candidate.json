@@ -1,0 +1,336 @@
+{
+  "status": "candidate_not_cleared_not_installed",
+  "package": "docling-slim",
+  "version": "2.150.1",
+  "features": [
+    "format-pdf-docling"
+  ],
+  "target": "CPython 3.12 / linux x86_64 manylinux_2_28",
+  "python_advisory_audit": {
+    "packages": 43,
+    "known_advisories": 0,
+    "tool": "pip-audit 2.10.1",
+    "limits": "No native bundle, model, scanner or sandbox security clearance"
+  },
+  "package_metadata": [
+    {
+      "name": "annotated-doc",
+      "version": "0.0.7",
+      "license_expression": "MIT",
+      "legacy_license_field_present": false,
+      "source": "https://pypi.org/pypi/annotated-doc/0.0.7/json"
+    },
+    {
+      "name": "annotated-types",
+      "version": "0.8.0",
+      "license_expression": "MIT",
+      "legacy_license_field_present": false,
+      "source": "https://pypi.org/pypi/annotated-types/0.8.0/json"
+    },
+    {
+      "name": "attrs",
+      "version": "26.1.0",
+      "license_expression": "MIT",
+      "legacy_license_field_present": false,
+      "source": "https://pypi.org/pypi/attrs/26.1.0/json"
+    },
+    {
+      "name": "certifi",
+      "version": "2026.10.23",
+      "license_expression": null,
+      "legacy_license_field_present": true,
+      "source": "https://pypi.org/pypi/certifi/2026.10.23/json"
+    },
+    {
+      "name": "charset-normalizer",
+      "version": "3.5.2",
+      "license_expression": null,
+      "legacy_license_field_present": true,
+      "source": "https://pypi.org/pypi/charset-normalizer/3.5.2/json"
+    },
+    {
+      "name": "defusedxml",
+      "version": "0.7.1",
+      "license_expression": null,
+      "legacy_license_field_present": true,
+      "source": "https://pypi.org/pypi/defusedxml/0.7.1/json"
+    },
+    {
+      "name": "doclang",
+      "version": "0.9.0",
+      "license_expression": "Apache-2.0",
+      "legacy_license_field_present": false,
+      "source": "https://pypi.org/pypi/doclang/0.9.0/json"
+    },
+    {
+      "name": "docling-core",
+      "version": "2.107.1",
+      "license_expression": "MIT",
+      "legacy_license_field_present": false,
+      "source": "https://pypi.org/pypi/docling-core/2.107.1/json"
+    },
+    {
+      "name": "docling-parse",
+      "version": "7.26.0",
+      "license_expression": "MIT",
+      "legacy_license_field_present": false,
+      "source": "https://pypi.org/pypi/docling-parse/7.26.0/json"
+    },
+    {
+      "name": "docling-slim",
+      "version": "2.150.1",
+      "license_expression": "MIT",
+      "legacy_license_field_present": false,
+      "source": "https://pypi.org/pypi/docling-slim/2.150.1/json"
+    },
+    {
+      "name": "filetype",
+      "version": "1.2.0",
+      "license_expression": null,
+      "legacy_license_field_present": true,
+      "source": "https://pypi.org/pypi/filetype/1.2.0/json"
+    },
+    {
+      "name": "idna",
+      "version": "3.20",
+      "license_expression": "BSD-3-Clause",
+      "legacy_license_field_present": false,
+      "source": "https://pypi.org/pypi/idna/3.20/json"
+    },
+    {
+      "name": "jsonref",
+      "version": "1.1.0",
+      "license_expression": null,
+      "legacy_license_field_present": true,
+      "source": "https://pypi.org/pypi/jsonref/1.1.0/json"
+    },
+    {
+      "name": "jsonschema",
+      "version": "4.26.0",
+      "license_expression": "MIT",
+      "legacy_license_field_present": false,
+      "source": "https://pypi.org/pypi/jsonschema/4.26.0/json"
+    },
+    {
+      "name": "jsonschema-specifications",
+      "version": "2025.9.1",
+      "license_expression": "MIT",
+      "legacy_license_field_present": false,
+      "source": "https://pypi.org/pypi/jsonschema-specifications/2025.9.1/json"
+    },
+    {
+      "name": "langcodes",
+      "version": "3.5.1",
+      "license_expression": null,
+      "legacy_license_field_present": false,
+      "source": "https://pypi.org/pypi/langcodes/3.5.1/json"
+    },
+    {
+      "name": "latex2mathml",
+      "version": "3.81.1",
+      "license_expression": null,
+      "legacy_license_field_present": true,
+      "source": "https://pypi.org/pypi/latex2mathml/3.81.1/json"
+    },
+    {
+      "name": "lxml",
+      "version": "6.1.3",
+      "license_expression": null,
+      "legacy_license_field_present": true,
+      "source": "https://pypi.org/pypi/lxml/6.1.3/json"
+    },
+    {
+      "name": "markdown-it-py",
+      "version": "4.3.0",
+      "license_expression": null,
+      "legacy_license_field_present": false,
+      "source": "https://pypi.org/pypi/markdown-it-py/4.3.0/json"
+    },
+    {
+      "name": "mdurl",
+      "version": "0.1.2",
+      "license_expression": null,
+      "legacy_license_field_present": false,
+      "source": "https://pypi.org/pypi/mdurl/0.1.2/json"
+    },
+    {
+      "name": "numpy",
+      "version": "2.5.5",
+      "license_expression": "BSD-3-Clause AND 0BSD AND MIT AND Zlib AND CC0-1.0",
+      "legacy_license_field_present": false,
+      "source": "https://pypi.org/pypi/numpy/2.5.5/json"
+    },
+    {
+      "name": "pandas",
+      "version": "3.1.1",
+      "license_expression": "BSD-3-Clause",
+      "legacy_license_field_present": false,
+      "source": "https://pypi.org/pypi/pandas/3.1.1/json"
+    },
+    {
+      "name": "pillow",
+      "version": "13.0.0",
+      "license_expression": "MIT-CMU",
+      "legacy_license_field_present": false,
+      "source": "https://pypi.org/pypi/pillow/13.0.0/json"
+    },
+    {
+      "name": "pluggy",
+      "version": "1.7.0",
+      "license_expression": null,
+      "legacy_license_field_present": true,
+      "source": "https://pypi.org/pypi/pluggy/1.7.0/json"
+    },
+    {
+      "name": "pydantic",
+      "version": "2.14.3",
+      "license_expression": "MIT",
+      "legacy_license_field_present": false,
+      "source": "https://pypi.org/pypi/pydantic/2.14.3/json"
+    },
+    {
+      "name": "pydantic-core",
+      "version": "2.50.4",
+      "license_expression": "MIT",
+      "legacy_license_field_present": false,
+      "source": "https://pypi.org/pypi/pydantic-core/2.50.4/json"
+    },
+    {
+      "name": "pydantic-settings",
+      "version": "2.16.3",
+      "license_expression": "MIT",
+      "legacy_license_field_present": false,
+      "source": "https://pypi.org/pypi/pydantic-settings/2.16.3/json"
+    },
+    {
+      "name": "pygments",
+      "version": "2.21.0",
+      "license_expression": "BSD-2-Clause",
+      "legacy_license_field_present": false,
+      "source": "https://pypi.org/pypi/pygments/2.21.0/json"
+    },
+    {
+      "name": "python-dateutil",
+      "version": "4.0.0",
+      "license_expression": "BSD-3-Clause",
+      "legacy_license_field_present": false,
+      "source": "https://pypi.org/pypi/python-dateutil/4.0.0/json"
+    },
+    {
+      "name": "python-dotenv",
+      "version": "1.2.4",
+      "license_expression": null,
+      "legacy_license_field_present": true,
+      "source": "https://pypi.org/pypi/python-dotenv/1.2.4/json"
+    },
+    {
+      "name": "pyyaml",
+      "version": "6.0.3",
+      "license_expression": null,
+      "legacy_license_field_present": true,
+      "source": "https://pypi.org/pypi/pyyaml/6.0.3/json"
+    },
+    {
+      "name": "referencing",
+      "version": "0.37.0",
+      "license_expression": "MIT",
+      "legacy_license_field_present": false,
+      "source": "https://pypi.org/pypi/referencing/0.37.0/json"
+    },
+    {
+      "name": "requests",
+      "version": "2.34.2",
+      "license_expression": null,
+      "legacy_license_field_present": true,
+      "source": "https://pypi.org/pypi/requests/2.34.2/json"
+    },
+    {
+      "name": "rich",
+      "version": "15.0.0",
+      "license_expression": null,
+      "legacy_license_field_present": true,
+      "source": "https://pypi.org/pypi/rich/15.0.0/json"
+    },
+    {
+      "name": "rpds-py",
+      "version": "2026.9.1",
+      "license_expression": "MIT",
+      "legacy_license_field_present": false,
+      "source": "https://pypi.org/pypi/rpds-py/2026.9.1/json"
+    },
+    {
+      "name": "shellingham",
+      "version": "1.5.4",
+      "license_expression": null,
+      "legacy_license_field_present": true,
+      "source": "https://pypi.org/pypi/shellingham/1.5.4/json"
+    },
+    {
+      "name": "tabulate",
+      "version": "0.10.0",
+      "license_expression": "MIT",
+      "legacy_license_field_present": false,
+      "source": "https://pypi.org/pypi/tabulate/0.10.0/json"
+    },
+    {
+      "name": "tqdm",
+      "version": "4.70.1",
+      "license_expression": null,
+      "legacy_license_field_present": true,
+      "source": "https://pypi.org/pypi/tqdm/4.70.1/json"
+    },
+    {
+      "name": "typer",
+      "version": "0.27.3",
+      "license_expression": "MIT",
+      "legacy_license_field_present": false,
+      "source": "https://pypi.org/pypi/typer/0.27.3/json"
+    },
+    {
+      "name": "typing-extensions",
+      "version": "4.16.0",
+      "license_expression": "PSF-2.0",
+      "legacy_license_field_present": false,
+      "source": "https://pypi.org/pypi/typing-extensions/4.16.0/json"
+    },
+    {
+      "name": "typing-inspection",
+      "version": "0.4.5",
+      "license_expression": "MIT",
+      "legacy_license_field_present": false,
+      "source": "https://pypi.org/pypi/typing-inspection/0.4.5/json"
+    },
+    {
+      "name": "tzdata",
+      "version": "2026.6",
+      "license_expression": null,
+      "legacy_license_field_present": true,
+      "source": "https://pypi.org/pypi/tzdata/2026.6/json"
+    },
+    {
+      "name": "urllib3",
+      "version": "2.8.0",
+      "license_expression": "MIT",
+      "legacy_license_field_present": false,
+      "source": "https://pypi.org/pypi/urllib3/2.8.0/json"
+    }
+  ],
+  "metadata_license_gaps": [
+    "langcodes",
+    "markdown-it-py",
+    "mdurl"
+  ],
+  "license_gap_followup": "Verified wheel hashes and license-file presence for all three; bundled/native and exact notice review still pending",
+  "remaining_gates": [
+    "Complete exact native/transitive notice/security closure",
+    "Reviewed isolated parser runtime, no credential/egress/filesystem escape",
+    "Model/weight/OCR assets separately reviewed; none downloaded",
+    "Actual parser output/fidelity/failure tests on authored PDFs/images"
+  ],
+  "evidence_hashes": {
+    "parser-candidate.txt": "d6e27e1a325ea79da864953e22425840af54d5713dfd2e1afd614ed2c7498122",
+    "parser-audit.json": "43eab16cad6857479d3a0646b28fddfedb56888384764798147dc13c519da096",
+    "parser-license-metadata.json": "ca890a7b09b698c369be3b0252e441972cff70482efaad89a0405bc6ccc326c1",
+    "missing-license-wheel-review.json": "4a0daeff98ed8e9cd51139951f1876377402c68f899cf02d181f3df45967ca87"
+  }
+}

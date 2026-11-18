@@ -77,5 +77,14 @@ print(json.dumps({"migrations": "applied", "postgres_family": 17, "psycopg_impl"
     resilience_result = json.loads(resilience.stdout)
     assert resilience_result['count'] == 14 and resilience_result['provider_calls'] == 'mock-only'
     assert resilience_result['transactions_over_dispatch'] is False
+    ingestion = subprocess.run(
+        [sys.executable, "backend/tests/ingestion/postgres_probe.py"], cwd=root, env=env,
+        capture_output=True, text=True, timeout=60,
+    )
+    if ingestion.returncode:
+        pytest.fail(f"Synthetic PostgreSQL ingestion broker probe failed with exit {ingestion.returncode}; connection details withheld.")
+    ingestion_result = json.loads(ingestion.stdout)
+    assert ingestion_result['count'] == 14 and ingestion_result['injection_fixtures'] == 30
+    assert ingestion_result['actual_parser_scanner_or_sandbox'] is False
     result = json.loads(verified.stdout)
     assert result == {"migrations": "applied", "postgres_family": 17, "psycopg_impl": "python", "session_round_trip": "pass", "readiness": "ready"}

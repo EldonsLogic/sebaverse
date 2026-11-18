@@ -1,0 +1,6 @@
+{
+  "schema_version": 1,
+  "status": "no_runtime_assets_cleared",
+  "assets": [],
+  "note": "A release candidate is not a scanner/model approval. Default broker assets are empty; missing or unreviewed scanner/parser must remain quarantined. Authored test fixtures do not clear arbitrary files."
+}

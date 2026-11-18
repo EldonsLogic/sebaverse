@@ -547,7 +547,7 @@
       "id": "DEV-010",
       "title": "Implement isolated upload and extraction lifecycle",
       "phase": "F3",
-      "status": "planned",
+      "status": "in_progress",
       "requirements": [
         "R037",
         "R038",
@@ -573,7 +573,9 @@
         "make test-ingestion"
       ],
       "execution_condition": "All preceding mandatory phase exit tests passed with recorded evidence/review. Applicable G1–G3 execution decisions recorded; synthetic fixtures only; exact dependency/license/security closure reviewed. No paid calls or deployment implied.",
-      "evidence": [],
+      "evidence": [
+        "development/evidence/dev-010.md"
+      ],
       "files": [
         "backend/modules/ingestion/",
         "workers/parser/",

@@ -25,6 +25,7 @@ INSTALLED_APPS = [
     "modules.access",
     "modules.usage",
     "modules.operations",
+    "modules.ingestion",
 ]
 MIDDLEWARE = [
     "modules.core.middleware.RequestPolicyMiddleware",
