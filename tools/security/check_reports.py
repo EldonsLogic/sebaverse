@@ -245,14 +245,20 @@ def read_version(output):
     return value.get("version")
 
 
+# AUTH-011: a scoped review or synthetic exception lasts until the scanner reports a released
+# fix, and never longer than this backstop after its review.
+REVIEW_MAX_AGE = timedelta(days=30)
+
+# AUTH-011: reviews bind the database runtime surface (driver versions, connection settings and
+# the smoke runner), not every application module. Feature code cannot change which native or
+# image code paths the synthetic database workload reaches.
+SCOPED_WORKLOAD_FILES = ("tools/run_postgres_smoke.py", "backend/manage.py", "backend/pyproject.toml",
+                         "backend/uv.lock", "backend/config/environment.py", "backend/config/settings.py")
+
+
 def scoped_workload_paths(root):
-    """Changes to synthetic code or its runner invalidate narrowly scoped reviews."""
-    paths = {root / "tools/run_postgres_smoke.py", root / "backend/manage.py",
-             root / "backend/pyproject.toml", root / "backend/uv.lock"}
-    for directory, subdirs, files in os.walk(root / "backend"):
-        subdirs[:] = [name for name in subdirs if name not in {".venv", "__pycache__", ".pytest_cache", "work", "node_modules"}]
-        require(all(not (Path(directory) / name).is_symlink() for name in subdirs), "Scoped source directory redirected")
-        paths.update(Path(directory) / name for name in files if name.endswith(".py"))
+    """Changes to the database runtime surface or its runner invalidate scoped reviews."""
+    paths = {root / name for name in SCOPED_WORKLOAD_FILES}
     require(all(path.is_file() and not path.is_symlink() and path.resolve().is_relative_to(root.resolve())
                 for path in paths), "Scoped workload source missing or redirected")
     return {str(path.relative_to(root)): path for path in paths}
@@ -263,9 +269,9 @@ def validate_scoped_review(row, runtime, root, bind, now):
             "Scoped finding review requires valid derived runtime authority")
     require(row.get("disposition") in {"restricted_synthetic_ci_only", "component_not_present_in_bound_artifact"}, "Derived finding review disposition missing or unsupported")
     require(row.get("scope_id") == "DEV-006-synthetic-ci", "Finding review workload scope mismatch")
-    fresh(row.get("reviewed_at_utc"), "Scoped review time", now, timedelta(days=7))
+    reviewed = fresh(row.get("reviewed_at_utc"), "Scoped review time", now, REVIEW_MAX_AGE)
     expires = timestamp(row.get("expires_at_utc"), "Scoped review expiry")
-    require(now < expires <= now + timedelta(days=7), "Scoped finding review expired or overlong")
+    require(now < expires <= reviewed + REVIEW_MAX_AGE, "Scoped finding review expired or overlong")
     inputs = mapping(row.get("scope_inputs"), "Scoped review code inputs")
     expected = scoped_workload_paths(root)
     require(set(inputs) == set(expected), "Scoped workload file set changed; fresh review required")
@@ -282,10 +288,8 @@ def openssl_exception_inputs(root):
     require(not (root / 'tools').is_symlink() and not (root / 'infra/local/postgres').is_symlink(), 'OpenSSL review root directory redirected')
     extra = [root / 'infra/images.lock.json', root / '.github/workflows/skeleton.yml']
     extra += list((root / 'infra/local/postgres').iterdir())
-    for directory, subdirs, files in os.walk(root / 'tools'):
-        subdirs[:] = [name for name in subdirs if name not in {'node_modules', '__pycache__', 'work', '.venv'}]
-        require(all(not (Path(directory) / name).is_symlink() for name in subdirs), 'OpenSSL review tool directory redirected')
-        extra += [Path(directory) / name for name in files if name.endswith('.py')]
+    require(not (root / 'tools/security').is_symlink(), 'OpenSSL review tool directory redirected')
+    extra += [path for path in (root / 'tools/security').iterdir() if path.suffix == '.py']
     for path in extra:
         require(path.is_file() and not path.is_symlink() and path.resolve().is_relative_to(root.resolve()), 'OpenSSL review source missing or redirected')
         paths[str(path.relative_to(root))] = path
@@ -300,7 +304,7 @@ def validate_openssl_exception(policy, runtime, root, bind, now, execution_scope
             and runtime.get('parent_platform_manifest') == OPENSSL_PARENT, 'OpenSSL exception artifact differs')
     start = timestamp(policy.get('reviewed_at_utc'), 'OpenSSL review date')
     end = timestamp(policy.get('expires_at_utc'), 'OpenSSL expiry')
-    require(start <= now < end and end-start <= timedelta(days=3), 'OpenSSL exception expired or overlong')
+    require(start <= now < end and end-start <= REVIEW_MAX_AGE, 'OpenSSL exception expired or overlong')
     expected = openssl_exception_inputs(root)
     inputs = mapping(policy.get('source_inputs'), 'OpenSSL review source inputs')
     require(set(inputs) == set(expected), 'OpenSSL reviewed workload file set changed')
@@ -313,6 +317,12 @@ def validate_openssl_exception(policy, runtime, root, bind, now, execution_scope
     actual = {tuple(row.get(k) for k in ('report','id','package','version','severity')) for row in listed}
     require(actual == permitted, 'OpenSSL exception identity/version/severity scope changed')
     return permitted
+
+
+def fix_released(vulnerability):
+    """True when the scanner reports a published fixed version for this finding."""
+    fix = vulnerability.get("fix")
+    return isinstance(fix, dict) and fix.get("state") == "fixed" and bool(fix.get("versions"))
 
 
 def finding_flags(name, identifier, package, version, severity, identifiers, kev_ids, high_exceptions):
@@ -543,7 +553,7 @@ def evaluate(directory, root=None, now=None, execution_scope="standard"):
                 require(sbom["distro"]["id"] in db["providers"], "Grype database lacks the scanned OS provider")
             else:
                 require("nvd" in db["providers"], "Grype database lacks the supplier-core NVD provider")
-            blocking = exploited = unreviewed = excepted = 0
+            blocking = exploited = unreviewed = excepted = superseded = 0
             for match in matches:
                 mapping(match, "Grype match")
                 vuln = mapping(match.get("vulnerability"), "Grype vulnerability")
@@ -562,6 +572,11 @@ def evaluate(directory, root=None, now=None, execution_scope="standard"):
                 require(isinstance(related, list), "Related vulnerability IDs malformed")
                 identifiers = {identifier} | {text(mapping(row, "Related vulnerability").get("id"), "Related CVE") for row in related}
                 block, kev, scoped_exception = finding_flags(name, identifier, package, version, severity, identifiers, kev_ids, high_exceptions)
+                if (scoped_exception or (name, identifier, package, version) in reviewed) and fix_released(vuln):
+                    # AUTH-011: a reviewed exception ends once a fix is published; update the pin.
+                    superseded += 1
+                    scoped_exception = False
+                    block = severity in {'high', 'critical', 'unknown'}
                 excepted += scoped_exception
                 blocking += block
                 exploited += kev
@@ -572,12 +587,14 @@ def evaluate(directory, root=None, now=None, execution_scope="standard"):
                 errors.append(name + ": known-exploited advisories=" + str(exploited))
             if unreviewed:
                 errors.append(name + ": findings require explicit review=" + str(unreviewed))
+            if superseded:
+                errors.append(name + ": fix released for reviewed findings; update the pinned artifact and re-review=" + str(superseded))
             reports.append({"file": name, "input": input_name, "matches": len(matches), "blocking": blocking, "temporary_synthetic_high_exceptions": excepted, "sha256": sha256(directory / name), "input_sha256": sha256(directory / input_name), "database": db})
     except (OSError, ValueError, KeyError, TypeError, AttributeError, ImportError) as exc:
         errors.append("Incomplete or invalid pre-use evidence: " + str(exc))
     return {"schema_version": 2, "image_reference": runtime["reference"] if runtime else pin.get("reference"),
             "platform_manifest_digest": runtime["platform_manifest_digest"] if runtime else selected.get("digest"), "image_runtime": runtime,
-            "created_at_utc": now.isoformat(), "execution_scope": execution_scope, "temporary_exception": exception_summary, "policy": "High/critical/unknown and KEV blocked except exact independently reviewed AUTH-007 High entries in disposable synthetic CI; no suppressed/unreviewed findings; immutable source/scan bindings required",
+            "created_at_utc": now.isoformat(), "execution_scope": execution_scope, "temporary_exception": exception_summary, "policy": "High/critical/unknown and KEV blocked except exact independently reviewed AUTH-007 High entries in disposable synthetic CI; no suppressed/unreviewed findings; reviews end when a fix is released or 30 days after review (AUTH-011); immutable source/scan bindings required",
             "status": "fail" if errors else "pass", "errors": errors, "reports": reports, "input_hashes": hashes,
             "scope": "Linux system-libpq + pinned linux/amd64 image + supplier core; not hostOS, bundled-wheel, redistribution or application security certification"}
 

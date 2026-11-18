@@ -27,10 +27,12 @@ class AuditBoundary(unittest.TestCase):
         self.policy['source_inputs'] = m.source_inputs(self.root)
         self.policy['review_status'] = 'reviewed'
         self.now = datetime.fromisoformat(self.policy['reviewed_at_utc']) + timedelta(seconds=1)
+        self.published = {'picomatch': ['4.0.5', '4.0.6', '4.0.7', '5.0.0-beta.1']}
 
     def check(self, **kwargs):
         return m.validate(self.report, kwargs.get('code', 1), self.policy, self.root,
-                          kwargs.get('scope', 'synthetic-development'), kwargs.get('now', self.now))
+                          kwargs.get('scope', 'synthetic-development'), kwargs.get('now', self.now),
+                          kwargs.get('published', self.published))
 
     def test_exact_review_retains_explicit_exception_status(self):
         self.assertEqual(self.check()['status'], 'pass_with_temporary_development_exception')
@@ -42,8 +44,20 @@ class AuditBoundary(unittest.TestCase):
         for when in [datetime.fromisoformat(self.policy['expires_at_utc']), self.now-timedelta(days=1)]:
             with self.subTest(when=when), self.assertRaises(ValueError): self.check(now=when)
 
-    def test_review_window_cannot_be_extended_beyond_three_days(self):
-        self.policy['expires_at_utc'] = (self.now + timedelta(days=4)).isoformat()
+    def test_review_window_cannot_be_extended_beyond_thirty_days(self):
+        self.policy['expires_at_utc'] = (self.now + timedelta(days=30)).isoformat()
+        with self.assertRaises(ValueError): self.check()
+
+    def test_released_fix_ends_exception(self):
+        for versions in (['4.0.7', '4.0.8'], ['4.0.7', '5.0.0']):
+            with self.subTest(versions=versions), self.assertRaisesRegex(ValueError, 'Fix released'):
+                self.check(published={'picomatch': versions})
+
+    def test_missing_registry_data_or_fix_watch_fails_closed(self):
+        for published in (None, {}, {'picomatch': []}):
+            with self.subTest(published=published), self.assertRaises(ValueError):
+                self.check(published=published)
+        del self.policy['fix_watch']
         with self.assertRaises(ValueError): self.check()
 
     def test_changed_version_severity_or_advisory_is_not_covered(self):
@@ -58,10 +72,19 @@ class AuditBoundary(unittest.TestCase):
         self.report['metadata']['vulnerabilities']['total'] += 1
         with self.assertRaises(ValueError): self.check()
 
-    def test_changed_source_lock_or_added_file_invalidates_review(self):
+    def test_changed_lock_or_build_config_invalidates_review(self):
+        for name in ('web/package-lock.json', 'web/vite.config.ts'):
+            p = self.root/name
+            original = p.read_bytes()
+            p.write_bytes(original + b'\n')
+            with self.subTest(name=name), self.assertRaises(ValueError): self.check()
+            p.write_bytes(original)
+
+    def test_application_source_change_does_not_invalidate_review(self):
         p = self.root/'web/src/unreviewed.ts'
+        p.parent.mkdir(parents=True, exist_ok=True)
         p.write_text('export const change = true;')
-        with self.assertRaises(ValueError): self.check()
+        self.assertEqual(self.check()['status'], 'pass_with_temporary_development_exception')
 
     def test_audit_error_or_process_failure_is_not_a_pass(self):
         with self.assertRaises(ValueError): self.check(code=2)
