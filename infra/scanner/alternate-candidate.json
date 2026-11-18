@@ -1,0 +1,229 @@
+{
+  "schema_version": 1,
+  "task": "DEV-010",
+  "authorization": "AUTH-009",
+  "status": "held_at_static_metadata_screen",
+  "reference": "docker.io/clamav/clamav@sha256:fe043f7049c7931b8cb05a9738e2b7d1eb8045ae495ffee9f3bc43d88baadd83",
+  "registry": {
+    "observed_at_utc": "2026-11-18T17:02:09.674769+00:00",
+    "index": "sha256:187c76a552c21b8924e08370655c4007eb642baaace9748c5eb46a32672d8d8e",
+    "manifest": "sha256:fe043f7049c7931b8cb05a9738e2b7d1eb8045ae495ffee9f3bc43d88baadd83",
+    "config": "sha256:a73a8b564c11728387bad447412b1b57df4e5c864cd13118e0b9a72adf05d730",
+    "image_created_utc": "2026-11-16T01:46:38.300978082Z",
+    "visible_labels": {
+      "maintainer": "ClamAV bugs <clamav-bugs@external.cisco.com>"
+    },
+    "entrypoint": [
+      "/init"
+    ],
+    "healthcheck": {
+      "Test": [
+        "CMD-SHELL",
+        "clamdcheck.sh"
+      ],
+      "StartPeriod": 360000000000
+    },
+    "image_user": null,
+    "declared_ports": [
+      "3310/tcp",
+      "7357/tcp"
+    ],
+    "layers": [
+      {
+        "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+        "digest": "sha256:881fc932939efef04ca120ad44bbd2c0917851eb247aa4995428afb1e80ede17",
+        "size": 3853673
+      },
+      {
+        "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+        "digest": "sha256:042a05073f4368a6edb220c0a4c044ea8d14171ffe326d83b8e214eb5cbe7a83",
+        "size": 4921861
+      },
+      {
+        "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+        "digest": "sha256:4068646f874917c3787da47bbb4c0eb1cc71536a60af594003183e26d0a8347b",
+        "size": 34528301
+      },
+      {
+        "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+        "digest": "sha256:747a525b4f45fcbddb559eb8162866d2009a78ed03df20aa5e1fbb4a156c5bcb",
+        "size": 344
+      },
+      {
+        "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+        "digest": "sha256:1fd32758e86ecd32a2ee4dda5de382abc93be66e2951851e26feafbf39333e46",
+        "size": 1562
+      },
+      {
+        "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+        "digest": "sha256:62777529afec17d4ec1844cb289fc893a38a7af48c34ac0e001384cabcc71a30",
+        "size": 1229
+      }
+    ],
+    "history": [
+      "ADD alpine-minirootfs-3.24.4-x86_64.tar.gz / # buildkit",
+      "RUN /bin/sh -c apk update && apk upgrade     &&     apk add         fts         libstdc++         tini         tzdata         json-c         libbz2         libcurl         libmilter         libxml2         ncurses-libs         pcre2         zlib     &&     rm -rf /var/cache/apk/* &&     addgroup -S \"clamav\" &&     adduser -D -G \"clamav\" -h \"/var/lib/clamav\" -s \"/bin/false\" -u 100 -S \"clamav\" &&     install -d -m 755 -g \"clamav\" -o \"clamav\" \"/var/log/clamav\" &&     chown -R clamav:clamav /var/lib/clamav # buildkit",
+      "COPY /clamav / # buildkit",
+      "COPY ./scripts/clamdcheck.sh /usr/local/bin/ # buildkit",
+      "COPY ./scripts/docker-entrypoint.sh /init # buildkit",
+      "COPY ./scripts/docker-entrypoint-unprivileged.sh /init-unprivileged # buildkit"
+    ],
+    "attestations_listed_in_index": [
+      {
+        "mediaType": "application/vnd.oci.image.manifest.v1+json",
+        "digest": "sha256:f62dcb6ee477c3be1118e9c9ff1ae79ec33925149af109d728d2abafe89d8d18",
+        "size": 838,
+        "annotations": {
+          "vnd.docker.reference.digest": "sha256:fe043f7049c7931b8cb05a9738e2b7d1eb8045ae495ffee9f3bc43d88baadd83",
+          "vnd.docker.reference.type": "attestation-manifest"
+        },
+        "platform": {
+          "architecture": "unknown",
+          "os": "unknown"
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "tag": "1.5.4_base",
+    "tag_updated_utc": "2026-11-16T01:46:50.067731Z",
+    "subject_and_blob_hashes_verified": true,
+    "independent_signer_identity_verified": false,
+    "provenance_version": "SLSA v1",
+    "builder": "https://clamav-jenkins.talos.cisco.com/job/ClamAV/job/clamav-docker/job/clamav-alpine/job/clamav-docker-1.5/69/",
+    "source_workspace": {
+      "localdir:context": ".",
+      "localdir:dockerfile": ".",
+      "revision": "fa59fca15872bb8a914ba4c68188bcc8a502cbdf",
+      "source": "https://github.com/Cisco-Talos/clamav.git"
+    },
+    "recipe_sha256": "b4f5a029a0fbf82f2e6347f9343bed9089b5acfc2c52877f8b3f6377a79968bb",
+    "base": {
+      "uri": "pkg:docker/alpine@latest?platform=linux%2Famd64",
+      "digest": {
+        "sha256": "f59abe656b692d901e184be3445e084786602108599d2a51d229c0f5a48c71bf"
+      }
+    },
+    "resolved_dependencies_complete": false,
+    "spdx_apk_packages": 41,
+    "clamav_engine_package_present": false,
+    "selected_apk_packages": {
+      "alpine-release": {
+        "version": "3.24.4-r0",
+        "license_declared": "MIT",
+        "purl": "pkg:apk/alpine/alpine-release@3.24.4-r0?arch=x86_64&distro=alpine-3.24.4&upstream=alpine-base"
+      },
+      "libxml2": {
+        "version": "2.13.9-r2",
+        "license_declared": "MIT",
+        "purl": "pkg:apk/alpine/libxml2@2.13.9-r2?arch=x86_64&distro=alpine-3.24.4"
+      },
+      "libcrypto3": {
+        "version": "3.5.9-r0",
+        "license_declared": "Apache-2.0",
+        "purl": "pkg:apk/alpine/libcrypto3@3.5.9-r0?arch=x86_64&distro=alpine-3.24.4&upstream=openssl"
+      },
+      "libssl3": {
+        "version": "3.5.9-r0",
+        "license_declared": "Apache-2.0",
+        "purl": "pkg:apk/alpine/libssl3@3.5.9-r0?arch=x86_64&distro=alpine-3.24.4&upstream=openssl"
+      }
+    }
+  },
+  "advisories": {
+    "method": "Exact PURL join of digest-bound supplier SPDX against same-day prior hosted Grype findings for another image. Positive overlap evidence only. No candidate-wide scan or package-byte comparison.",
+    "prior_source": "GitHub Actions run 44297534813, work/f2-security/image-cves.json",
+    "prior_report_sha256": "de40fed6e83e07a012957fbafee0b4dd9fb27344deaeb2e4094a40ebca043d16",
+    "prior_grype_version": "0.121.3",
+    "prior_db_built_utc": "2026-11-18T06:21:08Z",
+    "joined_severity_counts": {
+      "High": 8,
+      "Medium": 5
+    },
+    "high": [
+      {
+        "purl": "pkg:apk/alpine/libcrypto3@3.5.9-r0?arch=x86_64&distro=alpine-3.24.4&upstream=openssl",
+        "id": "CVE-2026-95692",
+        "severity": "High",
+        "namespace": "nvd:cpe",
+        "kev": false
+      },
+      {
+        "purl": "pkg:apk/alpine/libssl3@3.5.9-r0?arch=x86_64&distro=alpine-3.24.4&upstream=openssl",
+        "id": "CVE-2026-95692",
+        "severity": "High",
+        "namespace": "nvd:cpe",
+        "kev": false
+      },
+      {
+        "purl": "pkg:apk/alpine/libcrypto3@3.5.9-r0?arch=x86_64&distro=alpine-3.24.4&upstream=openssl",
+        "id": "CVE-2026-107496",
+        "severity": "High",
+        "namespace": "nvd:cpe",
+        "kev": false
+      },
+      {
+        "purl": "pkg:apk/alpine/libssl3@3.5.9-r0?arch=x86_64&distro=alpine-3.24.4&upstream=openssl",
+        "id": "CVE-2026-107496",
+        "severity": "High",
+        "namespace": "nvd:cpe",
+        "kev": false
+      },
+      {
+        "purl": "pkg:apk/alpine/libcrypto3@3.5.9-r0?arch=x86_64&distro=alpine-3.24.4&upstream=openssl",
+        "id": "CVE-2026-95691",
+        "severity": "High",
+        "namespace": "nvd:cpe",
+        "kev": false
+      },
+      {
+        "purl": "pkg:apk/alpine/libssl3@3.5.9-r0?arch=x86_64&distro=alpine-3.24.4&upstream=openssl",
+        "id": "CVE-2026-95691",
+        "severity": "High",
+        "namespace": "nvd:cpe",
+        "kev": false
+      },
+      {
+        "purl": "pkg:apk/alpine/libcrypto3@3.5.9-r0?arch=x86_64&distro=alpine-3.24.4&upstream=openssl",
+        "id": "CVE-2026-88823",
+        "severity": "High",
+        "namespace": "nvd:cpe",
+        "kev": false
+      },
+      {
+        "purl": "pkg:apk/alpine/libssl3@3.5.9-r0?arch=x86_64&distro=alpine-3.24.4&upstream=openssl",
+        "id": "CVE-2026-88823",
+        "severity": "High",
+        "namespace": "nvd:cpe",
+        "kev": false
+      }
+    ],
+    "kev_catalog_version": "2026.11.17",
+    "kev_catalog_sha256": "11ee3c54a8c3f112047bb0088763acd8d2d3513259a8d08b89a327e8a2ce7dee",
+    "kev_matches_on_overlap": [],
+    "alpine_v3_24_main_secdb_matching_fix_rows_by_source_package": {
+      "libxml2": [],
+      "openssl": []
+    },
+    "disposition": "OpenSSL reports the matched release range is fixed in 3.5.10 and gives these four advisories Low ratings. Prior NVD-based Grype evidence classifies them High. No documented Alpine backport found in selected secdb rows. AUTH-007 applies only to the named database workload.",
+    "original_libxml2_issue": "Alpine 2.13.9-r2 is past upstream fix 2.11.0 for CVE-2026-6653. This is version evidence from the supplier SBOM and upstream fix history, with no direct library or scan result."
+  },
+  "candidate_application_layers_downloaded": false,
+  "direct_syft_or_grype_scan_run": false,
+  "container_or_image_binaries_executed": false,
+  "definitions_fetched": false,
+  "asset_approved": false,
+  "budget_result": "Only authorized alternate assessed. Further candidate work held.",
+  "scratch_evidence_sha256": {
+    "alpine-main-secdb.json": "8e5af8994809ffd1af52b24bfafde3889de1be9f4a11e10e811980ad3a8ba609",
+    "attestation-manifest.json": "f62dcb6ee477c3be1118e9c9ff1ae79ec33925149af109d728d2abafe89d8d18",
+    "config.json": "a73a8b564c11728387bad447412b1b57df4e5c864cd13118e0b9a72adf05d730",
+    "docker-hub-tag.json": "28fbde1e9991db0bdcabf2baeb91df4b86e324e9e0a466de9441db63ed20941c",
+    "index.json": "187c76a552c21b8924e08370655c4007eb642baaace9748c5eb46a32672d8d8e",
+    "manifest.json": "fe043f7049c7931b8cb05a9738e2b7d1eb8045ae495ffee9f3bc43d88baadd83",
+    "provenance.json": "2a48bfa693c3b8baf7f4fa9b78b441736dabebf55b3eb3cd78352b76e7fd8732",
+    "publisher-Dockerfile.txt": "b4f5a029a0fbf82f2e6347f9343bed9089b5acfc2c52877f8b3f6377a79968bb",
+    "publisher-sbom.json": "dd5d2214e5514bb0e871eae3be6edd6a24225a2801bb1b19e1ca02261ee81b5b",
+    "registry-receipt.json": "408f0e8345f57c34452d8b9570d0107c857181116b702074d469b312f35b905e"
+  }
+}

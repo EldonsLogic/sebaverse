@@ -70,3 +70,5 @@ Exact research files/bytes/checksums: [manifest](research-manifest.json). Suppor
 - U18: [Review and quality-bar instructions for all agents](quality-bar-instruction.md), 16 November 2026. Exact quoted request distinguished from operational interpretation.
 
 - U19: [AG-UI integration instruction](ag-ui-integration-instruction.md), 18 November 2026. Exact founder wording distinguished from operational phase/scope interpretation.
+
+- U20: [GitHub resources for ingestion blockers](github-resource-reuse-instruction.md), 18 November 2026. Upstream reuse discovery for existing DEV-010 requirements; no automatic adoption or security waiver.

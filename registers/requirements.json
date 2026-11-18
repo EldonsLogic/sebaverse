@@ -721,7 +721,8 @@
     "requirement": "OCR/layout/math/table/diagram extraction",
     "sources": [
       "U1",
-      "U2"
+      "U2",
+      "U20"
     ],
     "priority": "P1",
     "phase": "PoC",
@@ -740,7 +741,8 @@
     "requirement": "Safe upload ingestion and quotas",
     "sources": [
       "U1",
-      "U2"
+      "U2",
+      "U20"
     ],
     "priority": "P1",
     "phase": "PoC",
@@ -759,7 +761,8 @@
     "requirement": "Content rights/provenance/permissions",
     "sources": [
       "U1",
-      "U2"
+      "U2",
+      "U20"
     ],
     "priority": "P0",
     "phase": "Gates",
@@ -853,7 +856,8 @@
     "requirement": "Private upload isolation and deletion",
     "sources": [
       "U1",
-      "U2"
+      "U2",
+      "U20"
     ],
     "priority": "P1",
     "phase": "Pilot",

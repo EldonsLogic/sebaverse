@@ -1,0 +1,485 @@
+{
+  "schema_version": 1,
+  "task": "DEV-010",
+  "authorization": "AUTH-010",
+  "recorded_at_utc": "2026-11-18T17:15:15.570422+00:00",
+  "status": "held_openssl_fix_unverified",
+  "route": {
+    "distribution": "Ubuntu 24.04 LTS Noble",
+    "architecture": "amd64",
+    "archive_pocket": "noble-security/main",
+    "execution_entrypoint": "/usr/bin/clamscan",
+    "runtime_base_assembled_or_locked": false
+  },
+  "archive_trust": {
+    "url": "https://security.ubuntu.com/ubuntu/dists/noble-security/InRelease",
+    "date_utc": "2026-11-18T14:10:15Z",
+    "in_release_sha256": "473f6353b8a017c8ad783a92c13875f0d8ef33a38c0df55547ce14804056fbf8",
+    "key_fingerprint": "F6ECB3762474EDA9D21B7022871920D1991BC93C",
+    "key_source": "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xF6ECB3762474EDA9D21B7022871920D1991BC93C",
+    "canonical_key_documentation": "https://documentation.ubuntu.com/security/software-integrity/image-verification/",
+    "verification": "Pinned v4 OpenPGP key fingerprint and cleartext SHA-512/RSA-4096 PKCS#1 v1.5 signature checked. Platform LibreSSL verified the reconstructed signature transcript. Mutated Origin was rejected.",
+    "indexes_verified_by_sha256_and_size": {
+      "main-binary-amd64-Packages.xz": "e832dc074a04c61db8d2366e3825fa54ca48b0b6b98ec4a7ce91578a9401cd89",
+      "main-source-Sources.xz": "a06860588f7ad79499f11276241ee28653536d1f73daa5390c94f9881cfa6330",
+      "universe-binary-amd64-Packages.xz": "f1b6d67e5e3393013f97de2e8dcf81e332945763874e340fbd41b3533fe17997",
+      "universe-source-Sources.xz": "34dff03642478da16db2fdaa597e733ce293963e126c7f69008e6be99b0cbebb"
+    }
+  },
+  "binary_packages": [
+    {
+      "name": "clamav",
+      "version": "1.5.4+dfsg-0ubuntu0.24.04.1",
+      "architecture": "amd64",
+      "filename": "pool/main/c/clamav/clamav_1.5.4+dfsg-0ubuntu0.24.04.1_amd64.deb",
+      "sha256": "67e61b57e15fda1f0778cc75ac1370adbc864943193bf8ae9dea1d654be030e9",
+      "size": 7324232,
+      "depends": "clamav-freshclam (>= 1.5.4+dfsg) | clamav-data, libc6 (>= 2.39), libclamav12 (>= 1.5.4), libcurl4t64 (>= 7.16.2), libgcc-s1 (>= 4.2), libjson-c5 (>= 0.15), libssl3t64 (>= 3.0.0), zlib1g (>= 1:1.2.3.3)"
+    },
+    {
+      "name": "libclamav12",
+      "version": "1.5.4+dfsg-0ubuntu0.24.04.1",
+      "architecture": "amd64",
+      "filename": "pool/main/c/clamav/libclamav12_1.5.4+dfsg-0ubuntu0.24.04.1_amd64.deb",
+      "sha256": "a2899af8556ca972128b95ee46fdc527abd92022ebe1c93bb7a643c929f9f844",
+      "size": 8109788,
+      "depends": "libbz2-1.0, libc6 (>= 2.39), libcurl4t64 (>= 7.16.2), libgcc-s1 (>= 4.2), libjson-c5 (>= 0.15), libmspack0t64 (>= 0.4), libpcre2-8-0 (>= 10.22), libssl3t64 (>= 3.0.0), libxml2 (>= 2.7.4), zlib1g (>= 1:1.2.3.4)"
+    },
+    {
+      "name": "libssl3t64",
+      "version": "3.0.13-0ubuntu3.16",
+      "architecture": "amd64",
+      "filename": "pool/main/o/openssl/libssl3t64_3.0.13-0ubuntu3.16_amd64.deb",
+      "sha256": "219f43b1cd836a4da550938db5fda93160d269d39a4edcf1f1ce698a470db797",
+      "size": 1945300,
+      "depends": "libc6 (>= 2.38)"
+    },
+    {
+      "name": "libxml2",
+      "version": "2.9.14+dfsg-1.3ubuntu3.10",
+      "architecture": "amd64",
+      "filename": "pool/main/libx/libxml2/libxml2_2.9.14+dfsg-1.3ubuntu3.10_amd64.deb",
+      "sha256": "c5a065f85c1e6f605741e365e40cad71c3ceb0e85e2791400bd35b8896e12ad1",
+      "size": 763592,
+      "depends": "libc6 (>= 2.38), libicu74 (>= 74.1-1~), liblzma5 (>= 5.1.1alpha+20120614), zlib1g (>= 1:1.2.3.3)"
+    }
+  ],
+  "source_packages": [
+    {
+      "package": "clamav",
+      "version": "1.5.4+dfsg-0ubuntu0.24.04.1",
+      "source_index": "main/source/Sources.xz",
+      "directory": "pool/main/c/clamav",
+      "provenance_checksums": [
+        {
+          "filename": "clamav_1.5.4+dfsg.orig.tar.bz2",
+          "size": 48134363,
+          "sha256": "b9c10b222d3302e6eed7496de5d01a766b68f023dbae2646866d96c25f13fd7c",
+          "bytes_read_and_hash_verified": false
+        },
+        {
+          "filename": "clamav_1.5.4+dfsg-0ubuntu0.24.04.1.debian.tar.xz",
+          "size": 507380,
+          "sha256": "185404303fd697e993e19aa25cdecf4b8b1e826bb776e3843b48dfecf3141173",
+          "bytes_read_and_hash_verified": true
+        },
+        {
+          "filename": "clamav_1.5.4+dfsg-0ubuntu0.24.04.1.dsc",
+          "size": 3227,
+          "sha256": "e89261b1d63f743f5af36bcd1b88d958ae0c52d3652cae37cea1e4f6dc2ba6a0",
+          "bytes_read_and_hash_verified": true
+        }
+      ]
+    },
+    {
+      "package": "libxml2",
+      "version": "2.9.14+dfsg-1.3ubuntu3.10",
+      "source_index": "main/source/Sources.xz",
+      "directory": "pool/main/libx/libxml2",
+      "provenance_checksums": [
+        {
+          "filename": "libxml2_2.9.14+dfsg.orig.tar.xz",
+          "size": 2351200,
+          "sha256": "4fe913dec8b1ab89d13b489b419a8203176ea39e931eaa0d25b17eafb9c279e9",
+          "bytes_read_and_hash_verified": false
+        },
+        {
+          "filename": "libxml2_2.9.14+dfsg-1.3ubuntu3.10.debian.tar.xz",
+          "size": 61552,
+          "sha256": "d2d821830eb60edbcfcbe30e2827420e9e439e98c85c812352969cdda764d60b",
+          "bytes_read_and_hash_verified": true
+        },
+        {
+          "filename": "libxml2_2.9.14+dfsg-1.3ubuntu3.10.dsc",
+          "size": 3083,
+          "sha256": "1e2a56b4ae292abd2715b1f411cfa30f1b31ef9013c60d2f906d4a68b165cd4c",
+          "bytes_read_and_hash_verified": true
+        }
+      ]
+    },
+    {
+      "package": "openssl",
+      "version": "3.0.13-0ubuntu3.16",
+      "source_index": "main/source/Sources.xz",
+      "directory": "pool/main/o/openssl",
+      "provenance_checksums": [
+        {
+          "filename": "openssl_3.0.13.orig.tar.gz",
+          "size": 15294843,
+          "sha256": "88525753f79d3bec27d2fa7c66aa0b92b3aa9498dafd93d7cfa4b3780cdae313",
+          "bytes_read_and_hash_verified": false
+        },
+        {
+          "filename": "openssl_3.0.13-0ubuntu3.16.debian.tar.xz",
+          "size": 223332,
+          "sha256": "77893129922c917792dd187c2853fb36ce1c98597c442b42d8190252959b7f6c",
+          "bytes_read_and_hash_verified": true
+        },
+        {
+          "filename": "openssl_3.0.13-0ubuntu3.16.dsc",
+          "size": 2516,
+          "sha256": "7d1e552a6f519836c352407e521bafdda7552ec6d1ba242968c35fc0e17f47b6",
+          "bytes_read_and_hash_verified": true
+        }
+      ]
+    }
+  ],
+  "downloaded_artifacts_verified_by_sha256_and_size": [
+    {
+      "filename": "clamav_1.5.4+dfsg-0ubuntu0.24.04.1_amd64.deb",
+      "sha256": "67e61b57e15fda1f0778cc75ac1370adbc864943193bf8ae9dea1d654be030e9",
+      "size": 7324232,
+      "url": "https://security.ubuntu.com/ubuntu/pool/main/c/clamav/clamav_1.5.4+dfsg-0ubuntu0.24.04.1_amd64.deb"
+    },
+    {
+      "filename": "libclamav12_1.5.4+dfsg-0ubuntu0.24.04.1_amd64.deb",
+      "sha256": "a2899af8556ca972128b95ee46fdc527abd92022ebe1c93bb7a643c929f9f844",
+      "size": 8109788,
+      "url": "https://security.ubuntu.com/ubuntu/pool/main/c/clamav/libclamav12_1.5.4+dfsg-0ubuntu0.24.04.1_amd64.deb"
+    },
+    {
+      "filename": "libssl3t64_3.0.13-0ubuntu3.16_amd64.deb",
+      "sha256": "219f43b1cd836a4da550938db5fda93160d269d39a4edcf1f1ce698a470db797",
+      "size": 1945300,
+      "url": "https://security.ubuntu.com/ubuntu/pool/main/o/openssl/libssl3t64_3.0.13-0ubuntu3.16_amd64.deb"
+    },
+    {
+      "filename": "libxml2_2.9.14+dfsg-1.3ubuntu3.10_amd64.deb",
+      "sha256": "c5a065f85c1e6f605741e365e40cad71c3ceb0e85e2791400bd35b8896e12ad1",
+      "size": 763592,
+      "url": "https://security.ubuntu.com/ubuntu/pool/main/libx/libxml2/libxml2_2.9.14+dfsg-1.3ubuntu3.10_amd64.deb"
+    },
+    {
+      "filename": "clamav_1.5.4+dfsg-0ubuntu0.24.04.1.debian.tar.xz",
+      "sha256": "185404303fd697e993e19aa25cdecf4b8b1e826bb776e3843b48dfecf3141173",
+      "size": 507380,
+      "url": "https://security.ubuntu.com/ubuntu/pool/main/c/clamav/clamav_1.5.4+dfsg-0ubuntu0.24.04.1.debian.tar.xz"
+    },
+    {
+      "filename": "clamav_1.5.4+dfsg-0ubuntu0.24.04.1.dsc",
+      "sha256": "e89261b1d63f743f5af36bcd1b88d958ae0c52d3652cae37cea1e4f6dc2ba6a0",
+      "size": 3227,
+      "url": "https://security.ubuntu.com/ubuntu/pool/main/c/clamav/clamav_1.5.4+dfsg-0ubuntu0.24.04.1.dsc"
+    },
+    {
+      "filename": "libxml2_2.9.14+dfsg-1.3ubuntu3.10.debian.tar.xz",
+      "sha256": "d2d821830eb60edbcfcbe30e2827420e9e439e98c85c812352969cdda764d60b",
+      "size": 61552,
+      "url": "https://security.ubuntu.com/ubuntu/pool/main/libx/libxml2/libxml2_2.9.14+dfsg-1.3ubuntu3.10.debian.tar.xz"
+    },
+    {
+      "filename": "libxml2_2.9.14+dfsg-1.3ubuntu3.10.dsc",
+      "sha256": "1e2a56b4ae292abd2715b1f411cfa30f1b31ef9013c60d2f906d4a68b165cd4c",
+      "size": 3083,
+      "url": "https://security.ubuntu.com/ubuntu/pool/main/libx/libxml2/libxml2_2.9.14+dfsg-1.3ubuntu3.10.dsc"
+    },
+    {
+      "filename": "openssl_3.0.13-0ubuntu3.16.debian.tar.xz",
+      "sha256": "77893129922c917792dd187c2853fb36ce1c98597c442b42d8190252959b7f6c",
+      "size": 223332,
+      "url": "https://security.ubuntu.com/ubuntu/pool/main/o/openssl/openssl_3.0.13-0ubuntu3.16.debian.tar.xz"
+    },
+    {
+      "filename": "openssl_3.0.13-0ubuntu3.16.dsc",
+      "sha256": "7d1e552a6f519836c352407e521bafdda7552ec6d1ba242968c35fc0e17f47b6",
+      "size": 2516,
+      "url": "https://security.ubuntu.com/ubuntu/pool/main/o/openssl/openssl_3.0.13-0ubuntu3.16.dsc"
+    }
+  ],
+  "content_observations": {
+    "binary_archives": {
+      "clamav_1.5.4+dfsg-0ubuntu0.24.04.1_amd64.deb": {
+        "data": {
+          "./usr/bin/clamscan": {
+            "sha256": "3c9a2ab59a256988dac497bbb7c5e3dd98180cef846b32088a304dc604d2a3ee",
+            "bytes": 186688,
+            "native_imports": [
+              "libclamav.so.12",
+              "libc.so.6"
+            ],
+            "soname": null
+          },
+          "./usr/share/doc/clamav/copyright": {
+            "sha256": "90a2697a2a7d908fe08577274684622428187e6c148bbf73ad6441694757ef64",
+            "bytes": 38505,
+            "license_lines": [
+              "0BSD-MIT-Apache-2.0",
+              "0BSD-MIT-Apache-2.0-Zlib",
+              "Apache-2.0",
+              "Apache-2.0 with GPL exception",
+              "Apache-2.0-BSL-1.0",
+              "Apache-2.0-Expat",
+              "Apache-2.0-Expat or Zlib",
+              "Apache-2.0-Expat-LLVM-exception",
+              "BSD-2-clause",
+              "BSD-3-clause",
+              "Expat",
+              "GPL-2",
+              "GPL-2 with OpenSSL exception",
+              "GPL-2+",
+              "GPL-3+ with Bison exception",
+              "ISC",
+              "LGPL-2.1",
+              "LGPL-2.1 and BSD-3-clause",
+              "LZW",
+              "MPL-2.0",
+              "Zlib",
+              "nsis-bzip2",
+              "public-domain~1",
+              "public-domain~3"
+            ]
+          }
+        },
+        "control": {
+          "./control": {
+            "sha256": "6455977313ecf879c19650b2c74bf8ba45ed5e751d598c6c8a70a9dd548af5ba",
+            "bytes": 2077
+          }
+        }
+      },
+      "libclamav12_1.5.4+dfsg-0ubuntu0.24.04.1_amd64.deb": {
+        "data": {
+          "./usr/lib/x86_64-linux-gnu/libclamav.so.12.1.0": {
+            "sha256": "9b343754e2c867b15871711828d8a25191f679b01ff8e5ac3016d1efd5205ded",
+            "bytes": 13143984,
+            "native_imports": [
+              "libmspack.so.0",
+              "libssl.so.3",
+              "libcrypto.so.3",
+              "libz.so.1",
+              "libbz2.so.1.0",
+              "libpcre2-8.so.0",
+              "libxml2.so.2",
+              "libjson-c.so.5",
+              "libm.so.6",
+              "libgcc_s.so.1",
+              "libc.so.6",
+              "ld-linux-x86-64.so.2"
+            ],
+            "soname": "libclamav.so.12"
+          },
+          "./usr/share/doc/libclamav12/copyright": {
+            "sha256": "90a2697a2a7d908fe08577274684622428187e6c148bbf73ad6441694757ef64",
+            "bytes": 38505,
+            "license_lines": [
+              "0BSD-MIT-Apache-2.0",
+              "0BSD-MIT-Apache-2.0-Zlib",
+              "Apache-2.0",
+              "Apache-2.0 with GPL exception",
+              "Apache-2.0-BSL-1.0",
+              "Apache-2.0-Expat",
+              "Apache-2.0-Expat or Zlib",
+              "Apache-2.0-Expat-LLVM-exception",
+              "BSD-2-clause",
+              "BSD-3-clause",
+              "Expat",
+              "GPL-2",
+              "GPL-2 with OpenSSL exception",
+              "GPL-2+",
+              "GPL-3+ with Bison exception",
+              "ISC",
+              "LGPL-2.1",
+              "LGPL-2.1 and BSD-3-clause",
+              "LZW",
+              "MPL-2.0",
+              "Zlib",
+              "nsis-bzip2",
+              "public-domain~1",
+              "public-domain~3"
+            ]
+          },
+          "./usr/lib/x86_64-linux-gnu/libclamav.so.12": {
+            "symlink": "libclamav.so.12.1.0"
+          }
+        },
+        "control": {
+          "./control": {
+            "sha256": "ff36ca2db3b5336a3887cd0f3f5e16d8ca25054b74a8398bb48b5efb38d5fbe1",
+            "bytes": 1441
+          }
+        }
+      },
+      "libssl3t64_3.0.13-0ubuntu3.16_amd64.deb": {
+        "data": {
+          "./usr/lib/x86_64-linux-gnu/libcrypto.so.3": {
+            "sha256": "6866ed711dab8927e1bf82bf1cd30e828bdfc34f3cc1e83b1c9eb01ce6c37d9a",
+            "bytes": 5309400,
+            "native_imports": [
+              "libc.so.6"
+            ],
+            "soname": "libcrypto.so.3"
+          },
+          "./usr/lib/x86_64-linux-gnu/libssl.so.3": {
+            "sha256": "a40e7b67489bbd257e432c700ff8f6a1ad796425b5eccecdc2930127fdd86624",
+            "bytes": 696512,
+            "native_imports": [
+              "libcrypto.so.3",
+              "libc.so.6"
+            ],
+            "soname": "libssl.so.3"
+          },
+          "./usr/share/doc/libssl3t64/copyright": {
+            "sha256": "6a7da622fe0637a334d2a8fc470852d2ffb77d9a2b2f930f854e32a41ad6ef35",
+            "bytes": 2543,
+            "license_lines": [
+              "Apache-2.0",
+              "Artistic",
+              "Artistic or GPL-1+",
+              "GPL-1+"
+            ]
+          }
+        },
+        "control": {
+          "./control": {
+            "sha256": "a678cfb1b9532258ed984cd7db38aec670bd3e6398141e22ae6a6852f1c90a66",
+            "bytes": 740
+          }
+        }
+      },
+      "libxml2_2.9.14+dfsg-1.3ubuntu3.10_amd64.deb": {
+        "data": {
+          "./usr/lib/x86_64-linux-gnu/libxml2.so.2.9.14": {
+            "sha256": "209e941be9eb2eb9ab36caaa0b81d1c6b36c8f5d7268c24f19e81039137e6485",
+            "bytes": 1967424,
+            "native_imports": [
+              "libicuuc.so.74",
+              "libz.so.1",
+              "liblzma.so.5",
+              "libm.so.6",
+              "libc.so.6"
+            ],
+            "soname": "libxml2.so.2"
+          },
+          "./usr/share/doc/libxml2/copyright": {
+            "sha256": "ee746b96cfa5be73c3ea3e4cfb1285e9b315d4c9267f99b2ee9c5d911d9fe3f4",
+            "bytes": 3067,
+            "license_lines": [
+              "ISC",
+              "MIT-1"
+            ]
+          },
+          "./usr/lib/x86_64-linux-gnu/libxml2.so.2": {
+            "symlink": "libxml2.so.2.9.14"
+          }
+        },
+        "control": {
+          "./control": {
+            "sha256": "db4aabca00bca5e7b5bf7db7ec6718e9363b9b1d755011325863f75fec9b189b",
+            "bytes": 962
+          }
+        }
+      }
+    },
+    "source_archives": {
+      "clamav_1.5.4+dfsg-0ubuntu0.24.04.1.debian.tar.xz": {
+        "archive_sha256": "185404303fd697e993e19aa25cdecf4b8b1e826bb776e3843b48dfecf3141173",
+        "distribution_changelog_header": "clamav (1.5.4+dfsg-0ubuntu0.24.04.1) noble-security; urgency=medium",
+        "top_changelog_release_signature_line": "-- Marc Deslauriers <marc.deslauriers@ubuntu.com>  Tue, 15 Sep 2026 13:55:19 -0400",
+        "copyright_sha256": "90a2697a2a7d908fe08577274684622428187e6c148bbf73ad6441694757ef64",
+        "patch_series_present": true,
+        "matching_security_references": {
+          "CVE-2026-107496": [],
+          "CVE-2026-95692": [],
+          "CVE-2026-95691": [],
+          "CVE-2026-88823": [],
+          "CVE-2026-6653": []
+        }
+      },
+      "libxml2_2.9.14+dfsg-1.3ubuntu3.10.debian.tar.xz": {
+        "archive_sha256": "d2d821830eb60edbcfcbe30e2827420e9e439e98c85c812352969cdda764d60b",
+        "distribution_changelog_header": "libxml2 (2.9.14+dfsg-1.3ubuntu3.10) noble-security; urgency=medium",
+        "top_changelog_release_signature_line": "-- Charles Cochran <charles.cochran@canonical.com>  Tue, 06 Oct 2026 12:40:57 -0400",
+        "copyright_sha256": "ee746b96cfa5be73c3ea3e4cfb1285e9b315d4c9267f99b2ee9c5d911d9fe3f4",
+        "patch_series_present": true,
+        "matching_security_references": {
+          "CVE-2026-107496": [],
+          "CVE-2026-95692": [],
+          "CVE-2026-95691": [],
+          "CVE-2026-88823": [],
+          "CVE-2026-6653": [
+            "debian/changelog",
+            "debian/patches/CVE-2026-6653.patch",
+            "debian/patches/series"
+          ]
+        }
+      },
+      "openssl_3.0.13-0ubuntu3.16.debian.tar.xz": {
+        "archive_sha256": "77893129922c917792dd187c2853fb36ce1c98597c442b42d8190252959b7f6c",
+        "distribution_changelog_header": "openssl (3.0.13-0ubuntu3.16) noble-security; urgency=medium",
+        "top_changelog_release_signature_line": "-- Marc Deslauriers <marc.deslauriers@ubuntu.com>  Wed, 16 Sep 2026 14:47:02 -0400",
+        "copyright_sha256": "6a7da622fe0637a334d2a8fc470852d2ffb77d9a2b2f930f854e32a41ad6ef35",
+        "patch_series_present": true,
+        "matching_security_references": {
+          "CVE-2026-107496": [],
+          "CVE-2026-95692": [],
+          "CVE-2026-95691": [],
+          "CVE-2026-88823": [],
+          "CVE-2026-6653": []
+        }
+      }
+    }
+  },
+  "security": {
+    "known_original_libxml2_block": {
+      "id": "CVE-2026-6653",
+      "package_version": "2.9.14+dfsg-1.3ubuntu3.10",
+      "ubuntu_fixed_version": "2.9.14+dfsg-1.3ubuntu3.8",
+      "source_confirmation": "debian/patches/CVE-2026-6653.patch, debian/patches/series, and debian/changelog in exact signed-source archive",
+      "tracker": "https://ubuntu.com/security/CVE-2026-6653"
+    },
+    "open_findings": [
+      {
+        "id": "CVE-2026-107496",
+        "package": "libssl3t64",
+        "version": "3.0.13-0ubuntu3.16",
+        "ubuntu_status": "Needs evaluation",
+        "ubuntu_severity_priority": "Medium",
+        "public_cvss_3_score": "7.5 High",
+        "upstream_severity": "Low",
+        "upstream_fixed_3_0": "3.0.24",
+        "upstream_advisory": "https://openssl-library.org/news/secadv/20261110.txt",
+        "tracker": "https://ubuntu.com/security/CVE-2026-107496",
+        "evidence": "Archive package source predates publication, has no named CVE fix in inspected patch set or changelog, and actual libclamav imports libcrypto.so.3. Exact patched binary and workload applicability are unresolved. No advisory exception applies."
+      }
+    ],
+    "prior_ids_outside_openssl_3_0_range": [
+      "CVE-2026-95692",
+      "CVE-2026-88823",
+      "CVE-2026-95691"
+    ],
+    "complete_dependency_scan_run": false,
+    "complete_kev_exclusion_claimed": false
+  },
+  "rights": {
+    "recorded_notices": "Debian copyright files read from exact package/source archives and hashed.",
+    "closure_complete": false,
+    "remaining": "Transitive notices, upstream source archive and bundled Rust dependency closure, definition rights and isolation remain pending."
+  },
+  "package_installed": false,
+  "source_compilation_run": false,
+  "maintainer_script_executed": false,
+  "image_or_package_binary_executed": false,
+  "definitions_fetched": false,
+  "asset_approved": false,
+  "next": "Keep uploads quarantined and DEV-010/F3 open. Within the remaining AUTH-010 allowance, reconcile a Canonical fix or maintainer applicability decision against the same exact Noble route. If unresolved, keep the hold. If resolved within scope, close and statically scan a pinned runtime before isolated synthetic tests."
+}
