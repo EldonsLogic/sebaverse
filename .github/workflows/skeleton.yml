@@ -88,9 +88,9 @@ jobs:
               Path('work/f2-security/kev.json').write_bytes(response.read())
           PY
       - name: Enforce native/image pre-use policy
-        run: python3 tools/security/check_reports.py
+        run: python3 tools/security/check_reports.py --scope synthetic-ci
       - name: Real PostgreSQL migration, readiness and teardown smoke
-        run: env -u LD_LIBRARY_PATH -u LD_PRELOAD -u LD_AUDIT python3 tools/run_postgres_smoke.py
+        run: env -u LD_LIBRARY_PATH -u LD_PRELOAD -u LD_AUDIT SEBAVERSE_SECURITY_SCOPE=synthetic-ci python3 tools/run_postgres_smoke.py
       - name: Browser runtime for authored local UI checks
         run: node tools/browser/node_modules/playwright/cli.js install --with-deps chromium
       - name: Loopback server, desktop/mobile browser and teardown

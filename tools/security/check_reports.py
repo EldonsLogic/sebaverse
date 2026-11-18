@@ -273,6 +273,54 @@ def validate_scoped_review(row, runtime, root, bind, now):
         bind(path, inputs[name])
 
 
+OPENSSL_IDS = frozenset({'CVE-2026-95692', 'CVE-2026-107496', 'CVE-2026-95691', 'CVE-2026-88823'})
+OPENSSL_PARENT = 'sha256:005c5c37db96c1e6652a79ea31f9886402fba81ac95dc2db897739121dd7f8f2'
+
+
+def openssl_exception_inputs(root):
+    paths = scoped_workload_paths(root)
+    require(not (root / 'tools').is_symlink() and not (root / 'infra/local/postgres').is_symlink(), 'OpenSSL review root directory redirected')
+    extra = [root / 'infra/images.lock.json', root / '.github/workflows/skeleton.yml']
+    extra += list((root / 'infra/local/postgres').iterdir())
+    for directory, subdirs, files in os.walk(root / 'tools'):
+        subdirs[:] = [name for name in subdirs if name not in {'node_modules', '__pycache__', 'work', '.venv'}]
+        require(all(not (Path(directory) / name).is_symlink() for name in subdirs), 'OpenSSL review tool directory redirected')
+        extra += [Path(directory) / name for name in files if name.endswith('.py')]
+    for path in extra:
+        require(path.is_file() and not path.is_symlink() and path.resolve().is_relative_to(root.resolve()), 'OpenSSL review source missing or redirected')
+        paths[str(path.relative_to(root))] = path
+    return paths
+
+
+def validate_openssl_exception(policy, runtime, root, bind, now, execution_scope):
+    require(execution_scope == 'synthetic-ci' and os.environ.get('GITHUB_ACTIONS') == 'true'
+            and os.environ.get('SEBAVERSE_ENV') in (None, 'local'), 'OpenSSL exception requires disposable synthetic CI, not production')
+    require(policy.get('authority') == 'AUTH-007' and policy.get('review_status') == 'reviewed', 'OpenSSL exception lacks reviewed authority')
+    require(runtime is not None and runtime.get('type') == 'derived-oci'
+            and runtime.get('parent_platform_manifest') == OPENSSL_PARENT, 'OpenSSL exception artifact differs')
+    start = timestamp(policy.get('reviewed_at_utc'), 'OpenSSL review date')
+    end = timestamp(policy.get('expires_at_utc'), 'OpenSSL expiry')
+    require(start <= now < end and end-start <= timedelta(days=3), 'OpenSSL exception expired or overlong')
+    expected = openssl_exception_inputs(root)
+    inputs = mapping(policy.get('source_inputs'), 'OpenSSL review source inputs')
+    require(set(inputs) == set(expected), 'OpenSSL reviewed workload file set changed')
+    for name, path in expected.items():
+        bind(path, inputs[name])
+    permitted = {('image-cves.json', identifier, package, '3.5.9-r0', 'high')
+                 for identifier in OPENSSL_IDS for package in ('libcrypto3', 'libssl3')}
+    listed = policy.get('findings')
+    require(isinstance(listed, list) and len(listed) == 8, 'OpenSSL exception must list exactly eight reviewed matches')
+    actual = {tuple(row.get(k) for k in ('report','id','package','version','severity')) for row in listed}
+    require(actual == permitted, 'OpenSSL exception identity/version/severity scope changed')
+    return permitted
+
+
+def finding_flags(name, identifier, package, version, severity, identifiers, kev_ids, high_exceptions):
+    scoped = (name, identifier, package, version, severity) in high_exceptions
+    return (severity in {'high', 'critical', 'unknown'} and not scoped,
+            bool(identifiers & kev_ids), scoped)
+
+
 def validate_symbol_evidence(directory, root, native, bind, now):
     """Bind the measured static importer boundary used by CI-only dispositions."""
     import importlib.util
@@ -316,12 +364,13 @@ def validate_symbol_evidence(directory, root, native, bind, now):
             "Static native/Python object coverage incomplete or changed")
 
 
-def evaluate(directory, root=None, now=None):
+def evaluate(directory, root=None, now=None, execution_scope="standard"):
     root = Path(root or ROOT).resolve()
     directory = Path(directory).resolve()
     now = now or datetime.now(timezone.utc)
     errors, reports, hashes = [], [], {}
     pin, selected, runtime, derived = {}, {}, None, None
+    exception_summary = None
 
     def bind(path, expected=MISSING):
         path = Path(path).resolve()
@@ -458,6 +507,15 @@ def evaluate(directory, root=None, now=None):
             if runtime is not None or row.get("disposition") in {"restricted_synthetic_ci_only", "component_not_present_in_bound_artifact"}:
                 validate_scoped_review(row, runtime, root, bind, now)
             reviewed.add(tuple(row[k] for k in ("report", "id", "package", "version")))
+        high_exceptions = set()
+        exception_file = root / 'infra/synthetic-openssl-review.json'
+        if exception_file.exists():
+            bind(exception_file)
+            exception_policy = read_json(exception_file)
+            high_exceptions = validate_openssl_exception(exception_policy, runtime, root, bind, now, execution_scope)
+            exception_summary = {'authority': 'AUTH-007', 'scope': execution_scope, 'expires_at_utc': exception_policy['expires_at_utc']}
+        else:
+            hashes[str(exception_file.resolve())] = None
         for name, input_name in REPORT_INPUTS.items():
             report = mapping(read_json(directory / name), name)
             matches = findings(report)
@@ -485,7 +543,7 @@ def evaluate(directory, root=None, now=None):
                 require(sbom["distro"]["id"] in db["providers"], "Grype database lacks the scanned OS provider")
             else:
                 require("nvd" in db["providers"], "Grype database lacks the supplier-core NVD provider")
-            blocking = exploited = unreviewed = 0
+            blocking = exploited = unreviewed = excepted = 0
             for match in matches:
                 mapping(match, "Grype match")
                 vuln = mapping(match.get("vulnerability"), "Grype vulnerability")
@@ -503,8 +561,10 @@ def evaluate(directory, root=None, now=None):
                 related = match.get("relatedVulnerabilities", [])
                 require(isinstance(related, list), "Related vulnerability IDs malformed")
                 identifiers = {identifier} | {text(mapping(row, "Related vulnerability").get("id"), "Related CVE") for row in related}
-                blocking += severity in {"high", "critical", "unknown"}
-                exploited += bool(identifiers & kev_ids)
+                block, kev, scoped_exception = finding_flags(name, identifier, package, version, severity, identifiers, kev_ids, high_exceptions)
+                excepted += scoped_exception
+                blocking += block
+                exploited += kev
                 unreviewed += (name, identifier, package, version) not in reviewed
             if blocking:
                 errors.append(name + ": unresolved high/critical/unknown advisories=" + str(blocking))
@@ -512,12 +572,12 @@ def evaluate(directory, root=None, now=None):
                 errors.append(name + ": known-exploited advisories=" + str(exploited))
             if unreviewed:
                 errors.append(name + ": findings require explicit review=" + str(unreviewed))
-            reports.append({"file": name, "input": input_name, "matches": len(matches), "blocking": blocking, "sha256": sha256(directory / name), "input_sha256": sha256(directory / input_name), "database": db})
+            reports.append({"file": name, "input": input_name, "matches": len(matches), "blocking": blocking, "temporary_synthetic_high_exceptions": excepted, "sha256": sha256(directory / name), "input_sha256": sha256(directory / input_name), "database": db})
     except (OSError, ValueError, KeyError, TypeError, AttributeError, ImportError) as exc:
         errors.append("Incomplete or invalid pre-use evidence: " + str(exc))
     return {"schema_version": 2, "image_reference": runtime["reference"] if runtime else pin.get("reference"),
             "platform_manifest_digest": runtime["platform_manifest_digest"] if runtime else selected.get("digest"), "image_runtime": runtime,
-            "created_at_utc": now.isoformat(), "policy": "No unresolved high/critical/unknown or KEV findings; no suppressed/unreviewed findings; exact versioned source coverage and immutable scan receipts required",
+            "created_at_utc": now.isoformat(), "execution_scope": execution_scope, "temporary_exception": exception_summary, "policy": "High/critical/unknown and KEV blocked except exact independently reviewed AUTH-007 High entries in disposable synthetic CI; no suppressed/unreviewed findings; immutable source/scan bindings required",
             "status": "fail" if errors else "pass", "errors": errors, "reports": reports, "input_hashes": hashes,
             "scope": "Linux system-libpq + pinned linux/amd64 image + supplier core; not hostOS, bundled-wheel, redistribution or application security certification"}
 
@@ -526,12 +586,13 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--directory", default="work/f2-security")
     parser.add_argument("--capture-scans", action="store_true")
+    parser.add_argument("--scope", choices=["standard", "synthetic-ci"], default="standard")
     args = parser.parse_args()
     directory = Path(args.directory).resolve()
     if args.capture_scans:
         capture_scans(directory, ROOT)
         return 0
-    output = evaluate(directory)
+    output = evaluate(directory, execution_scope=args.scope)
     directory.mkdir(parents=True, exist_ok=True)
     (directory / "preuse-result.json").write_text(json.dumps(output, indent=2) + "\n")
     print(json.dumps(output, indent=2))

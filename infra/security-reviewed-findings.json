@@ -74,7 +74,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       }
     },
     {
@@ -150,7 +150,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       }
     },
     {
@@ -226,7 +226,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       }
     },
     {
@@ -302,7 +302,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       }
     },
     {
@@ -374,7 +374,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "Scoped component candidate: libgssrpc is absent from captured DT_NEEDED closure and no GSS-RPC client is used by the planned SCRAM test. Absence is evidence about this linked closure, not all installed packages or optional dlopen; verify no RPC/plugin loading. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-112314",
@@ -452,7 +452,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "Scoped component candidate: libgssrpc is absent from captured DT_NEEDED closure and no GSS-RPC client is used by the planned SCRAM test. Absence is evidence about this linked closure, not all installed packages or optional dlopen; verify no RPC/plugin loading. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-112314",
@@ -530,7 +530,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "Scoped component candidate: libgssrpc is absent from captured DT_NEEDED closure and no GSS-RPC client is used by the planned SCRAM test. Absence is evidence about this linked closure, not all installed packages or optional dlopen; verify no RPC/plugin loading. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-112314",
@@ -608,7 +608,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "Scoped component candidate: libgssrpc is absent from captured DT_NEEDED closure and no GSS-RPC client is used by the planned SCRAM test. Absence is evidence about this linked closure, not all installed packages or optional dlopen; verify no RPC/plugin loading. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-112314",
@@ -686,7 +686,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "Scoped role candidate: synthetic test does not expose an AUTH_GSSAPI initialization endpoint; no kadmind/GSS-RPC service is allowed. Reopen if a Kerberos service is added. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-112321",
@@ -764,7 +764,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "Scoped role candidate: synthetic test does not expose an AUTH_GSSAPI initialization endpoint; no kadmind/GSS-RPC service is allowed. Reopen if a Kerberos service is added. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-112321",
@@ -842,7 +842,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "Scoped role candidate: synthetic test does not expose an AUTH_GSSAPI initialization endpoint; no kadmind/GSS-RPC service is allowed. Reopen if a Kerberos service is added. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-112321",
@@ -920,7 +920,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "Scoped role candidate: synthetic test does not expose an AUTH_GSSAPI initialization endpoint; no kadmind/GSS-RPC service is allowed. Reopen if a Kerberos service is added. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-112321",
@@ -998,7 +998,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "Scoped role candidate: no AUTH_GSSAPI client-context server/cache is used in this test. No kadmind/GSS-RPC service may be launched; input quotas alone would not remediate this defect. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-112322",
@@ -1076,7 +1076,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "Scoped role candidate: no AUTH_GSSAPI client-context server/cache is used in this test. No kadmind/GSS-RPC service may be launched; input quotas alone would not remediate this defect. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-112322",
@@ -1154,7 +1154,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "Scoped role candidate: no AUTH_GSSAPI client-context server/cache is used in this test. No kadmind/GSS-RPC service may be launched; input quotas alone would not remediate this defect. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-112322",
@@ -1232,7 +1232,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "Scoped role candidate: no AUTH_GSSAPI client-context server/cache is used in this test. No kadmind/GSS-RPC service may be launched; input quotas alone would not remediate this defect. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-112322",
@@ -1310,7 +1310,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "Scoped component/role candidate: no kadmind/GSS-RPC decoder is invoked by the SCRAM fixture; libgssrpc absent from closure. Resource limits reduce consequences but are not the reason for non-reachability. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-112319",
@@ -1388,7 +1388,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "Scoped component/role candidate: no kadmind/GSS-RPC decoder is invoked by the SCRAM fixture; libgssrpc absent from closure. Resource limits reduce consequences but are not the reason for non-reachability. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-112319",
@@ -1466,7 +1466,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "Scoped component/role candidate: no kadmind/GSS-RPC decoder is invoked by the SCRAM fixture; libgssrpc absent from closure. Resource limits reduce consequences but are not the reason for non-reachability. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-112319",
@@ -1544,7 +1544,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "Scoped component/role candidate: no kadmind/GSS-RPC decoder is invoked by the SCRAM fixture; libgssrpc absent from closure. Resource limits reduce consequences but are not the reason for non-reachability. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-112319",
@@ -1622,7 +1622,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "Scoped role candidate: no Kerberos administration RPC transport or auth-flavor switching is part of PostgreSQL SCRAM. Verify no such server/client plugin is launched or loaded. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-112320",
@@ -1700,7 +1700,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "Scoped role candidate: no Kerberos administration RPC transport or auth-flavor switching is part of PostgreSQL SCRAM. Verify no such server/client plugin is launched or loaded. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-112320",
@@ -1778,7 +1778,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "Scoped role candidate: no Kerberos administration RPC transport or auth-flavor switching is part of PostgreSQL SCRAM. Verify no such server/client plugin is launched or loaded. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-112320",
@@ -1856,7 +1856,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "Scoped role candidate: no Kerberos administration RPC transport or auth-flavor switching is part of PostgreSQL SCRAM. Verify no such server/client plugin is launched or loaded. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-112320",
@@ -1934,7 +1934,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "Scoped role candidate: no Kerberos administration RPC server or authenticated admin requests are planned. Verify no kadmind process/listener; a loaded krb5 client library is not an admin endpoint. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-112316",
@@ -2012,7 +2012,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "Scoped role candidate: no Kerberos administration RPC server or authenticated admin requests are planned. Verify no kadmind process/listener; a loaded krb5 client library is not an admin endpoint. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-112316",
@@ -2090,7 +2090,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "Scoped role candidate: no Kerberos administration RPC server or authenticated admin requests are planned. Verify no kadmind process/listener; a loaded krb5 client library is not an admin endpoint. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-112316",
@@ -2168,7 +2168,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "Scoped role candidate: no Kerberos administration RPC server or authenticated admin requests are planned. Verify no kadmind process/listener; a loaded krb5 client library is not an admin endpoint. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-112316",
@@ -2246,7 +2246,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "Scoped component/role candidate: no kadmind or GSS-RPC server endpoint is part of the test; libgssrpc absent from captured closure. Require process/network scope enforcement; not a blanket krb5 waiver. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-112315",
@@ -2324,7 +2324,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "Scoped component/role candidate: no kadmind or GSS-RPC server endpoint is part of the test; libgssrpc absent from captured closure. Require process/network scope enforcement; not a blanket krb5 waiver. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-112315",
@@ -2402,7 +2402,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "Scoped component/role candidate: no kadmind or GSS-RPC server endpoint is part of the test; libgssrpc absent from captured closure. Require process/network scope enforcement; not a blanket krb5 waiver. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-112315",
@@ -2480,7 +2480,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "Scoped component/role candidate: no kadmind or GSS-RPC server endpoint is part of the test; libgssrpc absent from captured closure. Require process/network scope enforcement; not a blanket krb5 waiver. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-112315",
@@ -2558,7 +2558,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "Scoped role candidate: planned process does not implement a KDC or accept AS/TGS requests. Disable GSS credential paths and prohibit a KDC listener; broad krb5 package matches do not establish the four artifacts expose that endpoint. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-119079",
@@ -2636,7 +2636,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "Scoped role candidate: planned process does not implement a KDC or accept AS/TGS requests. Disable GSS credential paths and prohibit a KDC listener; broad krb5 package matches do not establish the four artifacts expose that endpoint. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-119079",
@@ -2714,7 +2714,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "Scoped role candidate: planned process does not implement a KDC or accept AS/TGS requests. Disable GSS credential paths and prohibit a KDC listener; broad krb5 package matches do not establish the four artifacts expose that endpoint. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-119079",
@@ -2792,7 +2792,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "Scoped role candidate: planned process does not implement a KDC or accept AS/TGS requests. Disable GSS credential paths and prohibit a KDC listener; broad krb5 package matches do not establish the four artifacts expose that endpoint. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-119079",
@@ -2870,7 +2870,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "Scoped role candidate: no AUTH_GSSAPI initialization handler or kadmind process in the planned SCRAM client test. Verify no extra service starts; do not assume localhost prevents a malformed peer. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-112323",
@@ -2948,7 +2948,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "Scoped role candidate: no AUTH_GSSAPI initialization handler or kadmind process in the planned SCRAM client test. Verify no extra service starts; do not assume localhost prevents a malformed peer. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-112323",
@@ -3026,7 +3026,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "Scoped role candidate: no AUTH_GSSAPI initialization handler or kadmind process in the planned SCRAM client test. Verify no extra service starts; do not assume localhost prevents a malformed peer. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-112323",
@@ -3104,7 +3104,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "Scoped role candidate: no AUTH_GSSAPI initialization handler or kadmind process in the planned SCRAM client test. Verify no extra service starts; do not assume localhost prevents a malformed peer. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-112323",
@@ -3182,7 +3182,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "Scoped role candidate: no KDB backend, KDC/kadmind service or keytab is needed for password-only PostgreSQL. Verify those services/configuration are absent from the test invocation; do not equate gssencmode alone with removal of this code. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-112317",
@@ -3260,7 +3260,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "Scoped role candidate: no KDB backend, KDC/kadmind service or keytab is needed for password-only PostgreSQL. Verify those services/configuration are absent from the test invocation; do not equate gssencmode alone with removal of this code. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-112317",
@@ -3338,7 +3338,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "Scoped role candidate: no KDB backend, KDC/kadmind service or keytab is needed for password-only PostgreSQL. Verify those services/configuration are absent from the test invocation; do not equate gssencmode alone with removal of this code. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-112317",
@@ -3416,7 +3416,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "Scoped role candidate: no KDB backend, KDC/kadmind service or keytab is needed for password-only PostgreSQL. Verify those services/configuration are absent from the test invocation; do not equate gssencmode alone with removal of this code. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-112317",
@@ -3494,7 +3494,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "Scoped role candidate: no policy administration RPC endpoint exists in the planned client test. Require explicit absence of kadmind service; no claim that the distribution source is patched. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-112318",
@@ -3572,7 +3572,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "Scoped role candidate: no policy administration RPC endpoint exists in the planned client test. Require explicit absence of kadmind service; no claim that the distribution source is patched. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-112318",
@@ -3650,7 +3650,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "Scoped role candidate: no policy administration RPC endpoint exists in the planned client test. Require explicit absence of kadmind service; no claim that the distribution source is patched. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-112318",
@@ -3728,7 +3728,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "Scoped role candidate: no policy administration RPC endpoint exists in the planned client test. Require explicit absence of kadmind service; no claim that the distribution source is patched. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-112318",
@@ -3806,7 +3806,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "Scoped component/role candidate: planned process is a PostgreSQL client, not a KDC processing S4U2Proxy. Require no KDC daemon/request endpoint or Kerberos credential use; package-wide match is not proof this server routine resides in each of four libraries. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-107708",
@@ -3884,7 +3884,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "Scoped component/role candidate: planned process is a PostgreSQL client, not a KDC processing S4U2Proxy. Require no KDC daemon/request endpoint or Kerberos credential use; package-wide match is not proof this server routine resides in each of four libraries. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-107708",
@@ -3962,7 +3962,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "Scoped component/role candidate: planned process is a PostgreSQL client, not a KDC processing S4U2Proxy. Require no KDC daemon/request endpoint or Kerberos credential use; package-wide match is not proof this server routine resides in each of four libraries. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-107708",
@@ -4040,7 +4040,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "Scoped component/role candidate: planned process is a PostgreSQL client, not a KDC processing S4U2Proxy. Require no KDC daemon/request endpoint or Kerberos credential use; package-wide match is not proof this server routine resides in each of four libraries. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-107708",
@@ -4118,7 +4118,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "Conditional scoped candidate, not fixed: client test must never serve a GSS acceptor. gssencmode=disable and require_auth=scram-sha-256 exclude negotiated GSS on this connection; verify no other acceptor/service is started. Library remains linked. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-107778",
@@ -4196,7 +4196,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "Conditional scoped candidate, not fixed: client test must never serve a GSS acceptor. gssencmode=disable and require_auth=scram-sha-256 exclude negotiated GSS on this connection; verify no other acceptor/service is started. Library remains linked. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-107778",
@@ -4274,7 +4274,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "Conditional scoped candidate, not fixed: client test must never serve a GSS acceptor. gssencmode=disable and require_auth=scram-sha-256 exclude negotiated GSS on this connection; verify no other acceptor/service is started. Library remains linked. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-107778",
@@ -4352,7 +4352,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "Conditional scoped candidate, not fixed: client test must never serve a GSS acceptor. gssencmode=disable and require_auth=scram-sha-256 exclude negotiated GSS on this connection; verify no other acceptor/service is started. Library remains linked. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-107778",
@@ -4430,7 +4430,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "Conditional scoped candidate: explicit PostgreSQL SCRAM uses libpq authentication, not the Cyrus DIGEST-MD5 mechanism. LDAP/Cyrus remain in the linked closure, so require no LDAP/service discovery or SASL plugin invocation and sanitized ambient configuration before any scoped review. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-107161",
@@ -4508,7 +4508,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "Operational bounded-risk acceptance: measured static imports place regcomp/regexec only in libkrb5 among106 inspected objects. Explicit no-GSS/SCRAM client, empty Kerberos/LDAP/service configuration and fixed generated inputs exclude intended Kerberos mapping use. Allocation-failure risk is not fixed; unknown internal/dynamic reachability and potential CI crash retained. No claim of whole-process non-reachability. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-100290",
@@ -4586,7 +4586,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "Operational bounded-risk acceptance: no wide-scanf imports observed among106 inspected library/Python objects. Workload accepts no untrusted wide strings or format input; reviewed pure-Psycopg ctypes API names are fixed. Dynamic/internal/transitive gaps remain; library not declared unaffected. Accepted only for bounded disposable synthetic run. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-115819",
@@ -4664,7 +4664,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "Conditional scoped candidate only without GnuTLS hostname/certificate validation. Explicit PostgreSQL sslmode=disable is insufficient evidence about LDAP/plugins; prohibit those paths and future certificate inputs. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-88647",
@@ -4742,7 +4742,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "Scoped non-reachability candidate: PostgreSQL SCRAM does not call Unix password crypt. Keep generated password length bounded; prohibit system-account/crypt verification in this test. No general password-service approval. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2016-20013",
@@ -4820,7 +4820,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "Version non-applicability candidate: upstream excludes OpenSSL 3.0. Confirm Ubuntu build lineage for the exact scanned binary; source-specific disposition remains separate from CMS issue CVE-2026-107496. Operational decision relies on no QUIC/AES-GCM-SIV/TLS certificate workload, not an unproven Ubuntu source-backport exemption. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-95692",
@@ -4898,7 +4898,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "Conditional scoped candidate with no GnuTLS certificate/CA/name-constraint policy input. Retain as vulnerable outside this restricted test; no global TLS or certificate-use approval. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-95184",
@@ -4976,7 +4976,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "Conditional scoped candidate: no X.509 constraint processing is required for generated password-only traffic. Verify no LDAP/GnuTLS certificate processing; no inference that installed 3.8.3 is unaffected because description mentions 3.8.13. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-88648",
@@ -5054,7 +5054,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "Conditional scoped candidate: no peer X.509 input or GnuTLS validation in restricted fixture. Requires actual connection/configuration evidence and prohibition on LDAP TLS paths; no reliance on vendor dispute. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-95210",
@@ -5132,7 +5132,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "Version non-applicability candidate: upstream advisory explicitly excludes OpenSSL 3.0; captured package is 3.0.13-based. Ubuntu still Needs evaluation. Verify distribution source/build lineage has not introduced QUIC support before accepting exact artifact/version only. Operational decision relies on no QUIC/AES-GCM-SIV/TLS certificate workload, not an unproven Ubuntu source-backport exemption. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-88822",
@@ -5210,7 +5210,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "Version non-applicability candidate: upstream excludes OpenSSL 3.0. Confirm actual distribution build lacks the affected QUIC implementation; otherwise held. Do not describe every OpenSSL finding as false positive. Operational decision relies on no QUIC/AES-GCM-SIV/TLS certificate workload, not an unproven Ubuntu source-backport exemption. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-95691",
@@ -5288,7 +5288,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "Conditional scoped candidate: no GnuTLS certificate validation should occur in explicit non-TLS SCRAM test. GnuTLS is linked through LDAP; require no LDAP TLS/certificate or plugin path. Disputed does not mean fixed or Not affected. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-67693",
@@ -5366,7 +5366,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "Version non-applicability candidate: upstream excludes OpenSSL 3.0; captured 3.0.13-based package requires distribution feature/backport confirmation. Ubuntu Needs evaluation is retained; no blanket scanner suppression. Operational decision relies on no QUIC/AES-GCM-SIV/TLS certificate workload, not an unproven Ubuntu source-backport exemption. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-88823",
@@ -5444,7 +5444,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "Conditional scoped candidate: no CMS encryption or recipient certificates are part of synthetic PostgreSQL traffic. Ordinary TLS is not this CMS path; current sslmode=disable further bounds this test. Not a source-version false positive; future certificate/document features reopen review. Controls are bound to exact source/locks and artifact; internal network, no init scripts/URLs/real data, clean service/plugin environment, explicit non-TLS non-GSS SCRAM, fixed synthetic SQL and resource/time bounds. Re-review upon scope/source/version change; this is dependency risk review, not phase/production approval.",
       "source": "https://ubuntu.com/security/CVE-2026-107496",
@@ -5522,7 +5522,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "AUTH-005 temporary synthetic-only residual-risk review. Publisher: [Unknown description] Noble remains Needs evaluation; no fix or universal non-reachability is claimed. Fixed synthetic SCRAM workload disables GSS/TLS, has no KDC/kadmind, real data or user SQL and runs on a disposable internal network. Unknown publisher descriptions remain explicit uncertainty. Existing native severity/KEV/source/artifact gates and original expiry remain mandatory.",
       "source": "https://ubuntu.com/security/CVE-2026-107364",
@@ -5600,7 +5600,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "AUTH-005 temporary synthetic-only residual-risk review. Publisher: [Unknown description] Noble remains Needs evaluation; no fix or universal non-reachability is claimed. Fixed synthetic SCRAM workload disables GSS/TLS, has no KDC/kadmind, real data or user SQL and runs on a disposable internal network. Unknown publisher descriptions remain explicit uncertainty. Existing native severity/KEV/source/artifact gates and original expiry remain mandatory.",
       "source": "https://ubuntu.com/security/CVE-2026-107364",
@@ -5678,7 +5678,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "AUTH-005 temporary synthetic-only residual-risk review. Publisher: [Unknown description] Noble remains Needs evaluation; no fix or universal non-reachability is claimed. Fixed synthetic SCRAM workload disables GSS/TLS, has no KDC/kadmind, real data or user SQL and runs on a disposable internal network. Unknown publisher descriptions remain explicit uncertainty. Existing native severity/KEV/source/artifact gates and original expiry remain mandatory.",
       "source": "https://ubuntu.com/security/CVE-2026-107364",
@@ -5756,7 +5756,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "AUTH-005 temporary synthetic-only residual-risk review. Publisher: [Unknown description] Noble remains Needs evaluation; no fix or universal non-reachability is claimed. Fixed synthetic SCRAM workload disables GSS/TLS, has no KDC/kadmind, real data or user SQL and runs on a disposable internal network. Unknown publisher descriptions remain explicit uncertainty. Existing native severity/KEV/source/artifact gates and original expiry remain mandatory.",
       "source": "https://ubuntu.com/security/CVE-2026-107364",
@@ -5834,7 +5834,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "AUTH-005 temporary synthetic-only residual-risk review. Publisher: [Check for the lockdown_keys attribute when processing password change\nprotocol requests in kadmind] Noble remains Needs evaluation; no fix or universal non-reachability is claimed. Fixed synthetic SCRAM workload disables GSS/TLS, has no KDC/kadmind, real data or user SQL and runs on a disposable internal network. Unknown publisher descriptions remain explicit uncertainty. Existing native severity/KEV/source/artifact gates and original expiry remain mandatory.",
       "source": "https://ubuntu.com/security/CVE-2026-107884",
@@ -5912,7 +5912,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "AUTH-005 temporary synthetic-only residual-risk review. Publisher: [Check for the lockdown_keys attribute when processing password change\nprotocol requests in kadmind] Noble remains Needs evaluation; no fix or universal non-reachability is claimed. Fixed synthetic SCRAM workload disables GSS/TLS, has no KDC/kadmind, real data or user SQL and runs on a disposable internal network. Unknown publisher descriptions remain explicit uncertainty. Existing native severity/KEV/source/artifact gates and original expiry remain mandatory.",
       "source": "https://ubuntu.com/security/CVE-2026-107884",
@@ -5990,7 +5990,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "AUTH-005 temporary synthetic-only residual-risk review. Publisher: [Check for the lockdown_keys attribute when processing password change\nprotocol requests in kadmind] Noble remains Needs evaluation; no fix or universal non-reachability is claimed. Fixed synthetic SCRAM workload disables GSS/TLS, has no KDC/kadmind, real data or user SQL and runs on a disposable internal network. Unknown publisher descriptions remain explicit uncertainty. Existing native severity/KEV/source/artifact gates and original expiry remain mandatory.",
       "source": "https://ubuntu.com/security/CVE-2026-107884",
@@ -6068,7 +6068,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "AUTH-005 temporary synthetic-only residual-risk review. Publisher: [Check for the lockdown_keys attribute when processing password change\nprotocol requests in kadmind] Noble remains Needs evaluation; no fix or universal non-reachability is claimed. Fixed synthetic SCRAM workload disables GSS/TLS, has no KDC/kadmind, real data or user SQL and runs on a disposable internal network. Unknown publisher descriptions remain explicit uncertainty. Existing native severity/KEV/source/artifact gates and original expiry remain mandatory.",
       "source": "https://ubuntu.com/security/CVE-2026-107884",
@@ -6146,7 +6146,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "AUTH-005 temporary synthetic-only residual-risk review. Publisher: [Fix a logic error when checking PAC server checksums] Noble remains Needs evaluation; no fix or universal non-reachability is claimed. Fixed synthetic SCRAM workload disables GSS/TLS, has no KDC/kadmind, real data or user SQL and runs on a disposable internal network. Unknown publisher descriptions remain explicit uncertainty. Existing native severity/KEV/source/artifact gates and original expiry remain mandatory.",
       "source": "https://ubuntu.com/security/CVE-2026-111423",
@@ -6224,7 +6224,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "AUTH-005 temporary synthetic-only residual-risk review. Publisher: [Fix a logic error when checking PAC server checksums] Noble remains Needs evaluation; no fix or universal non-reachability is claimed. Fixed synthetic SCRAM workload disables GSS/TLS, has no KDC/kadmind, real data or user SQL and runs on a disposable internal network. Unknown publisher descriptions remain explicit uncertainty. Existing native severity/KEV/source/artifact gates and original expiry remain mandatory.",
       "source": "https://ubuntu.com/security/CVE-2026-111423",
@@ -6302,7 +6302,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "AUTH-005 temporary synthetic-only residual-risk review. Publisher: [Fix a logic error when checking PAC server checksums] Noble remains Needs evaluation; no fix or universal non-reachability is claimed. Fixed synthetic SCRAM workload disables GSS/TLS, has no KDC/kadmind, real data or user SQL and runs on a disposable internal network. Unknown publisher descriptions remain explicit uncertainty. Existing native severity/KEV/source/artifact gates and original expiry remain mandatory.",
       "source": "https://ubuntu.com/security/CVE-2026-111423",
@@ -6380,7 +6380,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "AUTH-005 temporary synthetic-only residual-risk review. Publisher: [Fix a logic error when checking PAC server checksums] Noble remains Needs evaluation; no fix or universal non-reachability is claimed. Fixed synthetic SCRAM workload disables GSS/TLS, has no KDC/kadmind, real data or user SQL and runs on a disposable internal network. Unknown publisher descriptions remain explicit uncertainty. Existing native severity/KEV/source/artifact gates and original expiry remain mandatory.",
       "source": "https://ubuntu.com/security/CVE-2026-111423",
@@ -6458,7 +6458,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "AUTH-005 temporary synthetic-only residual-risk review. Publisher: [Unknown description] Noble remains Needs evaluation; no fix or universal non-reachability is claimed. Fixed synthetic SCRAM workload disables GSS/TLS, has no KDC/kadmind, real data or user SQL and runs on a disposable internal network. Unknown publisher descriptions remain explicit uncertainty. Existing native severity/KEV/source/artifact gates and original expiry remain mandatory.",
       "source": "https://ubuntu.com/security/CVE-2026-118380",
@@ -6536,7 +6536,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "AUTH-005 temporary synthetic-only residual-risk review. Publisher: [Unknown description] Noble remains Needs evaluation; no fix or universal non-reachability is claimed. Fixed synthetic SCRAM workload disables GSS/TLS, has no KDC/kadmind, real data or user SQL and runs on a disposable internal network. Unknown publisher descriptions remain explicit uncertainty. Existing native severity/KEV/source/artifact gates and original expiry remain mandatory.",
       "source": "https://ubuntu.com/security/CVE-2026-118380",
@@ -6614,7 +6614,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "AUTH-005 temporary synthetic-only residual-risk review. Publisher: [Unknown description] Noble remains Needs evaluation; no fix or universal non-reachability is claimed. Fixed synthetic SCRAM workload disables GSS/TLS, has no KDC/kadmind, real data or user SQL and runs on a disposable internal network. Unknown publisher descriptions remain explicit uncertainty. Existing native severity/KEV/source/artifact gates and original expiry remain mandatory.",
       "source": "https://ubuntu.com/security/CVE-2026-118380",
@@ -6692,7 +6692,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "AUTH-005 temporary synthetic-only residual-risk review. Publisher: [Unknown description] Noble remains Needs evaluation; no fix or universal non-reachability is claimed. Fixed synthetic SCRAM workload disables GSS/TLS, has no KDC/kadmind, real data or user SQL and runs on a disposable internal network. Unknown publisher descriptions remain explicit uncertainty. Existing native severity/KEV/source/artifact gates and original expiry remain mandatory.",
       "source": "https://ubuntu.com/security/CVE-2026-118380",
@@ -6770,7 +6770,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "AUTH-005 temporary synthetic-only residual-risk review. Publisher: [Check for unkeyed checksums when validating CAMMAC verifiers] Noble remains Needs evaluation; no fix or universal non-reachability is claimed. Fixed synthetic SCRAM workload disables GSS/TLS, has no KDC/kadmind, real data or user SQL and runs on a disposable internal network. Unknown publisher descriptions remain explicit uncertainty. Existing native severity/KEV/source/artifact gates and original expiry remain mandatory.",
       "source": "https://ubuntu.com/security/CVE-2026-71199",
@@ -6848,7 +6848,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "AUTH-005 temporary synthetic-only residual-risk review. Publisher: [Check for unkeyed checksums when validating CAMMAC verifiers] Noble remains Needs evaluation; no fix or universal non-reachability is claimed. Fixed synthetic SCRAM workload disables GSS/TLS, has no KDC/kadmind, real data or user SQL and runs on a disposable internal network. Unknown publisher descriptions remain explicit uncertainty. Existing native severity/KEV/source/artifact gates and original expiry remain mandatory.",
       "source": "https://ubuntu.com/security/CVE-2026-71199",
@@ -6926,7 +6926,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "AUTH-005 temporary synthetic-only residual-risk review. Publisher: [Check for unkeyed checksums when validating CAMMAC verifiers] Noble remains Needs evaluation; no fix or universal non-reachability is claimed. Fixed synthetic SCRAM workload disables GSS/TLS, has no KDC/kadmind, real data or user SQL and runs on a disposable internal network. Unknown publisher descriptions remain explicit uncertainty. Existing native severity/KEV/source/artifact gates and original expiry remain mandatory.",
       "source": "https://ubuntu.com/security/CVE-2026-71199",
@@ -7004,7 +7004,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "AUTH-005 temporary synthetic-only residual-risk review. Publisher: [Check for unkeyed checksums when validating CAMMAC verifiers] Noble remains Needs evaluation; no fix or universal non-reachability is claimed. Fixed synthetic SCRAM workload disables GSS/TLS, has no KDC/kadmind, real data or user SQL and runs on a disposable internal network. Unknown publisher descriptions remain explicit uncertainty. Existing native severity/KEV/source/artifact gates and original expiry remain mandatory.",
       "source": "https://ubuntu.com/security/CVE-2026-71199",
@@ -7082,7 +7082,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "AUTH-005 temporary synthetic-only residual-risk review. Publisher: [Unknown description] Noble remains Needs evaluation; no fix or universal non-reachability is claimed. Fixed synthetic SCRAM workload disables GSS/TLS, has no KDC/kadmind, real data or user SQL and runs on a disposable internal network. Unknown publisher descriptions remain explicit uncertainty. Existing native severity/KEV/source/artifact gates and original expiry remain mandatory.",
       "source": "https://ubuntu.com/security/CVE-2026-71200",
@@ -7160,7 +7160,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "AUTH-005 temporary synthetic-only residual-risk review. Publisher: [Unknown description] Noble remains Needs evaluation; no fix or universal non-reachability is claimed. Fixed synthetic SCRAM workload disables GSS/TLS, has no KDC/kadmind, real data or user SQL and runs on a disposable internal network. Unknown publisher descriptions remain explicit uncertainty. Existing native severity/KEV/source/artifact gates and original expiry remain mandatory.",
       "source": "https://ubuntu.com/security/CVE-2026-71200",
@@ -7238,7 +7238,7 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "AUTH-005 temporary synthetic-only residual-risk review. Publisher: [Unknown description] Noble remains Needs evaluation; no fix or universal non-reachability is claimed. Fixed synthetic SCRAM workload disables GSS/TLS, has no KDC/kadmind, real data or user SQL and runs on a disposable internal network. Unknown publisher descriptions remain explicit uncertainty. Existing native severity/KEV/source/artifact gates and original expiry remain mandatory.",
       "source": "https://ubuntu.com/security/CVE-2026-71200",
@@ -7316,13 +7316,870 @@
         "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
         "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
         "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
-        "tools/run_postgres_smoke.py": "43ae2e48a012be0496db9fb8701fdfbe63216c28520d7acf3cf2974b40478053"
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
       },
       "rationale": "AUTH-005 temporary synthetic-only residual-risk review. Publisher: [Unknown description] Noble remains Needs evaluation; no fix or universal non-reachability is claimed. Fixed synthetic SCRAM workload disables GSS/TLS, has no KDC/kadmind, real data or user SQL and runs on a disposable internal network. Unknown publisher descriptions remain explicit uncertainty. Existing native severity/KEV/source/artifact gates and original expiry remain mandatory.",
       "source": "https://ubuntu.com/security/CVE-2026-71200",
       "evidence": [
         "development/evidence/auth-005-advisory-review.md",
         "development/evidence/dev-007-recovery-options.md"
+      ]
+    },
+    {
+      "report": "image-cves.json",
+      "id": "CVE-2026-107496",
+      "package": "libcrypto3",
+      "version": "3.5.9-r0",
+      "reviewer": "root adoption after /root/independent_reviewer AUTH-007 exact-scope review, 18 November 2026",
+      "disposition": "restricted_synthetic_ci_only",
+      "rationale": "AUTH-007 proposed exact synthetic-CI residual-risk review; fixed SCRAM, no TLS/GSS/QUIC/CMS/AES-GCM-SIV requests, untrusted certificates or real data. Package remains affected; no general non-reachability claim. High classification remains visible and requires separate exact expiring exception. All other gate conditions remain mandatory.",
+      "source": "https://www.openssl-library.org/news/vulnerabilities-3.5/index.html",
+      "evidence": [
+        "development/evidence/auth-007-openssl-review.md"
+      ],
+      "scope": "Only DEV-006 synthetic CI runner; no child data, uploads, production, or phase approval",
+      "scope_id": "DEV-006-synthetic-ci",
+      "reviewed_at_utc": "2026-11-18T11:39:06.165579+00:00",
+      "expires_at_utc": "2026-11-20T11:39:06.165579+00:00",
+      "scope_inputs": {
+        "backend/config/__init__.py": "508100725b7346baa9dd3e29be555bf6aa006c1119d423c3aadd138952ccea93",
+        "backend/config/asgi.py": "7dca82160e71bf6b94ce65dd7acb4b6dd87a981ef4d0dbfa4dd833472bcc0df5",
+        "backend/config/environment.py": "8c774ecc11f21dc79852a531eba15821ab8a275f89ea3076d50cd13f4e21ee3a",
+        "backend/config/settings.py": "b7f81a91e405d6ab7a1513ae617abe1faf186f89c55a1b9fad896ccf0b44d74a",
+        "backend/config/urls.py": "7a5bb0d1d25ae349bb98f1ca085171fbf386271320b9e51949bff610d579f11e",
+        "backend/manage.py": "0cb15ec1be301fd162cadaebba70534f278eceeca057cb7e4b0f4052c1126283",
+        "backend/modules/__init__.py": "f331739e3741a5641219e169532e13f35f01668455973df432c7ed2de3f09de1",
+        "backend/modules/access/__init__.py": "677d0f897e88db0596690fcd720d62609cce67b00d70e3a8c1237f19ba378038",
+        "backend/modules/access/migrations/0001_initial.py": "270dc9b96186d2fa95420eba3f1178b279e9debc2feb0fc178498bff4f426c77",
+        "backend/modules/access/migrations/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend/modules/access/models.py": "f36c633689725be72a460b023800c60068ae70125368fa5b015fa01422f0476f",
+        "backend/modules/access/policy.py": "5f119a422c893b754e6ebe3c590057ee457ba2d4efd30cc2c821f6d618c9120d",
+        "backend/modules/access/service.py": "5ed1a90bd1a437dc92a7af245c305cf3ea083c58bda67222a2fe540844d035e1",
+        "backend/modules/access/views.py": "136cb04db4d128c54d60ac6c0ba6458f00f1b755ae89b704c09a56d09a121058",
+        "backend/modules/core/__init__.py": "98744a08ab9306d6df4558489b9b1c3cecba9fe55d4f4a941e6fabe74ed0b197",
+        "backend/modules/core/logging.py": "7b5583e68fd4eb21b72ca165d6aeb59e9287f6d32d8f4bbd4c3aeb284c87799b",
+        "backend/modules/core/middleware.py": "f96cf8cc3f4af2ec8bf193975afa061b2ab23f80ac58d71f835428a429083520",
+        "backend/modules/core/views.py": "ede39d3a272796352c923cc489b2ad54cc447238a6e5f17b8725a44c73700a25",
+        "backend/modules/curriculum/__init__.py": "fcbc2478376465c76c8b9190bc2abee3bf8d41d955d2dbf7be5479bb19ac6e20",
+        "backend/modules/curriculum/contracts.py": "51c961e3605df3e9040d54a1afcf38523789f10abc55dfc68f5c0fbf4ef1d3ac",
+        "backend/modules/identity/__init__.py": "8ccb1438a9ecd4fd995899117879856851baf978658c32b9f6246768d43c087d",
+        "backend/modules/identity/consent.py": "ddd9206055f7d47e90c802a9d611923e8eaf950ca6e0e38fe714e4007e08eb93",
+        "backend/modules/identity/migrations/0001_initial.py": "6650680eb30679532292c07bba87268bf260a02c2aa613cb38e340b3765057f7",
+        "backend/modules/identity/migrations/0002_learner_authorization_generation.py": "fd3573e905d66bda586198d6f45a1f901eabf1df60a8a92dd9b34717f907b0e5",
+        "backend/modules/identity/migrations/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend/modules/identity/models.py": "585357b9fd596ca37c2bf607289a72b82acdda09e613c07b2b00ed5120108346",
+        "backend/modules/operations/__init__.py": "c0edbba5522a20c1659463dfa32bd9a0742cee2da9bca48b21304b8df49a5a02",
+        "backend/modules/operations/migrations/0001_initial.py": "68f836e1bac6500a2eb73489dc182bfff9fabc023da978e9e6cfc1c830d3729b",
+        "backend/modules/operations/migrations/0002_initial.py": "a1e9680e00c478de31c316f1cfed2a683771e7aa42914e8e545200590603f2bd",
+        "backend/modules/operations/migrations/0003_job_scope_generation.py": "2133e1f92847b8a18421e7cc3debd79b7198f46d4df9986a3d1f40c98b9619e0",
+        "backend/modules/operations/migrations/0004_job_scope.py": "bb90608d5ecfdabd7d8cedd4b357864fdb5798b267c225d32a60f8ab95c2a049",
+        "backend/modules/operations/migrations/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend/modules/operations/models.py": "bcafa306128241235f95475a9152b966319c1dc38e8d7c0d6452420d5fa8e0ed",
+        "backend/modules/operations/service.py": "ec517557dcf61a88ff3e073b38766e0ac52c04710e7dd8c7fb34a4031d84e271",
+        "backend/modules/operations/transitions.py": "34106941116b4d843e8f667d6ea777ed900a7d90709e541e59f53731897de4cd",
+        "backend/modules/providers/__init__.py": "07e81cd2a7fc9b60c93ef9fa7c23b14ef98e1422cad2ea8e5cd14a340856deb9",
+        "backend/modules/providers/contracts.py": "76c47bb90bd5716c983830e3ffa38a7e6c4f24fef1dab7455f3d869ead6d5fdd",
+        "backend/modules/providers/mock.py": "fb7fe40bd3707c6f0787796fb2ef19c1d0134f4ee5034819615e3e5cfaaf750c",
+        "backend/modules/usage/__init__.py": "b9dc82e1dade906365d8feacb0367a6828a07be330d527e157776ca00630d4d5",
+        "backend/modules/usage/migrations/0001_initial.py": "f7a512b2f4d01e3f14c36b1aae5347d1a7b921797ccd678cbfec85960019bbb3",
+        "backend/modules/usage/migrations/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend/modules/usage/models.py": "44930c0917f40a10dcd01dbb5c68b9404c77f69c7044690ea4caa1d61c9bf279",
+        "backend/pyproject.toml": "9a331cd26885abf81ae9b4aab1a00f8f3455cae3fbb08685a862fd300cb7d9e5",
+        "backend/tests/__init__.py": "4f2355f7683727ba0db065f1a3c8be81e1ee7d53552f117bdfa931e04603116d",
+        "backend/tests/authorization/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend/tests/authorization/postgres_probe.py": "2c8b72f12ad67839bb77f528bb455f060408c46d52c1bd8e8f370f75605098bd",
+        "backend/tests/authorization/test_http.py": "3f82914554084fc1daa7702f6577ea26bdcc9a5572bb30b188c15fa28a75f4f7",
+        "backend/tests/authorization/test_policy.py": "5ad1cef13fb57d1897e64d57358484c4cb899369ee7f60e22e81f3200d57abb1",
+        "backend/tests/conftest.py": "c36f7e3fbab9758b03446f1d16715918a13a6c40c3e3fb22ac3c6cd99b5ce54e",
+        "backend/tests/consent/test_policy.py": "c47f221e53a3b608026d2572093e0d7c32a56c388344903a39f7b9d601919eee",
+        "backend/tests/curriculum/test_contracts.py": "14cf89118963c7b7d6d1aeeee0cca6d9d4fb8f62f4fa46f0aa8f4ddda8e01ffc",
+        "backend/tests/resilience/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend/tests/resilience/postgres_probe.py": "5bd95026c483312820ca265f537e48ceb3b2c9430317fa72984acdc4edd1ae31",
+        "backend/tests/resilience/test_contracts.py": "db3869a32a392e312982ebecbb35d442c86486428b39b0545abf9fb14fba9d46",
+        "backend/tests/test_environment.py": "20e581e91e384087b258b8b0e802389855c36ea8ab2723b3b2548d7aa64c97a2",
+        "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
+        "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
+        "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
+      }
+    },
+    {
+      "report": "image-cves.json",
+      "id": "CVE-2026-107496",
+      "package": "libssl3",
+      "version": "3.5.9-r0",
+      "reviewer": "root adoption after /root/independent_reviewer AUTH-007 exact-scope review, 18 November 2026",
+      "disposition": "restricted_synthetic_ci_only",
+      "rationale": "AUTH-007 proposed exact synthetic-CI residual-risk review; fixed SCRAM, no TLS/GSS/QUIC/CMS/AES-GCM-SIV requests, untrusted certificates or real data. Package remains affected; no general non-reachability claim. High classification remains visible and requires separate exact expiring exception. All other gate conditions remain mandatory.",
+      "source": "https://www.openssl-library.org/news/vulnerabilities-3.5/index.html",
+      "evidence": [
+        "development/evidence/auth-007-openssl-review.md"
+      ],
+      "scope": "Only DEV-006 synthetic CI runner; no child data, uploads, production, or phase approval",
+      "scope_id": "DEV-006-synthetic-ci",
+      "reviewed_at_utc": "2026-11-18T11:39:06.165579+00:00",
+      "expires_at_utc": "2026-11-20T11:39:06.165579+00:00",
+      "scope_inputs": {
+        "backend/config/__init__.py": "508100725b7346baa9dd3e29be555bf6aa006c1119d423c3aadd138952ccea93",
+        "backend/config/asgi.py": "7dca82160e71bf6b94ce65dd7acb4b6dd87a981ef4d0dbfa4dd833472bcc0df5",
+        "backend/config/environment.py": "8c774ecc11f21dc79852a531eba15821ab8a275f89ea3076d50cd13f4e21ee3a",
+        "backend/config/settings.py": "b7f81a91e405d6ab7a1513ae617abe1faf186f89c55a1b9fad896ccf0b44d74a",
+        "backend/config/urls.py": "7a5bb0d1d25ae349bb98f1ca085171fbf386271320b9e51949bff610d579f11e",
+        "backend/manage.py": "0cb15ec1be301fd162cadaebba70534f278eceeca057cb7e4b0f4052c1126283",
+        "backend/modules/__init__.py": "f331739e3741a5641219e169532e13f35f01668455973df432c7ed2de3f09de1",
+        "backend/modules/access/__init__.py": "677d0f897e88db0596690fcd720d62609cce67b00d70e3a8c1237f19ba378038",
+        "backend/modules/access/migrations/0001_initial.py": "270dc9b96186d2fa95420eba3f1178b279e9debc2feb0fc178498bff4f426c77",
+        "backend/modules/access/migrations/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend/modules/access/models.py": "f36c633689725be72a460b023800c60068ae70125368fa5b015fa01422f0476f",
+        "backend/modules/access/policy.py": "5f119a422c893b754e6ebe3c590057ee457ba2d4efd30cc2c821f6d618c9120d",
+        "backend/modules/access/service.py": "5ed1a90bd1a437dc92a7af245c305cf3ea083c58bda67222a2fe540844d035e1",
+        "backend/modules/access/views.py": "136cb04db4d128c54d60ac6c0ba6458f00f1b755ae89b704c09a56d09a121058",
+        "backend/modules/core/__init__.py": "98744a08ab9306d6df4558489b9b1c3cecba9fe55d4f4a941e6fabe74ed0b197",
+        "backend/modules/core/logging.py": "7b5583e68fd4eb21b72ca165d6aeb59e9287f6d32d8f4bbd4c3aeb284c87799b",
+        "backend/modules/core/middleware.py": "f96cf8cc3f4af2ec8bf193975afa061b2ab23f80ac58d71f835428a429083520",
+        "backend/modules/core/views.py": "ede39d3a272796352c923cc489b2ad54cc447238a6e5f17b8725a44c73700a25",
+        "backend/modules/curriculum/__init__.py": "fcbc2478376465c76c8b9190bc2abee3bf8d41d955d2dbf7be5479bb19ac6e20",
+        "backend/modules/curriculum/contracts.py": "51c961e3605df3e9040d54a1afcf38523789f10abc55dfc68f5c0fbf4ef1d3ac",
+        "backend/modules/identity/__init__.py": "8ccb1438a9ecd4fd995899117879856851baf978658c32b9f6246768d43c087d",
+        "backend/modules/identity/consent.py": "ddd9206055f7d47e90c802a9d611923e8eaf950ca6e0e38fe714e4007e08eb93",
+        "backend/modules/identity/migrations/0001_initial.py": "6650680eb30679532292c07bba87268bf260a02c2aa613cb38e340b3765057f7",
+        "backend/modules/identity/migrations/0002_learner_authorization_generation.py": "fd3573e905d66bda586198d6f45a1f901eabf1df60a8a92dd9b34717f907b0e5",
+        "backend/modules/identity/migrations/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend/modules/identity/models.py": "585357b9fd596ca37c2bf607289a72b82acdda09e613c07b2b00ed5120108346",
+        "backend/modules/operations/__init__.py": "c0edbba5522a20c1659463dfa32bd9a0742cee2da9bca48b21304b8df49a5a02",
+        "backend/modules/operations/migrations/0001_initial.py": "68f836e1bac6500a2eb73489dc182bfff9fabc023da978e9e6cfc1c830d3729b",
+        "backend/modules/operations/migrations/0002_initial.py": "a1e9680e00c478de31c316f1cfed2a683771e7aa42914e8e545200590603f2bd",
+        "backend/modules/operations/migrations/0003_job_scope_generation.py": "2133e1f92847b8a18421e7cc3debd79b7198f46d4df9986a3d1f40c98b9619e0",
+        "backend/modules/operations/migrations/0004_job_scope.py": "bb90608d5ecfdabd7d8cedd4b357864fdb5798b267c225d32a60f8ab95c2a049",
+        "backend/modules/operations/migrations/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend/modules/operations/models.py": "bcafa306128241235f95475a9152b966319c1dc38e8d7c0d6452420d5fa8e0ed",
+        "backend/modules/operations/service.py": "ec517557dcf61a88ff3e073b38766e0ac52c04710e7dd8c7fb34a4031d84e271",
+        "backend/modules/operations/transitions.py": "34106941116b4d843e8f667d6ea777ed900a7d90709e541e59f53731897de4cd",
+        "backend/modules/providers/__init__.py": "07e81cd2a7fc9b60c93ef9fa7c23b14ef98e1422cad2ea8e5cd14a340856deb9",
+        "backend/modules/providers/contracts.py": "76c47bb90bd5716c983830e3ffa38a7e6c4f24fef1dab7455f3d869ead6d5fdd",
+        "backend/modules/providers/mock.py": "fb7fe40bd3707c6f0787796fb2ef19c1d0134f4ee5034819615e3e5cfaaf750c",
+        "backend/modules/usage/__init__.py": "b9dc82e1dade906365d8feacb0367a6828a07be330d527e157776ca00630d4d5",
+        "backend/modules/usage/migrations/0001_initial.py": "f7a512b2f4d01e3f14c36b1aae5347d1a7b921797ccd678cbfec85960019bbb3",
+        "backend/modules/usage/migrations/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend/modules/usage/models.py": "44930c0917f40a10dcd01dbb5c68b9404c77f69c7044690ea4caa1d61c9bf279",
+        "backend/pyproject.toml": "9a331cd26885abf81ae9b4aab1a00f8f3455cae3fbb08685a862fd300cb7d9e5",
+        "backend/tests/__init__.py": "4f2355f7683727ba0db065f1a3c8be81e1ee7d53552f117bdfa931e04603116d",
+        "backend/tests/authorization/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend/tests/authorization/postgres_probe.py": "2c8b72f12ad67839bb77f528bb455f060408c46d52c1bd8e8f370f75605098bd",
+        "backend/tests/authorization/test_http.py": "3f82914554084fc1daa7702f6577ea26bdcc9a5572bb30b188c15fa28a75f4f7",
+        "backend/tests/authorization/test_policy.py": "5ad1cef13fb57d1897e64d57358484c4cb899369ee7f60e22e81f3200d57abb1",
+        "backend/tests/conftest.py": "c36f7e3fbab9758b03446f1d16715918a13a6c40c3e3fb22ac3c6cd99b5ce54e",
+        "backend/tests/consent/test_policy.py": "c47f221e53a3b608026d2572093e0d7c32a56c388344903a39f7b9d601919eee",
+        "backend/tests/curriculum/test_contracts.py": "14cf89118963c7b7d6d1aeeee0cca6d9d4fb8f62f4fa46f0aa8f4ddda8e01ffc",
+        "backend/tests/resilience/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend/tests/resilience/postgres_probe.py": "5bd95026c483312820ca265f537e48ceb3b2c9430317fa72984acdc4edd1ae31",
+        "backend/tests/resilience/test_contracts.py": "db3869a32a392e312982ebecbb35d442c86486428b39b0545abf9fb14fba9d46",
+        "backend/tests/test_environment.py": "20e581e91e384087b258b8b0e802389855c36ea8ab2723b3b2548d7aa64c97a2",
+        "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
+        "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
+        "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
+      }
+    },
+    {
+      "report": "image-cves.json",
+      "id": "CVE-2026-88822",
+      "package": "libcrypto3",
+      "version": "3.5.9-r0",
+      "reviewer": "root adoption after /root/independent_reviewer AUTH-007 exact-scope review, 18 November 2026",
+      "disposition": "restricted_synthetic_ci_only",
+      "rationale": "AUTH-007 proposed exact synthetic-CI residual-risk review; fixed SCRAM, no TLS/GSS/QUIC/CMS/AES-GCM-SIV requests, untrusted certificates or real data. Package remains affected; no general non-reachability claim. High classification remains visible and requires separate exact expiring exception. All other gate conditions remain mandatory.",
+      "source": "https://www.openssl-library.org/news/vulnerabilities-3.5/index.html",
+      "evidence": [
+        "development/evidence/auth-007-openssl-review.md"
+      ],
+      "scope": "Only DEV-006 synthetic CI runner; no child data, uploads, production, or phase approval",
+      "scope_id": "DEV-006-synthetic-ci",
+      "reviewed_at_utc": "2026-11-18T11:39:06.165579+00:00",
+      "expires_at_utc": "2026-11-20T11:39:06.165579+00:00",
+      "scope_inputs": {
+        "backend/config/__init__.py": "508100725b7346baa9dd3e29be555bf6aa006c1119d423c3aadd138952ccea93",
+        "backend/config/asgi.py": "7dca82160e71bf6b94ce65dd7acb4b6dd87a981ef4d0dbfa4dd833472bcc0df5",
+        "backend/config/environment.py": "8c774ecc11f21dc79852a531eba15821ab8a275f89ea3076d50cd13f4e21ee3a",
+        "backend/config/settings.py": "b7f81a91e405d6ab7a1513ae617abe1faf186f89c55a1b9fad896ccf0b44d74a",
+        "backend/config/urls.py": "7a5bb0d1d25ae349bb98f1ca085171fbf386271320b9e51949bff610d579f11e",
+        "backend/manage.py": "0cb15ec1be301fd162cadaebba70534f278eceeca057cb7e4b0f4052c1126283",
+        "backend/modules/__init__.py": "f331739e3741a5641219e169532e13f35f01668455973df432c7ed2de3f09de1",
+        "backend/modules/access/__init__.py": "677d0f897e88db0596690fcd720d62609cce67b00d70e3a8c1237f19ba378038",
+        "backend/modules/access/migrations/0001_initial.py": "270dc9b96186d2fa95420eba3f1178b279e9debc2feb0fc178498bff4f426c77",
+        "backend/modules/access/migrations/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend/modules/access/models.py": "f36c633689725be72a460b023800c60068ae70125368fa5b015fa01422f0476f",
+        "backend/modules/access/policy.py": "5f119a422c893b754e6ebe3c590057ee457ba2d4efd30cc2c821f6d618c9120d",
+        "backend/modules/access/service.py": "5ed1a90bd1a437dc92a7af245c305cf3ea083c58bda67222a2fe540844d035e1",
+        "backend/modules/access/views.py": "136cb04db4d128c54d60ac6c0ba6458f00f1b755ae89b704c09a56d09a121058",
+        "backend/modules/core/__init__.py": "98744a08ab9306d6df4558489b9b1c3cecba9fe55d4f4a941e6fabe74ed0b197",
+        "backend/modules/core/logging.py": "7b5583e68fd4eb21b72ca165d6aeb59e9287f6d32d8f4bbd4c3aeb284c87799b",
+        "backend/modules/core/middleware.py": "f96cf8cc3f4af2ec8bf193975afa061b2ab23f80ac58d71f835428a429083520",
+        "backend/modules/core/views.py": "ede39d3a272796352c923cc489b2ad54cc447238a6e5f17b8725a44c73700a25",
+        "backend/modules/curriculum/__init__.py": "fcbc2478376465c76c8b9190bc2abee3bf8d41d955d2dbf7be5479bb19ac6e20",
+        "backend/modules/curriculum/contracts.py": "51c961e3605df3e9040d54a1afcf38523789f10abc55dfc68f5c0fbf4ef1d3ac",
+        "backend/modules/identity/__init__.py": "8ccb1438a9ecd4fd995899117879856851baf978658c32b9f6246768d43c087d",
+        "backend/modules/identity/consent.py": "ddd9206055f7d47e90c802a9d611923e8eaf950ca6e0e38fe714e4007e08eb93",
+        "backend/modules/identity/migrations/0001_initial.py": "6650680eb30679532292c07bba87268bf260a02c2aa613cb38e340b3765057f7",
+        "backend/modules/identity/migrations/0002_learner_authorization_generation.py": "fd3573e905d66bda586198d6f45a1f901eabf1df60a8a92dd9b34717f907b0e5",
+        "backend/modules/identity/migrations/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend/modules/identity/models.py": "585357b9fd596ca37c2bf607289a72b82acdda09e613c07b2b00ed5120108346",
+        "backend/modules/operations/__init__.py": "c0edbba5522a20c1659463dfa32bd9a0742cee2da9bca48b21304b8df49a5a02",
+        "backend/modules/operations/migrations/0001_initial.py": "68f836e1bac6500a2eb73489dc182bfff9fabc023da978e9e6cfc1c830d3729b",
+        "backend/modules/operations/migrations/0002_initial.py": "a1e9680e00c478de31c316f1cfed2a683771e7aa42914e8e545200590603f2bd",
+        "backend/modules/operations/migrations/0003_job_scope_generation.py": "2133e1f92847b8a18421e7cc3debd79b7198f46d4df9986a3d1f40c98b9619e0",
+        "backend/modules/operations/migrations/0004_job_scope.py": "bb90608d5ecfdabd7d8cedd4b357864fdb5798b267c225d32a60f8ab95c2a049",
+        "backend/modules/operations/migrations/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend/modules/operations/models.py": "bcafa306128241235f95475a9152b966319c1dc38e8d7c0d6452420d5fa8e0ed",
+        "backend/modules/operations/service.py": "ec517557dcf61a88ff3e073b38766e0ac52c04710e7dd8c7fb34a4031d84e271",
+        "backend/modules/operations/transitions.py": "34106941116b4d843e8f667d6ea777ed900a7d90709e541e59f53731897de4cd",
+        "backend/modules/providers/__init__.py": "07e81cd2a7fc9b60c93ef9fa7c23b14ef98e1422cad2ea8e5cd14a340856deb9",
+        "backend/modules/providers/contracts.py": "76c47bb90bd5716c983830e3ffa38a7e6c4f24fef1dab7455f3d869ead6d5fdd",
+        "backend/modules/providers/mock.py": "fb7fe40bd3707c6f0787796fb2ef19c1d0134f4ee5034819615e3e5cfaaf750c",
+        "backend/modules/usage/__init__.py": "b9dc82e1dade906365d8feacb0367a6828a07be330d527e157776ca00630d4d5",
+        "backend/modules/usage/migrations/0001_initial.py": "f7a512b2f4d01e3f14c36b1aae5347d1a7b921797ccd678cbfec85960019bbb3",
+        "backend/modules/usage/migrations/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend/modules/usage/models.py": "44930c0917f40a10dcd01dbb5c68b9404c77f69c7044690ea4caa1d61c9bf279",
+        "backend/pyproject.toml": "9a331cd26885abf81ae9b4aab1a00f8f3455cae3fbb08685a862fd300cb7d9e5",
+        "backend/tests/__init__.py": "4f2355f7683727ba0db065f1a3c8be81e1ee7d53552f117bdfa931e04603116d",
+        "backend/tests/authorization/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend/tests/authorization/postgres_probe.py": "2c8b72f12ad67839bb77f528bb455f060408c46d52c1bd8e8f370f75605098bd",
+        "backend/tests/authorization/test_http.py": "3f82914554084fc1daa7702f6577ea26bdcc9a5572bb30b188c15fa28a75f4f7",
+        "backend/tests/authorization/test_policy.py": "5ad1cef13fb57d1897e64d57358484c4cb899369ee7f60e22e81f3200d57abb1",
+        "backend/tests/conftest.py": "c36f7e3fbab9758b03446f1d16715918a13a6c40c3e3fb22ac3c6cd99b5ce54e",
+        "backend/tests/consent/test_policy.py": "c47f221e53a3b608026d2572093e0d7c32a56c388344903a39f7b9d601919eee",
+        "backend/tests/curriculum/test_contracts.py": "14cf89118963c7b7d6d1aeeee0cca6d9d4fb8f62f4fa46f0aa8f4ddda8e01ffc",
+        "backend/tests/resilience/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend/tests/resilience/postgres_probe.py": "5bd95026c483312820ca265f537e48ceb3b2c9430317fa72984acdc4edd1ae31",
+        "backend/tests/resilience/test_contracts.py": "db3869a32a392e312982ebecbb35d442c86486428b39b0545abf9fb14fba9d46",
+        "backend/tests/test_environment.py": "20e581e91e384087b258b8b0e802389855c36ea8ab2723b3b2548d7aa64c97a2",
+        "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
+        "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
+        "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
+      }
+    },
+    {
+      "report": "image-cves.json",
+      "id": "CVE-2026-88822",
+      "package": "libssl3",
+      "version": "3.5.9-r0",
+      "reviewer": "root adoption after /root/independent_reviewer AUTH-007 exact-scope review, 18 November 2026",
+      "disposition": "restricted_synthetic_ci_only",
+      "rationale": "AUTH-007 proposed exact synthetic-CI residual-risk review; fixed SCRAM, no TLS/GSS/QUIC/CMS/AES-GCM-SIV requests, untrusted certificates or real data. Package remains affected; no general non-reachability claim. High classification remains visible and requires separate exact expiring exception. All other gate conditions remain mandatory.",
+      "source": "https://www.openssl-library.org/news/vulnerabilities-3.5/index.html",
+      "evidence": [
+        "development/evidence/auth-007-openssl-review.md"
+      ],
+      "scope": "Only DEV-006 synthetic CI runner; no child data, uploads, production, or phase approval",
+      "scope_id": "DEV-006-synthetic-ci",
+      "reviewed_at_utc": "2026-11-18T11:39:06.165579+00:00",
+      "expires_at_utc": "2026-11-20T11:39:06.165579+00:00",
+      "scope_inputs": {
+        "backend/config/__init__.py": "508100725b7346baa9dd3e29be555bf6aa006c1119d423c3aadd138952ccea93",
+        "backend/config/asgi.py": "7dca82160e71bf6b94ce65dd7acb4b6dd87a981ef4d0dbfa4dd833472bcc0df5",
+        "backend/config/environment.py": "8c774ecc11f21dc79852a531eba15821ab8a275f89ea3076d50cd13f4e21ee3a",
+        "backend/config/settings.py": "b7f81a91e405d6ab7a1513ae617abe1faf186f89c55a1b9fad896ccf0b44d74a",
+        "backend/config/urls.py": "7a5bb0d1d25ae349bb98f1ca085171fbf386271320b9e51949bff610d579f11e",
+        "backend/manage.py": "0cb15ec1be301fd162cadaebba70534f278eceeca057cb7e4b0f4052c1126283",
+        "backend/modules/__init__.py": "f331739e3741a5641219e169532e13f35f01668455973df432c7ed2de3f09de1",
+        "backend/modules/access/__init__.py": "677d0f897e88db0596690fcd720d62609cce67b00d70e3a8c1237f19ba378038",
+        "backend/modules/access/migrations/0001_initial.py": "270dc9b96186d2fa95420eba3f1178b279e9debc2feb0fc178498bff4f426c77",
+        "backend/modules/access/migrations/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend/modules/access/models.py": "f36c633689725be72a460b023800c60068ae70125368fa5b015fa01422f0476f",
+        "backend/modules/access/policy.py": "5f119a422c893b754e6ebe3c590057ee457ba2d4efd30cc2c821f6d618c9120d",
+        "backend/modules/access/service.py": "5ed1a90bd1a437dc92a7af245c305cf3ea083c58bda67222a2fe540844d035e1",
+        "backend/modules/access/views.py": "136cb04db4d128c54d60ac6c0ba6458f00f1b755ae89b704c09a56d09a121058",
+        "backend/modules/core/__init__.py": "98744a08ab9306d6df4558489b9b1c3cecba9fe55d4f4a941e6fabe74ed0b197",
+        "backend/modules/core/logging.py": "7b5583e68fd4eb21b72ca165d6aeb59e9287f6d32d8f4bbd4c3aeb284c87799b",
+        "backend/modules/core/middleware.py": "f96cf8cc3f4af2ec8bf193975afa061b2ab23f80ac58d71f835428a429083520",
+        "backend/modules/core/views.py": "ede39d3a272796352c923cc489b2ad54cc447238a6e5f17b8725a44c73700a25",
+        "backend/modules/curriculum/__init__.py": "fcbc2478376465c76c8b9190bc2abee3bf8d41d955d2dbf7be5479bb19ac6e20",
+        "backend/modules/curriculum/contracts.py": "51c961e3605df3e9040d54a1afcf38523789f10abc55dfc68f5c0fbf4ef1d3ac",
+        "backend/modules/identity/__init__.py": "8ccb1438a9ecd4fd995899117879856851baf978658c32b9f6246768d43c087d",
+        "backend/modules/identity/consent.py": "ddd9206055f7d47e90c802a9d611923e8eaf950ca6e0e38fe714e4007e08eb93",
+        "backend/modules/identity/migrations/0001_initial.py": "6650680eb30679532292c07bba87268bf260a02c2aa613cb38e340b3765057f7",
+        "backend/modules/identity/migrations/0002_learner_authorization_generation.py": "fd3573e905d66bda586198d6f45a1f901eabf1df60a8a92dd9b34717f907b0e5",
+        "backend/modules/identity/migrations/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend/modules/identity/models.py": "585357b9fd596ca37c2bf607289a72b82acdda09e613c07b2b00ed5120108346",
+        "backend/modules/operations/__init__.py": "c0edbba5522a20c1659463dfa32bd9a0742cee2da9bca48b21304b8df49a5a02",
+        "backend/modules/operations/migrations/0001_initial.py": "68f836e1bac6500a2eb73489dc182bfff9fabc023da978e9e6cfc1c830d3729b",
+        "backend/modules/operations/migrations/0002_initial.py": "a1e9680e00c478de31c316f1cfed2a683771e7aa42914e8e545200590603f2bd",
+        "backend/modules/operations/migrations/0003_job_scope_generation.py": "2133e1f92847b8a18421e7cc3debd79b7198f46d4df9986a3d1f40c98b9619e0",
+        "backend/modules/operations/migrations/0004_job_scope.py": "bb90608d5ecfdabd7d8cedd4b357864fdb5798b267c225d32a60f8ab95c2a049",
+        "backend/modules/operations/migrations/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend/modules/operations/models.py": "bcafa306128241235f95475a9152b966319c1dc38e8d7c0d6452420d5fa8e0ed",
+        "backend/modules/operations/service.py": "ec517557dcf61a88ff3e073b38766e0ac52c04710e7dd8c7fb34a4031d84e271",
+        "backend/modules/operations/transitions.py": "34106941116b4d843e8f667d6ea777ed900a7d90709e541e59f53731897de4cd",
+        "backend/modules/providers/__init__.py": "07e81cd2a7fc9b60c93ef9fa7c23b14ef98e1422cad2ea8e5cd14a340856deb9",
+        "backend/modules/providers/contracts.py": "76c47bb90bd5716c983830e3ffa38a7e6c4f24fef1dab7455f3d869ead6d5fdd",
+        "backend/modules/providers/mock.py": "fb7fe40bd3707c6f0787796fb2ef19c1d0134f4ee5034819615e3e5cfaaf750c",
+        "backend/modules/usage/__init__.py": "b9dc82e1dade906365d8feacb0367a6828a07be330d527e157776ca00630d4d5",
+        "backend/modules/usage/migrations/0001_initial.py": "f7a512b2f4d01e3f14c36b1aae5347d1a7b921797ccd678cbfec85960019bbb3",
+        "backend/modules/usage/migrations/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend/modules/usage/models.py": "44930c0917f40a10dcd01dbb5c68b9404c77f69c7044690ea4caa1d61c9bf279",
+        "backend/pyproject.toml": "9a331cd26885abf81ae9b4aab1a00f8f3455cae3fbb08685a862fd300cb7d9e5",
+        "backend/tests/__init__.py": "4f2355f7683727ba0db065f1a3c8be81e1ee7d53552f117bdfa931e04603116d",
+        "backend/tests/authorization/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend/tests/authorization/postgres_probe.py": "2c8b72f12ad67839bb77f528bb455f060408c46d52c1bd8e8f370f75605098bd",
+        "backend/tests/authorization/test_http.py": "3f82914554084fc1daa7702f6577ea26bdcc9a5572bb30b188c15fa28a75f4f7",
+        "backend/tests/authorization/test_policy.py": "5ad1cef13fb57d1897e64d57358484c4cb899369ee7f60e22e81f3200d57abb1",
+        "backend/tests/conftest.py": "c36f7e3fbab9758b03446f1d16715918a13a6c40c3e3fb22ac3c6cd99b5ce54e",
+        "backend/tests/consent/test_policy.py": "c47f221e53a3b608026d2572093e0d7c32a56c388344903a39f7b9d601919eee",
+        "backend/tests/curriculum/test_contracts.py": "14cf89118963c7b7d6d1aeeee0cca6d9d4fb8f62f4fa46f0aa8f4ddda8e01ffc",
+        "backend/tests/resilience/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend/tests/resilience/postgres_probe.py": "5bd95026c483312820ca265f537e48ceb3b2c9430317fa72984acdc4edd1ae31",
+        "backend/tests/resilience/test_contracts.py": "db3869a32a392e312982ebecbb35d442c86486428b39b0545abf9fb14fba9d46",
+        "backend/tests/test_environment.py": "20e581e91e384087b258b8b0e802389855c36ea8ab2723b3b2548d7aa64c97a2",
+        "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
+        "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
+        "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
+      }
+    },
+    {
+      "report": "image-cves.json",
+      "id": "CVE-2026-88823",
+      "package": "libcrypto3",
+      "version": "3.5.9-r0",
+      "reviewer": "root adoption after /root/independent_reviewer AUTH-007 exact-scope review, 18 November 2026",
+      "disposition": "restricted_synthetic_ci_only",
+      "rationale": "AUTH-007 proposed exact synthetic-CI residual-risk review; fixed SCRAM, no TLS/GSS/QUIC/CMS/AES-GCM-SIV requests, untrusted certificates or real data. Package remains affected; no general non-reachability claim. High classification remains visible and requires separate exact expiring exception. All other gate conditions remain mandatory.",
+      "source": "https://www.openssl-library.org/news/vulnerabilities-3.5/index.html",
+      "evidence": [
+        "development/evidence/auth-007-openssl-review.md"
+      ],
+      "scope": "Only DEV-006 synthetic CI runner; no child data, uploads, production, or phase approval",
+      "scope_id": "DEV-006-synthetic-ci",
+      "reviewed_at_utc": "2026-11-18T11:39:06.165579+00:00",
+      "expires_at_utc": "2026-11-20T11:39:06.165579+00:00",
+      "scope_inputs": {
+        "backend/config/__init__.py": "508100725b7346baa9dd3e29be555bf6aa006c1119d423c3aadd138952ccea93",
+        "backend/config/asgi.py": "7dca82160e71bf6b94ce65dd7acb4b6dd87a981ef4d0dbfa4dd833472bcc0df5",
+        "backend/config/environment.py": "8c774ecc11f21dc79852a531eba15821ab8a275f89ea3076d50cd13f4e21ee3a",
+        "backend/config/settings.py": "b7f81a91e405d6ab7a1513ae617abe1faf186f89c55a1b9fad896ccf0b44d74a",
+        "backend/config/urls.py": "7a5bb0d1d25ae349bb98f1ca085171fbf386271320b9e51949bff610d579f11e",
+        "backend/manage.py": "0cb15ec1be301fd162cadaebba70534f278eceeca057cb7e4b0f4052c1126283",
+        "backend/modules/__init__.py": "f331739e3741a5641219e169532e13f35f01668455973df432c7ed2de3f09de1",
+        "backend/modules/access/__init__.py": "677d0f897e88db0596690fcd720d62609cce67b00d70e3a8c1237f19ba378038",
+        "backend/modules/access/migrations/0001_initial.py": "270dc9b96186d2fa95420eba3f1178b279e9debc2feb0fc178498bff4f426c77",
+        "backend/modules/access/migrations/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend/modules/access/models.py": "f36c633689725be72a460b023800c60068ae70125368fa5b015fa01422f0476f",
+        "backend/modules/access/policy.py": "5f119a422c893b754e6ebe3c590057ee457ba2d4efd30cc2c821f6d618c9120d",
+        "backend/modules/access/service.py": "5ed1a90bd1a437dc92a7af245c305cf3ea083c58bda67222a2fe540844d035e1",
+        "backend/modules/access/views.py": "136cb04db4d128c54d60ac6c0ba6458f00f1b755ae89b704c09a56d09a121058",
+        "backend/modules/core/__init__.py": "98744a08ab9306d6df4558489b9b1c3cecba9fe55d4f4a941e6fabe74ed0b197",
+        "backend/modules/core/logging.py": "7b5583e68fd4eb21b72ca165d6aeb59e9287f6d32d8f4bbd4c3aeb284c87799b",
+        "backend/modules/core/middleware.py": "f96cf8cc3f4af2ec8bf193975afa061b2ab23f80ac58d71f835428a429083520",
+        "backend/modules/core/views.py": "ede39d3a272796352c923cc489b2ad54cc447238a6e5f17b8725a44c73700a25",
+        "backend/modules/curriculum/__init__.py": "fcbc2478376465c76c8b9190bc2abee3bf8d41d955d2dbf7be5479bb19ac6e20",
+        "backend/modules/curriculum/contracts.py": "51c961e3605df3e9040d54a1afcf38523789f10abc55dfc68f5c0fbf4ef1d3ac",
+        "backend/modules/identity/__init__.py": "8ccb1438a9ecd4fd995899117879856851baf978658c32b9f6246768d43c087d",
+        "backend/modules/identity/consent.py": "ddd9206055f7d47e90c802a9d611923e8eaf950ca6e0e38fe714e4007e08eb93",
+        "backend/modules/identity/migrations/0001_initial.py": "6650680eb30679532292c07bba87268bf260a02c2aa613cb38e340b3765057f7",
+        "backend/modules/identity/migrations/0002_learner_authorization_generation.py": "fd3573e905d66bda586198d6f45a1f901eabf1df60a8a92dd9b34717f907b0e5",
+        "backend/modules/identity/migrations/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend/modules/identity/models.py": "585357b9fd596ca37c2bf607289a72b82acdda09e613c07b2b00ed5120108346",
+        "backend/modules/operations/__init__.py": "c0edbba5522a20c1659463dfa32bd9a0742cee2da9bca48b21304b8df49a5a02",
+        "backend/modules/operations/migrations/0001_initial.py": "68f836e1bac6500a2eb73489dc182bfff9fabc023da978e9e6cfc1c830d3729b",
+        "backend/modules/operations/migrations/0002_initial.py": "a1e9680e00c478de31c316f1cfed2a683771e7aa42914e8e545200590603f2bd",
+        "backend/modules/operations/migrations/0003_job_scope_generation.py": "2133e1f92847b8a18421e7cc3debd79b7198f46d4df9986a3d1f40c98b9619e0",
+        "backend/modules/operations/migrations/0004_job_scope.py": "bb90608d5ecfdabd7d8cedd4b357864fdb5798b267c225d32a60f8ab95c2a049",
+        "backend/modules/operations/migrations/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend/modules/operations/models.py": "bcafa306128241235f95475a9152b966319c1dc38e8d7c0d6452420d5fa8e0ed",
+        "backend/modules/operations/service.py": "ec517557dcf61a88ff3e073b38766e0ac52c04710e7dd8c7fb34a4031d84e271",
+        "backend/modules/operations/transitions.py": "34106941116b4d843e8f667d6ea777ed900a7d90709e541e59f53731897de4cd",
+        "backend/modules/providers/__init__.py": "07e81cd2a7fc9b60c93ef9fa7c23b14ef98e1422cad2ea8e5cd14a340856deb9",
+        "backend/modules/providers/contracts.py": "76c47bb90bd5716c983830e3ffa38a7e6c4f24fef1dab7455f3d869ead6d5fdd",
+        "backend/modules/providers/mock.py": "fb7fe40bd3707c6f0787796fb2ef19c1d0134f4ee5034819615e3e5cfaaf750c",
+        "backend/modules/usage/__init__.py": "b9dc82e1dade906365d8feacb0367a6828a07be330d527e157776ca00630d4d5",
+        "backend/modules/usage/migrations/0001_initial.py": "f7a512b2f4d01e3f14c36b1aae5347d1a7b921797ccd678cbfec85960019bbb3",
+        "backend/modules/usage/migrations/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend/modules/usage/models.py": "44930c0917f40a10dcd01dbb5c68b9404c77f69c7044690ea4caa1d61c9bf279",
+        "backend/pyproject.toml": "9a331cd26885abf81ae9b4aab1a00f8f3455cae3fbb08685a862fd300cb7d9e5",
+        "backend/tests/__init__.py": "4f2355f7683727ba0db065f1a3c8be81e1ee7d53552f117bdfa931e04603116d",
+        "backend/tests/authorization/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend/tests/authorization/postgres_probe.py": "2c8b72f12ad67839bb77f528bb455f060408c46d52c1bd8e8f370f75605098bd",
+        "backend/tests/authorization/test_http.py": "3f82914554084fc1daa7702f6577ea26bdcc9a5572bb30b188c15fa28a75f4f7",
+        "backend/tests/authorization/test_policy.py": "5ad1cef13fb57d1897e64d57358484c4cb899369ee7f60e22e81f3200d57abb1",
+        "backend/tests/conftest.py": "c36f7e3fbab9758b03446f1d16715918a13a6c40c3e3fb22ac3c6cd99b5ce54e",
+        "backend/tests/consent/test_policy.py": "c47f221e53a3b608026d2572093e0d7c32a56c388344903a39f7b9d601919eee",
+        "backend/tests/curriculum/test_contracts.py": "14cf89118963c7b7d6d1aeeee0cca6d9d4fb8f62f4fa46f0aa8f4ddda8e01ffc",
+        "backend/tests/resilience/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend/tests/resilience/postgres_probe.py": "5bd95026c483312820ca265f537e48ceb3b2c9430317fa72984acdc4edd1ae31",
+        "backend/tests/resilience/test_contracts.py": "db3869a32a392e312982ebecbb35d442c86486428b39b0545abf9fb14fba9d46",
+        "backend/tests/test_environment.py": "20e581e91e384087b258b8b0e802389855c36ea8ab2723b3b2548d7aa64c97a2",
+        "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
+        "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
+        "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
+      }
+    },
+    {
+      "report": "image-cves.json",
+      "id": "CVE-2026-88823",
+      "package": "libssl3",
+      "version": "3.5.9-r0",
+      "reviewer": "root adoption after /root/independent_reviewer AUTH-007 exact-scope review, 18 November 2026",
+      "disposition": "restricted_synthetic_ci_only",
+      "rationale": "AUTH-007 proposed exact synthetic-CI residual-risk review; fixed SCRAM, no TLS/GSS/QUIC/CMS/AES-GCM-SIV requests, untrusted certificates or real data. Package remains affected; no general non-reachability claim. High classification remains visible and requires separate exact expiring exception. All other gate conditions remain mandatory.",
+      "source": "https://www.openssl-library.org/news/vulnerabilities-3.5/index.html",
+      "evidence": [
+        "development/evidence/auth-007-openssl-review.md"
+      ],
+      "scope": "Only DEV-006 synthetic CI runner; no child data, uploads, production, or phase approval",
+      "scope_id": "DEV-006-synthetic-ci",
+      "reviewed_at_utc": "2026-11-18T11:39:06.165579+00:00",
+      "expires_at_utc": "2026-11-20T11:39:06.165579+00:00",
+      "scope_inputs": {
+        "backend/config/__init__.py": "508100725b7346baa9dd3e29be555bf6aa006c1119d423c3aadd138952ccea93",
+        "backend/config/asgi.py": "7dca82160e71bf6b94ce65dd7acb4b6dd87a981ef4d0dbfa4dd833472bcc0df5",
+        "backend/config/environment.py": "8c774ecc11f21dc79852a531eba15821ab8a275f89ea3076d50cd13f4e21ee3a",
+        "backend/config/settings.py": "b7f81a91e405d6ab7a1513ae617abe1faf186f89c55a1b9fad896ccf0b44d74a",
+        "backend/config/urls.py": "7a5bb0d1d25ae349bb98f1ca085171fbf386271320b9e51949bff610d579f11e",
+        "backend/manage.py": "0cb15ec1be301fd162cadaebba70534f278eceeca057cb7e4b0f4052c1126283",
+        "backend/modules/__init__.py": "f331739e3741a5641219e169532e13f35f01668455973df432c7ed2de3f09de1",
+        "backend/modules/access/__init__.py": "677d0f897e88db0596690fcd720d62609cce67b00d70e3a8c1237f19ba378038",
+        "backend/modules/access/migrations/0001_initial.py": "270dc9b96186d2fa95420eba3f1178b279e9debc2feb0fc178498bff4f426c77",
+        "backend/modules/access/migrations/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend/modules/access/models.py": "f36c633689725be72a460b023800c60068ae70125368fa5b015fa01422f0476f",
+        "backend/modules/access/policy.py": "5f119a422c893b754e6ebe3c590057ee457ba2d4efd30cc2c821f6d618c9120d",
+        "backend/modules/access/service.py": "5ed1a90bd1a437dc92a7af245c305cf3ea083c58bda67222a2fe540844d035e1",
+        "backend/modules/access/views.py": "136cb04db4d128c54d60ac6c0ba6458f00f1b755ae89b704c09a56d09a121058",
+        "backend/modules/core/__init__.py": "98744a08ab9306d6df4558489b9b1c3cecba9fe55d4f4a941e6fabe74ed0b197",
+        "backend/modules/core/logging.py": "7b5583e68fd4eb21b72ca165d6aeb59e9287f6d32d8f4bbd4c3aeb284c87799b",
+        "backend/modules/core/middleware.py": "f96cf8cc3f4af2ec8bf193975afa061b2ab23f80ac58d71f835428a429083520",
+        "backend/modules/core/views.py": "ede39d3a272796352c923cc489b2ad54cc447238a6e5f17b8725a44c73700a25",
+        "backend/modules/curriculum/__init__.py": "fcbc2478376465c76c8b9190bc2abee3bf8d41d955d2dbf7be5479bb19ac6e20",
+        "backend/modules/curriculum/contracts.py": "51c961e3605df3e9040d54a1afcf38523789f10abc55dfc68f5c0fbf4ef1d3ac",
+        "backend/modules/identity/__init__.py": "8ccb1438a9ecd4fd995899117879856851baf978658c32b9f6246768d43c087d",
+        "backend/modules/identity/consent.py": "ddd9206055f7d47e90c802a9d611923e8eaf950ca6e0e38fe714e4007e08eb93",
+        "backend/modules/identity/migrations/0001_initial.py": "6650680eb30679532292c07bba87268bf260a02c2aa613cb38e340b3765057f7",
+        "backend/modules/identity/migrations/0002_learner_authorization_generation.py": "fd3573e905d66bda586198d6f45a1f901eabf1df60a8a92dd9b34717f907b0e5",
+        "backend/modules/identity/migrations/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend/modules/identity/models.py": "585357b9fd596ca37c2bf607289a72b82acdda09e613c07b2b00ed5120108346",
+        "backend/modules/operations/__init__.py": "c0edbba5522a20c1659463dfa32bd9a0742cee2da9bca48b21304b8df49a5a02",
+        "backend/modules/operations/migrations/0001_initial.py": "68f836e1bac6500a2eb73489dc182bfff9fabc023da978e9e6cfc1c830d3729b",
+        "backend/modules/operations/migrations/0002_initial.py": "a1e9680e00c478de31c316f1cfed2a683771e7aa42914e8e545200590603f2bd",
+        "backend/modules/operations/migrations/0003_job_scope_generation.py": "2133e1f92847b8a18421e7cc3debd79b7198f46d4df9986a3d1f40c98b9619e0",
+        "backend/modules/operations/migrations/0004_job_scope.py": "bb90608d5ecfdabd7d8cedd4b357864fdb5798b267c225d32a60f8ab95c2a049",
+        "backend/modules/operations/migrations/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend/modules/operations/models.py": "bcafa306128241235f95475a9152b966319c1dc38e8d7c0d6452420d5fa8e0ed",
+        "backend/modules/operations/service.py": "ec517557dcf61a88ff3e073b38766e0ac52c04710e7dd8c7fb34a4031d84e271",
+        "backend/modules/operations/transitions.py": "34106941116b4d843e8f667d6ea777ed900a7d90709e541e59f53731897de4cd",
+        "backend/modules/providers/__init__.py": "07e81cd2a7fc9b60c93ef9fa7c23b14ef98e1422cad2ea8e5cd14a340856deb9",
+        "backend/modules/providers/contracts.py": "76c47bb90bd5716c983830e3ffa38a7e6c4f24fef1dab7455f3d869ead6d5fdd",
+        "backend/modules/providers/mock.py": "fb7fe40bd3707c6f0787796fb2ef19c1d0134f4ee5034819615e3e5cfaaf750c",
+        "backend/modules/usage/__init__.py": "b9dc82e1dade906365d8feacb0367a6828a07be330d527e157776ca00630d4d5",
+        "backend/modules/usage/migrations/0001_initial.py": "f7a512b2f4d01e3f14c36b1aae5347d1a7b921797ccd678cbfec85960019bbb3",
+        "backend/modules/usage/migrations/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend/modules/usage/models.py": "44930c0917f40a10dcd01dbb5c68b9404c77f69c7044690ea4caa1d61c9bf279",
+        "backend/pyproject.toml": "9a331cd26885abf81ae9b4aab1a00f8f3455cae3fbb08685a862fd300cb7d9e5",
+        "backend/tests/__init__.py": "4f2355f7683727ba0db065f1a3c8be81e1ee7d53552f117bdfa931e04603116d",
+        "backend/tests/authorization/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend/tests/authorization/postgres_probe.py": "2c8b72f12ad67839bb77f528bb455f060408c46d52c1bd8e8f370f75605098bd",
+        "backend/tests/authorization/test_http.py": "3f82914554084fc1daa7702f6577ea26bdcc9a5572bb30b188c15fa28a75f4f7",
+        "backend/tests/authorization/test_policy.py": "5ad1cef13fb57d1897e64d57358484c4cb899369ee7f60e22e81f3200d57abb1",
+        "backend/tests/conftest.py": "c36f7e3fbab9758b03446f1d16715918a13a6c40c3e3fb22ac3c6cd99b5ce54e",
+        "backend/tests/consent/test_policy.py": "c47f221e53a3b608026d2572093e0d7c32a56c388344903a39f7b9d601919eee",
+        "backend/tests/curriculum/test_contracts.py": "14cf89118963c7b7d6d1aeeee0cca6d9d4fb8f62f4fa46f0aa8f4ddda8e01ffc",
+        "backend/tests/resilience/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend/tests/resilience/postgres_probe.py": "5bd95026c483312820ca265f537e48ceb3b2c9430317fa72984acdc4edd1ae31",
+        "backend/tests/resilience/test_contracts.py": "db3869a32a392e312982ebecbb35d442c86486428b39b0545abf9fb14fba9d46",
+        "backend/tests/test_environment.py": "20e581e91e384087b258b8b0e802389855c36ea8ab2723b3b2548d7aa64c97a2",
+        "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
+        "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
+        "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
+      }
+    },
+    {
+      "report": "image-cves.json",
+      "id": "CVE-2026-95691",
+      "package": "libcrypto3",
+      "version": "3.5.9-r0",
+      "reviewer": "root adoption after /root/independent_reviewer AUTH-007 exact-scope review, 18 November 2026",
+      "disposition": "restricted_synthetic_ci_only",
+      "rationale": "AUTH-007 proposed exact synthetic-CI residual-risk review; fixed SCRAM, no TLS/GSS/QUIC/CMS/AES-GCM-SIV requests, untrusted certificates or real data. Package remains affected; no general non-reachability claim. High classification remains visible and requires separate exact expiring exception. All other gate conditions remain mandatory.",
+      "source": "https://www.openssl-library.org/news/vulnerabilities-3.5/index.html",
+      "evidence": [
+        "development/evidence/auth-007-openssl-review.md"
+      ],
+      "scope": "Only DEV-006 synthetic CI runner; no child data, uploads, production, or phase approval",
+      "scope_id": "DEV-006-synthetic-ci",
+      "reviewed_at_utc": "2026-11-18T11:39:06.165579+00:00",
+      "expires_at_utc": "2026-11-20T11:39:06.165579+00:00",
+      "scope_inputs": {
+        "backend/config/__init__.py": "508100725b7346baa9dd3e29be555bf6aa006c1119d423c3aadd138952ccea93",
+        "backend/config/asgi.py": "7dca82160e71bf6b94ce65dd7acb4b6dd87a981ef4d0dbfa4dd833472bcc0df5",
+        "backend/config/environment.py": "8c774ecc11f21dc79852a531eba15821ab8a275f89ea3076d50cd13f4e21ee3a",
+        "backend/config/settings.py": "b7f81a91e405d6ab7a1513ae617abe1faf186f89c55a1b9fad896ccf0b44d74a",
+        "backend/config/urls.py": "7a5bb0d1d25ae349bb98f1ca085171fbf386271320b9e51949bff610d579f11e",
+        "backend/manage.py": "0cb15ec1be301fd162cadaebba70534f278eceeca057cb7e4b0f4052c1126283",
+        "backend/modules/__init__.py": "f331739e3741a5641219e169532e13f35f01668455973df432c7ed2de3f09de1",
+        "backend/modules/access/__init__.py": "677d0f897e88db0596690fcd720d62609cce67b00d70e3a8c1237f19ba378038",
+        "backend/modules/access/migrations/0001_initial.py": "270dc9b96186d2fa95420eba3f1178b279e9debc2feb0fc178498bff4f426c77",
+        "backend/modules/access/migrations/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend/modules/access/models.py": "f36c633689725be72a460b023800c60068ae70125368fa5b015fa01422f0476f",
+        "backend/modules/access/policy.py": "5f119a422c893b754e6ebe3c590057ee457ba2d4efd30cc2c821f6d618c9120d",
+        "backend/modules/access/service.py": "5ed1a90bd1a437dc92a7af245c305cf3ea083c58bda67222a2fe540844d035e1",
+        "backend/modules/access/views.py": "136cb04db4d128c54d60ac6c0ba6458f00f1b755ae89b704c09a56d09a121058",
+        "backend/modules/core/__init__.py": "98744a08ab9306d6df4558489b9b1c3cecba9fe55d4f4a941e6fabe74ed0b197",
+        "backend/modules/core/logging.py": "7b5583e68fd4eb21b72ca165d6aeb59e9287f6d32d8f4bbd4c3aeb284c87799b",
+        "backend/modules/core/middleware.py": "f96cf8cc3f4af2ec8bf193975afa061b2ab23f80ac58d71f835428a429083520",
+        "backend/modules/core/views.py": "ede39d3a272796352c923cc489b2ad54cc447238a6e5f17b8725a44c73700a25",
+        "backend/modules/curriculum/__init__.py": "fcbc2478376465c76c8b9190bc2abee3bf8d41d955d2dbf7be5479bb19ac6e20",
+        "backend/modules/curriculum/contracts.py": "51c961e3605df3e9040d54a1afcf38523789f10abc55dfc68f5c0fbf4ef1d3ac",
+        "backend/modules/identity/__init__.py": "8ccb1438a9ecd4fd995899117879856851baf978658c32b9f6246768d43c087d",
+        "backend/modules/identity/consent.py": "ddd9206055f7d47e90c802a9d611923e8eaf950ca6e0e38fe714e4007e08eb93",
+        "backend/modules/identity/migrations/0001_initial.py": "6650680eb30679532292c07bba87268bf260a02c2aa613cb38e340b3765057f7",
+        "backend/modules/identity/migrations/0002_learner_authorization_generation.py": "fd3573e905d66bda586198d6f45a1f901eabf1df60a8a92dd9b34717f907b0e5",
+        "backend/modules/identity/migrations/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend/modules/identity/models.py": "585357b9fd596ca37c2bf607289a72b82acdda09e613c07b2b00ed5120108346",
+        "backend/modules/operations/__init__.py": "c0edbba5522a20c1659463dfa32bd9a0742cee2da9bca48b21304b8df49a5a02",
+        "backend/modules/operations/migrations/0001_initial.py": "68f836e1bac6500a2eb73489dc182bfff9fabc023da978e9e6cfc1c830d3729b",
+        "backend/modules/operations/migrations/0002_initial.py": "a1e9680e00c478de31c316f1cfed2a683771e7aa42914e8e545200590603f2bd",
+        "backend/modules/operations/migrations/0003_job_scope_generation.py": "2133e1f92847b8a18421e7cc3debd79b7198f46d4df9986a3d1f40c98b9619e0",
+        "backend/modules/operations/migrations/0004_job_scope.py": "bb90608d5ecfdabd7d8cedd4b357864fdb5798b267c225d32a60f8ab95c2a049",
+        "backend/modules/operations/migrations/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend/modules/operations/models.py": "bcafa306128241235f95475a9152b966319c1dc38e8d7c0d6452420d5fa8e0ed",
+        "backend/modules/operations/service.py": "ec517557dcf61a88ff3e073b38766e0ac52c04710e7dd8c7fb34a4031d84e271",
+        "backend/modules/operations/transitions.py": "34106941116b4d843e8f667d6ea777ed900a7d90709e541e59f53731897de4cd",
+        "backend/modules/providers/__init__.py": "07e81cd2a7fc9b60c93ef9fa7c23b14ef98e1422cad2ea8e5cd14a340856deb9",
+        "backend/modules/providers/contracts.py": "76c47bb90bd5716c983830e3ffa38a7e6c4f24fef1dab7455f3d869ead6d5fdd",
+        "backend/modules/providers/mock.py": "fb7fe40bd3707c6f0787796fb2ef19c1d0134f4ee5034819615e3e5cfaaf750c",
+        "backend/modules/usage/__init__.py": "b9dc82e1dade906365d8feacb0367a6828a07be330d527e157776ca00630d4d5",
+        "backend/modules/usage/migrations/0001_initial.py": "f7a512b2f4d01e3f14c36b1aae5347d1a7b921797ccd678cbfec85960019bbb3",
+        "backend/modules/usage/migrations/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend/modules/usage/models.py": "44930c0917f40a10dcd01dbb5c68b9404c77f69c7044690ea4caa1d61c9bf279",
+        "backend/pyproject.toml": "9a331cd26885abf81ae9b4aab1a00f8f3455cae3fbb08685a862fd300cb7d9e5",
+        "backend/tests/__init__.py": "4f2355f7683727ba0db065f1a3c8be81e1ee7d53552f117bdfa931e04603116d",
+        "backend/tests/authorization/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend/tests/authorization/postgres_probe.py": "2c8b72f12ad67839bb77f528bb455f060408c46d52c1bd8e8f370f75605098bd",
+        "backend/tests/authorization/test_http.py": "3f82914554084fc1daa7702f6577ea26bdcc9a5572bb30b188c15fa28a75f4f7",
+        "backend/tests/authorization/test_policy.py": "5ad1cef13fb57d1897e64d57358484c4cb899369ee7f60e22e81f3200d57abb1",
+        "backend/tests/conftest.py": "c36f7e3fbab9758b03446f1d16715918a13a6c40c3e3fb22ac3c6cd99b5ce54e",
+        "backend/tests/consent/test_policy.py": "c47f221e53a3b608026d2572093e0d7c32a56c388344903a39f7b9d601919eee",
+        "backend/tests/curriculum/test_contracts.py": "14cf89118963c7b7d6d1aeeee0cca6d9d4fb8f62f4fa46f0aa8f4ddda8e01ffc",
+        "backend/tests/resilience/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend/tests/resilience/postgres_probe.py": "5bd95026c483312820ca265f537e48ceb3b2c9430317fa72984acdc4edd1ae31",
+        "backend/tests/resilience/test_contracts.py": "db3869a32a392e312982ebecbb35d442c86486428b39b0545abf9fb14fba9d46",
+        "backend/tests/test_environment.py": "20e581e91e384087b258b8b0e802389855c36ea8ab2723b3b2548d7aa64c97a2",
+        "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
+        "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
+        "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
+      }
+    },
+    {
+      "report": "image-cves.json",
+      "id": "CVE-2026-95691",
+      "package": "libssl3",
+      "version": "3.5.9-r0",
+      "reviewer": "root adoption after /root/independent_reviewer AUTH-007 exact-scope review, 18 November 2026",
+      "disposition": "restricted_synthetic_ci_only",
+      "rationale": "AUTH-007 proposed exact synthetic-CI residual-risk review; fixed SCRAM, no TLS/GSS/QUIC/CMS/AES-GCM-SIV requests, untrusted certificates or real data. Package remains affected; no general non-reachability claim. High classification remains visible and requires separate exact expiring exception. All other gate conditions remain mandatory.",
+      "source": "https://www.openssl-library.org/news/vulnerabilities-3.5/index.html",
+      "evidence": [
+        "development/evidence/auth-007-openssl-review.md"
+      ],
+      "scope": "Only DEV-006 synthetic CI runner; no child data, uploads, production, or phase approval",
+      "scope_id": "DEV-006-synthetic-ci",
+      "reviewed_at_utc": "2026-11-18T11:39:06.165579+00:00",
+      "expires_at_utc": "2026-11-20T11:39:06.165579+00:00",
+      "scope_inputs": {
+        "backend/config/__init__.py": "508100725b7346baa9dd3e29be555bf6aa006c1119d423c3aadd138952ccea93",
+        "backend/config/asgi.py": "7dca82160e71bf6b94ce65dd7acb4b6dd87a981ef4d0dbfa4dd833472bcc0df5",
+        "backend/config/environment.py": "8c774ecc11f21dc79852a531eba15821ab8a275f89ea3076d50cd13f4e21ee3a",
+        "backend/config/settings.py": "b7f81a91e405d6ab7a1513ae617abe1faf186f89c55a1b9fad896ccf0b44d74a",
+        "backend/config/urls.py": "7a5bb0d1d25ae349bb98f1ca085171fbf386271320b9e51949bff610d579f11e",
+        "backend/manage.py": "0cb15ec1be301fd162cadaebba70534f278eceeca057cb7e4b0f4052c1126283",
+        "backend/modules/__init__.py": "f331739e3741a5641219e169532e13f35f01668455973df432c7ed2de3f09de1",
+        "backend/modules/access/__init__.py": "677d0f897e88db0596690fcd720d62609cce67b00d70e3a8c1237f19ba378038",
+        "backend/modules/access/migrations/0001_initial.py": "270dc9b96186d2fa95420eba3f1178b279e9debc2feb0fc178498bff4f426c77",
+        "backend/modules/access/migrations/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend/modules/access/models.py": "f36c633689725be72a460b023800c60068ae70125368fa5b015fa01422f0476f",
+        "backend/modules/access/policy.py": "5f119a422c893b754e6ebe3c590057ee457ba2d4efd30cc2c821f6d618c9120d",
+        "backend/modules/access/service.py": "5ed1a90bd1a437dc92a7af245c305cf3ea083c58bda67222a2fe540844d035e1",
+        "backend/modules/access/views.py": "136cb04db4d128c54d60ac6c0ba6458f00f1b755ae89b704c09a56d09a121058",
+        "backend/modules/core/__init__.py": "98744a08ab9306d6df4558489b9b1c3cecba9fe55d4f4a941e6fabe74ed0b197",
+        "backend/modules/core/logging.py": "7b5583e68fd4eb21b72ca165d6aeb59e9287f6d32d8f4bbd4c3aeb284c87799b",
+        "backend/modules/core/middleware.py": "f96cf8cc3f4af2ec8bf193975afa061b2ab23f80ac58d71f835428a429083520",
+        "backend/modules/core/views.py": "ede39d3a272796352c923cc489b2ad54cc447238a6e5f17b8725a44c73700a25",
+        "backend/modules/curriculum/__init__.py": "fcbc2478376465c76c8b9190bc2abee3bf8d41d955d2dbf7be5479bb19ac6e20",
+        "backend/modules/curriculum/contracts.py": "51c961e3605df3e9040d54a1afcf38523789f10abc55dfc68f5c0fbf4ef1d3ac",
+        "backend/modules/identity/__init__.py": "8ccb1438a9ecd4fd995899117879856851baf978658c32b9f6246768d43c087d",
+        "backend/modules/identity/consent.py": "ddd9206055f7d47e90c802a9d611923e8eaf950ca6e0e38fe714e4007e08eb93",
+        "backend/modules/identity/migrations/0001_initial.py": "6650680eb30679532292c07bba87268bf260a02c2aa613cb38e340b3765057f7",
+        "backend/modules/identity/migrations/0002_learner_authorization_generation.py": "fd3573e905d66bda586198d6f45a1f901eabf1df60a8a92dd9b34717f907b0e5",
+        "backend/modules/identity/migrations/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend/modules/identity/models.py": "585357b9fd596ca37c2bf607289a72b82acdda09e613c07b2b00ed5120108346",
+        "backend/modules/operations/__init__.py": "c0edbba5522a20c1659463dfa32bd9a0742cee2da9bca48b21304b8df49a5a02",
+        "backend/modules/operations/migrations/0001_initial.py": "68f836e1bac6500a2eb73489dc182bfff9fabc023da978e9e6cfc1c830d3729b",
+        "backend/modules/operations/migrations/0002_initial.py": "a1e9680e00c478de31c316f1cfed2a683771e7aa42914e8e545200590603f2bd",
+        "backend/modules/operations/migrations/0003_job_scope_generation.py": "2133e1f92847b8a18421e7cc3debd79b7198f46d4df9986a3d1f40c98b9619e0",
+        "backend/modules/operations/migrations/0004_job_scope.py": "bb90608d5ecfdabd7d8cedd4b357864fdb5798b267c225d32a60f8ab95c2a049",
+        "backend/modules/operations/migrations/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend/modules/operations/models.py": "bcafa306128241235f95475a9152b966319c1dc38e8d7c0d6452420d5fa8e0ed",
+        "backend/modules/operations/service.py": "ec517557dcf61a88ff3e073b38766e0ac52c04710e7dd8c7fb34a4031d84e271",
+        "backend/modules/operations/transitions.py": "34106941116b4d843e8f667d6ea777ed900a7d90709e541e59f53731897de4cd",
+        "backend/modules/providers/__init__.py": "07e81cd2a7fc9b60c93ef9fa7c23b14ef98e1422cad2ea8e5cd14a340856deb9",
+        "backend/modules/providers/contracts.py": "76c47bb90bd5716c983830e3ffa38a7e6c4f24fef1dab7455f3d869ead6d5fdd",
+        "backend/modules/providers/mock.py": "fb7fe40bd3707c6f0787796fb2ef19c1d0134f4ee5034819615e3e5cfaaf750c",
+        "backend/modules/usage/__init__.py": "b9dc82e1dade906365d8feacb0367a6828a07be330d527e157776ca00630d4d5",
+        "backend/modules/usage/migrations/0001_initial.py": "f7a512b2f4d01e3f14c36b1aae5347d1a7b921797ccd678cbfec85960019bbb3",
+        "backend/modules/usage/migrations/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend/modules/usage/models.py": "44930c0917f40a10dcd01dbb5c68b9404c77f69c7044690ea4caa1d61c9bf279",
+        "backend/pyproject.toml": "9a331cd26885abf81ae9b4aab1a00f8f3455cae3fbb08685a862fd300cb7d9e5",
+        "backend/tests/__init__.py": "4f2355f7683727ba0db065f1a3c8be81e1ee7d53552f117bdfa931e04603116d",
+        "backend/tests/authorization/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend/tests/authorization/postgres_probe.py": "2c8b72f12ad67839bb77f528bb455f060408c46d52c1bd8e8f370f75605098bd",
+        "backend/tests/authorization/test_http.py": "3f82914554084fc1daa7702f6577ea26bdcc9a5572bb30b188c15fa28a75f4f7",
+        "backend/tests/authorization/test_policy.py": "5ad1cef13fb57d1897e64d57358484c4cb899369ee7f60e22e81f3200d57abb1",
+        "backend/tests/conftest.py": "c36f7e3fbab9758b03446f1d16715918a13a6c40c3e3fb22ac3c6cd99b5ce54e",
+        "backend/tests/consent/test_policy.py": "c47f221e53a3b608026d2572093e0d7c32a56c388344903a39f7b9d601919eee",
+        "backend/tests/curriculum/test_contracts.py": "14cf89118963c7b7d6d1aeeee0cca6d9d4fb8f62f4fa46f0aa8f4ddda8e01ffc",
+        "backend/tests/resilience/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend/tests/resilience/postgres_probe.py": "5bd95026c483312820ca265f537e48ceb3b2c9430317fa72984acdc4edd1ae31",
+        "backend/tests/resilience/test_contracts.py": "db3869a32a392e312982ebecbb35d442c86486428b39b0545abf9fb14fba9d46",
+        "backend/tests/test_environment.py": "20e581e91e384087b258b8b0e802389855c36ea8ab2723b3b2548d7aa64c97a2",
+        "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
+        "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
+        "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
+      }
+    },
+    {
+      "report": "image-cves.json",
+      "id": "CVE-2026-95692",
+      "package": "libcrypto3",
+      "version": "3.5.9-r0",
+      "reviewer": "root adoption after /root/independent_reviewer AUTH-007 exact-scope review, 18 November 2026",
+      "disposition": "restricted_synthetic_ci_only",
+      "rationale": "AUTH-007 proposed exact synthetic-CI residual-risk review; fixed SCRAM, no TLS/GSS/QUIC/CMS/AES-GCM-SIV requests, untrusted certificates or real data. Package remains affected; no general non-reachability claim. High classification remains visible and requires separate exact expiring exception. All other gate conditions remain mandatory.",
+      "source": "https://www.openssl-library.org/news/vulnerabilities-3.5/index.html",
+      "evidence": [
+        "development/evidence/auth-007-openssl-review.md"
+      ],
+      "scope": "Only DEV-006 synthetic CI runner; no child data, uploads, production, or phase approval",
+      "scope_id": "DEV-006-synthetic-ci",
+      "reviewed_at_utc": "2026-11-18T11:39:06.165579+00:00",
+      "expires_at_utc": "2026-11-20T11:39:06.165579+00:00",
+      "scope_inputs": {
+        "backend/config/__init__.py": "508100725b7346baa9dd3e29be555bf6aa006c1119d423c3aadd138952ccea93",
+        "backend/config/asgi.py": "7dca82160e71bf6b94ce65dd7acb4b6dd87a981ef4d0dbfa4dd833472bcc0df5",
+        "backend/config/environment.py": "8c774ecc11f21dc79852a531eba15821ab8a275f89ea3076d50cd13f4e21ee3a",
+        "backend/config/settings.py": "b7f81a91e405d6ab7a1513ae617abe1faf186f89c55a1b9fad896ccf0b44d74a",
+        "backend/config/urls.py": "7a5bb0d1d25ae349bb98f1ca085171fbf386271320b9e51949bff610d579f11e",
+        "backend/manage.py": "0cb15ec1be301fd162cadaebba70534f278eceeca057cb7e4b0f4052c1126283",
+        "backend/modules/__init__.py": "f331739e3741a5641219e169532e13f35f01668455973df432c7ed2de3f09de1",
+        "backend/modules/access/__init__.py": "677d0f897e88db0596690fcd720d62609cce67b00d70e3a8c1237f19ba378038",
+        "backend/modules/access/migrations/0001_initial.py": "270dc9b96186d2fa95420eba3f1178b279e9debc2feb0fc178498bff4f426c77",
+        "backend/modules/access/migrations/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend/modules/access/models.py": "f36c633689725be72a460b023800c60068ae70125368fa5b015fa01422f0476f",
+        "backend/modules/access/policy.py": "5f119a422c893b754e6ebe3c590057ee457ba2d4efd30cc2c821f6d618c9120d",
+        "backend/modules/access/service.py": "5ed1a90bd1a437dc92a7af245c305cf3ea083c58bda67222a2fe540844d035e1",
+        "backend/modules/access/views.py": "136cb04db4d128c54d60ac6c0ba6458f00f1b755ae89b704c09a56d09a121058",
+        "backend/modules/core/__init__.py": "98744a08ab9306d6df4558489b9b1c3cecba9fe55d4f4a941e6fabe74ed0b197",
+        "backend/modules/core/logging.py": "7b5583e68fd4eb21b72ca165d6aeb59e9287f6d32d8f4bbd4c3aeb284c87799b",
+        "backend/modules/core/middleware.py": "f96cf8cc3f4af2ec8bf193975afa061b2ab23f80ac58d71f835428a429083520",
+        "backend/modules/core/views.py": "ede39d3a272796352c923cc489b2ad54cc447238a6e5f17b8725a44c73700a25",
+        "backend/modules/curriculum/__init__.py": "fcbc2478376465c76c8b9190bc2abee3bf8d41d955d2dbf7be5479bb19ac6e20",
+        "backend/modules/curriculum/contracts.py": "51c961e3605df3e9040d54a1afcf38523789f10abc55dfc68f5c0fbf4ef1d3ac",
+        "backend/modules/identity/__init__.py": "8ccb1438a9ecd4fd995899117879856851baf978658c32b9f6246768d43c087d",
+        "backend/modules/identity/consent.py": "ddd9206055f7d47e90c802a9d611923e8eaf950ca6e0e38fe714e4007e08eb93",
+        "backend/modules/identity/migrations/0001_initial.py": "6650680eb30679532292c07bba87268bf260a02c2aa613cb38e340b3765057f7",
+        "backend/modules/identity/migrations/0002_learner_authorization_generation.py": "fd3573e905d66bda586198d6f45a1f901eabf1df60a8a92dd9b34717f907b0e5",
+        "backend/modules/identity/migrations/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend/modules/identity/models.py": "585357b9fd596ca37c2bf607289a72b82acdda09e613c07b2b00ed5120108346",
+        "backend/modules/operations/__init__.py": "c0edbba5522a20c1659463dfa32bd9a0742cee2da9bca48b21304b8df49a5a02",
+        "backend/modules/operations/migrations/0001_initial.py": "68f836e1bac6500a2eb73489dc182bfff9fabc023da978e9e6cfc1c830d3729b",
+        "backend/modules/operations/migrations/0002_initial.py": "a1e9680e00c478de31c316f1cfed2a683771e7aa42914e8e545200590603f2bd",
+        "backend/modules/operations/migrations/0003_job_scope_generation.py": "2133e1f92847b8a18421e7cc3debd79b7198f46d4df9986a3d1f40c98b9619e0",
+        "backend/modules/operations/migrations/0004_job_scope.py": "bb90608d5ecfdabd7d8cedd4b357864fdb5798b267c225d32a60f8ab95c2a049",
+        "backend/modules/operations/migrations/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend/modules/operations/models.py": "bcafa306128241235f95475a9152b966319c1dc38e8d7c0d6452420d5fa8e0ed",
+        "backend/modules/operations/service.py": "ec517557dcf61a88ff3e073b38766e0ac52c04710e7dd8c7fb34a4031d84e271",
+        "backend/modules/operations/transitions.py": "34106941116b4d843e8f667d6ea777ed900a7d90709e541e59f53731897de4cd",
+        "backend/modules/providers/__init__.py": "07e81cd2a7fc9b60c93ef9fa7c23b14ef98e1422cad2ea8e5cd14a340856deb9",
+        "backend/modules/providers/contracts.py": "76c47bb90bd5716c983830e3ffa38a7e6c4f24fef1dab7455f3d869ead6d5fdd",
+        "backend/modules/providers/mock.py": "fb7fe40bd3707c6f0787796fb2ef19c1d0134f4ee5034819615e3e5cfaaf750c",
+        "backend/modules/usage/__init__.py": "b9dc82e1dade906365d8feacb0367a6828a07be330d527e157776ca00630d4d5",
+        "backend/modules/usage/migrations/0001_initial.py": "f7a512b2f4d01e3f14c36b1aae5347d1a7b921797ccd678cbfec85960019bbb3",
+        "backend/modules/usage/migrations/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend/modules/usage/models.py": "44930c0917f40a10dcd01dbb5c68b9404c77f69c7044690ea4caa1d61c9bf279",
+        "backend/pyproject.toml": "9a331cd26885abf81ae9b4aab1a00f8f3455cae3fbb08685a862fd300cb7d9e5",
+        "backend/tests/__init__.py": "4f2355f7683727ba0db065f1a3c8be81e1ee7d53552f117bdfa931e04603116d",
+        "backend/tests/authorization/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend/tests/authorization/postgres_probe.py": "2c8b72f12ad67839bb77f528bb455f060408c46d52c1bd8e8f370f75605098bd",
+        "backend/tests/authorization/test_http.py": "3f82914554084fc1daa7702f6577ea26bdcc9a5572bb30b188c15fa28a75f4f7",
+        "backend/tests/authorization/test_policy.py": "5ad1cef13fb57d1897e64d57358484c4cb899369ee7f60e22e81f3200d57abb1",
+        "backend/tests/conftest.py": "c36f7e3fbab9758b03446f1d16715918a13a6c40c3e3fb22ac3c6cd99b5ce54e",
+        "backend/tests/consent/test_policy.py": "c47f221e53a3b608026d2572093e0d7c32a56c388344903a39f7b9d601919eee",
+        "backend/tests/curriculum/test_contracts.py": "14cf89118963c7b7d6d1aeeee0cca6d9d4fb8f62f4fa46f0aa8f4ddda8e01ffc",
+        "backend/tests/resilience/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend/tests/resilience/postgres_probe.py": "5bd95026c483312820ca265f537e48ceb3b2c9430317fa72984acdc4edd1ae31",
+        "backend/tests/resilience/test_contracts.py": "db3869a32a392e312982ebecbb35d442c86486428b39b0545abf9fb14fba9d46",
+        "backend/tests/test_environment.py": "20e581e91e384087b258b8b0e802389855c36ea8ab2723b3b2548d7aa64c97a2",
+        "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
+        "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
+        "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
+      }
+    },
+    {
+      "report": "image-cves.json",
+      "id": "CVE-2026-95692",
+      "package": "libssl3",
+      "version": "3.5.9-r0",
+      "reviewer": "root adoption after /root/independent_reviewer AUTH-007 exact-scope review, 18 November 2026",
+      "disposition": "restricted_synthetic_ci_only",
+      "rationale": "AUTH-007 proposed exact synthetic-CI residual-risk review; fixed SCRAM, no TLS/GSS/QUIC/CMS/AES-GCM-SIV requests, untrusted certificates or real data. Package remains affected; no general non-reachability claim. High classification remains visible and requires separate exact expiring exception. All other gate conditions remain mandatory.",
+      "source": "https://www.openssl-library.org/news/vulnerabilities-3.5/index.html",
+      "evidence": [
+        "development/evidence/auth-007-openssl-review.md"
+      ],
+      "scope": "Only DEV-006 synthetic CI runner; no child data, uploads, production, or phase approval",
+      "scope_id": "DEV-006-synthetic-ci",
+      "reviewed_at_utc": "2026-11-18T11:39:06.165579+00:00",
+      "expires_at_utc": "2026-11-20T11:39:06.165579+00:00",
+      "scope_inputs": {
+        "backend/config/__init__.py": "508100725b7346baa9dd3e29be555bf6aa006c1119d423c3aadd138952ccea93",
+        "backend/config/asgi.py": "7dca82160e71bf6b94ce65dd7acb4b6dd87a981ef4d0dbfa4dd833472bcc0df5",
+        "backend/config/environment.py": "8c774ecc11f21dc79852a531eba15821ab8a275f89ea3076d50cd13f4e21ee3a",
+        "backend/config/settings.py": "b7f81a91e405d6ab7a1513ae617abe1faf186f89c55a1b9fad896ccf0b44d74a",
+        "backend/config/urls.py": "7a5bb0d1d25ae349bb98f1ca085171fbf386271320b9e51949bff610d579f11e",
+        "backend/manage.py": "0cb15ec1be301fd162cadaebba70534f278eceeca057cb7e4b0f4052c1126283",
+        "backend/modules/__init__.py": "f331739e3741a5641219e169532e13f35f01668455973df432c7ed2de3f09de1",
+        "backend/modules/access/__init__.py": "677d0f897e88db0596690fcd720d62609cce67b00d70e3a8c1237f19ba378038",
+        "backend/modules/access/migrations/0001_initial.py": "270dc9b96186d2fa95420eba3f1178b279e9debc2feb0fc178498bff4f426c77",
+        "backend/modules/access/migrations/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend/modules/access/models.py": "f36c633689725be72a460b023800c60068ae70125368fa5b015fa01422f0476f",
+        "backend/modules/access/policy.py": "5f119a422c893b754e6ebe3c590057ee457ba2d4efd30cc2c821f6d618c9120d",
+        "backend/modules/access/service.py": "5ed1a90bd1a437dc92a7af245c305cf3ea083c58bda67222a2fe540844d035e1",
+        "backend/modules/access/views.py": "136cb04db4d128c54d60ac6c0ba6458f00f1b755ae89b704c09a56d09a121058",
+        "backend/modules/core/__init__.py": "98744a08ab9306d6df4558489b9b1c3cecba9fe55d4f4a941e6fabe74ed0b197",
+        "backend/modules/core/logging.py": "7b5583e68fd4eb21b72ca165d6aeb59e9287f6d32d8f4bbd4c3aeb284c87799b",
+        "backend/modules/core/middleware.py": "f96cf8cc3f4af2ec8bf193975afa061b2ab23f80ac58d71f835428a429083520",
+        "backend/modules/core/views.py": "ede39d3a272796352c923cc489b2ad54cc447238a6e5f17b8725a44c73700a25",
+        "backend/modules/curriculum/__init__.py": "fcbc2478376465c76c8b9190bc2abee3bf8d41d955d2dbf7be5479bb19ac6e20",
+        "backend/modules/curriculum/contracts.py": "51c961e3605df3e9040d54a1afcf38523789f10abc55dfc68f5c0fbf4ef1d3ac",
+        "backend/modules/identity/__init__.py": "8ccb1438a9ecd4fd995899117879856851baf978658c32b9f6246768d43c087d",
+        "backend/modules/identity/consent.py": "ddd9206055f7d47e90c802a9d611923e8eaf950ca6e0e38fe714e4007e08eb93",
+        "backend/modules/identity/migrations/0001_initial.py": "6650680eb30679532292c07bba87268bf260a02c2aa613cb38e340b3765057f7",
+        "backend/modules/identity/migrations/0002_learner_authorization_generation.py": "fd3573e905d66bda586198d6f45a1f901eabf1df60a8a92dd9b34717f907b0e5",
+        "backend/modules/identity/migrations/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend/modules/identity/models.py": "585357b9fd596ca37c2bf607289a72b82acdda09e613c07b2b00ed5120108346",
+        "backend/modules/operations/__init__.py": "c0edbba5522a20c1659463dfa32bd9a0742cee2da9bca48b21304b8df49a5a02",
+        "backend/modules/operations/migrations/0001_initial.py": "68f836e1bac6500a2eb73489dc182bfff9fabc023da978e9e6cfc1c830d3729b",
+        "backend/modules/operations/migrations/0002_initial.py": "a1e9680e00c478de31c316f1cfed2a683771e7aa42914e8e545200590603f2bd",
+        "backend/modules/operations/migrations/0003_job_scope_generation.py": "2133e1f92847b8a18421e7cc3debd79b7198f46d4df9986a3d1f40c98b9619e0",
+        "backend/modules/operations/migrations/0004_job_scope.py": "bb90608d5ecfdabd7d8cedd4b357864fdb5798b267c225d32a60f8ab95c2a049",
+        "backend/modules/operations/migrations/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend/modules/operations/models.py": "bcafa306128241235f95475a9152b966319c1dc38e8d7c0d6452420d5fa8e0ed",
+        "backend/modules/operations/service.py": "ec517557dcf61a88ff3e073b38766e0ac52c04710e7dd8c7fb34a4031d84e271",
+        "backend/modules/operations/transitions.py": "34106941116b4d843e8f667d6ea777ed900a7d90709e541e59f53731897de4cd",
+        "backend/modules/providers/__init__.py": "07e81cd2a7fc9b60c93ef9fa7c23b14ef98e1422cad2ea8e5cd14a340856deb9",
+        "backend/modules/providers/contracts.py": "76c47bb90bd5716c983830e3ffa38a7e6c4f24fef1dab7455f3d869ead6d5fdd",
+        "backend/modules/providers/mock.py": "fb7fe40bd3707c6f0787796fb2ef19c1d0134f4ee5034819615e3e5cfaaf750c",
+        "backend/modules/usage/__init__.py": "b9dc82e1dade906365d8feacb0367a6828a07be330d527e157776ca00630d4d5",
+        "backend/modules/usage/migrations/0001_initial.py": "f7a512b2f4d01e3f14c36b1aae5347d1a7b921797ccd678cbfec85960019bbb3",
+        "backend/modules/usage/migrations/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend/modules/usage/models.py": "44930c0917f40a10dcd01dbb5c68b9404c77f69c7044690ea4caa1d61c9bf279",
+        "backend/pyproject.toml": "9a331cd26885abf81ae9b4aab1a00f8f3455cae3fbb08685a862fd300cb7d9e5",
+        "backend/tests/__init__.py": "4f2355f7683727ba0db065f1a3c8be81e1ee7d53552f117bdfa931e04603116d",
+        "backend/tests/authorization/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend/tests/authorization/postgres_probe.py": "2c8b72f12ad67839bb77f528bb455f060408c46d52c1bd8e8f370f75605098bd",
+        "backend/tests/authorization/test_http.py": "3f82914554084fc1daa7702f6577ea26bdcc9a5572bb30b188c15fa28a75f4f7",
+        "backend/tests/authorization/test_policy.py": "5ad1cef13fb57d1897e64d57358484c4cb899369ee7f60e22e81f3200d57abb1",
+        "backend/tests/conftest.py": "c36f7e3fbab9758b03446f1d16715918a13a6c40c3e3fb22ac3c6cd99b5ce54e",
+        "backend/tests/consent/test_policy.py": "c47f221e53a3b608026d2572093e0d7c32a56c388344903a39f7b9d601919eee",
+        "backend/tests/curriculum/test_contracts.py": "14cf89118963c7b7d6d1aeeee0cca6d9d4fb8f62f4fa46f0aa8f4ddda8e01ffc",
+        "backend/tests/resilience/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend/tests/resilience/postgres_probe.py": "5bd95026c483312820ca265f537e48ceb3b2c9430317fa72984acdc4edd1ae31",
+        "backend/tests/resilience/test_contracts.py": "db3869a32a392e312982ebecbb35d442c86486428b39b0545abf9fb14fba9d46",
+        "backend/tests/test_environment.py": "20e581e91e384087b258b8b0e802389855c36ea8ab2723b3b2548d7aa64c97a2",
+        "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
+        "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
+        "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
+      }
+    },
+    {
+      "report": "system-native-cves.json",
+      "id": "CVE-2026-129483",
+      "package": "libsasl2-2",
+      "version": "2.1.28+dfsg1-5ubuntu3.1",
+      "reviewer": "root adoption after /root/independent_reviewer AUTH-007 exact-scope review, 18 November 2026",
+      "disposition": "restricted_synthetic_ci_only",
+      "scope_id": "DEV-006-synthetic-ci",
+      "reviewed_at_utc": "2026-11-18T11:39:06.165579+00:00",
+      "expires_at_utc": "2026-11-20T11:39:06.165579+00:00",
+      "scope_inputs": {
+        "backend/config/__init__.py": "508100725b7346baa9dd3e29be555bf6aa006c1119d423c3aadd138952ccea93",
+        "backend/config/asgi.py": "7dca82160e71bf6b94ce65dd7acb4b6dd87a981ef4d0dbfa4dd833472bcc0df5",
+        "backend/config/environment.py": "8c774ecc11f21dc79852a531eba15821ab8a275f89ea3076d50cd13f4e21ee3a",
+        "backend/config/settings.py": "b7f81a91e405d6ab7a1513ae617abe1faf186f89c55a1b9fad896ccf0b44d74a",
+        "backend/config/urls.py": "7a5bb0d1d25ae349bb98f1ca085171fbf386271320b9e51949bff610d579f11e",
+        "backend/manage.py": "0cb15ec1be301fd162cadaebba70534f278eceeca057cb7e4b0f4052c1126283",
+        "backend/modules/__init__.py": "f331739e3741a5641219e169532e13f35f01668455973df432c7ed2de3f09de1",
+        "backend/modules/access/__init__.py": "677d0f897e88db0596690fcd720d62609cce67b00d70e3a8c1237f19ba378038",
+        "backend/modules/access/migrations/0001_initial.py": "270dc9b96186d2fa95420eba3f1178b279e9debc2feb0fc178498bff4f426c77",
+        "backend/modules/access/migrations/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend/modules/access/models.py": "f36c633689725be72a460b023800c60068ae70125368fa5b015fa01422f0476f",
+        "backend/modules/access/policy.py": "5f119a422c893b754e6ebe3c590057ee457ba2d4efd30cc2c821f6d618c9120d",
+        "backend/modules/access/service.py": "5ed1a90bd1a437dc92a7af245c305cf3ea083c58bda67222a2fe540844d035e1",
+        "backend/modules/access/views.py": "136cb04db4d128c54d60ac6c0ba6458f00f1b755ae89b704c09a56d09a121058",
+        "backend/modules/core/__init__.py": "98744a08ab9306d6df4558489b9b1c3cecba9fe55d4f4a941e6fabe74ed0b197",
+        "backend/modules/core/logging.py": "7b5583e68fd4eb21b72ca165d6aeb59e9287f6d32d8f4bbd4c3aeb284c87799b",
+        "backend/modules/core/middleware.py": "f96cf8cc3f4af2ec8bf193975afa061b2ab23f80ac58d71f835428a429083520",
+        "backend/modules/core/views.py": "ede39d3a272796352c923cc489b2ad54cc447238a6e5f17b8725a44c73700a25",
+        "backend/modules/curriculum/__init__.py": "fcbc2478376465c76c8b9190bc2abee3bf8d41d955d2dbf7be5479bb19ac6e20",
+        "backend/modules/curriculum/contracts.py": "51c961e3605df3e9040d54a1afcf38523789f10abc55dfc68f5c0fbf4ef1d3ac",
+        "backend/modules/identity/__init__.py": "8ccb1438a9ecd4fd995899117879856851baf978658c32b9f6246768d43c087d",
+        "backend/modules/identity/consent.py": "ddd9206055f7d47e90c802a9d611923e8eaf950ca6e0e38fe714e4007e08eb93",
+        "backend/modules/identity/migrations/0001_initial.py": "6650680eb30679532292c07bba87268bf260a02c2aa613cb38e340b3765057f7",
+        "backend/modules/identity/migrations/0002_learner_authorization_generation.py": "fd3573e905d66bda586198d6f45a1f901eabf1df60a8a92dd9b34717f907b0e5",
+        "backend/modules/identity/migrations/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend/modules/identity/models.py": "585357b9fd596ca37c2bf607289a72b82acdda09e613c07b2b00ed5120108346",
+        "backend/modules/operations/__init__.py": "c0edbba5522a20c1659463dfa32bd9a0742cee2da9bca48b21304b8df49a5a02",
+        "backend/modules/operations/migrations/0001_initial.py": "68f836e1bac6500a2eb73489dc182bfff9fabc023da978e9e6cfc1c830d3729b",
+        "backend/modules/operations/migrations/0002_initial.py": "a1e9680e00c478de31c316f1cfed2a683771e7aa42914e8e545200590603f2bd",
+        "backend/modules/operations/migrations/0003_job_scope_generation.py": "2133e1f92847b8a18421e7cc3debd79b7198f46d4df9986a3d1f40c98b9619e0",
+        "backend/modules/operations/migrations/0004_job_scope.py": "bb90608d5ecfdabd7d8cedd4b357864fdb5798b267c225d32a60f8ab95c2a049",
+        "backend/modules/operations/migrations/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend/modules/operations/models.py": "bcafa306128241235f95475a9152b966319c1dc38e8d7c0d6452420d5fa8e0ed",
+        "backend/modules/operations/service.py": "ec517557dcf61a88ff3e073b38766e0ac52c04710e7dd8c7fb34a4031d84e271",
+        "backend/modules/operations/transitions.py": "34106941116b4d843e8f667d6ea777ed900a7d90709e541e59f53731897de4cd",
+        "backend/modules/providers/__init__.py": "07e81cd2a7fc9b60c93ef9fa7c23b14ef98e1422cad2ea8e5cd14a340856deb9",
+        "backend/modules/providers/contracts.py": "76c47bb90bd5716c983830e3ffa38a7e6c4f24fef1dab7455f3d869ead6d5fdd",
+        "backend/modules/providers/mock.py": "fb7fe40bd3707c6f0787796fb2ef19c1d0134f4ee5034819615e3e5cfaaf750c",
+        "backend/modules/usage/__init__.py": "b9dc82e1dade906365d8feacb0367a6828a07be330d527e157776ca00630d4d5",
+        "backend/modules/usage/migrations/0001_initial.py": "f7a512b2f4d01e3f14c36b1aae5347d1a7b921797ccd678cbfec85960019bbb3",
+        "backend/modules/usage/migrations/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend/modules/usage/models.py": "44930c0917f40a10dcd01dbb5c68b9404c77f69c7044690ea4caa1d61c9bf279",
+        "backend/pyproject.toml": "9a331cd26885abf81ae9b4aab1a00f8f3455cae3fbb08685a862fd300cb7d9e5",
+        "backend/tests/__init__.py": "4f2355f7683727ba0db065f1a3c8be81e1ee7d53552f117bdfa931e04603116d",
+        "backend/tests/authorization/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend/tests/authorization/postgres_probe.py": "2c8b72f12ad67839bb77f528bb455f060408c46d52c1bd8e8f370f75605098bd",
+        "backend/tests/authorization/test_http.py": "3f82914554084fc1daa7702f6577ea26bdcc9a5572bb30b188c15fa28a75f4f7",
+        "backend/tests/authorization/test_policy.py": "5ad1cef13fb57d1897e64d57358484c4cb899369ee7f60e22e81f3200d57abb1",
+        "backend/tests/conftest.py": "c36f7e3fbab9758b03446f1d16715918a13a6c40c3e3fb22ac3c6cd99b5ce54e",
+        "backend/tests/consent/test_policy.py": "c47f221e53a3b608026d2572093e0d7c32a56c388344903a39f7b9d601919eee",
+        "backend/tests/curriculum/test_contracts.py": "14cf89118963c7b7d6d1aeeee0cca6d9d4fb8f62f4fa46f0aa8f4ddda8e01ffc",
+        "backend/tests/resilience/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend/tests/resilience/postgres_probe.py": "5bd95026c483312820ca265f537e48ceb3b2c9430317fa72984acdc4edd1ae31",
+        "backend/tests/resilience/test_contracts.py": "db3869a32a392e312982ebecbb35d442c86486428b39b0545abf9fb14fba9d46",
+        "backend/tests/test_environment.py": "20e581e91e384087b258b8b0e802389855c36ea8ab2723b3b2548d7aa64c97a2",
+        "backend/tests/test_http.py": "ee9d4c0d18f1ad9125b2229dce0fd626fe69b961814f81c45ccacad24a04fd31",
+        "backend/tests/test_postgres_integration.py": "3415ab4d26b502c9c3bcc44542515ebbab5c8bb9a04fadfffec6029e87e543ed",
+        "backend/uv.lock": "d1e092337983f825a4a0def578872720903745d7fbb1eecffa09315632cdaaa4",
+        "tools/run_postgres_smoke.py": "1c76368f90bd0581de9bb073d260a239f1a1840294ce97272f63b8fa789ef23d"
+      },
+      "rationale": "Ubuntu priority/Grype Medium while publisher CVSS is Critical: preserve both observations. Affected mechanism is Cyrus SRP server; this fixed synthetic workload is libpq client required SCRAM, no Cyrus SRP server/LDAP/Kerberos service or untrusted peer. Scoped applicability inference only; package not fixed. No severity exemption for this native finding; future High/Critical/unknown/KEV classification blocks.",
+      "source": "https://ubuntu.com/security/CVE-2026-129483",
+      "evidence": [
+        "development/evidence/auth-007-openssl-review.md"
       ]
     }
   ],

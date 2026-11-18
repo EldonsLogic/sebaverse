@@ -69,10 +69,11 @@ def verify_preuse(root=ROOT):
         raise ValueError("Pre-use validator is unavailable")
     checker = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(checker)
-    current = checker.evaluate(directory, root=root, now=now)
+    execution_scope = "synthetic-ci" if os.environ.get("SEBAVERSE_SECURITY_SCOPE") == "synthetic-ci" else "standard"
+    current = checker.evaluate(directory, root=root, now=now, execution_scope=execution_scope)
     if current.get("status") != "pass" or current.get("input_hashes") != inputs:
         raise ValueError("Current native/image source coverage no longer passes; rerun review")
-    for key in ("image_reference", "platform_manifest_digest", "image_runtime", "reports", "policy", "scope"):
+    for key in ("image_reference", "platform_manifest_digest", "image_runtime", "reports", "policy", "scope", "execution_scope", "temporary_exception"):
         if stored.get(key) != current.get(key):
             raise ValueError("Pre-use identity/findings differ from the approved snapshot")
     pin = json.loads((root / "infra/images.lock.json").read_text())["postgres"]
