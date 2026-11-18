@@ -87,3 +87,7 @@ Maintain three separate loops: individual adaptation from validated evidence; sy
 ## Immediate next action and handover
 
 Finish and verify DEV-001 to DEV-004, recording actual evidence and pushed state. Run and pass the complete F0 exit gate before activating DEV-005. Pass F1 readiness checks before installing/scaffolding the product under the recorded execution scope, and continue the same test-before-next-phase rule through F8. Every session ends with the task state, changed files, actual checks, branch/commit/push status, unresolved risks and one exact next step. Dates and completion estimates are planning inputs, not a fixed launch promise.
+
+## U19 integration direction — 18 November 2026
+
+DEV-013 includes R105/ADR-013: integrate AG-UI at the tutor/interface boundary after its existing dependencies and F3 exit. Read architecture/ag-ui-integration.md before package selection or implementation. No current phase or gate is bypassed; SDK provenance/rights/security and the compatibility comparison precede activation.

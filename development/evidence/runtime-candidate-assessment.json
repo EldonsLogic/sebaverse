@@ -1,0 +1,66 @@
+{
+  "evidence_id": "AUTH-006-ASSESS-001",
+  "run": 44294630688,
+  "source_commit": "679adec0ccf07ae311c0c2217b9929948a03ed77",
+  "result": "neither_qualified",
+  "image_executed": false,
+  "runtime_pin_changed": false,
+  "candidates": [
+    {
+      "candidate": "17-bookworm",
+      "reference": "docker.io/library/postgres@sha256:99d1a998c76487d3abb48b141505bda5dcf8089c0c4cd7be40f75de314fa32f0",
+      "postgres_version": "17.12-1.pgdg12+1",
+      "packages": 159,
+      "findings": 580,
+      "severity_counts": {
+        "negligible": 140,
+        "high": 153,
+        "critical": 9,
+        "medium": 201,
+        "low": 53,
+        "unknown": 24
+      },
+      "openssl_packages": [
+        [
+          "libssl3",
+          "3.0.22-1~deb12u2"
+        ],
+        [
+          "openssl",
+          "3.0.22-1~deb12u2"
+        ]
+      ],
+      "sbom_sha256": "063858a3ec5c753880c173a0cde5438c8aaedce2d0947e31019a14a05a80d4c9",
+      "advisories_sha256": "d1acd28acca791afd8bef1be9a3cc3afc1adf324d55d83bbc44dd6f32954b5c3",
+      "qualified": false
+    },
+    {
+      "candidate": "17-trixie",
+      "reference": "docker.io/library/postgres@sha256:6f7593c161689b6b02c78668b314af7da8811b592c5519108c57a49d0b6ad788",
+      "postgres_version": "17.12-1.pgdg13+1",
+      "packages": 149,
+      "findings": 515,
+      "severity_counts": {
+        "negligible": 116,
+        "high": 166,
+        "critical": 4,
+        "medium": 160,
+        "low": 45,
+        "unknown": 24
+      },
+      "openssl_packages": [
+        [
+          "libssl3t64",
+          "3.5.7-1~deb13u3"
+        ],
+        [
+          "openssl",
+          "3.5.7-1~deb13u3"
+        ]
+      ],
+      "sbom_sha256": "0ddc272413009608c5c48a7b3e58f905782bdfc68331637a7492986bb81b57eb",
+      "advisories_sha256": "1a87c327c6794034cf4f301db65978e0dc6edae5c1644bd770ef4deab31395c1",
+      "qualified": false
+    }
+  ]
+}

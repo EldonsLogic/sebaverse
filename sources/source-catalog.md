@@ -68,3 +68,5 @@ Exact research files/bytes/checksums: [manifest](research-manifest.json). Suppor
 - U17: [Continue bounded synthetic product development after preview](f3-continue-instruction.md), 15 November 2026. Exact quoted request distinguished from operational scope interpretation.
 
 - U18: [Review and quality-bar instructions for all agents](quality-bar-instruction.md), 16 November 2026. Exact quoted request distinguished from operational interpretation.
+
+- U19: [AG-UI integration instruction](ag-ui-integration-instruction.md), 18 November 2026. Exact founder wording distinguished from operational phase/scope interpretation.

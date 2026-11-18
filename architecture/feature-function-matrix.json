@@ -1989,5 +1989,26 @@
     "status": "Foundation controls documented and locally/hosted-CI verified; future product phase suites not run",
     "priority": "P0",
     "requirement_phase": "Foundation / all phases"
+  },
+  {
+    "requirement_id": "R105",
+    "feature": "AG-UI tutor/interface protocol integration",
+    "functions": "Map validated tutor events to reviewed AG-UI envelopes; authenticate/replay/cancel without transferring state authority",
+    "phase": "F4 / A3 tutor interface",
+    "build_reuse": "Owned protocol adapter + selectively reviewed upstream schema/SDK; no whole scaffold",
+    "sources": [
+      "U19"
+    ],
+    "dependencies": [
+      "R060",
+      "R062",
+      "R067",
+      "R075"
+    ],
+    "acceptance_criteria": "Reviewed pinned AG-UI schema/SDK adapter preserves validated blocks, same-origin sessions/CSRF, live scope, durable replay/cancellation and deterministic authority; malformed events/state patches and cross-learner/stale output fail; Arabic/accessibility/bundle and comparative transport results recorded before activation.",
+    "specification": "architecture/ag-ui-integration.md",
+    "status": "Approved integration direction; implementation gated at DEV-013",
+    "priority": "P1",
+    "requirement_phase": "MVP"
   }
 ]

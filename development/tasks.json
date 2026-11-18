@@ -689,7 +689,8 @@
         "R028",
         "R053",
         "R062",
-        "R067"
+        "R067",
+        "R105"
       ],
       "dependencies": [
         "DEV-009",
@@ -700,7 +701,8 @@
         "Deterministic allowed states/actions and typed tools govern diagnose/explain/guide/practice/review/pause.",
         "REST starts durable turns; authenticated SSE replays validated blocks/checkpoints, not raw unchecked content.",
         "Scope revocation, hint exposure, outage, cancellation and late results cannot mutate wrong item/session.",
-        "Record actual task checks for the mandatory phase exit gate; do not advance to the next phase until every required check passes and evidence/review is recorded."
+        "Record actual task checks for the mandatory phase exit gate; do not advance to the next phase until every required check passes and evidence/review is recorded.",
+        "Integrate the reviewed AG-UI protocol adapter under R105/ADR-013; validate schema, session/CSRF, scope, replay/cancellation and immutable server authority, with Arabic/accessibility/bundle and comparative evidence before activation."
       ],
       "verification": [
         "make test-tutor-state"
@@ -710,7 +712,8 @@
       "files": [
         "backend/modules/tutoring/",
         "web/src/features/tutor/",
-        "contracts/tutor/"
+        "contracts/tutor/",
+        "contracts/ag-ui/"
       ],
       "verification_contracts": [
         {

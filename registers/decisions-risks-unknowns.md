@@ -90,3 +90,9 @@ RISK-F3-001 — 17 November 2026: current dependency readiness regressed during 
 
 
 RISK-F3-002 — 18 November 2026: DEV-009 hosted integration is held by newly observed High OpenSSL matches in the pinned PostgreSQL image. Compatible current official amd64 image/Alpine package paths still contain 3.5.9; upstream lists 3.5.10 fixed. AUTH-005 does not waive these High matches. No database/resilience execution or DEV-010 progression is allowed. Engineering prepared a bounded alternative official PostgreSQL 17 image assessment versus waiting for Alpine fixes; founder chooses the next approach after the current repair budget. Evidence: development/evidence/dev-009-runtime-recovery.md. No compromise or real learner exposure is established.
+
+
+ADR-013 / U19 — 18 November 2026: founder requested AG-UI integration. R105, architecture/ag-ui-integration.md and DEV-013 define a minimal adapter while preserving Django/React, validated content, deterministic authority and durable REST/SSE. Exact SDK/lock adoption and activation remain gated; no package or product integration has run. Upstream evidence is pinned at 3416b86da4b3288e87f827c7f2759a7fa18b5231; benefits and dependency delta are unmeasured.
+
+
+RISK-F3-002 update — AUTH-006 static assessment completed on 18 November in run 44294630688; both allowed official PG17 alternatives contain blocking matches, including native non-Go components. No pin/gate change or database use. DEV-009 remains in review; no third candidate is authorized under this budget. See development/evidence/runtime-candidate-assessment.md.

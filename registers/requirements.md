@@ -937,3 +937,12 @@ Authoritative structured form: requirements.json. All requirements retained; pro
 - Acceptance: Every phase declares relevant required test suites and acceptance; actual passing results/evidence, cleared blockers and independent review required; checker rejects not-run/failing/missing evidence and early next-phase starts.
 - Specification: [development/phase-gates.json](../development/phase-gates.json).
 - Disposition: Retained as cross-agent and development governance; no pilot/deployment authorization inferred.
+
+## R105 — AG-UI tutor/interface protocol integration
+
+- Source: U19; status: Approved integration direction; implementation gated at DEV-013.
+- Priority: P1 (engineering sequencing); phase: MVP; owner: Engineering; founder for scope decisions.
+- Dependencies: R060, R062, R067, R075.
+- Acceptance: Reviewed pinned AG-UI schema/SDK adapter preserves validated blocks, same-origin sessions/CSRF, live scope, durable replay/cancellation and deterministic authority; malformed events/state patches and cross-learner/stale output fail; Arabic/accessibility/bundle and comparative transport results recorded before activation.
+- Specification: [integration contract](../architecture/ag-ui-integration.md).
+- Disposition: Required in DEV-013 after dependencies/F3 exit; no installation or implementation claimed.

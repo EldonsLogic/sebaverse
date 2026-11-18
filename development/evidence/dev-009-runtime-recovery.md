@@ -32,3 +32,8 @@ image-cves.json SHA-256: `8993bf746c5ab5ee5472eedf729f49a356c340b5b771742134bb36
 ## AUTH-006 assessment started
 
 18 November 2026: founder selected option 1. Threat is the existing runtime's newly reported OpenSSL findings; no learner or production service is present. Budget: two official PostgreSQL 17 candidates, 17-bookworm and 17-trixie, static inspection first; no source build, custom native patch or threshold change. Existing checksum-pinned Syft/Grype tools will inspect immutable registry content without running images. Candidate qualification is not presumed.
+
+
+## AUTH-006 result
+
+The two authorized official candidates were statically cataloged/scanned in hosted run 44294630688. Neither qualifies: Bookworm has 9 Critical, 153 High and 24 unknown-severity matches; Trixie has 4 Critical, 166 High and 24 unknown-severity matches. These are matches, not unique vulnerabilities or exploits. No runtime pin or threshold changed and no database ran. See [bounded assessment](runtime-candidate-assessment.md) for exact hashes and continuity. The assessment budget is exhausted; no third candidate is started.

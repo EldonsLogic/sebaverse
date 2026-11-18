@@ -17,3 +17,7 @@ Separate Node backend; WebSocket for ordinary text; localStorage bearer tokens. 
 ## Reversal and execution
 
 Change only through a dated ADR amendment with measured failure/benefit and migration/rights review. Implementation/deployment and real-data permissions remain separate.
+
+## U19 integration direction — 18 November 2026
+
+[ADR-013](ADR-013-ag-ui-integration.md) adds AG-UI protocol compatibility at the existing tutor/interface boundary. Django/React and durable REST/SSE remain selected; no measured performance benefit or replacement transport is claimed. Execution and exact dependency adoption follow the integration contract and DEV-013 gates.

@@ -44,7 +44,7 @@ Project files are editable Markdown/JSON with preserved Git history. The founder
 
 ## Selected architecture and audit handoff
 
-[Technical baseline](architecture/technical-baseline.md), [all 104 features/functions](architecture/feature-function-matrix.md), [all 22 repo decisions](architecture/repository-adoption.md), and [subject-independent phases/PoC](execution/subject-independent-poc.md). [Shareable audit package](outputs/sebaverse-architecture-audit-v1/README.md). Design selected. F2 now contains a local empty application shell; tutoring and paid benchmarks remain unbuilt.
+[Technical baseline](architecture/technical-baseline.md), [all 105 features/functions](architecture/feature-function-matrix.md), [22 original audit dispositions and AG-UI follow-up](architecture/repository-adoption.md), and [subject-independent phases/PoC](execution/subject-independent-poc.md). [Shareable audit package](outputs/sebaverse-architecture-audit-v1/README.md). Design selected. F2 now contains a local empty application shell; tutoring and paid benchmarks remain unbuilt.
 
 ## Development starts here — U13/U14
 

@@ -115,3 +115,9 @@ F0–F8 are the development view of A1–A7, defined in development/ROADMAP.md; 
 | R102 — Pinned coding-discipline guidance in shared project rules | Apply concise assumption/simplicity/focused-change/observable-success discipline | F0 and every subsequent phase | Owned workflow/check tooling; pinned source ideas adapted, no external source runtime |
 | R103 — Extract and execute bounded verifiable agent-team guidance | Maintain contracts/real roster; delegate independent files; test/review/record actual outputs | F0 and every subsequent phase | Owned workflow/check tooling; pinned source ideas adapted, no external source runtime |
 | R104 — Tests and review must pass after every phase before progression | Declare/run phase tests; reject premature advancement; record evidence, reviewer and blockers | F0 and every subsequent phase | Owned workflow/check tooling; pinned source ideas adapted, no external source runtime |
+
+## U19 protocol integration addition
+
+| Requirement | Functions | Phase | Build/reuse |
+|---|---|---|---|
+| R105 — AG-UI tutor/interface protocol integration | Map reviewed events; preserve live authorization, validated blocks, replay and cancellation | F4 / A3, DEV-013 after F3 exit | Owned adapter plus exact reviewed upstream schema/SDK; no whole scaffold |

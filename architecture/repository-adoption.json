@@ -408,5 +408,29 @@
       "integration_results": "not run",
       "release_gate": "Exact release/closure/security/license/model rights and contract tests before adoption"
     }
+  ],
+  "followup_repositories": [
+    {
+      "id": "CAND-AGUI-001",
+      "name": "AG-UI",
+      "url": "https://github.com/ag-ui-protocol/ag-ui",
+      "observed_commit": "3416b86da4b3288e87f827c7f2759a7fa18b5231",
+      "license_observation": "MIT repository license; exact SDK/transitive closure not cleared",
+      "source": "U19; architecture/candidates/ag-ui.md",
+      "disposition": "protocol_adapter_integration_direction",
+      "phase": "DEV-013 / F4, after dependencies and F3 exit",
+      "requirements": [
+        "R105",
+        "R062",
+        "R067",
+        "R075"
+      ],
+      "boundary": "Reviewed schema/types or selected SDK only; no whole scaffold, framework replacement, external hosted service or state authority delegation",
+      "production_release": null,
+      "dependency_lock": null,
+      "copied_files": [],
+      "integration_results": "Planning reviewed; no install or product implementation",
+      "release_gate": "architecture/ag-ui-integration.md; exact artifact/dependency/rights/security review, compatibility/evals and applicable phase gates"
+    }
   ]
 }

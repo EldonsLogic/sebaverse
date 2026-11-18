@@ -42,3 +42,8 @@ These are architectural selections rather than claimed audited applications: Dja
 ## Reuse acceptance
 
 Every adopted artifact needs owner, purpose, exact version/digest, checksum, original URL, SPDX/license expression and notice files, model/asset permissions, transitive dependency closure, vulnerability results and exceptions, data/egress review, minimum adapter tests, update/removal plan and release approval. Preserve modified-source history and avoid making the research manifest a product lockfile. Copyleft components require an explicit rights/integration decision; process separation is not asserted as automatic legal resolution. No empty vulnerability query or recent commit establishes security.
+
+
+## Founder follow-up U19 — AG-UI
+
+The original 22 audit rows and preserved packs are unchanged. AG-UI is a new founder-requested follow-up: [pinned assessment](candidates/ag-ui.md), [ADR-013](adr/ADR-013-ag-ui-integration.md), [integration contract](ag-ui-integration.md). Direction: a minimal protocol adapter in DEV-013, with exact schema/SDK/dependency review before reuse. No package, whole scaffold or hosted service is adopted at this checkpoint. Machine-readable followup_repositories records this separately from the historical audit rows.

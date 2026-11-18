@@ -1989,5 +1989,26 @@
     "status": "Foundation controls documented and locally/hosted-CI verified; future product phase suites not run",
     "evidence_status": "Founder requirement U13/U14",
     "omission_disposition": "Retained as cross-agent and development governance; no pilot/deployment authorization inferred"
+  },
+  {
+    "id": "R105",
+    "requirement": "AG-UI tutor/interface protocol integration",
+    "sources": [
+      "U19"
+    ],
+    "priority": "P1",
+    "phase": "MVP",
+    "dependencies": [
+      "R060",
+      "R062",
+      "R067",
+      "R075"
+    ],
+    "acceptance_criteria": "Reviewed pinned AG-UI schema/SDK adapter preserves validated blocks, same-origin sessions/CSRF, live scope, durable replay/cancellation and deterministic authority; malformed events/state patches and cross-learner/stale output fail; Arabic/accessibility/bundle and comparative transport results recorded before activation.",
+    "specification": "architecture/ag-ui-integration.md",
+    "owner": "Engineering; founder for scope decisions",
+    "status": "Approved integration direction; implementation gated at DEV-013",
+    "evidence_status": "Founder integration instruction; P1 is engineering sequencing; upstream capabilities observed; benefit/SDK choice unmeasured",
+    "omission_disposition": "Required in DEV-013 after dependencies/F3 exit; no installation or implementation claimed"
   }
 ]
