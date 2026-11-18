@@ -41,9 +41,10 @@
 - HEAD commit SHA:
   - Prior `main` HEAD: `bff322a00cdc824496dd262907b0ceb61116d573` (`Record bounded parser and scanner holds and authorized alternate assessments`).
   - Codex checkpoint commit on `antigravity/dev-010-handover`: `baa2db0` (`DEV-010: checkpoint Codex in-progress scanner review as found`).
-  - Final handover commit on `antigravity/dev-010-handover`: recorded in the PR and `git log -2` on `antigravity/dev-010-handover` (contains this handoff file, `development/evidence/dev-010.md`, `development/CURRENT-STATE.md`, and `development/agents/roster.json`).
+  - Handover commit on `antigravity/dev-010-handover`: `dc1b9ba` (`DEV-010: record AUTH-010 OpenSSL CVE-2026-107496 hold and Antigravity handover`), followed by a one-line PR/SHA reference update commit.
 - Remote branch SHA / verification command and result:
-  - Command: `git push -u origin antigravity/dev-010-handover` and `gh pr create --base main --head antigravity/dev-010-handover --title "DEV-010: Antigravity handover" ...` (pushed and opened PR without merging; exact remote SHA matches branch HEAD).
+  - Command: `git push -u origin antigravity/dev-010-handover` and `gh pr create --base main --head antigravity/dev-010-handover --title "DEV-010: Antigravity handover" ...`
+  - Result: Opened Pull Request **#4** (`https://github.com/EldonsLogic/sebaverse/pull/4`) into `main` (not merged).
 - Working-tree state (`git status --short` summary):
   - Clean (`git status --short` produces empty output after committing the handover records). Ignored scratch files under `work/dev-010/` remain untouched on disk.
 - Committed versus uncommitted work and its owner:
