@@ -31,3 +31,7 @@ test-ingestion:
 	SEBAVERSE_ENV=local DJANGO_DEBUG=1 backend/.venv/bin/python -m pytest backend/tests/ingestion -q
 
 test-content-isolation: test-contracts test-authorization
+
+.PHONY: test-resilience
+test-resilience:
+	SEBAVERSE_ENV=local DJANGO_DEBUG=1 backend/.venv/bin/python -m pytest backend/tests/resilience -q

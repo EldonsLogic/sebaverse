@@ -23,6 +23,8 @@ INSTALLED_APPS = [
     "rest_framework",
     "modules.identity",
     "modules.access",
+    "modules.usage",
+    "modules.operations",
 ]
 MIDDLEWARE = [
     "modules.core.middleware.RequestPolicyMiddleware",

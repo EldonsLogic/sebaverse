@@ -498,7 +498,7 @@
       "id": "DEV-009",
       "title": "Implement durable jobs, usage reservations and cancellation",
       "phase": "F3",
-      "status": "planned",
+      "status": "review",
       "requirements": [
         "R062",
         "R067",
@@ -522,7 +522,9 @@
         "make test-resilience"
       ],
       "execution_condition": "All preceding mandatory phase exit tests passed with recorded evidence/review. Applicable G1–G3 execution decisions recorded; synthetic fixtures only; exact dependency/license/security closure reviewed. No paid calls or deployment implied.",
-      "evidence": [],
+      "evidence": [
+        "development/evidence/dev-009.md"
+      ],
       "files": [
         "backend/modules/operations/",
         "backend/modules/usage/",

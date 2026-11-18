@@ -21,6 +21,7 @@ class Membership(models.Model):
 
 
 class Learner(models.Model):
+    authorization_generation = models.PositiveIntegerField(default=0)
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     tenant = models.ForeignKey(Tenant, on_delete=models.PROTECT)
     actor = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.PROTECT)

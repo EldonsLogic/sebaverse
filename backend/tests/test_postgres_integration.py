@@ -68,5 +68,14 @@ print(json.dumps({"migrations": "applied", "postgres_family": 17, "psycopg_impl"
         pytest.fail(f"Synthetic PostgreSQL authorization probe failed with exit {access_probe.returncode}; connection details withheld.")
     assert json.loads(access_probe.stdout) == {"negative_scope_cases": 120, "positive_cases": 24,
                                               "revocation_cases": 8, "constraint_cases": 3, "actor_specific_negative_cases": 8}
+    resilience = subprocess.run(
+        [sys.executable, "backend/tests/resilience/postgres_probe.py"], cwd=root, env=env,
+        capture_output=True, text=True, timeout=90,
+    )
+    if resilience.returncode:
+        pytest.fail(f"Synthetic PostgreSQL resilience probe failed with exit {resilience.returncode}; connection details withheld.")
+    resilience_result = json.loads(resilience.stdout)
+    assert resilience_result['count'] == 14 and resilience_result['provider_calls'] == 'mock-only'
+    assert resilience_result['transactions_over_dispatch'] is False
     result = json.loads(verified.stdout)
     assert result == {"migrations": "applied", "postgres_family": 17, "psycopg_impl": "python", "session_round_trip": "pass", "readiness": "ready"}
