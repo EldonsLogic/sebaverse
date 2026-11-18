@@ -1,0 +1,57 @@
+name: Static runtime candidate assessment
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  static-assessment:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - candidate: 17-bookworm
+            reference: docker.io/library/postgres@sha256:99d1a998c76487d3abb48b141505bda5dcf8089c0c4cd7be40f75de314fa32f0
+          - candidate: 17-trixie
+            reference: docker.io/library/postgres@sha256:6f7593c161689b6b02c78668b314af7da8811b592c5519108c57a49d0b6ad788
+    env:
+      GRYPE_DB_CACHE_DIR: ${{ github.workspace }}/work/runtime-assessment/grype-db
+      GRYPE_CHECK_FOR_APP_UPDATE: 'false'
+      SYFT_CHECK_FOR_APP_UPDATE: 'false'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version-file: .python-version
+      - name: Acquire existing checksum-pinned static scanners
+        run: python3 tools/security/bootstrap.py --platform linux_amd64
+      - name: Catalog immutable candidate without executing image
+        timeout-minutes: 8
+        env:
+          CANDIDATE_REF: ${{ matrix.reference }}
+        run: |
+          mkdir -p work/runtime-assessment
+          .local/security-tools/syft "registry:$CANDIDATE_REF" --platform linux/amd64 -q -o syft-json=work/runtime-assessment/sbom.json
+      - name: Record all advisories with no ignore policy
+        timeout-minutes: 8
+        run: |
+          printf 'ignore: []\n' > work/runtime-assessment/grype.yaml
+          .local/security-tools/grype sbom:work/runtime-assessment/sbom.json --config work/runtime-assessment/grype.yaml -q -o json --file work/runtime-assessment/advisories.json
+      - name: Summarize static evidence without approving use
+        env:
+          CANDIDATE_NAME: ${{ matrix.candidate }}
+          CANDIDATE_REF: ${{ matrix.reference }}
+        run: python3 tools/security/summarize_runtime_assessment.py
+      - name: Retain assessment evidence, including failures
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: runtime-${{ matrix.candidate }}
+          path: |
+            work/runtime-assessment/*.json
+            work/runtime-assessment/grype.yaml
+            work/f2-security/tools.json
+          retention-days: 7

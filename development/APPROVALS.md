@@ -29,3 +29,7 @@ Use selected stack, reviewed existing dependencies and zero paid providers. Each
 ## AUTH-005 — Founder recovery choice, 17 November 2026
 
 Founder selected: “Review a temporary, development-only exception (recommended); keep all production and real-data restrictions.” This authorizes the bounded assessment and preparation of exact, expiring development-only dispositions in development/evidence/dev-007-recovery-options.md option 1. It does not itself clear findings or approve arbitrary exceptions. Evidence, negative tests and independent review must support any adopted scope. No production, exposed service, deployment, real learner data or general dependency clearance is authorized. New or changed findings, versions, inputs or expired reviews must fail closed.
+
+## AUTH-006 — Founder runtime recovery choice, 18 November 2026
+
+Founder selected “Assess alternative official PostgreSQL 17 images (recommended); preserve all security and real-data restrictions.” This authorizes assessment of at most two immutable official PostgreSQL 17 runtime candidates under development/evidence/dev-009-runtime-recovery.md option 1, metadata/package/notice/advisory inspection and bounded compatibility changes only if a candidate qualifies. Keep all severity/KEV gates, independent review before execution, synthetic-only scope and existing real-data/deployment restrictions. No High-finding waiver, OpenSSL source build, new custom native patch or unlimited remediation attempt is authorized. Stop with evidence if neither candidate qualifies.

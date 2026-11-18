@@ -28,3 +28,7 @@ current-index.json SHA-256: `a77aa70e641402a21411b92b721c58d10f23b50ae5fdd2333ef
 alpine-packages.json SHA-256: `a34a89b2eb9a50192194ac561193b19e0f4ad72a49ea969cbf50349f6ba225ca`.
 
 image-cves.json SHA-256: `8993bf746c5ab5ee5472eedf729f49a356c340b5b771742134bb36af205502da`.
+
+## AUTH-006 assessment started
+
+18 November 2026: founder selected option 1. Threat is the existing runtime's newly reported OpenSSL findings; no learner or production service is present. Budget: two official PostgreSQL 17 candidates, 17-bookworm and 17-trixie, static inspection first; no source build, custom native patch or threshold change. Existing checksum-pinned Syft/Grype tools will inspect immutable registry content without running images. Candidate qualification is not presumed.
