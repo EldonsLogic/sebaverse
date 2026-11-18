@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "run": "f2-static-remediation-2026-11-15",
+  "run": "dev-010-antigravity-handover-2026-11-18",
   "max_concurrent_including_orchestrator": 4,
   "paid_provider_budget_usd": 0,
   "token_budget": null,
@@ -13,7 +13,7 @@
         "Infrastructure",
         "Integration"
       ],
-      "status": "active",
+      "status": "interrupted",
       "files": [
         "infra/",
         "tools/",
@@ -23,35 +23,23 @@
         "sources/",
         "registers/"
       ],
-      "evidence": "Actual F1 coordination and tool calls"
+      "evidence": "Codex DEV-010 broker implementation and in-progress scanner/parser reviews checkpointed unchanged at baa2db0"
     },
     {
-      "agent": "/root/development_plan",
+      "agent": "/antigravity",
       "roles": [
-        "Backend",
-        "Testing"
+        "Security",
+        "Infrastructure",
+        "Documentation"
       ],
       "status": "completed",
       "files": [
-        "tools/security/prepare_ci_native.py",
-        "tools/security/download_ci_native.py",
-        "tools/security/apply_ci_native_patch.py",
-        "corresponding synthetic tests"
+        "development/CURRENT-STATE.md",
+        "development/evidence/dev-010.md",
+        "development/evidence/handoff-2026-11-18-antigravity.md",
+        "development/agents/roster.json"
       ],
-      "evidence": "Actual metadata/download/patch helpers; independent review and CI43691875268 verify exact patch/rescan outcome"
-    },
-    {
-      "agent": "/root/handover_contracts",
-      "roles": [
-        "Frontend",
-        "Security"
-      ],
-      "status": "completed",
-      "files": [
-        "tools/security/build_postgres_candidate.py",
-        "tools/tests/test_postgres_candidate.py"
-      ],
-      "evidence": "Static OCI builder and13 tests; actual artifact/provenance inspection in CI43691875268"
+      "evidence": "Checkpointed Codex in-progress DEV-010 files unchanged (baa2db0); verified AUTH-010 Ubuntu Noble libssl3t64 3.0.13-0ubuntu3.16 CVE-2026-107496 status and static libclamav.so.12.1.0 CMS_encrypt disassembly; recorded hold and options in dev-010.md and handoff-2026-11-18-antigravity.md"
     },
     {
       "agent": "/root/independent_reviewer",
@@ -63,9 +51,9 @@
       "files": [
         "development/evidence/f2-derived-review.md"
       ],
-      "evidence": "Actual helper/rights/source/BusyBox review and independently checked final raw install/scan receipts; no phase approval"
+      "evidence": "Prior F2/DEV-009/DEV-010 broker independent reviews recorded in evidence; no phase F3 approval"
     }
   ],
   "run_status": "in_progress",
-  "scope": "Static derived OCI + exact disposable-CI library remediation; F2 held pending remaining reviews, derived runtime binding and actual DB test"
+  "scope": "DEV-010 AUTH-010 Ubuntu Noble package-route follow-up and handover on branch antigravity/dev-010-handover; scanner held on OpenSSL CVE-2026-107496 pending founder decision"
 }
