@@ -12,7 +12,7 @@
 | Persistence | PostgreSQL 17, JSONB for validated profile/config extensions | Relational scope/version/financial invariants; JSONB is not an untyped replacement for domain tables |
 | Retrieval | PostgreSQL lexical retrieval + pgvector dense path, bounded reciprocal-rank fusion | Lexical baseline always measured; exact filtered vector search first, ANN only after filtered recall tests |
 | Assets | Private S3-compatible object storage | Separate quarantine/accepted/derived access; short-lived access issued only after authorization |
-| Ingestion | Isolated Docling parser worker; isolated malware scanner boundary | No learner DB credentials or arbitrary network access; signed scoped job manifests; PaddleOCR only if evaluated need |
+| Ingestion | Isolated extraction worker; direct PyPDFium2 for first authored text-only PoC (AUTH-013/ADR-014), Docling advanced extraction retained; isolated malware scanner boundary | No learner DB credentials or arbitrary network access; signed scoped job manifests; PaddleOCR only if evaluated need |
 | Tutoring | Owned finite-state orchestration, typed tools, approved subject profiles | Models propose content; application owns transitions, authorization, score acceptance and projections |
 | Jobs | PostgreSQL durable job/outbox tables + same-codebase workers | At-least-once execution, leases/heartbeats/idempotent effects; no broker or Celery initially |
 | Text transport | REST commands + server-sent events (SSE) over ASGI | Durable turn IDs, replay, cancel endpoint, server-authorized subscriptions; no WebSockets required for text |
@@ -59,7 +59,7 @@ flowchart TB
  DB --> JOB[General worker + scheduler]
  JOB --> BROKER[Restricted ingestion coordinator]
  BROKER --> SCAN[Isolated scanner]
- BROKER --> PARSE[Isolated Docling process]
+ BROKER --> PARSE[Isolated extraction process]
  SCAN --> Q[Quarantine input + constrained result location]
  PARSE --> Q
  BROKER --> CUR
@@ -125,3 +125,5 @@ Hosting region/provider, payment gateway, exact model endpoints, retention durat
 - [Architecture source checks](../sources/architecture-primary-checks.md)
 
 No performance, safety, efficacy or cost benchmark result is claimed in this baseline.
+
+AUTH-013 / ADR-014, 19 November: founder selected the direct same-engine adapter for the initial authored text-only PDF PoC. This reduces the proposed Python package closure but grants no native/scanner/runtime/phase clearance. Advanced OCR/layout, all R039 capabilities and independent fidelity evaluation remain required; the direct PoC does not pass F3.

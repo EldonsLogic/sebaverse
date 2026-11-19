@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "run": "dev-010-five-streams-2026-11-19",
+  "run": "dev-010-auth013-direct-adapter-2026-11-19",
   "max_concurrent_including_orchestrator": 4,
   "paid_provider_budget_usd": 0,
   "token_budget": null,
@@ -19,58 +19,52 @@
         "sources/",
         "registers/"
       ],
-      "evidence": "Integrated five bounded streams, verified all eight archives and 46 notices, retained pinned LLVM notices; root final 179 helper and 367 DB-free backend tests passed. Project F3 remains held."
+      "evidence": "Recorded explicit AUTH-013/U23 direction, owned worker contract/architecture/continuity integration and closing QA. 179 helper and 431 DB-free backend tests pass."
     },
     {
       "agent": "/root/parser_semantic_review",
       "roles": [
-        "Security",
-        "Reviewer"
+        "Backend",
+        "Infrastructure"
       ],
       "model": "gpt-6.2-sol",
       "reasoning_effort": "medium",
       "status": "completed",
       "files": [
-        "workers/parser/component-independent-review.md"
+        "workers/parser/digital_pdf.py"
       ],
-      "evidence": "S1 bounded independent static review completed; corrections and pinned LLVM notices recorded; no runtime clearance."
+      "evidence": "Implemented disabled direct PDF core with bounded signed jobs/scans and extraction/resource protections. No SDK/native import or execution."
     },
     {
       "agent": "/root/shared_wheel_completion",
       "roles": [
-        "Research",
-        "Security",
-        "Reviewer"
-      ],
-      "model": "gpt-6.2-sol",
-      "reasoning_effort": "medium",
-      "status": "completed",
-      "files": [
-        "workers/parser/shared-wheel-inventory.json",
-        "workers/parser/shared-wheel-inventory.md",
-        "development/evidence/dev-010-team-integration-review-2026-11-19.md"
-      ],
-      "evidence": "S2 eight archives verified; S5 accepted ADR/continuity and independent S4 review. Does not independently sign off own S2 inventory."
-    },
-    {
-      "agent": "/root/runtime_fix_recheck",
-      "roles": [
-        "Infrastructure",
-        "Research",
         "Testing"
       ],
       "model": "gpt-6.2-sol",
       "reasoning_effort": "medium",
       "status": "completed",
       "files": [
-        "development/evidence/postgres-fix-recheck-2026-11-19-evening.md",
-        "backend/tests/ingestion/test_storage.py",
-        "backend/tests/ingestion/postgres_probe.py",
-        "backend/tests/test_postgres_integration.py"
+        "backend/tests/ingestion/test_digital_pdf.py"
       ],
-      "evidence": "S3 official image unchanged; S4 added retained-partial manifest regressions. 32 ingestion/367 backend tests passed; new PostgreSQL scenario not run."
+      "evidence": "64 independent fake-engine cases plus original32 pass. HMAC equivalence tests detect deliberate raw-key-comparison mutation."
+    },
+    {
+      "agent": "/root/runtime_fix_recheck",
+      "roles": [
+        "Security",
+        "Reviewer",
+        "Research"
+      ],
+      "model": "gpt-6.2-sol",
+      "reasoning_effort": "medium",
+      "status": "completed",
+      "files": [
+        "development/evidence/dev-010-direct-adapter-review.md",
+        "infra/scanner/noble-fix-recheck-2026-11-19.md"
+      ],
+      "evidence": "Independently accepted disabled core/tests after two corrections; 96 ingestion/431 backend cases pass. Same Noble scanner metadata still needs triage; no clearance."
     }
   ],
   "run_status": "completed",
-  "scope": "Five bounded DEV-010 streams completed across three subagents and root; checkpoint review complete, not DEV-010/F3 or runtime approval."
+  "scope": "AUTH-013 disabled owned worker core, authored fake-engine tests, independent review and root architecture/QA; no runtime or phase approval."
 }

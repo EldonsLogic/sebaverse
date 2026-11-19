@@ -76,3 +76,5 @@ Exact research files/bytes/checksums: [manifest](research-manifest.json). Suppor
 - U21: [Fix-triggered synthetic exception expiry](exception-expiry-instruction.md), 18 November 2026; reaffirmed by founder on 19 November. AUTH-011 changes only expiry and runtime/build bindings, preserving exact findings and synthetic scope.
 
 - U22: [Parallel task orchestration](parallel-agent-instruction.md), 19 November 2026. Five requested streams; session limit permits three simultaneous subagents plus the root. Actual ownership/results are recorded without claiming impossible concurrency.
+
+- U23: [Direct PyPDFium2 text-only PoC selection](direct-pdf-poc-instruction.md), 19 November 2026. Explicit ADR-014 selection under AUTH-013, preserving qualification and phase gates.

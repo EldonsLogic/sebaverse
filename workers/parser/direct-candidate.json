@@ -1,0 +1,36 @@
+{
+  "status": "selected_candidate_not_installed_runtime_disabled",
+  "authority": "AUTH-013",
+  "adr": "ADR-014",
+  "requirements": [
+    "R039",
+    "R040",
+    "R041",
+    "R046"
+  ],
+  "package": "pypdfium2",
+  "version": "5.15.2",
+  "target": "CPython 3.12 Linux x86_64 manylinux glibc-compatible runtime pending qualification",
+  "wheel": "pypdfium2-5.15.2-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+  "sha256": "dc31aea5b0fb9fefc9b537a65f4113980b2c40798445736a7e6565bc85161e37",
+  "metadata_member": "pypdfium2-5.15.2.dist-info/METADATA",
+  "metadata_sha256": "1f88bdc8babca4068e383b787780ae9f7794e36f7930a66d7e29bd566eb7ddf8",
+  "requires_dist": [],
+  "python_dependency_count": 1,
+  "native_dependency_count": "multiple bundled components; this is not one native dependency",
+  "source": "https://pypi.org/project/pypdfium2/5.15.2/#files",
+  "prior_docling_candidate": "workers/parser/alternate-candidate.json",
+  "core": "workers/parser/digital_pdf.py",
+  "default_factory": null,
+  "installed": false,
+  "native_executed": false,
+  "live_broker_activation": false,
+  "qualified": false,
+  "activation_requires": [
+    "Applicable artifact rights/native advisory review and independent acceptance",
+    "Reviewed pinned worker image and fail-closed scanner/definitions",
+    "Signed job composition, live authorization/consent/edition/rights and cancellation fencing",
+    "Hard CPU/RAM/process/time/output/filesystem/egress isolation and actual tests",
+    "Real authorized Arabic/bilingual text/notation/fidelity checks; full R039 requirements retained"
+  ]
+}

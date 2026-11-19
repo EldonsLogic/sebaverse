@@ -437,8 +437,8 @@
       "name": "pypdfium2",
       "url": "https://github.com/pypdfium2-team/pypdfium2",
       "observed_commit": "ee2be5c705e2cf86c51ffd8b884e6fd99906a931",
-      "source": "U20; AUTH-008; workers/parser/alternate-review.md",
-      "disposition": "alternate_docling_backend_under_assessment_not_adopted",
+      "source": "U20; AUTH-008; workers/parser/alternate-review.md; AUTH-013; ADR-014",
+      "disposition": "selected_direct_text_only_poc_direction_native_runtime_qualification_pending",
       "phase": "DEV-010 / F3",
       "requirements": [
         "R039",
@@ -446,13 +446,13 @@
         "R041",
         "R046"
       ],
-      "boundary": "Replace only Docling PDF backend if exact dependency/native rights/security, worker isolation and authored extraction checks qualify; no full stack replacement",
-      "release_candidate": "pypdfium2 5.15.2 with docling-slim[format-pdf-pypdfium2] 2.150.1",
-      "artifact_review": "workers/parser/alternate-candidate.json",
+      "boundary": "Owned isolated direct text-only adapter under AUTH-013; native/scanner/OS/fidelity review before activation. Docling advanced extraction and full R039 scope retained, with no whole-stack replacement.",
+      "release_candidate": "pypdfium2 5.15.2 direct text-only PoC; Docling Slim 2.150.1 wrapper retained as advanced candidate",
+      "artifact_review": "workers/parser/direct-candidate.json",
       "production_release": null,
       "dependency_lock": null,
       "copied_files": [],
-      "integration_results": "Metadata/static archive review and Python advisory audit only; not installed or executed",
+      "integration_results": "Owned disabled worker core and fake-engine tests independently reviewed under AUTH-013; no SDK installation, native execution or live upload integration.",
       "release_gate": "Exact native/shared-wheel/worker closure, applicable phase checks and evidence-backed ADR before integration"
     }
   ]

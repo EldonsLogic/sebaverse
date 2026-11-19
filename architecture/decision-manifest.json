@@ -57,6 +57,23 @@
     "ADR-009",
     "ADR-010",
     "ADR-011",
-    "ADR-012"
-  ]
+    "ADR-012",
+    "ADR-013",
+    "ADR-014"
+  ],
+  "amendments": [
+    {
+      "date": "2026-11-18",
+      "adr": "ADR-013",
+      "source": "U19",
+      "selection": "AG-UI protocol adapter planned for DEV-013 after F3; no SDK/live integration."
+    },
+    {
+      "date": "2026-11-19",
+      "adr": "ADR-014",
+      "source": "U23 / AUTH-013",
+      "selection": "Direct same-engine PyPDFium2 core for initial authored text-only PDF PoC; Docling advanced extraction retained; no native/runtime/phase clearance."
+    }
+  ],
+  "status_scope": "Original 11 November technical selection with later amendments listed; implementation_started is the original snapshot, current execution status is authoritative in development/CURRENT-STATE.md and phase-gates.json."
 }

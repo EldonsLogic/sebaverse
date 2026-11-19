@@ -722,7 +722,8 @@
     "sources": [
       "U1",
       "U2",
-      "U20"
+      "U20",
+      "U23"
     ],
     "priority": "P1",
     "phase": "PoC",
@@ -742,7 +743,8 @@
     "sources": [
       "U1",
       "U2",
-      "U20"
+      "U20",
+      "U23"
     ],
     "priority": "P1",
     "phase": "PoC",
@@ -762,7 +764,8 @@
     "sources": [
       "U1",
       "U2",
-      "U20"
+      "U20",
+      "U23"
     ],
     "priority": "P0",
     "phase": "Gates",
@@ -857,7 +860,8 @@
     "sources": [
       "U1",
       "U2",
-      "U20"
+      "U20",
+      "U23"
     ],
     "priority": "P1",
     "phase": "Pilot",
