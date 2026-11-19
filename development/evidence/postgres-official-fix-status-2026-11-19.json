@@ -1,0 +1,45 @@
+{
+  "recorded_date": "2026-11-19",
+  "task": "DEV-010 / CI follow-up",
+  "status": "official_current_image_still_contains_old_package",
+  "source": "https://hub.docker.com/v2/repositories/library/postgres/tags/17.12-alpine",
+  "observed_tag": "postgres:17.12-alpine",
+  "aliases_in_attestation": [
+    "17.12-alpine",
+    "17-alpine"
+  ],
+  "tag_last_updated_utc": "2026-11-19T01:09:19Z",
+  "observed_index": "sha256:526f86d93c6ea08fd3f1fe5605650cacc781b2c6013169a0ad8f42c7d3d84f32",
+  "observed_platform": "sha256:e80acae3f1109e8e4533618b594918936f2858c63afc7204c4773148a673add8",
+  "platform_pushed_utc": "2026-11-18T22:11:58Z",
+  "platform_config_created_utc": "2026-11-18T21:32:20Z",
+  "publisher_spdx_digest": "sha256:d6bd5d959dd4dfc3cfc3e74ea981f0c3be40c8120cdf5eef7e37c514f13f5c65",
+  "publisher_provenance_digest": "sha256:fc266ea8b801753643e1d537668cb21cc9777c28e848ec6e199b5fced7777a27",
+  "observed_packages": {
+    "openssl": "3.5.9-r0",
+    "libssl3": "3.5.9-r0",
+    "libcrypto3": "3.5.9-r0",
+    "alpine-release": "3.24.4-r0"
+  },
+  "package_fix_verified_separately": "3.5.9-r1 in live Alpine v3.24 main index and secdb; updated-image inventory still r0",
+  "supplier_source": {
+    "repository": "https://github.com/docker-library/postgres",
+    "commit": "ac9627dcf544a8454f212a12ddeebfcdc0803d3e",
+    "directory": "17/alpine3.24",
+    "base": "sha256:0f49f331d9212aff11b932863be4eb01cdf962969aa86dab7d1ee21ac6f5f52b"
+  },
+  "verification_limits": "Registry metadata/attestation subject and payload digest matching, not a complete independent build or signature trust-chain audit. Package inventory is publisher evidence, not an executed or independently cataloged new runtime.",
+  "image_layers_downloaded": false,
+  "image_executed": false,
+  "pin_changed": false,
+  "approved": false,
+  "scratch_json_sha256": {
+    "hub-tag.json": "5088c27dceb28801fb859b0536620b2d5542af2954d4bcd05ea17316ee81fcd6",
+    "config.json": "fa7e2700e906190f900a3c9d47e87f9032cfa38b60d9ac25129a357f85c2da8c",
+    "publisher-provenance.json": "fc266ea8b801753643e1d537668cb21cc9777c28e848ec6e199b5fced7777a27",
+    "attestation-manifest.json": "a0619c77b66a4d59c6d5862e783f8314bedde2ac572899ceecc418f29ea2e9d8",
+    "manifest.json": "e80acae3f1109e8e4533618b594918936f2858c63afc7204c4773148a673add8",
+    "publisher-sbom.json": "d6bd5d959dd4dfc3cfc3e74ea981f0c3be40c8120cdf5eef7e37c514f13f5c65",
+    "index.json": "526f86d93c6ea08fd3f1fe5605650cacc781b2c6013169a0ad8f42c7d3d84f32"
+  }
+}

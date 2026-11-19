@@ -109,3 +109,6 @@ RISK-F3-003 — 19 November 2026: the hosted runner already has the exact approv
 
 
 RISK-F3-003 update — Founder AUTH-012 explicitly authorizes the prepared exact six-package same-version reinstall repair and only its two AUTH-007 helper source hashes. Dates/expiry/findings/pins/thresholds stay unchanged. Local 179 helper tests pass; actual hosted repair is pending. Duplicate triggers are still present and no notification settings were changed. See development/evidence/ci-native-reinstall-proposal.md.
+
+
+RISK-F3-002 update — 19 November: AUTH-011 fix trigger is active and correctly blocks the original image after official Alpine package/security metadata confirms OpenSSL 3.5.9-r1. Run 44512249851 ended eight High and two Medium package matches; actual PostgreSQL/browser skipped. Package availability does not qualify an image or authorize renewing the old exception. See integration-2026-11-19.md.
