@@ -1,0 +1,61 @@
+{
+  "status": "blocked",
+  "created_at_utc": "2026-11-19T10:59:18.918494+00:00",
+  "package": "libc6",
+  "minimum_fixed_version": "2.39-0ubuntu8.12",
+  "reported_fixable_ids": [
+    "CVE-2026-8674",
+    "CVE-2026-84243",
+    "CVE-2026-97399",
+    "CVE-2026-18374",
+    "CVE-2026-95818",
+    "CVE-2026-86805"
+  ],
+  "scope": "Metadata and simulated transaction only; no install or gate approval",
+  "metadata_api_reference": "https://apt-team.pages.debian.net/python-apt/library/apt.package.html#origin-information",
+  "candidate_metadata": {
+    "installed": "2.39-0ubuntu8.12",
+    "candidate": "2.39-0ubuntu8.12",
+    "architecture": "amd64",
+    "uri": "mirror+file:/etc/apt/apt-mirrors.txt/pool/main/g/glibc/libc6_2.39-0ubuntu8.12_amd64.deb",
+    "filename": "pool/main/g/glibc/libc6_2.39-0ubuntu8.12_amd64.deb",
+    "sha256": "d821b41fc59cb4978ecd53bc83e5c964ac15d305c8d2ac4c8a35aebe55010fb9",
+    "origins": [
+      {
+        "origin": "Ubuntu",
+        "label": "Ubuntu",
+        "archive": "noble-updates",
+        "site": "",
+        "component": "main",
+        "trusted": true
+      },
+      {
+        "origin": "Ubuntu",
+        "label": "Ubuntu",
+        "archive": "noble-security",
+        "site": "",
+        "component": "main",
+        "trusted": true
+      },
+      {
+        "origin": "",
+        "label": "",
+        "archive": "now",
+        "site": "",
+        "component": "now",
+        "trusted": false
+      }
+    ]
+  },
+  "apt_policy": "libc6:\n  Installed: 2.39-0ubuntu8.12\n  Candidate: 2.39-0ubuntu8.12\n  Version table:\n *** 2.39-0ubuntu8.12 500\n        500 mirror+file:/etc/apt/apt-mirrors.txt noble-updates/main amd64 Packages\n        500 mirror+file:/etc/apt/apt-mirrors.txt noble-security/main amd64 Packages\n        100 /var/lib/dpkg/status\n     2.39-0ubuntu8 500\n        500 mirror+file:/etc/apt/apt-mirrors.txt noble/main amd64 Packages\n",
+  "simulation_command": [
+    "apt-get",
+    "--simulate",
+    "--no-install-recommends",
+    "--only-upgrade",
+    "install",
+    "libc6=2.39-0ubuntu8.12"
+  ],
+  "simulation": "NOTE: This is only a simulation!\n      apt-get needs root privileges for real execution.\n      Keep also in mind that locking is deactivated,\n      so don't depend on the relevance to the real current situation!\nReading package lists...\nBuilding dependency tree...\nReading state information...\nlibc6 is already the newest version (2.39-0ubuntu8.12).\n0 upgraded, 0 newly installed, 0 to remove and 14 not upgraded.\n",
+  "error": "No complete libc6 upgrade transaction"
+}

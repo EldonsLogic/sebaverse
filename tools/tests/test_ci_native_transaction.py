@@ -1,6 +1,7 @@
 """Synthetic signed-index metadata/parser tests; no package/network operations."""
 import copy
 import importlib.util
+import json
 from pathlib import Path
 import unittest
 
@@ -59,6 +60,32 @@ class TransactionTests(unittest.TestCase):
         self.metadata['origins'][0]['trusted'] = False
         with self.assertRaisesRegex(RuntimeError, 'trusted'):
             m.validate_metadata(self.row, self.metadata, lambda a, b: True)
+
+    def test_observed_already_fixed_runner_gets_exact_reinstall_simulation(self):
+        receipt = json.loads((Path(__file__).with_name('fixtures') / 'native-already-fixed-44510517163.json').read_text())
+        approval = json.loads((Path(__file__).parents[2] / 'infra/local/native-patch-approval.json').read_text())
+        libc6 = next(item for item in approval['packages'] if item['name'] == 'libc6')
+        self.assertEqual(receipt['candidate_metadata']['sha256'], libc6['archive_sha256'])
+        self.assertEqual(receipt['simulation_command'], m.simulation_command({'installed': self.row['installed'], 'candidate': m.MINIMUM})[1])
+        with self.assertRaisesRegex(RuntimeError, 'complete libc6'):
+            m.parse_transaction(receipt['simulation'])
+        mode, retry = m.simulation_command(receipt['candidate_metadata'])
+        self.assertEqual(mode, 'reinstall')
+        self.assertIn('--reinstall', retry)
+        self.assertIn('--simulate', retry)
+        self.assertIn('--only-upgrade', retry)
+        self.assertEqual(set(retry[retry.index('install') + 1:]), {p['name'] + '=' + p['version'] for p in approval['packages']})
+
+    def test_reinstall_requires_exact_reviewed_package_versions(self):
+        rows = [dict(self.row, name=name, installed=m.MINIMUM) for name in m.REVIEWED_PACKAGES]
+        m.validate_reinstall_rows(rows)
+        for invalid in [rows[:-1], rows + [rows[0]], rows + [dict(rows[0], name='libc-devtools')],
+                        [*rows[:-1], dict(rows[-1], installed='2.39-0ubuntu8.9')],
+                        [*rows[:-1], dict(rows[-1], candidate='2.39-0ubuntu8.13')]]:
+            with self.subTest(invalid=invalid), self.assertRaises(RuntimeError):
+                m.validate_reinstall_rows(invalid)
+        with self.assertRaisesRegex(RuntimeError, 'reviewed'):
+            m.simulation_command({'installed': '2.39-0ubuntu8.13', 'candidate': '2.39-0ubuntu8.13'})
 
 
 if __name__ == '__main__':

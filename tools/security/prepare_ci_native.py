@@ -27,6 +27,25 @@ def command(args):
 
 
 ALLOWED_PACKAGES = {"libc6", "libc6-i386", "libc-bin", "libc-dev-bin", "libc6-dev", "libc-devtools", "locales", "libc-l10n"}
+REVIEWED_PACKAGES = {"libc6", "libc6-i386", "libc-bin", "libc-dev-bin", "libc6-dev", "locales"}
+
+
+def simulation_command(candidate):
+    base = ["apt-get", "--simulate", "--no-install-recommends", "--only-upgrade"]
+    version = candidate["candidate"]
+    if candidate["installed"] != version:
+        return "upgrade", base + ["install", "libc6=" + version]
+    if version != MINIMUM:
+        raise RuntimeError("Already-installed libc6 differs from the reviewed version")
+    specifications = [name + "=" + version for name in sorted(REVIEWED_PACKAGES)]
+    return "reinstall", base + ["--no-remove", "--reinstall", "install"] + specifications
+
+
+def validate_reinstall_rows(rows):
+    if len(rows) != len(REVIEWED_PACKAGES) or {row["name"] for row in rows} != REVIEWED_PACKAGES:
+        raise RuntimeError("Reinstall requires exactly the reviewed six packages")
+    if any(row["installed"] != MINIMUM or row["candidate"] != MINIMUM for row in rows):
+        raise RuntimeError("Reinstall requires the reviewed same-version baseline for all six packages")
 
 
 def parse_transaction(text):
@@ -84,8 +103,10 @@ print(json.dumps({"installed":package.installed.version,"candidate":version.vers
     return json.loads(command(["/usr/bin/python3", "-c", probe, name]))
 
 
-def transaction_record(simulation):
+def transaction_record(simulation, reinstall=False):
     rows = parse_transaction(simulation)
+    if reinstall:
+        validate_reinstall_rows(rows)
     for row in rows:
         metadata = package_metadata(row["name"])
         validate_metadata(row, metadata, lambda new, old: subprocess.run(
@@ -143,15 +164,15 @@ print(json.dumps({"installed":package.installed.version,"candidate":version.vers
             if subprocess.run(["dpkg", "--compare-versions", version, "ge", older]).returncode:
                 raise RuntimeError("Candidate is older than required/current runtime")
         record["apt_policy"] = command(["apt-cache", "policy", "libc6"])
-        record["simulation_command"] = ["apt-get", "--simulate", "--no-install-recommends", "--only-upgrade", "install", "libc6=" + version]
+        record["transaction_mode"], record["simulation_command"] = simulation_command(candidate)
         simulation = command(record["simulation_command"])
         record["simulation"] = simulation
         if any(line.startswith("Remv ") for line in simulation.splitlines()):
             raise RuntimeError("Simulation proposes removals; separate remediation review required")
-        record["transaction"] = transaction_record(simulation)
+        record["transaction"] = transaction_record(simulation, reinstall=record["transaction_mode"] == "reinstall")
         record["candidate_notice_review_required"] = True
         record["status"] = "candidate_recorded_review_required"
-        record["next_action"] = "Phase owner reviews exact candidate, trusted-index evidence and every simulated companion package before any explicit CI-only upgrade; re-inventory/rescan afterward"
+        record["next_action"] = "Phase owner reviews exact candidate, trusted-index evidence and every simulated companion before the authorized CI-only package transaction; re-inventory/rescan afterward"
         record["limitations"] = ["APT trusted origin/checksum is observed, not an independent signature re-verification by this script.",
                                 "Fresh apt-get update success must be recorded separately; this script does not refresh indexes.",
                                 "Companion package provenance/notice checks are not automatically approved by the simulation.",

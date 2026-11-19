@@ -9,6 +9,7 @@ from datetime import datetime, timezone
 import argparse
 import hashlib
 import json
+import re
 import subprocess
 
 REVIEW_MAX_SECONDS = 30 * 86400
@@ -30,7 +31,7 @@ def source_inputs(root):
 
 
 def version_key(value):
-    parts = value.split('.')
+    parts = value.split('+', 1)[0].split('.')
     return tuple(int(part) for part in parts) if len(parts) == 3 and all(p.isdigit() for p in parts) else None
 
 
@@ -43,7 +44,13 @@ def fixed_releases(policy, published):
     for name, highest in watch.items():
         limit = version_key(highest)
         require(limit is not None and isinstance(published[name], list) and published[name], 'Fix watch malformed')
-        newer = [v for v in published[name] if isinstance(v, str) and version_key(v) and version_key(v) > limit]
+        # Reject malformed release data and responses missing the reviewed version.
+        numeric = r"(?:0|[1-9][0-9]*)"
+        prerelease = r"(?:0|[1-9][0-9]*|[0-9A-Za-z-]*[A-Za-z-][0-9A-Za-z-]*)"
+        semver = rf"{numeric}\.{numeric}\.{numeric}(?:-{prerelease}(?:\.{prerelease})*)?(?:\+[0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*)?"
+        require(all(isinstance(v, str) and re.fullmatch(semver, v) for v in published[name])
+                and highest in published[name], 'Registry releases malformed or incomplete')
+        newer = [v for v in published[name] if version_key(v) and version_key(v) > limit]
         if newer:
             released[name] = sorted(newer, key=version_key)
     return released
@@ -86,7 +93,8 @@ def registry_versions(name):
                             cwd=ROOT, capture_output=True, text=True, timeout=60)
     require(result.returncode == 0, 'Registry lookup failed for ' + name)
     versions = json.loads(result.stdout)
-    return versions if isinstance(versions, list) else [versions]
+    require(isinstance(versions, list), 'Registry releases must be an array')
+    return versions
 
 
 def main():
@@ -106,7 +114,7 @@ def main():
         if report.get('vulnerabilities'):
             published = {name: registry_versions(name) for name in policy.get('fix_watch', {})}
         receipt = validate(report, result.returncode, policy, ROOT, args.scope, published=published)
-    except (ValueError, KeyError, TypeError, OSError) as exc:
+    except (ValueError, KeyError, TypeError, OSError, subprocess.TimeoutExpired) as exc:
         receipt = {'status': 'fail', 'reason': str(exc)}
     receipt['raw_report_sha256'] = hashlib.sha256(result.stdout.encode()).hexdigest()
     (output / 'web-audit-policy.json').write_text(json.dumps(receipt, indent=2)+'\n')

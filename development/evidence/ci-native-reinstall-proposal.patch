@@ -1,0 +1,271 @@
+diff --git a/tools/security/prepare_ci_native.py b/tools/security/prepare_ci_native.py
+--- a/tools/security/prepare_ci_native.py
++++ b/tools/security/prepare_ci_native.py
+@@ -27,6 +27,25 @@
+ 
+ 
+ ALLOWED_PACKAGES = {"libc6", "libc6-i386", "libc-bin", "libc-dev-bin", "libc6-dev", "libc-devtools", "locales", "libc-l10n"}
++REVIEWED_PACKAGES = {"libc6", "libc6-i386", "libc-bin", "libc-dev-bin", "libc6-dev", "locales"}
++
++
++def simulation_command(candidate):
++    base = ["apt-get", "--simulate", "--no-install-recommends", "--only-upgrade"]
++    version = candidate["candidate"]
++    if candidate["installed"] != version:
++        return "upgrade", base + ["install", "libc6=" + version]
++    if version != MINIMUM:
++        raise RuntimeError("Already-installed libc6 differs from the reviewed version")
++    specifications = [name + "=" + version for name in sorted(REVIEWED_PACKAGES)]
++    return "reinstall", base + ["--no-remove", "--reinstall", "install"] + specifications
++
++
++def validate_reinstall_rows(rows):
++    if len(rows) != len(REVIEWED_PACKAGES) or {row["name"] for row in rows} != REVIEWED_PACKAGES:
++        raise RuntimeError("Reinstall requires exactly the reviewed six packages")
++    if any(row["installed"] != MINIMUM or row["candidate"] != MINIMUM for row in rows):
++        raise RuntimeError("Reinstall requires the reviewed same-version baseline for all six packages")
+ 
+ 
+ def parse_transaction(text):
+@@ -84,8 +103,10 @@
+     return json.loads(command(["/usr/bin/python3", "-c", probe, name]))
+ 
+ 
+-def transaction_record(simulation):
++def transaction_record(simulation, reinstall=False):
+     rows = parse_transaction(simulation)
++    if reinstall:
++        validate_reinstall_rows(rows)
+     for row in rows:
+         metadata = package_metadata(row["name"])
+         validate_metadata(row, metadata, lambda new, old: subprocess.run(
+@@ -143,15 +164,15 @@
+             if subprocess.run(["dpkg", "--compare-versions", version, "ge", older]).returncode:
+                 raise RuntimeError("Candidate is older than required/current runtime")
+         record["apt_policy"] = command(["apt-cache", "policy", "libc6"])
+-        record["simulation_command"] = ["apt-get", "--simulate", "--no-install-recommends", "--only-upgrade", "install", "libc6=" + version]
++        record["transaction_mode"], record["simulation_command"] = simulation_command(candidate)
+         simulation = command(record["simulation_command"])
+         record["simulation"] = simulation
+         if any(line.startswith("Remv ") for line in simulation.splitlines()):
+             raise RuntimeError("Simulation proposes removals; separate remediation review required")
+-        record["transaction"] = transaction_record(simulation)
++        record["transaction"] = transaction_record(simulation, reinstall=record["transaction_mode"] == "reinstall")
+         record["candidate_notice_review_required"] = True
+         record["status"] = "candidate_recorded_review_required"
+-        record["next_action"] = "Phase owner reviews exact candidate, trusted-index evidence and every simulated companion package before any explicit CI-only upgrade; re-inventory/rescan afterward"
++        record["next_action"] = "Phase owner reviews exact candidate, trusted-index evidence and every simulated companion before the authorized CI-only package transaction; re-inventory/rescan afterward"
+         record["limitations"] = ["APT trusted origin/checksum is observed, not an independent signature re-verification by this script.",
+                                 "Fresh apt-get update success must be recorded separately; this script does not refresh indexes.",
+                                 "Companion package provenance/notice checks are not automatically approved by the simulation.",
+diff --git a/tools/security/apply_ci_native_patch.py b/tools/security/apply_ci_native_patch.py
+--- a/tools/security/apply_ci_native_patch.py
++++ b/tools/security/apply_ci_native_patch.py
+@@ -10,10 +10,10 @@
+ from datetime import datetime, timezone
+ 
+ ROOT = Path(__file__).resolve().parents[2]
+-PACKAGES = {'libc6', 'libc-bin', 'libc-dev-bin', 'libc6-dev', 'libc6-i386', 'locales'}
+ SPEC = importlib.util.spec_from_file_location('native_metadata', Path(__file__).with_name('prepare_ci_native.py'))
+ metadata = importlib.util.module_from_spec(SPEC)
+ SPEC.loader.exec_module(metadata)
++PACKAGES = metadata.REVIEWED_PACKAGES
+ 
+ 
+ def sha(path):
+@@ -29,6 +29,16 @@
+         raise ValueError('Only the approved Ubuntu24.04 amd64 GitHub CI runner is permitted')
+ 
+ 
++def apt_base(candidate):
++    base = ['apt-get', '--no-remove', '--no-install-recommends', '--only-upgrade']
++    mode = candidate.get('transaction_mode', 'upgrade')
++    if mode == 'upgrade':
++        return base
++    if mode == 'reinstall':
++        return base + ['--reinstall']
++    raise ValueError('Unknown native transaction mode')
++
++
+ def verify_transaction(approval, candidate, downloads, folder):
+     if approval.get('schema_version') != 1 or approval.get('status') != 'approved_ci_only' or approval.get('scope') != 'ubuntu24.04-amd64-glibc-six-package-patch':
+         raise ValueError('Explicit CI-only approval missing')
+@@ -36,6 +46,10 @@
+         raise ValueError('Candidate/download evidence incomplete')
+     if downloads.get('candidate_record_sha256') != sha(folder / 'ubuntu-native-candidate.json'):
+         raise ValueError('Candidate receipt hash mismatch')
++    if '--reinstall' in apt_base(candidate):
++        if approval.get('allow_same_version_reinstall') is not True:
++            raise ValueError('Explicit same-version reinstall approval missing')
++        metadata.validate_reinstall_rows(candidate.get('transaction', []))
+     groups = [approval.get('packages', []), candidate.get('transaction', []), downloads.get('packages', [])]
+     maps = []
+     for rows in groups:
+@@ -92,12 +106,13 @@
+     downloads = json.loads((folder / 'ubuntu-native-downloads.json').read_text())
+     planned, candidates = verify_transaction(approval, candidate, downloads, folder)
+     archives = [str(path) for _, _, path in planned]
+-    base = ['apt-get', '--no-remove', '--no-install-recommends', '--only-upgrade']
++    base = apt_base(candidate)
+     simulation = run(base + ['--simulate', 'install'] + archives)
+     verify_simulation(simulation, planned, candidates)
+     # Recheck every bound byte immediately before the sole mutating command.
+     verify_transaction(approval, candidate, downloads, folder)
+     receipt = {'schema_version': 1, 'status': 'started', 'approval_sha256': sha(approval_path),
++               'transaction_mode': candidate.get('transaction_mode', 'upgrade'),
+                'started_at_utc': datetime.now(timezone.utc).isoformat(), 'simulation': simulation,
+                'command': ['sudo'] + base + ['-y', 'install'] + archives, 'scope': 'CI package patch only; no native-use or DB approval'}
+     output = folder / 'ubuntu-native-patch.json'
+diff --git a/tools/tests/test_ci_native_transaction.py b/tools/tests/test_ci_native_transaction.py
+--- a/tools/tests/test_ci_native_transaction.py
++++ b/tools/tests/test_ci_native_transaction.py
+@@ -1,6 +1,7 @@
+ """Synthetic signed-index metadata/parser tests; no package/network operations."""
+ import copy
+ import importlib.util
++import json
+ from pathlib import Path
+ import unittest
+ 
+@@ -60,6 +61,32 @@
+         with self.assertRaisesRegex(RuntimeError, 'trusted'):
+             m.validate_metadata(self.row, self.metadata, lambda a, b: True)
+ 
++    def test_observed_already_fixed_runner_gets_exact_reinstall_simulation(self):
++        receipt = json.loads((Path(__file__).with_name('fixtures') / 'native-already-fixed-44510517163.json').read_text())
++        approval = json.loads((Path(__file__).parents[2] / 'infra/local/native-patch-approval.json').read_text())
++        libc6 = next(item for item in approval['packages'] if item['name'] == 'libc6')
++        self.assertEqual(receipt['candidate_metadata']['sha256'], libc6['archive_sha256'])
++        self.assertEqual(receipt['simulation_command'], m.simulation_command({'installed': self.row['installed'], 'candidate': m.MINIMUM})[1])
++        with self.assertRaisesRegex(RuntimeError, 'complete libc6'):
++            m.parse_transaction(receipt['simulation'])
++        mode, retry = m.simulation_command(receipt['candidate_metadata'])
++        self.assertEqual(mode, 'reinstall')
++        self.assertIn('--reinstall', retry)
++        self.assertIn('--simulate', retry)
++        self.assertIn('--only-upgrade', retry)
++        self.assertEqual(set(retry[retry.index('install') + 1:]), {p['name'] + '=' + p['version'] for p in approval['packages']})
++
++    def test_reinstall_requires_exact_reviewed_package_versions(self):
++        rows = [dict(self.row, name=name, installed=m.MINIMUM) for name in m.REVIEWED_PACKAGES]
++        m.validate_reinstall_rows(rows)
++        for invalid in [rows[:-1], rows + [rows[0]], rows + [dict(rows[0], name='libc-devtools')],
++                        [*rows[:-1], dict(rows[-1], installed='2.39-0ubuntu8.9')],
++                        [*rows[:-1], dict(rows[-1], candidate='2.39-0ubuntu8.13')]]:
++            with self.subTest(invalid=invalid), self.assertRaises(RuntimeError):
++                m.validate_reinstall_rows(invalid)
++        with self.assertRaisesRegex(RuntimeError, 'reviewed'):
++            m.simulation_command({'installed': '2.39-0ubuntu8.13', 'candidate': '2.39-0ubuntu8.13'})
++
+ 
+ if __name__ == '__main__':
+     unittest.main()
+diff --git a/tools/tests/test_ci_native_patch.py b/tools/tests/test_ci_native_patch.py
+--- a/tools/tests/test_ci_native_patch.py
++++ b/tools/tests/test_ci_native_patch.py
+@@ -80,6 +80,39 @@
+             with self.assertRaisesRegex(ValueError, 'Only'):
+                 m.require_platform(env, release, arch)
+ 
++    def test_reinstall_keeps_archive_notice_and_fresh_simulation_checks(self):
++        self.candidate['transaction_mode'] = 'reinstall'
++        for row in self.candidate['transaction']:
++            row['installed'] = row['candidate']
++        (self.folder / 'ubuntu-native-candidate.json').write_text(json.dumps(self.candidate))
++        self.downloads['candidate_record_sha256'] = m.sha(self.folder / 'ubuntu-native-candidate.json')
++        for missing_opt_in in (None, False, 'true'):
++            self.approval['allow_same_version_reinstall'] = missing_opt_in
++            with self.subTest(opt_in=missing_opt_in), self.assertRaisesRegex(ValueError, 'reinstall approval'):
++                self.verify()
++        self.approval['allow_same_version_reinstall'] = True
++        planned, candidates = self.verify()
++        self.assertIn('--reinstall', m.apt_base(self.candidate))
++        self.assertNotIn('--reinstall', m.apt_base({}))
++        text = '\n'.join('Inst ' + name + ' [2.39-0ubuntu8.12] (2.39-0ubuntu8.12 local-deb [amd64])' for name in m.PACKAGES)
++        m.verify_simulation(text, planned, candidates)
++        with self.assertRaisesRegex(ValueError, 'Installed baseline changed'):
++            m.verify_simulation(text.replace('[2.39-0ubuntu8.12]', '[2.39-0ubuntu8.9]', 1), planned, candidates)
++        with self.assertRaisesRegex(RuntimeError, 'complete libc6'):
++            m.verify_simulation('0 upgraded, 0 newly installed, 0 to remove', planned, candidates)
++        Path(self.downloads['packages'][0]['copyright']['copied_path']).write_text('tampered')
++        with self.assertRaisesRegex(ValueError, 'Notice bytes'):
++            self.verify()
++
++    def test_reinstall_cannot_upgrade_companions_or_use_unknown_mode(self):
++        self.approval['allow_same_version_reinstall'] = True
++        for mode, message in [('no-op', 'Unknown native transaction mode'), ('reinstall', 'same-version')]:
++            self.candidate['transaction_mode'] = mode
++            (self.folder / 'ubuntu-native-candidate.json').write_text(json.dumps(self.candidate))
++            self.downloads['candidate_record_sha256'] = m.sha(self.folder / 'ubuntu-native-candidate.json')
++            with self.subTest(mode=mode), self.assertRaisesRegex((ValueError, RuntimeError), message):
++                self.verify()
++
+ 
+ if __name__ == '__main__':
+     unittest.main()
+diff --git a/tools/tests/fixtures/native-already-fixed-44510517163.json b/tools/tests/fixtures/native-already-fixed-44510517163.json
+new file mode 100644
+--- /dev/null
++++ b/tools/tests/fixtures/native-already-fixed-44510517163.json
+@@ -0,0 +1,61 @@
++{
++  "status": "blocked",
++  "created_at_utc": "2026-11-19T10:59:18.918494+00:00",
++  "package": "libc6",
++  "minimum_fixed_version": "2.39-0ubuntu8.12",
++  "reported_fixable_ids": [
++    "CVE-2026-8674",
++    "CVE-2026-84243",
++    "CVE-2026-97399",
++    "CVE-2026-18374",
++    "CVE-2026-95818",
++    "CVE-2026-86805"
++  ],
++  "scope": "Metadata and simulated transaction only; no install or gate approval",
++  "metadata_api_reference": "https://apt-team.pages.debian.net/python-apt/library/apt.package.html#origin-information",
++  "candidate_metadata": {
++    "installed": "2.39-0ubuntu8.12",
++    "candidate": "2.39-0ubuntu8.12",
++    "architecture": "amd64",
++    "uri": "mirror+file:/etc/apt/apt-mirrors.txt/pool/main/g/glibc/libc6_2.39-0ubuntu8.12_amd64.deb",
++    "filename": "pool/main/g/glibc/libc6_2.39-0ubuntu8.12_amd64.deb",
++    "sha256": "d821b41fc59cb4978ecd53bc83e5c964ac15d305c8d2ac4c8a35aebe55010fb9",
++    "origins": [
++      {
++        "origin": "Ubuntu",
++        "label": "Ubuntu",
++        "archive": "noble-updates",
++        "site": "",
++        "component": "main",
++        "trusted": true
++      },
++      {
++        "origin": "Ubuntu",
++        "label": "Ubuntu",
++        "archive": "noble-security",
++        "site": "",
++        "component": "main",
++        "trusted": true
++      },
++      {
++        "origin": "",
++        "label": "",
++        "archive": "now",
++        "site": "",
++        "component": "now",
++        "trusted": false
++      }
++    ]
++  },
++  "apt_policy": "libc6:\n  Installed: 2.39-0ubuntu8.12\n  Candidate: 2.39-0ubuntu8.12\n  Version table:\n *** 2.39-0ubuntu8.12 500\n        500 mirror+file:/etc/apt/apt-mirrors.txt noble-updates/main amd64 Packages\n        500 mirror+file:/etc/apt/apt-mirrors.txt noble-security/main amd64 Packages\n        100 /var/lib/dpkg/status\n     2.39-0ubuntu8 500\n        500 mirror+file:/etc/apt/apt-mirrors.txt noble/main amd64 Packages\n",
++  "simulation_command": [
++    "apt-get",
++    "--simulate",
++    "--no-install-recommends",
++    "--only-upgrade",
++    "install",
++    "libc6=2.39-0ubuntu8.12"
++  ],
++  "simulation": "NOTE: This is only a simulation!\n      apt-get needs root privileges for real execution.\n      Keep also in mind that locking is deactivated,\n      so don't depend on the relevance to the real current situation!\nReading package lists...\nBuilding dependency tree...\nReading state information...\nlibc6 is already the newest version (2.39-0ubuntu8.12).\n0 upgraded, 0 newly installed, 0 to remove and 14 not upgraded.\n",
++  "error": "No complete libc6 upgrade transaction"
++}

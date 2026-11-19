@@ -10,10 +10,10 @@ import subprocess
 from datetime import datetime, timezone
 
 ROOT = Path(__file__).resolve().parents[2]
-PACKAGES = {'libc6', 'libc-bin', 'libc-dev-bin', 'libc6-dev', 'libc6-i386', 'locales'}
 SPEC = importlib.util.spec_from_file_location('native_metadata', Path(__file__).with_name('prepare_ci_native.py'))
 metadata = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(metadata)
+PACKAGES = metadata.REVIEWED_PACKAGES
 
 
 def sha(path):
@@ -29,6 +29,16 @@ def require_platform(env, release, machine):
         raise ValueError('Only the approved Ubuntu24.04 amd64 GitHub CI runner is permitted')
 
 
+def apt_base(candidate):
+    base = ['apt-get', '--no-remove', '--no-install-recommends', '--only-upgrade']
+    mode = candidate.get('transaction_mode', 'upgrade')
+    if mode == 'upgrade':
+        return base
+    if mode == 'reinstall':
+        return base + ['--reinstall']
+    raise ValueError('Unknown native transaction mode')
+
+
 def verify_transaction(approval, candidate, downloads, folder):
     if approval.get('schema_version') != 1 or approval.get('status') != 'approved_ci_only' or approval.get('scope') != 'ubuntu24.04-amd64-glibc-six-package-patch':
         raise ValueError('Explicit CI-only approval missing')
@@ -36,6 +46,10 @@ def verify_transaction(approval, candidate, downloads, folder):
         raise ValueError('Candidate/download evidence incomplete')
     if downloads.get('candidate_record_sha256') != sha(folder / 'ubuntu-native-candidate.json'):
         raise ValueError('Candidate receipt hash mismatch')
+    if '--reinstall' in apt_base(candidate):
+        if approval.get('allow_same_version_reinstall') is not True:
+            raise ValueError('Explicit same-version reinstall approval missing')
+        metadata.validate_reinstall_rows(candidate.get('transaction', []))
     groups = [approval.get('packages', []), candidate.get('transaction', []), downloads.get('packages', [])]
     maps = []
     for rows in groups:
@@ -92,12 +106,13 @@ def main():
     downloads = json.loads((folder / 'ubuntu-native-downloads.json').read_text())
     planned, candidates = verify_transaction(approval, candidate, downloads, folder)
     archives = [str(path) for _, _, path in planned]
-    base = ['apt-get', '--no-remove', '--no-install-recommends', '--only-upgrade']
+    base = apt_base(candidate)
     simulation = run(base + ['--simulate', 'install'] + archives)
     verify_simulation(simulation, planned, candidates)
     # Recheck every bound byte immediately before the sole mutating command.
     verify_transaction(approval, candidate, downloads, folder)
     receipt = {'schema_version': 1, 'status': 'started', 'approval_sha256': sha(approval_path),
+               'transaction_mode': candidate.get('transaction_mode', 'upgrade'),
                'started_at_utc': datetime.now(timezone.utc).isoformat(), 'simulation': simulation,
                'command': ['sudo'] + base + ['-y', 'install'] + archives, 'scope': 'CI package patch only; no native-use or DB approval'}
     output = folder / 'ubuntu-native-patch.json'

@@ -52,5 +52,8 @@
     "Fresh exact dry-run and every archive/notice rehashed before install",
     "Actual post-install version, native-chain inventory, notices and fresh scanner reports required",
     "No native/database use or F2 gate approved by this record"
-  ]
+  ],
+  "allow_same_version_reinstall": true,
+  "same_version_reinstall_authority": "AUTH-012",
+  "same_version_reinstall_scope": "Only the existing six approved archives at 2.39-0ubuntu8.12, on disposable Ubuntu 24.04 amd64 GitHub CI when every installed version already equals that exact version; preserve all existing archive/notice, fresh simulation, post-install and native advisory gates."
 }

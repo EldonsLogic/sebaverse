@@ -99,3 +99,13 @@ RISK-F3-002 update — AUTH-006 static assessment completed on 18 November in ru
 
 
 RISK-F3-002 update — 18 November: AUTH-007 explicitly permitted the exact independently reviewed synthetic-only OpenSSL exception. Hosted gate/actual PostgreSQL/browser tests at bc211558 passed, and independent execution review released DEV-009. Findings remain unresolved; exact expiry/source/artifact/CI constraints remain. This supersedes the integration hold, not the historical scan findings, candidate rejections or production restrictions. See development/evidence/auth-007-openssl-review.md.
+
+
+RISK-F3-001 update — 19 November 2026: live npm audits in production and synthetic-development report zero findings after the advisory withdrawal. AUTH-005 is unused. A reviewed fail-closed checker correction does not change or rebind its policy; recurrence would invalidate the dormant source binding until separately authorized review. Evidence: development/evidence/integration-2026-11-19.md.
+
+AUTH-011 / U21 — Founder-approved expiry and runtime/build binding amendment is merged in PR #3. Existing dates/findings/scopes are preserved; released fixes end reviews immediately with a 30-day backstop. Active dates are in CURRENT-STATE.md and the original JSON, not superseded historical expiry prompts. No scanner exception is granted.
+
+RISK-F3-003 — 19 November 2026: the hosted runner already has the exact approved libc6 version, but the upgrade-only preparation script rejects an empty transaction. Actual run 44510517163 failed before database use. Push plus pull_request triggers duplicate checks/notifications. This is synthetic CI availability/noise, not established application breakage or exposure. A narrow exact-package repair is being prepared in scratch; bound security helpers and source maps remain unchanged pending reconciliation of the founder’s no-rebind instruction. No checks are suppressed or counted as passing. Owner: root engineering; evidence: development/evidence/integration-2026-11-19.md.
+
+
+RISK-F3-003 update — Founder AUTH-012 explicitly authorizes the prepared exact six-package same-version reinstall repair and only its two AUTH-007 helper source hashes. Dates/expiry/findings/pins/thresholds stay unchanged. Local 179 helper tests pass; actual hosted repair is pending. Duplicate triggers are still present and no notification settings were changed. See development/evidence/ci-native-reinstall-proposal.md.

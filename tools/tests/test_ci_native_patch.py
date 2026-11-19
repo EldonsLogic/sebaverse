@@ -80,6 +80,39 @@ class PatchTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, 'Only'):
                 m.require_platform(env, release, arch)
 
+    def test_reinstall_keeps_archive_notice_and_fresh_simulation_checks(self):
+        self.candidate['transaction_mode'] = 'reinstall'
+        for row in self.candidate['transaction']:
+            row['installed'] = row['candidate']
+        (self.folder / 'ubuntu-native-candidate.json').write_text(json.dumps(self.candidate))
+        self.downloads['candidate_record_sha256'] = m.sha(self.folder / 'ubuntu-native-candidate.json')
+        for missing_opt_in in (None, False, 'true'):
+            self.approval['allow_same_version_reinstall'] = missing_opt_in
+            with self.subTest(opt_in=missing_opt_in), self.assertRaisesRegex(ValueError, 'reinstall approval'):
+                self.verify()
+        self.approval['allow_same_version_reinstall'] = True
+        planned, candidates = self.verify()
+        self.assertIn('--reinstall', m.apt_base(self.candidate))
+        self.assertNotIn('--reinstall', m.apt_base({}))
+        text = '\n'.join('Inst ' + name + ' [2.39-0ubuntu8.12] (2.39-0ubuntu8.12 local-deb [amd64])' for name in m.PACKAGES)
+        m.verify_simulation(text, planned, candidates)
+        with self.assertRaisesRegex(ValueError, 'Installed baseline changed'):
+            m.verify_simulation(text.replace('[2.39-0ubuntu8.12]', '[2.39-0ubuntu8.9]', 1), planned, candidates)
+        with self.assertRaisesRegex(RuntimeError, 'complete libc6'):
+            m.verify_simulation('0 upgraded, 0 newly installed, 0 to remove', planned, candidates)
+        Path(self.downloads['packages'][0]['copyright']['copied_path']).write_text('tampered')
+        with self.assertRaisesRegex(ValueError, 'Notice bytes'):
+            self.verify()
+
+    def test_reinstall_cannot_upgrade_companions_or_use_unknown_mode(self):
+        self.approval['allow_same_version_reinstall'] = True
+        for mode, message in [('no-op', 'Unknown native transaction mode'), ('reinstall', 'same-version')]:
+            self.candidate['transaction_mode'] = mode
+            (self.folder / 'ubuntu-native-candidate.json').write_text(json.dumps(self.candidate))
+            self.downloads['candidate_record_sha256'] = m.sha(self.folder / 'ubuntu-native-candidate.json')
+            with self.subTest(mode=mode), self.assertRaisesRegex((ValueError, RuntimeError), message):
+                self.verify()
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -6,6 +6,9 @@ import json
 from pathlib import Path
 import tempfile
 import unittest
+from unittest.mock import patch
+import subprocess
+import sys
 
 ROOT = Path(__file__).resolve().parents[2]
 spec = importlib.util.spec_from_file_location('npm_review', ROOT/'tools/check_npm_audit.py')
@@ -49,7 +52,7 @@ class AuditBoundary(unittest.TestCase):
         with self.assertRaises(ValueError): self.check()
 
     def test_released_fix_ends_exception(self):
-        for versions in (['4.0.7', '4.0.8'], ['4.0.7', '5.0.0']):
+        for versions in (['4.0.7', '4.0.8'], ['4.0.7', '5.0.0'], ['4.0.7', '4.0.8+build.1']):
             with self.subTest(versions=versions), self.assertRaisesRegex(ValueError, 'Fix released'):
                 self.check(published={'picomatch': versions})
 
@@ -99,3 +102,27 @@ class AuditBoundary(unittest.TestCase):
         self.report = {'auditReportVersion': 2, 'vulnerabilities': {}, 'metadata': {'vulnerabilities':
             {'info': 0, 'low': 0, 'moderate': 0, 'high': 0, 'critical': 0, 'total': 0}}}
         self.assertEqual(self.check(code=0, scope='production')['exceptions'], 0)
+
+    def test_malformed_or_incomplete_registry_releases_fail_closed(self):
+        for versions in (['garbage'], [None], [42], ['4.0.7', {}], ['4.0.6'], ['4.0.7', '04.0.8'], ['4.0.7', '5.0.0-01']):
+            with self.subTest(versions=versions), self.assertRaises(ValueError):
+                self.check(published={'picomatch': versions})
+
+    def test_registry_timeout_records_failure_receipt(self):
+        policy_path = self.root/'infra/development-npm-review.json'
+        policy_path.parent.mkdir(parents=True, exist_ok=True)
+        policy_path.write_text(json.dumps(self.policy))
+        audit = subprocess.CompletedProcess([], 1, stdout=json.dumps(self.report))
+        with patch.object(m, 'ROOT', self.root), patch.object(sys, 'argv', ['audit', '--scope', 'synthetic-development']), \
+                patch.object(m.subprocess, 'run', return_value=audit), \
+                patch.object(m, 'registry_versions', side_effect=subprocess.TimeoutExpired('npm view', 60)):
+            self.assertEqual(m.main(), 1)
+        receipt = json.loads((self.root/'work/ci/web-audit-policy.json').read_text())
+        self.assertEqual(receipt['status'], 'fail')
+        self.assertIn('raw_report_sha256', receipt)
+
+    def test_scalar_registry_response_is_not_a_release_list(self):
+        for value in ('4.0.7', {'error': 'unavailable'}, None):
+            result = subprocess.CompletedProcess([], 0, stdout=json.dumps(value))
+            with self.subTest(value=value), patch.object(m.subprocess, 'run', return_value=result), self.assertRaises(ValueError):
+                m.registry_versions('picomatch')
