@@ -47,3 +47,7 @@ Every adopted artifact needs owner, purpose, exact version/digest, checksum, ori
 ## Founder follow-up U19 — AG-UI
 
 The original 22 audit rows and preserved packs are unchanged. AG-UI is a new founder-requested follow-up: [pinned assessment](candidates/ag-ui.md), [ADR-013](adr/ADR-013-ag-ui-integration.md), [integration contract](ag-ui-integration.md). Direction: a minimal protocol adapter in DEV-013, with exact schema/SDK/dependency review before reuse. No package, whole scaffold or hosted service is adopted at this checkpoint. Machine-readable followup_repositories records this separately from the historical audit rows.
+
+## Founder follow-up U20 — ingestion resources
+
+[Eight-repository discovery](../development/evidence/dev-010-github-resources.md) compares current activity, licenses and concrete parser/scanner/OCR/isolation benefits. CAND-PDFIUM-001 records pypdfium2 as one alternate Docling backend under AUTH-008, not an adopted release. [Exact assessment](../workers/parser/alternate-review.md) removes the original parser wheel from the candidate resolution but leaves native/runtime and fidelity qualification open. Official scanner candidates remain held; AUTH-010 authorizes one distribution-maintained package assessment. Historical audit rows and current technical selections remain unchanged until an evidence-backed amendment qualifies.

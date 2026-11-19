@@ -346,7 +346,7 @@ Authoritative structured form: requirements.json. All requirements retained; pro
 
 ## R039 — OCR/layout/math/table/diagram extraction
 
-- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Source: U1, U2, U20; status: Specified; not implemented; Founder requirement.
 - Priority: P1; phase: PoC; owner: Founder + educator where learning/content is affected.
 - Dependencies: R040.
 - Acceptance: Arabic and bilingual representative corpus checked for critical notation loss.
@@ -355,7 +355,7 @@ Authoritative structured form: requirements.json. All requirements retained; pro
 
 ## R040 — Safe upload ingestion and quotas
 
-- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Source: U1, U2, U20; status: Specified; not implemented; Founder requirement.
 - Priority: P1; phase: PoC; owner: Founder + educator where learning/content is affected.
 - Dependencies: R060.
 - Acceptance: Streaming caps, magic/MIME, malware/quarantine and bounded parser fixtures pass.
@@ -364,7 +364,7 @@ Authoritative structured form: requirements.json. All requirements retained; pro
 
 ## R041 — Content rights/provenance/permissions
 
-- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Source: U1, U2, U20; status: Specified; not implemented; Founder requirement.
 - Priority: P0; phase: Gates; owner: Founder.
 - Dependencies: None.
 - Acceptance: Every published source has hash, permission scope, expiry and reviewer.
@@ -409,7 +409,7 @@ Authoritative structured form: requirements.json. All requirements retained; pro
 
 ## R046 — Private upload isolation and deletion
 
-- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Source: U1, U2, U20; status: Specified; not implemented; Founder requirement.
 - Priority: P1; phase: Pilot; owner: Founder + educator where learning/content is affected.
 - Dependencies: R044, R061.
 - Acceptance: No cross-user chunks/cache leaks; withdrawal purges derived artifacts.

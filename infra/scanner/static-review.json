@@ -98,9 +98,12 @@
       }
     },
     "materials_complete": false,
-    "source_revision": null,
+    "source_revision": "fa59fca15872bb8a914ba4c68188bcc8a502cbdf",
     "spdx_package_entries": 113,
-    "spdx_engine_package_present": false
+    "spdx_engine_package_present": false,
+    "source_repository": "https://github.com/Cisco-Talos/clamav.git",
+    "source_revision_locator": ".predicate.metadata[\"https://mobyproject.org/buildkit@v1#metadata\"].vcs",
+    "source_locator_correction": "The initial review checked the generic invocation.configSource field and missed the checkout revision under the BuildKit extension. Materials are still marked incomplete."
   },
   "local_inventory": {
     "tool": "Syft 1.57.1 darwin_arm64",
@@ -284,7 +287,7 @@
     "kev_matches_on_overlap": []
   },
   "rights_security_closure": {
-    "rights": "Upstream declares GPLv2. Debian package license metadata is extracted. Exact engine build source/revision, bundled native/Rust components and notices, and definition terms remain open.",
+    "rights": "Upstream declares GPLv2. Debian package license metadata is extracted, and BuildKit metadata identifies the ClamAV source checkout. Complete engine build inputs, bundled native/Rust components and notices, and definition terms remain open.",
     "security": "Direct scan and complete engine/native advisory coverage are open. Debian identifies the exact imported libxml2 package as vulnerable to CVE-2026-6653; the referenced Grype result rates it Critical and Debian triage describes it as minor without a DSA. The project gate remains held.",
     "next": "The one-candidate review budget is exhausted. The founder can authorize one focused static assessment of one updated official immutable image with a verified libxml2 fix and identifiable engine build materials, or keep DEV-010 open and uploads quarantined."
   },

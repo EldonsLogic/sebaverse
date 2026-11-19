@@ -431,6 +431,29 @@
       "copied_files": [],
       "integration_results": "Planning reviewed; no install or product implementation",
       "release_gate": "architecture/ag-ui-integration.md; exact artifact/dependency/rights/security review, compatibility/evals and applicable phase gates"
+    },
+    {
+      "id": "CAND-PDFIUM-001",
+      "name": "pypdfium2",
+      "url": "https://github.com/pypdfium2-team/pypdfium2",
+      "observed_commit": "ee2be5c705e2cf86c51ffd8b884e6fd99906a931",
+      "source": "U20; AUTH-008; workers/parser/alternate-review.md",
+      "disposition": "alternate_docling_backend_under_assessment_not_adopted",
+      "phase": "DEV-010 / F3",
+      "requirements": [
+        "R039",
+        "R040",
+        "R041",
+        "R046"
+      ],
+      "boundary": "Replace only Docling PDF backend if exact dependency/native rights/security, worker isolation and authored extraction checks qualify; no full stack replacement",
+      "release_candidate": "pypdfium2 5.15.2 with docling-slim[format-pdf-pypdfium2] 2.150.1",
+      "artifact_review": "workers/parser/alternate-candidate.json",
+      "production_release": null,
+      "dependency_lock": null,
+      "copied_files": [],
+      "integration_results": "Metadata/static archive review and Python advisory audit only; not installed or executed",
+      "release_gate": "Exact native/shared-wheel/worker closure, applicable phase checks and evidence-backed ADR before integration"
     }
   ]
 }
