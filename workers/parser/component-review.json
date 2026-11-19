@@ -1,0 +1,317 @@
+{
+  "date": "2026-11-19",
+  "authority": "AUTH-008",
+  "task": "DEV-010",
+  "decision": "held_before_installation_no_confirmed_applicable_high_or_critical_in_reviewed_findings",
+  "artifact": {
+    "wheel": "pypdfium2-5.15.2-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+    "wheel_sha256": "dc31aea5b0fb9fefc9b537a65f4113980b2c40798445736a7e6565bc85161e37",
+    "native_sha256": "c76dc0f7839644bfa7c3e3107a6068df714e339c861bb7d4519907b821d427f9",
+    "elf_build_id": "386dcefc6f154a79",
+    "supplier_build_job": "https://github.com/pypdfium2-team/pypdfium2/actions/runs/42640517128/job/129240809046"
+  },
+  "source_snapshot": {
+    "commit": "6688c576fd851f4159c6fae39396da50939de110",
+    "deps": "https://pdfium.googlesource.com/pdfium/+/6688c576fd851f4159c6fae39396da50939de110/DEPS",
+    "basis": "Wheel metadata and supplier job identify chromium/8149; the exact resolved PDFium Git commit is not printed."
+  },
+  "component_inventory": [
+    {
+      "name": "FreeType",
+      "supplier_logged_compiled_objects": 18,
+      "source_snapshot_commit": "25167984d2435930f9178e8d9d2ca3bdfa71a4e7",
+      "source_version": "2.14.3",
+      "notice_paths": [
+        "BUILD_LICENSES/freetype.txt"
+      ]
+    },
+    {
+      "name": "HarfBuzz",
+      "supplier_logged_compiled_objects": 69,
+      "source_snapshot_commit": "ff36703b95013ec1d437e6038e1aa7c881275f4e",
+      "notice_paths": [
+        "BUILD_LICENSES/harfbuzz.txt"
+      ]
+    },
+    {
+      "name": "libjpeg-turbo",
+      "supplier_logged_compiled_objects": 126,
+      "source_snapshot_commit": "640f254ad0fa03f6b1f29f89b7dd9366f2f6e533",
+      "notice_paths": [
+        "BUILD_LICENSES/libjpeg_turbo.ijg",
+        "BUILD_LICENSES/libjpeg_turbo.md"
+      ]
+    },
+    {
+      "name": "OpenJPEG",
+      "supplier_logged_compiled_objects": 21,
+      "source_snapshot_commit": "6688c576fd851f4159c6fae39396da50939de110",
+      "source_version": "2.5.4",
+      "upstream_base_commit": "6c4a29b00211eb0430fa0e5e890f1ce5c80f409f",
+      "confirmed_source_backport": "0047-opj_j2k_read_sod.patch",
+      "notice_paths": [
+        "BUILD_LICENSES/libopenjpeg.txt"
+      ]
+    },
+    {
+      "name": "Little CMS",
+      "supplier_logged_compiled_objects": 26,
+      "source_snapshot_commit": "6688c576fd851f4159c6fae39396da50939de110",
+      "source_version": "2.19",
+      "notice_paths": [
+        "BUILD_LICENSES/lcms.txt"
+      ]
+    },
+    {
+      "name": "Brotli",
+      "supplier_logged_compiled_objects": 12,
+      "source_snapshot_commit": "803ac71664ad62af1de39ff55e63ebbe07006fc8",
+      "notice_paths": [
+        "BUILD_LICENSES/pbin_and_sbuild/brotli.txt"
+      ]
+    },
+    {
+      "name": "zlib",
+      "supplier_logged_compiled_objects": 20,
+      "source_snapshot_commit": "9f9f52c60a14e8e772fb561029ae0a121fef7609",
+      "notice_paths": [
+        "BUILD_LICENSES/zlib.txt"
+      ]
+    },
+    {
+      "name": "ICU",
+      "supplier_logged_compiled_objects": 203,
+      "source_snapshot_commit": "a0ea93436c528ca316a6e698e483e258839101a5",
+      "notice_paths": [
+        "BUILD_LICENSES/icu.txt"
+      ]
+    },
+    {
+      "name": "libyuv",
+      "supplier_logged_compiled_objects": 38,
+      "source_snapshot_commit": "1e2e3a35993609da1d89ac170b907719d555f4b3",
+      "notice_paths": [
+        "BUILD_LICENSES/pbin_and_sbuild/libyuv.txt"
+      ]
+    },
+    {
+      "name": "Highway",
+      "supplier_logged_compiled_objects": 7,
+      "source_snapshot_commit": "2607d3b5b0113992fe84d3848859eae13b3b52c1",
+      "notice_paths": [
+        "BUILD_LICENSES/highway.txt"
+      ]
+    },
+    {
+      "name": "Abseil",
+      "supplier_logged_compiled_objects": 137,
+      "source_snapshot_commit": "56722f9eb6f40fb1a140caffd36e8f1f61b57aaf",
+      "notice_paths": [
+        "BUILD_LICENSES/abseil.txt"
+      ]
+    },
+    {
+      "name": "Anti-Grain Geometry",
+      "supplier_logged_compiled_objects": 5,
+      "source_snapshot_commit": "6688c576fd851f4159c6fae39396da50939de110",
+      "source_version": "2.3",
+      "notice_paths": [
+        "BUILD_LICENSES/agg23.txt"
+      ]
+    },
+    {
+      "name": "PDFium core and compiled font resources",
+      "wheel_reported_version": "159.0.8149.0",
+      "inferred_source_snapshot_commit": "6688c576fd851f4159c6fae39396da50939de110",
+      "notice_paths": [
+        "BUILD_LICENSES/pdfium.txt",
+        "BUILD_LICENSES/SHARED/Apache-2.0.txt"
+      ]
+    },
+    {
+      "name": "LLVM libc++",
+      "source_snapshot_commit": "9ba7713d3a0f1e179904c984bb626748b15e57d6",
+      "supplier_log_evidence": "compiled obj/buildtools/third_party/libc++ objects",
+      "notice_paths": [
+        "BUILD_LICENSES/all_except_musl/llvm-libc.txt",
+        "BUILD_LICENSES/SHARED/Apache-2.0.txt"
+      ],
+      "notice_coverage": "Complete pinned source notice additionally preserved in workers/parser/notices; broader distribution obligations still require applicable review.",
+      "supplier_logged_compiled_objects": 49
+    },
+    {
+      "name": "LLVM libc++abi",
+      "source_snapshot_commit": "ce814c994055b107c631c310b1c668e3714c0704",
+      "supplier_log_evidence": "17 object compilation actions and local runtime symbols observed; conservative inclusion in scope",
+      "supplier_logged_compiled_objects": 17,
+      "notice_paths": [
+        "workers/parser/notices/libcxxabi-LICENSE.TXT"
+      ]
+    }
+  ],
+  "wheel_notice_files_sha256": {
+    "BUILD_LICENSES/abseil.txt": "3ab0ee0d54e7b043f8713da57dc7f716bb348b298ce17f7094b70cb5172c6f81",
+    "BUILD_LICENSES/agg23.txt": "c110d3ea2ad77467ce0dcff7d3337e6c8be8049a5103f4b9bd5fd911a77972e5",
+    "BUILD_LICENSES/dragonbox-Apache2-LLVM.txt": "dc2acb202527597ebe9f292d695bd484018193a7dffa39e7648950649ff4fbe6",
+    "BUILD_LICENSES/dragonbox-Boost.txt": "c9bff75738922193e67fa726fa225535870d2aa1059f91452c411736284ad566",
+    "BUILD_LICENSES/fast_float.txt": "e562f3f974ced7e69dd1db77b820b36bcf8f30377f1aa105723fba449c53c4e6",
+    "BUILD_LICENSES/freetype.txt": "f4b133e25df1f86ad3ffea453aa0e613f0474f34778dbbb3e437e7b2724937d8",
+    "BUILD_LICENSES/harfbuzz.txt": "ba8f810f2455c2f08e2d56bb49b72f37fcf68f1f4fade38977cfd7372050ad64",
+    "BUILD_LICENSES/highway.txt": "a4e3fb11044d78e2a9464e6dd9357834fe35a6ded21157f73a8c370207629630",
+    "BUILD_LICENSES/icu.txt": "17510cf7a58b4879b887ec05a45d72cf1b73544dd9ec7e72f20110ed104229ee",
+    "BUILD_LICENSES/lcms.txt": "5132b7530ae5acab7058634da86470d3d38bb01d70c2b67ba10c96bc62ced1af",
+    "BUILD_LICENSES/libjpeg_turbo.ijg": "75815e3bf6484201a3c3d17a1bbf10f2e8e3237f84df10a2357ea896db2a81d6",
+    "BUILD_LICENSES/libjpeg_turbo.md": "96f5b328adbb78eeaaec6980d73fd558cb1e4d62560ed615646bc3cf5e532430",
+    "BUILD_LICENSES/libopenjpeg.txt": "c5ab0890a737c2dfa7ba675036554f6d17741d98629b0c2a145354d00617e6b2",
+    "BUILD_LICENSES/libpng.txt": "bf5e22b9dce8464064ae17a48ea1133c3369ac9e1d80ef9e320e5219aa14ea9b",
+    "BUILD_LICENSES/libtiff.txt": "92b72ba97e6c2749c2a94bc0ef646b47080217f1e772a482b33cf5a5f98a6506",
+    "BUILD_LICENSES/pdfium-binaries.txt": "18f922f766364a25a6327e7b1b8287d7c36cf8bbea80767d014fb453e2fe4a50",
+    "BUILD_LICENSES/pdfium.txt": "6aed20af4e54f0213331890ca677eb4a2dcd199ad1f8c8bd35e878e0c91a0233",
+    "BUILD_LICENSES/simdutf.txt": "fc8dbc04e03ad4efc08a647ffe7f995b811a95bc04c0e85a56d5277c6593fa5f",
+    "BUILD_LICENSES/zlib.txt": "02421fcfbfb1d656ef0b6ff4cd3c39f2946f08c3219fa42db482add7ce1f53ea",
+    "BUILD_LICENSES/SHARED/Apache-2.0.txt": "aac73b3148f6d1d7111dbca32099f68d26c644c6813ae1e4f05f6579aa2663fe",
+    "BUILD_LICENSES/all_except_musl/llvm-libc.txt": "e6e818a28a6f1889a0f9510929f832887d027ff8c28e9a6e835c591576859d80",
+    "BUILD_LICENSES/android/catapult.txt": "f0df289ba9d03d857ad1c2f5918861376b1510b71588ffc60eff5c7a7bfedb09",
+    "BUILD_LICENSES/android/cpu_features.txt": "7f980508916771e6bd20c2fbae4ac90bc22a5bec844414c4e0972d539c8a5e82",
+    "BUILD_LICENSES/android/libunwind.txt": "8e0ce4a528f6d0a47e249128df35d432ef862995347f81788d721f813fbf66f4",
+    "BUILD_LICENSES/cibw_musl/libgcc_and_libstdc++.txt": "b3eeac3d6760b1d49f0f9de1f1004015453d3c5e9671b9ca5b307f2d22cf8bc5",
+    "BUILD_LICENSES/pbin_and_sbuild/brotli.txt": "3d180008e36922a4e8daec11c34c7af264fed5962d07924aea928c38e8663c94",
+    "BUILD_LICENSES/pbin_and_sbuild/libyuv.txt": "2b2cc1180c7e6988328ad2033b04b80117419db9c4c584918bbb3cfec7e9364f",
+    "BUILD_LICENSES/pbin_musl/musl.txt": "b870108ec5e7790e9f9919064f1b9421d62d5f9b0e6c230c6adf7ea2da62e97b",
+    "BUILD_LICENSES/v8_xfa/bigint.txt": "32759d1397d8f7b9e15ece146e4038b22b90e93b4935b5a840bcef4d2ba5ea55",
+    "BUILD_LICENSES/v8_xfa/fdlibm.txt": "e7115e18444dae09d17f361ddc365fb1d342640fe500796209c63f7c80dfae10",
+    "BUILD_LICENSES/v8_xfa/fp16.txt": "c91377adafa2f498211a4fe017788e20c38892124673860f068f2919c289193d",
+    "BUILD_LICENSES/v8_xfa/inspector_protocol.txt": "450ebb9e9e50c2809d9ca581931fc8946d8d5aa0c8c35aae9ac471342fe4a88e",
+    "BUILD_LICENSES/v8_xfa/strongtalk.txt": "6a585a9f466654abc8fc0829d56b1bc987e3a073d31faa03bba37d33640a23cd",
+    "BUILD_LICENSES/v8_xfa/v8.txt": "4af93c12062c58058378de2397dc1c92bbff9ddfb1d583a01c84127557ce97ca",
+    "LICENSES/Apache-2.0.txt": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "LICENSES/BSD-3-Clause.txt": "a6d11f0694c0137e9b02924b9d33a159f6c72f220fa4655bb2e1ea3654377d39",
+    "LICENSES/CC-BY-4.0.txt": "419896aea50c15d6e40c5b4baf4bd346f78223b9a354c7357ad00262afdc08ec"
+  },
+  "native_advisory_screen": {
+    "scope": "13 OSV database queries and primary source follow-up; no broad native SBOM or complete vulnerability scan",
+    "matches": [
+      "CVE-2026-113679",
+      "CVE-2026-113680",
+      "OSV-2025-219"
+    ],
+    "findings": [
+      {
+        "ids": [
+          "CVE-2026-113679",
+          "CVE-2026-113680"
+        ],
+        "component": "HarfBuzz",
+        "severity": [
+          "High 7.3",
+          "Medium 6.8"
+        ],
+        "status": "affected_feature_excluded_in_reviewed_build",
+        "evidence": "Pinned build recipe puts WebAssembly shaper in unused_sources; no HarfBuzz WASM shaper or WAMR compile actions or matching symbols found in exact native artifact. Unrelated libyuv *_wasm objects do compile.",
+        "sources": [
+          "https://osv.dev/vulnerability/CVE-2026-113679",
+          "https://osv.dev/vulnerability/CVE-2026-113680",
+          "https://pdfium.googlesource.com/pdfium/+/6688c576fd851f4159c6fae39396da50939de110/third_party/harfbuzz/BUILD.gn"
+        ]
+      },
+      {
+        "ids": [
+          "OSV-2025-219"
+        ],
+        "component": "OpenJPEG",
+        "severity": [
+          "High (upstream issue triage)"
+        ],
+        "status": "backport_present_in_reviewed_source_snapshot",
+        "evidence": "PDFium patch 0047 maps to upstream PR 1621. Added and removed code match upstream d33cbecc after whitespace normalization.",
+        "sources": [
+          "https://osv.dev/vulnerability/OSV-2025-219",
+          "https://github.com/uclouvain/openjpeg/commit/d33cbecc148d3affcdf403211fddc2cc5d442379",
+          "https://pdfium.googlesource.com/pdfium/+/6688c576fd851f4159c6fae39396da50939de110/third_party/libopenjpeg/patches/0047-opj_j2k_read_sod.patch"
+        ]
+      },
+      {
+        "ids": [
+          "CVE-2026-6192",
+          "CVE-2026-107080"
+        ],
+        "component": "OpenJPEG",
+        "status": "encoder_findings_outside_proposed_text_extraction_use",
+        "evidence": "Supplier records a dedicated encoder overflow patch for the first finding. The proposed extraction path makes no JPEG 2000 encoder call; exact second fix status not established.",
+        "sources": [
+          "https://security-tracker.debian.org/tracker/CVE-2026-6192",
+          "https://security-tracker.debian.org/tracker/CVE-2026-107080",
+          "https://pdfium.googlesource.com/pdfium/+/6688c576fd851f4159c6fae39396da50939de110/third_party/libopenjpeg/README.pdfium"
+        ]
+      },
+      {
+        "ids": [
+          "CVE-2026-95512",
+          "CVE-2026-50811",
+          "CVE-2026-23865"
+        ],
+        "component": "FreeType",
+        "status": "upstream_fixes_present_in_pinned_mirror_history",
+        "fix_revisions": [
+          "f3ca71c9900fe860849b3163a6e2c1e765b291d9",
+          "5a280ecde6f324de0d226261036e736e0cb49a71",
+          "8fa928f1617aba65f45b00f0dcb109f077b7741e",
+          "fc85a255849229c024c8e65f536fe1875d84841c",
+          "31db10d922e9a16c45d240cbdbdd73fe61f4ea7f"
+        ],
+        "sources": [
+          "https://security-tracker.debian.org/tracker/CVE-2026-95512",
+          "https://security-tracker.debian.org/tracker/CVE-2026-50811",
+          "https://security-tracker.debian.org/tracker/CVE-2026-23865",
+          "https://chromium.googlesource.com/chromium/src/third_party/freetype2/+log/25167984d2435930f9178e8d9d2ca3bdfa71a4e7"
+        ]
+      },
+      {
+        "ids": [
+          "CVE-2026-42798",
+          "CVE-2026-41254",
+          "CVE-2025-29070"
+        ],
+        "component": "Little CMS",
+        "status": "2_19_outside_two_2026_affected_ranges_other_finding_low_impact_per_debian",
+        "sources": [
+          "https://security-tracker.debian.org/tracker/CVE-2026-42798",
+          "https://security-tracker.debian.org/tracker/CVE-2026-41254",
+          "https://security-tracker.debian.org/tracker/CVE-2025-29070"
+        ]
+      },
+      {
+        "ids": [
+          "CVE-2026-121166",
+          "CVE-2026-130976"
+        ],
+        "component": "PDFium",
+        "status": "prior_static_optional_feature_triage_supported_by_supplier_flags",
+        "evidence": "Reviewed upstream fixes touch JavaScript or XFA paths. Supplier build explicitly disables V8 and XFA.",
+        "sources": [
+          "alternate-review.md",
+          "native-closure-review.md"
+        ]
+      }
+    ]
+  },
+  "remaining": [
+    "Public supplier attestation/build log lacks an exact resolved PDFium checkout SHA and final linker inventory.",
+    "Shared wheels, worker image, scanner and isolated authored-fixture execution remain pending.",
+    "Pinned LLVM component notices now preserved; input-facing advisory coverage, shared native review and runtime/scanner/isolation remain incomplete."
+  ],
+  "raw_receipt_sha256": {
+    "osv-native-query.json": "e4b4f1f92ee15bc2237e039fdd2a5cbdb190db9eff9392d4286477f707917614",
+    "openjpeg-0047.patch": "4035519ed82fe53de6cdac54bea4d863d1268b81a2f3f6f3521cec4299ab4494",
+    "openjpeg-README.pdfium": "0819b88a0e2664e978e87aeee57dd30bc8c032a8719796813de5352c0364c10c",
+    "freetype-ancestry.json": "59bde96f0dbc3c56cb9474a44cb4adb1290a04b39b0dfcbb9685b69f1ca44930",
+    "harfbuzz-BUILD.gn": "b7402232e638a0eefd9c618b56164e00ca65ff754c609952522ae1c891980771",
+    "build-job.log": "41523550373f32bb9f8bf0a029662ac36d573e666a5737fe7c9c31ca1536777c",
+    "pdfium_DEPS.txt": "02062f151f59f1d9db49549ffd1ae1f7e79e5f609d8025dbc971a833da0cf379"
+  },
+  "installed_or_executed": false,
+  "review_status": "bounded static findings independently accepted with corrections; install/runtime qualification remains held",
+  "wheel_notice_root": "pypdfium2-5.15.2.dist-info/licenses/",
+  "qualification": "No installation/runtime/phase clearance; candidate remains held.",
+  "independent_review": "workers/parser/component-independent-review.md"
+}

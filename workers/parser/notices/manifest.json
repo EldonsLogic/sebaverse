@@ -1,0 +1,23 @@
+{
+  "date": "2026-11-19",
+  "task": "DEV-010",
+  "notices": [
+    {
+      "component": "libcxx",
+      "source_commit": "9ba7713d3a0f1e179904c984bb626748b15e57d6",
+      "source": "https://chromium.googlesource.com/external/github.com/llvm/llvm-project/libcxx.git/+/9ba7713d3a0f1e179904c984bb626748b15e57d6/LICENSE.TXT",
+      "path": "workers/parser/notices/libcxx-LICENSE.TXT",
+      "sha256": "539dd7aed86e8a4f12cbdd0e6c50c189c7d74847e4fecc64ce2c6ee3a01da38b",
+      "scope": "Pinned component notice retained as identified by independent static review; no runtime, redistribution or native advisory clearance."
+    },
+    {
+      "component": "libcxxabi",
+      "source_commit": "ce814c994055b107c631c310b1c668e3714c0704",
+      "source": "https://chromium.googlesource.com/external/github.com/llvm/llvm-project/libcxxabi.git/+/ce814c994055b107c631c310b1c668e3714c0704/LICENSE.TXT",
+      "path": "workers/parser/notices/libcxxabi-LICENSE.TXT",
+      "sha256": "e2b35be49f7284a45b7baca8fc7b3ab7440e7902392b2528a457816b5bb2a15c",
+      "scope": "Pinned component notice retained as identified by independent static review; no runtime, redistribution or native advisory clearance."
+    }
+  ],
+  "limits": "Source mapping to supplier branch remains inferred; notices supplement wheel notices and do not authorize execution."
+}

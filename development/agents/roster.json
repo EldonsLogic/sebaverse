@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "run": "dev-010-antigravity-handover-2026-11-18",
+  "run": "dev-010-five-streams-2026-11-19",
   "max_concurrent_including_orchestrator": 4,
   "paid_provider_budget_usd": 0,
   "token_budget": null,
@@ -10,50 +10,67 @@
       "agent": "/root",
       "roles": [
         "Orchestrator",
-        "Infrastructure",
-        "Integration"
-      ],
-      "status": "interrupted",
-      "files": [
-        "infra/",
-        "tools/",
-        "development/ shared state/evidence",
-        "Makefile",
-        ".github/",
-        "sources/",
-        "registers/"
-      ],
-      "evidence": "Codex DEV-010 broker implementation and in-progress scanner/parser reviews checkpointed unchanged at baa2db0"
-    },
-    {
-      "agent": "/antigravity",
-      "roles": [
-        "Security",
-        "Infrastructure",
-        "Documentation"
+        "Integration",
+        "Testing"
       ],
       "status": "completed",
       "files": [
-        "development/CURRENT-STATE.md",
-        "development/evidence/dev-010.md",
-        "development/evidence/handoff-2026-11-18-antigravity.md",
-        "development/agents/roster.json"
+        "development shared state/evidence",
+        "sources/",
+        "registers/"
       ],
-      "evidence": "Checkpointed Codex in-progress DEV-010 files unchanged (baa2db0); verified AUTH-010 Ubuntu Noble libssl3t64 3.0.13-0ubuntu3.16 CVE-2026-107496 status and static libclamav.so.12.1.0 CMS_encrypt disassembly; recorded hold and options in dev-010.md and handoff-2026-11-18-antigravity.md"
+      "evidence": "Integrated five bounded streams, verified all eight archives and 46 notices, retained pinned LLVM notices; root final 179 helper and 367 DB-free backend tests passed. Project F3 remains held."
     },
     {
-      "agent": "/root/independent_reviewer",
+      "agent": "/root/parser_semantic_review",
       "roles": [
         "Security",
         "Reviewer"
       ],
+      "model": "gpt-6.2-sol",
+      "reasoning_effort": "medium",
       "status": "completed",
       "files": [
-        "development/evidence/f2-derived-review.md"
+        "workers/parser/component-independent-review.md"
       ],
-      "evidence": "Prior F2/DEV-009/DEV-010 broker independent reviews recorded in evidence; no phase F3 approval"
+      "evidence": "S1 bounded independent static review completed; corrections and pinned LLVM notices recorded; no runtime clearance."
+    },
+    {
+      "agent": "/root/shared_wheel_completion",
+      "roles": [
+        "Research",
+        "Security",
+        "Reviewer"
+      ],
+      "model": "gpt-6.2-sol",
+      "reasoning_effort": "medium",
+      "status": "completed",
+      "files": [
+        "workers/parser/shared-wheel-inventory.json",
+        "workers/parser/shared-wheel-inventory.md",
+        "development/evidence/dev-010-team-integration-review-2026-11-19.md"
+      ],
+      "evidence": "S2 eight archives verified; S5 accepted ADR/continuity and independent S4 review. Does not independently sign off own S2 inventory."
+    },
+    {
+      "agent": "/root/runtime_fix_recheck",
+      "roles": [
+        "Infrastructure",
+        "Research",
+        "Testing"
+      ],
+      "model": "gpt-6.2-sol",
+      "reasoning_effort": "medium",
+      "status": "completed",
+      "files": [
+        "development/evidence/postgres-fix-recheck-2026-11-19-evening.md",
+        "backend/tests/ingestion/test_storage.py",
+        "backend/tests/ingestion/postgres_probe.py",
+        "backend/tests/test_postgres_integration.py"
+      ],
+      "evidence": "S3 official image unchanged; S4 added retained-partial manifest regressions. 32 ingestion/367 backend tests passed; new PostgreSQL scenario not run."
     }
   ],
-  "run_status": "in_progress",
-  "scope": "DEV-010 AUTH-010 Ubuntu Noble package-route follow-up and handover on branch antigravity/dev-010-handover; scanner held on OpenSSL CVE-2026-107496 pending founder decision"
+  "run_status": "completed",
+  "scope": "Five bounded DEV-010 streams completed across three subagents and root; checkpoint review complete, not DEV-010/F3 or runtime approval."
 }

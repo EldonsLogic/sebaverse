@@ -74,3 +74,5 @@ Exact research files/bytes/checksums: [manifest](research-manifest.json). Suppor
 - U20: [GitHub resources for ingestion blockers](github-resource-reuse-instruction.md), 18 November 2026. Upstream reuse discovery for existing DEV-010 requirements; no automatic adoption or security waiver.
 
 - U21: [Fix-triggered synthetic exception expiry](exception-expiry-instruction.md), 18 November 2026; reaffirmed by founder on 19 November. AUTH-011 changes only expiry and runtime/build bindings, preserving exact findings and synthetic scope.
+
+- U22: [Parallel task orchestration](parallel-agent-instruction.md), 19 November 2026. Five requested streams; session limit permits three simultaneous subagents plus the root. Actual ownership/results are recorded without claiming impossible concurrency.

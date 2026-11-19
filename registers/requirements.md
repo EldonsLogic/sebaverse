@@ -787,7 +787,7 @@ Authoritative structured form: requirements.json. All requirements retained; pro
 
 ## R088 — Codex instructions and phased prompts
 
-- Source: U1, U2; status: Specified; not implemented; Founder requirement.
+- Source: U1, U2, U22; status: Specified; not implemented; Founder requirement.
 - Priority: P1; phase: Gates; owner: Founder.
 - Dependencies: R003, R077.
 - Acceptance: Agents read authoritative docs; each prompt bounded by gates and evidence.

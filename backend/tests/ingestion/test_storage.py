@@ -1,4 +1,5 @@
 import hashlib,os
+from pathlib import Path
 from uuid import uuid4
 import pytest
 from modules.ingestion.storage import PrivateObjects
@@ -31,6 +32,43 @@ def test_symlink_read_never_follows_another_private_file(tmp_path):
     with pytest.raises(OSError):store.read(key)
     store.purge(key)
     assert victim.read_bytes()==b'private marker'
+
+
+def test_partial_manifest_survives_failed_cleanup_and_is_removed_on_purge_retry(tmp_path, monkeypatch):
+    store = PrivateObjects(tmp_path / 'private')
+    key = str(uuid4())
+    source = b'%PDF-authored fixture'
+    store.put(key, [source], len(source))
+    manifest = store.path(key, 'manifest')
+    output = b'{"text":"authored fixture"}'
+    partial = output[:9]
+    unlink = Path.unlink
+
+    def fail_manifest_sync(fd):
+        os.ftruncate(fd, len(partial))
+        raise OSError('fixture partial manifest write')
+
+    def fail_manifest_unlink(path, *args, **kwargs):
+        if path == manifest:
+            raise PermissionError('fixture manifest unlink failure')
+        return unlink(path, *args, **kwargs)
+
+    with monkeypatch.context() as fault:
+        fault.setattr(Path, 'unlink', fail_manifest_unlink)
+        with monkeypatch.context() as write_fault:
+            write_fault.setattr(os, 'fsync', fail_manifest_sync)
+            with pytest.raises(PermissionError, match='fixture manifest unlink failure'):
+                store.put_manifest(key, output)
+        assert manifest.read_bytes() == partial
+        assert store.read(key) == source
+        with pytest.raises(PermissionError, match='fixture manifest unlink failure'):
+            store.purge(key)
+        assert not store.path(key).exists()
+        assert manifest.read_bytes() == partial
+
+    store.purge(key)
+    assert not manifest.exists()
+    store.purge(key)
 
 
 def test_signed_manifest_is_scoped_expiring_and_not_a_replay_token():

@@ -1663,7 +1663,8 @@
     "requirement": "Codex instructions and phased prompts",
     "sources": [
       "U1",
-      "U2"
+      "U2",
+      "U22"
     ],
     "priority": "P1",
     "phase": "Gates",
