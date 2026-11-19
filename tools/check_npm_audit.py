@@ -1,10 +1,17 @@
-"""Capture npm's unsuppressed audit; narrowly apply AUTH-005 in synthetic development."""
+"""Capture npm's unsuppressed audit; narrowly apply AUTH-005 in synthetic development.
+
+AUTH-011: the exception ends as soon as the registry publishes a version above the highest
+affected one, and never later than 30 days after review. It binds the dependency and build
+configuration, not application source files.
+"""
 from pathlib import Path
 from datetime import datetime, timezone
 import argparse
 import hashlib
 import json
 import subprocess
+
+REVIEW_MAX_SECONDS = 30 * 86400
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -16,14 +23,33 @@ def require(condition, message):
 
 def source_inputs(root):
     paths = [root / name for name in ('web/package.json', 'web/package-lock.json', 'web/vite.config.ts',
-             'web/index.html', '.github/workflows/dependencies.yml', 'tools/check_npm_audit.py')]
-    paths += sorted((root / 'web/src').rglob('*'))
+             '.github/workflows/dependencies.yml', 'tools/check_npm_audit.py')]
     require(all(not p.is_symlink() for p in paths), 'Source symlink is outside the review')
     return {str(p.relative_to(root)): hashlib.sha256(p.read_bytes()).hexdigest()
             for p in paths if p.is_file()}
 
 
-def validate(report, returncode, policy, root, scope, now=None):
+def version_key(value):
+    parts = value.split('.')
+    return tuple(int(part) for part in parts) if len(parts) == 3 and all(p.isdigit() for p in parts) else None
+
+
+def fixed_releases(policy, published):
+    """Return package releases above the reviewed highest affected version (prereleases ignored)."""
+    watch = policy.get('fix_watch')
+    require(isinstance(watch, dict) and watch, 'Exception has no fix watch')
+    require(isinstance(published, dict) and set(published) == set(watch), 'Registry release list unavailable')
+    released = {}
+    for name, highest in watch.items():
+        limit = version_key(highest)
+        require(limit is not None and isinstance(published[name], list) and published[name], 'Fix watch malformed')
+        newer = [v for v in published[name] if isinstance(v, str) and version_key(v) and version_key(v) > limit]
+        if newer:
+            released[name] = sorted(newer, key=version_key)
+    return released
+
+
+def validate(report, returncode, policy, root, scope, now=None, published=None):
     now = now or datetime.now(timezone.utc)
     require(type(report) is dict and report.get('auditReportVersion') == 2 and not report.get('error'), 'Invalid or failed audit')
     vulns = report.get('vulnerabilities')
@@ -39,9 +65,11 @@ def validate(report, returncode, policy, root, scope, now=None):
     require(policy.get('authority') == 'AUTH-005' and policy.get('scope') == scope, 'Missing scoped authority')
     start = datetime.fromisoformat(policy['reviewed_at_utc'])
     end = datetime.fromisoformat(policy['expires_at_utc'])
-    require(start.tzinfo is not None and end.tzinfo is not None and start <= now < end and (end-start).total_seconds() <= 3*86400, 'Review expired or invalid')
+    require(start.tzinfo is not None and end.tzinfo is not None and start <= now < end and (end-start).total_seconds() <= REVIEW_MAX_SECONDS, 'Review expired or invalid')
     require(policy.get('source_inputs') == source_inputs(root), 'Reviewed source or lock changed')
     require(vulns == policy.get('reviewed_vulnerabilities'), 'New or changed audit finding')
+    released = fixed_releases(policy, published)
+    require(not released, 'Fix released, exception ended; upgrade and re-run: ' + json.dumps(released))
     require(counts == policy.get('reviewed_counts'), 'Audit severity or counts changed')
     lock = json.loads((root / 'web/package-lock.json').read_text())['packages']
     require(set(vulns) == {'fdir', 'picomatch', 'tinyglobby', 'vite'}, 'Unexpected dependency chain')
@@ -51,6 +79,14 @@ def validate(report, returncode, policy, root, scope, now=None):
             require(lock.get(node, {}).get('version') == policy['versions'].get(name), 'Affected version changed')
     return {'status': 'pass_with_temporary_development_exception', 'exceptions': len(vulns),
             'expires_at_utc': policy['expires_at_utc'], 'authority': 'AUTH-005'}
+
+
+def registry_versions(name):
+    result = subprocess.run(['npm', 'view', name, 'versions', '--json', '--registry=https://registry.npmjs.org'],
+                            cwd=ROOT, capture_output=True, text=True, timeout=60)
+    require(result.returncode == 0, 'Registry lookup failed for ' + name)
+    versions = json.loads(result.stdout)
+    return versions if isinstance(versions, list) else [versions]
 
 
 def main():
@@ -66,7 +102,10 @@ def main():
     try:
         report = json.loads(result.stdout)
         policy = json.loads((ROOT / 'infra/development-npm-review.json').read_text())
-        receipt = validate(report, result.returncode, policy, ROOT, args.scope)
+        published = None
+        if report.get('vulnerabilities'):
+            published = {name: registry_versions(name) for name in policy.get('fix_watch', {})}
+        receipt = validate(report, result.returncode, policy, ROOT, args.scope, published=published)
     except (ValueError, KeyError, TypeError, OSError) as exc:
         receipt = {'status': 'fail', 'reason': str(exc)}
     receipt['raw_report_sha256'] = hashlib.sha256(result.stdout.encode()).hexdigest()

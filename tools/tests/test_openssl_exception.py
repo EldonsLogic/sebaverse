@@ -53,7 +53,7 @@ class OpenSSLBoundary(unittest.TestCase):
             self.policy=p
 
     def test_expired_future_and_overlong_reviews_are_refused(self):
-        for key,value in [('expires_at_utc',self.now),('reviewed_at_utc',self.now+timedelta(seconds=1)),('expires_at_utc',self.now+timedelta(days=4))]:
+        for key,value in [('expires_at_utc',self.now),('reviewed_at_utc',self.now+timedelta(seconds=1)),('expires_at_utc',self.now+timedelta(days=30))]:
             p=copy.deepcopy(self.policy);self.policy[key]=value.isoformat()
             with self.subTest(key=key,value=value),self.assertRaises(ValueError):self.check()
             self.policy=p
@@ -70,9 +70,19 @@ class OpenSSLBoundary(unittest.TestCase):
             with self.subTest(name=name),self.assertRaises(ValueError):self.check()
             p.write_bytes(original)
 
-    def test_added_backend_file_invalidates_workload_set(self):
-        (self.root/'backend/unreviewed.py').write_text('new workload')
+    def test_changed_image_pin_or_security_tool_invalidates_review(self):
+        for name in ['infra/images.lock.json','tools/security/check_reports.py','backend/uv.lock']:
+            p=self.root/name;original=p.read_bytes();p.write_bytes(b'changed')
+            with self.subTest(name=name),self.assertRaises(ValueError):self.check()
+            p.write_bytes(original)
+
+    def test_added_security_tool_invalidates_workload_set(self):
+        (self.root/'tools/security/unreviewed.py').write_text('new runner step')
         with self.assertRaises(ValueError):self.check()
+
+    def test_application_feature_code_does_not_invalidate_review(self):
+        p=self.root/'backend/modules/new_feature.py';p.parent.mkdir(parents=True,exist_ok=True);p.write_text('feature')
+        self.assertEqual(len(self.check()),8)
 
     def test_changed_id_version_severity_package_or_report_is_refused(self):
         for key,value in [('id','CVE-2026-OTHER'),('version','3.5.10-r0'),('severity','critical'),('package','openssl'),('report','system-native-cves.json')]:
