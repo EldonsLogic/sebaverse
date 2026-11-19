@@ -72,3 +72,5 @@ Exact research files/bytes/checksums: [manifest](research-manifest.json). Suppor
 - U19: [AG-UI integration instruction](ag-ui-integration-instruction.md), 18 November 2026. Exact founder wording distinguished from operational phase/scope interpretation.
 
 - U20: [GitHub resources for ingestion blockers](github-resource-reuse-instruction.md), 18 November 2026. Upstream reuse discovery for existing DEV-010 requirements; no automatic adoption or security waiver.
+
+- U21: [Fix-triggered synthetic exception expiry](exception-expiry-instruction.md), 18 November 2026; reaffirmed by founder on 19 November. AUTH-011 changes only expiry and runtime/build bindings, preserving exact findings and synthetic scope.

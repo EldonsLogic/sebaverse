@@ -1,5 +1,8 @@
 # Task handoff — DEV-010 (Antigravity to Codex)
 
+> [!NOTE]
+> Historical 18 November handoff. Reviewed on 19 November: AUTH-011 now supersedes the expiry prompts below. Current authority and next steps are in CURRENT-STATE.md. Binary observations do not prove unreachable code; source review found unrelated CMS_encrypt mentions. No scanner exception is authorized.
+
 > [!IMPORTANT]
 > **Founder decisions needed before CI breaks on 20 November 2026:**
 > 1. **AUTH-007 (OpenSSL High exception in disposable synthetic PostgreSQL CI):** expires **20 November 2026 at 11:39:06 UTC** (`infra/synthetic-openssl-review.json`). Not extended.
@@ -61,12 +64,12 @@
   2. Investigated the open AUTH-010 package-route item (`CVE-2026-107496` on Ubuntu 24.04 LTS Noble `libssl3t64` `3.0.13-0ubuntu3.16` for ClamAV `1.5.4+dfsg-0ubuntu0.24.04.1`) using primary upstream/Canonical advisories, Launchpad archive API metadata, signed Debian source patch archives, and static ELF symbol/disassembly analysis of the extracted binaries in `work/dev-010/scanner-package-route/`:
      - Verified live `https://security.ubuntu.com/ubuntu/dists/noble-security/InRelease` is unchanged from `Wed, 18 Nov 2026 14:10:15 UTC` (SHA-256 `473f6353b8a017c8ad783a92c13875f0d8ef33a38c0df55547ce14804056fbf8`).
      - Verified live `https://ubuntu.com/security/cves/CVE-2026-107496.json` still lists `openssl` on `noble` as `needs-triage` ("Needs evaluation"), Ubuntu priority `Medium`, CVSS v3.1 `7.5 High`, with no USN.
-     - Verified via Launchpad API (`getPublishedSources` for `openssl` in `noble`) that `Security` and `Updates` remain at `3.0.13-0ubuntu3.16` (all 79 patches in `openssl_3.0.13-0ubuntu3.16.debian.tar.xz` checked; none patches `CVE-2026-107496` or `CMS_encrypt`), and `Proposed` has `3.0.13-0ubuntu3.17` (which only adds `d/p/revert-engine-legacy-key-detection.patch` for `LP: #2158304`, not `CVE-2026-107496`).
+     - Verified via Launchpad API (`getPublishedSources` for `openssl` in `noble`) that `Security` and `Updates` remain at `3.0.13-0ubuntu3.16` (all 79 patches in `openssl_3.0.13-0ubuntu3.16.debian.tar.xz` checked; no named CVE-2026-107496 patch or relevant EC group order-1 fix identified; unrelated CMS_encrypt references exist), and `Proposed` has `3.0.13-0ubuntu3.17` (which only adds `d/p/revert-engine-legacy-key-detection.patch` for `LP: #2158304`, not `CVE-2026-107496`).
      - Verified from `https://openssl-library.org/news/secadv/20261110.txt` that `CVE-2026-107496` (OpenSSL severity `Low`, CWE-835 infinite loop in `CMS_encrypt()` / `CMS_encrypt_ex()` when encrypting to an attacker-supplied EC certificate with explicit group order 1) has public fixes scheduled for 1 December 2026 (`3.0.24` is listed as premium support only).
      - Performed static ELF symbol and `.text` disassembly check on `/usr/bin/clamscan` (`3c9a2ab59a256988dac497bbb7c5e3dd98180cef846b32088a304dc604d2a3ee`) and `/usr/lib/x86_64-linux-gnu/libclamav.so.12.1.0` (`9b343754e2c867b15871711828d8a25191f679b01ff8e5ac3016d1efd5205ded`) via `llvm-objdump`:
        - `clamscan` imports zero `CMS_*` or `PKCS7_*` symbols.
        - `libclamav.so.12.1.0` imports `CMS_encrypt` (`0000000000c795b8 R_X86_64_GLOB_DAT CMS_encrypt`), which is referenced at only one call instruction (`0x90b151: callq *0x36e461(%rip) # 0xc795b8`) inside a Rust `openssl::cms::CmsContentInfo::encrypt` wrapper function at `0x90b0e0`.
-       - Full disassembly search across `libclamav.so.12.1.0` confirmed zero callers (`callq`, `jmp`, `leaq`, or data relocations) reference `0x90b0e0` (or the adjacent `CMS_verify` wrapper at `0x90aea0`).
+       - Full disassembly search across `libclamav.so.12.1.0` found no direct references (`callq`, `jmp`, `leaq`, or data relocations) to `0x90b0e0` (or the adjacent `CMS_verify` wrapper at `0x90aea0`).
      - Concluded that because the package-level finding on `libssl3t64` `3.0.13-0ubuntu3.16` remains unfixed (`needs-triage`, CVSS 7.5 High) and AUTH-010 forbids scanner exceptions or custom compilation, the Noble package route must remain on **hold** pending a founder decision.
   3. Appended the full investigation, exact source locators/hashes, open items, and three prepared founder options to [development/evidence/dev-010.md](dev-010.md).
   4. Rewrote [development/CURRENT-STATE.md](../CURRENT-STATE.md) concisely (under 5 KB and 10 lines/bullets) reflecting the 18 November 2026 checkpoint on `antigravity/dev-010-handover`.
@@ -85,7 +88,7 @@
      - `/Library/Developer/CommandLineTools/usr/bin/llvm-objdump --dynamic-syms work/dev-010/scanner-package-route/clamscan` -> exit code `0` (0 `CMS_*`/`PKCS7_*` symbols).
      - `/Library/Developer/CommandLineTools/usr/bin/llvm-objdump --dynamic-syms work/dev-010/scanner-package-route/libclamav.so.12.1.0` -> exit code `0` (9 `CMS_*`/`PKCS7_*` symbols including `CMS_encrypt`).
      - `/Library/Developer/CommandLineTools/usr/bin/llvm-objdump -R work/dev-010/scanner-package-route/libclamav.so.12.1.0` -> exit code `0` (`0000000000c795b8 R_X86_64_GLOB_DAT CMS_encrypt`).
-     - `/Library/Developer/CommandLineTools/usr/bin/llvm-objdump -d work/dev-010/scanner-package-route/libclamav.so.12.1.0` -> exit code `0` (verified single `CMS_encrypt` call site at `0x90b151` inside unreferenced wrapper `0x90b0e0` with zero callers).
+     - `/Library/Developer/CommandLineTools/usr/bin/llvm-objdump -d work/dev-010/scanner-package-route/libclamav.so.12.1.0` -> exit code `0` (verified single `CMS_encrypt` call site at `0x90b151` inside the inspected wrapper `0x90b0e0` with no direct references found).
 - Checks not run or failed, and why:
   - No failure occurred in any run check.
   - Did **not** run scanner, parser, model, or local macOS PostgreSQL database tests (`make test-authorization`, `make test-consent`, `make test-ingestion`, `make test-content-isolation`), per explicit instruction and existing holds (`local macOS database use remains held`; scanner and parser assets are not approved or installed).
@@ -116,7 +119,7 @@
   2. **Founder decisions needed:**
      - Decide on expiring CI exceptions before **20 November 2026**: `AUTH-007` (`11:39:06 UTC`) and `AUTH-005` (`19:38:23 UTC`), plus native reviews expiring 21 November 2026.
      - Choose one of the three scanner options in [development/evidence/dev-010.md](dev-010.md#prepared-founder-options-for-the-auth-010-scanner-hold):
-       - **Option 1 (recommended if F3 synthetic scanner integration should proceed before December 2026):** Authorize a hash-bound, expiring synthetic-CI applicability exception for `CVE-2026-107496` on Noble `libssl3t64` `3.0.13-0ubuntu3.16` based on OpenSSL's Low severity and static ELF disassembly proof that `CMS_encrypt` in `libclamav.so.12.1.0` (`0x90b0e0` -> `0x90b151`) has zero callers.
+       - **Option 1 (proposal requiring a new scanner-specific decision and independent applicability review):** Authorize a hash-bound, expiring synthetic-CI applicability exception for `CVE-2026-107496` on Noble `libssl3t64` `3.0.13-0ubuntu3.16` based on OpenSSL's Low severity and static ELF observations that `CMS_encrypt` in `libclamav.so.12.1.0` (`0x90b0e0` -> `0x90b151`) has no direct references identified; this does not prove it is unreachable.
        - **Option 2:** Keep the scanner on hold until Canonical publishes a Noble `libssl3t64` fix or triage decision (or after the 1 December 2026 OpenSSL release window), while continuing AUTH-008 parser native/notice closure.
        - **Option 3:** Authorize an ADR amendment and assessment for a non-OpenSSL-CMS scanner alternative (not recommended).
   3. **Continue AUTH-008 parser assessment (within remaining 1-day budget):** Complete static provenance/notice inspection for `pypdfium2` (`libpdfium.so`) and shared wheels in `workers/parser/alternate-review.md`.
@@ -126,7 +129,7 @@
 - Conditions that require a founder decision before dependent work:
   - Expiring `AUTH-007` (20 Nov 11:39 UTC) and `AUTH-005` (20 Nov 19:38 UTC) exceptions.
   - Scanner `CVE-2026-107496` hold resolution (Option 1 vs. Option 2 vs. Option 3).
-  - Question/uncertainty recorded for founder/Codex: none of Codex's files or `infra/scanner/package-route-review.md` were edited after `baa2db0` so that Codex's checkpoint remained strictly separated from Antigravity's additions in `development/evidence/dev-010.md`; if Codex wants the static `llvm-objdump` disassembly note (`0x90b0e0` -> `0x90b151` dead `CMS_encrypt` wrapper) mirrored directly inside `infra/scanner/package-route-review.md` and `infra/scanner/package-route-candidate.json`, Codex can fold that in after reviewing this PR.
+  - Question/uncertainty recorded for founder/Codex: none of Codex's files or `infra/scanner/package-route-review.md` were edited after `baa2db0` so that Codex's checkpoint remained strictly separated from Antigravity's additions in `development/evidence/dev-010.md`; if Codex wants the static `llvm-objdump` disassembly note (`0x90b0e0` -> `0x90b151` inspected `CMS_encrypt` wrapper) mirrored directly inside `infra/scanner/package-route-review.md` and `infra/scanner/package-route-candidate.json`, Codex can fold that in after reviewing this PR.
 - Safe checkpoint/rollback and recovery notes:
   - `main` is untouched at `bff322a00cdc824496dd262907b0ceb61116d573`.
-  - Commit `baa2db0` on `antigravity/dev-010-handover` has Codex's exact working tree as found. Rolling back Antigravity's documentation commit is a single `git reset --hard baa2db0` if ever desired.
+  - Commit `baa2db0` on `antigravity/dev-010-handover` has Codex's exact working tree as found. Use a reviewed revert of the specific documentation commit if needed; preserve later work and shared history.
