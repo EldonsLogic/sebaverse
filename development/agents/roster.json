@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "run": "dev010-public-transport-resume-2026-11-20",
+  "run": "dev010-next-boundary-2026-11-20",
   "max_concurrent_including_orchestrator": 4,
   "paid_provider_budget_usd": 0,
   "token_budget": null,
@@ -15,30 +15,12 @@
       ],
       "status": "completed",
       "files": [
-        "development shared state/evidence",
-        "AGENTS.md",
-        "sources/public-repository-instruction.md",
-        "sources/source-catalog.md",
-        "workers/parser/README.md"
+        "development shared state/evidence"
       ],
-      "evidence": "Integrated U24/public handoff and strict decoder, root backend 494 passed/1 PostgreSQL deselected; final foundation checks recorded in checkpoint evidence."
+      "evidence": "Integrated reviewed broker patch/fixtures; root backend 504 passed, PostgreSQL deselected, Django clean. Owns final foundation, continuity and verified push."
     },
     {
-      "agent": "/root/transport_review",
-      "roles": [
-        "Reviewer",
-        "Security"
-      ],
-      "model": "gpt-6.2-sol",
-      "reasoning_effort": "medium",
-      "status": "completed",
-      "files": [
-        "development/evidence/dev-010-result-transport-review.md"
-      ],
-      "evidence": "Accepted exact decoder/tests hashes;32 focused/159 ingestionpassed plus eight boundary spot checks. Metadata-only error handling remains mandatory on future connection. Ownership released."
-    },
-    {
-      "agent": "/root/hosted_recheck",
+      "agent": "/root/latest_ci",
       "roles": [
         "Testing",
         "Infrastructure"
@@ -47,25 +29,44 @@
       "reasoning_effort": "medium",
       "status": "completed",
       "files": [
-        "development/evidence/public-ci-recheck-2026-11-20.md"
+        "development/evidence/hosted-transport-37e39e1.md",
+        "development/evidence/dev-010-dispatch-fence-review.md"
       ],
-      "evidence": "Verified one existing rerun: hosted Linux 462 passed, native pre-use gate failed, DB/browser skipped; no new rerun/policy change. Ownership released."
+      "evidence": "Hosted prior commit 494 Linux tests passed then native gate failed; independently accepted exact patch/test blobs with 10/169/504 local tests. No real database result; files released."
     },
     {
-      "agent": "/root/test_completion",
+      "agent": "/root/next_worker_boundary",
       "roles": [
-        "Testing"
+        "Architecture",
+        "Backend"
       ],
       "model": "gpt-6.2-sol",
       "reasoning_effort": "medium",
       "status": "completed",
       "files": [
-        "backend/tests/ingestion/test_result_transport.py",
-        "development/evidence/dev-010-transport-test-plan.md"
+        "workers/parser/input-transport-plan.md",
+        "backend/modules/ingestion/service.py"
       ],
-      "evidence": "Recovered inherited tests unchanged;32 focused/159 ingestionpass. Reviewed public/handoff docs; stale private wording corrected by root. Ownership released."
+      "evidence": "Implemented narrow dispatch/provenance correction and released files. Input framing/profile remains proposal, no cap or activation change."
+    },
+    {
+      "agent": "/root/f3_remaining",
+      "roles": [
+        "Reviewer",
+        "Planning"
+      ],
+      "model": "gpt-6.2-sol",
+      "reasoning_effort": "medium",
+      "status": "completed",
+      "files": [
+        "development/evidence/f3-remaining-work-2026-11-20.md",
+        "backend/tests/ingestion/test_dispatch_fence.py",
+        "backend/tests/ingestion/postgres_probe.py",
+        "backend/tests/test_postgres_integration.py"
+      ],
+      "evidence": "Six regressions failed on real prior service baseline; final 10 focused checks pass. Six new persisted probe cases staged; total 21 PostgreSQL cases NOT RUN. Files released."
     }
   ],
   "run_status": "completed_checkpoint",
-  "scope": "U24 hosted eligibility/results, inherited AUTH013 decoder independent review, inherited tests completion, root public-scope and QA integration. Three simultaneous subagents; five streams including queued review/handoff. AUTH014 wait preserved."
+  "scope": "DEV010 concrete scanner-to-parser authorization fence and callback provenance correction, DB-free regressions, staged PostgreSQL cases NOT RUN; hosted latest commit evidence and independent review. Input framing remains proposal, AUTH014 wait unchanged."
 }

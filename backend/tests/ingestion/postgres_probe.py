@@ -3,6 +3,7 @@ import hashlib,json,os,sys,tempfile
 from unittest.mock import patch
 from pathlib import Path
 from datetime import timedelta
+from uuid import uuid4
 sys.path.insert(0,str(Path(__file__).resolve().parents[2]))
 os.environ.setdefault('DJANGO_SETTINGS_MODULE','config.settings')
 import django
@@ -10,6 +11,7 @@ django.setup()
 from django.contrib.auth import get_user_model
 from django.db import connection
 from django.utils import timezone
+from modules.identity.consent import withdraw_consent
 from modules.identity.models import Tenant,Membership,Learner,GuardianRelationship,ConsentRecord
 from modules.access.models import Course,Enrollment,Entitlement,ScopedResource
 from modules.ingestion.models import UploadQuota,ReviewGrant,Upload
@@ -20,11 +22,18 @@ from modules.ingestion.service import allocate,accept_bytes,process,approve,reso
 
 class FixtureScanner:
     asset_id='fixture-scanner.v1'
-    def __init__(self,status='clean'):self.status=status;self.calls=0
+    def __init__(self,status='clean', *, before_return=None):
+        self.status=status
+        self.calls=0
+        self.before_return=before_return
+
     def scan(self,data):
         self.calls+=1
         if self.status=='timeout':raise TimeoutError('fixture failure')
-        return {'asset_id':self.asset_id,'sha256':hashlib.sha256(data).hexdigest(),'status':self.status}
+        result = {'asset_id':self.asset_id,'sha256':hashlib.sha256(data).hexdigest(),'status':self.status}
+        if self.before_return is not None:
+            self.before_return()
+        return result
 
 
 class FixtureParser:
@@ -160,6 +169,85 @@ def main():
         assert process(late.pk,store,FixtureScanner(),LateParser(),assets(data)).status=='deleted'
         assert not store.path(str(late.id)).exists() and not store.path(str(late.id),'manifest').exists()
         checks.append('late-parser-after-withdrawal')
+
+        scan_cancel = allocate(actor, resource.pk, 'withdraw-during-scan', decl)
+        accept_bytes(actor, scan_cancel.pk, [data], store)
+        scanner = FixtureScanner(before_return=lambda: withdraw(actor, scan_cancel.pk, store))
+        parser = FixtureParser()
+        assert process(scan_cancel.pk, store, scanner, parser, assets(data)).status == 'deleted'
+        assert scanner.calls == 1 and parser.calls == 0
+        assert not store.path(str(scan_cancel.pk)).exists() and not store.path(str(scan_cancel.pk), 'manifest').exists()
+        checks.append('clean-scan-after-withdrawal-does-not-dispatch-parser')
+
+        def new_consent():
+            return ConsentRecord.objects.create(
+                relationship=relation, purpose='tutoring', notice_version='fixture.v1', notice_locale='ar-EG',
+                evidence_ref='fixture.reconsent', granted_at=timezone.now(), expires_at=now+timedelta(hours=1),
+            )
+
+        def change_consent_during_scan(regrant):
+            withdraw_consent(guardian, consent.pk)
+            if regrant:
+                new_consent()
+
+        for regrant, scenario in [
+            (False, 'clean-scan-after-consent-withdrawal-does-not-dispatch-parser'),
+            (True, 'clean-scan-after-consent-regrant-does-not-revive-dispatch'),
+        ]:
+            scan_revoked = allocate(actor, resource.pk, scenario, decl)
+            accept_bytes(actor, scan_revoked.pk, [data], store)
+            scanner = FixtureScanner(before_return=lambda: change_consent_during_scan(regrant))
+            parser = FixtureParser()
+            blocked = process(scan_revoked.pk, store, scanner, parser, assets(data))
+            assert blocked.status == 'withdrawn' and blocked.generation == scan_revoked.generation + 1
+            assert (service_module.authorized_resource(actor, resource.pk) is not None) == regrant
+            assert scanner.calls == 1 and parser.calls == 0 and not store.path(str(scan_revoked.pk), 'manifest').exists()
+            withdraw(actor, scan_revoked.pk, store)
+            checks.append(scenario)
+            if not regrant:
+                consent = new_consent()
+
+        for stage in ('scan', 'parse'):
+            scenario = f'newer-dispatch-is-preserved-after-stale-{stage}'
+            old = allocate(actor, resource.pk, scenario, decl)
+            accept_bytes(actor, old.pk, [data], store)
+            newer_dispatch = uuid4()
+
+            def supersede():
+                assert Upload.objects.filter(pk=old.pk, status='processing').update(
+                    dispatch_id=newer_dispatch, generation=old.generation + 1,
+                ) == 1
+
+            scanner = FixtureScanner(before_return=supersede if stage == 'scan' else None)
+
+            class ReplacedParser(FixtureParser):
+                def parse(self, source, expected):
+                    supersede()
+                    return super().parse(source, expected)
+
+            parser = ReplacedParser() if stage == 'parse' else FixtureParser()
+            process(old.pk, store, scanner, parser, assets(data))
+            old.refresh_from_db()
+            assert old.status == 'processing' and old.generation == 2 and old.dispatch_id == newer_dispatch
+            assert parser.calls == (1 if stage == 'parse' else 0)
+            assert not store.path(str(old.pk), 'manifest').exists()
+            withdraw(actor, old.pk, store)
+            checks.append(scenario)
+
+        class ForgedDispatchParser(FixtureParser):
+            def parse(self, source, expected):
+                expected['dispatch_id'] = str(uuid4())
+                return super().parse(source, expected)
+
+        forged = allocate(actor, resource.pk, 'forged-parser-dispatch', decl)
+        accept_bytes(actor, forged.pk, [data], store)
+        parser = ForgedDispatchParser()
+        blocked = process(forged.pk, store, FixtureScanner(), parser, assets(data))
+        assert parser.calls == 1 and blocked.status == 'quarantined' and blocked.failure_code == 'scan_or_parse_failed'
+        assert not store.path(str(forged.pk), 'manifest').exists()
+        withdraw(actor, forged.pk, store)
+        checks.append('mutating-parser-cannot-redefine-expected-dispatch')
+
         class FailedManifest(PrivateObjects):
             def __init__(self,root):super().__init__(root);self.fail=True
             def put_manifest(self,object_id,output):

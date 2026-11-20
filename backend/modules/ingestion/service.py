@@ -117,11 +117,24 @@ class RuntimeAssets:
 DEFAULT_ASSETS=RuntimeAssets()
 
 
+def _continue_dispatch(upload, generation, dispatch):
+    """Check current authority under the caller's upload and learner locks."""
+    if upload.status != 'processing' or upload.generation != generation or upload.dispatch_id != dispatch:
+        return False
+    if live(upload) is not None:
+        return True
+    upload.status = 'withdrawn'
+    upload.generation += 1
+    upload.save()
+    return False
+
+
 def process(upload_id,store,scanner,parser,assets=DEFAULT_ASSETS):
     with transaction.atomic():
         quota,upload=locked(upload_id)
         if upload.status!='quarantined' or upload.attempts>=3 or live(upload) is None:raise Conflict('Upload cannot be processed')
-        if not assets.permits('scanner',scanner.asset_id,upload.source_sha256):
+        scanner_id = scanner.asset_id
+        if not assets.permits('scanner',scanner_id,upload.source_sha256):
             upload.failure_code='scanner_unavailable';upload.save();return upload
         upload.status='processing';upload.attempts+=1;upload.dispatch_id=uuid.uuid4();upload.save()
         generation,dispatch=upload.generation,upload.dispatch_id
@@ -129,23 +142,28 @@ def process(upload_id,store,scanner,parser,assets=DEFAULT_ASSETS):
         data=store.read(str(upload.id))
         if hashlib.sha256(data).hexdigest()!=upload.source_sha256:raise ValueError('Original hash drift')
         scan=scanner.scan(data)
-        if type(scan) is not dict or set(scan)!={'asset_id','sha256','status'} or scan['asset_id']!=scanner.asset_id or scan['sha256']!=upload.source_sha256 or scan['status']!='clean':raise ValueError('Scan did not clear')
-        if not assets.permits('parser',parser.asset_id,upload.source_sha256):raise ValueError('Parser not reviewed/available')
+        if type(scan) is not dict or set(scan)!={'asset_id','sha256','status'} or scan['asset_id']!=scanner_id or scan['sha256']!=upload.source_sha256 or scan['status']!='clean':raise ValueError('Scan did not clear')
+        parser_id = parser.asset_id
+        if not assets.permits('parser',parser_id,upload.source_sha256):raise ValueError('Parser not reviewed/available')
         expected={'object_id':str(upload.id),'source_sha256':upload.source_sha256,'generation':generation,
-                  'dispatch_id':str(dispatch),'parser_id':parser.asset_id,'media_type':upload.media_type}
-        result=validate_result(parser.parse(data,expected),expected)
+                  'dispatch_id':str(dispatch),'parser_id':parser_id,'media_type':upload.media_type}
+        with transaction.atomic():
+            _, current = locked(upload_id)
+            if not _continue_dispatch(current, generation, dispatch):
+                return current
+        # The parser receives a copy of the primitive fields, so it cannot
+        # modify the broker binding used to validate its result.
+        result=validate_result(parser.parse(data,dict(expected)),expected)
         output=canonical(result)
     except Exception:
         with transaction.atomic():
             quota,current=locked(upload_id)
-            if current.status=='processing' and current.generation==generation and current.dispatch_id==dispatch:
+            if _continue_dispatch(current, generation, dispatch):
                 current.status='quarantined';current.failure_code='scan_or_parse_failed';current.save()
-        return Upload.objects.get(pk=upload_id)
+            return current
     with transaction.atomic():
         quota,current=locked(upload_id)
-        if current.status!='processing' or current.generation!=generation or current.dispatch_id!=dispatch or live(current) is None:
-            # No publication after cancellation, consent or scope drift.
-            if current.status=='processing':current.status='withdrawn';current.generation+=1;current.save()
+        if not _continue_dispatch(current, generation, dispatch):
             return current
         # Charge source + derived bytes under the same quota lock; no amplification bypass.
         output_bytes=len(output)
@@ -161,7 +179,7 @@ def process(upload_id,store,scanner,parser,assets=DEFAULT_ASSETS):
             current.status='failed' if retained else 'quarantined'
             current.failure_code='manifest_write_failed';current.save();return current
         current.manifest_bytes=output_bytes;quota.used_bytes+=output_bytes;quota.save()
-        current.scan_id=scanner.asset_id;current.parser_id=parser.asset_id;current.manifest_sha256=hashlib.sha256(output).hexdigest()
+        current.scan_id=scanner_id;current.parser_id=parser_id;current.manifest_sha256=hashlib.sha256(output).hexdigest()
         current.status='needs_review';current.failure_code='';current.save();return current
 
 
