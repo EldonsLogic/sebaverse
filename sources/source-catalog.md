@@ -78,3 +78,5 @@ Exact research files/bytes/checksums: [manifest](research-manifest.json). Suppor
 - U22: [Parallel task orchestration](parallel-agent-instruction.md), 19 November 2026. Five requested streams; session limit permits three simultaneous subagents plus the root. Actual ownership/results are recorded without claiming impossible concurrency.
 
 - U23: [Direct PyPDFium2 text-only PoC selection](direct-pdf-poc-instruction.md), 19 November 2026. Explicit ADR-014 selection under AUTH-013, preserving qualification and phase gates.
+
+- U24: [Public repository and continued parallel work](public-repository-instruction.md), 20 November 2026. Founder changed visibility; no safety, rights or phase waiver.

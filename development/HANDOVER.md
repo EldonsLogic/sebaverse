@@ -12,7 +12,7 @@ Build the F3 slice (DEV-007 onward) on the passed F2 skeleton, to the standard i
 - Architecture selected: Django/DRF + React/TypeScript/Vite + PostgreSQL; subject-independent profiles/content/adapters; isolated ingestion; no whole tutoring/LMS adopted. DeepTutor remains reference-only baseline.
 - Brand selected: C visual identity + B blue/orange; Latin Sebaverse logo; no permanent slogan or recurring door-based wording selected.
 - Baseline prior to this foundation task: architecture audit v1 and 99 requirements. New requirement counts must be read from the current register, not assumed from this historical snapshot.
-- The GitHub repository is private and was empty when first connected on 11 November 2026. It now holds the project history; fetch and inspect before integrating.
+- The GitHub repository was private and empty when first connected on 11 November 2026. The founder made it public on 20 November under U24. It now holds the project history; fetch and inspect before integrating.
 - No paid model benchmark, real-minor pilot or deployment is established by this handover. Implemented scope is whatever CURRENT-STATE.md and the passed phase gates record. Current source/architecture and applicable execution gates remain authoritative.
 
 ## Live state and durable protocol

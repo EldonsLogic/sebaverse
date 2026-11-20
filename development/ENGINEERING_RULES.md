@@ -31,7 +31,7 @@ No next phase until current required tests and independent review pass with reco
 
 ## Limits and controlled improvement
 
-This foundation run permits local documentation/tooling and publishing verified project changes to the founder’s named private GitHub repo. Paid model/API budget is zero; no deployment, purchase, messages, real-minor data or recruitment. No fixed token budget was requested. Tokens/agent usage may be unavailable: report unknown instead of inventing counts. One continuous task owner integrates; review/checks before commit and verify remote SHA after push.
+This foundation run permits local documentation/tooling and publishing verified project changes to the founder’s named GitHub repo (public by founder choice U24). Paid model/API budget is zero; no deployment, purchase, messages, real-minor data or recruitment. No fixed token budget was requested. Tokens/agent usage may be unavailable: report unknown instead of inventing counts. One continuous task owner integrates; review/checks before commit and verify remote SHA after push.
 
 Improve developer workflows by recording a specific failure, bounded proposed change and representative before/after evidence in improvements.md; retain prior version for rollback. Do not claim measured speed/quality gains without data. Do not silently change production teaching policies, training pipelines, permissions, safety rules, test gates or budgets. The learner/system/model improvement loops remain governed by the architecture and release gates.
 

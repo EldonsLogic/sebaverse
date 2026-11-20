@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "run": "auth014-two-library-build-tool-assessment-2026-11-20",
+  "run": "dev010-public-transport-resume-2026-11-20",
   "max_concurrent_including_orchestrator": 4,
   "paid_provider_budget_usd": 0,
   "token_budget": null,
@@ -16,28 +16,43 @@
       "status": "completed",
       "files": [
         "development shared state/evidence",
-        "infra/local/postgres-fixed-packages scope corrections"
+        "AGENTS.md",
+        "sources/public-repository-instruction.md",
+        "sources/source-catalog.md",
+        "workers/parser/README.md"
       ],
-      "evidence": "Recorded founder narrowing, integrated bounded tool hold and exact hosted billing annotations; owns final documentation checks and verified push. No runtime or phase clearance."
+      "evidence": "Integrated U24/public handoff and strict decoder, root backend 494 passed/1 PostgreSQL deselected; final foundation checks recorded in checkpoint evidence."
     },
     {
-      "agent": "/root/parser_semantic_review",
+      "agent": "/root/transport_review",
       "roles": [
-        "Backend",
+        "Reviewer",
+        "Security"
+      ],
+      "model": "gpt-6.2-sol",
+      "reasoning_effort": "medium",
+      "status": "completed",
+      "files": [
+        "development/evidence/dev-010-result-transport-review.md"
+      ],
+      "evidence": "Accepted exact decoder/tests hashes;32 focused/159 ingestionpassed plus eight boundary spot checks. Metadata-only error handling remains mandatory on future connection. Ownership released."
+    },
+    {
+      "agent": "/root/hosted_recheck",
+      "roles": [
+        "Testing",
         "Infrastructure"
       ],
       "model": "gpt-6.2-sol",
       "reasoning_effort": "medium",
       "status": "completed",
       "files": [
-        "workers/parser/process_guard.py",
-        "infra/local/postgres-fixed-packages/package-review.json",
-        "infra/local/postgres-fixed-packages/package-review.md"
+        "development/evidence/public-ci-recheck-2026-11-20.md"
       ],
-      "evidence": "Implemented process guard, released to independent review; then verified exact APK/index signatures as data, no installed packages or image use."
+      "evidence": "Verified one existing rerun: hosted Linux 462 passed, native pre-use gate failed, DB/browser skipped; no new rerun/policy change. Ownership released."
     },
     {
-      "agent": "/root/shared_wheel_completion",
+      "agent": "/root/test_completion",
       "roles": [
         "Testing"
       ],
@@ -45,27 +60,12 @@
       "reasoning_effort": "medium",
       "status": "completed",
       "files": [
-        "infra/local/postgres-fixed-packages/build-tool-review.md",
-        "infra/local/postgres-fixed-packages/build-tool-review.json"
+        "backend/tests/ingestion/test_result_transport.py",
+        "development/evidence/dev-010-transport-test-plan.md"
       ],
-      "evidence": "Verified exact static tool archive and executable signatures; supplier build log binds pre-fix OpenSSL. Tool held, no execution or assembly; ownership released."
-    },
-    {
-      "agent": "/root/runtime_fix_recheck",
-      "roles": [
-        "Security",
-        "Reviewer",
-        "Research"
-      ],
-      "model": "gpt-6.2-sol",
-      "reasoning_effort": "medium",
-      "status": "completed",
-      "files": [
-        "development/evidence/auth-014-independent-assessment.md"
-      ],
-      "evidence": "Independently verified hosted zero-step billing annotations and build-tool receipt consistency; reviewed bounded recovery options. No runtime clearance."
+      "evidence": "Recovered inherited tests unchanged;32 focused/159 ingestionpass. Reviewed public/handoff docs; stale private wording corrected by root. Ownership released."
     }
   ],
   "run_status": "completed_checkpoint",
-  "scope": "Founder narrowed AUTH-014 to two installed libraries, no CLI. Exact static build-tool qualification and independent assessment only; no runtime/phase clearance."
+  "scope": "U24 hosted eligibility/results, inherited AUTH013 decoder independent review, inherited tests completion, root public-scope and QA integration. Three simultaneous subagents; five streams including queued review/handoff. AUTH014 wait preserved."
 }

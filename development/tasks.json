@@ -574,7 +574,8 @@
       ],
       "execution_condition": "All preceding mandatory phase exit tests passed with recorded evidence/review. Applicable G1–G3 execution decisions recorded; synthetic fixtures only; exact dependency/license/security closure reviewed. No paid calls or deployment implied.",
       "evidence": [
-        "development/evidence/dev-010.md"
+        "development/evidence/dev-010.md",
+        "development/evidence/dev-010-public-transport-checkpoint.md"
       ],
       "files": [
         "backend/modules/ingestion/",
@@ -585,8 +586,8 @@
       "verification_contracts": [
         {
           "command": "make test-ingestion",
-          "availability": "planned",
-          "notes": "Command/test location must be created and recorded by this task; not currently runnable or passed."
+          "availability": "existing",
+          "notes": "Database-free ingestion command exists. Authored/fake-engine/process boundary tests do not qualify native parser/scanner assets or close the mandatory F3 exit gate; see current DEV-010 evidence."
         }
       ],
       "architecture_phase": "A3",
