@@ -115,3 +115,6 @@ RISK-F3-002 update — 19 November: AUTH-011 fix trigger is active and correctly
 
 
 ADR-014 / U23 / AUTH-013 — 19 November: founder selected a same-engine direct PyPDFium2 adapter for the first authored text-only PoC. The disabled owned core and fake-engine tests received independent review. The SDK range API’s UCS-2/index limits cause conservative holds; soft deadlines do not stop native hangs. Runtime/native/scanner/OS/fidelity qualification and all R039 capabilities remain required. Evidence: development/evidence/dev-010-direct-adapter.md. No phase approval or SDK activation.
+
+
+RISK-F3-004 — 20 November 2026: production worker signing/verification and job credential provisioning remain unresolved. The authored stdin experiment uses fixed synthetic HMAC keys; sharing a verification key also confers signing ability. Those fixtures do not establish independent scan authority in an untrusted production worker. Before activation, preserve parent/broker authority and independently qualify one-object input capability, verification and credential provisioning. Owner: architecture/security; status: open, runtime activation blocked; evidence: development/evidence/dev-010-authored-input.md and workers/parser/input-transport-plan.md. No production design or exception approved.

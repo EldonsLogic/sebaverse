@@ -57,13 +57,25 @@ class WorkerResult:
     elapsed_seconds: float
 
 
-def _validate_limits(limits):
+def _validate_limits(limits, input_profile):
     if type(limits) is not WorkerLimits:
         raise WorkerError("invalid_limits")
     if type(limits.timeout_seconds) not in (int, float) or not 0 < limits.timeout_seconds <= 30:
         raise WorkerError("invalid_limits")
+    if type(input_profile) is not str:
+        raise WorkerError("invalid_input_profile")
+    if input_profile == "standard":
+        input_maximum = _MIB
+    elif input_profile == "pdf_fixture_v1":
+        from .input_transport import MAX_FRAME_BYTES
+
+        input_maximum = MAX_FRAME_BYTES
+    else:
+        raise WorkerError("invalid_input_profile")
     for count, maximum in (
-        (limits.input_bytes, _MIB), (limits.output_bytes, _MIB), (limits.error_bytes, 65536),
+        (limits.input_bytes, input_maximum),
+        (limits.output_bytes, _MIB),
+        (limits.error_bytes, 65536),
     ):
         if type(count) is not int or not 0 <= count <= maximum:
             raise WorkerError("invalid_limits")
@@ -231,13 +243,14 @@ def _transport(process, payload, limits, deadline, cancelled):
     return bytes(output), stderr_bytes
 
 
-def run_worker(payload, *, program=None, limits=None, cancelled=None):
+def run_worker(payload, *, program=None, limits=None, cancelled=None, input_profile="standard"):
     """Run a fixed reviewed script, returning only a complete bounded pipe result.
 
     Cancellation predicates are trusted and must return promptly. The watchdog
     cannot interrupt a blocked spawn syscall or make a killable process from a
     task blocked in the kernel. Program bytes are checked before spawn. A
     qualified image must prevent filesystem substitution between check and use.
+    The input profile comes only from trusted caller composition.
     """
     started = time.monotonic()
     if program is None:
@@ -247,7 +260,7 @@ def run_worker(payload, *, program=None, limits=None, cancelled=None):
     if signal.getsignal(signal.SIGCHLD) == signal.SIG_IGN:
         raise WorkerError("unsupported_child_reaping")
     limits = WorkerLimits() if limits is None else limits
-    _validate_limits(limits)
+    _validate_limits(limits, input_profile)
     if type(payload) is not bytes or len(payload) > limits.input_bytes:
         raise WorkerError("invalid_input")
     if cancelled is not None and not callable(cancelled):

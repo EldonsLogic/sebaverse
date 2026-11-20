@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "run": "dev010-next-boundary-2026-11-20",
+  "run": "dev010-authored-input-composition-2026-11-20",
   "max_concurrent_including_orchestrator": 4,
   "paid_provider_budget_usd": 0,
   "token_budget": null,
@@ -15,58 +15,58 @@
       ],
       "status": "completed",
       "files": [
-        "development shared state/evidence"
+        "development shared state/evidence",
+        "workers/parser/README.md",
+        "workers/parser/input-transport-plan.md"
       ],
-      "evidence": "Integrated reviewed broker patch/fixtures; root backend 504 passed, PostgreSQL deselected, Django clean. Owns final foundation, continuity and verified push."
+      "evidence": "Integrated authored fixture selection, production RISK-F3-004, continuity and final QA; root backend 534 passed/1 PostgreSQL deselected, Django clean."
     },
     {
-      "agent": "/root/latest_ci",
+      "agent": "/root/input_codec",
       "roles": [
-        "Testing",
+        "Backend",
         "Infrastructure"
       ],
       "model": "gpt-6.2-sol",
       "reasoning_effort": "medium",
       "status": "completed",
       "files": [
-        "development/evidence/hosted-transport-37e39e1.md",
-        "development/evidence/dev-010-dispatch-fence-review.md"
+        "workers/parser/input_transport.py",
+        "workers/parser/process_guard.py",
+        "workers/parser/process-guard-contract.md"
       ],
-      "evidence": "Hosted prior commit 494 Linux tests passed then native gate failed; independently accepted exact patch/test blobs with 10/169/504 local tests. No real database result; files released."
+      "evidence": "Strict framed codec and explicit fixture guard profile implemented; standard limits unchanged. Source released, no native or live activation."
     },
     {
-      "agent": "/root/next_worker_boundary",
+      "agent": "/root/input_tests",
       "roles": [
-        "Architecture",
-        "Backend"
+        "Testing"
       ],
       "model": "gpt-6.2-sol",
       "reasoning_effort": "medium",
       "status": "completed",
       "files": [
-        "workers/parser/input-transport-plan.md",
-        "backend/modules/ingestion/service.py"
+        "backend/tests/ingestion/test_input_transport.py",
+        "backend/tests/ingestion/fixtures/pdf_worker_fixture.py"
       ],
-      "evidence": "Implemented narrow dispatch/provenance correction and released files. Input framing/profile remains proposal, no cap or activation change."
+      "evidence": "30 focused /199 ingestion tests passed with actual small and full-ceiling child frames, semantic failures, profile limits/cancel/cleanup. Files released; handoff review identified wording/timestamp corrections applied by root."
     },
     {
-      "agent": "/root/f3_remaining",
+      "agent": "/root/input_review",
       "roles": [
         "Reviewer",
-        "Planning"
+        "Testing"
       ],
       "model": "gpt-6.2-sol",
       "reasoning_effort": "medium",
       "status": "completed",
       "files": [
-        "development/evidence/f3-remaining-work-2026-11-20.md",
-        "backend/tests/ingestion/test_dispatch_fence.py",
-        "backend/tests/ingestion/postgres_probe.py",
-        "backend/tests/test_postgres_integration.py"
+        "development/evidence/hosted-dispatch-2ecb5c9.md",
+        "development/evidence/dev-010-input-transport-review.md"
       ],
-      "evidence": "Six regressions failed on real prior service baseline; final 10 focused checks pass. Six new persisted probe cases staged; total 21 PostgreSQL cases NOT RUN. Files released."
+      "evidence": "Accepted exact final code/test hashes; independent 157 focused/199 ingestion pass. Prior commit hosted504 passed then native gate failed. Files released."
     }
   ],
   "run_status": "completed_checkpoint",
-  "scope": "DEV010 concrete scanner-to-parser authorization fence and callback provenance correction, DB-free regressions, staged PostgreSQL cases NOT RUN; hosted latest commit evidence and independent review. Input framing remains proposal, AUTH014 wait unchanged."
+  "scope": "AUTH013 authored child composes framed source, verified fake-engine core and strict result decoding. New PDF fixture input profile only; generic limits unchanged, no production activation. AUTH014 wait persists."
 }
