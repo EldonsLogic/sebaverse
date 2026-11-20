@@ -28,9 +28,15 @@ def locked(upload_id):
     return quota,upload
 
 
+def _file_resource_matches(resource, upload):
+    return (resource is not None and resource.kind == 'file'
+            and scope(resource) == upload.scope
+            and resource.learner.authorization_generation == upload.authorization_generation)
+
+
 def live(upload):
     resource=authorized_resource(upload.actor,upload.resource_id)
-    return resource if resource is not None and scope(resource)==upload.scope and resource.learner.authorization_generation==upload.authorization_generation else None
+    return resource if _file_resource_matches(resource, upload) else None
 
 
 @transaction.atomic
@@ -217,7 +223,7 @@ def approve(actor,upload_id,generation,source_hash,rights_evidence,rights_expire
 def resolve(actor,upload_id,store):
     upload=Upload.objects.select_related('actor').get(pk=upload_id)
     resource=authorized_resource(actor,upload.resource_id)
-    if resource is None or scope(resource)!=upload.scope or resource.learner.authorization_generation!=upload.authorization_generation or upload.status!='private_ready' or not upload.rights_evidence or upload.rights_expires is None or upload.rights_expires<=timezone.now():raise Denied('Private source unavailable')
+    if not _file_resource_matches(resource, upload) or upload.status!='private_ready' or not upload.rights_evidence or upload.rights_expires is None or upload.rights_expires<=timezone.now():raise Denied('Private source unavailable')
     data=store.read(str(upload.id),'manifest',MAX_OUTPUT)
     if hashlib.sha256(data).hexdigest()!=upload.manifest_sha256:raise ValueError('Manifest hash drift')
     return validate_result(json.loads(data),{'object_id':str(upload.id),'source_sha256':upload.source_sha256,

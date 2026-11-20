@@ -84,7 +84,7 @@ print(json.dumps({"migrations": "applied", "postgres_family": 17, "psycopg_impl"
     if ingestion.returncode:
         pytest.fail(f"Synthetic PostgreSQL ingestion broker probe failed with exit {ingestion.returncode}; connection details withheld.")
     ingestion_result = json.loads(ingestion.stdout)
-    assert ingestion_result['count'] == 21 and ingestion_result['injection_fixtures'] == 30
+    assert ingestion_result['count'] == 24 and ingestion_result['injection_fixtures'] == 30
     assert {
         'retained-partial-manifest-failed-purge-and-single-refund',
         'clean-scan-after-withdrawal-does-not-dispatch-parser',
@@ -93,6 +93,9 @@ print(json.dumps({"migrations": "applied", "postgres_family": 17, "psycopg_impl"
         'newer-dispatch-is-preserved-after-stale-scan',
         'newer-dispatch-is-preserved-after-stale-parse',
         'mutating-parser-cannot-redefine-expected-dispatch',
+        'file-kind-drift-during-scan-withdraws-dispatch',
+        'file-kind-drift-during-parse-withdraws-dispatch',
+        'file-kind-drift-denies-review-and-private-resolution',
     } <= set(ingestion_result['checks'])
     assert ingestion_result['actual_parser_scanner_or_sandbox'] is False
     result = json.loads(verified.stdout)

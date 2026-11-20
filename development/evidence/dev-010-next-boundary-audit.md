@@ -1,0 +1,7 @@
+# DEV-010 file resource boundary
+
+20 November 2026 · R037, R038, R040, R046. An upload tied to a file resource must stop processing and serving when that resource is reclassified. The current findings concern authored fixtures. Budget is one focused broker correction with offline regression fixtures and independent review, within two correction cycles. [Requirements and acceptance](../tasks.json) · [Upload lifecycle](../../docs/04-curriculum-and-rag.md#ingestion-and-version-lifecycle)
+
+The `8a413d8` baseline verifies file kind during allocation, including under the quota and learner locks. Later checks compare learner, course, edition, version and purpose. The general access decision still accepts a resource classified as `material` with the same authorized scope. During an authored scan, this reclassification allowed parsing and moved the upload to `needs_review`. For an already approved upload, it left the private manifest resolvable. [Broker](../../backend/modules/ingestion/service.py) · [Access policy](../../backend/modules/access/policy.py) · [Allocation regression](../../backend/tests/ingestion/postgres_probe.py)
+
+Ran `PYTHONPATH="$PWD/backend" backend/.venv/bin/python -m pytest -p tests.conftest -q work/dev-010-next-boundary-audit/test_kind_scope.py` on the baseline with the actual broker, a temporary private object store and mocked authorization/database calls. Both regression assertions failed as expected. The scan advanced to `needs_review` instead of `withdrawn`. The read returned a manifest where it should have raised `Denied`.

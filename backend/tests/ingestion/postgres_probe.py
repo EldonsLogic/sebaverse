@@ -248,6 +248,52 @@ def main():
         withdraw(actor, forged.pk, store)
         checks.append('mutating-parser-cannot-redefine-expected-dispatch')
 
+        def set_resource_kind(kind):
+            assert ScopedResource.objects.filter(pk=resource.pk).update(kind=kind) == 1
+
+        for stage in ('scan', 'parse'):
+            scenario = f'file-kind-drift-during-{stage}-withdraws-dispatch'
+            candidate = allocate(actor, resource.pk, scenario, decl)
+            accept_bytes(actor, candidate.pk, [data], store)
+            scanner = FixtureScanner(before_return=lambda: set_resource_kind('material')) if stage == 'scan' else FixtureScanner()
+
+            class ReclassifiedParser(FixtureParser):
+                def parse(self, source, expected):
+                    set_resource_kind('material')
+                    return super().parse(source, expected)
+
+            parser = ReclassifiedParser() if stage == 'parse' else FixtureParser()
+            try:
+                blocked = process(candidate.pk, store, scanner, parser, assets(data))
+                assert blocked.status == 'withdrawn' and blocked.generation == 2
+                assert parser.calls == (0 if stage == 'scan' else 1)
+                assert not store.path(str(candidate.pk), 'manifest').exists()
+            finally:
+                set_resource_kind('file')
+            withdraw(actor, candidate.pk, store)
+            checks.append(scenario)
+
+        kind_ready = allocate(guardian, resource.pk, 'file-kind-private-read', decl)
+        accept_bytes(guardian, kind_ready.pk, [data], store)
+        assert process(kind_ready.pk, store, FixtureScanner(), FixtureParser(), assets(data)).status == 'needs_review'
+        kind_ready.refresh_from_db()
+        try:
+            set_resource_kind('material')
+            expect(Denied, lambda: review_manifest(reviewer, kind_ready.pk, store))
+            expect(Denied, lambda: approve(reviewer, kind_ready.pk, 1, kind_ready.source_sha256, 'fixture.kind-rights', now+timedelta(hours=1)))
+            set_resource_kind('file')
+            kind_ready.refresh_from_db()
+            approve(reviewer, kind_ready.pk, 1, kind_ready.source_sha256, 'fixture.kind-rights', now+timedelta(hours=1))
+            assert resolve(actor, kind_ready.pk, store)['page_count'] == 1
+            assert resolve(guardian, kind_ready.pk, store)['page_count'] == 1
+            set_resource_kind('material')
+            expect(Denied, lambda: resolve(actor, kind_ready.pk, store))
+            expect(Denied, lambda: resolve(guardian, kind_ready.pk, store))
+        finally:
+            set_resource_kind('file')
+        withdraw(guardian, kind_ready.pk, store)
+        checks.append('file-kind-drift-denies-review-and-private-resolution')
+
         class FailedManifest(PrivateObjects):
             def __init__(self,root):super().__init__(root);self.fail=True
             def put_manifest(self,object_id,output):

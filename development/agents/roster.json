@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "run": "dev010-extraction-reference-controls-2026-11-20",
+  "run": "dev010-resource-kind-fence-2026-11-20",
   "max_concurrent_including_orchestrator": 4,
   "paid_provider_budget_usd": 0,
   "token_budget": null,
@@ -13,59 +13,65 @@
         "Integration",
         "Testing"
       ],
-      "status": "completed",
+      "status": "integrating",
       "files": [
-        "development shared state/evidence",
-        "workers/parser/README.md"
+        "backend/modules/ingestion/service.py",
+        "backend/tests/ingestion/test_resource_kind_fence.py",
+        "backend/tests/ingestion/postgres_probe.py",
+        "backend/tests/test_postgres_integration.py",
+        "development shared state/evidence"
       ],
-      "evidence": "Integrated original controls/comparator and honest source readiness; root backend 565 passed/1 PostgreSQL deselected, Django clean; final foundation/handoff owned."
+      "evidence": "Recovered saved files, confirmed five baseline failures/one positive; completed shared file predicate and staged PG24. Local571 backend/236 ingestion pass. Independent review pending."
     },
     {
-      "agent": "/root/fidelity_comparator",
+      "agent": "/root/next_f3_review",
       "roles": [
-        "Evaluation",
-        "Backend"
+        "Backend",
+        "Security"
       ],
       "model": "gpt-6.2-sol",
       "reasoning_effort": "medium",
-      "status": "completed",
+      "status": "stopped_usage_limit",
       "files": [
-        "evals/extraction_fidelity.py",
-        "evals/extraction-fidelity-contract.md"
+        "backend/modules/ingestion/service.py",
+        "development/evidence/dev-010-next-boundary-audit.md"
       ],
-      "evidence": "Bounded metadata-only comparator implemented, overlapping token diagnostic corrected; full text already rejected before correction. Contract/source released."
+      "evidence": "Saved two-failure audit; stopped before service correction. Root implemented final service."
     },
     {
-      "agent": "/root/fidelity_vectors",
+      "agent": "/root/worker_authority_design",
       "roles": [
         "Testing",
-        "Evaluation"
+        "Architecture"
       ],
       "model": "gpt-6.2-sol",
       "reasoning_effort": "medium",
-      "status": "completed",
+      "status": "stopped_usage_limit",
       "files": [
-        "evals/fixtures/extraction-reference-v1.json",
-        "backend/tests/ingestion/test_extraction_fidelity.py"
+        "workers/parser/production-authority-proposal.md",
+        "backend/tests/ingestion/test_resource_kind_fence.py",
+        "backend/tests/ingestion/test_dispatch_fence.py",
+        "backend/tests/ingestion/postgres_probe.py",
+        "backend/tests/test_postgres_integration.py"
       ],
-      "evidence": "Original two cases/five planned pages, no real PDF mapping ; 31 focused/230 ingestion passed. Handoff read-only audit confirmed readiness limits; files released."
+      "evidence": "Saved design-only proposal and partial permanent testfile/mock kind field; stopped before completion. Root completed mocks/positive, correction and PGcases."
     },
     {
-      "agent": "/root/fidelity_review",
+      "agent": "/root/hosted_fidelity",
       "roles": [
         "Reviewer",
         "Infrastructure"
       ],
       "model": "gpt-6.2-sol",
       "reasoning_effort": "medium",
-      "status": "completed",
+      "status": "stopped_usage_limit",
       "files": [
-        "development/evidence/hosted-input-aab9851.md",
-        "development/evidence/dev-010-fidelity-review.md"
+        "development/evidence/hosted-fidelity-8a413d8.md",
+        "development/evidence/dev-010-resource-kind-review.md"
       ],
-      "evidence": "Accepted final hashes, independently 31 focused/230 ingestion passed plus bounded probes. Prior hosted 534 passed; native gate blocked DB/browser. Files released."
+      "evidence": "Saved actual prior commit hosted565 receipt; stopped before independent kind correction review. Review NOT RUN."
     }
   ],
-  "run_status": "completed_checkpoint",
-  "scope": "R039 offline comparator and independently authored reference/control vectors; latest hosted receipt and independent review. No PDF source creation/extraction/native/DB/model/scanner use, no gate or supplierwait change."
+  "run_status": "usage_limit_checkpoint_review_pending",
+  "scope": "Existing F3 broker correction for resource kind drift; actual regression tests, staged PG cases NOT RUN, independent review. Production authority proposal remains design only, AUTH014 wait unchanged."
 }

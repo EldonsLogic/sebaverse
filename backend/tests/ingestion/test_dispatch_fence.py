@@ -19,7 +19,8 @@ def broker(tmp_path, monkeypatch):
     actor = SimpleNamespace(pk=uuid4(), is_authenticated=True, is_active=True)
     resource = SimpleNamespace(
         learner_id=uuid4(), course_id=uuid4(), edition_id="fixture.edition",
-        edition_version=1, purpose="tutoring", learner=SimpleNamespace(authorization_generation=1),
+        edition_version=1, purpose="tutoring", kind="file",
+        learner=SimpleNamespace(authorization_generation=1),
     )
     row = SimpleNamespace(
         id=uuid4(), actor=actor, actor_id=actor.pk, resource_id=uuid4(),
