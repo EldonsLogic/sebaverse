@@ -29,3 +29,5 @@ Founder selected Option A on 20 November under AUTH-014. The scope above is now 
 ## Assessment correction — exact parent differs from supplier metadata
 
 Static inspection of the digest-verified original parent on 20 November finds installed libcrypto3 and libssl3 at r0 but no openssl command-line package. The three-package replacement assumption above was incorrect for that exact parent. Adding the CLI would expand the installed surface and match BusyBox's existing trigger path. No assembly/adoption has occurred. A founder clarification to narrow the assessment to the two installed libraries is pending; the original plan and approval wording are preserved as history.
+
+Founder resolved the clarification on 20 November: “Update only the two installed libraries (recommended)”. Continue the same bounded assessment with libcrypto3/libssl3 3.5.9-r1, no openssl CLI addition. Existing security thresholds, independent review and original budget remain unchanged. Assembly and adoption still require actual qualification.

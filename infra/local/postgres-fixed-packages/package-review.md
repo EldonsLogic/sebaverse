@@ -1,5 +1,8 @@
 # AUTH-014 Alpine OpenSSL package review
 
+**Founder clarification, 20 November:** AUTH-014 now expressly covers only the two installed libraries, libcrypto3 and libssl3 3.5.9-r1. Keep openssl CLI absent. Earlier references below to a pending scope choice describe the completed static pass; build-tool, assembly and artifact qualification remain open under the original budget.
+
+
 20 November 2026 · DEV-010 · R040/R081. **Alpine's signed index and all three exact packages verified. Static assembly is held pending the founder's clarification of the replacement scope.** The original PostgreSQL parent contains `libcrypto3` and `libssl3` at `3.5.9-r0`. The exact parent has no `openssl` package or `/usr/bin/openssl`, so including the third package would add a command. [Machine-readable receipt](package-review.json), [authorized assessment](../../../development/APPROVALS.md#auth-014--founder-exact-fixed-package-database-derivative-assessment-20-november-2026).
 
 Threat and budget. A mistaken overlay can misstate which native code runs or add an executable to disposable synthetic CI. This focused static pass checked only the three named Alpine v3.24 x86_64 main APKs, their index, the exact parent records and the applicable source and license metadata. No APK, package hook or parent-image program ran.

@@ -1,5 +1,8 @@
 # Fixed-package PostgreSQL assembly feasibility
 
+**Founder clarification, 20 November:** AUTH-014 now expressly covers only the two installed libraries, libcrypto3 and libssl3 3.5.9-r1. Keep openssl CLI absent. Earlier references below to a pending scope choice describe the completed static pass; build-tool, assembly and artifact qualification remain open under the original budget.
+
+
 20 November 2026 · AUTH-014 · DEV-010 · R040/R081. Hold assembly pending the founder's decision on the exact package scope. The immutable Linux amd64 parent contains two of the three named packages. A separate static package manager is available from Alpine, and its exact build and before-use review remain open.
 
 An incorrect overlay could misstate the runtime's installed packages or introduce vulnerable build code. Current exposure is disposable synthetic CI. This pass was bounded to 15 minutes, one parent manifest, the cached image archive and the existing three package inputs. No new archive or layer was downloaded in this pass. It ran no image, Alpine package manager, package scripts or database.

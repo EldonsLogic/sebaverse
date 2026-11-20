@@ -1,0 +1,23 @@
+# AUTH-014 independent assessment
+
+20 November 2026 · DEV-010 · R040/R081. **Hold at tool qualification.** The founder narrowed AUTH-014 to replacing only the two installed OpenSSL libraries. The selected static build tool was built with pre-fix OpenSSL and its before-use review remains unresolved. GitHub also declined to start the hosted jobs for `8cec5b3`. This focused review was bounded to the existing assembly route and one hosted checkpoint, with only disposable synthetic CI in scope. [Scope and budget](../APPROVALS.md#auth-014-scope-clarification--20-november-2026) · [Assembly assessment](../../infra/local/postgres-fixed-packages/assembly-review.md).
+
+## Hosted checks at 8cec5b3
+
+GitHub reports the following exact runs for `8cec5b3d327da01eb77e7485c104f2d1ddeb648b`. Each concluded failure with zero job steps. Each check annotation says the job did not start because of recent payment failures or the account's spending limit. GitHub did not distinguish which condition applies. The Linux worker guard, dependency checks, foundation, database pre-use checks and PostgreSQL suite were **NOT RUN** in these runs. The earlier local test and Darwin authored-subprocess evidence remains valid for its original scope. Account remediation requires the founder or account owner. This review initiated no rerun or account change.
+
+| Workflow | Run | Job |
+| --- | --- | --- |
+| Local skeleton phase checks | [44730853004](https://github.com/EldonsLogic/sebaverse/actions/runs/44730853004) | [136269910707](https://github.com/EldonsLogic/sebaverse/actions/runs/44730853004/job/136269910707) |
+| Dependency readiness | [44730853036](https://github.com/EldonsLogic/sebaverse/actions/runs/44730853036) | [136269910309](https://github.com/EldonsLogic/sebaverse/actions/runs/44730853036/job/136269910309) |
+| Foundation checks | [44730853057](https://github.com/EldonsLogic/sebaverse/actions/runs/44730853057) | [136269909914](https://github.com/EldonsLogic/sebaverse/actions/runs/44730853057/job/136269909914) |
+
+## Static assembly decision
+
+The target remains the locked PostgreSQL 17.12 amd64 parent. The approved replacements are the signed `libcrypto3` and `libssl3` APKs at `3.5.9-r1`. The original parent has no OpenSSL CLI package or executable. Its absence, exact library bytes and honest installed-package records must all survive an independently replayed derivative. The existing stub, database workload and security thresholds remain binding. [Exact parent and package receipts](../../infra/local/postgres-fixed-packages/package-review.md).
+
+Alpine's build log for x86_64 `apk-tools-static 3.0.9-r0` records installation of `openssl-libs-static 3.5.9-r0` and `zlib-static 1.3.2-r1`. The static build identifies OpenSSL 3.5.9 and zlib 1.3.2. I matched the cached build log, APK and extracted ELF SHA-256 values to the tool review. That review records both detached executable signatures and static ELF evidence corroborating the pre-fix build. The intended offline transaction constrains inputs and network access. Advisory reachability is unresolved for this workload, including whether the offline tool reaches any of the four High findings from the prior runtime scan. The database-only AUTH-007 exception does not extend to the build tool. Exact static dependency, advisory and rights coverage remain open. The build tool remained unexecuted. [Alpine build log](https://build.alpinelinux.org/buildlogs/build-3-24-x86_64/main/apk-tools/apk-tools-3.0.9-r0.log) · [Exact build-tool review](../../infra/local/postgres-fixed-packages/build-tool-review.md) · [Existing OpenSSL review](auth-007-openssl-review.md).
+
+No qualified assembly executable has been established in this assessment. The signed target inputs and a method outline establish prerequisites for assembly. The required package database, effective filesystem, scanner binding and exact artifact proof still depend on a qualified tool and a reviewed transaction. No derivative, pin, review binding, gate activation or PostgreSQL result is claimed. [Gate integration design](auth-014-gate-integration-review.md).
+
+The conservative wait and separately authorized writer-assessment options are proportionate to the evidence. The latter caps evaluation at four engineering hours within the remaining original day and two-correction limit, requires independent package-database reconstruction and final artifact checks, and stops if feasibility cannot be demonstrated within that budget. The current authorization does not automatically renew at the hold. Hosted CI also needs the account-owner issue cleared before runner results can be obtained. [Recovery options](auth-014-recovery-checkpoint.md).

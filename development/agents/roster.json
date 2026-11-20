@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "run": "dev-010-process-guard-auth014-assessment-2026-11-20",
+  "run": "auth014-two-library-build-tool-assessment-2026-11-20",
   "max_concurrent_including_orchestrator": 4,
   "paid_provider_budget_usd": 0,
   "token_budget": null,
@@ -16,10 +16,9 @@
       "status": "completed",
       "files": [
         "development shared state/evidence",
-        "workers/parser/README.md",
-        "workers/parser/process-guard-contract.md"
+        "infra/local/postgres-fixed-packages scope corrections"
       ],
-      "evidence": "Owns integration, founder scope record and closing QA: 179 helper and 462 database-free backend tests pass; no runtime or gate change."
+      "evidence": "Recorded founder narrowing, integrated bounded tool hold and exact hosted billing annotations; owns final documentation checks and verified push. No runtime or phase clearance."
     },
     {
       "agent": "/root/parser_semantic_review",
@@ -46,11 +45,10 @@
       "reasoning_effort": "medium",
       "status": "completed",
       "files": [
-        "backend/tests/ingestion/test_process_guard.py",
-        "backend/tests/ingestion/fixtures/process_guard_child.py",
-        "infra/local/postgres-fixed-packages/assembly-review.md"
+        "infra/local/postgres-fixed-packages/build-tool-review.md",
+        "infra/local/postgres-fixed-packages/build-tool-review.json"
       ],
-      "evidence": "31 real authored subprocess cases; exact parent package/database inspection exposed absent CLI and assembly/tool qualification limits. Ownership released."
+      "evidence": "Verified exact static tool archive and executable signatures; supplier build log binds pre-fix OpenSSL. Tool held, no execution or assembly; ownership released."
     },
     {
       "agent": "/root/runtime_fix_recheck",
@@ -63,13 +61,11 @@
       "reasoning_effort": "medium",
       "status": "completed",
       "files": [
-        "development/evidence/dev-010-process-guard-review.md",
-        "development/evidence/postgres-fix-recheck-2026-11-20.md",
-        "development/evidence/auth-014-gate-integration-review.md"
+        "development/evidence/auth-014-independent-assessment.md"
       ],
-      "evidence": "Independently accepted process guard/tests and verified checkpoint evidence after wording corrections; exact parent lacks CLI. Ownership released; no artifact/runtime/phase clearance."
+      "evidence": "Independently verified hosted zero-step billing annotations and build-tool receipt consistency; reviewed bounded recovery options. No runtime clearance."
     }
   ],
   "run_status": "completed_checkpoint",
-  "scope": "AUTH-013 unconnected process guard, real authored subprocess tests and independent review; AUTH-014 static assessment only, scope correction pending. No native runtime or phase approval."
+  "scope": "Founder narrowed AUTH-014 to two installed libraries, no CLI. Exact static build-tool qualification and independent assessment only; no runtime/phase clearance."
 }
