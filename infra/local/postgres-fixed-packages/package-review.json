@@ -1,0 +1,560 @@
+{
+  "authority": "AUTH-014",
+  "task": "DEV-010",
+  "review_date": "2026-11-20",
+  "status": "package_signatures_verified_derivative_held",
+  "input_archives_acquisition": "Official Alpine CDN HTTPS, with independent cryptographic verification against the original parent key.",
+  "parent": {
+    "platform_manifest": "sha256:005c5c37db96c1e6652a79ea31f9886402fba81ac95dc2db897739121dd7f8f2",
+    "layer_count_verified": 10,
+    "manifest_receipt": "development/evidence/f2-passed-43730557172/security/postgres-parent-manifest.json",
+    "cached_oci_receipt": "work/ci-43690950105/postgres-derived.oci.tar",
+    "installed_sha256": "7f1ce9456305d26ba06b1b8648f4c8a322a1f9f68328e4abbf614727e9b4178b",
+    "world_sha256": "3230d4b4116b1660f8e2b4384081375f2fd6617928b0c7d643aae3789d86dd41",
+    "triggers_sha256": "dfcd919d44120ed6fc53e1d42163245fb801365990d62e55a80d343bdcd30598",
+    "trigger_owner": "busybox",
+    "trigger_paths": [
+      "/bin",
+      "/usr/bin",
+      "/sbin",
+      "/usr/sbin",
+      "/lib/modules/*",
+      "/usr/lib/modules/*"
+    ],
+    "installed_exact": {
+      "libcrypto3": "3.5.9-r0",
+      "libssl3": "3.5.9-r0",
+      "openssl": null,
+      "openssl-fips": null,
+      "musl": "1.2.6-r3"
+    },
+    "installed_musl_provider": "so:libc.musl-x86_64.so.1=1",
+    "openssl_cli_present": false
+  },
+  "trust_anchor": {
+    "key": "alpine-devel@lists.alpinelinux.org-6165ee59.rsa.pub",
+    "key_sha256": "207e4696d3c05f7cb05966aee557307151f1f00217af4143c1bcaf33b8df733f",
+    "path_in_parent": "etc/apk/keys/alpine-devel@lists.alpinelinux.org-6165ee59.rsa.pub",
+    "layer": "sha256:881fc932939efef04ca120ad44bbd2c0917851eb247aa4995428afb1e80ede17",
+    "signature_scheme": "APK v2 .SIGN.RSA (RSA PKCS#1 v1.5 with SHA-1)",
+    "verified_by": "LibreSSL 3.3.6",
+    "command": "/usr/bin/openssl dgst -sha1 -verify <parent key> -signature <signature bytes> <original signed gzip segment>"
+  },
+  "index": {
+    "archive": "APKINDEX.tar.gz",
+    "url": "https://dl-cdn.alpinelinux.org/alpine/v3.24/main/x86_64/APKINDEX.tar.gz",
+    "size": 528453,
+    "sha256": "ae03f96f1be094b225ee3fe6d0e25046b2e36b606d066b5458a5e9aa8bf85eb5",
+    "signature_verified": true,
+    "signature_sha256": "ed9c53a1278856e01c3185390987d5569707294addefd75231aef0bd30cf423d",
+    "signed_segment_sha256": "54b422643c17d02a8d02b005fdba5d0af26ca0b229f782f7cf1c4f28be214f14",
+    "description": "v3.24.4-147-g3e53bd76bd7"
+  },
+  "packages": [
+    {
+      "archive": "libcrypto3-3.5.9-r1.apk",
+      "url": "https://dl-cdn.alpinelinux.org/alpine/v3.24/main/x86_64/libcrypto3-3.5.9-r1.apk",
+      "size": 1980117,
+      "sha256": "042026082cc9bc7872d1baa81755c50efa70b05f03b5369fdc5f0a1303009720",
+      "signature_verified": true,
+      "signature_sha256": "bee64bf8c8949ea53b45283f303fd041fe6b5076c2fa160e79222e68751f847f",
+      "signed_segment_sha256": "4a93d535b9f14e2d9ce7b82be353bb261bc0f916b7e71268bd1a3d9b13fd72ff",
+      "control_files": [
+        ".PKGINFO"
+      ],
+      "name": "libcrypto3",
+      "version": "3.5.9-r1",
+      "arch": "x86_64",
+      "origin": "openssl",
+      "source_commit": "0f4c7e8d0f5f7cebbdc2156eca4391080b732bf2",
+      "license": "Apache-2.0",
+      "index_control_identity": "Q1I05gx2S9sTHg77/A+WuZaCWiHJo=",
+      "data_segment_sha256": "12579bb8392040545a2f89745846ce63601f7d8974a4497d6ec968afdca5e9c3",
+      "control_metadata_sha256": "ecb41ee2e233ad53748f4af2c1052c7975d0934d74bf58099882a95a21c57779",
+      "dependencies": [
+        "so:libc.musl-x86_64.so.1"
+      ],
+      "provides": [
+        "so:libcrypto.so.3=3"
+      ],
+      "replaces": [
+        "libcrypto1.1"
+      ],
+      "installed_size": 5221974,
+      "builddate": 1795044707,
+      "files": [
+        {
+          "path": "etc",
+          "type": "directory",
+          "size": 0,
+          "uid": 0,
+          "gid": 0,
+          "mode": "0755",
+          "mtime": 1795044707,
+          "link_target": null
+        },
+        {
+          "path": "etc/ssl",
+          "type": "directory",
+          "size": 0,
+          "uid": 0,
+          "gid": 0,
+          "mode": "0755",
+          "mtime": 1795044707,
+          "link_target": null
+        },
+        {
+          "path": "etc/ssl/certs",
+          "type": "directory",
+          "size": 0,
+          "uid": 0,
+          "gid": 0,
+          "mode": "0755",
+          "mtime": 1795044707,
+          "link_target": null
+        },
+        {
+          "path": "etc/ssl/ct_log_list.cnf",
+          "type": "file",
+          "size": 412,
+          "uid": 0,
+          "gid": 0,
+          "mode": "0644",
+          "mtime": 1795044707,
+          "link_target": null,
+          "sha256": "f1c1803d13d1d0b755b13b23c28bd4e20e07baf9f2b744c9337ba5866aa0ec3b",
+          "apk_checksum_sha1": "a2587c4e97408b64274e5e052b74e3754892c13a",
+          "parent": {
+            "type": "0",
+            "uid": 0,
+            "gid": 0,
+            "mode": "0644",
+            "link_target": null,
+            "sha256": "f1c1803d13d1d0b755b13b23c28bd4e20e07baf9f2b744c9337ba5866aa0ec3b"
+          }
+        },
+        {
+          "path": "etc/ssl/ct_log_list.cnf.dist",
+          "type": "file",
+          "size": 412,
+          "uid": 0,
+          "gid": 0,
+          "mode": "0644",
+          "mtime": 1795044707,
+          "link_target": null,
+          "sha256": "f1c1803d13d1d0b755b13b23c28bd4e20e07baf9f2b744c9337ba5866aa0ec3b",
+          "apk_checksum_sha1": "a2587c4e97408b64274e5e052b74e3754892c13a",
+          "parent": {
+            "type": "0",
+            "uid": 0,
+            "gid": 0,
+            "mode": "0644",
+            "link_target": null,
+            "sha256": "f1c1803d13d1d0b755b13b23c28bd4e20e07baf9f2b744c9337ba5866aa0ec3b"
+          }
+        },
+        {
+          "path": "etc/ssl/openssl.cnf",
+          "type": "file",
+          "size": 12411,
+          "uid": 0,
+          "gid": 0,
+          "mode": "0644",
+          "mtime": 1795044707,
+          "link_target": null,
+          "sha256": "a65a2cb9f4ee8ffdc7ef4f0ac600c0bdafb95b7b1ab457188ac610a62f5ad6b3",
+          "apk_checksum_sha1": "5ff8070dceaa742043d8171f98abe95e5abd02e5",
+          "parent": {
+            "type": "0",
+            "uid": 0,
+            "gid": 0,
+            "mode": "0644",
+            "link_target": null,
+            "sha256": "a65a2cb9f4ee8ffdc7ef4f0ac600c0bdafb95b7b1ab457188ac610a62f5ad6b3"
+          }
+        },
+        {
+          "path": "etc/ssl/openssl.cnf.dist",
+          "type": "file",
+          "size": 12411,
+          "uid": 0,
+          "gid": 0,
+          "mode": "0644",
+          "mtime": 1795044707,
+          "link_target": null,
+          "sha256": "a65a2cb9f4ee8ffdc7ef4f0ac600c0bdafb95b7b1ab457188ac610a62f5ad6b3",
+          "apk_checksum_sha1": "5ff8070dceaa742043d8171f98abe95e5abd02e5",
+          "parent": {
+            "type": "0",
+            "uid": 0,
+            "gid": 0,
+            "mode": "0644",
+            "link_target": null,
+            "sha256": "a65a2cb9f4ee8ffdc7ef4f0ac600c0bdafb95b7b1ab457188ac610a62f5ad6b3"
+          }
+        },
+        {
+          "path": "etc/ssl/private",
+          "type": "directory",
+          "size": 0,
+          "uid": 0,
+          "gid": 0,
+          "mode": "0755",
+          "mtime": 1795044707,
+          "link_target": null
+        },
+        {
+          "path": "usr",
+          "type": "directory",
+          "size": 0,
+          "uid": 0,
+          "gid": 0,
+          "mode": "0755",
+          "mtime": 1795044707,
+          "link_target": null
+        },
+        {
+          "path": "usr/lib",
+          "type": "directory",
+          "size": 0,
+          "uid": 0,
+          "gid": 0,
+          "mode": "0755",
+          "mtime": 1795044707,
+          "link_target": null
+        },
+        {
+          "path": "usr/lib/engines-3",
+          "type": "directory",
+          "size": 0,
+          "uid": 0,
+          "gid": 0,
+          "mode": "0755",
+          "mtime": 1795044707,
+          "link_target": null
+        },
+        {
+          "path": "usr/lib/engines-3/afalg.so",
+          "type": "file",
+          "size": 18504,
+          "uid": 0,
+          "gid": 0,
+          "mode": "0755",
+          "mtime": 1795044707,
+          "link_target": null,
+          "sha256": "b565e6935269d679a5b8d45bb1ae60559f9621d2c7fe47b8a70cbc90334259e1",
+          "apk_checksum_sha1": "703247f9a7567931d91c172e44e0ff4960883085",
+          "parent": {
+            "type": "0",
+            "uid": 0,
+            "gid": 0,
+            "mode": "0755",
+            "link_target": null,
+            "sha256": "b565e6935269d679a5b8d45bb1ae60559f9621d2c7fe47b8a70cbc90334259e1"
+          }
+        },
+        {
+          "path": "usr/lib/engines-3/capi.so",
+          "type": "file",
+          "size": 13864,
+          "uid": 0,
+          "gid": 0,
+          "mode": "0755",
+          "mtime": 1795044707,
+          "link_target": null,
+          "sha256": "9e4328d873b167552bf4c807dab303a5a7a0c36e9a9f3bb1f1d84d864776bd2e",
+          "apk_checksum_sha1": "ef80fd731c57959154cd620232becc02d6a30f48",
+          "parent": {
+            "type": "0",
+            "uid": 0,
+            "gid": 0,
+            "mode": "0755",
+            "link_target": null,
+            "sha256": "9e4328d873b167552bf4c807dab303a5a7a0c36e9a9f3bb1f1d84d864776bd2e"
+          }
+        },
+        {
+          "path": "usr/lib/engines-3/loader_attic.so",
+          "type": "file",
+          "size": 47608,
+          "uid": 0,
+          "gid": 0,
+          "mode": "0755",
+          "mtime": 1795044707,
+          "link_target": null,
+          "sha256": "9b9c26db1b0f4a99c106a99ed01cc7c84a3c2bbc14df362517b24b4f18b900d7",
+          "apk_checksum_sha1": "28bb716cfa8d412c0f8a0eb340c87f00c2748570",
+          "parent": {
+            "type": "0",
+            "uid": 0,
+            "gid": 0,
+            "mode": "0755",
+            "link_target": null,
+            "sha256": "9b9c26db1b0f4a99c106a99ed01cc7c84a3c2bbc14df362517b24b4f18b900d7"
+          }
+        },
+        {
+          "path": "usr/lib/engines-3/padlock.so",
+          "type": "file",
+          "size": 22360,
+          "uid": 0,
+          "gid": 0,
+          "mode": "0755",
+          "mtime": 1795044707,
+          "link_target": null,
+          "sha256": "3327f942be17b9f856cc7f56db23d2f3cff14e90688a00af2aeb970655843e8c",
+          "apk_checksum_sha1": "15c7b008925dadff4c5363caf4b1bce81bbe3757",
+          "parent": {
+            "type": "0",
+            "uid": 0,
+            "gid": 0,
+            "mode": "0755",
+            "link_target": null,
+            "sha256": "3327f942be17b9f856cc7f56db23d2f3cff14e90688a00af2aeb970655843e8c"
+          }
+        },
+        {
+          "path": "usr/lib/libcrypto.so.3",
+          "type": "file",
+          "size": 4993808,
+          "uid": 0,
+          "gid": 0,
+          "mode": "0755",
+          "mtime": 1795044707,
+          "link_target": null,
+          "sha256": "d3170451aed163f70460726a08bfadd8c899d0ca43ea9b6105eaa45d3d1aa5c0",
+          "apk_checksum_sha1": "f452b30c030c354b36ced2db6eebb5b752013201",
+          "parent": {
+            "type": "0",
+            "uid": 0,
+            "gid": 0,
+            "mode": "0755",
+            "link_target": null,
+            "sha256": "bb2d86be6845456696f90f0948b6de6369f66612b7cf3ffa755e664436fdbc88"
+          }
+        },
+        {
+          "path": "usr/lib/ossl-modules",
+          "type": "directory",
+          "size": 0,
+          "uid": 0,
+          "gid": 0,
+          "mode": "0755",
+          "mtime": 1795044707,
+          "link_target": null
+        },
+        {
+          "path": "usr/lib/ossl-modules/legacy.so",
+          "type": "file",
+          "size": 100184,
+          "uid": 0,
+          "gid": 0,
+          "mode": "0755",
+          "mtime": 1795044707,
+          "link_target": null,
+          "sha256": "d28ac2184b2b39177578b4cabccee6d178c2b0e6f2ae0ccc8f354267d808ed83",
+          "apk_checksum_sha1": "e81374a13653a9d48f9ad52f1fcd682642ed95e9",
+          "parent": {
+            "type": "0",
+            "uid": 0,
+            "gid": 0,
+            "mode": "0755",
+            "link_target": null,
+            "sha256": "d28ac2184b2b39177578b4cabccee6d178c2b0e6f2ae0ccc8f354267d808ed83"
+          }
+        }
+      ]
+    },
+    {
+      "archive": "libssl3-3.5.9-r1.apk",
+      "url": "https://dl-cdn.alpinelinux.org/alpine/v3.24/main/x86_64/libssl3-3.5.9-r1.apk",
+      "size": 382098,
+      "sha256": "18c5778cbe52e1991303f8531970b05d4e6e036ea08349322f7422f42a689dc7",
+      "signature_verified": true,
+      "signature_sha256": "48b7fbed727251aacb124dc430ee11a164aaba17f16119a4c1bedb38cb1de993",
+      "signed_segment_sha256": "4d2f2a9ec58d32110340ef1f03a91ef49d43612ce83b04ac7a41eeb5259d683a",
+      "control_files": [
+        ".PKGINFO"
+      ],
+      "name": "libssl3",
+      "version": "3.5.9-r1",
+      "arch": "x86_64",
+      "origin": "openssl",
+      "source_commit": "0f4c7e8d0f5f7cebbdc2156eca4391080b732bf2",
+      "license": "Apache-2.0",
+      "index_control_identity": "Q1liSMx7iQMBbzF6s3hvx1ksKDoFw=",
+      "data_segment_sha256": "7bbade89d3b0f1cc046ca1db7975e30c1b2683b0cab3892535b46a885f4595b5",
+      "control_metadata_sha256": "fb1094237dd239316ab269e1a3256d7f4c43d8564104215b0fae67104fd6fdbc",
+      "dependencies": [
+        "libcrypto3=3.5.9-r1",
+        "so:libc.musl-x86_64.so.1",
+        "so:libcrypto.so.3"
+      ],
+      "provides": [
+        "so:libssl.so.3=3"
+      ],
+      "replaces": [],
+      "installed_size": 847736,
+      "builddate": 1795044707,
+      "files": [
+        {
+          "path": "usr",
+          "type": "directory",
+          "size": 0,
+          "uid": 0,
+          "gid": 0,
+          "mode": "0755",
+          "mtime": 1795044707,
+          "link_target": null
+        },
+        {
+          "path": "usr/lib",
+          "type": "directory",
+          "size": 0,
+          "uid": 0,
+          "gid": 0,
+          "mode": "0755",
+          "mtime": 1795044707,
+          "link_target": null
+        },
+        {
+          "path": "usr/lib/libssl.so.3",
+          "type": "file",
+          "size": 847736,
+          "uid": 0,
+          "gid": 0,
+          "mode": "0755",
+          "mtime": 1795044707,
+          "link_target": null,
+          "sha256": "6f35d9d1edb0f75228af331a88d740a891753a4fed32a1fccdbf8bf9183cd3cd",
+          "apk_checksum_sha1": "10ddfa36e840d864c9b4522275bd26dfe2d5ee6a",
+          "parent": {
+            "type": "0",
+            "uid": 0,
+            "gid": 0,
+            "mode": "0755",
+            "link_target": null,
+            "sha256": "ed8d30405217b3904a8df9ac311002d0ae43df516e60c5b3a8a998eda68ee340"
+          }
+        }
+      ]
+    },
+    {
+      "archive": "openssl-3.5.9-r1.apk",
+      "url": "https://dl-cdn.alpinelinux.org/alpine/v3.24/main/x86_64/openssl-3.5.9-r1.apk",
+      "size": 340122,
+      "sha256": "ed11241475e5757ce8eb9788b18116a804a579395d4813605df12989a2acbabf",
+      "signature_verified": true,
+      "signature_sha256": "78d6a3e910b13634398d1d1166eb886fa1f22fc00e5942df315e17e597abe620",
+      "signed_segment_sha256": "3c24e55dc6761be4f329243af479afd96b01780c355974a758335ac2dc9ba726",
+      "control_files": [
+        ".PKGINFO"
+      ],
+      "name": "openssl",
+      "version": "3.5.9-r1",
+      "arch": "x86_64",
+      "origin": "openssl",
+      "source_commit": "0f4c7e8d0f5f7cebbdc2156eca4391080b732bf2",
+      "license": "Apache-2.0",
+      "index_control_identity": "Q1bFNY6buBJ9lOFFMnMz6XVI+5hZw=",
+      "data_segment_sha256": "38e8a249464f1e53eff7e41f27f51a9de641049fa1c227298aaebf38c2b98b7e",
+      "control_metadata_sha256": "3a5a44f11f20214a04b266a0a1dbbc263cc70a7a3144fa72d31d475e82679152",
+      "dependencies": [
+        "libssl3=3.5.9-r1",
+        "libcrypto3=3.5.9-r1",
+        "so:libc.musl-x86_64.so.1",
+        "so:libcrypto.so.3",
+        "so:libssl.so.3"
+      ],
+      "provides": [
+        "openssl3=3.5.9-r1",
+        "cmd:openssl=3.5.9-r1"
+      ],
+      "replaces": [
+        "openssl3"
+      ],
+      "installed_size": 820288,
+      "builddate": 1795044707,
+      "files": [
+        {
+          "path": "usr",
+          "type": "directory",
+          "size": 0,
+          "uid": 0,
+          "gid": 0,
+          "mode": "0755",
+          "mtime": 1795044707,
+          "link_target": null
+        },
+        {
+          "path": "usr/bin",
+          "type": "directory",
+          "size": 0,
+          "uid": 0,
+          "gid": 0,
+          "mode": "0755",
+          "mtime": 1795044707,
+          "link_target": null
+        },
+        {
+          "path": "usr/bin/openssl",
+          "type": "file",
+          "size": 820288,
+          "uid": 0,
+          "gid": 0,
+          "mode": "0755",
+          "mtime": 1795044707,
+          "link_target": null,
+          "sha256": "28def3c5ebd2a6e3a6e5e7d11ec629ae92769b518feb18193b0745620bbda7ab",
+          "apk_checksum_sha1": "cd1ee7284873ea9c8eca709a22dc0e0002aae87a",
+          "parent": null
+        }
+      ]
+    }
+  ],
+  "source_receipts_https": {
+    "APKBUILD": {
+      "url": "https://raw.githubusercontent.com/alpinelinux/aports/0f4c7e8d0f5f7cebbdc2156eca4391080b732bf2/main/openssl/APKBUILD",
+      "sha256": "3db5f8f76df5014cc263e59f21c3399766b35c2e4d3cdbf1cbaab5c6138a0c2d"
+    },
+    "alpine-v3.24-main-secdb.json": {
+      "url": "https://secdb.alpinelinux.org/v3.24/main.json",
+      "sha256": "dfcaf9b88a6994be2d3efde09b19d628b7c210283cae5eb1bd48c23abfec01d6"
+    },
+    "openssl-3.5.9-tree.json": {
+      "url": "https://api.github.com/repos/openssl/openssl/git/trees/openssl-3.5.9",
+      "sha256": "7a9ca863b97ecf012e58508e8235c6b71a5e85ebf4a7d0065df86cf347b6f3f8"
+    },
+    "openssl-3.5.9-LICENSE.txt": {
+      "url": "https://raw.githubusercontent.com/openssl/openssl/openssl-3.5.9/LICENSE.txt",
+      "sha256": "7d5450cb2d142651b8afa315b5f238efc805dad827d91ba367d8516bc9d49e7a"
+    },
+    "openssl-20261110-advisory.txt": {
+      "url": "https://openssl-library.org/news/secadv/20261110.txt",
+      "sha256": "31f4c88950cd9cd310794a218361b787d293a940d2568f9f82334915ac54a402"
+    }
+  },
+  "source_checksums_sha512_as_published_in_apkbuild": {
+    "openssl-3.5.9.tar.gz": "c4c8136fd2c98d13bb85a57bfb0def25c906f47f1fe97675cd114594944eab957b5b81a3e0f48826e1a0f093afff5e83766b539d49768f6db68310fd678d7de6",
+    "auxv.patch": "b2541075148fd5af4552d34158deb1a325f5adced90626dc03fd126f47323cde949b15b2657523c34b26530b322312a43bd42ada7295b4f2dd1d3b5d11892c62",
+    "CVE-2026-88822.patch": "d4d7b8e740384cc4b129bbc53eb92c61abebb009b83a7c434ec5d0820021b95d402245a4d3d577ea28e0935d8de96d339eec6a6411ef00f3b9d982ccf0718721",
+    "CVE-2026-88823.patch": "ca38eeb1aa261d1051100b0e37a9699ccad73de551825bf49ade50af9396b1e749983f802fa3967f67ef778590adb3aba39b1fd8290a17aa753fa351953487a9",
+    "CVE-2026-95691.patch": "2c9c869d0427b08c1480307583c1803971fb6223e5876dd20f61fd64102f095373fb32f5cc7bbbd2bf62aca82c229d740a95c39d5556ec72fd41f371e4a311b6",
+    "CVE-2026-95692.patch": "f23fa46c18fca5e475286f4a5fe57834ccca8603a34f54ab0032af16d296f82eee6a9614f70aec4632fc9024f6af9ded9f2698693f02b3ade889c9d58d2cbe59",
+    "CVE-2026-107496.patch": "0bbd1f64e7bc62c8bbba9c85131a51cbfb6f7715156457d575df1e557d649340b8074195860f83be18fe3ed6852111f10053702d72658012f9c3a4c3fd504cea"
+  },
+  "source_archive_url_as_published_in_apkbuild": "https://github.com/openssl/openssl/releases/download/openssl-3.5.9/openssl-3.5.9.tar.gz",
+  "fixed_cves_alpine_secdb": [
+    "CVE-2026-88822",
+    "CVE-2026-88823",
+    "CVE-2026-95691",
+    "CVE-2026-95692",
+    "CVE-2026-107496"
+  ],
+  "upstream_license_blob_sha1": "49cc83d2ee29d13453188217f0e4edd70c7f842f",
+  "upstream_license_locator": "OpenSSL tag openssl-3.5.9, root LICENSE.txt",
+  "source_archive_and_patch_bytes_acquired": false,
+  "native_or_package_execution": false,
+  "release_or_phase_approval": false,
+  "scope_hold": "Adding the verified openssl APK would add a previously absent CLI and touch a parent trigger path. The recorded replacement-only intent and trigger handling require disposition before static assembly."
+}

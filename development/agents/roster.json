@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "run": "dev-010-auth013-direct-adapter-2026-11-19",
+  "run": "dev-010-process-guard-auth014-assessment-2026-11-20",
   "max_concurrent_including_orchestrator": 4,
   "paid_provider_budget_usd": 0,
   "token_budget": null,
@@ -16,10 +16,10 @@
       "status": "completed",
       "files": [
         "development shared state/evidence",
-        "sources/",
-        "registers/"
+        "workers/parser/README.md",
+        "workers/parser/process-guard-contract.md"
       ],
-      "evidence": "Recorded explicit AUTH-013/U23 direction, owned worker contract/architecture/continuity integration and closing QA. 179 helper and 431 DB-free backend tests pass."
+      "evidence": "Owns integration, founder scope record and closing QA: 179 helper and 462 database-free backend tests pass; no runtime or gate change."
     },
     {
       "agent": "/root/parser_semantic_review",
@@ -31,9 +31,11 @@
       "reasoning_effort": "medium",
       "status": "completed",
       "files": [
-        "workers/parser/digital_pdf.py"
+        "workers/parser/process_guard.py",
+        "infra/local/postgres-fixed-packages/package-review.json",
+        "infra/local/postgres-fixed-packages/package-review.md"
       ],
-      "evidence": "Implemented disabled direct PDF core with bounded signed jobs/scans and extraction/resource protections. No SDK/native import or execution."
+      "evidence": "Implemented process guard, released to independent review; then verified exact APK/index signatures as data, no installed packages or image use."
     },
     {
       "agent": "/root/shared_wheel_completion",
@@ -44,9 +46,11 @@
       "reasoning_effort": "medium",
       "status": "completed",
       "files": [
-        "backend/tests/ingestion/test_digital_pdf.py"
+        "backend/tests/ingestion/test_process_guard.py",
+        "backend/tests/ingestion/fixtures/process_guard_child.py",
+        "infra/local/postgres-fixed-packages/assembly-review.md"
       ],
-      "evidence": "64 independent fake-engine cases plus original32 pass. HMAC equivalence tests detect deliberate raw-key-comparison mutation."
+      "evidence": "31 real authored subprocess cases; exact parent package/database inspection exposed absent CLI and assembly/tool qualification limits. Ownership released."
     },
     {
       "agent": "/root/runtime_fix_recheck",
@@ -59,12 +63,13 @@
       "reasoning_effort": "medium",
       "status": "completed",
       "files": [
-        "development/evidence/dev-010-direct-adapter-review.md",
-        "infra/scanner/noble-fix-recheck-2026-11-19.md"
+        "development/evidence/dev-010-process-guard-review.md",
+        "development/evidence/postgres-fix-recheck-2026-11-20.md",
+        "development/evidence/auth-014-gate-integration-review.md"
       ],
-      "evidence": "Independently accepted disabled core/tests after two corrections; 96 ingestion/431 backend cases pass. Same Noble scanner metadata still needs triage; no clearance."
+      "evidence": "Independently accepted process guard/tests and verified checkpoint evidence after wording corrections; exact parent lacks CLI. Ownership released; no artifact/runtime/phase clearance."
     }
   ],
-  "run_status": "completed",
-  "scope": "AUTH-013 disabled owned worker core, authored fake-engine tests, independent review and root architecture/QA; no runtime or phase approval."
+  "run_status": "completed_checkpoint",
+  "scope": "AUTH-013 unconnected process guard, real authored subprocess tests and independent review; AUTH-014 static assessment only, scope correction pending. No native runtime or phase approval."
 }
