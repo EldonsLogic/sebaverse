@@ -20,3 +20,7 @@ Current learning outcome remains unchanged: ingestion foundation work is not a u
 ## Closing verification
 
 Root ran `make foundation-check` on the integrated documentation/assessment working tree based on `8cec5b3`: exit 0; economics/artifact/foundation checks and 179 helper tests passed. `git diff --check` passed. No product code, dependency lock, runtime pin, policy or old security review changed; no new backend/native/database/browser test was needed or run for these documentation-only changes. Reviewer runtime_fix_recheck independently accepted the receipts, hold and recovery options; both subagents released file ownership. The tests' expected negative-fixture report is not a live npm failure or hosted result.
+
+## Founder decision — 20 November 2026
+
+Founder selected option 1: “Wait for a qualified supplier tool or image (recommended)”. The database recovery route remains on hold. Option 2 is an unselected proposal and grants no implementation authority. Reassess only after a meaningful supplier update, using exact identity, fresh security/rights evidence and independent review before adoption. No monitoring job, repeated CI dispatch, billing change or exception renewal was requested.

@@ -70,3 +70,7 @@ Founder selected “Assess the exact fixed-package derivative (recommended)” a
 ### AUTH-014 scope clarification — 20 November 2026
 
 Founder selected “Update only the two installed libraries (recommended)” after exact-parent inspection corrected the prepared plan. The approved replacement set is **libcrypto3 and libssl3 3.5.9-r1 only**; preserve the absent openssl command-line package as absent. This narrows the earlier three-package assumption, with the same original one-engineering-day budget, two-correction limit, independent review and all security checks. It does not restart the budget, add a package/tool authorization exception or approve an artifact.
+
+### AUTH-014 recovery choice — wait for supplier, 20 November 2026
+
+Founder selected “Wait for a qualified supplier tool or image (recommended)” from the independently reviewed [recovery checkpoint](evidence/auth-014-recovery-checkpoint.md). Hold this database recovery route pending a meaningful qualified supplier update. Do not implement the proposed owned static writer, hunt alternate tools, build from source, renew an exception or relax checks. No automatic polling, repeated CI dispatch, billing change or budget renewal is authorized. Unaffected work within existing scopes is not cancelled; DEV-010/F3 remains open.
