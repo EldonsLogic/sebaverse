@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "run": "dev010-authored-input-composition-2026-11-20",
+  "run": "dev010-extraction-reference-controls-2026-11-20",
   "max_concurrent_including_orchestrator": 4,
   "paid_provider_budget_usd": 0,
   "token_budget": null,
@@ -16,57 +16,56 @@
       "status": "completed",
       "files": [
         "development shared state/evidence",
-        "workers/parser/README.md",
-        "workers/parser/input-transport-plan.md"
+        "workers/parser/README.md"
       ],
-      "evidence": "Integrated authored fixture selection, production RISK-F3-004, continuity and final QA; root backend 534 passed/1 PostgreSQL deselected, Django clean."
+      "evidence": "Integrated original controls/comparator and honest source readiness; root backend 565 passed/1 PostgreSQL deselected, Django clean; final foundation/handoff owned."
     },
     {
-      "agent": "/root/input_codec",
+      "agent": "/root/fidelity_comparator",
       "roles": [
-        "Backend",
+        "Evaluation",
+        "Backend"
+      ],
+      "model": "gpt-6.2-sol",
+      "reasoning_effort": "medium",
+      "status": "completed",
+      "files": [
+        "evals/extraction_fidelity.py",
+        "evals/extraction-fidelity-contract.md"
+      ],
+      "evidence": "Bounded metadata-only comparator implemented, overlapping token diagnostic corrected; full text already rejected before correction. Contract/source released."
+    },
+    {
+      "agent": "/root/fidelity_vectors",
+      "roles": [
+        "Testing",
+        "Evaluation"
+      ],
+      "model": "gpt-6.2-sol",
+      "reasoning_effort": "medium",
+      "status": "completed",
+      "files": [
+        "evals/fixtures/extraction-reference-v1.json",
+        "backend/tests/ingestion/test_extraction_fidelity.py"
+      ],
+      "evidence": "Original two cases/five planned pages, no real PDF mapping ; 31 focused/230 ingestion passed. Handoff read-only audit confirmed readiness limits; files released."
+    },
+    {
+      "agent": "/root/fidelity_review",
+      "roles": [
+        "Reviewer",
         "Infrastructure"
       ],
       "model": "gpt-6.2-sol",
       "reasoning_effort": "medium",
       "status": "completed",
       "files": [
-        "workers/parser/input_transport.py",
-        "workers/parser/process_guard.py",
-        "workers/parser/process-guard-contract.md"
+        "development/evidence/hosted-input-aab9851.md",
+        "development/evidence/dev-010-fidelity-review.md"
       ],
-      "evidence": "Strict framed codec and explicit fixture guard profile implemented; standard limits unchanged. Source released, no native or live activation."
-    },
-    {
-      "agent": "/root/input_tests",
-      "roles": [
-        "Testing"
-      ],
-      "model": "gpt-6.2-sol",
-      "reasoning_effort": "medium",
-      "status": "completed",
-      "files": [
-        "backend/tests/ingestion/test_input_transport.py",
-        "backend/tests/ingestion/fixtures/pdf_worker_fixture.py"
-      ],
-      "evidence": "30 focused /199 ingestion tests passed with actual small and full-ceiling child frames, semantic failures, profile limits/cancel/cleanup. Files released; handoff review identified wording/timestamp corrections applied by root."
-    },
-    {
-      "agent": "/root/input_review",
-      "roles": [
-        "Reviewer",
-        "Testing"
-      ],
-      "model": "gpt-6.2-sol",
-      "reasoning_effort": "medium",
-      "status": "completed",
-      "files": [
-        "development/evidence/hosted-dispatch-2ecb5c9.md",
-        "development/evidence/dev-010-input-transport-review.md"
-      ],
-      "evidence": "Accepted exact final code/test hashes; independent 157 focused/199 ingestion pass. Prior commit hosted504 passed then native gate failed. Files released."
+      "evidence": "Accepted final hashes, independently 31 focused/230 ingestion passed plus bounded probes. Prior hosted 534 passed; native gate blocked DB/browser. Files released."
     }
   ],
   "run_status": "completed_checkpoint",
-  "scope": "AUTH013 authored child composes framed source, verified fake-engine core and strict result decoding. New PDF fixture input profile only; generic limits unchanged, no production activation. AUTH014 wait persists."
+  "scope": "R039 offline comparator and independently authored reference/control vectors; latest hosted receipt and independent review. No PDF source creation/extraction/native/DB/model/scanner use, no gate or supplierwait change."
 }

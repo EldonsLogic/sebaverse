@@ -577,7 +577,8 @@
         "development/evidence/dev-010.md",
         "development/evidence/dev-010-public-transport-checkpoint.md",
         "development/evidence/dev-010-dispatch-fence.md",
-        "development/evidence/dev-010-authored-input.md"
+        "development/evidence/dev-010-authored-input.md",
+        "development/evidence/dev-010-fidelity-controls.md"
       ],
       "files": [
         "backend/modules/ingestion/",

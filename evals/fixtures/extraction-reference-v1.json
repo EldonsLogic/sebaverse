@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0",
+  "artifact_kind": "authored-text-fidelity-vectors",
+  "source_binding_status": "pending_reviewed_pdf_mapping",
+  "cases": [
+    {
+      "reference": {
+        "fixture_id": "arabic-german-math-v1",
+        "expected_outcome": "needs_review",
+        "line_endings": "lf_equivalent",
+        "pages": [
+          {
+            "text": "اقرأ السطرين بالترتيب.\nقِس طول القطعة بالسنتيمتر.",
+            "critical_tokens": ["قِس", "بالسنتيمتر"]
+          },
+          {
+            "text": "العمود الأيمن\nقارن بين الطولين.\nLinke Spalte\nVergleiche die Längen. Prüfe die Maße.",
+            "critical_tokens": ["الأيمن", "Längen", "Prüfe", "Maße"]
+          },
+          {
+            "text": "عند التعويض، احسب قيمة المقدار.\nس = −٣٫٥ × ٢²\nاكتب الناتج بوحدة القياس.",
+            "critical_tokens": ["−", "٣", "٫", "٥", "×", "٢", "²"]
+          }
+        ]
+      },
+      "source_page_plan": [
+        "Arabic prose in logical reading order, first line above second.",
+        "Read the two-line Arabic right column top to bottom, then the two-line German left column top to bottom.",
+        "Arabic instruction, then the formula with its exact Unicode symbols, then the final Arabic instruction."
+      ]
+    },
+    {
+      "reference": {
+        "fixture_id": "readable-prefix-unreadable-page-v1",
+        "expected_outcome": "hold",
+        "line_endings": "exact",
+        "hold_reason": "page_without_text",
+        "pages": [
+          {
+            "text": "لاحظ موضع العلامة على المسطرة.",
+            "critical_tokens": ["المسطرة"]
+          },
+          {
+            "text": "",
+            "critical_tokens": []
+          }
+        ]
+      },
+      "source_page_plan": [
+        "One readable Arabic sentence.",
+        "Image-only original diagram with no extractable text. Hold the whole document."
+      ]
+    }
+  ]
+}
