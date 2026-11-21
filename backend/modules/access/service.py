@@ -1,6 +1,7 @@
 """Derive live scope from persisted records; never accept role/paid/consent claims."""
 from django.utils import timezone
-from modules.identity.models import Membership, GuardianRelationship, ConsentRecord
+from modules.identity.models import Membership, GuardianRelationship
+from modules.identity.consent_policy import qualifying_consents
 from .models import ScopedResource, Enrollment, Entitlement, TeacherAssignment
 from .policy import Scope, allowed
 
@@ -23,16 +24,11 @@ def authorized_resource(actor, resource_id):
             verified_at__lte=now, revoked_at__isnull=True).exclude(verification_ref='').exists()
     elif role == 'teacher':
         relationship = TeacherAssignment.objects.filter(actor_id=actor.pk, learner=learner, course=course, active=True).exists()
-    consents = ConsentRecord.objects.filter(relationship__learner=learner,
-        relationship__guardian__is_active=True, relationship__verified_at__lte=now,
-        relationship__revoked_at__isnull=True, purpose=resource.purpose,
-        granted_at__lte=now, expires_at__gt=now, withdrawn_at__isnull=True).exclude(
-        relationship__verification_ref='').exclude(notice_version='').exclude(notice_locale='').exclude(evidence_ref='')
+    consents = qualifying_consents(learner, resource.purpose, now)
     # A guardian may not borrow another guardian's consent to their own reporting.
     if role == 'guardian':
         consents = consents.filter(relationship__guardian_id=actor.pk)
-    guardian_ids = Membership.objects.filter(tenant=learner.tenant, role='guardian', active=True).values('actor_id')
-    consent_valid = consents.filter(relationship__guardian_id__in=guardian_ids).exists()
+    consent_valid = consents.exists()
     enrollment = Enrollment.objects.filter(learner=learner, course=course, active=True).first()
     entitlement_valid = bool(enrollment and Entitlement.objects.filter(enrollment=enrollment,
         purpose=resource.purpose, starts_at__lte=now, expires_at__gt=now,

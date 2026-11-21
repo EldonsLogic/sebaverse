@@ -4,6 +4,33 @@ from django.db import models
 from django.db.models import Q
 
 
+CONSENT_CLEANUP_POLICY_VERSION = 'effective-loss-v1'
+CONSENT_CLEANUP_DISPOSITION = 'full_purge'
+
+
+class ConsentCleanupIntent(models.Model):
+    """Write-once scope for an eligible withdrawal, with an inclusive generation cutoff."""
+
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    consent = models.OneToOneField('identity.ConsentRecord', on_delete=models.PROTECT, editable=False)
+    tenant = models.ForeignKey('identity.Tenant', on_delete=models.PROTECT, editable=False)
+    learner = models.ForeignKey('identity.Learner', on_delete=models.PROTECT, editable=False)
+    purpose = models.CharField(max_length=24, editable=False)
+    uploader = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.PROTECT, null=True, editable=False)
+    cutoff_generation = models.PositiveIntegerField(editable=False)
+    policy_version = models.CharField(max_length=32, editable=False)
+    disposition = models.CharField(max_length=24, editable=False)
+
+    class Meta:
+        constraints = [models.CheckConstraint(
+            condition=Q(
+                purpose='tutoring', policy_version=CONSENT_CLEANUP_POLICY_VERSION,
+                disposition=CONSENT_CLEANUP_DISPOSITION,
+            ),
+            name='operations_consent_cleanup_policy',
+        )]
+
+
 class Job(models.Model):
     id=models.UUIDField(primary_key=True,default=uuid.uuid4,editable=False)
     actor=models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.PROTECT)

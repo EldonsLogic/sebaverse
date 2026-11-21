@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "run": "dev010-consent-cleanup-policy-plan-2026-11-21",
+  "run": "dev010-consent-cleanup-intent-2026-11-21",
   "max_concurrent_including_orchestrator": 4,
   "paid_provider_budget_usd": 0,
   "token_budget": null,
@@ -15,40 +15,47 @@
       ],
       "status": "completed",
       "files": [
-        "development shared state/evidence"
+        "backend/modules/access/service.py",
+        "development shared state/evidence",
+        "sources/consent-cleanup-policy-instruction.md",
+        "sources/source-catalog.md"
       ],
-      "evidence": "Integrates reviewed policy/technical options and acceptance, no cleanup implementation or policy adoption. Owns final artifact checks and founder clarification."
+      "evidence": "Recorded approved U25/AUTH015, shared access query and final 597 backend pass with PostgreSQL deselected, Django clean. Owns final documentation QA and intent checkpoint."
     },
     {
-      "agent": "/root/consent_cleanup_plan",
+      "agent": "/root/cleanup_intent",
       "roles": [
-        "Architecture",
-        "Backend"
+        "Backend",
+        "Architecture"
       ],
       "model": "gpt-6.2-sol",
       "reasoning_effort": "medium",
       "status": "completed",
       "files": [
-        "development/evidence/consent-cleanup-implementation-plan.md"
+        "backend/modules/identity/consent.py",
+        "backend/modules/identity/consent_policy.py",
+        "backend/modules/operations/models.py",
+        "backend/modules/operations/migrations/0005_consent_cleanup_intent.py"
       ],
-      "evidence": "Implementation slices and cohort/retention choices proposed; root narrowed technical scope to preserve current manifest serialization."
+      "evidence": "Canonical intent capture and shared qualifying query implemented; valid zero cutoff, fixed policy constraints, no provider/storage I/O."
     },
     {
-      "agent": "/root/cleanup_acceptance",
+      "agent": "/root/cleanup_intent_tests",
       "roles": [
-        "Testing",
-        "Privacy"
+        "Testing"
       ],
       "model": "gpt-6.2-sol",
       "reasoning_effort": "medium",
       "status": "completed",
       "files": [
-        "development/evidence/consent-cleanup-acceptance.md"
+        "backend/tests/consent/test_cleanup_intent.py",
+        "backend/tests/ingestion/postgres_probe.py",
+        "backend/tests/test_postgres_integration.py"
       ],
-      "evidence": "Exact target, new/regranted upload, writer/retry/quota and receipt scenarios planned, not executed."
+      "evidence": "12 new database-free tests pass. Four real PG scenarios staged, total 31 NOT RUN. Model migration not applied."
     },
     {
-      "agent": "/root/cleanup_hosted_review",
+      "agent": "/root/cleanup_intent_review",
       "roles": [
         "Reviewer",
         "Infrastructure"
@@ -57,12 +64,12 @@
       "reasoning_effort": "medium",
       "status": "completed",
       "files": [
-        "development/evidence/hosted-return-ed4d840.md",
-        "development/evidence/consent-cleanup-plan-review.md"
+        "development/evidence/hosted-cleanup-plan-4db53c6.md",
+        "development/evidence/dev-010-consent-intent-review.md"
       ],
-      "evidence": "Prior hosted 585 passed; reviewed final policy options conditionally for founder decision. No cleanup product test or adoption."
+      "evidence": "Independently accepted final code/model/migration state and 597 backend tests plus scoped suites. Four PG cases staged, total 31 NOT RUN; no purge or phase acceptance. Files released."
     }
   ],
-  "run_status": "decision_pending",
-  "scope": "Planning only: durable cleanup authority/scope, explicit retention unknowns, acceptance and independent design review. No policy, runtime or phase acceptance."
+  "run_status": "completed_checkpoint",
+  "scope": "AUTH015 first synthetic implementation slice: qualifying narrow/full-purge intent captured in canonical withdrawal transaction. Model/migration-state proof only, no database application or file cleanup. Supplier and privacy/runtime gates unchanged."
 }

@@ -15,6 +15,7 @@ from modules.identity.consent import withdraw_consent
 from modules.identity.models import Tenant,Membership,Learner,GuardianRelationship,ConsentRecord
 from modules.access.models import Course,Enrollment,Entitlement,ScopedResource
 from modules.ingestion.models import UploadQuota,ReviewGrant,Upload
+from modules.operations.models import ConsentCleanupIntent
 from modules.ingestion import service as service_module
 from modules.ingestion.storage import PrivateObjects
 from modules.ingestion.service import allocate,accept_bytes,process,approve,resolve,withdraw,RuntimeAssets,Denied,Conflict,review_manifest
@@ -209,9 +210,9 @@ def main():
             if not regrant:
                 consent = new_consent()
 
-        def dispatch_for_read(scenario, *, publish):
-            candidate = allocate(actor, resource.pk, scenario, decl)
-            accept_bytes(actor, candidate.pk, [data], store)
+        def dispatch_for_read(scenario, *, publish, uploader=actor):
+            candidate = allocate(uploader, resource.pk, scenario, decl)
+            accept_bytes(uploader, candidate.pk, [data], store)
             assert process(candidate.pk, store, FixtureScanner(), FixtureParser(), assets(data)).status == 'needs_review'
             if publish:
                 approve(reviewer, candidate.pk, candidate.generation, hashlib.sha256(data).hexdigest(),
@@ -442,6 +443,110 @@ def main():
             withdraw(actor,u.pk,store)
         checks.append('thirty-authored-injection-data-fixtures')
         quota.refresh_from_db();assert quota.used_bytes==quota.reserved_bytes==0
+
+        def intent_scope(record):
+            return ConsentCleanupIntent.objects.filter(consent=record).values_list(
+                'learner_id', 'tenant_id', 'purpose', 'uploader_id', 'cutoff_generation', 'policy_version', 'disposition',
+            ).get()
+
+        current = ConsentRecord.objects.get(relationship=relation, withdrawn_at__isnull=True)
+        second_guardian = users.objects.create_user(username='fixture-upload-second-guardian')
+        Membership.objects.create(tenant=Tenant.objects.create(), actor=second_guardian, role='guardian')
+        second_relation = GuardianRelationship.objects.create(
+            guardian=second_guardian, learner=learner, verified_at=now, verification_ref='fixture.link',
+        )
+        surviving = ConsentRecord.objects.create(
+            relationship=second_relation, purpose='tutoring', notice_version='fixture.v1', notice_locale='ar-EG',
+            evidence_ref='fixture.consent', granted_at=now, expires_at=now + timedelta(hours=1),
+        )
+        expect(PermissionError, lambda: withdraw_consent(other, current.pk))
+        expect(PermissionError, lambda: withdraw_consent(second_guardian, surviving.pk))
+        surviving.refresh_from_db()
+        assert surviving.withdrawn_at is None
+        assert not ConsentCleanupIntent.objects.filter(consent=surviving).exists()
+        learner.refresh_from_db()
+        before = learner.authorization_generation
+        create_intent = ConsentCleanupIntent.objects.create
+
+        def write_intent_then_raise(**fields):
+            assert connection.in_atomic_block
+            assert ConsentRecord.objects.get(pk=current.pk).withdrawn_at is not None
+            assert Learner.objects.get(pk=learner.pk).authorization_generation == before + 1
+            intent = create_intent(**fields)
+            assert intent.uploader_id is None
+            raise RuntimeError('fixture failure after insert')
+
+        with patch.object(ConsentCleanupIntent.objects, 'create', side_effect=write_intent_then_raise) as insert:
+            expect(RuntimeError, lambda: withdraw_consent(guardian, current.pk))
+            insert.assert_called_once()
+        current.refresh_from_db()
+        learner.refresh_from_db()
+        assert current.withdrawn_at is None and learner.authorization_generation == before
+        assert not ConsentCleanupIntent.objects.filter(consent=current).exists()
+        checks.append('cleanup-intent-denial-and-transaction-rollback')
+
+        same_guardian = new_consent()
+        withdraw_consent(guardian, current.pk)
+        learner.refresh_from_db()
+        assert learner.authorization_generation == before + 1
+        assert not ConsentCleanupIntent.objects.filter(consent=current).exists()
+        for purpose, expiry in [('guardian_reporting', now + timedelta(hours=1)), ('tutoring', now)]:
+            ineffective = ConsentRecord.objects.create(
+                purpose=purpose, relationship=relation, notice_version='fixture.v1', notice_locale='ar-EG',
+                evidence_ref='fixture.ineffective', granted_at=now - timedelta(hours=1), expires_at=expiry,
+            )
+            withdrawn = withdraw_consent(guardian, ineffective.pk)
+            assert withdrawn.withdrawn_at is not None
+            assert not ConsentCleanupIntent.objects.filter(consent=ineffective).exists()
+        learner.refresh_from_db()
+        assert learner.authorization_generation == before + 3
+        checks.append('cleanup-intent-same-guardian-expired-and-reporting-withdrawals')
+
+        Membership.objects.create(tenant=tenant, actor=second_guardian, role='guardian')
+        old_upload = dispatch_for_read('cleanup-ready', publish=True, uploader=guardian)
+        old_review = dispatch_for_read('cleanup-review', publish=False)
+        assert resolve(guardian, old_upload.pk, store)['page_count'] == 1
+        assert review_manifest(reviewer, old_review.pk, store)['page_count'] == 1
+        quota.refresh_from_db()
+        charge = quota.used_bytes
+        before = learner.authorization_generation
+
+        withdraw_consent(guardian, same_guardian.pk)
+
+        assert intent_scope(same_guardian) == (
+            learner.pk, tenant.pk, 'tutoring', guardian.pk, before, 'effective-loss-v1', 'full_purge',
+        )
+        assert service_module.authorized_resource(guardian, resource.pk) is None
+        assert service_module.authorized_resource(actor, resource.pk) is not None
+        assert service_module.authorized_resource(second_guardian, resource.pk) is not None
+        expect(Denied, lambda: resolve(actor, old_upload.pk, store))
+        expect(Denied, lambda: review_manifest(reviewer, old_review.pk, store))
+        quota.refresh_from_db()
+        assert quota.used_bytes == charge and quota.reserved_bytes == 0
+        for saved in (old_upload, old_review):
+            assert store.read(str(saved.pk)) == data and store.path(str(saved.pk), 'manifest').is_file()
+        checks.append('cleanup-intent-other-guardian-overlap-fences-access-without-purge')
+
+        survivor_upload = dispatch_for_read('cleanup-surviving-guardian', publish=True, uploader=second_guardian)
+        assert resolve(second_guardian, survivor_upload.pk, store)['page_count'] == 1
+        before = survivor_upload.authorization_generation
+        withdrawn_at = withdraw_consent(second_guardian, surviving.pk).withdrawn_at
+        captured_scope = intent_scope(surviving)
+        assert captured_scope == (
+            learner.pk, tenant.pk, 'tutoring', None, before, 'effective-loss-v1', 'full_purge',
+        )
+        assert service_module.authorized_resource(actor, resource.pk) is None
+        new_consent()
+        fresh = dispatch_for_read('cleanup-after-regrant', publish=True, uploader=guardian)
+        assert fresh.authorization_generation == before + 1 and fresh.pk != old_upload.pk
+        assert store.read(str(fresh.pk)) == store.read(str(old_upload.pk)) == data
+        assert withdraw_consent(second_guardian, surviving.pk).withdrawn_at == withdrawn_at
+        learner.refresh_from_db()
+        assert learner.authorization_generation == fresh.authorization_generation
+        assert intent_scope(surviving) == captured_scope
+        assert resolve(guardian, fresh.pk, store)['page_count'] == 1
+        expect(Denied, lambda: resolve(guardian, old_upload.pk, store))
+        checks.append('cleanup-intent-last-grant-cutoff-survives-regrant-and-replay')
     print(json.dumps({'checks':checks,'count':len(checks),'injection_fixtures':30,'adapters':'authored-fixtures-only','actual_parser_scanner_or_sandbox':False}))
 
 

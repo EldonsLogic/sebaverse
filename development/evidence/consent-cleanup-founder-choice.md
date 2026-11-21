@@ -25,3 +25,7 @@ The technical proposal preserves existing manifest lock serialization, keeps cle
 ## Verification of this planning checkpoint
 
 Root `make foundation-check` exited 0: artifact/economics/foundation checks and 179 helper tests passed. `git diff --check` passed. The independent review rechecked the final cohort/file choices; root applied the remaining manifest-serialization wording and blocked-page acceptance clarifications. These checks validate the planning artifacts only. No cleanup code, migration, queue or deletion ran, and no policy choice is approved until the founder answers.
+
+## Founder selection — 21 November 2026
+
+Founder selected narrow loss-of-consent targeting and removal of originals plus derived files, recorded in U25/AUTH-015. These two choices are resolved; no other alternative is active. Retained operational/audit fields and lifetime remain unapproved before real-data release. Implementation starts with atomic intent capture; file purge and quota settlement are not implemented by that slice.

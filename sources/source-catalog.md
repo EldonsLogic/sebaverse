@@ -80,3 +80,5 @@ Exact research files/bytes/checksums: [manifest](research-manifest.json). Suppor
 - U23: [Direct PyPDFium2 text-only PoC selection](direct-pdf-poc-instruction.md), 19 November 2026. Explicit ADR-014 selection under AUTH-013, preserving qualification and phase gates.
 
 - U24: [Public repository and continued parallel work](public-repository-instruction.md), 20 November 2026. Founder changed visibility; no safety, rights or phase waiver.
+
+- U25: [Consent cleanup policy choices](consent-cleanup-policy-instruction.md), 21 November 2026. Narrow effective-loss cohort and full source/derived purge selected; retained-record policy and runtime qualification remain pending.
