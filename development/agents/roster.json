@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "run": "dev010-resource-kind-fence-2026-11-20",
+  "run": "dev010-kind-review-resume-2026-11-21",
   "max_concurrent_including_orchestrator": 4,
   "paid_provider_budget_usd": 0,
   "token_budget": null,
@@ -13,65 +13,55 @@
         "Integration",
         "Testing"
       ],
-      "status": "integrating",
+      "status": "completed",
       "files": [
-        "backend/modules/ingestion/service.py",
-        "backend/tests/ingestion/test_resource_kind_fence.py",
-        "backend/tests/ingestion/postgres_probe.py",
-        "backend/tests/test_postgres_integration.py",
         "development shared state/evidence"
       ],
-      "evidence": "Recovered saved files, confirmed five baseline failures/one positive; completed shared file predicate and staged PG24. Local571 backend/236 ingestion pass. Independent review pending."
+      "evidence": "Root 571 backend tests passed with PostgreSQL deselected and Django clean. Owns final documents and verified integration after independent review."
     },
     {
-      "agent": "/root/next_f3_review",
+      "agent": "/root/kind_independent_review",
       "roles": [
-        "Backend",
+        "Reviewer",
         "Security"
       ],
       "model": "gpt-6.2-sol",
       "reasoning_effort": "medium",
-      "status": "stopped_usage_limit",
+      "status": "completed",
       "files": [
-        "backend/modules/ingestion/service.py",
-        "development/evidence/dev-010-next-boundary-audit.md"
-      ],
-      "evidence": "Saved two-failure audit; stopped before service correction. Root implemented final service."
-    },
-    {
-      "agent": "/root/worker_authority_design",
-      "roles": [
-        "Testing",
-        "Architecture"
-      ],
-      "model": "gpt-6.2-sol",
-      "reasoning_effort": "medium",
-      "status": "stopped_usage_limit",
-      "files": [
-        "workers/parser/production-authority-proposal.md",
-        "backend/tests/ingestion/test_resource_kind_fence.py",
-        "backend/tests/ingestion/test_dispatch_fence.py",
-        "backend/tests/ingestion/postgres_probe.py",
-        "backend/tests/test_postgres_integration.py"
-      ],
-      "evidence": "Saved design-only proposal and partial permanent testfile/mock kind field; stopped before completion. Root completed mocks/positive, correction and PGcases."
-    },
-    {
-      "agent": "/root/hosted_fidelity",
-      "roles": [
-        "Reviewer",
-        "Infrastructure"
-      ],
-      "model": "gpt-6.2-sol",
-      "reasoning_effort": "medium",
-      "status": "stopped_usage_limit",
-      "files": [
-        "development/evidence/hosted-fidelity-8a413d8.md",
         "development/evidence/dev-010-resource-kind-review.md"
       ],
-      "evidence": "Saved actual prior commit hosted565 receipt; stopped before independent kind correction review. Review NOT RUN."
+      "evidence": "Accepted unchanged 75986c1 source correction; independently reproduced five base failures and requester positive, then 571 backend and 236 ingestion tests passed. PostgreSQL static only."
+    },
+    {
+      "agent": "/root/kind_hosted_results",
+      "roles": [
+        "Infrastructure",
+        "Testing"
+      ],
+      "model": "gpt-6.2-sol",
+      "reasoning_effort": "medium",
+      "status": "completed",
+      "files": [
+        "development/evidence/hosted-kind-75986c1.md"
+      ],
+      "evidence": "Original branch run passed 571 Linux tests, web and separate foundation/dependency checks; native policy failed and database/browser skipped. No rerun; file released."
+    },
+    {
+      "agent": "/root/kind_test_audit",
+      "roles": [
+        "Testing",
+        "Reviewer"
+      ],
+      "model": "gpt-6.2-sol",
+      "reasoning_effort": "medium",
+      "status": "completed",
+      "files": [
+        "development/evidence/dev-010-kind-test-audit.md"
+      ],
+      "evidence": "Independent focused 16 tests passed, no setup defect or false pass; review/approve kind checks remain staged PostgreSQL coverage. Audit released."
     }
   ],
-  "run_status": "usage_limit_checkpoint_review_pending",
-  "scope": "Existing F3 broker correction for resource kind drift; actual regression tests, staged PG cases NOT RUN, independent review. Production authority proposal remains design only, AUTH014 wait unchanged."
+  "run_status": "completed_review_checkpoint",
+  "scope": "Fresh independent review of locally tested75986c1; hosted branch receipt and independent test audit. No native/DB execution or supplier recovery. Main promotion conditional on review, not phase acceptance."
 }

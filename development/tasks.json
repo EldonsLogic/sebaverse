@@ -579,7 +579,9 @@
         "development/evidence/dev-010-dispatch-fence.md",
         "development/evidence/dev-010-authored-input.md",
         "development/evidence/dev-010-fidelity-controls.md",
-        "development/evidence/dev-010-resource-kind-fence.md"
+        "development/evidence/dev-010-resource-kind-fence.md",
+        "development/evidence/dev-010-resource-kind-review.md",
+        "development/evidence/dev-010-kind-test-audit.md"
       ],
       "files": [
         "backend/modules/ingestion/",
