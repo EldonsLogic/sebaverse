@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "run": "dev010-manifest-return-fence-2026-11-21",
+  "run": "dev010-consent-cleanup-policy-plan-2026-11-21",
   "max_concurrent_including_orchestrator": 4,
   "paid_provider_budget_usd": 0,
   "token_budget": null,
@@ -15,47 +15,40 @@
       ],
       "status": "completed",
       "files": [
-        "development shared state/evidence",
-        "registers/decisions-risks-unknowns.md",
-        "workers/parser/production-authority-proposal.md"
+        "development shared state/evidence"
       ],
-      "evidence": "Root independently ran 585 backend tests with PostgreSQL deselected and Django clean. Integrates final checks, continuity, explicit consent-retention gap and design changes-required status."
+      "evidence": "Integrates reviewed policy/technical options and acceptance, no cleanup implementation or policy adoption. Owns final artifact checks and founder clarification."
     },
     {
-      "agent": "/root/remaining_f3_audit",
-      "roles": [
-        "Backend",
-        "Security"
-      ],
-      "model": "gpt-6.2-sol",
-      "reasoning_effort": "medium",
-      "status": "completed",
-      "files": [
-        "backend/modules/ingestion/service.py",
-        "development/evidence/dev-010-next-step-2026-11-21.md"
-      ],
-      "evidence": "Reproduced initial late returns, implemented immutable snapshot and current post-I/O checks. Deletion gap recorded separately. Source/audit released."
-    },
-    {
-      "agent": "/root/authority_review",
+      "agent": "/root/consent_cleanup_plan",
       "roles": [
         "Architecture",
-        "Testing"
+        "Backend"
       ],
       "model": "gpt-6.2-sol",
       "reasoning_effort": "medium",
       "status": "completed",
       "files": [
-        "workers/parser/production-authority-review.md",
-        "backend/tests/ingestion/test_manifest_return_fence.py",
-        "backend/tests/ingestion/test_resource_kind_fence.py",
-        "backend/tests/ingestion/postgres_probe.py",
-        "backend/tests/test_postgres_integration.py"
+        "development/evidence/consent-cleanup-implementation-plan.md"
       ],
-      "evidence": "14 final independent unit cases and three PG cases staged (27 total, NOT RUN). Architecture review requires revisions. Files released; final handoff audit complete; clarity edits applied by root."
+      "evidence": "Implementation slices and cohort/retention choices proposed; root narrowed technical scope to preserve current manifest serialization."
     },
     {
-      "agent": "/root/hosted_kind_main",
+      "agent": "/root/cleanup_acceptance",
+      "roles": [
+        "Testing",
+        "Privacy"
+      ],
+      "model": "gpt-6.2-sol",
+      "reasoning_effort": "medium",
+      "status": "completed",
+      "files": [
+        "development/evidence/consent-cleanup-acceptance.md"
+      ],
+      "evidence": "Exact target, new/regranted upload, writer/retry/quota and receipt scenarios planned, not executed."
+    },
+    {
+      "agent": "/root/cleanup_hosted_review",
       "roles": [
         "Reviewer",
         "Infrastructure"
@@ -64,12 +57,12 @@
       "reasoning_effort": "medium",
       "status": "completed",
       "files": [
-        "development/evidence/hosted-kind-main-fb92198.md",
-        "development/evidence/dev-010-manifest-return-review.md"
+        "development/evidence/hosted-return-ed4d840.md",
+        "development/evidence/consent-cleanup-plan-review.md"
       ],
-      "evidence": "Prior hosted 571 passed with native gate failure. Independent source review accepted 585 backend/250 ingestion/20 focused passing and 12 old-source negatives failing; review released."
+      "evidence": "Prior hosted 585 passed; reviewed final policy options conditionally for founder decision. No cleanup product test or adoption."
     }
   ],
-  "run_status": "completed_checkpoint",
-  "scope": "Current F3 manifest return reauthorization and immutable binding checks; independent regressions and staged PG27. Production authority design requires revisions; R046 consent-purge gap recorded, not implemented. Supplier wait unchanged."
+  "run_status": "decision_pending",
+  "scope": "Planning only: durable cleanup authority/scope, explicit retention unknowns, acceptance and independent design review. No policy, runtime or phase acceptance."
 }

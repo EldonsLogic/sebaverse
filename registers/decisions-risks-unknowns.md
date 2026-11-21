@@ -121,3 +121,6 @@ RISK-F3-004 — 20 November 2026: production worker signing/verification and job
 
 
 RISK-F3-005 — 21 November 2026: canonical consent withdrawal denies future source access through authorization generation, but it does not currently schedule purge of associated source/manifest files. Authored fixtures retain files and quota charges unless a later uploader-owned withdraw call removes them. There are no real uploads at this checkpoint. This is a separate R046 deletion-workflow gap: define eligible cleanup authority, scheduling/retry/quota behavior and approved minimal audit retention, then verify actual derived-artifact removal. Current late-read guard correction does not resolve it. Owner: privacy/backend; status: open before F3 closure; evidence: development/evidence/dev-010-next-step-2026-11-21.md and backend/modules/identity/consent.py. No new retention period or runtime authority inferred.
+
+
+RISK-F3-005 update — 21 November 2026: independently reviewed cleanup scope/file options and planned acceptance are ready for founder decision at development/evidence/consent-cleanup-founder-choice.md. No consent-specific upload attribution exists; generation alone cannot select destructive targets. Cleanup implementation, retained-original/audit policy and runtime evidence are pending. The gap remains open.
