@@ -1,0 +1,14 @@
+# DEV-010 independent manifest return review
+
+21 November 2026 · Reviewer `/root/hosted_kind_main`, independent of the broker and fixture authors. Reviewed the released working-tree delta from `fb92198aa6f3cf693682db65d42f3c96978f0ac9` for DEV-010 / F3 and R037, R038, R040, R041 and R046. **Verdict: no blocking finding in the manifest return correction or staged probe wiring.**
+
+Both manifest paths retain their pre-read authority and status checks, bounded private file read, digest comparison and schema/provenance validation. Immediately before returning the validated data, the broker fetches the upload again and repeats the appropriate live authority check. Private resolution uses the requester and checks current reviewed rights and expiry. Review uses uploader authority plus the reader’s explicit review grant and membership. The broker compares the refreshed resource, saved five-key scope, authorization generation, content digest and parser provenance to values captured before storage I/O. The saved scope is captured as immutable bytes. [Broker](../../backend/modules/ingestion/service.py#L200) · [Server authorization](../../backend/modules/access/service.py#L8)
+
+| Check | Actual result |
+| --- | --- |
+| `make backend-check test-ingestion` | Exit 0 with the existing Python 3.12 environment. 585 backend tests passed and one PostgreSQL test was deselected. Django reported zero issues. All 250 ingestion tests passed. |
+| Focused manifest return and resource-kind pytest files | Exit 0, 20 passed. The new cases exercise consent generation drift, rights expiry, reviewer grant withdrawal, replacement provenance or digest, in-place saved scope changes and unchanged-authority success. |
+| Final manifest return pytest file with the exact `fb92198` broker loaded in memory | Exit 1 as expected. All 12 negative cases failed and both unchanged-authority positive cases passed. The verification left the checked-out broker untouched. |
+| Static PostgreSQL probe and wrapper review | Both files parsed. The wrapper now expects 27 scenarios and asserts the three new names. The delayed-read callbacks act after fetching authored bytes. They stage consent withdrawal and regrant for an independently authorized guardian, rights expiry, and review grant removal with grant restoration. |
+
+The PostgreSQL probe was **NOT RUN**. These staged cases require the native pre-use gate. The review verifies the authored, database-free behavior and the last broker check. Concurrent changes after that check, cancellation of already-running I/O, consent-triggered purge, native parsing and scanning, and OS isolation remain outside this verification. DEV-010 and F3 remain in progress. [Focused tests](../../backend/tests/ingestion/test_manifest_return_fence.py) · [Staged database cases](../../backend/tests/ingestion/postgres_probe.py#L212) · [PostgreSQL wrapper](../../backend/tests/test_postgres_integration.py#L86)

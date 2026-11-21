@@ -197,15 +197,43 @@ def _review_grant(actor,quota):
     return grant
 
 
-def review_manifest(actor,upload_id,store):
+def _reviewable_upload(actor,upload_id):
     upload=Upload.objects.select_related('actor','quota').get(pk=upload_id)
     if not actor.is_authenticated or not actor.is_active or live(upload) is None:raise Denied('Reviewer denied')
     _review_grant(actor,upload.quota)
     if upload.status!='needs_review':raise Conflict('Extraction is not awaiting review')
-    data=store.read(str(upload.id),'manifest',MAX_OUTPUT)
-    if hashlib.sha256(data).hexdigest()!=upload.manifest_sha256:raise ValueError('Manifest hash drift')
-    return validate_result(json.loads(data),{'object_id':str(upload.id),'source_sha256':upload.source_sha256,
-        'generation':upload.generation,'dispatch_id':str(upload.dispatch_id),'parser_id':upload.parser_id,'media_type':upload.media_type})
+    return upload
+
+
+def _manifest_provenance(upload):
+    return {'object_id':str(upload.id),'source_sha256':upload.source_sha256,
+            'generation':upload.generation,'dispatch_id':str(upload.dispatch_id),
+            'parser_id':upload.parser_id,'media_type':upload.media_type}
+
+
+def _manifest_scope(upload):
+    return upload.resource_id,canonical(upload.scope),upload.authorization_generation
+
+
+def _read_manifest(actor,upload_id,store,get_authorized_upload):
+    upload=get_authorized_upload(actor,upload_id)
+    saved_scope=_manifest_scope(upload)
+    manifest_hash=upload.manifest_sha256
+    expected=_manifest_provenance(upload)
+    data=store.read(expected['object_id'],'manifest',MAX_OUTPUT)
+    if hashlib.sha256(data).hexdigest()!=manifest_hash:raise ValueError('Manifest hash drift')
+    result=validate_result(json.loads(data),expected)
+
+    # Refresh authority and the saved binding after I/O before releasing bytes.
+    current=get_authorized_upload(actor,upload_id)
+    if (_manifest_scope(current) != saved_scope or current.manifest_sha256 != manifest_hash
+            or _manifest_provenance(current) != expected):
+        raise Conflict('Extraction changed during read')
+    return result
+
+
+def review_manifest(actor,upload_id,store):
+    return _read_manifest(actor,upload_id,store,_reviewable_upload)
 
 
 @transaction.atomic
@@ -220,14 +248,15 @@ def approve(actor,upload_id,generation,source_hash,rights_evidence,rights_expire
     return upload
 
 
-def resolve(actor,upload_id,store):
+def _resolvable_upload(actor,upload_id):
     upload=Upload.objects.select_related('actor').get(pk=upload_id)
     resource=authorized_resource(actor,upload.resource_id)
     if not _file_resource_matches(resource, upload) or upload.status!='private_ready' or not upload.rights_evidence or upload.rights_expires is None or upload.rights_expires<=timezone.now():raise Denied('Private source unavailable')
-    data=store.read(str(upload.id),'manifest',MAX_OUTPUT)
-    if hashlib.sha256(data).hexdigest()!=upload.manifest_sha256:raise ValueError('Manifest hash drift')
-    return validate_result(json.loads(data),{'object_id':str(upload.id),'source_sha256':upload.source_sha256,
-        'generation':upload.generation,'dispatch_id':str(upload.dispatch_id),'parser_id':upload.parser_id,'media_type':upload.media_type})
+    return upload
+
+
+def resolve(actor,upload_id,store):
+    return _read_manifest(actor,upload_id,store,_resolvable_upload)
 
 
 def withdraw(actor,upload_id,store):

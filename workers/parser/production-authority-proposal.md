@@ -1,5 +1,8 @@
 # DEV-010 production parser authority proposal
 
+**21 November independent review: changes required before adoption.** See [review](production-authority-review.md). This proposal has not amended ADR-014 or qualified any runtime/capability/signer. RISK-F3-004 remains open.
+
+
 20 November 2026 · R039/R040/R041/R046 · RISK-F3-004. Referenced implementation at `8a413d8`. Proposed design for independent architecture and security review. The risk is that a compromised parser could forge clean-scan authority, read another learner’s source or return a result after access is revoked. This increment is one design record for the disabled runtime. It makes no activation, qualification or gate decision. [Risk register](../../registers/decisions-risks-unknowns.md#L120), [ADR-014](../../architecture/adr/ADR-014-minimal-digital-pdf-poc.md).
 
 ## Authority and existing evidence

@@ -3,7 +3,7 @@
 from datetime import timedelta
 from types import SimpleNamespace
 from uuid import uuid4
-from unittest.mock import Mock
+from unittest.mock import Mock, call
 
 import pytest
 from django.utils import timezone
@@ -119,7 +119,7 @@ def test_file_resolution_preserves_independent_requester_authority(broker, monke
     assert requester.pk != broker.row.actor_id
     broker.authorization.reset_mock()
     assert service.resolve(requester, broker.row.id, broker.store)["page_count"] == 1
-    broker.authorization.assert_called_once_with(requester, broker.row.resource_id)
+    assert broker.authorization.call_args_list == [call(requester, broker.row.resource_id)] * 2
     broker.authorization.return_value = None
     with pytest.raises(service.Denied):
         service.resolve(requester, broker.row.id, broker.store)

@@ -581,7 +581,8 @@
         "development/evidence/dev-010-fidelity-controls.md",
         "development/evidence/dev-010-resource-kind-fence.md",
         "development/evidence/dev-010-resource-kind-review.md",
-        "development/evidence/dev-010-kind-test-audit.md"
+        "development/evidence/dev-010-kind-test-audit.md",
+        "development/evidence/dev-010-manifest-return-fence.md"
       ],
       "files": [
         "backend/modules/ingestion/",

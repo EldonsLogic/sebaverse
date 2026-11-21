@@ -109,7 +109,9 @@ def main():
         expect(Denied,lambda:approve(actor,upload.pk,1,hashlib.sha256(data).hexdigest(),'fixture.rights',now+timedelta(hours=1)))
         expect(Denied,lambda:approve(reviewer,upload.pk,1,hashlib.sha256(data).hexdigest(),'fixture.rights',now+timedelta(hours=1)))
         expect(Denied,lambda:review_manifest(reviewer,upload.pk,store))
-        ReviewGrant.objects.create(actor=reviewer,learner=learner,course=course,active=True,rights=True,extraction=True)
+        reviewer_grant = ReviewGrant.objects.create(
+            actor=reviewer, learner=learner, course=course, active=True, rights=True, extraction=True,
+        )
         assert review_manifest(reviewer,upload.pk,store)['blocks'][0]['text']==data.decode()
         approve(reviewer,upload.pk,1,hashlib.sha256(data).hexdigest(),'fixture.rights',now+timedelta(hours=1))
         assert resolve(actor,upload.pk,store)['blocks'][0]['text']==data.decode()
@@ -206,6 +208,70 @@ def main():
             checks.append(scenario)
             if not regrant:
                 consent = new_consent()
+
+        def dispatch_for_read(scenario, *, publish):
+            candidate = allocate(actor, resource.pk, scenario, decl)
+            accept_bytes(actor, candidate.pk, [data], store)
+            assert process(candidate.pk, store, FixtureScanner(), FixtureParser(), assets(data)).status == 'needs_review'
+            if publish:
+                approve(reviewer, candidate.pk, candidate.generation, hashlib.sha256(data).hexdigest(),
+                        'fixture.manifest-read-rights', now + timedelta(hours=1))
+            return candidate
+
+        def expect_denied_after_manifest_read(candidate, callback, change):
+            original_read = store.read
+
+            def read_then_change(object_id, suffix, maximum):
+                assert (object_id, suffix, maximum) == (str(candidate.pk), 'manifest', service_module.MAX_OUTPUT)
+                persisted = original_read(object_id, suffix, maximum)
+                change()
+                return persisted
+
+            with patch.object(store, 'read', side_effect=read_then_change) as read_manifest:
+                expect(Denied, callback)
+                read_manifest.assert_called_once()
+
+        scenario = 'private-resolve-denies-consent-regrant-during-manifest-read'
+        stale_consent_upload = dispatch_for_read(scenario, publish=True)
+        consent = ConsentRecord.objects.get(relationship=relation, withdrawn_at__isnull=True)
+        assert resolve(guardian, stale_consent_upload.pk, store)['page_count'] == 1
+
+        def withdraw_and_regrant():
+            withdraw_consent(guardian, consent.pk)
+            new_consent()
+            assert service_module.authorized_resource(guardian, resource.pk) is not None
+
+        expect_denied_after_manifest_read(
+            stale_consent_upload, lambda: resolve(guardian, stale_consent_upload.pk, store), withdraw_and_regrant,
+        )
+        withdraw(actor, stale_consent_upload.pk, store)
+        checks.append(scenario)
+
+        scenario = 'private-resolve-denies-rights-expiry-during-manifest-read'
+        expiring_upload = dispatch_for_read(scenario, publish=True)
+
+        def expire_rights():
+            assert Upload.objects.filter(pk=expiring_upload.pk).update(rights_expires=timezone.now()) == 1
+
+        expect_denied_after_manifest_read(expiring_upload, lambda: resolve(actor, expiring_upload.pk, store), expire_rights)
+        withdraw(actor, expiring_upload.pk, store)
+        checks.append(scenario)
+
+        scenario = 'review-denies-grant-removal-during-manifest-read'
+        grant_upload = dispatch_for_read(scenario, publish=False)
+        assert review_manifest(reviewer, grant_upload.pk, store)['page_count'] == 1
+
+        def remove_reviewer_grant():
+            assert ReviewGrant.objects.filter(pk=reviewer_grant.pk).update(active=False) == 1
+
+        try:
+            expect_denied_after_manifest_read(
+                grant_upload, lambda: review_manifest(reviewer, grant_upload.pk, store), remove_reviewer_grant,
+            )
+        finally:
+            ReviewGrant.objects.filter(pk=reviewer_grant.pk).update(active=True)
+        withdraw(actor, grant_upload.pk, store)
+        checks.append(scenario)
 
         for stage in ('scan', 'parse'):
             scenario = f'newer-dispatch-is-preserved-after-stale-{stage}'
