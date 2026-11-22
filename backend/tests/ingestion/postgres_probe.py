@@ -1,5 +1,7 @@
 """Actual broker/database/filesystem fixtures; NOT a scanner/OCR/isolation test."""
 import hashlib,json,os,sys,tempfile
+from concurrent.futures import ThreadPoolExecutor
+from threading import Event
 from unittest.mock import patch
 from pathlib import Path
 from datetime import timedelta
@@ -15,8 +17,9 @@ from modules.identity.consent import withdraw_consent
 from modules.identity.models import Tenant,Membership,Learner,GuardianRelationship,ConsentRecord
 from modules.access.models import Course,Enrollment,Entitlement,ScopedResource
 from modules.ingestion.models import UploadQuota,ReviewGrant,Upload
+from modules.ingestion.cleanup import run_batch
 from modules.operations.models import ConsentCleanupIntent
-from modules.ingestion import service as service_module
+from modules.ingestion import cleanup as cleanup_module, service as service_module
 from modules.ingestion.storage import PrivateObjects
 from modules.ingestion.service import allocate,accept_bytes,process,approve,resolve,withdraw,RuntimeAssets,Denied,Conflict,review_manifest
 
@@ -153,9 +156,9 @@ def main():
         checks.append('cancelled-writer-holds-quota-until-closed')
         class FailedPurge(PrivateObjects):
             def __init__(self,root):super().__init__(root);self.fail=True
-            def purge(self,object_id):
+            def purge_confirmed(self,object_id):
                 if self.fail:self.fail=False;raise OSError('fixture purge failure')
-                return super().purge(object_id)
+                return super().purge_confirmed(object_id)
         failing=FailedPurge(store.root)
         invalid=allocate(actor,resource.pk,'failed-purge',decl)
         expect(OSError,lambda:accept_bytes(actor,invalid.pk,[b'x'*len(data)],failing))
@@ -386,7 +389,7 @@ def main():
         accept_bytes(actor, retained.pk, [data], store)
         object_id = str(retained.pk)
         manifest = store.path(object_id, 'manifest')
-        unlink = Path.unlink
+        unlink = os.unlink
         attempted_sizes = []
         scanner, parser = FixtureScanner(), FixtureParser()
 
@@ -396,11 +399,11 @@ def main():
             raise OSError('fixture partial manifest write')
 
         def fail_manifest_unlink(path, *args, **kwargs):
-            if path == manifest:
+            if Path(path) == manifest or (kwargs.get('dir_fd') is not None and path == manifest.name):
                 raise PermissionError('fixture manifest unlink failure')
             return unlink(path, *args, **kwargs)
 
-        with patch.object(Path, 'unlink', fail_manifest_unlink):
+        with patch.object(os, 'unlink', fail_manifest_unlink):
             with patch.object(os, 'fsync', fail_manifest_sync):
                 process(retained.pk, store, scanner, parser, assets(data))
             retained.refresh_from_db()
@@ -527,6 +530,30 @@ def main():
             assert store.read(str(saved.pk)) == data and store.path(str(saved.pk), 'manifest').is_file()
         checks.append('cleanup-intent-other-guardian-overlap-fences-access-without-purge')
 
+        def drain_cleanup(*, limit=5):
+            for _ in range(100):
+                if run_batch(store, limit=limit) is None:
+                    return
+            raise AssertionError('Cleanup did not reach a quiescent batch')
+
+        def assert_disposition(candidate, *, deleted):
+            candidate.refresh_from_db()
+            key = str(candidate.pk)
+            if deleted:
+                assert candidate.status == 'deleted' and candidate.purge_confirmed
+                assert candidate.stored_bytes == candidate.manifest_bytes == candidate.held_bytes == 0
+                assert not os.path.lexists(store.path(key)) and not os.path.lexists(store.path(key, 'manifest'))
+            else:
+                assert store.read(key) == data and store.path(key, 'manifest').is_file()
+                assert candidate.stored_bytes == len(data) and candidate.manifest_bytes > 0
+
+        drain_cleanup()
+        assert ConsentCleanupIntent.objects.get(consent=same_guardian).status == 'complete'
+        assert_disposition(old_upload, deleted=True)
+        assert_disposition(old_review, deleted=False)
+        quota.refresh_from_db()
+        assert quota.used_bytes == old_review.stored_bytes + old_review.manifest_bytes
+
         survivor_upload = dispatch_for_read('cleanup-surviving-guardian', publish=True, uploader=second_guardian)
         assert resolve(second_guardian, survivor_upload.pk, store)['page_count'] == 1
         before = survivor_upload.authorization_generation
@@ -536,10 +563,10 @@ def main():
             learner.pk, tenant.pk, 'tutoring', None, before, 'effective-loss-v1', 'full_purge',
         )
         assert service_module.authorized_resource(actor, resource.pk) is None
-        new_consent()
+        fresh_consent = new_consent()
         fresh = dispatch_for_read('cleanup-after-regrant', publish=True, uploader=guardian)
         assert fresh.authorization_generation == before + 1 and fresh.pk != old_upload.pk
-        assert store.read(str(fresh.pk)) == store.read(str(old_upload.pk)) == data
+        assert store.read(str(fresh.pk)) == store.read(str(survivor_upload.pk)) == data
         assert withdraw_consent(second_guardian, surviving.pk).withdrawn_at == withdrawn_at
         learner.refresh_from_db()
         assert learner.authorization_generation == fresh.authorization_generation
@@ -547,6 +574,178 @@ def main():
         assert resolve(guardian, fresh.pk, store)['page_count'] == 1
         expect(Denied, lambda: resolve(guardian, old_upload.pk, store))
         checks.append('cleanup-intent-last-grant-cutoff-survives-regrant-and-replay')
+
+        drain_cleanup()
+        assert ConsentCleanupIntent.objects.get(consent=surviving).status == 'complete'
+        for candidate in (old_upload, old_review, survivor_upload):
+            assert_disposition(candidate, deleted=True)
+        assert_disposition(fresh, deleted=False)
+        assert resolve(guardian, fresh.pk, store)['page_count'] == 1
+        quota.refresh_from_db()
+        assert quota.used_bytes == fresh.stored_bytes + fresh.manifest_bytes and quota.reserved_bytes == 0
+        checks.append('cleanup-consumer-overlap-and-regrant-preserve-exact-cohort')
+
+        # Use real ingestion on another connection. The earlier key ensures an open writer
+        # occupies the first one-row page, while a later closed object remains purgeable.
+        writer, closed = sorted(
+            (allocate(actor, resource.pk, f'cleanup-writer-{index}', decl) for index in range(2)),
+            key=lambda candidate: candidate.pk,
+        )
+        accept_bytes(actor, closed.pk, [data], store)
+        writing = Event()
+        resume = Event()
+
+        def paused_chunks():
+            yield data[:8]
+            assert store.path(str(writer.pk)).is_file()
+            writing.set()
+            assert resume.wait(10), 'Writer fixture was not released'
+            yield data[8:]
+
+        def writer_thread():
+            try:
+                expect(Conflict, lambda: accept_bytes(actor, writer.pk, paused_chunks(), store))
+            finally:
+                connection.close()
+
+        with ThreadPoolExecutor(max_workers=1) as pool:
+            writer_result = pool.submit(writer_thread)
+            try:
+                assert writing.wait(10), 'Writer did not open its private object'
+                withdraw_consent(guardian, fresh_consent.pk)
+                pending = ConsentCleanupIntent.objects.get(consent=fresh_consent)
+                drain_cleanup(limit=1)
+                pending.refresh_from_db()
+                writer.refresh_from_db()
+                quota.refresh_from_db()
+                assert pending.status == 'pending' and writer.status == 'withdrawn' and writer.writer_active
+                assert writer.held_bytes == quota.reserved_bytes == len(data)
+                assert quota.used_bytes == 0
+                assert store.path(str(writer.pk)).is_file()
+                assert_disposition(closed, deleted=True)
+                assert_disposition(fresh, deleted=True)
+            finally:
+                resume.set()
+            writer_result.result(timeout=10)
+
+        ConsentCleanupIntent.objects.filter(pk=pending.pk).update(due_at=timezone.now())
+        drain_cleanup()
+        pending.refresh_from_db()
+        assert pending.status == 'complete'
+        assert_disposition(writer, deleted=True)
+        quota.refresh_from_db()
+        assert quota.used_bytes == quota.reserved_bytes == 0
+        checks.append('cleanup-consumer-open-writer-does-not-starve-later-targets')
+
+        # Inject a failed second unlink, then an interruption after successful confirmation.
+        # The intent's clock fields advance as a fixture so the probe needs no timing sleeps.
+        fault_consent = new_consent()
+        interrupted = dispatch_for_read('cleanup-interrupted', publish=False)
+        interrupted.refresh_from_db()
+        charge = interrupted.stored_bytes + interrupted.manifest_bytes
+        withdraw_consent(guardian, fault_consent.pk)
+        pending = ConsentCleanupIntent.objects.get(consent=fault_consent)
+        object_key = str(interrupted.pk)
+        manifest_name = store.path(object_key, 'manifest').name
+
+        def deny_manifest_unlink(path, *args, **kwargs):
+            if kwargs.get('dir_fd') is not None and path == manifest_name:
+                assert not connection.in_atomic_block
+                raise OSError('fixture unlink error')
+            return unlink(path, *args, **kwargs)
+
+        with patch.object(os, 'unlink', deny_manifest_unlink):
+            run_batch(store)
+        quota.refresh_from_db()
+        interrupted.refresh_from_db()
+        pending.refresh_from_db()
+        assert interrupted.status == 'withdrawn' and not interrupted.purge_confirmed
+        assert pending.status == 'pending' and quota.used_bytes == charge
+        assert not store.path(object_key).exists() and store.path(object_key, 'manifest').is_file()
+
+        confirmed_purge = store.purge_confirmed
+
+        class Interrupted(BaseException):
+            pass
+
+        def stop_after_unlink(key):
+            assert not connection.in_atomic_block and key == object_key
+            confirmed_purge(key)
+            raise Interrupted
+
+        ConsentCleanupIntent.objects.filter(pk=pending.pk).update(due_at=timezone.now())
+        with patch.object(store, 'purge_confirmed', side_effect=stop_after_unlink):
+            expect(Interrupted, lambda: run_batch(store))
+        quota.refresh_from_db()
+        assert quota.used_bytes == charge and not store.path(object_key, 'manifest').exists()
+        ConsentCleanupIntent.objects.filter(pk=pending.pk).update(lease_until=timezone.now() - timedelta(seconds=1))
+        drain_cleanup()
+        assert_disposition(interrupted, deleted=True)
+        quota.refresh_from_db()
+        assert quota.used_bytes == quota.reserved_bytes == 0
+        checks.append('cleanup-consumer-partial-and-interrupted-purge-replay')
+
+        stale_consent = new_consent()
+        stale_target = dispatch_for_read('cleanup-stale-lease', publish=False)
+        withdraw_consent(guardian, stale_consent.pk)
+        pending = ConsentCleanupIntent.objects.get(consent=stale_consent)
+
+        def replacement_worker():
+            try:
+                drain_cleanup()
+            finally:
+                connection.close()
+
+        def replace_after_unlink(key):
+            assert key == str(stale_target.pk) and not connection.in_atomic_block
+            result = confirmed_purge(key)
+            ConsentCleanupIntent.objects.filter(pk=pending.pk).update(lease_until=timezone.now() - timedelta(seconds=1))
+            with ThreadPoolExecutor(max_workers=1) as pool:
+                pool.submit(replacement_worker).result(timeout=10)
+            return result
+
+        worker_store = PrivateObjects(store.root)
+        with patch.object(worker_store, 'purge_confirmed', side_effect=replace_after_unlink):
+            run_batch(worker_store)
+        pending.refresh_from_db()
+        assert pending.status == 'complete' and pending.fence == 2
+        assert_disposition(stale_target, deleted=True)
+        quota.refresh_from_db()
+        assert quota.used_bytes == quota.reserved_bytes == 0
+        checks.append('cleanup-consumer-stale-lease-loses-settlement-after-takeover')
+
+        locked_consent = new_consent()
+        locked_target = dispatch_for_read('cleanup-settlement-lock', publish=False)
+        withdraw_consent(guardian, locked_consent.pk)
+        pending = ConsentCleanupIntent.objects.get(consent=locked_consent)
+        save_quota = UploadQuota.save
+        challenged = []
+
+        def claim_as_expired_on_second_connection():
+            try:
+                return cleanup_module._claim_intent()
+            finally:
+                connection.close()
+
+        def attempt_claim_before_credit(row, *args, **kwargs):
+            assert connection.in_atomic_block and row.pk == quota.pk
+            active = ConsentCleanupIntent.objects.get(pk=pending.pk)
+            assert active.fence == 1 and active.lease_until > timezone.now()
+            # Advance the competing claimant's clock after settlement acquired the lock.
+            # The competing claim uses SKIP LOCKED and never enters the upload lifecycle.
+            with patch.object(cleanup_module.timezone, 'now', return_value=active.lease_until + timedelta(seconds=1)):
+                with ThreadPoolExecutor(max_workers=1) as pool:
+                    assert pool.submit(claim_as_expired_on_second_connection).result(timeout=10) is None
+            challenged.append(row.pk)
+            return save_quota(row, *args, **kwargs)
+
+        with patch.object(UploadQuota, 'save', attempt_claim_before_credit):
+            assert run_batch(store).status == 'complete'
+        assert challenged == [quota.pk]
+        assert_disposition(locked_target, deleted=True)
+        quota.refresh_from_db()
+        assert quota.used_bytes == quota.reserved_bytes == 0
+        checks.append('cleanup-consumer-settlement-lock-excludes-expired-lease-claim')
     print(json.dumps({'checks':checks,'count':len(checks),'injection_fixtures':30,'adapters':'authored-fixtures-only','actual_parser_scanner_or_sandbox':False}))
 
 

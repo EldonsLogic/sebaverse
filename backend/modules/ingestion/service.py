@@ -2,7 +2,7 @@
 from dataclasses import dataclass
 from datetime import datetime
 import hashlib,json,re,uuid
-from django.db import transaction
+from django.db import connection,transaction
 from django.utils import timezone
 from modules.access.service import authorized_resource
 from modules.identity.models import Learner,Membership
@@ -23,7 +23,7 @@ def scope(resource):
 def locked(upload_id):
     quota_id=Upload.objects.values_list('quota_id',flat=True).get(pk=upload_id)
     quota=UploadQuota.objects.select_for_update().get(pk=quota_id)
-    upload=Upload.objects.select_for_update().select_related('actor').get(pk=upload_id)
+    upload=Upload.objects.select_for_update(of=('self',)).select_related('actor').get(pk=upload_id)
     Learner.objects.select_for_update().get(pk=quota.learner_id)
     return quota,upload
 
@@ -62,6 +62,7 @@ def allocate(actor,resource_id,command_key,data):
 
 
 def accept_bytes(actor,upload_id,chunks,store):
+    _require_autocommit_io()
     with transaction.atomic():
         quota,upload=locked(upload_id)
         if upload.actor_id!=actor.pk or not actor.is_authenticated or not actor.is_active or live(upload) is None:raise Denied('Upload actor denied')
@@ -83,12 +84,14 @@ def accept_bytes(actor,upload_id,chunks,store):
             current.writer_active=False
             if current.status=='receiving':current.status='failed'
             current.failure_code='invalid_upload';current.save()
-        store.purge(str(upload.id))
+        _confirm_purge(store,upload.id)
         with transaction.atomic():
             quota,current=locked(upload_id)
             if current.status in ['failed','withdrawn']:
                 quota.reserved_bytes-=current.held_bytes;current.held_bytes=0;quota.save()
-                current.status='deleted' if current.status=='withdrawn' else 'failed';current.save()
+                current.status='deleted' if current.status=='withdrawn' else 'failed'
+                if current.status=='deleted':current.purge_confirmed=True
+                current.save()
         raise
     stale=False
     with transaction.atomic():
@@ -102,10 +105,10 @@ def accept_bytes(actor,upload_id,chunks,store):
             quota.reserved_bytes-=current.held_bytes;quota.used_bytes+=info['byte_count'];quota.save()
             current.held_bytes=0;current.stored_bytes=info['byte_count'];current.source_sha256=info['sha256'];current.status='quarantined';current.save()
     if stale:
-        store.purge(str(upload.id))
+        _confirm_purge(store,upload.id)
         with transaction.atomic():
             quota,current=locked(upload_id)
-            quota.reserved_bytes-=current.held_bytes;current.held_bytes=0;current.status='deleted';quota.save();current.save()
+            quota.reserved_bytes-=current.held_bytes;current.held_bytes=0;current.status='deleted';current.purge_confirmed=True;quota.save();current.save()
         raise Conflict('Upload changed while streaming')
     return current
 
@@ -259,22 +262,35 @@ def resolve(actor,upload_id,store):
     return _read_manifest(actor,upload_id,store,_resolvable_upload)
 
 
+def _require_autocommit_io():
+    if connection.in_atomic_block or not transaction.get_autocommit():
+        raise Conflict('Storage cleanup requires an outer autocommit boundary')
+
+
+def _confirm_purge(store,upload_id):
+    _require_autocommit_io()
+    if store.purge_confirmed(str(upload_id)) is not True:
+        raise Conflict('Deletion could not be confirmed')
+
+
 def withdraw(actor,upload_id,store):
+    _require_autocommit_io()
     with transaction.atomic():
         quota,upload=locked(upload_id)
         if not actor.is_authenticated or not actor.is_active or upload.actor_id!=actor.pk:raise Denied('Cannot withdraw another actor upload')
-        if upload.status=='deleted':return upload
+        if upload.status=='deleted' and getattr(upload,'purge_confirmed',False) is True:return upload
         old=upload.status
-        if old!='withdrawn':upload.status='withdrawn';upload.generation+=1
+        if old not in ['withdrawn','deleted']:upload.status='withdrawn';upload.generation+=1
         upload.save()
         if upload.writer_active:
             # The receiver owns/has the open descriptor. Retain quota until it closes and acknowledges purge.
             return upload
     # Access is denied before I/O. Failed purge retains charged bytes until retry.
-    store.purge(str(upload.id))
+    _confirm_purge(store,upload.id)
     with transaction.atomic():
         quota,current=locked(upload_id)
-        if current.status=='withdrawn':
+        if current.status in ['withdrawn','deleted']:
+            if current.writer_active:raise Conflict('Writer closure not confirmed')
             quota.used_bytes-=current.stored_bytes+current.manifest_bytes;quota.reserved_bytes-=current.held_bytes
-            current.stored_bytes=0;current.manifest_bytes=0;current.held_bytes=0;current.status='deleted';quota.save();current.save()
+            current.stored_bytes=0;current.manifest_bytes=0;current.held_bytes=0;current.status='deleted';current.purge_confirmed=True;quota.save();current.save()
         return current

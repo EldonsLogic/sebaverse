@@ -2,6 +2,7 @@ import uuid
 from django.conf import settings
 from django.db import models
 from django.db.models import Q
+from django.utils import timezone
 
 
 CONSENT_CLEANUP_POLICY_VERSION = 'effective-loss-v1'
@@ -20,15 +21,32 @@ class ConsentCleanupIntent(models.Model):
     cutoff_generation = models.PositiveIntegerField(editable=False)
     policy_version = models.CharField(max_length=32, editable=False)
     disposition = models.CharField(max_length=24, editable=False)
+    status = models.CharField(max_length=16, default='pending')
+    due_at = models.DateTimeField(default=timezone.now)
+    lease_until = models.DateTimeField(null=True)
+    fence = models.PositiveBigIntegerField(default=0)
+    cursor = models.UUIDField(null=True)
+    attempts = models.PositiveSmallIntegerField(default=0)
+    failure_code = models.CharField(max_length=24, blank=True)
 
     class Meta:
-        constraints = [models.CheckConstraint(
-            condition=Q(
-                purpose='tutoring', policy_version=CONSENT_CLEANUP_POLICY_VERSION,
-                disposition=CONSENT_CLEANUP_DISPOSITION,
+        constraints = [
+            models.CheckConstraint(
+                condition=Q(
+                    purpose='tutoring', policy_version=CONSENT_CLEANUP_POLICY_VERSION,
+                    disposition=CONSENT_CLEANUP_DISPOSITION,
+                ),
+                name='operations_consent_cleanup_policy',
             ),
-            name='operations_consent_cleanup_policy',
-        )]
+            models.CheckConstraint(
+                condition=Q(status__in=['pending', 'complete', 'blocked']),
+                name='operations_consent_cleanup_state',
+            ),
+            models.CheckConstraint(
+                condition=Q(attempts__lte=3), name='operations_consent_cleanup_attempt_cap',
+            ),
+        ]
+        indexes = [models.Index(fields=['status', 'due_at', 'id'], name='operations_cleanup_due')]
 
 
 class Job(models.Model):

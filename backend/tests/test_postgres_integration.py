@@ -84,7 +84,7 @@ print(json.dumps({"migrations": "applied", "postgres_family": 17, "psycopg_impl"
     if ingestion.returncode:
         pytest.fail(f"Synthetic PostgreSQL ingestion broker probe failed with exit {ingestion.returncode}; connection details withheld.")
     ingestion_result = json.loads(ingestion.stdout)
-    assert ingestion_result['count'] == 31 and ingestion_result['injection_fixtures'] == 30
+    assert ingestion_result['count'] == 36 and ingestion_result['injection_fixtures'] == 30
     assert {
         'retained-partial-manifest-failed-purge-and-single-refund',
         'clean-scan-after-withdrawal-does-not-dispatch-parser',
@@ -103,6 +103,11 @@ print(json.dumps({"migrations": "applied", "postgres_family": 17, "psycopg_impl"
         'cleanup-intent-same-guardian-expired-and-reporting-withdrawals',
         'cleanup-intent-other-guardian-overlap-fences-access-without-purge',
         'cleanup-intent-last-grant-cutoff-survives-regrant-and-replay',
+        'cleanup-consumer-overlap-and-regrant-preserve-exact-cohort',
+        'cleanup-consumer-open-writer-does-not-starve-later-targets',
+        'cleanup-consumer-partial-and-interrupted-purge-replay',
+        'cleanup-consumer-stale-lease-loses-settlement-after-takeover',
+        'cleanup-consumer-settlement-lock-excludes-expired-lease-claim',
     } <= set(ingestion_result['checks'])
     assert ingestion_result['actual_parser_scanner_or_sandbox'] is False
     result = json.loads(verified.stdout)

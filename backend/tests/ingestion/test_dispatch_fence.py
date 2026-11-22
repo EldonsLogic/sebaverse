@@ -38,6 +38,7 @@ def broker(tmp_path, monkeypatch):
 
     authorization = Mock(return_value=resource)
     monkeypatch.setattr(service.transaction, "atomic", nullcontext)
+    monkeypatch.setattr(service.transaction, "get_autocommit", lambda: True)
     monkeypatch.setattr(service, "locked", lambda upload_id: (quota, read_upload()))
     monkeypatch.setattr(service, "authorized_resource", authorization)
 

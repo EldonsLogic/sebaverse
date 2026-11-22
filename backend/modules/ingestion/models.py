@@ -42,6 +42,7 @@ class Upload(models.Model):
     attempts=models.PositiveIntegerField(default=0)
     stored_bytes=models.PositiveIntegerField(default=0)
     manifest_bytes=models.PositiveIntegerField(default=0)
+    purge_confirmed=models.BooleanField(default=False)
     media_type=models.CharField(max_length=32)
     rights_claim=models.CharField(max_length=2000)
     status=models.CharField(max_length=24,default='awaiting_bytes')
@@ -59,4 +60,10 @@ class Upload(models.Model):
         constraints=[models.UniqueConstraint(fields=['actor','command_key'],name='ingestion_idempotent_upload'),
                      models.CheckConstraint(condition=Q(generation__gte=1),name='ingestion_positive_generation'),
                      models.CheckConstraint(condition=Q(attempts__lte=3),name='ingestion_attempt_cap'),
-                     models.CheckConstraint(condition=Q(status__in=['awaiting_bytes','receiving','quarantined','processing','needs_review','private_ready','failed','withdrawn','deleted']),name='ingestion_known_state')]
+                     models.CheckConstraint(condition=Q(status__in=['awaiting_bytes','receiving','quarantined','processing','needs_review','private_ready','failed','withdrawn','deleted']),name='ingestion_known_state'),
+                     models.CheckConstraint(
+                         condition=Q(purge_confirmed=False) | Q(
+                             status='deleted', writer_active=False, held_bytes=0, stored_bytes=0, manifest_bytes=0,
+                         ),
+                         name='ingestion_confirmed_purge_terminal',
+                     )]

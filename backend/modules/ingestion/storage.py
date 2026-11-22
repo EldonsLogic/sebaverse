@@ -60,3 +60,24 @@ class PrivateObjects:
     def purge(self,object_id):
         # unlink removes a substituted symlink itself, never follows it.
         for suffix in ['blob','manifest']:self.path(object_id,suffix).unlink(missing_ok=True)
+
+    def purge_confirmed(self,object_id):
+        """Unlink both names, request directory durability and confirm absence.
+
+        This is the local adapter's completion receipt, not a hardware or backup
+        erasure certification. Unsupported directory sync fails without credit.
+        """
+        names=tuple(self.path(object_id,suffix).name for suffix in ('blob','manifest'))
+        directory=os.open(self.root,os.O_RDONLY|os.O_DIRECTORY|os.O_NOFOLLOW)
+        try:
+            for name in names:
+                try:os.unlink(name,dir_fd=directory)
+                except FileNotFoundError:pass
+            os.fsync(directory)
+            for name in names:
+                try:os.stat(name,dir_fd=directory,follow_symlinks=False)
+                except FileNotFoundError:continue
+                raise OSError('Private object remains after purge')
+            return True
+        finally:
+            os.close(directory)

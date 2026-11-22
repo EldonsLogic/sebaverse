@@ -124,3 +124,6 @@ RISK-F3-005 — 21 November 2026: canonical consent withdrawal denies future sou
 
 
 RISK-F3-005 update — 21 November 2026: independently reviewed cleanup scope/file options and planned acceptance are ready for founder decision at development/evidence/consent-cleanup-founder-choice.md. No consent-specific upload attribution exists; generation alone cannot select destructive targets. Cleanup implementation, retained-original/audit policy and runtime evidence are pending. The gap remains open.
+
+
+RISK-F3-005 update — 22 November 2026: approved cohort/full-purge intent consumer and local confirmation/accounting mechanics are independently reviewed against authored files. No actual worker scheduler or PostgreSQL/concurrency/storage qualification ran. Unknown crashed writers remain blocked/charged without proof-bearing recovery, retained-record policy remains unapproved, and host/backup erasure is not certified. Risk stays open; evidence: development/evidence/dev-010-cleanup-consumer.md.
