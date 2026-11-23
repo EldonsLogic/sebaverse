@@ -585,7 +585,8 @@
         "development/evidence/dev-010-manifest-return-fence.md",
         "development/evidence/consent-cleanup-founder-choice.md",
         "development/evidence/dev-010-consent-intent.md",
-        "development/evidence/dev-010-cleanup-consumer.md"
+        "development/evidence/dev-010-cleanup-consumer.md",
+        "development/evidence/dev-010-writer-recovery.md"
       ],
       "files": [
         "backend/modules/ingestion/",

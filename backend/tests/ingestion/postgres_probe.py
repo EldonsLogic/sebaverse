@@ -746,6 +746,55 @@ def main():
         quota.refresh_from_db()
         assert quota.used_bytes == quota.reserved_bytes == 0
         checks.append('cleanup-consumer-settlement-lock-excludes-expired-lease-claim')
+
+        # A genuine independent connection sees the published receiving marker
+        # before the receiver opens the blob. An authored interruption then
+        # abandons that marker while unwinding the receiver's local guard.
+        new_consent()
+        protected_store = PrivateObjects(store.root, writer_recovery=True)
+        protected = allocate(actor, resource.pk, 'protected-receiver-before-open', decl)
+        ready = Event()
+        interrupt = Event()
+
+        class AuthoredReceiverInterrupted(BaseException):
+            pass
+
+        def interrupt_before_open(key, chunks, expected_bytes, directory):
+            assert not connection.in_atomic_block and key == str(protected.pk)
+            ready.set()
+            assert interrupt.wait(timeout=10), 'Fixture receiver did not get interrupted'
+            raise AuthoredReceiverInterrupted()
+
+        def protected_receiver():
+            try:
+                expect(AuthoredReceiverInterrupted, lambda: accept_bytes(actor, protected.pk, [data], protected_store))
+            finally:
+                connection.close()
+
+        with patch.object(protected_store, '_put_source', side_effect=interrupt_before_open):
+            with ThreadPoolExecutor(max_workers=1) as pool:
+                result = pool.submit(protected_receiver)
+                try:
+                    assert ready.wait(timeout=10), 'Fixture receiver did not publish the marker'
+                    protected.refresh_from_db()
+                    assert protected.status == 'receiving' and protected.writer_active and protected.writer_binding
+                    assert not os.path.lexists(store.path(str(protected.pk)))
+                    protected = withdraw(actor, protected.pk, protected_store)
+                    quota.refresh_from_db()
+                    assert protected.status == 'withdrawn' and protected.writer_active and protected.writer_binding
+                    assert not protected.purge_confirmed and quota.reserved_bytes == protected.held_bytes == len(data)
+                finally:
+                    interrupt.set()
+                result.result(timeout=10)
+
+        restarted_store = PrivateObjects(store.root, writer_recovery=True)
+        withdraw(actor, protected.pk, restarted_store)
+        withdraw(actor, protected.pk, restarted_store)
+        assert_disposition(protected, deleted=True)
+        assert not protected.writer_active and protected.writer_binding is None
+        quota.refresh_from_db()
+        assert quota.used_bytes == quota.reserved_bytes == 0
+        checks.append('protected-receiver-before-open-blocks-then-reconciles-once')
     print(json.dumps({'checks':checks,'count':len(checks),'injection_fixtures':30,'adapters':'authored-fixtures-only','actual_parser_scanner_or_sandbox':False}))
 
 

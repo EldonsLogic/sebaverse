@@ -39,6 +39,7 @@ class Upload(models.Model):
     declared_bytes=models.PositiveIntegerField()
     held_bytes=models.PositiveIntegerField(default=0)
     writer_active=models.BooleanField(default=False)
+    writer_binding=models.JSONField(null=True)
     attempts=models.PositiveIntegerField(default=0)
     stored_bytes=models.PositiveIntegerField(default=0)
     manifest_bytes=models.PositiveIntegerField(default=0)
@@ -61,6 +62,12 @@ class Upload(models.Model):
                      models.CheckConstraint(condition=Q(generation__gte=1),name='ingestion_positive_generation'),
                      models.CheckConstraint(condition=Q(attempts__lte=3),name='ingestion_attempt_cap'),
                      models.CheckConstraint(condition=Q(status__in=['awaiting_bytes','receiving','quarantined','processing','needs_review','private_ready','failed','withdrawn','deleted']),name='ingestion_known_state'),
+                     models.CheckConstraint(
+                         condition=Q(writer_binding__isnull=True) | Q(
+                             writer_active=True, status__in=['receiving', 'withdrawn'],
+                         ),
+                         name='ingestion_writer_binding_active',
+                     ),
                      models.CheckConstraint(
                          condition=Q(purge_confirmed=False) | Q(
                              status='deleted', writer_active=False, held_bytes=0, stored_bytes=0, manifest_bytes=0,

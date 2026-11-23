@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "run": "dev010-consent-cleanup-consumer-2026-11-22",
+  "run": "dev010-writer-recovery-and-review-intake-2026-11-23",
   "max_concurrent_including_orchestrator": 4,
   "paid_provider_budget_usd": 0,
   "token_budget": null,
@@ -15,63 +15,74 @@
       ],
       "status": "completed",
       "files": [
-        "backend/modules/ingestion/storage.py",
-        "backend/modules/ingestion/service.py",
-        "backend/tests/ingestion/test_dispatch_fence.py",
-        "development shared state/evidence"
+        "development shared state/evidence",
+        "sources/external-reviews/2026-11-22-architecture-review.md",
+        "sources/source-catalog.md",
+        "architecture/external-review-2026-11-23.md",
+        "docs/03-learning-intelligence.md",
+        "docs/05-model-routing-and-voice.md",
+        "architecture/subject-and-curriculum-contracts.md",
+        "registers/decisions-risks-unknowns.md"
       ],
-      "evidence": "Root backend 618 passed with PostgreSQL deselected and Django clean. Integrated strict storage/manual credit and explicit qualification limits; final foundation and verified push owned."
+      "evidence": "Root backend 645 / 1 PostgreSQL deselected; exact backend fingerprint matches independent review. Integrates final foundation checks and authorized commit/push."
     },
     {
-      "agent": "/root/cleanup_consumer",
+      "agent": "/root/writer_recovery_design",
       "roles": [
         "Backend",
-        "Infrastructure"
+        "Architecture"
       ],
       "model": "gpt-6.2-sol",
       "reasoning_effort": "medium",
       "status": "completed",
       "files": [
+        "backend/modules/ingestion/storage.py",
+        "backend/modules/ingestion/service.py",
         "backend/modules/ingestion/cleanup.py",
-        "backend/modules/operations/models.py",
-        "backend/modules/operations/migrations/0006_consent_cleanup_progress.py",
         "backend/modules/ingestion/models.py",
-        "backend/modules/ingestion/migrations/0006_upload_purge_confirmed.py"
+        "backend/modules/ingestion/migrations/0007_upload_writer_binding.py",
+        "workers/parser/source-writer-recovery-plan.md",
+        "work/architecture-review-product.md"
       ],
-      "evidence": "Consumer/model/migrations implemented and lease-lock correction applied. Intent metadata locks do not span ingestion locks or I/O. Source released."
+      "evidence": "Implemented recovery in prior continuation; released files. Resumed account/catalog/UI review on 23 November; no new product edits."
     },
     {
-      "agent": "/root/cleanup_consumer_tests",
+      "agent": "/root/writer_recovery_tests_plan",
       "roles": [
-        "Testing"
+        "Testing",
+        "Research"
       ],
       "model": "gpt-6.2-sol",
       "reasoning_effort": "medium",
       "status": "completed",
       "files": [
-        "backend/tests/ingestion/test_cleanup_consumer.py",
-        "backend/tests/ingestion/test_cleanup_storage.py",
+        "backend/tests/ingestion/test_writer_recovery.py",
+        "backend/tests/ingestion/fixtures/writer_recovery_child.py",
+        "backend/tests/ingestion/test_dispatch_fence.py",
         "backend/tests/ingestion/postgres_probe.py",
-        "backend/tests/test_postgres_integration.py"
+        "backend/tests/test_postgres_integration.py",
+        "development/evidence/writer-recovery-test-plan.md",
+        "work/architecture-review-learning.md"
       ],
-      "evidence": "21 new local cases and five staged PG scenarios, ingestion 271 passed. Fifth-stream audit reconfirmed 618 backend and exact reviewed fingerprint; no edits needed."
+      "evidence": "27 new local cases; ingestion 298 passed; PG 37 staged NOT RUN. Released files. Resumed learning/voice proposal review on 23 November."
     },
     {
-      "agent": "/root/cleanup_consumer_review",
+      "agent": "/root/cleanup_latest_review",
       "roles": [
-        "Reviewer",
-        "Infrastructure"
+        "Reviewer"
       ],
       "model": "gpt-6.2-sol",
       "reasoning_effort": "medium",
       "status": "completed",
       "files": [
-        "development/evidence/hosted-intent-89ce415.md",
-        "development/evidence/dev-010-cleanup-consumer-review.md"
+        "development/evidence/hosted-consumer-dceee32.md",
+        "development/evidence/writer-recovery-design-review.md",
+        "development/evidence/dev-010-writer-recovery-review.md",
+        "development/evidence/external-architecture-review-validation.md"
       ],
-      "evidence": "Accepted corrected final fingerprint; independently 618 backend and 271 ingestion passed, offline migration state matched. PostgreSQL 36 NOT RUN; runtime/retention still open."
+      "evidence": "Independent recovery acceptance: backend 645 / 1 deselected, ingestion 298 and scoped suites pass; temporal substitution probe rejects proof. Final intake review in progress. Independent external-review disposition accepted; preserved source and final ledger hashes recorded."
     }
   ],
-  "run_status": "completed_checkpoint",
-  "scope": "AUTH015 bounded internal full-purge consumer, persistent scope/lease/cursor/retry and proof-bearing terminal quota settlement. Synthetic local files only; no real DB/migration application, daemon, backup/hardware erasure claim or phase pass."
+  "run_status": "completed_verified_checkpoint",
+  "scope": "Opt-in local synthetic writer recovery and document-only external review intake. Three real subagents plus root; two additional review streams sequentially reuse workers. No native/DB execution, provider calls, gate/default/credential changes."
 }

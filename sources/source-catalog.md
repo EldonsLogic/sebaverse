@@ -82,3 +82,6 @@ Exact research files/bytes/checksums: [manifest](research-manifest.json). Suppor
 - U24: [Public repository and continued parallel work](public-repository-instruction.md), 20 November 2026. Founder changed visibility; no safety, rights or phase waiver.
 
 - U25: [Consent cleanup policy choices](consent-cleanup-policy-instruction.md), 21 November 2026. Narrow effective-loss cohort and full source/derived purge selected; retained-record policy and runtime qualification remain pending.
+
+- EXT-AR-001: [Third-party architecture review](external-reviews/2026-11-22-architecture-review.md), supplied by founder 23 November 2026; document dated 22 November, targets `89ce415`. Unverified prototype comparisons and recommendations, not execution authority. SHA-256 `aef96aa98e4269dd23fda4a0b250db8fc90697c32f0b6213a92b528c77f0ef60`. [Disposition and proposal ledger](../architecture/external-review-2026-11-23.md).
+- EXT-AR-001 reconciliation verification: [independent disposition validation](../development/evidence/external-architecture-review-validation.md). All proposal groups retained; source/prototype claims remain distinguished from observed tests.

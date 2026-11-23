@@ -39,3 +39,5 @@ PoC: 60–100 voluntary adult native-speaker utterances initially, licensed/cons
 ## Self-hosting decision
 
 Compare hosted cost to GPU-hours + idle capacity + redundancy + storage/network + monitoring + engineer operations + model/weight/security maintenance. Use measured Arabic workload throughput, memory, batching and p95 concurrency; monthly student count alone cannot size GPUs. Benchmark at 100/1,000/10,000 active students with realistic exam peaks. Break-even requires eligible quality and utilization, not just low nominal GPU price. Local deployment stays future until measurements support it; no assumption that open weights are cost-free or legally unrestricted.
+
+External review follow-up, 23 November 2026: [traceable contract proposals](../architecture/external-review-2026-11-23.md) retain spoken-input versioning, mechanical item validation, explicit language policy and mixed-speech evaluation alongside account/UI proposals. These are scoped proposals; existing execution gates and selected defaults are unchanged.

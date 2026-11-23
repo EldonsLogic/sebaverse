@@ -13,7 +13,8 @@ from modules.operations.models import (
 )
 
 from .models import Upload
-from .service import locked
+from .service import locked, matches_protected_writer, settle_withdrawal
+from .storage import WriterClosureUnavailable
 
 
 LEASE_DURATION = timedelta(minutes=1)
@@ -130,55 +131,84 @@ def _prepare_target(intent, upload_id):
     with transaction.atomic():
         quota, upload = locked(upload_id)
         if not _hold_lease(intent):
-            return None, None
+            return None, None, None
         if not _matches_target(intent, quota, upload) or not _charges_match(quota, upload):
-            return 'integrity_error', None
+            return 'integrity_error', None, None
         if upload.purge_confirmed:
-            return '', None
+            return '', None, None
         if upload.status not in ('withdrawn', 'deleted'):
             upload.status = 'withdrawn'
             upload.generation += 1
             upload.save(update_fields=['status', 'generation'])
         if upload.writer_active:
-            return 'writer_active', None
-        return '', upload.generation
+            binding = getattr(upload, 'writer_binding', None)
+            if not matches_protected_writer(upload, upload.generation, binding):
+                return 'writer_active', None, None
+            return '', upload.generation, binding
+        return '', upload.generation, None
 
 
-def _settle_target(intent, upload_id, generation):
+def _recheck_target(intent, quota, upload, generation, binding):
+    if not _hold_lease(intent):
+        return None
+    if (not _matches_target(intent, quota, upload) or not _charges_match(quota, upload)
+            or upload.status not in ('withdrawn', 'deleted') or upload.generation != generation):
+        return 'integrity_error'
+    if binding is not None:
+        if not matches_protected_writer(upload, generation, binding):
+            return 'writer_active'
+    elif upload.writer_active:
+        return 'writer_active'
+    return ''
+
+
+def _settle_target(intent, upload_id, generation, binding=None):
     with transaction.atomic():
         quota, upload = locked(upload_id)
-        if not _hold_lease(intent):
-            return None
-        if (not _matches_target(intent, quota, upload) or not _charges_match(quota, upload)
-                or upload.status not in ('withdrawn', 'deleted') or upload.generation != generation):
-            return 'integrity_error'
-        if upload.writer_active:
-            return 'writer_active'
-        if upload.purge_confirmed:
-            return ''
+        outcome = _recheck_target(intent, quota, upload, generation, binding)
+        if outcome != '' or upload.purge_confirmed:
+            return outcome
 
         # The lifecycle locks serialize accounting with concurrent purge attempts.
         # A legacy deleted row already gave up its charges and only needs confirmation.
         if upload.status == 'withdrawn':
-            quota.used_bytes -= upload.stored_bytes + upload.manifest_bytes
-            quota.reserved_bytes -= upload.held_bytes
-            quota.save(update_fields=['used_bytes', 'reserved_bytes'])
-            upload.stored_bytes = upload.manifest_bytes = upload.held_bytes = 0
-            upload.status = 'deleted'
-        upload.purge_confirmed = True
-        upload.save(update_fields=['stored_bytes', 'manifest_bytes', 'held_bytes', 'status', 'purge_confirmed'])
+            settle_withdrawal(quota, upload)
+        else:
+            upload.purge_confirmed = True
+            upload.save(update_fields=['purge_confirmed'])
     return ''
+
+
+def _recover_writer(intent, upload_id, generation, binding, store):
+    if getattr(store, 'writer_recovery', False) is not True:
+        return 'writer_active'
+    try:
+        with store.closed_writer(str(upload_id), binding) as closure:
+            with transaction.atomic():
+                quota, upload = locked(upload_id)
+                outcome = _recheck_target(intent, quota, upload, generation, binding)
+            if outcome != '':
+                return outcome
+            if closure.purge_confirmed() is not True:
+                return 'purge_failed'
+            return _settle_target(intent, upload_id, generation, binding)
+    except WriterClosureUnavailable:
+        return 'writer_active'
+    except OSError:
+        return 'purge_failed'
 
 
 def _process_target(intent, upload_id, store):
     try:
-        outcome, generation = _prepare_target(intent, upload_id)
+        outcome, generation, binding = _prepare_target(intent, upload_id)
         if generation is None:
             return outcome
         # The target is irreversibly fenced, so an overlapping purge after lease
         # expiry is safe. Storage stays outside both target and intent locks.
         if not _has_lease(intent):
             return None
+        if binding is not None:
+            return _recover_writer(intent, upload_id, generation, binding, store)
         try:
             confirmed = store.purge_confirmed(str(upload_id))
         except OSError:

@@ -1,0 +1,19 @@
+# DEV-010 opt-in local source-writer recovery
+
+23 November 2026 · R040/R046 · AUTH-015/U25. Threat: a receiver can resume after an unsafe reset and recreate withdrawn content, or a crash can strand quota. Current exposure is authored local fixtures. Budget: one bounded cooperative local-lock implementation and two correction cycles; no new runtime assessment or phase advancement.
+
+The local store now supports explicit `writer_recovery=True`, default OFF. A receiver obtains a shared advisory lock before publishing its active marker and holds it through source closure and matching database acknowledgement. Persisted attempt bindings identify the object, original generation, namespace/root and stable lock stripe. Recovery obtains a nonblocking exclusive lock outside transactions and rechecks the exact withdrawn attempt and applicable intent fence/lease before purge and settlement. It holds that lock through both operations. Elapsed time, process identity and missing source files never establish closure.
+
+Legacy active markers, unsupported adapters, busy locks and mismatched bindings stay blocked and charged. Sixty-four stable stripes avoid per-upload sidecar accumulation; collisions can conservatively defer unrelated objects. Coordination files survive purge. Acknowledged inactive objects retain the established requirement for one correctly configured trusted private store. This is a cooperative same-host protocol, not hostile-process, multi-host, remote-filesystem or backup erasure qualification. No daemon or automatic deployment was added.
+
+The source descriptor closes even if initialization or descriptor wrapping raises. The receiver releases its shared guard before requesting its own exclusive purge, avoiding self-contention. Only its matching attempt can clear its active binding. Successful cleanup still requires confirmed original-and-manifest absence and once-only quota settlement. Migration 0007 adds a nullable binding and a consistency constraint; no migration was applied.
+
+## Verification
+
+Root on 23 November: `make backend-check` exited 0, 645 passed and one PostgreSQL integration test deselected; Django system checks clean. Prior implementation/test owners recorded 298 ingestion tests, including 27 new recovery cases; real authored subprocesses exercise independent holders, abrupt exit and inherited descriptors. In-memory ORM seams do not prove SQL transactions. Initial fixture mismatches in `save(update_fields=...)` and `fdopen(closefd=...)` were corrected, preserving production interfaces. The raw-descriptor error-path issue was corrected before the passing snapshot.
+
+The PostgreSQL probe contains 37 staged scenarios, NOT RUN. Offline ingestion model/migration state comparison is not database execution. Linux/storage composition, retained-record policy, actual parser/scanner/native runtime and R039 fidelity remain open. AUTH-014 supplier wait and all pins, thresholds, security review bindings and phase gates are unchanged. F3 remains in progress; there is still no learner-facing tutoring turn.
+
+See [implementation plan](../../workers/parser/source-writer-recovery-plan.md), [test evidence](writer-recovery-test-plan.md), [design review](writer-recovery-design-review.md) and final independent review receipt when available. Final foundation and integration results are appended after review.
+
+Closing root checks on 23 November: `make foundation-check` exited 0, economics/artifact/foundation checks passed and 179 helper tests passed. The trailing timeout report is an intentional passing negative fixture, not an observed live npm timeout. `git diff --check` passed; the ten-file backend fingerprint exactly matches the independent receipt (`1ea14642c4f3affe308d366251895e90a677100cafee9edf59f9fd7b3b8cf7ad`). Final independent acceptance is recorded in [the review receipt](dev-010-writer-recovery-review.md). No affected product code changed after that review.

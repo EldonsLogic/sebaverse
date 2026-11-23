@@ -127,3 +127,7 @@ RISK-F3-005 update — 21 November 2026: independently reviewed cleanup scope/fi
 
 
 RISK-F3-005 update — 22 November 2026: approved cohort/full-purge intent consumer and local confirmation/accounting mechanics are independently reviewed against authored files. No actual worker scheduler or PostgreSQL/concurrency/storage qualification ran. Unknown crashed writers remain blocked/charged without proof-bearing recovery, retained-record policy remains unapproved, and host/backup erasure is not certified. Risk stays open; evidence: development/evidence/dev-010-cleanup-consumer.md.
+
+RISK-F3-005 update — 23 November 2026: opt-in same-host source-writer closure proof and exact-attempt purge/accounting received independent review; 645 DB-free backend cases pass, including 298 ingestion cases. Recovery defaults off and legacy active writers remain blocked. PostgreSQL 37 scenarios, Linux/storage/runtime composition and retained metadata policy remain unqualified. Risk stays open; evidence: development/evidence/dev-010-writer-recovery.md.
+
+External review intake — 23 November 2026: EXT-AR-001/P01–P12 retain all supplied architecture/feature recommendations, distinguish existing coverage from gaps and preserve pending account/language/normalization decisions. No stack, phase order, spend, credential route or canonical requirement IDs changed. See architecture/external-review-2026-11-23.md.

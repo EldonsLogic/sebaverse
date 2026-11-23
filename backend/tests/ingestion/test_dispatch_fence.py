@@ -33,7 +33,12 @@ def broker(tmp_path, monkeypatch):
 
     def read_upload():
         upload = SimpleNamespace(**vars(row))
-        upload.save = lambda: vars(row).update({k: v for k, v in vars(upload).items() if k != "save"})
+
+        def save(*, update_fields=None):
+            fields = (key for key in vars(upload) if key != "save") if update_fields is None else update_fields
+            vars(row).update({key: getattr(upload, key) for key in fields})
+
+        upload.save = save
         return upload
 
     authorization = Mock(return_value=resource)

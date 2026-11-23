@@ -84,8 +84,9 @@ print(json.dumps({"migrations": "applied", "postgres_family": 17, "psycopg_impl"
     if ingestion.returncode:
         pytest.fail(f"Synthetic PostgreSQL ingestion broker probe failed with exit {ingestion.returncode}; connection details withheld.")
     ingestion_result = json.loads(ingestion.stdout)
-    assert ingestion_result['count'] == 36 and ingestion_result['injection_fixtures'] == 30
+    assert ingestion_result['count'] == 37 and ingestion_result['injection_fixtures'] == 30
     assert {
+        'protected-receiver-before-open-blocks-then-reconciles-once',
         'retained-partial-manifest-failed-purge-and-single-refund',
         'clean-scan-after-withdrawal-does-not-dispatch-parser',
         'clean-scan-after-consent-withdrawal-does-not-dispatch-parser',

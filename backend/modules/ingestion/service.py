@@ -1,4 +1,5 @@
 """Private lifecycle broker. Unavailable/unreviewed adapters never publish content."""
+from contextlib import nullcontext
 from dataclasses import dataclass
 from datetime import datetime
 import hashlib,json,re,uuid
@@ -8,6 +9,7 @@ from modules.access.service import authorized_resource
 from modules.identity.models import Learner,Membership
 from .models import Upload,UploadQuota,ReviewGrant
 from .contracts import declaration,detect_type,canonical,validate_result,MAX_OUTPUT
+from .storage import WriterClosureUnavailable
 
 
 class Denied(ValueError):pass
@@ -63,54 +65,88 @@ def allocate(actor,resource_id,command_key,data):
 
 def accept_bytes(actor,upload_id,chunks,store):
     _require_autocommit_io()
+    guard = nullcontext()
+    if getattr(store, 'writer_recovery', False) is True:
+        upload = Upload.objects.select_related('actor').get(pk=upload_id)
+        _require_receiver(actor, upload)
+        guard = store.source_writer(str(upload.id))
+    with guard as source:
+        current, failure = _receive_bytes(actor, upload_id, chunks, store, source)
+    if failure is None:
+        return current
+
+    # Put has closed the source and the matching acknowledgment has committed.
+    # Release the shared guard before acquiring an exclusive purge guard.
+    _confirm_purge(store, current.id)
     with transaction.atomic():
-        quota,upload=locked(upload_id)
-        if upload.actor_id!=actor.pk or not actor.is_authenticated or not actor.is_active or live(upload) is None:raise Denied('Upload actor denied')
-        if upload.status!='awaiting_bytes':raise Conflict('Upload cannot receive bytes')
-        upload.status='receiving';upload.writer_active=True;upload.save();generation=upload.generation
+        quota, current = locked(upload_id)
+        if current.status == 'withdrawn' and not current.writer_active:
+            settle_withdrawal(quota, current)
+        elif current.status == 'failed' and not current.writer_active:
+            quota.reserved_bytes -= current.held_bytes
+            current.held_bytes = 0
+            quota.save()
+            current.save()
+    raise failure
+
+
+def _require_receiver(actor, upload):
+    if upload.actor_id!=actor.pk or not actor.is_authenticated or not actor.is_active or live(upload) is None:
+        raise Denied('Upload actor denied')
+    if upload.status!='awaiting_bytes' or upload.writer_active:
+        raise Conflict('Upload cannot receive bytes')
+
+
+def _acknowledge_writer(upload, generation, binding):
+    expected_generation = generation + 1 if upload.status == 'withdrawn' else generation
+    if (upload.status not in ('receiving', 'withdrawn') or upload.generation != expected_generation
+            or not upload.writer_active or getattr(upload, 'writer_binding', None) != binding):
+        raise Conflict('Source writer changed while streaming')
+    upload.writer_active = False
+    upload.writer_binding = None
+
+
+def _receive_bytes(actor, upload_id, chunks, store, source):
+    with transaction.atomic():
+        _,upload=locked(upload_id)
+        _require_receiver(actor, upload)
+        generation = upload.generation
+        binding = source.binding(generation, uuid.uuid4()) if source is not None else None
+        upload.status = 'receiving'
+        upload.writer_active = True
+        upload.writer_binding = binding
+        upload.save()
     def checked_chunks():
         for chunk in chunks:
             current=Upload.objects.values('status','generation').get(pk=upload_id)
             if current['status']!='receiving' or current['generation']!=generation:raise Conflict('Upload cancelled while receiving')
             yield chunk
     try:
-        info=store.put(str(upload.id),checked_chunks(),upload.declared_bytes)
+        if source is None:
+            info = store.put(str(upload.id), checked_chunks(), upload.declared_bytes)
+        else:
+            info = source.put(checked_chunks(), upload.declared_bytes)
         detect_type(info['prefix'],upload.media_type)
-    except Exception:
+    except Exception as failure:
         # PrivateObjects.put closes its descriptor before raising. Persist that fact
         # before fallible deletion; quota stays held until purge succeeds.
         with transaction.atomic():
-            quota,current=locked(upload_id)
-            current.writer_active=False
+            _,current=locked(upload_id)
+            _acknowledge_writer(current, generation, binding)
             if current.status=='receiving':current.status='failed'
             current.failure_code='invalid_upload';current.save()
-        _confirm_purge(store,upload.id)
-        with transaction.atomic():
-            quota,current=locked(upload_id)
-            if current.status in ['failed','withdrawn']:
-                quota.reserved_bytes-=current.held_bytes;current.held_bytes=0;quota.save()
-                current.status='deleted' if current.status=='withdrawn' else 'failed'
-                if current.status=='deleted':current.purge_confirmed=True
-                current.save()
-        raise
-    stale=False
+        return current, failure
     with transaction.atomic():
         quota,current=locked(upload_id)
-        current.writer_active=False
+        _acknowledge_writer(current, generation, binding)
         if current.status!='receiving' or current.generation!=generation or live(current) is None:
-            stale=True
             if current.status=='receiving':current.status='withdrawn';current.generation+=1
             current.save()
+            return current, Conflict('Upload changed while streaming')
         else:
             quota.reserved_bytes-=current.held_bytes;quota.used_bytes+=info['byte_count'];quota.save()
             current.held_bytes=0;current.stored_bytes=info['byte_count'];current.source_sha256=info['sha256'];current.status='quarantined';current.save()
-    if stale:
-        _confirm_purge(store,upload.id)
-        with transaction.atomic():
-            quota,current=locked(upload_id)
-            quota.reserved_bytes-=current.held_bytes;current.held_bytes=0;current.status='deleted';current.purge_confirmed=True;quota.save();current.save()
-        raise Conflict('Upload changed while streaming')
-    return current
+    return current, None
 
 
 @dataclass(frozen=True)
@@ -267,30 +303,78 @@ def _require_autocommit_io():
         raise Conflict('Storage cleanup requires an outer autocommit boundary')
 
 
-def _confirm_purge(store,upload_id):
+def _confirm_purge(store,upload_id,source=None):
     _require_autocommit_io()
-    if store.purge_confirmed(str(upload_id)) is not True:
+    confirmed = source.purge_confirmed() if source is not None else store.purge_confirmed(str(upload_id))
+    if confirmed is not True:
         raise Conflict('Deletion could not be confirmed')
+
+
+def matches_protected_writer(upload, generation, binding):
+    """Match the receiver attempt across exactly one withdrawal generation bump."""
+    return (
+        isinstance(binding, dict) and type(binding.get('generation')) is int
+        and upload.status == 'withdrawn' and upload.generation == generation == binding['generation'] + 1
+        and upload.writer_active and getattr(upload, 'writer_binding', None) == binding
+    )
+
+
+def settle_withdrawal(quota, upload):
+    quota.used_bytes -= upload.stored_bytes + upload.manifest_bytes
+    quota.reserved_bytes -= upload.held_bytes
+    quota.save(update_fields=['used_bytes', 'reserved_bytes'])
+    upload.stored_bytes = upload.manifest_bytes = upload.held_bytes = 0
+    upload.writer_active = False
+    upload.writer_binding = None
+    upload.status = 'deleted'
+    upload.purge_confirmed = True
+    upload.save(update_fields=['stored_bytes', 'manifest_bytes', 'held_bytes', 'writer_active',
+                               'writer_binding', 'status', 'purge_confirmed'])
+
+
+def _owns_upload(actor, upload):
+    return actor.is_authenticated and actor.is_active and upload.actor_id == actor.pk
+
+
+def _withdraw_protected_writer(actor, upload, generation, binding, store):
+    if (getattr(store, 'writer_recovery', False) is not True
+            or not matches_protected_writer(upload, generation, binding)):
+        return upload
+    try:
+        with store.closed_writer(str(upload.id), binding) as closure:
+            with transaction.atomic():
+                _, current = locked(upload.id)
+                if not _owns_upload(actor, current) or not matches_protected_writer(current, generation, binding):
+                    return current
+            _confirm_purge(store, upload.id, closure)
+            with transaction.atomic():
+                quota, current = locked(upload.id)
+                if _owns_upload(actor, current) and matches_protected_writer(current, generation, binding):
+                    settle_withdrawal(quota, current)
+                return current
+    except WriterClosureUnavailable:
+        return upload
 
 
 def withdraw(actor,upload_id,store):
     _require_autocommit_io()
     with transaction.atomic():
         quota,upload=locked(upload_id)
-        if not actor.is_authenticated or not actor.is_active or upload.actor_id!=actor.pk:raise Denied('Cannot withdraw another actor upload')
+        if not _owns_upload(actor, upload):raise Denied('Cannot withdraw another actor upload')
         if upload.status=='deleted' and getattr(upload,'purge_confirmed',False) is True:return upload
         old=upload.status
         if old not in ['withdrawn','deleted']:upload.status='withdrawn';upload.generation+=1
         upload.save()
-        if upload.writer_active:
-            # The receiver owns/has the open descriptor. Retain quota until it closes and acknowledges purge.
-            return upload
+        active = upload.writer_active
+        generation = upload.generation
+        binding = getattr(upload, 'writer_binding', None)
+    if active:
+        return _withdraw_protected_writer(actor, upload, generation, binding, store)
     # Access is denied before I/O. Failed purge retains charged bytes until retry.
     _confirm_purge(store,upload.id)
     with transaction.atomic():
         quota,current=locked(upload_id)
         if current.status in ['withdrawn','deleted']:
             if current.writer_active:raise Conflict('Writer closure not confirmed')
-            quota.used_bytes-=current.stored_bytes+current.manifest_bytes;quota.reserved_bytes-=current.held_bytes
-            current.stored_bytes=0;current.manifest_bytes=0;current.held_bytes=0;current.status='deleted';current.purge_confirmed=True;quota.save();current.save()
+            settle_withdrawal(quota, current)
         return current
