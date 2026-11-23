@@ -587,7 +587,8 @@
         "development/evidence/dev-010-consent-intent.md",
         "development/evidence/dev-010-cleanup-consumer.md",
         "development/evidence/dev-010-writer-recovery.md",
-        "development/evidence/dev-010-worker-authority-revision.md"
+        "development/evidence/dev-010-worker-authority-revision.md",
+        "development/evidence/dev-010-cleanup-runner.md"
       ],
       "files": [
         "backend/modules/ingestion/",

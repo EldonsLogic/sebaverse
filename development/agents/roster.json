@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "run": "dev010-worker-authority-revision-2026-11-23",
+  "run": "dev010-manual-cleanup-runner-2026-11-23",
   "max_concurrent_including_orchestrator": 4,
   "paid_provider_budget_usd": 0,
   "token_budget": null,
@@ -15,14 +15,9 @@
       ],
       "status": "completed",
       "files": [
-        "development/CURRENT-STATE.md",
-        "development/tasks.json",
-        "development/agents/roster.json",
-        "development/evidence/hosted-recovery-d8a1509.md",
-        "development/evidence/dev-010-worker-authority-revision.md",
-        "registers/decisions-risks-unknowns.md"
+        "development shared evidence/continuity"
       ],
-      "evidence": "Hosted receipt verified; root foundation checks passed 179 helper tests. Owns verified publication of this documentation-only checkpoint."
+      "evidence": "Root backend 683 passed / 1 PostgreSQL deselected, Django clean; foundation 179 passed. Exact source hashes match independent acceptance; owns publication."
     },
     {
       "agent": "/root/writer_recovery_design",
@@ -34,9 +29,10 @@
       "reasoning_effort": "medium",
       "status": "completed",
       "files": [
-        "workers/parser/production-authority-proposal.md"
+        "backend/modules/ingestion/management/",
+        "workers/parser/cleanup-runner-contract.md"
       ],
-      "evidence": "Four requested design revisions and two precision corrections integrated; proposal released at independently reviewed SHA. No mechanism implemented."
+      "evidence": "Command/contract implemented; disabled and argument-rejection CLI smoke expected exits; one parser-redaction correction integrated and source released."
     },
     {
       "agent": "/root/writer_recovery_tests_plan",
@@ -48,9 +44,9 @@
       "reasoning_effort": "medium",
       "status": "completed",
       "files": [
-        "development/evidence/worker-authority-acceptance-plan.md"
+        "backend/tests/ingestion/test_cleanup_command.py"
       ],
-      "evidence": "Acceptance matrix released; all proposed product cases NOT RUN. Author ran foundation checks and 179 helper tests successfully."
+      "evidence": "38 negative/positive command cases; no DB connection or blocked replay; pinned-root replacement and redaction regression pass."
     },
     {
       "agent": "/root/cleanup_latest_review",
@@ -61,11 +57,11 @@
       "reasoning_effort": "medium",
       "status": "completed",
       "files": [
-        "development/evidence/worker-authority-revision-review.md"
+        "development/evidence/dev-010-cleanup-runner-review.md"
       ],
-      "evidence": "Candidate-only independent review: all four prior requests addressed at proposal level. Foundation 179 pass; runtime/ADR/F3 not approved."
+      "evidence": "Independent exact-source acceptance, backend 683 / 1 deselected, ingestion 336, consent 44, foundation 179; no actual DB/runtime qualification."
     }
   ],
   "run_status": "completed_verified_checkpoint",
-  "scope": "RISK-F3-004 production handoff design correction only, one pass plus at most two corrections. Three real subagents plus root; no native/database/provider execution, dependency or gate changes."
+  "scope": "Bounded manual cleanup command and fake-boundary tests; no daemon/runtime/realDB execution. Three subagents plus root; default-disabled and scoped AUTH015 only."
 }
