@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "run": "dev010-writer-recovery-and-review-intake-2026-11-23",
+  "run": "dev010-worker-authority-revision-2026-11-23",
   "max_concurrent_including_orchestrator": 4,
   "paid_provider_budget_usd": 0,
   "token_budget": null,
@@ -15,16 +15,14 @@
       ],
       "status": "completed",
       "files": [
-        "development shared state/evidence",
-        "sources/external-reviews/2026-11-22-architecture-review.md",
-        "sources/source-catalog.md",
-        "architecture/external-review-2026-11-23.md",
-        "docs/03-learning-intelligence.md",
-        "docs/05-model-routing-and-voice.md",
-        "architecture/subject-and-curriculum-contracts.md",
+        "development/CURRENT-STATE.md",
+        "development/tasks.json",
+        "development/agents/roster.json",
+        "development/evidence/hosted-recovery-d8a1509.md",
+        "development/evidence/dev-010-worker-authority-revision.md",
         "registers/decisions-risks-unknowns.md"
       ],
-      "evidence": "Root backend 645 / 1 PostgreSQL deselected; exact backend fingerprint matches independent review. Integrates final foundation checks and authorized commit/push."
+      "evidence": "Hosted receipt verified; root foundation checks passed 179 helper tests. Owns verified publication of this documentation-only checkpoint."
     },
     {
       "agent": "/root/writer_recovery_design",
@@ -36,15 +34,9 @@
       "reasoning_effort": "medium",
       "status": "completed",
       "files": [
-        "backend/modules/ingestion/storage.py",
-        "backend/modules/ingestion/service.py",
-        "backend/modules/ingestion/cleanup.py",
-        "backend/modules/ingestion/models.py",
-        "backend/modules/ingestion/migrations/0007_upload_writer_binding.py",
-        "workers/parser/source-writer-recovery-plan.md",
-        "work/architecture-review-product.md"
+        "workers/parser/production-authority-proposal.md"
       ],
-      "evidence": "Implemented recovery in prior continuation; released files. Resumed account/catalog/UI review on 23 November; no new product edits."
+      "evidence": "Four requested design revisions and two precision corrections integrated; proposal released at independently reviewed SHA. No mechanism implemented."
     },
     {
       "agent": "/root/writer_recovery_tests_plan",
@@ -56,15 +48,9 @@
       "reasoning_effort": "medium",
       "status": "completed",
       "files": [
-        "backend/tests/ingestion/test_writer_recovery.py",
-        "backend/tests/ingestion/fixtures/writer_recovery_child.py",
-        "backend/tests/ingestion/test_dispatch_fence.py",
-        "backend/tests/ingestion/postgres_probe.py",
-        "backend/tests/test_postgres_integration.py",
-        "development/evidence/writer-recovery-test-plan.md",
-        "work/architecture-review-learning.md"
+        "development/evidence/worker-authority-acceptance-plan.md"
       ],
-      "evidence": "27 new local cases; ingestion 298 passed; PG 37 staged NOT RUN. Released files. Resumed learning/voice proposal review on 23 November."
+      "evidence": "Acceptance matrix released; all proposed product cases NOT RUN. Author ran foundation checks and 179 helper tests successfully."
     },
     {
       "agent": "/root/cleanup_latest_review",
@@ -75,14 +61,11 @@
       "reasoning_effort": "medium",
       "status": "completed",
       "files": [
-        "development/evidence/hosted-consumer-dceee32.md",
-        "development/evidence/writer-recovery-design-review.md",
-        "development/evidence/dev-010-writer-recovery-review.md",
-        "development/evidence/external-architecture-review-validation.md"
+        "development/evidence/worker-authority-revision-review.md"
       ],
-      "evidence": "Independent recovery acceptance: backend 645 / 1 deselected, ingestion 298 and scoped suites pass; temporal substitution probe rejects proof. Final intake review in progress. Independent external-review disposition accepted; preserved source and final ledger hashes recorded."
+      "evidence": "Candidate-only independent review: all four prior requests addressed at proposal level. Foundation 179 pass; runtime/ADR/F3 not approved."
     }
   ],
   "run_status": "completed_verified_checkpoint",
-  "scope": "Opt-in local synthetic writer recovery and document-only external review intake. Three real subagents plus root; two additional review streams sequentially reuse workers. No native/DB execution, provider calls, gate/default/credential changes."
+  "scope": "RISK-F3-004 production handoff design correction only, one pass plus at most two corrections. Three real subagents plus root; no native/database/provider execution, dependency or gate changes."
 }

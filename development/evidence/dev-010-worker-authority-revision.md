@@ -1,0 +1,17 @@
+# DEV-010 worker authority design correction
+
+23 November 2026 · R039/R040/R041/R046 · RISK-F3-004. A compromised future parser could forge scan evidence or receive a source after revocation. Current exposure remains authored fixtures; the production path is disabled. Budget: one document design revision and independent acceptance plan/review, at most two scoped corrections. No new package, native process, scanner/image assessment, database execution, provider call or phase advancement.
+
+The 21 November independent review required four corrections before any architecture decision: identify trusted job/scan endpoints and key custody; define once-only source release ordered against every relevant invalidator; anchor expiry to a fixed dispatch deadline; specify immutable two-engine handles and supervised cleanup. Three real subagents separately own the revised proposal, falsifiable acceptance matrix and independent review. Root owns hosted checkpoint and continuity. Existing signed fixture tests stay historical and unchanged.
+
+DEV-011 remains planned because DEV-010 is not complete. Structural item-publication ideas from EXT-AR-001 remain retained proposals; the current turn does not bypass that dependency. This design work reduces an explicit F3 architecture uncertainty and adds no learner-facing feature. It is not runtime qualification, an ADR amendment, a child-session decision or a supplier-wait change.
+
+Final independent review is recorded below. RISK-F3-004 remains open even if the revised proposal is accepted as a basis for later qualification.
+
+Root also opened the primary [Unix socket manual](https://man7.org/linux/man-pages/man7/unix.7.html), descriptor-passing and in-flight-handle sections, and [file-seal manual](https://man7.org/linux/man-pages/man2/F_ADD_SEALS.2const.html) on 23 November. They document shared open-file descriptions, handles in flight before receive, inode-wide seals and the limitation of future-write sealing. Treating successful readable enqueue as the design's release boundary is a conservative security rule, not a demonstrated runtime guarantee. Full write/grow/shrink and fixed-seal requirements remain unexecuted qualification work.
+
+## Closing disposition
+
+The [independent reviewer](worker-authority-revision-review.md) found all four predecessor requests addressed at proposal level. The candidate specifies a new same-host authority gate, trusted role/key provisioning, durable consumed engine claims and actual handle-readability ordering. It explicitly denies release where an invalidator can bypass the gate or deadline enforcement is unqualified. Sending-endpoint gate ownership and expiry at visible final commit were tightened during review. None of these proposed mechanisms exists in the current implementation. Runtime and ADR adoption remain pending; no authority risk is marked closed.
+
+Root and reviewer `make foundation-check` exited 0: artifact/economics/foundation validation and 179 helper tests passed. `git diff --check` passed. The helper suite's intentional timeout negative fixture is not a live npm failure. Product tests were not rerun for this documentation-only change; all acceptance-plan scenarios remain NOT RUN. Original hosted `d8a1509` passed backend/web and separate foundation/dependency checks but failed its unchanged native gate; PostgreSQL/browser skipped. See [exact hosted receipt](hosted-recovery-d8a1509.md). No new supplier method, scan, source build, exception, review binding or phase threshold was adopted.
