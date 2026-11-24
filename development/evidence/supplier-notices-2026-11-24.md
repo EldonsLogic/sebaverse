@@ -1,0 +1,14 @@
+# AUTH-014 supplier notice check
+
+24 November 2026 · DEV-010 · R040/R081. One bounded read of official notices for the same Alpine v3.24 x86-64 static tool and PostgreSQL 17 Alpine image family from the 20 November decision. The build-time concern is the verified static tool's pre-fix OpenSSL in the disposable synthetic runner. No learner data is involved. [Founder hold](auth-014-recovery-checkpoint.md) · [20 November tool review](../../infra/local/postgres-fixed-packages/build-tool-review.md) · [20 November image metadata](postgres-fix-recheck-2026-11-20.md)
+
+**No meaningful post-20 November update is evidenced by the notices checked.** The existing AUTH-014 supplier wait remains in force.
+
+| Checked notice | Observed result and limit |
+| --- | --- |
+| [Alpine v3.24/main/x86_64 `apk-tools-static`](https://pkgs.alpinelinux.org/package/v3.24/main/x86_64/apk-tools-static) | Package `3.0.9-r0`, build time displayed as 4 November 2026, 08:03:01, aports commit `13685e8f2cf1c103cbba2fb9efcfcf19f4918df0`. This matches the earlier package listing. The 20 November exact-artifact review established embedded OpenSSL `3.5.9-r0`. The listing supplies no newer static build evidence. |
+| [PostgreSQL release index](https://www.postgresql.org/docs/release/) and [17.12 release notes](https://www.postgresql.org/docs/release/17.12/) | The PostgreSQL project lists `17.12` as its newest 17-series entry. Its published release date is 12 November 2026. This is a server release date and gives no evidence of an updated Alpine package layer. |
+| [Docker Official Images PostgreSQL publication mapping](https://raw.githubusercontent.com/docker-library/official-images/master/library/postgres) | The entries for `17.12-alpine` and `17-alpine` still point to `17/alpine3.24` and Git commit `ac9627dcf544a8454f212a12ddeebfcdc0803d3e`, the source in the 20 November receipt. This maps the source recipe. The same source can be rebuilt with changed base layers or packages. |
+| [Docker Hub `17.12-alpine` tag metadata](https://hub.docker.com/v2/repositories/library/postgres/tags/17.12-alpine) and [`17-alpine` tag metadata](https://hub.docker.com/v2/repositories/library/postgres/tags/17-alpine) | Neither endpoint was accessible to this notice check. Live tag update timestamps, published index/amd64 digests and current image package revisions therefore remain unknown. The observed recipe mapping cannot establish that these live images are unchanged. |
+
+No package archives or image layers were acquired. No additional supplier route was pursued. No artifact verification, scans, builds, imports, database connection or CI dispatch occurred. The 20 November evidence remains the last checked exact-artifact basis for this hold. A later supplier notice would still require separate exact-identity, security, rights and independent review evidence before qualified use.

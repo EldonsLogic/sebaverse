@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "run": "dev011-offline-preflight-2026-11-24",
+  "run": "local-demo-scope-decision-2026-11-24",
   "max_concurrent_including_orchestrator": 4,
   "paid_provider_budget_usd": 0,
   "token_budget": null,
@@ -15,10 +15,10 @@
       ],
       "status": "completed",
       "files": [
-        "Makefile",
-        "development shared source/approval/task/evidence/continuity"
+        "development shared checkpoint/evidence",
+        "development/evidence/local-teaching-demo-decision-2026-11-24.md"
       ],
-      "evidence": "Root backend 717 passed / one PostgreSQL deselected, Django clean; foundation 179 passed. Captured AUTH016/U26 and bounded slice completion while full task/deps remain held; verified integration owned."
+      "evidence": "Reviewed next-step proposal and receipts saved; root foundation179 and whitespace pass. Founder question pending; no dependent demo code started."
     },
     {
       "agent": "/root/writer_recovery_design",
@@ -30,10 +30,9 @@
       "reasoning_effort": "medium",
       "status": "completed",
       "files": [
-        "backend/modules/curriculum/publication_preflight.py",
-        "architecture/publication-preflight-contract.md"
+        "development/evidence/supplier-notices-2026-11-24.md"
       ],
-      "evidence": "Pure preflight and contract implemented; explicit-offset expiry correction integrated; source/contract released unchanged after independent review."
+      "evidence": "One bounded official notice pass; no meaningful update evidenced, live Docker tag metadata inaccessible. No artifacts or new supplier route."
     },
     {
       "agent": "/root/writer_recovery_tests_plan",
@@ -45,9 +44,9 @@
       "reasoning_effort": "medium",
       "status": "completed",
       "files": [
-        "backend/tests/curriculum/test_publication_preflight.py"
+        "development/evidence/hosted-preflight-3dee5ab.md"
       ],
-      "evidence": "34 independent cases including double omission, exact dependency pins/rights, held report, and UTC/Cairo expiry; curriculum 67 and auth 162 passed."
+      "evidence": "Original hosted snapshot: foundation/dependency success, DB-free/web step success, skeleton still in progress; later outcomes unverified."
     },
     {
       "agent": "/root/cleanup_latest_review",
@@ -58,11 +57,12 @@
       "reasoning_effort": "medium",
       "status": "completed",
       "files": [
-        "development/evidence/dev-011-preflight-review.md"
+        "work/next-scope-2026-11-24.md",
+        "development/evidence/local-teaching-demo-scope-review.md"
       ],
-      "evidence": "Independent exact-source acceptance after one timezone correction; backend 717 / one deselected, focused 34, curriculum 67, auth 162, foundation 179 passed; no phase approval."
+      "evidence": "Independent bounded demo scope review accepted for founder decision only; foundation179 passed, no prototype execution."
     }
   ],
-  "run_status": "completed_verified_checkpoint",
-  "scope": "Founder AUTH016 pure authored shared-fixture publication preflight slice only; one day/two corrections. FullDEV011deps/F3 unchanged; no grading/publication/runtime activation."
+  "run_status": "pending_founder_choice",
+  "scope": "Read-only supplier notices, original hosted snapshot and reviewed local teaching-demo scope proposal. No demo implementation or new authority inferred."
 }
