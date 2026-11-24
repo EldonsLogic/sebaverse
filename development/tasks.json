@@ -588,7 +588,9 @@
         "development/evidence/dev-010-cleanup-consumer.md",
         "development/evidence/dev-010-writer-recovery.md",
         "development/evidence/dev-010-worker-authority-revision.md",
-        "development/evidence/dev-010-cleanup-runner.md"
+        "development/evidence/dev-010-cleanup-runner.md",
+        "development/evidence/f3-next-work-decision-2026-11-24.md",
+        "development/evidence/hosted-cleanup-command-6a72add.md"
       ],
       "files": [
         "backend/modules/ingestion/",
@@ -635,7 +637,10 @@
         "make test-curriculum"
       ],
       "execution_condition": "All preceding mandatory phase exit tests passed with recorded evidence/review. Applicable G1–G3 execution decisions recorded; synthetic fixtures only; exact dependency/license/security closure reviewed. No paid calls or deployment implied.",
-      "evidence": [],
+      "evidence": [
+        "development/evidence/dev-011-offline-preflight.md",
+        "development/evidence/dev-011-preflight-review.md"
+      ],
       "files": [
         "backend/modules/curriculum/",
         "backend/modules/assessment/",
@@ -649,7 +654,34 @@
         }
       ],
       "architecture_phase": "A3",
-      "phase_exit_gate": "F3"
+      "phase_exit_gate": "F3",
+      "authorized_slices": [
+        {
+          "id": "preflight-v1",
+          "authorization": "AUTH-016 / U26",
+          "status": "done",
+          "scope": "Pure authored shared-fixture structural manifest preflight only; full task stays planned and original dependencies unchanged. No publication, grading, private ingestion or runtime activation.",
+          "evidence": "development/evidence/dev-011-offline-preflight.md",
+          "verification": [
+            "make test-publication-preflight",
+            "make test-contracts",
+            "make backend-check",
+            "make foundation-check"
+          ],
+          "requirements": [
+            "R041",
+            "R042",
+            "R043",
+            "R099"
+          ],
+          "review": "development/evidence/dev-011-preflight-review.md",
+          "files": [
+            "backend/modules/curriculum/publication_preflight.py",
+            "backend/tests/curriculum/test_publication_preflight.py",
+            "architecture/publication-preflight-contract.md"
+          ]
+        }
+      ]
     },
     {
       "id": "DEV-012",

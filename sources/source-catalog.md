@@ -85,3 +85,5 @@ Exact research files/bytes/checksums: [manifest](research-manifest.json). Suppor
 
 - EXT-AR-001: [Third-party architecture review](external-reviews/2026-11-22-architecture-review.md), supplied by founder 23 November 2026; document dated 22 November, targets `89ce415`. Unverified prototype comparisons and recommendations, not execution authority. SHA-256 `aef96aa98e4269dd23fda4a0b250db8fc90697c32f0b6213a92b528c77f0ef60`. [Disposition and proposal ledger](../architecture/external-review-2026-11-23.md).
 - EXT-AR-001 reconciliation verification: [independent disposition validation](../development/evidence/external-architecture-review-validation.md). All proposal groups retained; source/prototype claims remain distinguished from observed tests.
+
+- U26: [Offline publication-preflight authorization](offline-publication-preflight-instruction.md), 24 November 2026. Founder approves only the reviewed AUTH-016 structural sub-slice; full task/phase/runtime gates remain unchanged.

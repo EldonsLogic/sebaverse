@@ -35,3 +35,7 @@ test-content-isolation: test-contracts test-authorization
 .PHONY: test-resilience
 test-resilience:
 	SEBAVERSE_ENV=local DJANGO_DEBUG=1 backend/.venv/bin/python -m pytest backend/tests/resilience -q
+
+.PHONY: test-publication-preflight
+test-publication-preflight:
+	SEBAVERSE_ENV=local DJANGO_DEBUG=1 backend/.venv/bin/python -m pytest backend/tests/curriculum/test_publication_preflight.py -q
