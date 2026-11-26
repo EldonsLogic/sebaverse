@@ -164,3 +164,5 @@ Reviewer appended "Re-review, correction round 2 — 26 November 2026": **ACCEPT
 PR from `claude/demo-correction-round-2` to main is opened next; merge needs the founder's word. After that, development waits on the AUTH-014 supplier fix (amd64 OpenSSL 3.5.9-r1) or a founder decision.
 
 PR opened: https://github.com/EldonsLogic/sebaverse/pull/7 (not merged; needs the founder's word).
+
+Founder approved merging PR 7 on 26 November ("Merge PR 7"), merge commit, no force. This line is written before the merge so that main records it; if main lacks it, the merge did not happen. After the merge, resume from main: development waits on the AUTH-014 supplier fix or a founder decision, and the AUTH-017 demo correction budget is used up.
