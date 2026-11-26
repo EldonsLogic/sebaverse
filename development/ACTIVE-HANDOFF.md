@@ -303,3 +303,48 @@ Independent reviewer (`pro` subagent) appended `Re-review, correction round 1 �
 - **Not verified / not run:** 37 DEV-010 PostgreSQL integration cases (blocked on AUTH-014 supplier wait), web/demo suites (no web/demo edits), live DB/provider/UI execution (out of AUTH-019 scope).
 - **Pending review / decision:** Founder approved merging PR 10 (`"Shoot"`, `antigravity/dev-014-learning-ledger-2026-11-26` → `main`, merge commit, no force) and continuing with bounded DB-free DEV-013 tutoring state machine (`AUTH-020`) on 26 November 2026. This line is written before the merge so that `main` records it; if `main` lacks it, the merge did not happen. After the merge, resume from `main` to start `AUTH-020` on a new feature branch.
 - **Next command:** `git status -sb && git fetch && git log --oneline -3 origin/main && python3 tools/brief.py` (after founder decides on merging the AUTH-019 PR).
+
+## AUTH-020 — Bounded offline DEV-013 tutoring state machine (started 26 November 2026, Antigravity)
+
+Verified before work: PR 10 merged into `main` at `89e0241` (equal to `origin/main`, clean working tree). Founder approved continuing with Option #2 verbatim: `"Shoot"` (recorded as `U32` / `AUTH-020`). Created feature branch `antigravity/dev-013-tutor-state-2026-11-26` from `main` `89e0241`.
+
+Step 1: implement pure DB-free deterministic tutoring state machine (`backend/modules/tutoring/__init__.py`, `backend/modules/tutoring/state_machine.py`) wired into `modules.access.policy`, `modules.retrieval.preflight`, `modules.assessment.grader`, and `modules.learning.ledger`; write negative-first security and state-transition tests (`backend/tests/tutoring/test_tutor_state.py`); add `Makefile` target `test-tutor-state-preflight`. Owned files: `sources/offline-tutor-state-instruction.md`, `sources/source-catalog.md`, `development/APPROVALS.md`, `backend/modules/tutoring/__init__.py`, `backend/modules/tutoring/state_machine.py`, `backend/tests/tutoring/test_tutor_state.py`, `Makefile`, `development/CURRENT-STATE.md`, `development/WORK-LOG.md`, `development/ACTIVE-HANDOFF.md`. Commands to run: `make test-tutor-state-preflight`, `make backend-check`, `make foundation-check`, `python3 tools/check_dependencies.py`, `git diff --check`. Independent reviewer subagent will then review and write `development/evidence/dev-013-tutor-state-review.md`. If no results follow, this step did not finish.
+
+### Results — AUTH-020 implementation checkpoint (pending independent review)
+
+All checks run on `antigravity/dev-013-tutor-state-2026-11-26` under qualified Node `v24.22.3`:
+- `make test-tutor-state-preflight`: exit 0 — 7/7 pytest cases passed.
+- `make backend-check`: exit 0 — 770 passed, 1 deselected (`postgres_integration`); `backend/manage.py check` 0 issues.
+- `make foundation-check`: exit 0 — 179/179 unit tests passed, `validate_project.py` PASS (0 errors, 0 warnings), `model_economics.py` PASS, `check_foundation.py` PASS.
+- `python3 tools/check_dependencies.py`: exit 0, PASS; `git diff --check`: exit 0.
+- NOT RUN: 37 DEV-010 PostgreSQL integration cases (blocked on AUTH-014 supplier wait), web/demo suites (no web/demo edits).
+- Next: launching an independent `pro` reviewer subagent owning only `development/evidence/dev-013-tutor-state-review.md` (read-only on source). If no review results follow, the review did not complete and this work remains pending review.
+
+### Independent review received — `CHANGES REQUESTED` on `849019f`
+
+Independent reviewer (`pro` subagent) wrote `development/evidence/dev-013-tutor-state-review.md`. Verdict: **CHANGES REQUESTED** (4 blockers: deadlocked `paused`/`blocked` resume and unconstrained `check_access` source state; `start_practice`/`submit_answer` missing `SERIALIZERS['item']` + approval/edition/objective/audience binding; `guided -> start_practice` resetting hints/reveal without tracking item exposure; `command.actor_role` not bound to server-derived `scope.role`; plus 3 should-fix items and 4 notes).
+
+### AUTH-020 Correction round 1 of 2 — started 26 November 2026
+
+Fixing all 4 blockers, 3 should-fix findings, and notes in `backend/modules/tutoring/state_machine.py` and `backend/tests/tutoring/test_tutor_state.py`. Commands to run: `make test-tutor-state-preflight`, `make backend-check`, `make foundation-check`, `python3 tools/check_dependencies.py`, `git diff --check`, followed by independent re-review appending to `development/evidence/dev-013-tutor-state-review.md`. If no results follow, this step did not finish.
+
+### Results — AUTH-020 correction round 1 (pending independent re-review)
+
+- Fixed all 4 blockers, 3 should-fix items, and notes: constrained `check_access` strictly to `access_check` and added `resume_session` from `paused`/`blocked`/`cancelled` → `access_check`; added `_validate_session_item` (`SERIALIZERS['item']`, `status == 'approved'`, edition/objective/audience binding) on `diagnose`, `start_practice`, and `submit_answer`; added persistent `exposed_items` tracking so hints/reveals cannot be reset to `independent` via `guided -> start_practice`; bound `command.actor_role == scope.role` and required server-derived `teacher` scope for `resume_from_safety` and `adjudicate_review`; required active item on `request_hint`/`reveal_worked_answer`; added live `policy.allowed` check on idempotent replay and full canonical command payload hashing; bounded `session_id`/`command_key` to <= 80 chars and eliminated empty-string `or` fallbacks; expanded tests to cover all paths.
+- `make test-tutor-state-preflight`: exit 0 — 7/7 pytest cases passed.
+- `make backend-check`: exit 0 — 770 passed, 1 deselected (`postgres_integration`); `backend/manage.py check` 0 issues.
+- `make foundation-check`: exit 0 — 179/179 unit tests passed, `validate_project.py` PASS, `model_economics.py` PASS, `check_foundation.py` PASS.
+- `python3 tools/check_dependencies.py`: exit 0, PASS; `git diff --check`: exit 0.
+- Next: independent re-review subagent appends `Re-review, correction round 1 — 26 November 2026` to `development/evidence/dev-013-tutor-state-review.md`. If no re-review results follow, round 1 remains pending re-review.
+
+### Independent re-review complete — `ACCEPTED WITH NOTES` on `07bae3c`
+
+Independent reviewer (`pro` subagent) appended `Re-review, correction round 1 — 26 November 2026` to `development/evidence/dev-013-tutor-state-review.md`. Verdict: **ACCEPTED WITH NOTES** for the AUTH-020 bounded DB-free scope. All 4 initial blockers and actionable should-fix/note items resolved with zero regressions. Reviewer independently ran `make test-tutor-state-preflight` (7/7 PASS), `make backend-check` (770 passed, 1 deselected, `manage.py check` 0 issues), and `make foundation-check` (179/179 PASS). Remaining non-blocking notes are recorded in the review file.
+
+## Exact next step (26 November 2026, end of AUTH-020 Antigravity session)
+
+- **Branch:** `antigravity/dev-013-tutor-state-2026-11-26` (PR https://github.com/EldonsLogic/sebaverse/pull/11 open against `main` `89e0241`; verified commit `917ccaa`; do not merge without founder approval).
+- **Verified:** `make test-tutor-state-preflight` (7/7 PASS), `make backend-check` (770 passed, 1 deselected), `make foundation-check` (179/179 PASS), `python3 tools/check_dependencies.py` (PASS), `git diff --check` (PASS), independent review (`ACCEPTED WITH NOTES` in `development/evidence/dev-013-tutor-state-review.md`).
+- **Not verified / not run:** 37 DEV-010 PostgreSQL integration cases (blocked on AUTH-014 supplier wait), web/demo suites (no web/demo edits), live DB/HTTP/SSE/AG-UI/LLM execution (out of AUTH-020 scope).
+- **Pending review / decision:** Founder approved merging PR 11 (`"Proceed"`, `antigravity/dev-013-tutor-state-2026-11-26` → `main`, merge commit, no force) on 26 November 2026. This line is written before the merge so that `main` records it; if `main` lacks it, the merge did not happen. After the merge, resume from `main`: the core DB-free backend tutoring loop (`AUTH-016`, `AUTH-018`, `AUTH-019`, `AUTH-020`) is complete on `main`; development waits on the AUTH-014 supplier update (`postgres:17-alpine` `linux/amd64` `libssl3`/`libcrypto3` `3.5.9-r1+`) or a new founder authorization.
+- **Next command:** `git status -sb && git fetch && git log --oneline -3 origin/main && python3 tools/brief.py` (after founder decides on merging the AUTH-020 PR).

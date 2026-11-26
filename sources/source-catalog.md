@@ -98,3 +98,5 @@ Exact research files/bytes/checksums: [manifest](research-manifest.json). Suppor
 - U30: [Offline retrieval-preflight authorization](offline-retrieval-preflight-instruction.md), 26 November 2026. Founder approves only the bounded AUTH-018 DB-free DEV-012 lexical retrieval and citation preflight sub-slice; full task/phase/runtime gates remain unchanged.
 
 - U31: [Offline learning-ledger authorization](offline-learning-ledger-instruction.md), 26 November 2026. Founder approves only the bounded AUTH-019 DB-free DEV-014 deterministic grading and replayable learning-evidence ledger sub-slice; full task/phase/runtime gates remain unchanged.
+
+- U32: [Offline tutoring state-machine authorization](offline-tutor-state-instruction.md), 26 November 2026. Founder approves only the bounded AUTH-020 DB-free DEV-013 deterministic tutoring state-machine sub-slice; full task/phase/runtime/AG-UI gates remain unchanged.
