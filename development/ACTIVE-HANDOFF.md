@@ -98,3 +98,7 @@ Founder chose to fix should-fix 1–3 before a PR. Root (Claude) owns `web/src/d
 ### Correction round 1 — source edited (UNVERIFIED in browser at this commit)
 
 Edited: `lesson.ts` (four wrong-answer headings no longer say correct; "أثمان" spelling), `messages.ts` (outcome and "you chose" strings; summary label now matches stage "خطوة مع بعض"), `state.ts` (feedback view carries `chosen` fraction), `Demo.tsx` (outcome label inside the focused h1; "اخترت" line with the picked fraction, not written into the equation; equation and fraction bars `dir="rtl"`), `demo.css` (outcome and chosen styles), `state.test.ts` (new test 10). Model tests: tsc exit 0, 10/10 pass. Still to run: typecheck, default build, isolation, bundle, strict browser smoke, screenshots, independent re-review.
+
+### Correction round 1 — verification results (on `100d5ad` source)
+
+Model tests 10/10; web typecheck 0; default build 0; isolation PASS (94,874); demo bundle 76,061 of 200,000 gzip bytes; strict browser smoke 29/29 (`local-demo-qa/browser-strict-round1-2026-11-26.json`). Root inspected 360 guided-feedback (correct), 360 practice-feedback (wrong, 4/16) and 1440 explanation: outcome badge, "اخترت" line and right-to-left equations/bars render as intended, no overflow. Demo server PID 47496 on 127.0.0.1:5174 is task-owned; stop after re-review. Next: independent re-review appends a dated "Re-review, correction round 1" section to `local-teaching-demo-review.md`.
