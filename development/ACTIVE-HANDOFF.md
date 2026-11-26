@@ -319,3 +319,20 @@ All checks run on `antigravity/dev-013-tutor-state-2026-11-26` under qualified N
 - `python3 tools/check_dependencies.py`: exit 0, PASS; `git diff --check`: exit 0.
 - NOT RUN: 37 DEV-010 PostgreSQL integration cases (blocked on AUTH-014 supplier wait), web/demo suites (no web/demo edits).
 - Next: launching an independent `pro` reviewer subagent owning only `development/evidence/dev-013-tutor-state-review.md` (read-only on source). If no review results follow, the review did not complete and this work remains pending review.
+
+### Independent review received — `CHANGES REQUESTED` on `849019f`
+
+Independent reviewer (`pro` subagent) wrote `development/evidence/dev-013-tutor-state-review.md`. Verdict: **CHANGES REQUESTED** (4 blockers: deadlocked `paused`/`blocked` resume and unconstrained `check_access` source state; `start_practice`/`submit_answer` missing `SERIALIZERS['item']` + approval/edition/objective/audience binding; `guided -> start_practice` resetting hints/reveal without tracking item exposure; `command.actor_role` not bound to server-derived `scope.role`; plus 3 should-fix items and 4 notes).
+
+### AUTH-020 Correction round 1 of 2 — started 26 November 2026
+
+Fixing all 4 blockers, 3 should-fix findings, and notes in `backend/modules/tutoring/state_machine.py` and `backend/tests/tutoring/test_tutor_state.py`. Commands to run: `make test-tutor-state-preflight`, `make backend-check`, `make foundation-check`, `python3 tools/check_dependencies.py`, `git diff --check`, followed by independent re-review appending to `development/evidence/dev-013-tutor-state-review.md`. If no results follow, this step did not finish.
+
+### Results — AUTH-020 correction round 1 (pending independent re-review)
+
+- Fixed all 4 blockers, 3 should-fix items, and notes: constrained `check_access` strictly to `access_check` and added `resume_session` from `paused`/`blocked`/`cancelled` → `access_check`; added `_validate_session_item` (`SERIALIZERS['item']`, `status == 'approved'`, edition/objective/audience binding) on `diagnose`, `start_practice`, and `submit_answer`; added persistent `exposed_items` tracking so hints/reveals cannot be reset to `independent` via `guided -> start_practice`; bound `command.actor_role == scope.role` and required server-derived `teacher` scope for `resume_from_safety` and `adjudicate_review`; required active item on `request_hint`/`reveal_worked_answer`; added live `policy.allowed` check on idempotent replay and full canonical command payload hashing; bounded `session_id`/`command_key` to <= 80 chars and eliminated empty-string `or` fallbacks; expanded tests to cover all paths.
+- `make test-tutor-state-preflight`: exit 0 — 7/7 pytest cases passed.
+- `make backend-check`: exit 0 — 770 passed, 1 deselected (`postgres_integration`); `backend/manage.py check` 0 issues.
+- `make foundation-check`: exit 0 — 179/179 unit tests passed, `validate_project.py` PASS, `model_economics.py` PASS, `check_foundation.py` PASS.
+- `python3 tools/check_dependencies.py`: exit 0, PASS; `git diff --check`: exit 0.
+- Next: independent re-review subagent appends `Re-review, correction round 1 — 26 November 2026` to `development/evidence/dev-013-tutor-state-review.md`. If no re-review results follow, round 1 remains pending re-review.

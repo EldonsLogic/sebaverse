@@ -54,6 +54,12 @@ def _scope(**overrides) -> TutorScope:
     return TutorScope(**base)
 
 
+def _teacher_scope(**overrides) -> TutorScope:
+    base = dict(role='teacher', purpose='teacher_reporting')
+    base.update(overrides)
+    return _scope(**base)
+
+
 def _ledger_scope(scope: TutorScope) -> LedgerScope:
     return LedgerScope(
         tenant_id=scope.tenant_id,
@@ -91,10 +97,10 @@ def _cmd(session, key, action, *, turn_id=None, sec=0, actor_role='learner', **k
     )
 
 
-# --- 1. Negative security, scope revocation, actor, and turn/item guards ---
+# --- 1. Negative security, scope revocation, actor-role binding, and turn/item guards ---
 
 
-def test_revoked_consent_mid_session_blocks_without_mutating_evidence():
+def test_revoked_consent_blocks_and_resume_returns_via_access_check():
     bundle = _approved_bundle()
     item = _find(bundle, 'item', 'item.quantitative')
     rubric = _find(bundle, 'rubric', 'rubric.quantitative')
@@ -115,8 +121,18 @@ def test_revoked_consent_mid_session_blocks_without_mutating_evidence():
     assert res.session.emitted_events == ()
     assert res.grade_decision is None
 
+    # Cannot resume while consent is still revoked
+    with pytest.raises(TutorError, match='^access_denied$'):
+        step_session(res.session, _cmd(res.session, 'cmd.res-bad', 'resume_session', sec=4), scope=revoked)
 
-def test_model_actor_cross_learner_and_stale_or_cancelled_turns_fail_closed():
+    # Restored consent resumes cleanly via access_check -> select
+    s_ac = step_session(res.session, _cmd(res.session, 'cmd.res-ok', 'resume_session', sec=5), scope=scope).session
+    assert s_ac.state == 'access_check'
+    s_sel = step_session(s_ac, _cmd(s_ac, 'cmd.a2', 'check_access', sec=6), scope=scope).session
+    assert s_sel.state == 'select'
+
+
+def test_model_actor_role_spoofing_cross_learner_and_stale_or_cancelled_turns_fail_closed():
     bundle = _approved_bundle()
     item = _find(bundle, 'item', 'item.quantitative')
     rubric = _find(bundle, 'rubric', 'rubric.quantitative')
@@ -124,9 +140,11 @@ def test_model_actor_cross_learner_and_stale_or_cancelled_turns_fail_closed():
 
     s = create_session(session_id='sess.guard', scope=scope, objective_id='objective.quantitative', objective_version=1)
 
-    # Model actor rejected
+    # Model actor or mismatched command.actor_role != scope.role rejected
     with pytest.raises(TutorError, match='^invalid_actor$'):
         step_session(s, _cmd(s, 'cmd.m1', 'check_access', actor_role='model'), scope=scope)
+    with pytest.raises(TutorError, match='^invalid_actor$'):
+        step_session(s, _cmd(s, 'cmd.spoof', 'check_access', actor_role='teacher'), scope=scope)
 
     # Cross-learner scope mismatch rejected
     with pytest.raises(TutorError, match='^scope_mismatch$'):
@@ -147,13 +165,32 @@ def test_model_actor_cross_learner_and_stale_or_cancelled_turns_fail_closed():
     with pytest.raises(TutorError, match='^session_mismatch$'):
         step_session(s, bad_sess_cmd, scope=scope)
 
+    # Empty string target_state fails closed instead of falling back
+    with pytest.raises(TutorError, match='^illegal_transition$'):
+        step_session(s, _cmd(s, 'cmd.empty-t', 'check_access', target_state=''), scope=scope)
+
     s = step_session(s, _cmd(s, 'cmd.a1', 'check_access', sec=1), scope=scope).session
+
+    # check_access is ONLY allowed from access_check
+    with pytest.raises(TutorError, match='^illegal_transition$'):
+        step_session(s, _cmd(s, 'cmd.jump', 'check_access', sec=2), scope=scope)
+
+    # Out-of-edition / out-of-objective / cross-learner private / draft items rejected on start_practice
+    other_item = _find(bundle, 'item', 'item.science')
+    with pytest.raises(TutorError, match='^item_out_of_scope$'):
+        step_session(s, _cmd(s, 'cmd.bad-ed', 'start_practice', sec=2, item=other_item), scope=scope)
+    priv_other_item = _find(bundle, 'item', 'item.language.private')
+    with pytest.raises(TutorError, match='^item_out_of_scope$'):
+        step_session(s, _cmd(s, 'cmd.bad-priv', 'start_practice', sec=2, item=priv_other_item), scope=scope)
+    draft_item = dict(item, status='draft')
+    with pytest.raises(TutorError, match='^invalid_item$'):
+        step_session(s, _cmd(s, 'cmd.bad-draft', 'start_practice', sec=2, item=draft_item), scope=scope)
+
     s = step_session(s, _cmd(s, 'cmd.p1', 'start_practice', sec=2, item=item), scope=scope).session
 
     # Wrong item_id cannot score active practice item
-    other_item = _find(bundle, 'item', 'item.science')
     other_rubric = _find(bundle, 'rubric', 'rubric.science')
-    with pytest.raises(TutorError, match='^item_mismatch$'):
+    with pytest.raises(TutorError, match='^item_out_of_scope$'):
         step_session(
             s,
             _cmd(s, 'cmd.wi', 'submit_answer', sec=3, item=other_item, rubric=other_rubric, submission='physical'),
@@ -175,14 +212,22 @@ def test_model_actor_cross_learner_and_stale_or_cancelled_turns_fail_closed():
     with pytest.raises(TutorError, match='^stale_turn$'):
         step_session(s, stale_cmd, scope=scope)
 
-    # Pause records cancelled turn_id; late submission with that turn_id is rejected
+    # Pause records cancelled turn_id; late submission with that turn_id is rejected; resume works
     s_paused = step_session(s, _cmd(s, 'cmd.pause', 'pause_session', turn_id='turn.inflight', sec=5), scope=scope).session
     assert s_paused.state == 'paused'
     with pytest.raises(TutorError, match='^turn_cancelled$'):
-        step_session(s_paused, _cmd(s_paused, 'cmd.late', 'check_access', turn_id='turn.inflight', sec=6), scope=scope)
+        step_session(s_paused, _cmd(s_paused, 'cmd.late', 'resume_session', turn_id='turn.inflight', sec=6), scope=scope)
+    s_resumed = step_session(s_paused, _cmd(s_paused, 'cmd.res', 'resume_session', sec=7), scope=scope).session
+    assert s_resumed.state == 'access_check'
+
+    # Cancel turn transitions to cancelled and can resume cleanly via access_check
+    s_canc = step_session(s_resumed, _cmd(s_resumed, 'cmd.canc', 'cancel_turn', turn_id='turn.c1', sec=8), scope=scope).session
+    assert s_canc.state == 'cancelled'
+    s_canc_res = step_session(s_canc, _cmd(s_canc, 'cmd.canc-res', 'resume_session', sec=9), scope=scope).session
+    assert s_canc_res.state == 'access_check'
 
 
-def test_idempotent_command_replay_and_conflicting_command_rejection():
+def test_idempotent_command_replay_rechecks_live_scope_and_rejects_conflicts():
     scope = _scope()
     s0 = create_session(session_id='sess.idem', scope=scope, objective_id='objective.quantitative', objective_version=1)
     c1 = _cmd(s0, 'cmd.first', 'check_access', sec=1)
@@ -190,10 +235,14 @@ def test_idempotent_command_replay_and_conflicting_command_rejection():
     assert r1.replayed is False
     assert r1.session.state == 'select'
 
-    # Replaying exact same command_key returns replayed=True without mutating state
+    # Replaying exact same command_key returns replayed=True when live scope holds
     r1_dup = step_session(r1.session, c1, scope=scope)
     assert r1_dup.replayed is True
     assert r1_dup.session == r1.session
+
+    # Replaying when live consent was revoked fails closed
+    with pytest.raises(TutorError, match='^access_denied$'):
+        step_session(r1.session, c1, scope=_scope(consent_valid=False))
 
     # Conflicting payload with same command_key fails closed
     c1_conflict = TutorCommand(
@@ -212,7 +261,7 @@ def test_idempotent_command_replay_and_conflicting_command_rejection():
         step_session(r1.session, c1_conflict, scope=scope)
 
 
-def test_safety_pause_requires_human_owner_and_human_reviewer_to_resume():
+def test_safety_pause_requires_human_owner_and_server_teacher_scope_to_resume():
     scope = _scope()
     s = create_session(session_id='sess.safe', scope=scope, objective_id='objective.quantitative', objective_version=1)
     s = step_session(s, _cmd(s, 'cmd.a1', 'check_access', sec=1), scope=scope).session
@@ -230,23 +279,25 @@ def test_safety_pause_requires_human_owner_and_human_reviewer_to_resume():
     assert s.state == 'safety_pause'
     assert s.safety_owner_ref == 'reviewer.safety-lead'
 
-    # Learner cannot self-resume from safety_pause
+    # Learner scope cannot self-resume even if claiming actor_role='teacher' or 'learner'
     with pytest.raises(TutorError, match='^safety_resume_denied$'):
-        step_session(s, _cmd(s, 'cmd.res-bad', 'resume_from_safety', sec=3, actor_role='learner', reviewer_ref='teacher.amina'), scope=scope)
+        step_session(s, _cmd(s, 'cmd.res-bad1', 'resume_from_safety', sec=3, actor_role='learner', reviewer_ref='teacher.amina'), scope=scope)
+    with pytest.raises(TutorError, match='^invalid_actor$'):
+        step_session(s, _cmd(s, 'cmd.res-bad2', 'resume_from_safety', sec=3, actor_role='teacher', reviewer_ref='teacher.amina'), scope=scope)
 
-    # Reviewer with human ref resumes cleanly
+    # Server-derived teacher scope with human ref resumes cleanly
     s = step_session(
         s,
-        _cmd(s, 'cmd.res-ok', 'resume_from_safety', sec=4, actor_role='reviewer', reviewer_ref='reviewer.safety-lead', target_state='select'),
-        scope=scope,
+        _cmd(s, 'cmd.res-ok', 'resume_from_safety', sec=4, actor_role='teacher', reviewer_ref='teacher.safety-lead', target_state='select'),
+        scope=_teacher_scope(),
     ).session
     assert s.state == 'select'
 
 
-# --- 2. Hint ladder, reveal guard, grounded retrieval, and end-to-end ledger integration ---
+# --- 2. Hint ladder, reveal anti-gaming, diagnose, guided/prerequisite, and E2E ledger ---
 
 
-def test_hint_ends_independence_and_cannot_promote_mastery_in_ledger():
+def test_hint_and_reveal_anti_gaming_cannot_reset_to_independent_mastery():
     bundle = _approved_bundle()
     item = _find(bundle, 'item', 'item.quantitative')
     rubric = _find(bundle, 'rubric', 'rubric.quantitative')
@@ -254,30 +305,46 @@ def test_hint_ends_independence_and_cannot_promote_mastery_in_ledger():
 
     s = create_session(session_id='sess.hint', scope=scope, objective_id='objective.quantitative', objective_version=1)
     s = step_session(s, _cmd(s, 'cmd.a1', 'check_access', sec=1), scope=scope).session
-    s = step_session(s, _cmd(s, 'cmd.p1', 'start_practice', sec=2, item=item), scope=scope).session
+    # Entering guided without an active item cannot request hint or reveal answer
+    s_ex = step_session(s, _cmd(s, 'cmd.ex', 'select_explain', sec=2, query='تساوي الطرفين'), scope=scope, bundle=bundle).session
+    s_gd = step_session(s_ex, _cmd(s_ex, 'cmd.gd', 'start_guided', sec=3), scope=scope).session
+    with pytest.raises(TutorError, match='^no_active_item$'):
+        step_session(s_gd, _cmd(s_gd, 'cmd.h-none', 'request_hint', sec=4), scope=scope)
+    with pytest.raises(TutorError, match='^no_active_item$'):
+        step_session(s_gd, _cmd(s_gd, 'cmd.r-none', 'reveal_worked_answer', sec=4), scope=scope)
+
+    # Prerequisite detour works cleanly
+    s_pre = step_session(s_gd, _cmd(s_gd, 'cmd.pre', 'start_prerequisite', sec=5), scope=scope).session
+    assert s_pre.state == 'prerequisite'
+
+    s = step_session(s_pre, _cmd(s_pre, 'cmd.p1', 'start_practice', sec=6, item=item), scope=scope).session
 
     # Cannot reveal worked answer directly in independent practice
     with pytest.raises(TutorError, match='^illegal_transition$'):
-        step_session(s, _cmd(s, 'cmd.rev-bad', 'reveal_worked_answer', sec=3), scope=scope)
+        step_session(s, _cmd(s, 'cmd.rev-bad', 'reveal_worked_answer', sec=7), scope=scope)
 
     # Request up to MAX_HINTS_PER_ITEM hints; 4th hint rejected
     for i in range(MAX_HINTS_PER_ITEM):
-        s = step_session(s, _cmd(s, f'cmd.h{i}', 'request_hint', sec=4 + i), scope=scope).session
+        s = step_session(s, _cmd(s, f'cmd.h{i}', 'request_hint', sec=8 + i), scope=scope).session
         assert s.state == 'guided'
         assert s.active_attempt_hints == i + 1
 
     with pytest.raises(TutorError, match='^hint_limit_reached$'):
-        step_session(s, _cmd(s, 'cmd.h-over', 'request_hint', sec=10), scope=scope)
+        step_session(s, _cmd(s, 'cmd.h-over', 'request_hint', sec=12), scope=scope)
 
-    # Submitting correct answer after hints emits 'assisted' evidence -> ledger stays unassessed
+    # Reveal worked answer in guided mode
+    s = step_session(s, _cmd(s, 'cmd.rev-ok', 'reveal_worked_answer', sec=13), scope=scope).session
+    assert s.active_answer_revealed is True
+
+    # Anti-gaming: restarting practice on the SAME exposed item cannot earn 'independent' evidence!
+    s_retry = step_session(s, _cmd(s, 'cmd.p2', 'start_practice', sec=14, item=item), scope=scope).session
     res = step_session(
-        s,
-        _cmd(s, 'cmd.sub', 'submit_answer', sec=11, item=item, rubric=rubric, submission='7'),
+        s_retry,
+        _cmd(s_retry, 'cmd.sub', 'submit_answer', sec=15, item=item, rubric=rubric, submission='7'),
         scope=scope,
     )
     assert res.session.state == 'reflect'
-    assert res.emitted_event.evidence_class == 'assisted'
-    assert res.emitted_event.hints_used == MAX_HINTS_PER_ITEM
+    assert res.emitted_event.evidence_class == 'exposed'
 
     proj = project_objective_mastery(
         res.session.emitted_events,
@@ -286,16 +353,26 @@ def test_hint_ends_independence_and_cannot_promote_mastery_in_ledger():
         objective_version=1,
     )
     assert proj.status == 'unassessed'
-    assert proj.assisted_count == 1
+    assert proj.exposed_count == 1
     assert proj.independent_count == 0
 
 
-def test_grounded_explain_abstention_and_independent_practice_end_to_end():
+def test_diagnose_grounded_explain_abstention_and_independent_practice_end_to_end():
     bundle = _approved_bundle()
     item = _find(bundle, 'item', 'item.quantitative')
     rubric = _find(bundle, 'rubric', 'rubric.quantitative')
     scope = _scope()
 
+    # Diagnostic entry -> submit diagnostic answer -> select
+    s_diag = create_session(session_id='sess.diag', scope=scope, objective_id='objective.quantitative', objective_version=1)
+    s_diag = step_session(s_diag, _cmd(s_diag, 'cmd.d1', 'check_access', sec=1, target_state='diagnose', item=item), scope=scope).session
+    assert s_diag.state == 'diagnose'
+    r_diag = step_session(s_diag, _cmd(s_diag, 'cmd.d2', 'submit_answer', sec=2, item=item, rubric=rubric, submission='5'), scope=scope)
+    assert r_diag.session.state == 'select'
+    assert r_diag.emitted_event.evidence_class == 'independent'
+    assert r_diag.emitted_event.outcome == 'incorrect'
+
+    # Fresh session for explain -> practice -> reflect -> schedule -> done
     s = create_session(session_id='sess.e2e', scope=scope, objective_id='objective.quantitative', objective_version=1)
     s = step_session(s, _cmd(s, 'cmd.a1', 'check_access', sec=1), scope=scope).session
 
@@ -335,7 +412,7 @@ def test_grounded_explain_abstention_and_independent_practice_end_to_end():
     assert proj.independent_correct_families == (item['family_id'],)
 
 
-def test_uncertain_or_model_proposed_submission_routes_to_review_pending():
+def test_model_proposed_submission_routes_to_review_pending_and_requires_teacher_adjudication():
     bundle = _approved_bundle()
     item = _find(bundle, 'item', 'item.quantitative')
     rubric = _find(bundle, 'rubric', 'rubric.quantitative')
@@ -353,6 +430,20 @@ def test_uncertain_or_model_proposed_submission_routes_to_review_pending():
     assert res.session.state == 'review_pending'
     assert res.grade_decision.outcome == 'pending_review'
     assert res.emitted_event.evidence_class == 'ambiguous'
+
+    # Learner cannot escape review_pending via check_access or adjudicate_review
+    with pytest.raises(TutorError, match='^illegal_transition$'):
+        step_session(res.session, _cmd(res.session, 'cmd.esc1', 'check_access', sec=4), scope=scope)
+    with pytest.raises(TutorError, match='^adjudication_denied$'):
+        step_session(res.session, _cmd(res.session, 'cmd.esc2', 'adjudicate_review', sec=4, reviewer_ref='teacher.amina'), scope=scope)
+
+    # Server-derived teacher scope adjudicates cleanly
+    s_done_rev = step_session(
+        res.session,
+        _cmd(res.session, 'cmd.adj', 'adjudicate_review', sec=5, actor_role='teacher', reviewer_ref='teacher.amina', target_state='select'),
+        scope=_teacher_scope(),
+    ).session
+    assert s_done_rev.state == 'select'
 
     proj = project_objective_mastery(
         res.session.emitted_events,
