@@ -187,3 +187,21 @@ test('authored content stays frozen and each question has a unique equal-denomin
     assert.equal(sums.length, 1)
   }
 })
+
+test('feedback shows the submitted answer and only the true sum is marked positive', () => {
+  const guided = atGuided()
+  assert.equal(getDemoView(guided).chosen, undefined)
+  for (const question of [lesson.guided, lesson.practice]) {
+    const { left, right } = question.equation
+    for (const choice of question.choices) {
+      const atQuestion = question === lesson.guided ? guided : advance(choose(guided, 'guided-total'))
+      assert.equal(getDemoView(atQuestion).chosen, undefined)
+      const view = getDemoView(choose(atQuestion, choice.id))
+      assert.deepEqual(view.chosen, choice.fraction)
+      const isSum = choice.fraction.denominator === left.denominator
+        && choice.fraction.numerator === left.numerator + right.numerator
+      assert.equal(view.feedback?.tone, isSum ? 'positive' : 'next-step')
+      if (!isSum) assert.doesNotMatch(view.feedback?.title ?? '', /صح|مظبوط/)
+    }
+  }
+})

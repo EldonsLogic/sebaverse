@@ -30,6 +30,7 @@ type DemoView = {
   hintLabel?: string
   hint?: string
   feedback?: DemoFeedback
+  chosen?: DemoFraction
   summary?: { guided: string; practice: string; note: string }
 }
 
@@ -95,7 +96,8 @@ export function getDemoView(state: DemoState): DemoView {
     case 'guided-feedback': {
       const { title, text, equation, nextLabel } = lesson.guided
       const feedback = state.guidedChoice === null ? undefined : lesson.guided.feedback[state.guidedChoice]
-      return { title, text, equation, primaryLabel: nextLabel, feedback }
+      const chosen = lesson.guided.choices.find(({ id }) => id === state.guidedChoice)?.fraction
+      return { title, text, equation, primaryLabel: nextLabel, feedback, chosen }
     }
     case 'practice': {
       const { title, text, equation, choices, primaryLabel } = lesson.practice
@@ -104,7 +106,8 @@ export function getDemoView(state: DemoState): DemoView {
     case 'practice-feedback': {
       const { title, text, equation, nextLabel } = lesson.practice
       const feedback = state.practiceChoice === null ? undefined : lesson.practice.feedback[state.practiceChoice]
-      return { title, text, equation, primaryLabel: nextLabel, feedback }
+      const chosen = lesson.practice.choices.find(({ id }) => id === state.practiceChoice)?.fraction
+      return { title, text, equation, primaryLabel: nextLabel, feedback, chosen }
     }
     case 'summary': {
       const { title, text, resetLabel, guidedWithHint, guidedWithoutHint, practice, note } = lesson.summary

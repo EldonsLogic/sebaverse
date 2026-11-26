@@ -39,7 +39,7 @@ function Equation({ left, right, result }: EquationData) {
       <span className="demo-sr-only">
         {result ? messages.equals(operation, fractionText(result)) : messages.unknownResult(operation)}
       </span>
-      <bdi dir="ltr" className="demo-equation__parts" aria-hidden="true">
+      <bdi dir="rtl" className="demo-equation__parts" aria-hidden="true">
         <StackedFraction value={left} />
         <span>{messages.plusSymbol}</span>
         <StackedFraction value={right} />
@@ -52,7 +52,7 @@ function Equation({ left, right, result }: EquationData) {
 
 function FractionBar({ total, blue, orange }: { total: number; blue: number; orange: number }) {
   return (
-    <div className="fraction-bar" dir="ltr" aria-hidden="true">
+    <div className="fraction-bar" dir="rtl" aria-hidden="true">
       {Array.from({ length: total }, (_, index) => (
         <span
           key={index}
@@ -210,6 +210,7 @@ export function Demo() {
   const explainVisually = state.step === 'explanation' && state.startingPoint === 'visual';
   const aside = <StudyAside stage={stage} equation={view.equation} feedback={Boolean(view.feedback)} />;
   const title = state.step === 'intro' ? lesson.title : view.feedback?.title ?? view.title;
+  const outcome = view.feedback && (view.feedback.tone === 'positive' ? messages.outcomeCorrect : messages.outcomeNotYet);
 
   useEffect(() => {
     if (previousStep.current !== state.step) {
@@ -238,7 +239,10 @@ export function Demo() {
           <article className="demo-panel" aria-labelledby="demo-heading">
             <header>
               {stage !== 'intro' && <p className="demo-topic">{lesson.title}</p>}
-              <h1 id="demo-heading" ref={heading} tabIndex={-1}>{title}</h1>
+              <h1 id="demo-heading" ref={heading} tabIndex={-1}>
+                {outcome && <span className="demo-outcome" data-tone={view.feedback?.tone} data-demo-outcome>{outcome}</span>}
+                {title}
+              </h1>
               {!view.feedback && <p className="demo-lede">{view.text}</p>}
             </header>
 
@@ -287,6 +291,14 @@ export function Demo() {
                   </div>
                 )}
               </ChoiceForm>
+            )}
+
+            {view.chosen && (
+              <p className="demo-chosen" data-demo-chosen>
+                <span aria-hidden="true">{messages.yourChoice}</span>
+                <span aria-hidden="true"><StackedFraction value={view.chosen} /></span>
+                <span className="demo-sr-only">{messages.yourChoiceSpoken(fractionText(view.chosen))}</span>
+              </p>
             )}
 
             {view.feedback && (

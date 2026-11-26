@@ -60,7 +60,7 @@ export const lesson = freezeContent({
     nextLabel: 'جرّب سؤال جديد',
     feedback: {
       'guided-size': {
-        title: 'جمعت عدد القطع',
+        title: 'المقام اتغيّر',
         text: 'البسط ٥ مظبوط. المقام ١٤ هيغيّر حجم القطعة. القطع كلها أسباع، فخلّي المقام ٧.',
         tone: 'next-step',
       },
@@ -70,7 +70,7 @@ export const lesson = freezeContent({
         tone: 'positive',
       },
       'guided-second': {
-        title: 'حجم القطعة مظبوط',
+        title: 'ناقص قطع من المجموعة الأولى',
         text: 'المقام ٧ صح. البسط ٣ بيعدّ المجموعة التانية بس. ضيف السُبعين اللي بدأت بيهم.',
         tone: 'next-step',
       },
@@ -89,12 +89,12 @@ export const lesson = freezeContent({
     nextLabel: 'شوف الملخّص',
     feedback: {
       'practice-first': {
-        title: 'حسبت المجموعة الأولى',
-        text: 'التلات تمنات موجودين في البداية. عدّ معاهم التُمن اللي اتضاف، وسيب المقام ٨.',
+        title: 'ناقص التُمن اللي اتضاف',
+        text: 'التلات أثمان موجودين في البداية. عدّ معاهم التُمن اللي اتضاف، وسيب المقام ٨.',
         tone: 'next-step',
       },
       'practice-size': {
-        title: 'عدد القطع صح',
+        title: 'المقام اتغيّر',
         text: '٣ زائد ١ يساوي ٤. لو كتبت ١٦ هيتغيّر حجم القطعة. خليك على ٨ لأن القطع كلها أثمان.',
         tone: 'next-step',
       },

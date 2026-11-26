@@ -94,3 +94,7 @@ Waiting on the founder: either (a) one correction round for should-fix 1–3 in 
 ## Correction round 1 of 2 — started 26 November (founder: "Fix them first")
 
 Founder chose to fix should-fix 1–3 before a PR. Root (Claude) owns `web/src/demo/{lesson.ts,Demo.tsx,state.ts,state.test.ts,demo.css,messages.ts}` for this round. Plan: (2) feedback states the outcome in text, not only colour; (1) equations and bars read right to left; (3) chosen answer shown on feedback. Then rerun model tests, typecheck, build, isolation, bundle, strict browser smoke, and a fresh independent re-review. Until results are appended below, the accepted-with-notes verdict applies only to commit `46f8593` and any later source edits are UNVERIFIED.
+
+### Correction round 1 — source edited (UNVERIFIED in browser at this commit)
+
+Edited: `lesson.ts` (four wrong-answer headings no longer say correct; "أثمان" spelling), `messages.ts` (outcome and "you chose" strings; summary label now matches stage "خطوة مع بعض"), `state.ts` (feedback view carries `chosen` fraction), `Demo.tsx` (outcome label inside the focused h1; "اخترت" line with the picked fraction, not written into the equation; equation and fraction bars `dir="rtl"`), `demo.css` (outcome and chosen styles), `state.test.ts` (new test 10). Model tests: tsc exit 0, 10/10 pass. Still to run: typecheck, default build, isolation, bundle, strict browser smoke, screenshots, independent re-review.

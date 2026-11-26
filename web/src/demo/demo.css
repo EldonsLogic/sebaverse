@@ -302,6 +302,32 @@ button, label, a, summary { touch-action: manipulation; }
 
 .demo-feedback[data-tone='positive'] { color: var(--demo-green); background: var(--demo-green-tint); }
 
+.demo-outcome {
+  display: block;
+  inline-size: fit-content;
+  margin-block-end: var(--space-2);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-control);
+  font-family: Rubik, Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 650;
+  line-height: 1.5;
+  background: var(--demo-warning-tint);
+  color: var(--demo-warning);
+}
+
+.demo-outcome[data-tone='positive'] { color: var(--demo-green); background: var(--demo-green-tint); }
+
+.demo-chosen {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  color: var(--demo-ink);
+  font-weight: 600;
+}
+
+.demo-chosen .stacked-fraction { color: var(--demo-blue-deep); font-size: var(--text-subheading); }
+
 .demo-equation {
   display: flex;
   justify-content: center;
