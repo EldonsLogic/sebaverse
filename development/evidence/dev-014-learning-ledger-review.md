@@ -68,3 +68,34 @@ None observed for answer-key leakage, cross-learner/cross-tenant scope leakage, 
 3. `make foundation-check`: **PASS** (exit `0`) — `tools/model_economics.py`, `tools/validate_project.py` (PASS, 0 errors, 0 warnings), `tools/check_foundation.py` (PASS), and `python3 -m unittest discover -s tools/tests -p 'test_*.py'` (`179` tests, OK), re-run after writing this review file.
 4. `git status --short`: **PASS** — only `?? development/evidence/dev-014-learning-ledger-review.md` untracked; no source, test, Makefile, or handoff files modified.
 - **Not run:** 37 DEV-010 PostgreSQL integration cases (`postgres_integration`, held on AUTH-014), web/demo test suites (no web/demo changes), and live DB/provider/UI execution (outside AUTH-019 scope).
+
+## Re-review, correction round 1 — 26 November 2026
+
+- **Commit SHA reviewed:** `de60eb18dc7121e30f01c1e80f32518ac1c2403d` (diff `8bd154d..de60eb1`)
+- **Verdict:** `ACCEPTED WITH NOTES`
+
+### Resolution check against round 1 findings
+
+- **Should-fix 1 (`external_observation` / `exposed` / `assisted` promotion via corrections) — RESOLVED:** `backend/modules/learning/ledger.py:30,360-377` restricts `new_evidence_class == 'independent'` in both `override_outcome` and `reclassify_evidence` to `orig.evidence_class in _PROMOTABLE_TO_INDEPENDENT` (`{'independent', 'ambiguous'}`), alongside `hints_used == 0`, `not answer_revealed`, and resulting `outcome != 'pending_review'`. Verified by `backend/tests/learning/test_learning_ledger.py:447-455` across `('assisted', 2)`, `('assisted', 0)`, `('exposed', 0)`, and `('external_observation', 0)` for both correction actions.
+- **Should-fix 2 (`override_outcome` pairing `pending_review` with `independent`) — RESOLVED:** `backend/modules/learning/ledger.py:232-233,354-358` rejects `override_outcome` when `new_outcome == 'pending_review'` and `new_evidence_class not in (None, 'ambiguous')` in both `validate_event` and replay, forcing `target['evidence_class'] = 'ambiguous'`. Covered by `backend/tests/learning/test_learning_ledger.py:269-272`.
+- **Should-fix 3 (`_FORBIDDEN_MODEL_PREFIXES` bypasses) — RESOLVED:** `backend/modules/learning/ledger.py:29,220-221` replaces `_FORBIDDEN_MODEL_PREFIXES` with `_FORBIDDEN_MODEL_TOKENS = frozenset({'model', 'llm', 'ai'})` and splits `adjudicator_ref` on `[._-]` (`maxsplit=1`). Verified by `backend/tests/learning/test_learning_ledger.py:266-268` (`model.gpt`, `model_1`, `llm_grader`, `ai.gpt`, `ai-assistant`).
+- **Round 1 notes also addressed:**
+  - `backend/modules/assessment/grader.py:20,133-144,191-192`: `_NUMERIC_LITERAL` restricts `\d` to ASCII `[0-9]` after `_NUMERIC_TRANS`; `choice.v1` and `numeric.v1` rubric/item consistency checks run before `human-review.v1` / `model_proposal` / `uncertain` holds; unitless `numeric.v1` rejects non-empty `submitted_unit` (`test_learning_ledger.py:202`).
+  - `backend/modules/learning/ledger.py:185-186`: `validate_event` rejects `recorded_at < occurred_at` (`test_learning_ledger.py:274-296`).
+  - `backend/tests/learning/test_learning_ledger.py:166-176,299-315,371-379,415-417`: adds negative/positive coverage for `draft`/`withdrawn` rubrics, mismatched item/rubric `audience`, `role`/`purpose` checks (`teacher_reporting`, `guardian_reporting`), `edition_version`/`objective_id` isolation, pre-delay and same-family non-retention checks, and distinct-`event_id` `idempotency_key` collisions.
+
+### Remaining non-blocking notes (`file:line`)
+
+1. `backend/modules/learning/ledger.py:188-237,346-377`: `validate_event` still permits unused attempt/correction fields on the opposite event kind and `corr.occurred_at < orig.occurred_at` (all fields remain covered by `_canonical_event_digest`, and replay order is deterministic).
+2. `backend/modules/learning/ledger.py:401-403,420-422`: `external_observation` and invalidated attempts do not add `(item_id, item_version)` to `exposed_items` (only relevant if an internal item ID is logged externally or a non-defective attempt is invalidated after exposure).
+3. `backend/modules/learning/ledger.py:455,461-487`: baseline projection choices unchanged — single independent failure (`needs_support`) sets `uncertainty='low'` with immediate `review_due_at`, `recent_failures` accumulates without decay, and unresolved `ambiguous` sets `uncertainty='pending_review'` without changing `status` or `review_due_at`.
+4. `backend/tests/learning/test_learning_ledger.py:299-315` & `backend/modules/assessment/grader.py:141-144,182-183`: `edition_id` and `objective_version` mismatches are not separately parameterized in tests (covered by the same filter at `ledger.py:302,305`); `numeric.v1` calls `_parse_finite_decimal` twice on `config['expected']`/`config['tolerance']`.
+5. **Scope discipline:** AUTH-019 remains a bounded DB-free, synthetic-fixture sub-slice with `is_calibrated=False`; full DEV-014 (`DEV-011`, `DEV-013`), AUTH-014 supplier hold, and F3/F4 phase exits remain unchanged.
+
+### Exact command results observed on `de60eb1`
+
+- `make test-learning-ledger-preflight`: **PASS** (exit `0`) — `pytest backend/tests/learning/test_learning_ledger.py -q` passed `18 passed in 0.17s`.
+- `make backend-check`: **PASS** (exit `0`) — `pytest backend/tests -q -k 'not postgres_integration'` passed `763 passed, 1 deselected in 6.96s`; `backend/manage.py check` reported `System check identified no issues (0 silenced)`.
+- `make foundation-check`: **PASS** (exit `0`) — `tools/model_economics.py`, `tools/validate_project.py` (PASS, 0 errors, 0 warnings), `tools/check_foundation.py` (PASS), and `python3 -m unittest discover -s tools/tests -p 'test_*.py'` (`179` tests, OK), re-run after appending this re-review section.
+- `git status --short`: **PASS** — only `M development/evidence/dev-014-learning-ledger-review.md` modified; no source, test, Makefile, or handoff files touched.
+- **Not run:** 37 DEV-010 PostgreSQL integration cases (`postgres_integration`, held on AUTH-014), web/demo test suites, and live DB/provider/UI execution.
