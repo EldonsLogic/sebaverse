@@ -17,3 +17,5 @@ This log records milestones, not a transcript. CURRENT-STATE.md is the short cur
 - 26 November 2026 — Traced main's failing `skeleton` CI to the AUTH-014 hold. One read-only supplier check: postgres:17-alpine rebuilt but amd64 still has OpenSSL 3.5.9-r0, so the hold stays. No other eligible work within current authority.
 
 - 26 November 2026 — PR 5 merged into main (`6257945`) on founder approval: local teaching demo, Node 24.22.3 pin, Athar reference review and handover records. Post-merge records on `claude/post-merge-records-2026-11-26`.
+
+- 26 November 2026 — Demo correction round 2 (final under AUTH-017): screen-reader pause after outcome, font tokens, outcome-aware side panel. Model 10/10, typecheck/build/isolation, bundle 76,138, strict browser 29/29; independent re-review ACCEPTED WITH NOTES.

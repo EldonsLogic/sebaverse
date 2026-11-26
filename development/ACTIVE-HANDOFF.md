@@ -154,3 +154,11 @@ DEV-010 is blocked (AUTH-014), so the only remaining authorized implementation w
 ### Correction round 2 — browser results (source `4945489`)
 
 Strict `demo-smoke.mjs` 29/29 (`local-demo-qa/browser-strict-round2-2026-11-26.json`). Root inspected 360 guided-feedback (correct): positive aside copy shown, no overflow. Demo server PID 52574 on 127.0.0.1:5174, task-owned; stop after re-review. Next: independent re-review appends "Re-review, correction round 2".
+
+### Correction round 2 — independent re-review complete
+
+Reviewer appended "Re-review, correction round 2 — 26 November 2026": **ACCEPTED WITH NOTES**, all three round-1 notes fixed, no regressions, no blockers; model 10/10 and six browser runs at 360/1440 with clean storage/network/console. Remaining notes: h1/h2 font family not tokenised (`demo.css:74`), same side-panel background for right and wrong (`demo.css:397`), plus the earlier retry/marker/font notes. Demo server stopped; port 5174 free. AUTH-017 correction budget is now used up.
+
+## Exact next step (after round 2)
+
+PR from `claude/demo-correction-round-2` to main is opened next; merge needs the founder's word. After that, development waits on the AUTH-014 supplier fix (amd64 OpenSSL 3.5.9-r1) or a founder decision.
