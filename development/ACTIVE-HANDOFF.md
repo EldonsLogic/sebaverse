@@ -90,3 +90,7 @@ Demo server (PID 44499) stopped by root; port 5174 free. Source unchanged since 
 ## Exact next step (26 November, end of Claude session)
 
 Waiting on the founder: either (a) one correction round for should-fix 1–3 in `web/src/demo/{lesson.ts,Demo.tsx,state.ts,demo.css}`, then rerun model tests, typecheck, default build, isolation, bundle, `tools/browser/demo-smoke.mjs` and a fresh independent re-review; or (b) open a PR from `codex/handoff-recovery-2026-11-26` to main with the should-fix items listed as known issues. Never merge without the founder's word for that PR.
+
+## Correction round 1 of 2 — started 26 November (founder: "Fix them first")
+
+Founder chose to fix should-fix 1–3 before a PR. Root (Claude) owns `web/src/demo/{lesson.ts,Demo.tsx,state.ts,state.test.ts,demo.css,messages.ts}` for this round. Plan: (2) feedback states the outcome in text, not only colour; (1) equations and bars read right to left; (3) chosen answer shown on feedback. Then rerun model tests, typecheck, build, isolation, bundle, strict browser smoke, and a fresh independent re-review. Until results are appended below, the accepted-with-notes verdict applies only to commit `46f8593` and any later source edits are UNVERIFIED.
