@@ -142,3 +142,7 @@ Merged 26 November as merge commit `625794546322054499cace7867a2ea3f5d0fb836` on
 Resume from main. No eligible implementation work exists within current authority: DEV-010 is blocked on the AUTH-014 supplier wait, and DEV-011+ are gated. Recheck the supplier manually (see `evidence/auth-014-supplier-check-2026-11-26.md`) only when there is reason to expect amd64 OpenSSL 3.5.9-r1. Otherwise wait for a founder decision. The recovery branch can be deleted once this records PR merges.
 
 Founder approved merging records PR https://github.com/EldonsLogic/sebaverse/pull/6 on 26 November ("Merge PR 6"). If main lacks this line, that merge did not happen.
+
+## Correction round 2 of 2 — started 26 November (founder: "let's do the next task")
+
+DEV-010 is blocked (AUTH-014), so the only remaining authorized implementation work is the last AUTH-017 demo correction round. Branch `claude/demo-correction-round-2` from main `6ca1577`. Root (Claude) owns `web/src/demo/{Demo.tsx,messages.ts,demo.css,state.ts,state.test.ts}`. Scope: (a) audible pause between outcome and heading for screen readers; (b) outcome label uses design tokens instead of raw font values; (c) feedback side panel copy fits correct answers too. Out of scope: same-question retry (new behaviour, belongs to DEV-013/014), font subsetting. After this round no further demo corrections are authorized. Any later source edit is UNVERIFIED until results are appended below.
