@@ -110,3 +110,7 @@ Reviewer appended "Re-review, correction round 1 — 26 November 2026" to `local
 ## Exact next step (end of correction round 1)
 
 Waiting on the founder: open a PR from `codex/handoff-recovery-2026-11-26` to main listing the notes as known issues, or use the last allowed correction round on the notes (then rerun model tests, typecheck, build, isolation, bundle, `tools/browser/demo-smoke.mjs`, and re-review). Never merge without the founder's word for that PR.
+
+## PR to main — started 26 November (founder: "then shoot")
+
+Founder approved opening a PR from `codex/handoff-recovery-2026-11-26` to main with the minor notes as known issues. Merge is NOT approved; it needs the founder's word for that PR. If no PR link is recorded below, the PR was not opened.
