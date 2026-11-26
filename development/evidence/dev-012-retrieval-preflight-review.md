@@ -55,3 +55,33 @@ None observed for cross-learner data exposure, rubric leakage, or forged-citatio
 - `make foundation-check`: **PASS** (exit `0`) — `tools/model_economics.py`, `tools/validate_project.py` (PASS, 0 errors, 0 warnings), `tools/check_foundation.py` (PASS), and `python3 -m unittest discover -s tools/tests -p 'test_*.py'` (`179` tests, OK), re-run after writing this review file.
 - `git status --short`: **PASS** — only `development/evidence/dev-012-retrieval-preflight-review.md` is untracked (`??`); no source, test, Makefile, or handoff files modified.
 - **Not run:** `postgres_integration` / 37 DEV-010 PostgreSQL cases (held under AUTH-014), web/demo test suites (unrelated to backend retrieval preflight), and live pgvector/LLM retrieval (excluded from AUTH-018).
+
+## Re-review, correction round 1 — 26 November 2026
+
+- **Commit SHA reviewed:** `35f119892977da76409f4d3fdbea9807b35bf88f` (diff `98015c4..35f1198`)
+- **Verdict:** `ACCEPTED WITH NOTES`
+
+### Resolution check against round 1 findings
+
+- **Should-fix 1 (Arabic punctuation tokenization) — RESOLVED:** `backend/modules/retrieval/preflight.py:32` restricts Arabic tokens in `_TOKEN_RE` to Arabic letters (`[\u0621-\u063a\u0641-\u064a\u0671-\u06d3\u06fa-\u06ff]+|[a-zäöüß0-9]+`), excluding `،`, `؛`, and `؟`, and adds German `ä/ö/ü/ß`. Covered by `backend/tests/retrieval/test_retrieval_preflight.py:325-341` (`'تتعلمه'`, `'الثلج؟'`, `'übung straße groß'`) and `evals/retrieval/run_preflight_eval.py:77-78`.
+- **Should-fix 2 (`profile` approval enforcement) — RESOLVED:** `backend/modules/retrieval/preflight.py:307-319` validates `edition['profile']` via `SERIALIZERS['profile']`, requiring `status == 'approved'`, `_audience_allows`, and matching `edition['audience']` when non-shared. Covered by negative test at `backend/tests/retrieval/test_retrieval_preflight.py:137-140`.
+- **Should-fix 3 (bundle-wide `validate_bundle` coupling & unreachable live-rights checks) — RESOLVED:** `backend/modules/retrieval/preflight.py:207-240,284-388` replaces whole-bundle `validate_bundle` with `_index_bundle_records` (envelope + unique `(kind, id, version)` indexing) and per-record validation/live rights/expiry/hash checks scoped to the target edition, profile, collection, and each material (`continue` on ineligible materials, deduplicated `seen_materials`). Verified by `backend/tests/retrieval/test_retrieval_preflight.py:150-168,256-275` (withdrawn/expired private material no longer breaks `edition.science`).
+- **Round 1 minor notes resolved:**
+  - `preflight.py:172-190`: `_validate_now` catches `OverflowError`/`TypeError`/`ValueError`, and `_validate_scope` checks `type(role) is str` and `type(purpose) is str` (`test_retrieval_preflight.py:126-129`).
+  - `__init__.py:1-27` & `preflight.py:118,130,140,391`: `_build_cache_key` is internal; `untrusted_data` and `policy_version` use `field(default=..., init=False)`.
+  - `preflight.py:540-545`: distinguishes `'context_budget_exceeded'` from `'no_authorized_evidence'` (`test_retrieval_preflight.py:342-345`).
+  - `evals/retrieval/run_preflight_eval.py:73-85` & `test_retrieval_preflight.py:267-275`: splits eval reporting by edition/version and language tag (`de` vs `ar`), and adds `resolve_citation` negative tests for `permissions.display=False` and wrong `edition_id`/`edition_version`.
+
+### Remaining non-blocking notes (`file:line`)
+
+1. `backend/modules/retrieval/preflight.py:252-260`: multi-anchor chunking still collapses to `[content]` on `anchors[0]` whenever `len(anchors) > 1` and `\n\n` paragraph count differs from `len(anchors)` (carryover for full DEV-012 chunking).
+2. `backend/tests/retrieval/test_retrieval_preflight.py:100-109` & `evals/retrieval/run_preflight_eval.py:81-85`: `teacher` (`teacher_reporting`) and `guardian` (`guardian_reporting`/`tutoring`) scopes allowed by `policy.py` are not exercised in retrieval tests, and `language:v2:de` / `language.private:v1:de` have `0` unanswerable cases in the 8-case synthetic eval.
+3. Scope boundary unchanged: AUTH-018 remains a bounded DB-free synthetic-fixture preflight only; full DEV-012 (pgvector/hybrid indexing, 100-question PoC corpus, DEV-010/DEV-011 prerequisites, and F3 exit) stays gated.
+
+### Exact command results observed on `35f1198`
+
+- `make test-retrieval-preflight`: **PASS** (exit `0`) — `pytest backend/tests/retrieval/test_retrieval_preflight.py -q` passed `28 passed in 0.18s`; `evals/retrieval/run_preflight_eval.py` exited `0` (`recall_at_5: 1.0`, `abstention_accuracy: 1.0`, `fabricated_citations: 0`, `unauthorized_access: 0` across `language:v1:de`, `language:v2:de`, `quantitative:v1:ar`, `science:v1:ar`, `language.private:v1:de`).
+- `make backend-check`: **PASS** (exit `0`) — `745 passed, 1 deselected in 5.95s` (`-k 'not postgres_integration'`); `backend/manage.py check` reported `0` issues.
+- `make foundation-check`: **PASS** (exit `0`) — `tools/model_economics.py`, `tools/validate_project.py` (PASS, 0 errors, 0 warnings), `tools/check_foundation.py` (PASS), and `python3 -m unittest discover -s tools/tests -p 'test_*.py'` (`179` tests, OK), re-run after appending this re-review section.
+- `git status --short`: **PASS** — only `M development/evidence/dev-012-retrieval-preflight-review.md` modified; no source, test, Makefile, or handoff files touched.
+- **Not run:** `postgres_integration` / 37 DEV-010 PostgreSQL cases (held under AUTH-014), web/demo suites, and live pgvector/LLM retrieval.

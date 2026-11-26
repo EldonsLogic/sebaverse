@@ -246,3 +246,15 @@ Fixing all 3 should-fix findings and the minor notes in `backend/modules/retriev
 - `make foundation-check`: exit 0 — 179/179 unit tests passed, `validate_project.py` PASS, `model_economics.py` PASS, `check_foundation.py` PASS.
 - `python3 tools/check_dependencies.py`: exit 0, PASS; `git diff --check`: exit 0.
 - Next: independent re-review subagent appends `Re-review, correction round 1 — 26 November 2026` to `development/evidence/dev-012-retrieval-preflight-review.md`. If no re-review results follow, round 1 remains pending re-review.
+
+### Independent re-review complete — `ACCEPTED WITH NOTES` on `35f1198`
+
+Independent reviewer (`pro` subagent) appended `Re-review, correction round 1 — 26 November 2026` to `development/evidence/dev-012-retrieval-preflight-review.md`. Verdict: **ACCEPTED WITH NOTES** for the AUTH-018 bounded DB-free scope. All 3 should-fix findings and minor notes resolved with zero regressions or ACL/citation bypasses. Reviewer independently ran `make test-retrieval-preflight` (28/28 + eval pass), `make backend-check` (745 passed, 1 deselected, `manage.py check` 0 issues), and `make foundation-check` (179/179 PASS). Remaining non-blocking notes: multi-anchor `\n\n` fallback to `anchors[0]`, `teacher`/`guardian` reporting scopes untested in retrieval tests, and `0` unanswerable eval cases in `language:v2:de`/`language.private:v1:de`.
+
+## Exact next step (26 November 2026, end of AUTH-018 Antigravity session)
+
+- **Branch:** `antigravity/dev-012-retrieval-preflight-2026-11-26` (PR opened against `main` `5f81185`; do not merge without founder approval).
+- **Verified:** `make test-retrieval-preflight` (28/28 + eval PASS), `make backend-check` (745 passed, 1 deselected), `make foundation-check` (179/179 PASS), `python3 tools/check_dependencies.py` (PASS), `git diff --check` (PASS), independent review (`ACCEPTED WITH NOTES` in `development/evidence/dev-012-retrieval-preflight-review.md`).
+- **Not verified / not run:** 37 DEV-010 PostgreSQL integration cases (blocked on AUTH-014 supplier wait), web/demo suites (no web/demo edits), live pgvector/hybrid retrieval or LLM calls (out of AUTH-018 scope).
+- **Pending review / decision:** PR for AUTH-018 awaits founder merge decision. After merge, development waits on the AUTH-014 supplier update (`postgres:17-alpine` `linux/amd64` `libssl3`/`libcrypto3` `3.5.9-r1+`) or a new founder authorization.
+- **Next command:** `git status -sb && git fetch && git log --oneline -3 origin/main && python3 tools/brief.py` (after founder decides on merging the AUTH-018 PR).
