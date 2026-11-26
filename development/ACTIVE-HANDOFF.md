@@ -186,7 +186,7 @@ All checks run under qualified Node `v24.22.3` (`work/demo-toolchain/24.22.3/nod
 
 ## Exact next step (26 November 2026, end of Antigravity session)
 
-- **Branch:** `antigravity/post-pr7-options-2026-11-26` (PR opened against `main` `c51f84b`; do not merge without founder approval).
+- **Branch:** `antigravity/post-pr7-options-2026-11-26` (PR https://github.com/EldonsLogic/sebaverse/pull/8 opened against `main` `c51f84b`; verified options/records commit `4d3b244`; do not merge without founder approval).
 - **Verified:** `make foundation-check` (179/179), `python3 tools/check_dependencies.py`, `python3 tools/validate_project.py`, `python3 tools/model_economics.py`, `git diff --check`.
 - **Not verified / not run:** 37 DEV-010 PostgreSQL cases (blocked on AUTH-014), web/demo suites (unchanged), no new supplier check.
 - **Pending review / decision:** Documentation/options PR is pending founder review and merge decision; founder choice is pending on [post-pr7-options-2026-11-26.md](evidence/post-pr7-options-2026-11-26.md) (Option A wait for supplier, Option B bounded DB-free DEV-012 retrieval preflight, Option C evaluate alternative official Postgres 17 image under the same strict gate, or Option D new bounded demo slice). No implementation starts until the founder chooses or the official `postgres:17-alpine` linux/amd64 SBOM ships `libssl3`/`libcrypto3` `3.5.9-r1` or later.
