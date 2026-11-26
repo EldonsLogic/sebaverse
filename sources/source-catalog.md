@@ -94,3 +94,5 @@ Exact research files/bytes/checksums: [manifest](research-manifest.json). Suppor
 - ATHAR-001: [Pinned selective source review](../research/athar-review/README.md), commit `a2e52a22fcc9e639a08c2e2040ac58479676ee24`; 43 source files verified as data. [Manifest](../research/athar-review/source-snapshot.json) and [architecture dispositions](../architecture/athar-derived-refinements.md) distinguish observed code, reports, decisions and unknowns.
 
 - U29: [Handover-first instruction](handover-priority-instruction.md), 26 November 2026. Proactive durable checkpoints and cross-agent continuity take priority; no execution gate changes.
+
+- U30: [Offline retrieval-preflight authorization](offline-retrieval-preflight-instruction.md), 26 November 2026. Founder approves only the bounded AUTH-018 DB-free DEV-012 lexical retrieval and citation preflight sub-slice; full task/phase/runtime gates remain unchanged.
