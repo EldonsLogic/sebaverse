@@ -68,3 +68,11 @@ All under `work/demo-toolchain/24.22.3/node` (SHA-256 verified) on PATH.
 - `tools/demo/check-isolation.mjs`: default build excludes demo; script/style gzip 94,874 bytes.
 - `tools/demo/measure-bundle.mjs`: exit 0, created `work/demo-browser/bundle-report.json`; demo script/style gzip 75,787 bytes (max 200,000). Fonts still unsubsetted TTF (692,292 bytes) — known open item, not fixed.
 Next: step 3, demo server on 127.0.0.1:5174 and strict browser rerun.
+
+### Results — step 3 (Claude, 26 November, same source as `efc6a1c`, no source edits)
+
+- Demo server: qualified Node, `vite --config web/vite.demo.config.mjs --mode demonstration`; `lsof` shows it bound only on 127.0.0.1:5174. Task-owned (started this session); stop it when review ends.
+- `tools/browser/demo-smoke.mjs` (current strict 44px/contrast assertions): PASS, 29/29 (28 stage/width checks at 360/390/768/1440, 21–37 text nodes contrast-checked each, plus keyboard/reset/route isolation trace). Tracked copy: `development/evidence/local-demo-qa/browser-strict-2026-11-26.json`; bundle report copied to `bundle-report-2026-11-26.json`.
+- Guard refusal: `--host 0.0.0.0`, `--mode development`, `--port 5177` and `vite build` with the demo config all exit with "The teaching demo requires its dedicated loopback-only development invocation."; no stray listeners left.
+- Root inspected fresh screenshots 360 guided-hint, practice-feedback, summary and 1440 explanation: no overflow or clipping seen. Observation for review (not changed): equations render in left-to-right order with Eastern Arabic digits, so in RTL reading the result/`؟` comes first; Egyptian Arabic-medium textbooks usually write equations right-to-left.
+Next: step 4, independent reviewer subagent writes `development/evidence/local-teaching-demo-review.md`. Until that file exists, the demo stays pending review.
