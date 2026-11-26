@@ -128,3 +128,7 @@ Finding: the main `skeleton` failure is the known AUTH-014 hold (PostgreSQL pare
 ### Supplier check result
 
 [auth-014-supplier-check-2026-11-26.md](evidence/auth-014-supplier-check-2026-11-26.md): official `postgres:17-alpine` was rebuilt (`f9cf3e1f…`) but linux/amd64 still ships libssl3/libcrypto3 3.5.9-r0. Not a meaningful supplier update; AUTH-014 hold stays. PR 5's `skeleton` check is expected to fail for the same pre-existing reason. With DEV-010 blocked on this hold and DEV-011+ gated, no further eligible implementation work exists within current authority (consistent with the 24 November critical-path review). Waiting on founder: merge decision for PR 5; optionally a decision on how to proceed while the supplier wait continues.
+
+## Merge of PR 5 — founder approved 26 November ("Merge PR 5")
+
+Founder approved merging https://github.com/EldonsLogic/sebaverse/pull/5 into main with a merge commit (history preserved, no force). Known pre-existing failures at merge: Vercel `sebaverse-sqcg` and `skeleton` (AUTH-014 hold), both also failing on main. After the merge, post-merge records go on a separate branch and PR because agents never push to main directly. If main does not contain this note, the merge did not happen.
