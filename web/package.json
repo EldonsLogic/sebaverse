@@ -26,6 +26,8 @@
     "dev": "vite --host 127.0.0.1",
     "typecheck": "tsc --noEmit",
     "build": "vite build",
-    "preview": "vite preview --host 127.0.0.1"
+    "preview": "vite preview --host 127.0.0.1",
+    "dev:demo": "vite --config vite.demo.config.mjs --mode demonstration",
+    "check:demo-isolation": "node ../tools/demo/check-isolation.mjs"
   }
 }

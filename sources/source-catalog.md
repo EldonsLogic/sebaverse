@@ -87,3 +87,10 @@ Exact research files/bytes/checksums: [manifest](research-manifest.json). Suppor
 - EXT-AR-001 reconciliation verification: [independent disposition validation](../development/evidence/external-architecture-review-validation.md). All proposal groups retained; source/prototype claims remain distinguished from observed tests.
 
 - U26: [Offline publication-preflight authorization](offline-publication-preflight-instruction.md), 24 November 2026. Founder approves only the reviewed AUTH-016 structural sub-slice; full task/phase/runtime gates remain unchanged.
+
+- U27: [Local teaching-demo authorization](local-teaching-demo-instruction.md), 24 November 2026. AUTH-017 permits only the reviewed isolated mock and eligible local verification ahead of sequence; full production task/phase/runtime gates remain.
+
+- U28: [Athar feature/architecture review instruction](athar-review-instruction.md), 25 November 2026. Founder permits fitting conceptual architecture additions, not upstream execution or adoption.
+- ATHAR-001: [Pinned selective source review](../research/athar-review/README.md), commit `a2e52a22fcc9e639a08c2e2040ac58479676ee24`; 43 source files verified as data. [Manifest](../research/athar-review/source-snapshot.json) and [architecture dispositions](../architecture/athar-derived-refinements.md) distinguish observed code, reports, decisions and unknowns.
+
+- U29: [Handover-first instruction](handover-priority-instruction.md), 26 November 2026. Proactive durable checkpoints and cross-agent continuity take priority; no execution gate changes.

@@ -1,0 +1,208 @@
+{
+  "status": "pass",
+  "results": [
+    {
+      "label": "360-intro",
+      "problems": [],
+      "checkedText": 21,
+      "stage": "intro",
+      "focus": "BODY"
+    },
+    {
+      "label": "360-explanation",
+      "problems": [],
+      "checkedText": 34,
+      "stage": "explanation",
+      "focus": "demo-heading"
+    },
+    {
+      "label": "360-guided-hint",
+      "problems": [],
+      "checkedText": 37,
+      "stage": "guided",
+      "focus": "BUTTON"
+    },
+    {
+      "label": "360-guided-feedback",
+      "problems": [],
+      "checkedText": 27,
+      "stage": "guided-feedback",
+      "focus": "demo-heading"
+    },
+    {
+      "label": "360-practice",
+      "problems": [],
+      "checkedText": 33,
+      "stage": "practice",
+      "focus": "demo-heading"
+    },
+    {
+      "label": "360-practice-feedback",
+      "problems": [],
+      "checkedText": 25,
+      "stage": "practice-feedback",
+      "focus": "demo-heading"
+    },
+    {
+      "label": "360-summary",
+      "problems": [],
+      "checkedText": 23,
+      "stage": "summary",
+      "focus": "demo-heading"
+    },
+    {
+      "label": "390-intro",
+      "problems": [],
+      "checkedText": 21,
+      "stage": "intro",
+      "focus": "BODY"
+    },
+    {
+      "label": "390-explanation",
+      "problems": [],
+      "checkedText": 34,
+      "stage": "explanation",
+      "focus": "demo-heading"
+    },
+    {
+      "label": "390-guided-hint",
+      "problems": [],
+      "checkedText": 37,
+      "stage": "guided",
+      "focus": "BUTTON"
+    },
+    {
+      "label": "390-guided-feedback",
+      "problems": [],
+      "checkedText": 27,
+      "stage": "guided-feedback",
+      "focus": "demo-heading"
+    },
+    {
+      "label": "390-practice",
+      "problems": [],
+      "checkedText": 33,
+      "stage": "practice",
+      "focus": "demo-heading"
+    },
+    {
+      "label": "390-practice-feedback",
+      "problems": [],
+      "checkedText": 25,
+      "stage": "practice-feedback",
+      "focus": "demo-heading"
+    },
+    {
+      "label": "390-summary",
+      "problems": [],
+      "checkedText": 23,
+      "stage": "summary",
+      "focus": "demo-heading"
+    },
+    {
+      "label": "768-intro",
+      "problems": [],
+      "checkedText": 21,
+      "stage": "intro",
+      "focus": "BODY"
+    },
+    {
+      "label": "768-explanation",
+      "problems": [],
+      "checkedText": 34,
+      "stage": "explanation",
+      "focus": "demo-heading"
+    },
+    {
+      "label": "768-guided-hint",
+      "problems": [],
+      "checkedText": 37,
+      "stage": "guided",
+      "focus": "BUTTON"
+    },
+    {
+      "label": "768-guided-feedback",
+      "problems": [],
+      "checkedText": 27,
+      "stage": "guided-feedback",
+      "focus": "demo-heading"
+    },
+    {
+      "label": "768-practice",
+      "problems": [],
+      "checkedText": 33,
+      "stage": "practice",
+      "focus": "demo-heading"
+    },
+    {
+      "label": "768-practice-feedback",
+      "problems": [],
+      "checkedText": 25,
+      "stage": "practice-feedback",
+      "focus": "demo-heading"
+    },
+    {
+      "label": "768-summary",
+      "problems": [],
+      "checkedText": 23,
+      "stage": "summary",
+      "focus": "demo-heading"
+    },
+    {
+      "label": "1440-intro",
+      "problems": [],
+      "checkedText": 21,
+      "stage": "intro",
+      "focus": "BODY"
+    },
+    {
+      "label": "1440-explanation",
+      "problems": [],
+      "checkedText": 34,
+      "stage": "explanation",
+      "focus": "demo-heading"
+    },
+    {
+      "label": "1440-guided-hint",
+      "problems": [],
+      "checkedText": 37,
+      "stage": "guided",
+      "focus": "BUTTON"
+    },
+    {
+      "label": "1440-guided-feedback",
+      "problems": [],
+      "checkedText": 27,
+      "stage": "guided-feedback",
+      "focus": "demo-heading"
+    },
+    {
+      "label": "1440-practice",
+      "problems": [],
+      "checkedText": 33,
+      "stage": "practice",
+      "focus": "demo-heading"
+    },
+    {
+      "label": "1440-practice-feedback",
+      "problems": [],
+      "checkedText": 25,
+      "stage": "practice-feedback",
+      "focus": "demo-heading"
+    },
+    {
+      "label": "1440-summary",
+      "problems": [],
+      "checkedText": 23,
+      "stage": "summary",
+      "focus": "demo-heading"
+    },
+    {
+      "label": "keyboard_only_complete_reset_and_route_isolation",
+      "stage": "intro",
+      "focusVisible": true
+    }
+  ],
+  "failures": [],
+  "scope": "Targeted semantic/contrast/target/reflow/focus checks; not full WCAG or learning efficacy certification."
+}

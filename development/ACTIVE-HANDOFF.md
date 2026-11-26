@@ -1,0 +1,51 @@
+# Active cross-agent handoff
+
+26 November 2026 · integrator `/root` · canonical `/Users/eldon/Documents/Sebaverse` · origin `https://github.com/EldonsLogic/sebaverse`. **Read this with actual Git.** Last main baseline `df12e3150c545c3558799af485d44464ce747d0b`. Recovery branch: `codex/handoff-recovery-2026-11-26`. Its checkpoint is pending verification, not an accepted main release. Use actual Git/remote SHA.
+
+## Resume without losing work
+
+1. Read AGENTS.md, CURRENT-STATE.md and QUALITY-BAR.md, then inspect `git status --short`, `git log -5 --oneline`, `git branch --show-current` and the remote. Use the checkpoint branch containing this file; do not reset/stash/discard source to match main.
+2. Run `python3 tools/brief.py DEV-013`. Only its `local-teaching-demo-v1` exception is active under U27/AUTH-017. Full DEV-013/014/015 and F3/F4 transitions remain held. DEV-010 is in progress; 37 PostgreSQL cases remain NOT RUN; AUTH-014 supplier wait is unchanged.
+3. First reconcile the live dependency snapshot only for the independently reviewed Node patch and package-script changes; preserve historical receipts and all security review bindings. Inspect `tools/check_dependencies.py` before changing its evidence. Then finish the exact pending verification below. Read the immutable evidence receipts rather than rerunning all research. No upstream Athar execution or real child/provider/database use.
+
+## Work preserved on disk
+
+- **Approved demo:** `web/demo/index.html`, `web/src/demo/{Demo.tsx,main.tsx,messages.ts,demo.css,lesson.ts,state.ts,state.test.ts}`. Original Arabic fraction lesson, memory-only choices/hint/fresh practice/summary/reset. Authors released ownership; root changed footer copy. No responses, accepted grades or mastery are persisted.
+- **Integrator tooling:** `web/vite.demo.config.mjs`, scripts in `web/package.json`, `tools/browser/demo-smoke.mjs`, `tools/demo/check-isolation.mjs`, `tools/demo/measure-bundle.mjs`. New strict contrast/44px assertions and resolved-mode/host guard were edited AFTER the last browser pass; rerun before claiming final acceptance.
+- **Node security patch candidate:** `.node-version` is now `24.22.3`; live DEPENDENCIES.md and `third-party/node-runtime-24.22.3.json` describe it. Same existing component, no new dependency/global installation. Official Darwin archive was compared with the publisher checksum, and its executable passed Apple Developer ID signature verification and independently accepted for local compatibility. Current source/metadata pin edits still need final integration checks. Historical F1 receipts remain `24.22.1`; do not rewrite them or rebind old database reviews.
+- **Athar review:** `research/athar-review/`, `architecture/athar-derived-refinements.md`, appended architecture/docs/source/catalog and repository registry changes. Pin `a2e52a22fcc9e639a08c2e2040ac58479676ee24`, 43 files as data, no code/tests/packages executed. Independent acceptance is `development/evidence/athar-review-acceptance.md`. No source/content/model adopted.
+- **Authority:** U27/AUTH-017 approved the isolated mock; U28 requested Athar review; U29 requires handover first. These records and task metadata were not yet committed at initial recovery. Keep them with the matching work.
+
+## Actual evidence and its limits
+
+- Official Node candidate: `work/demo-toolchain/24.22.3/node`; version 24.22.3; binary SHA-256 `ba7073582822078d8c90bca3facacc46690bc5366fab4b815aeef9148cd6e854`. `demo-node-toolchain.md` and `demo-node-patch-review.md` distinguish the Codex variant and official artifact. No OpenPGP verification claimed. Work/ is ignored and NOT available in a fresh clone; re-provision only from the recorded official checksum/signature evidence, never assume this path exists.
+- Nine transition tests passed under official Node. Full web TypeScript check passed. Default Vite build passed, with existing upstream `use client` directive warnings. Default-build exclusion check passed; default script/style gzip was 94,874 bytes. These were before the newest host guard and strict audit assertion edits.
+- `work/demo-browser/report.json` and `work/demo-browser-independent/report.json` contain matching prior reports (the tracked copy is `development/evidence/local-demo-qa/browser-before-strict-rerun.json`). The integrator report contains the earlier passing 29-entry browser report: 28 stage/width checks plus a fully asserted keyboard/reset/isolation trace at 360/390/768/1440. No external/API requests, storage writes, cookies or browser errors were observed in those flows. Root inspected desktop explanation and mobile intro/practice screenshots. Strict 44px/contrast checks still require rerun after the last harness edit.
+- Independent reviewer ran a full keyboard/no-hint path and nine model tests; disposable demo bundle measured 75,787 gzip bytes. Root's canonical `bundle-report.json` is not yet present. Existing local TTF fonts total 692,292 raw bytes; WOFF2/subsetting is unresolved release-quality work. No mobile-network readiness or full WCAG certification is claimed.
+- Final `local-teaching-demo-review.md` is MISSING. Prior reviewer stopped at a usage limit after useful observations. Do not fabricate its verdict. Get an independent final source/UI/test receipt or keep the demo pending review.
+- Last committed backend evidence: 717 passed / one PostgreSQL deselected, foundation179. Current recovery audit: `make foundation-check` FAILS (178 of 179 helper cases pass; `test_actual_snapshot_valid` fails); `check_dependencies.py` fails because `.node-version` and `web/package.json` hashes differ from `third-party/dependency-snapshot.json`. Artifact/economics/foundation structure checks pass. Do not carry forward a green foundation claim. No new hosted result is claimed.
+
+## Exact next operations
+
+From repository root, with the independently qualified exact Node path (or a separately qualified matching runtime):
+
+```sh
+mkdir -p work/demo-browser
+work/demo-toolchain/24.22.3/node tools/demo/measure-bundle.mjs
+```
+
+For UI: start `node web/node_modules/vite/bin/vite.js --config web/vite.demo.config.mjs --mode demonstration` from the root with the exact qualified Node binary. It must bind only `127.0.0.1:5174`. If a task-owned server already exists, identify/reuse it; never kill unrelated processes. Verify current availability rather than trusting a prior link. Run the browser script with existing reviewed Chrome/Playwright, inspect fresh screenshots, and test host/mode override refusal. Browser/startup may require ordinary host approval; a restricted-process failure is not a product pass.
+
+Compile the model files using the recipe below, then run Node's built-in test runner. The old content note's pending wording is historical and must not be taken as the current verification status.
+
+```sh
+mkdir -p work/demo-state-tests
+printf '{"type":"module"}\n' > work/demo-state-tests/package.json
+work/demo-toolchain/24.22.3/node web/node_modules/typescript/bin/tsc --target ES2022 --module NodeNext --strict --verbatimModuleSyntax --noUnusedLocals --noUnusedParameters --types node --typeRoots web/node_modules/@types --outDir work/demo-state-tests web/src/demo/state.test.ts
+work/demo-toolchain/24.22.3/node --test work/demo-state-tests/state.test.js
+```
+ Run web typecheck and the default web build first, then `work/demo-toolchain/24.22.3/node tools/demo/check-isolation.mjs` against the freshly generated web/dist, and relevant foundation checks. The bundle measurement script now creates its output parent; this recovery fix also needs verification. Do not install dependencies or change quality thresholds to hide failures. After final independent acceptance, integrate reviewed work normally; no force push or phase pass.
+
+## Ownership and stop conditions
+
+Root owns integration and checkpoint records. Previous source authors are released, not running background workers. Review availability must be checked afresh; old agent names/roster are historical. No current locks on source are inferred. If a budget, review, runtime or test blocks progress, record the precise condition and safe next action here BEFORE ending. Preserve a recoverable commit/remote branch even if incomplete; pending review is a valid handoff state.
