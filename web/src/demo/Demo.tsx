@@ -176,7 +176,7 @@ function SourcePanel({ excerpt }: { excerpt: boolean }) {
   );
 }
 
-function StudyAside({ stage, equation, feedback }: { stage: Stage; equation?: EquationData; feedback: boolean }) {
+function StudyAside({ stage, equation, feedback }: { stage: Stage; equation?: EquationData; feedback?: 'positive' | 'next-step' }) {
   if (stage === 'intro' || stage === 'explanation') {
     const preview = stage === 'intro';
     return (
@@ -187,7 +187,8 @@ function StudyAside({ stage, equation, feedback }: { stage: Stage; equation?: Eq
       </aside>
     );
   }
-  const copy = feedback ? [messages.feedbackAsideTitle, messages.feedbackAsideText] : {
+  const copy = feedback === 'positive' ? [messages.feedbackAsideTitlePositive, messages.feedbackAsideTextPositive]
+    : feedback ? [messages.feedbackAsideTitle, messages.feedbackAsideText] : {
     guided: [messages.guidedAsideTitle, messages.guidedAsideText],
     practice: [messages.practiceAsideTitle, messages.practiceAsideText],
     summary: [messages.summaryAsideTitle, messages.summaryAsideText],
@@ -208,7 +209,7 @@ export function Demo() {
   const previousStep = useRef(state.step);
   const snapshot = { step: state.step, revision: state.revision };
   const explainVisually = state.step === 'explanation' && state.startingPoint === 'visual';
-  const aside = <StudyAside stage={stage} equation={view.equation} feedback={Boolean(view.feedback)} />;
+  const aside = <StudyAside stage={stage} equation={view.equation} feedback={view.feedback?.tone} />;
   const title = state.step === 'intro' ? lesson.title : view.feedback?.title ?? view.title;
   const outcome = view.feedback && (view.feedback.tone === 'positive' ? messages.outcomeCorrect : messages.outcomeNotYet);
 
@@ -241,6 +242,7 @@ export function Demo() {
               {stage !== 'intro' && <p className="demo-topic">{lesson.title}</p>}
               <h1 id="demo-heading" ref={heading} tabIndex={-1}>
                 {outcome && <span className="demo-outcome" data-tone={view.feedback?.tone} data-demo-outcome>{outcome}</span>}
+                {outcome && <span className="demo-sr-only">{messages.headingPause}</span>}
                 {title}
               </h1>
               {!view.feedback && <p className="demo-lede">{view.text}</p>}

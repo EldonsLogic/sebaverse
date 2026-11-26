@@ -105,3 +105,35 @@ Findings 4, 6 and 7 from the first review are unchanged notes: no same-item retr
 - **"إجابتك صحيحة" is a per-item judgement on an authored fixture.** The summary still makes no grade, mastery or readiness claim, and none was added, so this stays within scope.
 
 **Not run in this round.** I did not rerun the web typecheck, default build, isolation check, bundle measurement or the integrator's strict smoke. I checked the 390 and 768 widths only through the root's reported 29/29 smoke, not myself. I ran no axe scan and no real screen reader.
+
+## Re-review, correction round 2 — 26 November 2026
+
+The same independent Claude subagent performed this re-review. I edited no source. Scratch files are in `work/demo-review-2026-11-26/round2/`.
+
+**Verdict after correction round 2: ACCEPTED WITH NOTES for the AUTH-017 local demonstration scope.** All three new notes from round 1 are resolved. I found no blocker or regression. This verdict does not certify WCAG conformance, learning efficacy or any phase exit.
+
+**Snapshot reviewed.** I reviewed branch `claude/demo-correction-round-2`, with the tree clean at `ca09314`, and the source diff `git diff 6ca1577 4945489 -- web/src/demo`. Files changed between `2ccbf9c` and `6ca1577`: none. The changed files' SHA-256 prefixes are `Demo.tsx` 112fa1ffc29d, `demo.css` 84be279b86a2 and `messages.ts` 712bc77fda0e. `lesson.ts`, `state.ts` and `state.test.ts` are unchanged.
+
+**What I ran**
+
+- **Model tests.** I used the same recipe, writing output to `round2/state-tests`. `tsc` exited 0 and `node --test` passed 10/10.
+- **Browser paths.** I ran `round2/review2.mjs`, which is my round-1 script plus checks on the side panel and on the heading's accessible name. I ran it against the running server and did not start or stop that server. It passed all six runs: paths A, B and C at both 360 and 1440 pixels wide.
+  - The first attempt failed only because my own check expected `outcome + ". "`. Chrome reports the name as `outcome + " . "`, with an extra space, so I relaxed the check to allow optional whitespace before the full stop.
+  - The checks cover wrong guided and practice answers, correct guided and practice answers, the hint path, the keyboard-only path and reset.
+  - No outcome text, side-panel feedback copy or pause span appeared before an answer was committed.
+  - Storage, cookies, IndexedDB, cache and service workers were empty. Every request was a GET to `127.0.0.1:5174`, and the only WebSocket was the dev server's own. There were no console errors.
+- **Screenshots.** I looked at the 360px correct guided answer and the 1440px wrong practice answer.
+
+**Round-1 notes**
+
+1. **Heading pause: resolved.** `Demo.tsx:245` adds a hidden `". "` (`messages.ts:34`). The heading's accessible name is now, for example, "لسه مش الإجابة الصحيحة . المقام اتغيّر" and "إجابتك صحيحة . جمعت البسطين وثبّتّ المقام".
+2. **Tokens: resolved for the outcome label.** `demo.css:58` and `:312` use `--font-body`, and the outcome label uses `var(--text-body)`.
+3. **Side-panel copy: resolved.** `Demo.tsx:190` shows "فكرتك مظبوطة / اقرأ ليه الطريقة دي صح وبعدين كمّل." after both correct answers. It shows "راجع الخطوة / اقرأ الملاحظة وبعدين كمّل." after all four wrong answers.
+
+**Remaining notes (not blockers)**
+
+- **Headings font not tokenised.** `demo.css:74` still writes out `h1, h2 { font-family: Alexandria, … }` instead of using a token.
+- **Side panel looks the same for right and wrong answers.** The positive side panel keeps the same peach `demo-aside--quiet` background (`demo.css:397`). This is only cosmetic, because the heading states the outcome in text.
+- **Earlier notes unchanged.** There is still no retry on the same question, which is deliberately out of scope. The isolation check still relies only on the marker string, and the TTF fonts are still not subsetted.
+
+**Not run.** I did not run the web typecheck, the default build, `check-isolation.mjs`, the bundle measurement or the integrator's strict smoke script. I checked no 390 or 768 widths myself. I ran no axe scan and no real screen reader.

@@ -142,3 +142,27 @@ Merged 26 November as merge commit `625794546322054499cace7867a2ea3f5d0fb836` on
 Resume from main. No eligible implementation work exists within current authority: DEV-010 is blocked on the AUTH-014 supplier wait, and DEV-011+ are gated. Recheck the supplier manually (see `evidence/auth-014-supplier-check-2026-11-26.md`) only when there is reason to expect amd64 OpenSSL 3.5.9-r1. Otherwise wait for a founder decision. The recovery branch can be deleted once this records PR merges.
 
 Founder approved merging records PR https://github.com/EldonsLogic/sebaverse/pull/6 on 26 November ("Merge PR 6"). If main lacks this line, that merge did not happen.
+
+## Correction round 2 of 2 — started 26 November (founder: "let's do the next task")
+
+DEV-010 is blocked (AUTH-014), so the only remaining authorized implementation work is the last AUTH-017 demo correction round. Branch `claude/demo-correction-round-2` from main `6ca1577`. Root (Claude) owns `web/src/demo/{Demo.tsx,messages.ts,demo.css,state.ts,state.test.ts}`. Scope: (a) audible pause between outcome and heading for screen readers; (b) outcome label uses design tokens instead of raw font values; (c) feedback side panel copy fits correct answers too. Out of scope: same-question retry (new behaviour, belongs to DEV-013/014), font subsetting. After this round no further demo corrections are authorized. Any later source edit is UNVERIFIED until results are appended below.
+
+### Correction round 2 — source edited
+
+`Demo.tsx`: hidden ". " after the outcome inside the h1 (pause for screen readers); side panel copy depends on feedback tone. `messages.ts`: positive-feedback aside copy ("فكرتك مظبوطة" / "اقرأ ليه الطريقة دي صح وبعدين كمّل.") and `headingPause`. `demo.css`: new `--font-body` token used by body and outcome label; outcome size uses `--text-body`. Results: model tests 10/10, typecheck 0, build 0, isolation PASS (94,874), demo bundle 76,138 of 200,000, foundation exit 0. Still to run: strict browser smoke, screenshots, independent re-review.
+
+### Correction round 2 — browser results (source `4945489`)
+
+Strict `demo-smoke.mjs` 29/29 (`local-demo-qa/browser-strict-round2-2026-11-26.json`). Root inspected 360 guided-feedback (correct): positive aside copy shown, no overflow. Demo server PID 52574 on 127.0.0.1:5174, task-owned; stop after re-review. Next: independent re-review appends "Re-review, correction round 2".
+
+### Correction round 2 — independent re-review complete
+
+Reviewer appended "Re-review, correction round 2 — 26 November 2026": **ACCEPTED WITH NOTES**, all three round-1 notes fixed, no regressions, no blockers; model 10/10 and six browser runs at 360/1440 with clean storage/network/console. Remaining notes: h1/h2 font family not tokenised (`demo.css:74`), same side-panel background for right and wrong (`demo.css:397`), plus the earlier retry/marker/font notes. Demo server stopped; port 5174 free. AUTH-017 correction budget is now used up.
+
+## Exact next step (after round 2)
+
+PR from `claude/demo-correction-round-2` to main is opened next; merge needs the founder's word. After that, development waits on the AUTH-014 supplier fix (amd64 OpenSSL 3.5.9-r1) or a founder decision.
+
+PR opened: https://github.com/EldonsLogic/sebaverse/pull/7 (not merged; needs the founder's word).
+
+Founder approved merging PR 7 on 26 November ("Merge PR 7"), merge commit, no force. This line is written before the merge so that main records it; if main lacks it, the merge did not happen. After the merge, resume from main: development waits on the AUTH-014 supplier fix or a founder decision, and the AUTH-017 demo correction budget is used up.
