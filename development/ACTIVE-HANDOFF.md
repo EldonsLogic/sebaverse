@@ -118,3 +118,7 @@ Founder approved opening a PR from `codex/handoff-recovery-2026-11-26` to main w
 ### PR opened
 
 https://github.com/EldonsLogic/sebaverse/pull/5 (head `codex/handoff-recovery-2026-11-26`, base main `df12e31`, mergeable). Hosted checks at open time: Vercel `sebaverse` pass, `foundation` and `locked-install-and-audit` pass on the push run; `skeleton` pending. Vercel `sebaverse-sqcg` FAILS, but it also fails on main `df12e31`, so it is pre-existing and not caused by this PR. `skeleton` also failed on main `df12e31`; check this PR's result before merge. Next: founder reviews and decides on merge. Do not merge without the founder's word for PR 5.
+
+## Session continuation — 26 November (founder: "continue")
+
+PR 5 open, not merged. Hosted `Local skeleton phase checks` has FAILED on main since at least 24 November (runs 45411297208, 45412576435) at step "Enforce native/image pre-use policy": image-cves.json 19 blocking (15 need explicit review, 10 reviewed findings now have a released fix → AUTH-011 requires updating the pinned artifact and re-review); system-native-cves.json 15 need review. This is the gate working as designed, not a flake. PR 5's skeleton run was still in progress at this note. Investigating which pinned artifact and findings are involved before deciding the fix; no thresholds or exceptions will be relaxed.
