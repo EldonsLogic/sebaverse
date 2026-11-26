@@ -13,7 +13,7 @@
         "Integration",
         "Testing"
       ],
-      "status": "in_progress",
+      "status": "completed",
       "files": [
         "web/vite.demo.config.mjs",
         "web/package.json",
@@ -21,7 +21,7 @@
         "tools/browser/demo-smoke.mjs",
         "development shared approval/task/evidence/continuity"
       ],
-      "evidence": "U29 recovery owner: reconciles actual source/evidence, preserves explicit pending-verification branch and restart instructions. Foundation currently fails one snapshot-drift case; no final demo acceptance."
+      "evidence": "Recovery3b0f801 pushed; final snapshot reconciliation foundation179 and full local dependency smoke PASS. User requested immediate wrap. No final demo acceptance or main merge."
     },
     {
       "agent": "/root/handoff_audit",
@@ -37,7 +37,7 @@
       "evidence": "Independent handover audit released; observed 178/179 helper passes with exact snapshot drift, no final demo/phase acceptance."
     }
   ],
-  "run_status": "handoff_checkpoint_in_progress",
+  "run_status": "wrapped_at_user_limit",
   "scope": "Handover-first recovery under U29. Preserve existing AUTH017/U28 work without promoting incomplete demo or passing phase/runtime gates.",
   "previous_run_authors": [
     {

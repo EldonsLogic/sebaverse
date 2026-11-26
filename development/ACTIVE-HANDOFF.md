@@ -6,7 +6,7 @@
 
 1. Read AGENTS.md, CURRENT-STATE.md and QUALITY-BAR.md, then inspect `git status --short`, `git log -5 --oneline`, `git branch --show-current` and the remote. Use the checkpoint branch containing this file; do not reset/stash/discard source to match main.
 2. Run `python3 tools/brief.py DEV-013`. Only its `local-teaching-demo-v1` exception is active under U27/AUTH-017. Full DEV-013/014/015 and F3/F4 transitions remain held. DEV-010 is in progress; 37 PostgreSQL cases remain NOT RUN; AUTH-014 supplier wait is unchanged.
-3. First reconcile the live dependency snapshot only for the independently reviewed Node patch and package-script changes; preserve historical receipts and all security review bindings. Inspect `tools/check_dependencies.py` before changing its evidence. Then finish the exact pending verification below. Read the immutable evidence receipts rather than rerunning all research. No upstream Athar execution or real child/provider/database use.
+3. Live dependency metadata was reconciled for only the reviewed Node patch and demo scripts; foundation179 and full local dependency/import smoke now pass. Preserve historical/security records. Finish the exact pending demo verification below. Read the immutable evidence receipts rather than rerunning all research. No upstream Athar execution or real child/provider/database use.
 
 ## Work preserved on disk
 
@@ -49,3 +49,7 @@ work/demo-toolchain/24.22.3/node --test work/demo-state-tests/state.test.js
 ## Ownership and stop conditions
 
 Root owns integration and checkpoint records. Previous source authors are released, not running background workers. Review availability must be checked afresh; old agent names/roster are historical. No current locks on source are inferred. If a budget, review, runtime or test blocks progress, record the precise condition and safe next action here BEFORE ending. Preserve a recoverable commit/remote branch even if incomplete; pending review is a valid handoff state.
+
+## Final wrap checkpoint — 26 November
+
+User reported 1% weekly allowance and requested wrap/log. Stopped new work. Recovery commit `3b0f801` is already pushed on `codex/handoff-recovery-2026-11-26`; the subsequent log/snapshot commit contains this final update (use actual Git SHA). Only two live dependency hashes were reconciled with dated evidence. Final foundation179 PASS and dependency evidence/local import/render smoke PASS under the authenticated official Node24.22.3 PATH. No new browser or demo acceptance. Earlier red snapshot result remains historical evidence; final demo review is still missing. Main stays at `df12e31`. Resume on recovery branch; do not merge it as reviewed product code.
