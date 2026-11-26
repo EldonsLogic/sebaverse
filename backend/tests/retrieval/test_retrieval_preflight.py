@@ -123,12 +123,21 @@ def test_naive_timestamp_and_invalid_inputs_fail_closed():
         retrieve_scoped(bundle, _scope(), 'Deutsch', now=NOW, top_k=11)
     with pytest.raises(RetrievalError, match='^invalid_scope$'):
         retrieve_scoped(bundle, _scope(tenant_id='BAD TENANT'), 'Deutsch', now=NOW)
+    with pytest.raises(RetrievalError, match='^invalid_scope$'):
+        retrieve_scoped(bundle, _scope(role=['learner']), 'Deutsch', now=NOW)
+    with pytest.raises(RetrievalError, match='^invalid_scope$'):
+        retrieve_scoped(bundle, _scope(purpose=['tutoring']), 'Deutsch', now=NOW)
 
 
-def test_draft_and_unapproved_editions_or_materials_never_served():
+def test_draft_and_unapproved_editions_profiles_or_materials_never_served():
     raw_draft_bundle = json.loads((ROOT / 'evals/fixtures/curriculum-v1.json').read_text(encoding='utf-8'))
     with pytest.raises(RetrievalError, match='^access_denied$'):
         retrieve_scoped(raw_draft_bundle, _scope(edition_id='edition.language'), 'Deutsch', now=NOW)
+
+    bundle_draft_profile = _approved_bundle()
+    _find(bundle_draft_profile, 'profile', 'profile.language', 1)['status'] = 'draft'
+    with pytest.raises(RetrievalError, match='^access_denied$'):
+        retrieve_scoped(bundle_draft_profile, _scope(edition_id='edition.language'), 'Deutsch', now=NOW)
 
     bundle = _approved_bundle()
     _find(bundle, 'material', 'material.language', 1)['status'] = 'draft'
@@ -138,16 +147,24 @@ def test_draft_and_unapproved_editions_or_materials_never_served():
     assert res.candidate_count == 0
 
 
-def test_expired_or_non_displayable_rights_fail_closed():
+def test_expired_or_non_displayable_rights_excluded_without_breaking_unrelated_editions():
     bundle = _approved_bundle()
     _find(bundle, 'rights', 'rights.language', 1)['expires_at'] = '2025-01-01T00:00:00Z'
-    with pytest.raises(RetrievalError, match='^invalid_bundle$'):
-        retrieve_scoped(bundle, _scope(edition_id='edition.language'), 'Deutsch', now=NOW)
+    res_expired = retrieve_scoped(bundle, _scope(edition_id='edition.language'), 'Deutsch', now=NOW)
+    assert res_expired.status == 'abstain'
+    assert res_expired.candidate_count == 0
+
+    # Unrelated shared edition still works even when another material's rights expired or were withdrawn
+    _find(bundle, 'material', 'material.language.private', 1)['status'] = 'withdrawn'
+    res_science = retrieve_scoped(bundle, _scope(edition_id='edition.science'), 'انصهار الثلج', now=NOW)
+    assert res_science.status == 'grounded'
+    assert res_science.hits[0].citation.material_id == 'material.science'
 
     bundle2 = _approved_bundle()
     _find(bundle2, 'rights', 'rights.language', 1)['permissions']['display'] = False
-    with pytest.raises(RetrievalError, match='^invalid_bundle$'):
-        retrieve_scoped(bundle2, _scope(edition_id='edition.language'), 'Deutsch', now=NOW)
+    res_nodisplay = retrieve_scoped(bundle2, _scope(edition_id='edition.language'), 'Deutsch', now=NOW)
+    assert res_nodisplay.status == 'abstain'
+    assert res_nodisplay.candidate_count == 0
 
 
 def test_edition_version_pinning_never_leaks_other_version():
@@ -239,13 +256,23 @@ def test_citation_resolver_rechecks_live_consent_withdrawal_expiry_and_tampering
     # Post-retrieval withdrawal fails closed
     withdrawn = copy.deepcopy(bundle)
     _find(withdrawn, 'material', 'material.language.private', 1)['status'] = 'withdrawn'
-    with pytest.raises(RetrievalError, match='^citation_denied$'):
+    with pytest.raises(RetrievalError, match='^citation_not_found$'):
         resolve_citation(withdrawn, scope, cit, now=NOW)
 
     # Post-retrieval rights expiry fails closed
     future_after_expiry = datetime(2035, 1, 1, tzinfo=timezone.utc)
-    with pytest.raises(RetrievalError, match='^citation_denied$'):
+    with pytest.raises(RetrievalError, match='^citation_not_found$'):
         resolve_citation(bundle, scope, cit, now=future_after_expiry)
+
+    # Post-retrieval display=False rights fails closed
+    no_display = copy.deepcopy(bundle)
+    _find(no_display, 'rights', 'rights.language.private', 1)['permissions']['display'] = False
+    with pytest.raises(RetrievalError, match='^citation_not_found$'):
+        resolve_citation(no_display, scope, cit, now=NOW)
+
+    # Wrong edition/version fails closed
+    with pytest.raises(RetrievalError, match='^citation_not_found$'):
+        resolve_citation(bundle, _scope(edition_id='edition.language', edition_version=2), cit, now=NOW)
 
     # Fabricated anchor or tampered chunk digest fails closed
     bad_anchor = CitationRef(cit.material_id, cit.material_version, 'invented-anchor', cit.chunk_index, cit.chunk_sha256)
@@ -293,6 +320,29 @@ def test_multi_anchor_chunking_and_context_char_bounds():
     assert res_bounded.status == 'grounded'
     assert len(res_bounded.hits) == 1
     assert len(res_bounded.hits[0].original_text) <= len(part1) + 5
+
+
+def test_arabic_punctuation_and_german_umlauts_tokenize_cleanly():
+    bundle = _approved_bundle()
+    # Arabic comma attached to word in fixture ('تتعلمه،') and question mark in query ('الثلج؟')
+    priv = retrieve_scoped(bundle, _scope(edition_id='edition.language.private'), 'تتعلمه', now=NOW)
+    assert priv.status == 'grounded'
+    assert priv.hits[0].citation.material_id == 'material.language.private'
+
+    sci = retrieve_scoped(bundle, _scope(edition_id='edition.science'), 'الثلج؟', now=NOW)
+    assert sci.status == 'grounded'
+    assert sci.hits[0].citation.material_id == 'material.science'
+
+    # German umlauts and ß preserved in lexical tokens
+    _update_material_content(bundle, 'material.language', 1, 'Übung: Die Straße ist groß.')
+    de_res = retrieve_scoped(bundle, _scope(edition_id='edition.language'), 'übung straße groß', now=NOW)
+    assert de_res.status == 'grounded'
+    assert 'Übung: Die Straße ist groß.' == de_res.hits[0].original_text
+
+    # Oversized context budget abstains with context_budget_exceeded
+    tiny = retrieve_scoped(bundle, _scope(edition_id='edition.language'), 'übung', now=NOW, max_context_chars=5)
+    assert tiny.status == 'abstain'
+    assert tiny.abstention_reason == 'context_budget_exceeded'
 
 
 def test_unanswerable_query_abstains_honestly():

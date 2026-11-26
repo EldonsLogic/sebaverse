@@ -229,3 +229,20 @@ All checks run on `antigravity/dev-012-retrieval-preflight-2026-11-26` under qua
 - `git diff --check`: exit 0.
 - NOT RUN: 37 DEV-010 PostgreSQL cases (blocked on AUTH-014 supplier wait), web/demo suites (no web/demo edits).
 - Next: launching an independent reviewer subagent owning only `development/evidence/dev-012-retrieval-preflight-review.md` (read-only on source). If no review results follow, the review did not complete and this work remains pending review.
+
+### Independent review received — `CHANGES REQUESTED` on `98015c4`
+
+Independent reviewer (`pro` subagent) wrote `development/evidence/dev-012-retrieval-preflight-review.md`. Verdict: **CHANGES REQUESTED** (no blockers for cross-learner exposure, rubric leakage, or forged citations; 3 should-fix findings: Arabic punctuation captured by `_TOKEN_RE`, `edition['profile']` approval not checked, and whole-bundle `validate_bundle` coupling unrelated withdrawn/expired records + unreachable per-material rights checks; plus minor notes on `role`/`purpose` type validation, `OverflowError` on `now`, German umlauts, `untrusted_data` immutability, `build_cache_key` export, and eval bucket labels).
+
+### AUTH-018 Correction round 1 of 2 — started 26 November 2026
+
+Fixing all 3 should-fix findings and the minor notes in `backend/modules/retrieval/__init__.py`, `backend/modules/retrieval/preflight.py`, `backend/tests/retrieval/test_retrieval_preflight.py`, and `evals/retrieval/run_preflight_eval.py`. Commands to run: `make test-retrieval-preflight`, `make backend-check`, `make foundation-check`, `python3 tools/check_dependencies.py`, `git diff --check`, followed by independent re-review appending to `development/evidence/dev-012-retrieval-preflight-review.md`. If no results follow, this step did not finish.
+
+### Results — AUTH-018 correction round 1 (pending independent re-review)
+
+- Fixed all 3 should-fix items and minor notes: restricted `_TOKEN_RE` to Arabic letters (excluding Arabic punctuation) plus Latin/German `äöüß`; added `edition['profile']` approval and audience check; replaced whole-bundle `validate_bundle` with pinned-edition scoped record validation so unrelated withdrawn/expired records never break other tenants/editions and per-material live rights checks are reachable; validated `role`/`purpose` string types and `OverflowError` on `now`; made `untrusted_data` immutable (`field(default=True, init=False)`); kept `_build_cache_key` internal; reported `context_budget_exceeded` when positive hits exceed `max_context_chars`; separated eval buckets by edition version and `curriculum_key.language`.
+- `make test-retrieval-preflight`: exit 0 — 28/28 pytest cases passed; `evals/retrieval/run_preflight_eval.py` PASS (`recall_at_5: 1.0`, `abstention_accuracy: 1.0`, `fabricated_citations: 0`, `unauthorized_access: 0`).
+- `make backend-check`: exit 0 — 745 passed, 1 deselected (`postgres_integration`); `backend/manage.py check` 0 issues.
+- `make foundation-check`: exit 0 — 179/179 unit tests passed, `validate_project.py` PASS, `model_economics.py` PASS, `check_foundation.py` PASS.
+- `python3 tools/check_dependencies.py`: exit 0, PASS; `git diff --check`: exit 0.
+- Next: independent re-review subagent appends `Re-review, correction round 1 — 26 November 2026` to `development/evidence/dev-012-retrieval-preflight-review.md`. If no re-review results follow, round 1 remains pending re-review.

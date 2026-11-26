@@ -71,17 +71,17 @@ def run_eval() -> dict:
     bundle = _approved_fixture_bundle()
 
     answerable_cases = [
-        ('language', 'ar-de', 'edition.language', 1, 'الفعل الموضع الثاني Deutsch', 'material.language'),
-        ('language', 'ar-de', 'edition.language', 2, 'إصدار اختبار ثان Deutsch', 'material.language'),
-        ('quantitative', 'ar', 'edition.quantitative', 1, 'تساوي الطرفين نطرح بالتعويض', 'material.quantitative'),
-        ('science', 'ar', 'edition.science', 1, 'انصهار الثلج الحالة الصلبة السائلة', 'material.science'),
-        ('language.private', 'ar', 'edition.language.private', 1, 'ورقة اختبار خاصة جملة قصيرة', 'material.language.private'),
+        ('language:v1', 'de', 'edition.language', 1, 'الفعل الموضع الثاني Deutsch', 'material.language'),
+        ('language:v2', 'de', 'edition.language', 2, 'إصدار اختبار ثان Deutsch', 'material.language'),
+        ('quantitative:v1', 'ar', 'edition.quantitative', 1, 'تساوي الطرفين نطرح بالتعويض', 'material.quantitative'),
+        ('science:v1', 'ar', 'edition.science', 1, 'انصهار الثلج؟ الحالة الصلبة السائلة', 'material.science'),
+        ('language.private:v1', 'de', 'edition.language.private', 1, 'تتعلمه ورقة اختبار خاصة', 'material.language.private'),
     ]
 
     unanswerable_cases = [
-        ('language', 'ar-de', 'edition.language', 1, 'انصهار الثلج الحالة الصلبة'),
-        ('quantitative', 'ar', 'edition.quantitative', 1, 'خوارزمية التشفير الكمومي'),
-        ('science', 'ar', 'edition.science', 1, 'Heute lerne ich Deutsch'),
+        ('language:v1', 'de', 'edition.language', 1, 'انصهار الثلج الحالة الصلبة'),
+        ('quantitative:v1', 'ar', 'edition.quantitative', 1, 'خوارزمية التشفير الكمومي'),
+        ('science:v1', 'ar', 'edition.science', 1, 'Heute lerne ich Deutsch'),
     ]
 
     by_bucket: dict[str, dict[str, int]] = {}

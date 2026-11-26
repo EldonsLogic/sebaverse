@@ -1,13 +1,14 @@
 """AUTH-018: pure DB-free scoped lexical retrieval and live citation resolver.
 
-Enforces server-derived ACL, edition, approval, and rights filtering BEFORE
-candidate ranking, excludes assessment rubrics/answer keys completely, preserves
-original source text verbatim, and re-verifies live authority on citation resolve.
+Enforces server-derived ACL, pinned edition/profile/collection/material approval,
+and live rights filtering BEFORE candidate ranking, excludes assessment rubrics
+and answer keys completely, preserves original source text verbatim, and
+re-verifies live authority on citation resolve.
 No database, pgvector, network, or model calls occur here.
 """
 
 from collections import Counter
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from hashlib import sha256
 import json
@@ -17,7 +18,7 @@ import re
 from rest_framework.exceptions import ValidationError
 
 from modules.access import policy
-from modules.curriculum.contracts import key, source_key, validate_bundle
+from modules.curriculum.contracts import Bundle, SERIALIZERS, key, source_key
 
 
 POLICY_VERSION = 'retrieval.scoped-preflight-v1'
@@ -27,7 +28,8 @@ _MAX_CONTEXT_CHARS = 20_000
 _IDENTIFIER = re.compile(r'[a-z][a-z0-9._-]{1,95}')
 _DIGEST = re.compile(r'[0-9a-f]{64}')
 _ARABIC_DIACRITICS = re.compile(r'[\u064b-\u065f\u0670\u0640]')
-_TOKEN_RE = re.compile(r'[\u0600-\u06ff]+|[a-z0-9]+')
+# Arabic letters only (excludes Arabic punctuation such as ، ؛ ؟) plus Latin/German letters and digits.
+_TOKEN_RE = re.compile(r'[\u0621-\u063a\u0641-\u064a\u0671-\u06d3\u06fa-\u06ff]+|[a-zäöüß0-9]+')
 _ARABIC_TRANS = str.maketrans({
     'أ': 'ا',
     'إ': 'ا',
@@ -113,7 +115,7 @@ class RetrievalHit:
     original_text: str
     score: float
     audience_type: str
-    untrusted_data: bool = True
+    untrusted_data: bool = field(default=True, init=False)
 
 
 @dataclass(frozen=True)
@@ -125,7 +127,7 @@ class RetrievalResponse:
     edition_id: str
     edition_version: int
     candidate_count: int
-    policy_version: str = POLICY_VERSION
+    policy_version: str = field(default=POLICY_VERSION, init=False)
 
 
 @dataclass(frozen=True)
@@ -135,7 +137,7 @@ class ResolvedCitation:
     edition_version: int
     original_text: str
     audience_type: str
-    untrusted_data: bool = True
+    untrusted_data: bool = field(default=True, init=False)
 
 
 @dataclass(frozen=True)
@@ -168,9 +170,12 @@ def _tokenize(text: str) -> tuple[str, ...]:
 
 
 def _validate_now(now: datetime) -> datetime:
-    if type(now) is not datetime or now.utcoffset() is None:
-        raise RetrievalError('invalid_time')
-    return now.astimezone(timezone.utc)
+    try:
+        if type(now) is not datetime or now.utcoffset() is None:
+            raise ValueError
+        return now.astimezone(timezone.utc)
+    except (ValueError, OverflowError, TypeError):
+        raise RetrievalError('invalid_time') from None
 
 
 def _validate_scope(scope: RetrievalScope, *, deny_code: str = 'access_denied') -> None:
@@ -180,6 +185,8 @@ def _validate_scope(scope: RetrievalScope, *, deny_code: str = 'access_denied') 
         if type(value) is not str or not _IDENTIFIER.fullmatch(value):
             raise RetrievalError('invalid_scope')
     if type(scope.edition_version) is not int or scope.edition_version < 1:
+        raise RetrievalError('invalid_scope')
+    if type(scope.role) is not str or type(scope.purpose) is not str:
         raise RetrievalError('invalid_scope')
     if not policy.allowed(scope.to_access_scope(kind='material')):
         raise RetrievalError(deny_code)
@@ -195,6 +202,42 @@ def _audience_allows(audience: dict, scope: RetrievalScope) -> bool:
             and audience.get('learner_id') == scope.learner_id
         )
     return False
+
+
+def _validate_record(record: dict, expected_kind: str) -> dict:
+    if not isinstance(record, dict) or record.get('kind') != expected_kind:
+        raise ValueError
+    checked = SERIALIZERS[expected_kind](data=record)
+    checked.is_valid(raise_exception=True)
+    return record
+
+
+def _index_bundle_records(bundle: dict) -> dict[tuple[str, str, int], dict]:
+    """Validate bundle envelope and unique record identities without cross-tenant coupling."""
+    envelope = Bundle(data=bundle)
+    envelope.is_valid(raise_exception=True)
+    if bundle['fixture_only'] is not True:
+        raise ValueError
+    rows: dict[tuple[str, str, int], dict] = {}
+    for record in bundle['records']:
+        if not isinstance(record, dict):
+            raise ValueError
+        kind = record.get('kind')
+        rec_id = record.get('id')
+        version = record.get('version')
+        if (
+            type(kind) is not str
+            or kind not in SERIALIZERS
+            or type(rec_id) is not str
+            or type(version) is not int
+            or version < 1
+        ):
+            raise ValueError
+        identity = key(record)
+        if identity in rows:
+            raise ValueError
+        rows[identity] = record
+    return rows
 
 
 def _chunk_material(material: dict) -> list[_Chunk]:
@@ -245,49 +288,99 @@ def _authorized_chunks(
     now: datetime,
     deny_code: str = 'access_denied',
 ) -> tuple[list[_Chunk], dict]:
-    """Pre-filter bundle strictly by ACL, pinned edition, approval, and live rights."""
+    """Pre-filter strictly to the pinned edition's approved, live-rights materials."""
     try:
-        for record in bundle.get('records', ()):
-            if isinstance(record, dict) and record.get('kind') == 'rights':
-                exp = record.get('expires_at')
-                if type(exp) is not str or datetime.fromisoformat(exp).utcoffset() is None:
-                    raise ValueError
-        rows = validate_bundle(bundle, now=now)
+        rows = _index_bundle_records(bundle)
     except (ValidationError, ValueError, KeyError, TypeError, AttributeError):
         raise RetrievalError(deny_code if deny_code == 'citation_denied' else 'invalid_bundle') from None
 
-    edition = rows.get(('edition', scope.edition_id, scope.edition_version))
-    if edition is None or edition['status'] != 'approved':
+    raw_edition = rows.get(('edition', scope.edition_id, scope.edition_version))
+    if raw_edition is None:
         raise RetrievalError(deny_code)
-    if not _audience_allows(edition['audience'], scope):
-        raise RetrievalError(deny_code)
-
-    col_ref = edition['collection']
-    collection = rows.get(('collection', *source_key(col_ref)))
-    if collection is None or collection['status'] != 'approved':
-        raise RetrievalError(deny_code)
-    if not _audience_allows(collection['audience'], scope):
+    try:
+        edition = _validate_record(raw_edition, 'edition')
+    except (ValidationError, ValueError, KeyError, TypeError):
+        raise RetrievalError(deny_code if deny_code == 'citation_denied' else 'invalid_bundle') from None
+    if edition['status'] != 'approved' or not _audience_allows(edition['audience'], scope):
         raise RetrievalError(deny_code)
 
+    raw_profile = rows.get(('profile', *source_key(edition['profile'])))
+    if raw_profile is None:
+        raise RetrievalError(deny_code)
+    try:
+        profile = _validate_record(raw_profile, 'profile')
+    except (ValidationError, ValueError, KeyError, TypeError):
+        raise RetrievalError(deny_code if deny_code == 'citation_denied' else 'invalid_bundle') from None
+    if (
+        profile['status'] != 'approved'
+        or not _audience_allows(profile['audience'], scope)
+        or (profile['audience']['type'] != 'shared_fixture' and profile['audience'] != edition['audience'])
+    ):
+        raise RetrievalError(deny_code)
+
+    raw_collection = rows.get(('collection', *source_key(edition['collection'])))
+    if raw_collection is None:
+        raise RetrievalError(deny_code)
+    try:
+        collection = _validate_record(raw_collection, 'collection')
+    except (ValidationError, ValueError, KeyError, TypeError):
+        raise RetrievalError(deny_code if deny_code == 'citation_denied' else 'invalid_bundle') from None
+    if (
+        collection['status'] != 'approved'
+        or collection['audience'] != edition['audience']
+        or not _audience_allows(collection['audience'], scope)
+    ):
+        raise RetrievalError(deny_code)
+
+    seen_materials: set[tuple[str, int]] = set()
     chunks: list[_Chunk] = []
     for mat_ref in collection['materials']:
-        mat_id, mat_ver = source_key(mat_ref)
-        material = rows.get(('material', mat_id, mat_ver))
-        if material is None or material['status'] != 'approved':
+        mat_key = source_key(mat_ref)
+        if mat_key in seen_materials:
+            continue
+        seen_materials.add(mat_key)
+        raw_material = rows.get(('material', *mat_key))
+        if raw_material is None:
+            continue
+        try:
+            material = _validate_record(raw_material, 'material')
+        except (ValidationError, ValueError, KeyError, TypeError):
+            continue
+        if material['status'] != 'approved':
             continue
         if not _audience_allows(material['audience'], scope):
             continue
-        rights = rows.get(('rights', *source_key(material['rights'])))
-        if rights is None or rights['status'] != 'approved':
-            continue
-        expiry = datetime.fromisoformat(rights['expires_at']).astimezone(timezone.utc)
         if (
-            expiry <= now
+            material['audience']['type'] != 'shared_fixture'
+            and material['audience'] != collection['audience']
+        ):
+            continue
+        if len(set(material['anchors'])) != len(material['anchors']):
+            continue
+        if sha256(material['content'].encode('utf-8')).hexdigest() != material['sha256']:
+            continue
+
+        raw_rights = rows.get(('rights', *source_key(material['rights'])))
+        if raw_rights is None:
+            continue
+        try:
+            rights = _validate_record(raw_rights, 'rights')
+            exp_raw = rights['expires_at']
+            if type(exp_raw) is not str:
+                continue
+            exp_dt = datetime.fromisoformat(exp_raw)
+            if exp_dt.utcoffset() is None:
+                continue
+            expiry = exp_dt.astimezone(timezone.utc)
+        except (ValidationError, ValueError, KeyError, TypeError, OverflowError):
+            continue
+        if (
+            rights['status'] != 'approved'
+            or expiry <= now
             or not rights['permissions']['process']
             or not rights['permissions']['display']
             or rights['artifact_sha256'] != material['sha256']
             or rights['audience'] != material['audience']
-            or sha256(material['content'].encode('utf-8')).hexdigest() != material['sha256']
         ):
             continue
         chunks.extend(_chunk_material(material))
@@ -295,7 +388,7 @@ def _authorized_chunks(
     return chunks, edition
 
 
-def build_cache_key(
+def _build_cache_key(
     *,
     scope: RetrievalScope,
     edition: dict,
@@ -389,7 +482,7 @@ def retrieve_scoped(
         raise RetrievalError('invalid_query')
 
     authorized, edition = _authorized_chunks(bundle, scope, now=now_utc, deny_code='access_denied')
-    cache_key = build_cache_key(
+    cache_key = _build_cache_key(
         scope=scope,
         edition=edition,
         authorized_chunks=authorized,
@@ -440,16 +533,16 @@ def retrieve_scoped(
                 original_text=chunk.original_text,
                 score=score,
                 audience_type=chunk.audience_type,
-                untrusted_data=True,
             )
         )
         used_chars += chunk_len
 
     if not hits:
+        reason = 'context_budget_exceeded' if ranked else 'no_authorized_evidence'
         return RetrievalResponse(
             status='abstain',
             hits=(),
-            abstention_reason='no_authorized_evidence',
+            abstention_reason=reason,
             cache_key=cache_key,
             edition_id=scope.edition_id,
             edition_version=scope.edition_version,
@@ -501,6 +594,5 @@ def resolve_citation(
                 edition_version=scope.edition_version,
                 original_text=chunk.original_text,
                 audience_type=chunk.audience_type,
-                untrusted_data=True,
             )
     raise RetrievalError('citation_not_found')
