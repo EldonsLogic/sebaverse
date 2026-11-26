@@ -132,3 +132,13 @@ Finding: the main `skeleton` failure is the known AUTH-014 hold (PostgreSQL pare
 ## Merge of PR 5 — founder approved 26 November ("Merge PR 5")
 
 Founder approved merging https://github.com/EldonsLogic/sebaverse/pull/5 into main with a merge commit (history preserved, no force). Known pre-existing failures at merge: Vercel `sebaverse-sqcg` and `skeleton` (AUTH-014 hold), both also failing on main. After the merge, post-merge records go on a separate branch and PR because agents never push to main directly. If main does not contain this note, the merge did not happen.
+
+### PR 5 merged
+
+Merged 26 November as merge commit `625794546322054499cace7867a2ea3f5d0fb836` on main (head `d502ccf`, `--match-head-commit`, no force). Hosted Foundation checks and Dependency readiness passed on that head before merge; `skeleton` (AUTH-014 hold) and Vercel `sebaverse-sqcg` are known pre-existing failures. The recovery branch is fully contained in main. This record lives on branch `claude/post-merge-records-2026-11-26` and its PR, because agents do not push to main directly.
+
+## Exact next step (after merge)
+
+Resume from main. No eligible implementation work exists within current authority: DEV-010 is blocked on the AUTH-014 supplier wait, and DEV-011+ are gated. Recheck the supplier manually (see `evidence/auth-014-supplier-check-2026-11-26.md`) only when there is reason to expect amd64 OpenSSL 3.5.9-r1. Otherwise wait for a founder decision. The recovery branch can be deleted once this records PR merges.
+
+Founder approved merging records PR https://github.com/EldonsLogic/sebaverse/pull/6 on 26 November ("Merge PR 6"). If main lacks this line, that merge did not happen.

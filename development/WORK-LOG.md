@@ -15,3 +15,5 @@ This log records milestones, not a transcript. CURRENT-STATE.md is the short cur
 - 26 November 2026 — Opened PR 5 (recovery branch → main) with verification, review verdict and known issues. Not merged. Vercel `sebaverse-sqcg` and `skeleton` already failed on main before this PR.
 
 - 26 November 2026 — Traced main's failing `skeleton` CI to the AUTH-014 hold. One read-only supplier check: postgres:17-alpine rebuilt but amd64 still has OpenSSL 3.5.9-r0, so the hold stays. No other eligible work within current authority.
+
+- 26 November 2026 — PR 5 merged into main (`6257945`) on founder approval: local teaching demo, Node 24.22.3 pin, Athar reference review and handover records. Post-merge records on `claude/post-merge-records-2026-11-26`.
