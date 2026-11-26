@@ -258,3 +258,19 @@ Independent reviewer (`pro` subagent) appended `Re-review, correction round 1 �
 - **Not verified / not run:** 37 DEV-010 PostgreSQL integration cases (blocked on AUTH-014 supplier wait), web/demo suites (no web/demo edits), live pgvector/hybrid retrieval or LLM calls (out of AUTH-018 scope).
 - **Pending review / decision:** Founder approved merging PR 9 (`"Proceed"`, `antigravity/dev-012-retrieval-preflight-2026-11-26` → `main`, merge commit, no force) on 26 November 2026. This line is written before the merge so that `main` records it; if `main` lacks it, the merge did not happen. After the merge, resume from `main`: development waits on the AUTH-014 supplier update (`postgres:17-alpine` `linux/amd64` `libssl3`/`libcrypto3` `3.5.9-r1+`) or a new founder authorization.
 - **Next command:** `git status -sb && git fetch && git log --oneline -3 origin/main && python3 tools/brief.py` (after founder decides on merging the AUTH-018 PR).
+
+## AUTH-019 — Bounded offline DEV-014 grading and learning-evidence ledger (started 26 November 2026, Antigravity)
+
+Verified before work: `main` at `18d0596` (PR 9 merged, equal to `origin/main`, clean working tree). Founder authorized Option #1 verbatim: `"Proceed with the recommended (remember the always logging and documenting rule)"` (recorded as `U31` / `AUTH-019`). Created feature branch `antigravity/dev-014-learning-ledger-2026-11-26` from `main` `18d0596`.
+
+Step 1: implement pure DB-free deterministic assessment grader (`backend/modules/assessment/__init__.py`, `backend/modules/assessment/grader.py`), replayable learning-evidence ledger and projection (`backend/modules/learning/__init__.py`, `backend/modules/learning/ledger.py`), comprehensive negative/positive tests (`backend/tests/learning/test_learning_ledger.py`), and `Makefile` target `test-learning-ledger-preflight`. Owned files: `sources/offline-learning-ledger-instruction.md`, `sources/source-catalog.md`, `development/APPROVALS.md`, `backend/modules/assessment/__init__.py`, `backend/modules/assessment/grader.py`, `backend/modules/learning/__init__.py`, `backend/modules/learning/ledger.py`, `backend/tests/learning/test_learning_ledger.py`, `Makefile`, `development/CURRENT-STATE.md`, `development/WORK-LOG.md`, `development/ACTIVE-HANDOFF.md`. Commands to run: `make test-learning-ledger-preflight`, `make backend-check`, `make foundation-check`, `python3 tools/check_dependencies.py`, `git diff --check`. Independent reviewer subagent will then review and write `development/evidence/dev-014-learning-ledger-review.md`. If no results follow, this step did not finish.
+
+### Results — AUTH-019 implementation checkpoint (pending independent review)
+
+All checks run on `antigravity/dev-014-learning-ledger-2026-11-26` under qualified Node `v24.22.3`:
+- `make test-learning-ledger-preflight`: exit 0 — 17/17 pytest cases passed.
+- `make backend-check`: exit 0 — 762 passed, 1 deselected (`postgres_integration`); `backend/manage.py check` 0 issues.
+- `make foundation-check`: exit 0 — 179/179 unit tests passed, `validate_project.py` PASS (0 errors, 0 warnings), `model_economics.py` PASS, `check_foundation.py` PASS.
+- `python3 tools/check_dependencies.py`: exit 0, PASS; `git diff --check`: exit 0.
+- NOT RUN: 37 DEV-010 PostgreSQL integration cases (blocked on AUTH-014 supplier wait), web/demo suites (no web/demo edits).
+- Next: launching an independent `pro` reviewer subagent owning only `development/evidence/dev-014-learning-ledger-review.md` (read-only on source). If no review results follow, the review did not complete and this work remains pending review.
