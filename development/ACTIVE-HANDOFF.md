@@ -146,3 +146,7 @@ Founder approved merging records PR https://github.com/EldonsLogic/sebaverse/pul
 ## Correction round 2 of 2 — started 26 November (founder: "let's do the next task")
 
 DEV-010 is blocked (AUTH-014), so the only remaining authorized implementation work is the last AUTH-017 demo correction round. Branch `claude/demo-correction-round-2` from main `6ca1577`. Root (Claude) owns `web/src/demo/{Demo.tsx,messages.ts,demo.css,state.ts,state.test.ts}`. Scope: (a) audible pause between outcome and heading for screen readers; (b) outcome label uses design tokens instead of raw font values; (c) feedback side panel copy fits correct answers too. Out of scope: same-question retry (new behaviour, belongs to DEV-013/014), font subsetting. After this round no further demo corrections are authorized. Any later source edit is UNVERIFIED until results are appended below.
+
+### Correction round 2 — source edited
+
+`Demo.tsx`: hidden ". " after the outcome inside the h1 (pause for screen readers); side panel copy depends on feedback tone. `messages.ts`: positive-feedback aside copy ("فكرتك مظبوطة" / "اقرأ ليه الطريقة دي صح وبعدين كمّل.") and `headingPause`. `demo.css`: new `--font-body` token used by body and outcome label; outcome size uses `--text-body`. Results: model tests 10/10, typecheck 0, build 0, isolation PASS (94,874), demo bundle 76,138 of 200,000, foundation exit 0. Still to run: strict browser smoke, screenshots, independent re-review.
