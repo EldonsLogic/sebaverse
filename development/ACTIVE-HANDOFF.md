@@ -298,7 +298,7 @@ Independent reviewer (`pro` subagent) appended `Re-review, correction round 1 â€
 
 ## Exact next step (26 November 2026, end of AUTH-019 Antigravity session)
 
-- **Branch:** `antigravity/dev-014-learning-ledger-2026-11-26` (PR opened against `main` `18d0596`; do not merge without founder approval).
+- **Branch:** `antigravity/dev-014-learning-ledger-2026-11-26` (PR https://github.com/EldonsLogic/sebaverse/pull/10 open against `main` `18d0596`; verified commit `3665a69`; do not merge without founder approval).
 - **Verified:** `make test-learning-ledger-preflight` (18/18 PASS), `make backend-check` (763 passed, 1 deselected), `make foundation-check` (179/179 PASS), `python3 tools/check_dependencies.py` (PASS), `git diff --check` (PASS), independent review (`ACCEPTED WITH NOTES` in `development/evidence/dev-014-learning-ledger-review.md`).
 - **Not verified / not run:** 37 DEV-010 PostgreSQL integration cases (blocked on AUTH-014 supplier wait), web/demo suites (no web/demo edits), live DB/provider/UI execution (out of AUTH-019 scope).
 - **Pending review / decision:** PR for AUTH-019 awaits founder merge decision. After merge, development waits on either the AUTH-014 supplier update (`postgres:17-alpine` `linux/amd64` `libssl3`/`libcrypto3` `3.5.9-r1+`) or a new founder authorization (for example, bounded DB-free DEV-013 tutoring state machine).
