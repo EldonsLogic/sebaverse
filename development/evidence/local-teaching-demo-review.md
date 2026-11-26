@@ -52,3 +52,56 @@ Branch `codex/handoff-recovery-2026-11-26`, HEAD `b93f858` with a clean tree. SH
 - I did not start or stop any server or run CLI refusal tests. I checked the guard only through `resolveConfig`.
 - I did not verify Egyptian textbook equation conventions against a source.
 - There was no learner, educator or real-minor involvement.
+
+## Re-review, correction round 1 — 26 November 2026
+
+The same independent Claude subagent performed this re-review at the coordinator's request. I edited no source. Scratch files are in `work/demo-review-2026-11-26/round1/`.
+
+**Verdict after correction round 1: ACCEPTED WITH NOTES for the AUTH-017 local demonstration scope.** Should-fix findings 1–3 are resolved. I found no regression and no blocker. The remaining notes are minor or carried over from the first review. This verdict still certifies no WCAG conformance, learning efficacy or phase exit.
+
+**Reviewed snapshot.** I reviewed `git diff 46f8593 2ccbf9c -- web/src/demo` with the working tree clean at `2ccbf9c`. The source change is in `100d5ad`. SHA-256 prefixes:
+
+| File | SHA-256 prefix |
+| --- | --- |
+| `Demo.tsx` | a71beeb480e8 |
+| `demo.css` | f6557e447211 |
+| `lesson.ts` | bb945ce41a41 |
+| `messages.ts` | 1dd3803650f7 |
+| `state.ts` | 9b9c71824ec3 |
+| `state.test.ts` | ee54b296c5b2 |
+| `main.tsx` | be6d5c47e61c (unchanged) |
+
+**Commands and results**
+
+- **Model tests.** I followed the same ACTIVE-HANDOFF recipe, with output in `round1/state-tests`. `tsc` exited 0 and `node --test` reported 10 tests, 10 passed, 0 failed. The new test 10 checks every option of both questions. It confirms that the chosen fraction is carried into the view and that only the true sum is marked positive. It also confirms that no non-sum heading contains صح or مظبوط.
+- **Browser run.** `round1/review1.mjs` ran against the running server, which listened only on `127.0.0.1:5174`. I did not start or stop it. The result was PASS for all six runs, and the report is `round1/review1-report.json`. Each path ran at 360×800 and at 1440×1000:
+  - **Path A (pointer, hint used).** Wrong ٣/٧ and wrong ٣/٨, then the summary, then reset and re-entry.
+  - **Path B (keyboard only, no hint).** Wrong ٥/١٤ and correct ٤/٨.
+  - **Path C (pointer, hint used).** Correct ٥/٧ and wrong ٤/١٦.
+- **Clean-run checks.** After every run, storage, cookies, IndexedDB, Cache Storage and service workers were all empty. All 17–18 requests were GET requests to `http://127.0.0.1:5174`. The only WebSocket was Vite HMR on `ws://127.0.0.1:5174`. There were no console errors, warnings or page errors.
+- **Leak scans.** I scanned the guided step before the hint, after the hint and after reset, and the practice step before commitment. None contained outcome text, "اخترت", tone attributes, the new headings or the correct-sum wording.
+- **Screenshots.** I read the 360px guided-wrong, guided-correct and visual explanation screenshots, and the 1440px practice-correct screenshot.
+
+**Status of earlier findings**
+
+1. **Finding 1 (equation direction): resolved.** `Demo.tsx:42` and `:55` now use `dir="rtl"`.
+   - Measured x-positions decrease strictly in DOM order, for example ٢/٧ at 223, + at 197, ٣/٧ at 163, = at 138 and ؟ at 114 at 360px. The expression now reads "٢/٧ + ٣/٧ = ؟" from the right, matching the Arabic sentences.
+   - Each stacked fraction is still isolated LTR, so the numerator sits correctly over the denominator.
+   - Bars fill from the right, with the first group to the right of the second, on the intro and visual explanation screens.
+2. **Finding 2 (outcome stated only by colour): resolved.**
+   - The focused `<h1>` now begins with "لسه مش الإجابة الصحيحة" or "إجابتك صحيحة" (`Demo.tsx:243`, `messages.ts:37–38`). Its accessible name includes that outcome on every wrong and correct path.
+   - The wrong-answer headings at `lesson.ts` guided-size, guided-second, practice-first and practice-size now name the error. They are mathematically accurate: ٣/٧ and ٣/٨ do miss a group, and ٥/١٤ and ٤/١٦ do change the denominator.
+   - The outcome badge contrast is 6.06:1 (warning) and 5.45:1 (green), by my own computation from the token hex values.
+3. **Finding 3 (chosen answer not shown): resolved.** A visible "اخترت" line shows the picked stacked fraction, and screen readers hear "اخترت ٣ على ٧" and similar (`Demo.tsx:297`). The equation keeps "؟" instead of showing a false equality, which I agree with.
+4. **Finding 5 (wording): resolved.** The summary row label is now "الخطوة مع بعض", and eighths now use "أثمان".
+
+Findings 4, 6 and 7 from the first review are unchanged notes: no same-item retry, the marker-only isolation check, and unsubsetted TTF fonts.
+
+**New notes (not blockers)**
+
+- **The heading's accessible name runs on.** Screen readers hear the outcome and title as one unbroken phrase, for example "لسه مش الإجابة الصحيحة المقام اتغيّر", because the badge is a block `<span>` with no punctuation (`Demo.tsx:243`). A trailing "،" or "." in the outcome text, or a visually hidden one, would give screen readers a pause.
+- **The outcome badge uses raw values instead of tokens.** `demo.css:311–312` sets a literal `font-family` and `font-size: 1rem` rather than `var(--text-body)`. This is a small tokens-only deviation.
+- **The side panel says to review the step even after a correct answer.** The feedback aside still reads "راجع الخطوة / اقرأ الملاحظة وبعدين كمّل" (`messages.ts:30–31`). This is acceptable but could be tuned. The wording predates this round.
+- **"إجابتك صحيحة" is a per-item judgement on an authored fixture.** The summary still makes no grade, mastery or readiness claim, and none was added, so this stays within scope.
+
+**Not run in this round.** I did not rerun the web typecheck, default build, isolation check, bundle measurement or the integrator's strict smoke. I checked the 390 and 768 widths only through the root's reported 29/29 smoke, not myself. I ran no axe scan and no real screen reader.

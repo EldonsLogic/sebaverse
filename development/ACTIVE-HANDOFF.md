@@ -102,3 +102,11 @@ Edited: `lesson.ts` (four wrong-answer headings no longer say correct; "أثما
 ### Correction round 1 — verification results (on `100d5ad` source)
 
 Model tests 10/10; web typecheck 0; default build 0; isolation PASS (94,874); demo bundle 76,061 of 200,000 gzip bytes; strict browser smoke 29/29 (`local-demo-qa/browser-strict-round1-2026-11-26.json`). Root inspected 360 guided-feedback (correct), 360 practice-feedback (wrong, 4/16) and 1440 explanation: outcome badge, "اخترت" line and right-to-left equations/bars render as intended, no overflow. Demo server PID 47496 on 127.0.0.1:5174 is task-owned; stop after re-review. Next: independent re-review appends a dated "Re-review, correction round 1" section to `local-teaching-demo-review.md`.
+
+### Correction round 1 — independent re-review complete
+
+Reviewer appended "Re-review, correction round 1 — 26 November 2026" to `local-teaching-demo-review.md`: **ACCEPTED WITH NOTES**, should-fix 1–3 and wording note resolved, no regressions, no blockers. Reviewer ran model tests 10/10 and six browser runs (three paths × 360/1440) with clean storage/network/console. New non-blocking notes: heading outcome+title read without a pause (`Demo.tsx:243`), raw font values in `demo.css:311–312`, feedback aside copy after correct answers (`messages.ts:30–31`). Demo server PID 47496 stopped; port 5174 free.
+
+## Exact next step (end of correction round 1)
+
+Waiting on the founder: open a PR from `codex/handoff-recovery-2026-11-26` to main listing the notes as known issues, or use the last allowed correction round on the notes (then rerun model tests, typecheck, build, isolation, bundle, `tools/browser/demo-smoke.mjs`, and re-review). Never merge without the founder's word for that PR.

@@ -9,3 +9,5 @@ This log records milestones, not a transcript. CURRENT-STATE.md is the short cur
 - 26 November 2026 — Claude session resumed from pushed recovery checkpoint `a637951` (verified equal to origin, clean). Started final demo verification and independent acceptance per ACTIVE-HANDOFF.md.
 
 - 26 November 2026 — Final demo verification on unchanged source: foundation179, dependencies, model 9/9, typecheck/build, isolation, bundle report and strict browser 29/29 all pass; guard refuses overrides. Independent review: ACCEPTED WITH NOTES (no blockers, three should-fix items on equation direction and feedback clarity). Main not advanced; founder to choose correction round or PR.
+
+- 26 November 2026 — Demo correction round 1 (founder: fix first): right-to-left equations and bars, text outcome in focused heading, chosen answer shown, wording consistency; new model test. Model 10/10, typecheck/build/isolation, bundle 76,061, strict browser 29/29; independent re-review ACCEPTED WITH NOTES, no blockers. Main not advanced; founder to choose PR or final correction round.
