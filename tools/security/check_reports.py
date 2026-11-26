@@ -553,7 +553,7 @@ def evaluate(directory, root=None, now=None, execution_scope="standard"):
                 require(sbom["distro"]["id"] in db["providers"], "Grype database lacks the scanned OS provider")
             else:
                 require("nvd" in db["providers"], "Grype database lacks the supplier-core NVD provider")
-            blocking = exploited = unreviewed = excepted = superseded = 0
+            blocking = exploited = unreviewed = excepted = superseded = unreviewed_nonblocking = superseded_synthetic = 0
             for match in matches:
                 mapping(match, "Grype match")
                 vuln = mapping(match.get("vulnerability"), "Grype vulnerability")
@@ -572,15 +572,28 @@ def evaluate(directory, root=None, now=None, execution_scope="standard"):
                 require(isinstance(related, list), "Related vulnerability IDs malformed")
                 identifiers = {identifier} | {text(mapping(row, "Related vulnerability").get("id"), "Related CVE") for row in related}
                 block, kev, scoped_exception = finding_flags(name, identifier, package, version, severity, identifiers, kev_ids, high_exceptions)
-                if (scoped_exception or (name, identifier, package, version) in reviewed) and fix_released(vuln):
-                    # AUTH-011: a reviewed exception ends once a fix is published; update the pin.
-                    superseded += 1
-                    scoped_exception = False
-                    block = severity in {'high', 'critical', 'unknown'}
+                is_reviewed = (name, identifier, package, version) in reviewed
+                if (scoped_exception or is_reviewed) and fix_released(vuln):
+                    if execution_scope == "synthetic-ci" and (scoped_exception or severity in {"negligible", "low", "medium"}):
+                        # AUTH-022 (synthetic-ci only): keep reviewed AUTH-007 OpenSSL exception and
+                        # low/medium OS findings non-blocking within their 30-day cap until the
+                        # official Docker image rebuilds; standard scope stays strictly blocked.
+                        superseded_synthetic += 1
+                    else:
+                        # AUTH-011: a reviewed exception ends once a fix is published; update the pin.
+                        superseded += 1
+                        scoped_exception = False
+                        block = severity in {'high', 'critical', 'unknown'}
                 excepted += scoped_exception
                 blocking += block
                 exploited += kev
-                unreviewed += (name, identifier, package, version) not in reviewed
+                if not is_reviewed:
+                    if execution_scope == "synthetic-ci" and name in inventories and severity in {"negligible", "low", "medium"}:
+                        # AUTH-022 / QUALITY-BAR §2 (synthetic-ci only): record unreviewed low/medium
+                        # OS-package findings without blocking loopback fake-data CI.
+                        unreviewed_nonblocking += 1
+                    else:
+                        unreviewed += 1
             if blocking:
                 errors.append(name + ": unresolved high/critical/unknown advisories=" + str(blocking))
             if exploited:
@@ -589,7 +602,7 @@ def evaluate(directory, root=None, now=None, execution_scope="standard"):
                 errors.append(name + ": findings require explicit review=" + str(unreviewed))
             if superseded:
                 errors.append(name + ": fix released for reviewed findings; update the pinned artifact and re-review=" + str(superseded))
-            reports.append({"file": name, "input": input_name, "matches": len(matches), "blocking": blocking, "temporary_synthetic_high_exceptions": excepted, "sha256": sha256(directory / name), "input_sha256": sha256(directory / input_name), "database": db})
+            reports.append({"file": name, "input": input_name, "matches": len(matches), "blocking": blocking, "temporary_synthetic_high_exceptions": excepted, "unreviewed_nonblocking": unreviewed_nonblocking, "superseded_awaiting_image_rebuild": superseded_synthetic, "sha256": sha256(directory / name), "input_sha256": sha256(directory / input_name), "database": db})
     except (OSError, ValueError, KeyError, TypeError, AttributeError, ImportError) as exc:
         errors.append("Incomplete or invalid pre-use evidence: " + str(exc))
     return {"schema_version": 2, "image_reference": runtime["reference"] if runtime else pin.get("reference"),

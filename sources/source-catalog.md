@@ -102,3 +102,5 @@ Exact research files/bytes/checksums: [manifest](research-manifest.json). Suppor
 - U32: [Offline tutoring state-machine authorization](offline-tutor-state-instruction.md), 26 November 2026. Founder approves only the bounded AUTH-020 DB-free DEV-013 deterministic tutoring state-machine sub-slice; full task/phase/runtime/AG-UI gates remain unchanged.
 
 - U33: [Offline parent-summary and privacy-preflight authorization](offline-parent-privacy-instruction.md), 26 November 2026. Founder approves only the bounded AUTH-021 DB-free DEV-015/016 parent progress summary, metadata-only telemetry redaction, and deletion-tombstone replay sub-slice; full task/phase/runtime gates remain unchanged.
+
+- U34: [Synthetic-CI policy alignment and DEV-010 PostgreSQL verification authorization](synthetic-ci-policy-alignment-instruction.md), 26 November 2026. Founder aligns `synthetic-ci` loopback fake-data gate with QUALITY-BAR §2 (keeping full strict `standard` gate unchanged for real data/deployment) and authorizes running DEV-010's 37 PostgreSQL tests.
