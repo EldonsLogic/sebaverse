@@ -72,3 +72,39 @@ All commands below were executed directly on branch `antigravity/dev-013-tutor-s
 | `git status --short` | PASS (exit 0) | Before creating this review: clean (`""`). After creating this review: only `?? development/evidence/dev-013-tutor-state-review.md` |
 
 - **Not run in this review:** 37 `DEV-010` PostgreSQL integration cases (`AUTH-014` supplier wait), `make dependency-check`, `make smoke-local`, web/demo builds and Playwright checks (no web edits), and live DB/provider/AG-UI execution (outside `AUTH-020` scope).
+
+
+## Re-review, correction round 1 — 26 November 2026
+
+- **Commit SHA reviewed:** `07bae3c72fde55c2b606faf6d2ecfd3c1e886ff2` (`git diff 849019f..07bae3c` on branch `antigravity/dev-013-tutor-state-2026-11-26`)
+- **Verdict:** **ACCEPTED WITH NOTES** (0 blockers, 0 should-fix items, 3 minor non-blocking notes).
+- **Next action:** Commit `development/evidence/dev-013-tutor-state-review.md` and proceed with `AUTH-020` PR/handover under `U32` scope (full `DEV-013`, `R105` AG-UI/SSE, `DEV-010`, and `F4` phase exit remain gated).
+
+### Resolution Verification
+
+All 4 blockers and the actionable should-fix/note items from `849019f` are resolved in `07bae3c72fde55c2b606faf6d2ecfd3c1e886ff2` without regressions or scope drift:
+
+1. **Blocker 1 (`paused` / `blocked` / `cancelled` resume & `check_access` source guard):** Resolved in `backend/modules/tutoring/state_machine.py:59-61,453-495` (`resume_session` transitions `paused`/`blocked`/`cancelled` -> `access_check` only after live `policy.allowed`, and `check_access` is restricted to `session.state == 'access_check'`). Verified in `backend/tests/tutoring/test_tutor_state.py:124-132,174-176,216-227,435-436`.
+2. **Blocker 2 (Item schema, approval, edition, objective, and audience binding):** Resolved in `backend/modules/tutoring/state_machine.py:235-262,474,558,615` (`_validate_session_item` enforces `SERIALIZERS['item']`, `status == 'approved'`, matching `edition`, `objectives` membership, and `learner_private`/`shared_fixture` audience across `diagnose`, `start_practice`, and `submit_answer`). Verified in `backend/tests/tutoring/test_tutor_state.py:179-198`.
+3. **Blocker 3 (Hint/reveal anti-gaming reset):** Resolved in `backend/modules/tutoring/state_machine.py:152,581,598,636-650,684` (persistent `exposed_items` set prevents a hinted or answer-revealed item restarted via `guided -> start_practice` from emitting `'independent'` evidence). Verified in `backend/tests/tutoring/test_tutor_state.py:336-357`.
+4. **Blocker 4 (Server-derived role binding & human adjudication):** Resolved in `backend/modules/tutoring/state_machine.py:64-65,344-350,425-430,664,696-712` (`command.actor_role == scope.role` in `ALLOWED_ROLES`, `EvidenceEvent.actor_role=scope.role`, and both `resume_from_safety` and `adjudicate_review` require server-derived `scope.role in HUMAN_ADJUDICATOR_ROLES` plus live `policy.allowed`). Verified in `backend/tests/tutoring/test_tutor_state.py:144-147,282-294,435-446`.
+5. **Should-fix & notes resolved:** Implemented `diagnose` item/submit flow (`473-487,611,644,650`; `test_tutor_state.py:366-374`), `adjudicate_review` (`696-712`; `test_tutor_state.py:440-446`), `cancel_turn` active-item cleanup (`411-415`), `no_active_item` guards on `request_hint`/`reveal_worked_answer` (`576-577,596-597`; `test_tutor_state.py:309-314`), live `policy.allowed` check on replay (`376`; `test_tutor_state.py:243-245`), full canonical `_command_digest` (`265-291`), `_SHORT_ID_MAX = 80` (`68,307,336-337`), and explicit `is None` defaults (`394,427,469,701,717`; `test_tutor_state.py:169-170`).
+
+### Remaining Non-Blocking Notes
+
+1. **Unused transition edges (`backend/modules/tutoring/state_machine.py:49,52-54`):** `ALLOWED_TRANSITIONS` still lists `'grade'` (`53-54`) and `'select'`/`'prerequisite' -> 'review_pending'` (`49,52`) with no actions entering `'grade'` or transitioning directly from `'select'`/`'prerequisite'` to `'review_pending'`.
+2. **Active-item state across pause/block resume (`backend/modules/tutoring/state_machine.py:443-450,488-495,499-507`):** Unlike `cancel_turn` (`411-415`), `pause_session`, `blocked`, and `check_access(target='select')` keep `active_item_*` populated until `start_practice` or `check_access(target='diagnose')` runs; `exposed_items` still prevents independence bypass.
+3. **Replay `TutorStepResult` metadata (`backend/modules/tutoring/state_machine.py:378,642-647`):** Idempotent replay returns `grade_decision=None`, `emitted_event=None`, and `abstention_reason=None` (callers inspect `session.emitted_events` and `session.last_citations`), and a previously revealed item retried with a new hint (`request_hint`) classifies as `'assisted'` rather than `'exposed'` (both are non-independent in `modules.learning.ledger`).
+
+### Round 1 Verification Commands Observed
+
+All commands below were executed directly on `antigravity/dev-013-tutor-state-2026-11-26` at commit `07bae3c72fde55c2b606faf6d2ecfd3c1e886ff2`:
+
+| Command | Outcome | Observed Result |
+|---|---|---|
+| `make test-tutor-state-preflight` | PASS (exit 0) | `7 passed in 0.13s` |
+| `make backend-check` | PASS (exit 0) | `770 passed, 1 deselected in 6.43s`; `backend/manage.py check`: `System check identified no issues (0 silenced).` |
+| `make foundation-check` | PASS (exit 0) | `model_economics.py` PASS; `validate_project.py` PASS (0 errors, 0 warnings); `check_foundation.py` PASS; `tools/tests`: `Ran 179 tests in 4.157s`, `OK` |
+| `git status --short` | PASS (exit 0) | Clean before review append; after append: only ` M development/evidence/dev-013-tutor-state-review.md` |
+
+- **Not run in this re-review:** 37 `DEV-010` PostgreSQL integration cases (`AUTH-014` supplier wait), `make dependency-check`, `make smoke-local`, web/demo suites, and live DB/provider/AG-UI execution.

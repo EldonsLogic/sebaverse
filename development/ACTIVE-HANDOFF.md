@@ -336,3 +336,15 @@ Fixing all 4 blockers, 3 should-fix findings, and notes in `backend/modules/tuto
 - `make foundation-check`: exit 0 — 179/179 unit tests passed, `validate_project.py` PASS, `model_economics.py` PASS, `check_foundation.py` PASS.
 - `python3 tools/check_dependencies.py`: exit 0, PASS; `git diff --check`: exit 0.
 - Next: independent re-review subagent appends `Re-review, correction round 1 — 26 November 2026` to `development/evidence/dev-013-tutor-state-review.md`. If no re-review results follow, round 1 remains pending re-review.
+
+### Independent re-review complete — `ACCEPTED WITH NOTES` on `07bae3c`
+
+Independent reviewer (`pro` subagent) appended `Re-review, correction round 1 — 26 November 2026` to `development/evidence/dev-013-tutor-state-review.md`. Verdict: **ACCEPTED WITH NOTES** for the AUTH-020 bounded DB-free scope. All 4 initial blockers and actionable should-fix/note items resolved with zero regressions. Reviewer independently ran `make test-tutor-state-preflight` (7/7 PASS), `make backend-check` (770 passed, 1 deselected, `manage.py check` 0 issues), and `make foundation-check` (179/179 PASS). Remaining non-blocking notes are recorded in the review file.
+
+## Exact next step (26 November 2026, end of AUTH-020 Antigravity session)
+
+- **Branch:** `antigravity/dev-013-tutor-state-2026-11-26` (PR opened against `main` `89e0241`; do not merge without founder approval).
+- **Verified:** `make test-tutor-state-preflight` (7/7 PASS), `make backend-check` (770 passed, 1 deselected), `make foundation-check` (179/179 PASS), `python3 tools/check_dependencies.py` (PASS), `git diff --check` (PASS), independent review (`ACCEPTED WITH NOTES` in `development/evidence/dev-013-tutor-state-review.md`).
+- **Not verified / not run:** 37 DEV-010 PostgreSQL integration cases (blocked on AUTH-014 supplier wait), web/demo suites (no web/demo edits), live DB/HTTP/SSE/AG-UI/LLM execution (out of AUTH-020 scope).
+- **Pending review / decision:** PR for AUTH-020 awaits founder merge decision. After merge, the core DB-free backend tutoring loop is complete on `main`; development waits on the AUTH-014 supplier update (`postgres:17-alpine` `linux/amd64` `libssl3`/`libcrypto3` `3.5.9-r1+`) or a new founder authorization.
+- **Next command:** `git status -sb && git fetch && git log --oneline -3 origin/main && python3 tools/brief.py` (after founder decides on merging the AUTH-020 PR).
