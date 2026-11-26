@@ -406,3 +406,9 @@ Step 1: record `U34` / `AUTH-022`, update `tools/security/check_reports.py` (`sy
 - Added `tools/tests/test_auth_022_synthetic_ci.py`.
 - Local Docker daemon is not running (`Cannot connect to the Docker daemon at unix:///Users/eldon/.docker/run/docker.sock`), so opening PR 13 to run hosted `Local skeleton phase checks` (which executes Syft/Grype pre-use policy + `tools/run_postgres_smoke.py` + all 37 DEV-010 PostgreSQL cases on Linux/amd64).
 - Next: verify `make foundation-check`, push branch, open PR 13, and inspect the actual hosted `Local skeleton phase checks` result before independent review.
+
+### Results — AUTH-022 hosted CI GREEN (`2aadaaf`, run `45864202204`)
+
+- PR 13 (`https://github.com/EldonsLogic/sebaverse/pull/13`) passed **all 7/7 hosted checks**: Foundation checks ×2 (183/183 tests), Dependency readiness ×2, Static PostgreSQL remediation, and **both `Local skeleton phase checks` runs** (including run `45864202204`: `Enforce native/image pre-use policy` PASS, `Real PostgreSQL migration, readiness and teardown smoke` PASS running DEV-010's 37 PostgreSQL cases, `Loopback server, desktop/mobile browser and teardown` PASS).
+- Recorded observed hosted evidence in `development/evidence/dev-010-postgres-probe-2026-11-26.md`.
+- Next: commit & push evidence/records, then launch an independent `pro` reviewer subagent owning only `development/evidence/auth-022-synthetic-ci-review.md`. If no review results follow, PR 13 remains pending review.
