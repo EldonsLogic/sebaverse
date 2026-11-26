@@ -57,3 +57,14 @@ User reported 1% weekly allowance and requested wrap/log. Stopped new work. Reco
 ## Session start — 26 November 2026, Claude (Opus 5.5) integrator
 
 Verified before work: branch `codex/handoff-recovery-2026-11-26`, HEAD `a637951aa862a3b0e75abce0b2cdcc9cc30333a5` equal to origin, clean tree, main `df12e31`. Qualified Node `work/demo-toolchain/24.22.3/node` present, SHA-256 matches the record. Port 5174 free (no task-owned server running). Plan: (1) foundation179 + dependency checks; (2) model tests, web typecheck, default build, isolation, bundle report; (3) demo server on 127.0.0.1:5174 and strict browser rerun with fresh screenshots; (4) independent reviewer subagent writes `development/evidence/local-teaching-demo-review.md`; (5) record results, commit, push. Results will be appended below as each step finishes. If this section has no results after it, the session stopped before step 1 finished.
+
+### Results — steps 1–2 (Claude, 26 November, on `f154390` source, no source edits)
+
+All under `work/demo-toolchain/24.22.3/node` (SHA-256 verified) on PATH.
+- `make foundation-check`: exit 0, 179/179. The `npm view timed out` JSON in its output is printed by a negative-fixture test, not a failure.
+- `python3 tools/check_dependencies.py`: PASS (evidence + local import/render smoke).
+- Demo model tests (recipe above): tsc exit 0; `node --test` 9/9 pass.
+- `web` typecheck exit 0; default `vite build` succeeded (only upstream `use client` directive warnings).
+- `tools/demo/check-isolation.mjs`: default build excludes demo; script/style gzip 94,874 bytes.
+- `tools/demo/measure-bundle.mjs`: exit 0, created `work/demo-browser/bundle-report.json`; demo script/style gzip 75,787 bytes (max 200,000). Fonts still unsubsetted TTF (692,292 bytes) — known open item, not fixed.
+Next: step 3, demo server on 127.0.0.1:5174 and strict browser rerun.
