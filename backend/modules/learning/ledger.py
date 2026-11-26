@@ -26,7 +26,8 @@ REVIEW_INTERVAL_DAYS = (1, 3, 7, 14, 30)
 DEFAULT_RETENTION_DELAY = timedelta(days=7)
 
 _IDENTIFIER = re.compile(r'[a-z][a-z0-9._-]{1,95}')
-_FORBIDDEN_MODEL_PREFIXES = ('model', 'llm', 'ai.')
+_FORBIDDEN_MODEL_TOKENS = frozenset({'model', 'llm', 'ai'})
+_PROMOTABLE_TO_INDEPENDENT = frozenset({'independent', 'ambiguous'})
 
 
 class LedgerError(ValueError):
@@ -181,6 +182,8 @@ def validate_event(event: EvidenceEvent) -> tuple[datetime, datetime]:
     _check_pos_int(event.objective_version)
     occurred = _to_utc(event.occurred_at, code='invalid_event')
     recorded = _to_utc(event.recorded_at, code='invalid_event')
+    if recorded < occurred:
+        raise LedgerError('invalid_event')
 
     if type(event.actor_role) is not str or event.actor_role == 'model':
         raise LedgerError('invalid_event')
@@ -214,7 +217,7 @@ def validate_event(event: EvidenceEvent) -> tuple[datetime, datetime]:
             raise LedgerError('invalid_correction')
         _check_id(event.supersedes_event_id, code='invalid_correction')
         adj = _check_id(event.adjudicator_ref, code='invalid_correction')
-        if any(adj == p or adj.startswith(p + '.') or adj.startswith(p + '-') for p in _FORBIDDEN_MODEL_PREFIXES):
+        if re.split(r'[._-]', adj, maxsplit=1)[0] in _FORBIDDEN_MODEL_TOKENS:
             raise LedgerError('invalid_correction')
         if type(event.correction_action) is not str or event.correction_action not in CORRECTION_ACTIONS:
             raise LedgerError('invalid_correction')
@@ -225,6 +228,8 @@ def validate_event(event: EvidenceEvent) -> tuple[datetime, datetime]:
             if event.new_evidence_class is not None and (
                 type(event.new_evidence_class) is not str or event.new_evidence_class not in EVIDENCE_CLASSES
             ):
+                raise LedgerError('invalid_correction')
+            if event.new_outcome == 'pending_review' and event.new_evidence_class not in (None, 'ambiguous'):
                 raise LedgerError('invalid_correction')
         elif event.correction_action == 'reclassify_evidence':
             if type(event.new_evidence_class) is not str or event.new_evidence_class not in EVIDENCE_CLASSES:
@@ -346,16 +351,27 @@ def project_objective_mastery(
         if corr.correction_action == 'invalidate_item':
             target['invalidated'] = True
         elif corr.correction_action == 'override_outcome':
-            target['outcome'] = corr.new_outcome
-            if corr.new_evidence_class is not None:
-                if corr.new_evidence_class == 'independent' and (orig.hints_used > 0 or orig.answer_revealed):
+            if corr.new_outcome == 'pending_review':
+                if corr.new_evidence_class not in (None, 'ambiguous'):
                     raise LedgerError('invalid_correction')
-                target['evidence_class'] = corr.new_evidence_class
-            elif corr.new_outcome == 'pending_review':
+                target['outcome'] = 'pending_review'
                 target['evidence_class'] = 'ambiguous'
+            else:
+                if corr.new_evidence_class == 'independent' and (
+                    orig.evidence_class not in _PROMOTABLE_TO_INDEPENDENT
+                    or orig.hints_used > 0
+                    or orig.answer_revealed
+                ):
+                    raise LedgerError('invalid_correction')
+                target['outcome'] = corr.new_outcome
+                if corr.new_evidence_class is not None:
+                    target['evidence_class'] = corr.new_evidence_class
         elif corr.correction_action == 'reclassify_evidence':
             if corr.new_evidence_class == 'independent' and (
-                orig.hints_used > 0 or orig.answer_revealed or target['outcome'] == 'pending_review'
+                orig.evidence_class not in _PROMOTABLE_TO_INDEPENDENT
+                or orig.hints_used > 0
+                or orig.answer_revealed
+                or target['outcome'] == 'pending_review'
             ):
                 raise LedgerError('invalid_correction')
             target['evidence_class'] = corr.new_evidence_class

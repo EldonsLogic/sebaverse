@@ -17,7 +17,7 @@ from modules.curriculum.contracts import SERIALIZERS
 _MAX_SUBMISSION_CHARS = 4000
 _MAX_NUMERIC_CHARS = 64
 _MAX_UNIT_CHARS = 64
-_NUMERIC_LITERAL = re.compile(r'^[+-]?(?:\d+(?:\.\d+)?|\.\d+)$')
+_NUMERIC_LITERAL = re.compile(r'^[+-]?(?:[0-9]+(?:\.[0-9]+)?|\.[0-9]+)$')
 _NUMERIC_TRANS = str.maketrans({
     '٠': '0',
     '١': '1',
@@ -130,6 +130,19 @@ def grade_submission(
             reason_code=reason,
         )
 
+    # Validate grader-specific rubric/item consistency BEFORE any hold or grading.
+    if grader_id == 'choice.v1':
+        option_ids = [opt['id'] for opt in item['options']]
+        if len(option_ids) < 2 or len(set(option_ids)) != len(option_ids):
+            raise AssessmentError('invalid_item')
+        if config['correct_option'] not in option_ids:
+            raise AssessmentError('grader_mismatch')
+    elif grader_id == 'numeric.v1':
+        expected_pre = _parse_finite_decimal(config['expected'])
+        tolerance_pre = _parse_finite_decimal(config['tolerance'])
+        if expected_pre is None or tolerance_pre is None or tolerance_pre < 0:
+            raise AssessmentError('invalid_rubric')
+
     # Human-review rubrics NEVER receive an invented deterministic grade.
     if grader_id == 'human-review.v1':
         return _decision('pending_review', True, 'human_review_required')
@@ -144,11 +157,7 @@ def grade_submission(
 
     if grader_id == 'choice.v1':
         option_ids = [opt['id'] for opt in item['options']]
-        if len(option_ids) < 2 or len(set(option_ids)) != len(option_ids):
-            raise AssessmentError('invalid_item')
         correct_opt = config['correct_option']
-        if correct_opt not in option_ids:
-            raise AssessmentError('grader_mismatch')
         picked = submission.strip()
         if picked not in option_ids:
             raise AssessmentError('invalid_submission')
@@ -172,8 +181,6 @@ def grade_submission(
     if grader_id == 'numeric.v1':
         expected = _parse_finite_decimal(config['expected'])
         tolerance = _parse_finite_decimal(config['tolerance'])
-        if expected is None or tolerance is None or tolerance < 0:
-            raise AssessmentError('invalid_rubric')
         parsed = _parse_finite_decimal(submission)
         if parsed is None:
             return _decision('incorrect', False, 'numeric_unparseable')
@@ -181,6 +188,8 @@ def grade_submission(
         if expected_unit is not None:
             if submitted_unit is None or submitted_unit.strip() != expected_unit.strip():
                 return _decision('incorrect', False, 'numeric_unit_mismatch')
+        elif submitted_unit is not None and submitted_unit.strip():
+            return _decision('incorrect', False, 'numeric_unit_mismatch')
         if abs(parsed - expected) <= tolerance:
             return _decision('correct', False, 'numeric_within_tolerance')
         return _decision('incorrect', False, 'numeric_outside_tolerance')

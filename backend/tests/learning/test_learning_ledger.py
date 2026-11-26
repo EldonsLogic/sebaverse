@@ -158,10 +158,22 @@ def test_grader_rejects_draft_mismatch_and_never_leaks_answer_keys():
         grade_submission(item, rubric, 'invented-option')
     assert 'physical' not in str(exc.value)
 
-    # Draft item or mismatched rubric rejected
+    # Draft item, draft/withdrawn rubric, or mismatched rubric/audience rejected
     draft_item = dict(item, status='draft')
     with pytest.raises(AssessmentError, match='^invalid_item$'):
         grade_submission(draft_item, rubric, 'physical')
+
+    draft_rubric = dict(rubric, status='draft')
+    with pytest.raises(AssessmentError, match='^invalid_rubric$'):
+        grade_submission(item, draft_rubric, 'physical')
+
+    withdrawn_rubric = dict(rubric, status='withdrawn')
+    with pytest.raises(AssessmentError, match='^invalid_rubric$'):
+        grade_submission(item, withdrawn_rubric, 'physical')
+
+    priv_rubric_same_id = dict(rubric, audience={'type': 'learner_private', 'tenant_id': 'fixture.tenant-a', 'learner_id': 'fixture.learner-a'})
+    with pytest.raises(AssessmentError, match='^grader_mismatch$'):
+        grade_submission(item, priv_rubric_same_id, 'physical')
 
     other_rubric = _find(bundle, 'rubric', 'rubric.quantitative')
     with pytest.raises(AssessmentError, match='^grader_mismatch$'):
@@ -186,6 +198,8 @@ def test_exact_set_numeric_and_human_review_graders_and_model_proposal_hold():
     assert grade_submission(num_item, num_rubric, '2+5').reason_code == 'numeric_unparseable'
     assert grade_submission(num_item, num_rubric, 'NaN').outcome == 'incorrect'
     assert grade_submission(num_item, num_rubric, 'Infinity').outcome == 'incorrect'
+    # Unitless numeric rubric rejects non-empty submitted_unit
+    assert grade_submission(num_item, num_rubric, '7', submitted_unit='kg').reason_code == 'numeric_unit_mismatch'
 
     # numeric.v1 with unit check
     unit_rubric = json.loads(json.dumps(num_rubric))
@@ -249,8 +263,55 @@ def test_hints_revealed_answers_models_and_pending_cannot_be_independent():
         validate_event(_attempt('ev.pend', outcome='pending_review', evidence_class='independent'))
     with pytest.raises(LedgerError, match='^invalid_correction$'):
         validate_event(_correction('ev.badc', 'ev.a', actor_role='learner'))
+    for bad_adj in ('model.gpt', 'model_1', 'llm_grader', 'ai.gpt', 'ai-assistant'):
+        with pytest.raises(LedgerError, match='^invalid_correction$'):
+            validate_event(_correction('ev.badm', 'ev.a', adjudicator_ref=bad_adj))
     with pytest.raises(LedgerError, match='^invalid_correction$'):
-        validate_event(_correction('ev.badm', 'ev.a', adjudicator_ref='model.gpt'))
+        validate_event(
+            _correction('ev.badp', 'ev.a', action='override_outcome', new_outcome='pending_review', new_evidence_class='independent')
+        )
+    # recorded_at before occurred_at fails closed
+    backwards = EvidenceEvent(
+        event_id='ev.back',
+        idempotency_key='idem.ev.back',
+        event_kind='attempt',
+        tenant_id='fixture.tenant-a',
+        learner_id='fixture.learner-a',
+        edition_id='edition.quantitative',
+        edition_version=1,
+        objective_id='objective.quantitative',
+        objective_version=1,
+        occurred_at=T0 + timedelta(minutes=5),
+        recorded_at=T0,
+        actor_role='learner',
+        item_id='item.q1',
+        item_version=1,
+        family_id='family.a',
+        rubric_id='rubric.quantitative',
+        rubric_version=1,
+        evidence_class='independent',
+        outcome='correct',
+    )
+    with pytest.raises(LedgerError, match='^invalid_event$'):
+        validate_event(backwards)
+
+
+def test_role_purpose_and_cross_edition_or_objective_isolation():
+    with pytest.raises(LedgerError, match='^access_denied$'):
+        project_objective_mastery([], scope=_scope(role='learner', purpose='teacher_reporting'), objective_id='objective.quantitative', objective_version=1)
+    # Allowed teacher and guardian reporting scopes succeed
+    for role, purpose in (('teacher', 'teacher_reporting'), ('guardian', 'guardian_reporting')):
+        proj = project_objective_mastery(
+            [
+                _attempt('ev.wrong-ed', edition_version=2, item_id='item.q1', family_id='family.a'),
+                _attempt('ev.wrong-obj', objective_id='objective.other', item_id='item.q2', family_id='family.b'),
+            ],
+            scope=_scope(role=role, purpose=purpose),
+            objective_id='objective.quantitative',
+            objective_version=1,
+        )
+        assert proj.status == 'unassessed'
+        assert proj.applied_event_count == 0
 
 
 def test_unassessed_and_non_independent_evidence_never_raise_mastery():
@@ -307,6 +368,15 @@ def test_mastery_progression_delayed_retention_and_later_failure_preserves_succe
     assert p3.independent_correct_families == ('family.a', 'family.b')
     assert p3.review_due_at == T0 + timedelta(days=5)  # 3-day expanding interval
 
+    # Same-family or pre-delay (< 7 days) success does NOT grant retained
+    e3_early = _attempt('ev.s3-early', day_offset=5, item_id='item.q3b', family_id='family.c', outcome='correct')
+    p3_early = project_objective_mastery([e1, e2, e3, e3_early], scope=_scope(), objective_id='objective.quantitative', objective_version=1)
+    assert p3_early.status == 'ready_for_review'
+
+    e3_same_fam = _attempt('ev.s3-same', day_offset=10, item_id='item.q3c', family_id='family.a', outcome='correct')
+    p3_same_fam = project_objective_mastery([e1, e2, e3, e3_same_fam], scope=_scope(), objective_id='objective.quantitative', objective_version=1)
+    assert p3_same_fam.status == 'ready_for_review'
+
     # Delayed success on a NEW family after 7 days -> retained
     e4 = _attempt('ev.s3', day_offset=10, item_id='item.q4', family_id='family.c', outcome='correct')
     p4 = project_objective_mastery([e1, e2, e3, e4], scope=_scope(), objective_id='objective.quantitative', objective_version=1)
@@ -337,10 +407,14 @@ def test_duplicate_and_out_of_order_replay_is_deterministic_and_rejects_conflict
     )
     assert in_order == shuffled_with_dups
 
-    # Conflicting duplicate with same event_id fails closed
+    # Conflicting duplicate with same event_id or same idempotency_key fails closed
     conflict = _attempt('ev.s1', day_offset=1, item_id='item.q1', family_id='family.a', outcome='incorrect')
     with pytest.raises(LedgerError, match='^conflicting_duplicate$'):
         project_objective_mastery([e1, conflict], scope=_scope(), objective_id='objective.quantitative', objective_version=1)
+
+    conflict_idem = _attempt('ev.s1-other', day_offset=1, item_id='item.q1', family_id='family.a', outcome='correct', idempotency_key=e1.idempotency_key)
+    with pytest.raises(LedgerError, match='^conflicting_duplicate$'):
+        project_objective_mastery([e1, conflict_idem], scope=_scope(), objective_id='objective.quantitative', objective_version=1)
 
 
 def test_appeal_correction_and_item_invalidation_replay_lineage():
@@ -370,11 +444,15 @@ def test_appeal_correction_and_item_invalidation_replay_lineage():
     assert proj_after_inv.invalidated_count == 1
     assert proj_after_inv.independent_correct_families == ('family.a',)
 
-    # Teacher cannot reclassify a hinted attempt as independent
-    hinted = _attempt('ev.h1', day_offset=0, item_id='item.q3', family_id='family.c', evidence_class='assisted', hints_used=2)
-    bad_reclass = _correction('ev.c3', 'ev.h1', day_offset=1, action='reclassify_evidence', new_outcome=None, new_evidence_class='independent')
-    with pytest.raises(LedgerError, match='^invalid_correction$'):
-        project_objective_mastery([hinted, bad_reclass], scope=_scope(), objective_id='objective.quantitative', objective_version=1)
+    # Teacher cannot promote hinted, exposed, assisted(hints=0), or external_observation attempts to independent
+    for idx, (ev_cls, hints) in enumerate((('assisted', 2), ('assisted', 0), ('exposed', 0), ('external_observation', 0))):
+        base_ev = _attempt(f'ev.np{idx}', day_offset=0, item_id=f'item.np{idx}', family_id='family.c', evidence_class=ev_cls, hints_used=hints)
+        bad_reclass = _correction(f'ev.cr{idx}', f'ev.np{idx}', day_offset=1, action='reclassify_evidence', new_outcome=None, new_evidence_class='independent')
+        with pytest.raises(LedgerError, match='^invalid_correction$'):
+            project_objective_mastery([base_ev, bad_reclass], scope=_scope(), objective_id='objective.quantitative', objective_version=1)
+        bad_override = _correction(f'ev.co{idx}', f'ev.np{idx}', day_offset=1, action='override_outcome', new_outcome='correct', new_evidence_class='independent')
+        with pytest.raises(LedgerError, match='^invalid_correction$'):
+            project_objective_mastery([base_ev, bad_override], scope=_scope(), objective_id='objective.quantitative', objective_version=1)
 
     # Dangling correction referencing unknown event fails closed
     dangling = _correction('ev.c4', 'ev.missing', day_offset=1, action='invalidate_item', new_outcome=None, new_evidence_class=None)
