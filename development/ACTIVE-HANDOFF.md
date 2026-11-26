@@ -114,3 +114,7 @@ Waiting on the founder: open a PR from `codex/handoff-recovery-2026-11-26` to ma
 ## PR to main — started 26 November (founder: "then shoot")
 
 Founder approved opening a PR from `codex/handoff-recovery-2026-11-26` to main with the minor notes as known issues. Merge is NOT approved; it needs the founder's word for that PR. If no PR link is recorded below, the PR was not opened.
+
+### PR opened
+
+https://github.com/EldonsLogic/sebaverse/pull/5 (head `codex/handoff-recovery-2026-11-26`, base main `df12e31`, mergeable). Hosted checks at open time: Vercel `sebaverse` pass, `foundation` and `locked-install-and-audit` pass on the push run; `skeleton` pending. Vercel `sebaverse-sqcg` FAILS, but it also fails on main `df12e31`, so it is pre-existing and not caused by this PR. `skeleton` also failed on main `df12e31`; check this PR's result before merge. Next: founder reviews and decides on merge. Do not merge without the founder's word for PR 5.
