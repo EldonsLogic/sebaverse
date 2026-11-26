@@ -150,3 +150,7 @@ DEV-010 is blocked (AUTH-014), so the only remaining authorized implementation w
 ### Correction round 2 — source edited
 
 `Demo.tsx`: hidden ". " after the outcome inside the h1 (pause for screen readers); side panel copy depends on feedback tone. `messages.ts`: positive-feedback aside copy ("فكرتك مظبوطة" / "اقرأ ليه الطريقة دي صح وبعدين كمّل.") and `headingPause`. `demo.css`: new `--font-body` token used by body and outcome label; outcome size uses `--text-body`. Results: model tests 10/10, typecheck 0, build 0, isolation PASS (94,874), demo bundle 76,138 of 200,000, foundation exit 0. Still to run: strict browser smoke, screenshots, independent re-review.
+
+### Correction round 2 — browser results (source `4945489`)
+
+Strict `demo-smoke.mjs` 29/29 (`local-demo-qa/browser-strict-round2-2026-11-26.json`). Root inspected 360 guided-feedback (correct): positive aside copy shown, no overflow. Demo server PID 52574 on 127.0.0.1:5174, task-owned; stop after re-review. Next: independent re-review appends "Re-review, correction round 2".
