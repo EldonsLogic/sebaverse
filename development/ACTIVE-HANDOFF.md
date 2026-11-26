@@ -140,3 +140,5 @@ Merged 26 November as merge commit `625794546322054499cace7867a2ea3f5d0fb836` on
 ## Exact next step (after merge)
 
 Resume from main. No eligible implementation work exists within current authority: DEV-010 is blocked on the AUTH-014 supplier wait, and DEV-011+ are gated. Recheck the supplier manually (see `evidence/auth-014-supplier-check-2026-11-26.md`) only when there is reason to expect amd64 OpenSSL 3.5.9-r1. Otherwise wait for a founder decision. The recovery branch can be deleted once this records PR merges.
+
+Founder approved merging records PR https://github.com/EldonsLogic/sebaverse/pull/6 on 26 November ("Merge PR 6"). If main lacks this line, that merge did not happen.
