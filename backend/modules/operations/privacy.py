@@ -1,9 +1,11 @@
 """AUTH-021: metadata-only telemetry redaction and deletion-tombstone replay (DEV-016 preflight).
 
-Enforces strict allowlist telemetry redaction (no child prompts, audio, transcripts,
-or personal identifiers in logs/metric labels, R059/R079) and deterministic
-backup-restore deletion-tombstone replay so deleted learner data is never
-resurrected on restore (R061). No database or network calls occur here.
+Enforces strict allowlist telemetry redaction (identifier-only labels, validated
+ISO-8601 timestamps, non-negative ints; no child prompts, audio, transcripts,
+free text, or personal identifiers in logs/metric labels, R059/R079) and
+deterministic backup-restore deletion-tombstone replay with explicit target_kind
+disambiguation so deleted learner data is never resurrected on restore (R061).
+No database or network calls occur here.
 """
 
 from dataclasses import dataclass, field
@@ -14,15 +16,13 @@ import re
 
 
 PRIVACY_POLICY_VERSION = 'operations.privacy-preflight-v1'
-ALLOWED_TELEMETRY_STR_FIELDS = frozenset({
+ALLOWED_TELEMETRY_ID_FIELDS = frozenset({
     'event_type',
     'service',
-    'policy_version',
     'outcome',
     'reason_code',
     'edition_id',
     'subject_tag',
-    'occurred_at',
 })
 ALLOWED_TELEMETRY_INT_FIELDS = frozenset({
     'status_code',
@@ -33,12 +33,10 @@ ALLOWED_TELEMETRY_INT_FIELDS = frozenset({
     'edition_version',
 })
 ALLOWED_TOMBSTONE_KINDS = frozenset({'learner_all', 'upload', 'session'})
+SCOPED_TARGET_KINDS = frozenset({'upload', 'session'})
 ALLOWED_RECORD_KINDS = frozenset({'upload', 'session', 'cache', 'chunk', 'job', 'evidence'})
 _IDENTIFIER = re.compile(r'[a-z][a-z0-9._-]{1,95}')
 _FORBIDDEN_MODEL_TOKENS = frozenset({'model', 'llm', 'ai'})
-_EMAIL_LIKE = re.compile(r'[^@\s]+@[^@\s]+\.[^@\s]+')
-_PHONE_LIKE = re.compile(r'(?:\+?\d[\d\s\-()]{7,}\d)')
-_MAX_LABEL_LEN = 128
 
 
 class PrivacyError(ValueError):
@@ -81,6 +79,7 @@ class RestorableRecord:
     learner_id: str
     record_kind: str
     created_at: datetime
+    target_kind: str | None = None
     target_id: str | None = None
 
 
@@ -114,8 +113,20 @@ def _is_non_model_authority(ref: object) -> bool:
     return re.split(r'[._-]', ref, maxsplit=1)[0] not in _FORBIDDEN_MODEL_TOKENS
 
 
+def _parse_iso_utc(raw: object) -> str | None:
+    if type(raw) is not str or len(raw) > 64:
+        return None
+    try:
+        dt = datetime.fromisoformat(raw)
+        if dt.utcoffset() is None:
+            return None
+        return dt.astimezone(timezone.utc).isoformat()
+    except (ValueError, OverflowError, TypeError):
+        return None
+
+
 def sanitize_telemetry_record(raw: dict) -> SanitizedTelemetry:
-    """Keep only allowlisted, PII-free metadata fields; drop everything else."""
+    """Keep only allowlisted, identifier/timestamp/int metadata; drop all free text & PII."""
     if not isinstance(raw, dict):
         raise PrivacyError('invalid_telemetry')
 
@@ -123,14 +134,17 @@ def sanitize_telemetry_record(raw: dict) -> SanitizedTelemetry:
     dropped = 0
     for key_name in sorted(raw.keys(), key=str):
         val = raw[key_name]
-        if key_name in ALLOWED_TELEMETRY_STR_FIELDS:
-            if type(val) is not str or not val or len(val) > _MAX_LABEL_LEN:
-                dropped += 1
-                continue
-            if _EMAIL_LIKE.search(val) or _PHONE_LIKE.search(val):
+        if key_name in ALLOWED_TELEMETRY_ID_FIELDS:
+            if type(val) is not str or not _IDENTIFIER.fullmatch(val):
                 dropped += 1
                 continue
             kept.append((key_name, val))
+        elif key_name == 'occurred_at':
+            iso_val = _parse_iso_utc(val)
+            if iso_val is None:
+                dropped += 1
+                continue
+            kept.append((key_name, iso_val))
         elif key_name in ALLOWED_TELEMETRY_INT_FIELDS:
             if type(val) is not int or val < 0:
                 dropped += 1
@@ -181,8 +195,16 @@ def _validate_record(rec: RestorableRecord) -> datetime:
     _check_id(rec.learner_id, code='invalid_record')
     if type(rec.record_kind) is not str or rec.record_kind not in ALLOWED_RECORD_KINDS:
         raise PrivacyError('invalid_record')
-    if rec.target_id is not None:
+    if (rec.target_kind is None) != (rec.target_id is None):
+        raise PrivacyError('invalid_record')
+    if rec.target_kind is not None:
+        if type(rec.target_kind) is not str or rec.target_kind not in SCOPED_TARGET_KINDS:
+            raise PrivacyError('invalid_record')
         _check_id(rec.target_id, code='invalid_record')
+        if rec.record_kind in SCOPED_TARGET_KINDS and rec.target_kind != rec.record_kind:
+            raise PrivacyError('invalid_record')
+    elif rec.record_kind in SCOPED_TARGET_KINDS:
+        raise PrivacyError('invalid_record')
     return _to_utc(rec.created_at, code='invalid_record')
 
 
@@ -233,7 +255,7 @@ def replay_deletion_tombstones(
             if tomb.target_kind == 'learner_all':
                 should_purge = True
                 break
-            if rec.target_id == tomb.target_id:
+            if rec.target_kind == tomb.target_kind and rec.target_id == tomb.target_id:
                 should_purge = True
                 break
         if should_purge:

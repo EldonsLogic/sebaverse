@@ -364,3 +364,20 @@ All checks run on `antigravity/dev-015-016-parent-privacy-2026-11-26` under qual
 - `python3 tools/check_dependencies.py`: exit 0, PASS; `git diff --check`: exit 0.
 - NOT RUN: 37 DEV-010 PostgreSQL integration cases (blocked on AUTH-014 supplier wait), web/demo suites (no web/demo edits).
 - Next: launching an independent `pro` reviewer subagent owning only `development/evidence/dev-015-016-parent-privacy-review.md` (read-only on source). If no review results follow, the review did not complete and this work remains pending review.
+
+### Independent review received — `CHANGES REQUESTED` on `7b84372`
+
+Independent reviewer (`pro` subagent) wrote `development/evidence/dev-015-016-parent-privacy-review.md`. Verdict: **CHANGES REQUESTED** (2 blockers: cross-kind `target_id` collision in `replay_deletion_tombstones` without `RestorableRecord.target_kind`, and `_PHONE_LIKE` dropping ISO-8601 `occurred_at` timestamps; plus 4 should-fix items: free-text allowed in telemetry string labels, `policy_version` collision in `as_dict()`, `invalid_scope` remapped to `invalid_objectives` in `parent_summary.py`, and missing test cases).
+
+### AUTH-021 Correction round 1 of 2 — started 26 November 2026
+
+Fixing both blockers and all 4 should-fix findings in `backend/modules/operations/privacy.py`, `backend/modules/learning/parent_summary.py`, and `backend/tests/operations/test_parent_privacy_preflight.py`. Commands to run: `make test-parent-privacy-preflight`, `make backend-check`, `make foundation-check`, `python3 tools/check_dependencies.py`, `git diff --check`, followed by independent re-review appending to `development/evidence/dev-015-016-parent-privacy-review.md`. If no results follow, this step did not finish.
+
+### Results — AUTH-021 correction round 1 (pending independent re-review)
+
+- Fixed both blockers and all 4 should-fix findings: added explicit `target_kind` to `RestorableRecord` and matched non-`learner_all` tombstones strictly on `(target_kind, target_id)`; replaced free-text telemetry allowlist with strict `_IDENTIFIER` matching for `ALLOWED_TELEMETRY_ID_FIELDS` (removing `policy_version` collision) and strict timezone-aware ISO-8601 UTC parsing for `occurred_at`; added upfront `scope`, `events`, and `objectives` validation in `parent_summary.py` preserving exact `invalid_scope` vs `invalid_objectives` vs `invalid_evidence` error codes; expanded tests to 18 cases covering all statuses, denial flags, `occurred_at`, bool/negative int rejection, and cross-kind tombstone disambiguation.
+- `make test-parent-privacy-preflight`: exit 0 — 18/18 pytest cases passed.
+- `make backend-check`: exit 0 — 788 passed, 1 deselected (`postgres_integration`); `backend/manage.py check` 0 issues.
+- `make foundation-check`: exit 0 — 179/179 unit tests passed, `validate_project.py` PASS, `model_economics.py` PASS, `check_foundation.py` PASS.
+- `python3 tools/check_dependencies.py`: exit 0, PASS; `git diff --check`: exit 0.
+- Next: independent re-review subagent appends `Re-review, correction round 1 — 26 November 2026` to `development/evidence/dev-015-016-parent-privacy-review.md`. If no re-review results follow, round 1 remains pending re-review.

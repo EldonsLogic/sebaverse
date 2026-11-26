@@ -8,6 +8,7 @@ uncertainty and recommended next-step codes (R047, R056).
 
 from dataclasses import dataclass, field
 from datetime import datetime, timedelta
+import re
 
 from modules.access import policy
 from modules.learning.ledger import (
@@ -21,6 +22,7 @@ from modules.learning.ledger import (
 
 SUMMARY_VERSION = 'parent.summary-preflight-v1'
 _MAX_OBJECTIVES = 100
+_IDENTIFIER = re.compile(r'[a-z][a-z0-9._-]{1,95}')
 
 
 class ParentSummaryError(ValueError):
@@ -72,6 +74,23 @@ def _next_action(status: str, uncertainty: str) -> str:
     return 'maintain_periodic_review'
 
 
+def _validate_guardian_scope(scope: object) -> LedgerScope:
+    if not isinstance(scope, LedgerScope):
+        raise ParentSummaryError('invalid_scope')
+    for val in (scope.tenant_id, scope.learner_id, scope.edition_id):
+        if type(val) is not str or not _IDENTIFIER.fullmatch(val):
+            raise ParentSummaryError('invalid_scope')
+    if type(scope.edition_version) is not int or scope.edition_version < 1:
+        raise ParentSummaryError('invalid_scope')
+    if type(scope.role) is not str or type(scope.purpose) is not str:
+        raise ParentSummaryError('invalid_scope')
+    if scope.role != 'guardian' or scope.purpose != 'guardian_reporting':
+        raise ParentSummaryError('access_denied')
+    if not policy.allowed(scope.to_access_scope()):
+        raise ParentSummaryError('access_denied')
+    return scope
+
+
 def build_parent_progress_summary(
     events: list[EvidenceEvent] | tuple[EvidenceEvent, ...],
     *,
@@ -80,29 +99,31 @@ def build_parent_progress_summary(
     retention_delay: timedelta = DEFAULT_RETENTION_DELAY,
 ) -> ParentProgressSummary:
     """Build an authorized, chat-free, uncertainty-honest parent progress summary."""
-    if not isinstance(scope, LedgerScope):
-        raise ParentSummaryError('invalid_scope')
-    if scope.role != 'guardian' or scope.purpose != 'guardian_reporting':
-        raise ParentSummaryError('access_denied')
-    if not policy.allowed(scope.to_access_scope()):
-        raise ParentSummaryError('access_denied')
-
+    checked_scope = _validate_guardian_scope(scope)
+    if not isinstance(events, (list, tuple)):
+        raise ParentSummaryError('invalid_evidence')
     if not isinstance(objectives, (list, tuple)) or not 1 <= len(objectives) <= _MAX_OBJECTIVES:
         raise ParentSummaryError('invalid_objectives')
 
+    validated_objectives: list[tuple[str, int]] = []
     seen: set[tuple[str, int]] = set()
-    items: list[ObjectiveSummaryItem] = []
     for entry in objectives:
         if not isinstance(entry, tuple) or len(entry) != 2:
             raise ParentSummaryError('invalid_objectives')
         obj_id, obj_ver = entry
+        if type(obj_id) is not str or not _IDENTIFIER.fullmatch(obj_id) or type(obj_ver) is not int or obj_ver < 1:
+            raise ParentSummaryError('invalid_objectives')
         if (obj_id, obj_ver) in seen:
             raise ParentSummaryError('duplicate_objective')
         seen.add((obj_id, obj_ver))
+        validated_objectives.append((obj_id, obj_ver))
+
+    items: list[ObjectiveSummaryItem] = []
+    for obj_id, obj_ver in validated_objectives:
         try:
             proj = project_objective_mastery(
                 events,
-                scope=scope,
+                scope=checked_scope,
                 objective_id=obj_id,
                 objective_version=obj_ver,
                 retention_delay=retention_delay,
@@ -112,7 +133,7 @@ def build_parent_progress_summary(
             if code == 'access_denied':
                 raise ParentSummaryError('access_denied') from None
             if code == 'invalid_scope':
-                raise ParentSummaryError('invalid_objectives') from None
+                raise ParentSummaryError('invalid_scope') from None
             raise ParentSummaryError('invalid_evidence') from None
 
         items.append(
@@ -133,9 +154,9 @@ def build_parent_progress_summary(
         )
 
     return ParentProgressSummary(
-        tenant_id=scope.tenant_id,
-        learner_id=scope.learner_id,
-        edition_id=scope.edition_id,
-        edition_version=scope.edition_version,
+        tenant_id=checked_scope.tenant_id,
+        learner_id=checked_scope.learner_id,
+        edition_id=checked_scope.edition_id,
+        edition_version=checked_scope.edition_version,
         objectives=tuple(items),
     )
