@@ -51,3 +51,8 @@ class Auth022SyntheticCiPolicyTests(unittest.TestCase):
 
     def test_review_max_age_stays_30_days(self):
         self.assertEqual(m.REVIEW_MAX_AGE, timedelta(days=30))
+
+    def test_synthetic_unreached_image_packages_are_narrowly_bounded(self):
+        self.assertEqual(m.SYNTHETIC_CI_UNREACHED_IMAGE_PACKAGES, frozenset({'libcrypto3', 'libssl3', 'libxml2'}))
+        self.assertNotIn('postgresql', m.SYNTHETIC_CI_UNREACHED_IMAGE_PACKAGES)
+        self.assertNotIn('libpq', m.SYNTHETIC_CI_UNREACHED_IMAGE_PACKAGES)

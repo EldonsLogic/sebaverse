@@ -79,7 +79,7 @@
     "tools/security/bootstrap.py": "fbe4674289235bef0d9d1f645f26e1912c290cc8a916bb4afb4f926e2f226f3e",
     "tools/security/summarize_postgres_candidate.py": "c5c45cf1b6327d8c77d64ed36bcca0ea4992e583570806ed392c8987bffd48ae",
     "tools/security/derived_image_contract.py": "2b6bd69eee61d0c1ce0d1142bd13fc6c9e26c9118635c4eb730bab1977b5d965",
-    "tools/security/check_reports.py": "c2ab13048eddd9af900377cdaaa2ed9a02215e1e6fb27de64216a84b66908247",
+    "tools/security/check_reports.py": "eb57fa01b8d720ad80422bde7944d86b16fbebff154874e65297c4fbcb7badc1",
     "tools/security/prepare_ci_native.py": "349185414ecb90e197b4b05b7698fe7c9c187904e9156a6d4c6377b0c58a2d45",
     "tools/security/download_ci_native.py": "2dec4953246fdb8053039be35a6aafe2b6f7572b9cb5dc958cc0bd6d6f47d43c",
     "tools/security/summarize_ci_patch.py": "e2eb0d9c086c1989b0c7d10d38ec14e9b3b9c8b8efd056dccda5f4627575934c",

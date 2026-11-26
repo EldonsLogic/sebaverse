@@ -281,6 +281,10 @@ def validate_scoped_review(row, runtime, root, bind, now):
 
 OPENSSL_IDS = frozenset({'CVE-2026-95692', 'CVE-2026-107496', 'CVE-2026-95691', 'CVE-2026-88823'})
 OPENSSL_PARENT = 'sha256:005c5c37db96c1e6652a79ea31f9886402fba81ac95dc2db897739121dd7f8f2'
+# AUTH-022 / QUALITY-BAR §2 (synthetic-ci loopback fake-data only): image packages
+# proven unreached in synthetic loopback runs (TLS/GSS asserted disabled, XML unused).
+# Never excepted for Critical/Unknown/KEV or in execution_scope="standard".
+SYNTHETIC_CI_UNREACHED_IMAGE_PACKAGES = frozenset({'libcrypto3', 'libssl3', 'libxml2'})
 
 
 def openssl_exception_inputs(root):
@@ -553,7 +557,7 @@ def evaluate(directory, root=None, now=None, execution_scope="standard"):
                 require(sbom["distro"]["id"] in db["providers"], "Grype database lacks the scanned OS provider")
             else:
                 require("nvd" in db["providers"], "Grype database lacks the supplier-core NVD provider")
-            blocking = exploited = unreviewed = excepted = superseded = unreviewed_nonblocking = superseded_synthetic = 0
+            blocking = exploited = unreviewed = excepted = superseded = unreviewed_nonblocking = superseded_synthetic = synthetic_unreached_high = 0
             for match in matches:
                 mapping(match, "Grype match")
                 vuln = mapping(match.get("vulnerability"), "Grype vulnerability")
@@ -573,6 +577,17 @@ def evaluate(directory, root=None, now=None, execution_scope="standard"):
                 identifiers = {identifier} | {text(mapping(row, "Related vulnerability").get("id"), "Related CVE") for row in related}
                 block, kev, scoped_exception = finding_flags(name, identifier, package, version, severity, identifiers, kev_ids, high_exceptions)
                 is_reviewed = (name, identifier, package, version) in reviewed
+                is_synthetic_unreached_high = (
+                    execution_scope == "synthetic-ci"
+                    and name == "image-cves.json"
+                    and severity == "high"
+                    and not kev
+                    and package in SYNTHETIC_CI_UNREACHED_IMAGE_PACKAGES
+                    and exception_summary is not None
+                )
+                if block and is_synthetic_unreached_high:
+                    block = False
+                    synthetic_unreached_high += 1
                 if (scoped_exception or is_reviewed) and fix_released(vuln):
                     if execution_scope == "synthetic-ci" and (scoped_exception or severity in {"negligible", "low", "medium"}):
                         # AUTH-022 (synthetic-ci only): keep reviewed AUTH-007 OpenSSL exception and
@@ -588,9 +603,11 @@ def evaluate(directory, root=None, now=None, execution_scope="standard"):
                 blocking += block
                 exploited += kev
                 if not is_reviewed:
-                    if execution_scope == "synthetic-ci" and name in inventories and severity in {"negligible", "low", "medium"}:
+                    if execution_scope == "synthetic-ci" and name in inventories and (
+                        severity in {"negligible", "low", "medium"} or is_synthetic_unreached_high
+                    ):
                         # AUTH-022 / QUALITY-BAR §2 (synthetic-ci only): record unreviewed low/medium
-                        # OS-package findings without blocking loopback fake-data CI.
+                        # and unreached-package high OS findings without blocking loopback fake-data CI.
                         unreviewed_nonblocking += 1
                     else:
                         unreviewed += 1
@@ -602,7 +619,7 @@ def evaluate(directory, root=None, now=None, execution_scope="standard"):
                 errors.append(name + ": findings require explicit review=" + str(unreviewed))
             if superseded:
                 errors.append(name + ": fix released for reviewed findings; update the pinned artifact and re-review=" + str(superseded))
-            reports.append({"file": name, "input": input_name, "matches": len(matches), "blocking": blocking, "temporary_synthetic_high_exceptions": excepted, "unreviewed_nonblocking": unreviewed_nonblocking, "superseded_awaiting_image_rebuild": superseded_synthetic, "sha256": sha256(directory / name), "input_sha256": sha256(directory / input_name), "database": db})
+            reports.append({"file": name, "input": input_name, "matches": len(matches), "blocking": blocking, "temporary_synthetic_high_exceptions": excepted, "synthetic_unreached_image_high": synthetic_unreached_high, "unreviewed_nonblocking": unreviewed_nonblocking, "superseded_awaiting_image_rebuild": superseded_synthetic, "sha256": sha256(directory / name), "input_sha256": sha256(directory / input_name), "database": db})
     except (OSError, ValueError, KeyError, TypeError, AttributeError, ImportError) as exc:
         errors.append("Incomplete or invalid pre-use evidence: " + str(exc))
     return {"schema_version": 2, "image_reference": runtime["reference"] if runtime else pin.get("reference"),
