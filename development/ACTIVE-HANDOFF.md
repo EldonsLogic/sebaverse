@@ -348,3 +348,19 @@ Independent reviewer (`pro` subagent) appended `Re-review, correction round 1 �
 - **Not verified / not run:** 37 DEV-010 PostgreSQL integration cases (blocked on AUTH-014 supplier wait), web/demo suites (no web/demo edits), live DB/HTTP/SSE/AG-UI/LLM execution (out of AUTH-020 scope).
 - **Pending review / decision:** Founder approved merging PR 11 (`"Proceed"`, `antigravity/dev-013-tutor-state-2026-11-26` → `main`, merge commit, no force) on 26 November 2026. This line is written before the merge so that `main` records it; if `main` lacks it, the merge did not happen. After the merge, resume from `main`: the core DB-free backend tutoring loop (`AUTH-016`, `AUTH-018`, `AUTH-019`, `AUTH-020`) is complete on `main`; development waits on the AUTH-014 supplier update (`postgres:17-alpine` `linux/amd64` `libssl3`/`libcrypto3` `3.5.9-r1+`) or a new founder authorization.
 - **Next command:** `git status -sb && git fetch && git log --oneline -3 origin/main && python3 tools/brief.py` (after founder decides on merging the AUTH-020 PR).
+
+## AUTH-021 — Bounded offline DEV-015/016 parent summary & privacy/tombstone slice (started 26 November 2026, Antigravity)
+
+Verified before work: PR 11 merged into `main` at `6c7dc71` (equal to `origin/main`, clean working tree). Founder selected Option 1 (recommended, recorded as `U33` / `AUTH-021`). Created feature branch `antigravity/dev-015-016-parent-privacy-2026-11-26` from `main` `6c7dc71`.
+
+Step 1: implement guardian-scoped parent progress summary (`backend/modules/learning/parent_summary.py`), metadata-only telemetry redactor and deletion-tombstone replay guard (`backend/modules/operations/privacy.py`), negative-first tests (`backend/tests/operations/test_parent_privacy_preflight.py`), and `Makefile` target `test-parent-privacy-preflight`. Owned files: `sources/offline-parent-privacy-instruction.md`, `sources/source-catalog.md`, `development/APPROVALS.md`, `backend/modules/learning/parent_summary.py`, `backend/modules/operations/privacy.py`, `backend/tests/operations/test_parent_privacy_preflight.py`, `Makefile`, `development/CURRENT-STATE.md`, `development/WORK-LOG.md`, `development/ACTIVE-HANDOFF.md`. Commands to run: `make test-parent-privacy-preflight`, `make backend-check`, `make foundation-check`, `python3 tools/check_dependencies.py`, `git diff --check`. Independent reviewer subagent will then review and write `development/evidence/dev-015-016-parent-privacy-review.md`. If no results follow, this step did not finish.
+
+### Results — AUTH-021 implementation checkpoint (pending independent review)
+
+All checks run on `antigravity/dev-015-016-parent-privacy-2026-11-26` under qualified Node `v24.22.3`:
+- `make test-parent-privacy-preflight`: exit 0 — 12/12 pytest cases passed.
+- `make backend-check`: exit 0 — 782 passed, 1 deselected (`postgres_integration`); `backend/manage.py check` 0 issues.
+- `make foundation-check`: exit 0 — 179/179 unit tests passed, `validate_project.py` PASS (0 errors, 0 warnings), `model_economics.py` PASS, `check_foundation.py` PASS.
+- `python3 tools/check_dependencies.py`: exit 0, PASS; `git diff --check`: exit 0.
+- NOT RUN: 37 DEV-010 PostgreSQL integration cases (blocked on AUTH-014 supplier wait), web/demo suites (no web/demo edits).
+- Next: launching an independent `pro` reviewer subagent owning only `development/evidence/dev-015-016-parent-privacy-review.md` (read-only on source). If no review results follow, the review did not complete and this work remains pending review.
