@@ -303,3 +303,19 @@ Independent reviewer (`pro` subagent) appended `Re-review, correction round 1 �
 - **Not verified / not run:** 37 DEV-010 PostgreSQL integration cases (blocked on AUTH-014 supplier wait), web/demo suites (no web/demo edits), live DB/provider/UI execution (out of AUTH-019 scope).
 - **Pending review / decision:** Founder approved merging PR 10 (`"Shoot"`, `antigravity/dev-014-learning-ledger-2026-11-26` → `main`, merge commit, no force) and continuing with bounded DB-free DEV-013 tutoring state machine (`AUTH-020`) on 26 November 2026. This line is written before the merge so that `main` records it; if `main` lacks it, the merge did not happen. After the merge, resume from `main` to start `AUTH-020` on a new feature branch.
 - **Next command:** `git status -sb && git fetch && git log --oneline -3 origin/main && python3 tools/brief.py` (after founder decides on merging the AUTH-019 PR).
+
+## AUTH-020 — Bounded offline DEV-013 tutoring state machine (started 26 November 2026, Antigravity)
+
+Verified before work: PR 10 merged into `main` at `89e0241` (equal to `origin/main`, clean working tree). Founder approved continuing with Option #2 verbatim: `"Shoot"` (recorded as `U32` / `AUTH-020`). Created feature branch `antigravity/dev-013-tutor-state-2026-11-26` from `main` `89e0241`.
+
+Step 1: implement pure DB-free deterministic tutoring state machine (`backend/modules/tutoring/__init__.py`, `backend/modules/tutoring/state_machine.py`) wired into `modules.access.policy`, `modules.retrieval.preflight`, `modules.assessment.grader`, and `modules.learning.ledger`; write negative-first security and state-transition tests (`backend/tests/tutoring/test_tutor_state.py`); add `Makefile` target `test-tutor-state-preflight`. Owned files: `sources/offline-tutor-state-instruction.md`, `sources/source-catalog.md`, `development/APPROVALS.md`, `backend/modules/tutoring/__init__.py`, `backend/modules/tutoring/state_machine.py`, `backend/tests/tutoring/test_tutor_state.py`, `Makefile`, `development/CURRENT-STATE.md`, `development/WORK-LOG.md`, `development/ACTIVE-HANDOFF.md`. Commands to run: `make test-tutor-state-preflight`, `make backend-check`, `make foundation-check`, `python3 tools/check_dependencies.py`, `git diff --check`. Independent reviewer subagent will then review and write `development/evidence/dev-013-tutor-state-review.md`. If no results follow, this step did not finish.
+
+### Results — AUTH-020 implementation checkpoint (pending independent review)
+
+All checks run on `antigravity/dev-013-tutor-state-2026-11-26` under qualified Node `v24.22.3`:
+- `make test-tutor-state-preflight`: exit 0 — 7/7 pytest cases passed.
+- `make backend-check`: exit 0 — 770 passed, 1 deselected (`postgres_integration`); `backend/manage.py check` 0 issues.
+- `make foundation-check`: exit 0 — 179/179 unit tests passed, `validate_project.py` PASS (0 errors, 0 warnings), `model_economics.py` PASS, `check_foundation.py` PASS.
+- `python3 tools/check_dependencies.py`: exit 0, PASS; `git diff --check`: exit 0.
+- NOT RUN: 37 DEV-010 PostgreSQL integration cases (blocked on AUTH-014 supplier wait), web/demo suites (no web/demo edits).
+- Next: launching an independent `pro` reviewer subagent owning only `development/evidence/dev-013-tutor-state-review.md` (read-only on source). If no review results follow, the review did not complete and this work remains pending review.
