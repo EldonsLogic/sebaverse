@@ -44,4 +44,4 @@ Open a new founder approval beyond AUTH-017 for specific, bounded demo work (for
 
 ## Decision status
 
-**Pending founder choice.** No implementation, dependency change, supplier polling, or gate change will start until the founder records a choice.
+**Decided — Option A selected on 26 November 2026.** Founder responded verbatim: `"go with the recommended"`, confirming **Option A** (continue waiting for the AUTH-014 supplier update on `postgres:17-alpine` `linux/amd64` `libssl3`/`libcrypto3` `3.5.9-r1` or later). No new implementation slice, alternative image evaluation, demo work, supplier polling, or gate change is authorized. Recheck the supplier manually once there is reason to expect an updated amd64 SBOM.

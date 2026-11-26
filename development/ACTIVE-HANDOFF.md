@@ -191,3 +191,26 @@ All checks run under qualified Node `v24.22.3` (`work/demo-toolchain/24.22.3/nod
 - **Not verified / not run:** 37 DEV-010 PostgreSQL cases (blocked on AUTH-014), web/demo suites (unchanged), no new supplier check.
 - **Pending review / decision:** Documentation/options PR is pending founder review and merge decision; founder choice is pending on [post-pr7-options-2026-11-26.md](evidence/post-pr7-options-2026-11-26.md) (Option A wait for supplier, Option B bounded DB-free DEV-012 retrieval preflight, Option C evaluate alternative official Postgres 17 image under the same strict gate, or Option D new bounded demo slice). No implementation starts until the founder chooses or the official `postgres:17-alpine` linux/amd64 SBOM ships `libssl3`/`libcrypto3` `3.5.9-r1` or later.
 - **Next command:** `git status -sb && git fetch && git log --oneline -3 origin/main && python3 tools/brief.py` (then act only on the recorded founder choice or a verified supplier update).
+
+### Step 2 — record founder choice (Antigravity, 26 November 2026)
+
+Founder responded verbatim: `"go with the recommended"`, selecting **Option A** (continue waiting for the AUTH-014 supplier update) from `development/evidence/post-pr7-options-2026-11-26.md`. Founder did not approve merging PR 8 yet, so PR 8 remains open and unmerged. Owned files: `development/evidence/post-pr7-options-2026-11-26.md`, `development/CURRENT-STATE.md`, `development/WORK-LOG.md`, `development/ACTIVE-HANDOFF.md`. Commands to run: `make foundation-check`, `python3 tools/check_dependencies.py`, `python3 tools/validate_project.py`, `python3 tools/model_economics.py`, `git diff --check`. If no results follow, this step did not finish.
+
+### Results — step 2 (Antigravity, 26 November 2026, documentation/handover only)
+
+All checks run under qualified Node `v24.22.3` (`work/demo-toolchain/24.22.3/node` first on PATH):
+- `make foundation-check`: exit 0, 179/179 unit tests passed (including expected negative-fixture `npm view timed out` JSON).
+- `python3 tools/check_dependencies.py`: exit 0, PASS.
+- `python3 tools/validate_project.py`: exit 0, PASS (0 errors, 0 warnings).
+- `python3 tools/model_economics.py`: exit 0.
+- `git diff --check`: exit 0; `development/CURRENT-STATE.md` is 2,898 bytes (11 lines).
+- NOT RUN: DEV-010 PostgreSQL suite (37 cases blocked on AUTH-014), web/demo suites (no web/demo source edited), supplier recheck (already checked 26 November).
+- Files changed: `development/evidence/post-pr7-options-2026-11-26.md`, `development/CURRENT-STATE.md`, `development/WORK-LOG.md`, `development/ACTIVE-HANDOFF.md`.
+
+## Exact next step (26 November 2026, after Option A recorded)
+
+- **Branch:** `antigravity/post-pr7-options-2026-11-26` (PR https://github.com/EldonsLogic/sebaverse/pull/8 open against `main` `c51f84b`; check actual Git/remote SHA; do not merge without founder approval).
+- **Verified:** `make foundation-check` (179/179), `python3 tools/check_dependencies.py`, `python3 tools/validate_project.py`, `python3 tools/model_economics.py`, `git diff --check`.
+- **Not verified / not run:** 37 DEV-010 PostgreSQL cases (blocked on AUTH-014), web/demo suites (unchanged), no new supplier check.
+- **Pending review / decision:** PR 8 is awaiting founder merge decision. Founder selected **Option A** (continue AUTH-014 supplier wait). Do not start new implementation, demo edits, alternative image evaluations, or supplier polling until either (1) the official `postgres:17-alpine` `linux/amd64` SBOM is expected to show `libssl3`/`libcrypto3` `3.5.9-r1` or later (for one manual read-only check per `evidence/auth-014-supplier-check-2026-11-26.md`), or (2) the founder issues a new authorization.
+- **Next command:** `git status -sb && git fetch && git log --oneline -3 origin/main && python3 tools/brief.py` (then wait on founder merge of PR 8 and a future manual supplier recheck when warranted).
