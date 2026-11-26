@@ -348,3 +348,48 @@ Independent reviewer (`pro` subagent) appended `Re-review, correction round 1 �
 - **Not verified / not run:** 37 DEV-010 PostgreSQL integration cases (blocked on AUTH-014 supplier wait), web/demo suites (no web/demo edits), live DB/HTTP/SSE/AG-UI/LLM execution (out of AUTH-020 scope).
 - **Pending review / decision:** Founder approved merging PR 11 (`"Proceed"`, `antigravity/dev-013-tutor-state-2026-11-26` → `main`, merge commit, no force) on 26 November 2026. This line is written before the merge so that `main` records it; if `main` lacks it, the merge did not happen. After the merge, resume from `main`: the core DB-free backend tutoring loop (`AUTH-016`, `AUTH-018`, `AUTH-019`, `AUTH-020`) is complete on `main`; development waits on the AUTH-014 supplier update (`postgres:17-alpine` `linux/amd64` `libssl3`/`libcrypto3` `3.5.9-r1+`) or a new founder authorization.
 - **Next command:** `git status -sb && git fetch && git log --oneline -3 origin/main && python3 tools/brief.py` (after founder decides on merging the AUTH-020 PR).
+
+## AUTH-021 — Bounded offline DEV-015/016 parent summary & privacy/tombstone slice (started 26 November 2026, Antigravity)
+
+Verified before work: PR 11 merged into `main` at `6c7dc71` (equal to `origin/main`, clean working tree). Founder selected Option 1 (recommended, recorded as `U33` / `AUTH-021`). Created feature branch `antigravity/dev-015-016-parent-privacy-2026-11-26` from `main` `6c7dc71`.
+
+Step 1: implement guardian-scoped parent progress summary (`backend/modules/learning/parent_summary.py`), metadata-only telemetry redactor and deletion-tombstone replay guard (`backend/modules/operations/privacy.py`), negative-first tests (`backend/tests/operations/test_parent_privacy_preflight.py`), and `Makefile` target `test-parent-privacy-preflight`. Owned files: `sources/offline-parent-privacy-instruction.md`, `sources/source-catalog.md`, `development/APPROVALS.md`, `backend/modules/learning/parent_summary.py`, `backend/modules/operations/privacy.py`, `backend/tests/operations/test_parent_privacy_preflight.py`, `Makefile`, `development/CURRENT-STATE.md`, `development/WORK-LOG.md`, `development/ACTIVE-HANDOFF.md`. Commands to run: `make test-parent-privacy-preflight`, `make backend-check`, `make foundation-check`, `python3 tools/check_dependencies.py`, `git diff --check`. Independent reviewer subagent will then review and write `development/evidence/dev-015-016-parent-privacy-review.md`. If no results follow, this step did not finish.
+
+### Results — AUTH-021 implementation checkpoint (pending independent review)
+
+All checks run on `antigravity/dev-015-016-parent-privacy-2026-11-26` under qualified Node `v24.22.3`:
+- `make test-parent-privacy-preflight`: exit 0 — 12/12 pytest cases passed.
+- `make backend-check`: exit 0 — 782 passed, 1 deselected (`postgres_integration`); `backend/manage.py check` 0 issues.
+- `make foundation-check`: exit 0 — 179/179 unit tests passed, `validate_project.py` PASS (0 errors, 0 warnings), `model_economics.py` PASS, `check_foundation.py` PASS.
+- `python3 tools/check_dependencies.py`: exit 0, PASS; `git diff --check`: exit 0.
+- NOT RUN: 37 DEV-010 PostgreSQL integration cases (blocked on AUTH-014 supplier wait), web/demo suites (no web/demo edits).
+- Next: launching an independent `pro` reviewer subagent owning only `development/evidence/dev-015-016-parent-privacy-review.md` (read-only on source). If no review results follow, the review did not complete and this work remains pending review.
+
+### Independent review received — `CHANGES REQUESTED` on `7b84372`
+
+Independent reviewer (`pro` subagent) wrote `development/evidence/dev-015-016-parent-privacy-review.md`. Verdict: **CHANGES REQUESTED** (2 blockers: cross-kind `target_id` collision in `replay_deletion_tombstones` without `RestorableRecord.target_kind`, and `_PHONE_LIKE` dropping ISO-8601 `occurred_at` timestamps; plus 4 should-fix items: free-text allowed in telemetry string labels, `policy_version` collision in `as_dict()`, `invalid_scope` remapped to `invalid_objectives` in `parent_summary.py`, and missing test cases).
+
+### AUTH-021 Correction round 1 of 2 — started 26 November 2026
+
+Fixing both blockers and all 4 should-fix findings in `backend/modules/operations/privacy.py`, `backend/modules/learning/parent_summary.py`, and `backend/tests/operations/test_parent_privacy_preflight.py`. Commands to run: `make test-parent-privacy-preflight`, `make backend-check`, `make foundation-check`, `python3 tools/check_dependencies.py`, `git diff --check`, followed by independent re-review appending to `development/evidence/dev-015-016-parent-privacy-review.md`. If no results follow, this step did not finish.
+
+### Results — AUTH-021 correction round 1 (pending independent re-review)
+
+- Fixed both blockers and all 4 should-fix findings: added explicit `target_kind` to `RestorableRecord` and matched non-`learner_all` tombstones strictly on `(target_kind, target_id)`; replaced free-text telemetry allowlist with strict `_IDENTIFIER` matching for `ALLOWED_TELEMETRY_ID_FIELDS` (removing `policy_version` collision) and strict timezone-aware ISO-8601 UTC parsing for `occurred_at`; added upfront `scope`, `events`, and `objectives` validation in `parent_summary.py` preserving exact `invalid_scope` vs `invalid_objectives` vs `invalid_evidence` error codes; expanded tests to 18 cases covering all statuses, denial flags, `occurred_at`, bool/negative int rejection, and cross-kind tombstone disambiguation.
+- `make test-parent-privacy-preflight`: exit 0 — 18/18 pytest cases passed.
+- `make backend-check`: exit 0 — 788 passed, 1 deselected (`postgres_integration`); `backend/manage.py check` 0 issues.
+- `make foundation-check`: exit 0 — 179/179 unit tests passed, `validate_project.py` PASS, `model_economics.py` PASS, `check_foundation.py` PASS.
+- `python3 tools/check_dependencies.py`: exit 0, PASS; `git diff --check`: exit 0.
+- Next: independent re-review subagent appends `Re-review, correction round 1 — 26 November 2026` to `development/evidence/dev-015-016-parent-privacy-review.md`. If no re-review results follow, round 1 remains pending re-review.
+
+### Independent re-review complete — `ACCEPTED WITH NOTES` on `d2af057`
+
+Independent reviewer (`pro` subagent) appended `Re-review, correction round 1 — 26 November 2026` to `development/evidence/dev-015-016-parent-privacy-review.md`. Verdict: **ACCEPTED WITH NOTES** (0 blockers, 0 should-fix items, 3 minor non-blocking notes). Both blockers and all 4 should-fix findings verified resolved with zero regressions. Reviewer independently ran `make test-parent-privacy-preflight` (18/18 PASS), `make backend-check` (788 passed, 1 deselected, `manage.py check` 0 issues), and `make foundation-check` (179/179 PASS).
+
+## Exact next step (26 November 2026, end of AUTH-021 Antigravity session)
+
+- **Branch:** `antigravity/dev-015-016-parent-privacy-2026-11-26` (PR https://github.com/EldonsLogic/sebaverse/pull/12 open against `main` `6c7dc71`; verified commit `d1e8369`; do not merge without founder approval).
+- **Verified:** `make test-parent-privacy-preflight` (18/18 PASS), `make backend-check` (788 passed, 1 deselected), `make foundation-check` (179/179 PASS), `python3 tools/check_dependencies.py` (PASS), `git diff --check` (PASS), independent review (`ACCEPTED WITH NOTES` in `development/evidence/dev-015-016-parent-privacy-review.md`).
+- **Not verified / not run:** 37 DEV-010 PostgreSQL integration cases (blocked on AUTH-014 supplier wait), web/demo suites (no web/demo edits), live DB/HTTP/UI/provider execution (out of AUTH-021 scope).
+- **Pending review / decision:** Founder approved merging PR 12 (`"Proceed champ"`, `antigravity/dev-015-016-parent-privacy-2026-11-26` → `main`, merge commit, no force) on 26 November 2026. This line is written before the merge so that `main` records it; if `main` lacks it, the merge did not happen. After the merge, resume from `main`: all five bounded DB-free backend pillars (`AUTH-016`, `AUTH-018`, `AUTH-019`, `AUTH-020`, `AUTH-021`) are complete on `main`; development waits on the AUTH-014 supplier update (`postgres:17-alpine` `linux/amd64` `libssl3`/`libcrypto3` `3.5.9-r1+`) or a new founder authorization.
+- **Next command:** `git status -sb && git fetch && git log --oneline -3 origin/main && python3 tools/brief.py` (after founder decides on merging the AUTH-021 PR).

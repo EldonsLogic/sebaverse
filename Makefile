@@ -36,7 +36,7 @@ test-content-isolation: test-contracts test-authorization
 test-resilience:
 	SEBAVERSE_ENV=local DJANGO_DEBUG=1 backend/.venv/bin/python -m pytest backend/tests/resilience -q
 
-.PHONY: test-publication-preflight test-retrieval-preflight test-learning-ledger-preflight test-tutor-state-preflight
+.PHONY: test-publication-preflight test-retrieval-preflight test-learning-ledger-preflight test-tutor-state-preflight test-parent-privacy-preflight
 test-publication-preflight:
 	SEBAVERSE_ENV=local DJANGO_DEBUG=1 backend/.venv/bin/python -m pytest backend/tests/curriculum/test_publication_preflight.py -q
 
@@ -49,3 +49,6 @@ test-learning-ledger-preflight:
 
 test-tutor-state-preflight:
 	SEBAVERSE_ENV=local DJANGO_DEBUG=1 backend/.venv/bin/python -m pytest backend/tests/tutoring/test_tutor_state.py -q
+
+test-parent-privacy-preflight:
+	SEBAVERSE_ENV=local DJANGO_DEBUG=1 backend/.venv/bin/python -m pytest backend/tests/operations/test_parent_privacy_preflight.py -q
