@@ -214,3 +214,47 @@ All checks run under qualified Node `v24.22.3` (`work/demo-toolchain/24.22.3/nod
 - **Not verified / not run:** 37 DEV-010 PostgreSQL cases (blocked on AUTH-014), web/demo suites (unchanged), no new supplier check.
 - **Pending review / decision:** Founder approved merging PR 8 (`antigravity/post-pr7-options-2026-11-26` → `main`, merge commit, no force) and confirmed **Option A** (continue AUTH-014 supplier wait) on 26 November 2026. This line is written before the merge so that `main` records it; if `main` lacks it, the merge did not happen. After the merge, resume from `main`: do not start new implementation, demo edits, alternative image evaluations, or supplier polling until either (1) the official `postgres:17-alpine` `linux/amd64` SBOM is expected to show `libssl3`/`libcrypto3` `3.5.9-r1` or later (for one manual read-only check per `evidence/auth-014-supplier-check-2026-11-26.md`), or (2) the founder issues a new authorization.
 - **Next command:** `git status -sb && git fetch && git log --oneline -3 origin/main && python3 tools/brief.py` (then wait on founder merge of PR 8 and a future manual supplier recheck when warranted).
+
+## AUTH-018 — Bounded offline DEV-012 retrieval and citation preflight (started 26 November 2026, Antigravity)
+
+Founder authorized Option B verbatim: `"Proceed with option B and let's get this running"` (recorded as `U30` / `AUTH-018`). Branch `antigravity/dev-012-retrieval-preflight-2026-11-26` created from `main` `5f81185`. Scope: pure DB-free, synthetic-fixture scoped lexical retrieval, pre-ranking ACL/edition/approval/rights filtering, answer-key/private-chunk exclusion, live citation resolution, scoped cache keys, negative/positive tests, and synthetic eval script (R044/R045/R046/R069). Owned files: `sources/offline-retrieval-preflight-instruction.md`, `sources/source-catalog.md`, `development/APPROVALS.md`, `backend/modules/retrieval/__init__.py`, `backend/modules/retrieval/preflight.py`, `backend/tests/retrieval/test_retrieval_preflight.py`, `evals/retrieval/run_preflight_eval.py`, `Makefile`, `development/CURRENT-STATE.md`, `development/WORK-LOG.md`, `development/ACTIVE-HANDOFF.md`. Commands to run: `make test-retrieval-preflight`, `make backend-check`, `make foundation-check`, `python3 tools/check_dependencies.py`, `python3 tools/validate_project.py`, `python3 tools/model_economics.py`, and `SEBAVERSE_ENV=local DJANGO_DEBUG=1 backend/.venv/bin/python evals/retrieval/run_preflight_eval.py`. Independent reviewer subagent will then review and write `development/evidence/dev-012-retrieval-preflight-review.md`. If no results follow, this step did not finish.
+
+### Results — AUTH-018 implementation checkpoint (pending independent review)
+
+All checks run on `antigravity/dev-012-retrieval-preflight-2026-11-26` under qualified Node `v24.22.3`:
+- `make test-retrieval-preflight`: exit 0 — 27/27 pytest cases passed; `evals/retrieval/run_preflight_eval.py` passed (`recall_at_5: 1.0`, `abstention_accuracy: 1.0`, `fabricated_citations: 0`, `unauthorized_access: 0`; synthetic-fixture engineering check only).
+- `make backend-check`: exit 0 — 744 passed, 1 deselected (`postgres_integration`); `backend/manage.py check` 0 issues.
+- `make foundation-check`: exit 0 — 179/179 unit tests passed, `validate_project.py` PASS (0 errors, 0 warnings), `model_economics.py` PASS, `check_foundation.py` PASS.
+- `python3 tools/check_dependencies.py`: exit 0, PASS.
+- `git diff --check`: exit 0.
+- NOT RUN: 37 DEV-010 PostgreSQL cases (blocked on AUTH-014 supplier wait), web/demo suites (no web/demo edits).
+- Next: launching an independent reviewer subagent owning only `development/evidence/dev-012-retrieval-preflight-review.md` (read-only on source). If no review results follow, the review did not complete and this work remains pending review.
+
+### Independent review received — `CHANGES REQUESTED` on `98015c4`
+
+Independent reviewer (`pro` subagent) wrote `development/evidence/dev-012-retrieval-preflight-review.md`. Verdict: **CHANGES REQUESTED** (no blockers for cross-learner exposure, rubric leakage, or forged citations; 3 should-fix findings: Arabic punctuation captured by `_TOKEN_RE`, `edition['profile']` approval not checked, and whole-bundle `validate_bundle` coupling unrelated withdrawn/expired records + unreachable per-material rights checks; plus minor notes on `role`/`purpose` type validation, `OverflowError` on `now`, German umlauts, `untrusted_data` immutability, `build_cache_key` export, and eval bucket labels).
+
+### AUTH-018 Correction round 1 of 2 — started 26 November 2026
+
+Fixing all 3 should-fix findings and the minor notes in `backend/modules/retrieval/__init__.py`, `backend/modules/retrieval/preflight.py`, `backend/tests/retrieval/test_retrieval_preflight.py`, and `evals/retrieval/run_preflight_eval.py`. Commands to run: `make test-retrieval-preflight`, `make backend-check`, `make foundation-check`, `python3 tools/check_dependencies.py`, `git diff --check`, followed by independent re-review appending to `development/evidence/dev-012-retrieval-preflight-review.md`. If no results follow, this step did not finish.
+
+### Results — AUTH-018 correction round 1 (pending independent re-review)
+
+- Fixed all 3 should-fix items and minor notes: restricted `_TOKEN_RE` to Arabic letters (excluding Arabic punctuation) plus Latin/German `äöüß`; added `edition['profile']` approval and audience check; replaced whole-bundle `validate_bundle` with pinned-edition scoped record validation so unrelated withdrawn/expired records never break other tenants/editions and per-material live rights checks are reachable; validated `role`/`purpose` string types and `OverflowError` on `now`; made `untrusted_data` immutable (`field(default=True, init=False)`); kept `_build_cache_key` internal; reported `context_budget_exceeded` when positive hits exceed `max_context_chars`; separated eval buckets by edition version and `curriculum_key.language`.
+- `make test-retrieval-preflight`: exit 0 — 28/28 pytest cases passed; `evals/retrieval/run_preflight_eval.py` PASS (`recall_at_5: 1.0`, `abstention_accuracy: 1.0`, `fabricated_citations: 0`, `unauthorized_access: 0`).
+- `make backend-check`: exit 0 — 745 passed, 1 deselected (`postgres_integration`); `backend/manage.py check` 0 issues.
+- `make foundation-check`: exit 0 — 179/179 unit tests passed, `validate_project.py` PASS, `model_economics.py` PASS, `check_foundation.py` PASS.
+- `python3 tools/check_dependencies.py`: exit 0, PASS; `git diff --check`: exit 0.
+- Next: independent re-review subagent appends `Re-review, correction round 1 — 26 November 2026` to `development/evidence/dev-012-retrieval-preflight-review.md`. If no re-review results follow, round 1 remains pending re-review.
+
+### Independent re-review complete — `ACCEPTED WITH NOTES` on `35f1198`
+
+Independent reviewer (`pro` subagent) appended `Re-review, correction round 1 — 26 November 2026` to `development/evidence/dev-012-retrieval-preflight-review.md`. Verdict: **ACCEPTED WITH NOTES** for the AUTH-018 bounded DB-free scope. All 3 should-fix findings and minor notes resolved with zero regressions or ACL/citation bypasses. Reviewer independently ran `make test-retrieval-preflight` (28/28 + eval pass), `make backend-check` (745 passed, 1 deselected, `manage.py check` 0 issues), and `make foundation-check` (179/179 PASS). Remaining non-blocking notes: multi-anchor `\n\n` fallback to `anchors[0]`, `teacher`/`guardian` reporting scopes untested in retrieval tests, and `0` unanswerable eval cases in `language:v2:de`/`language.private:v1:de`.
+
+## Exact next step (26 November 2026, end of AUTH-018 Antigravity session)
+
+- **Branch:** `antigravity/dev-012-retrieval-preflight-2026-11-26` (PR https://github.com/EldonsLogic/sebaverse/pull/9 open against `main` `5f81185`; verified commit `904d7c0`; do not merge without founder approval).
+- **Verified:** `make test-retrieval-preflight` (28/28 + eval PASS), `make backend-check` (745 passed, 1 deselected), `make foundation-check` (179/179 PASS), `python3 tools/check_dependencies.py` (PASS), `git diff --check` (PASS), independent review (`ACCEPTED WITH NOTES` in `development/evidence/dev-012-retrieval-preflight-review.md`).
+- **Not verified / not run:** 37 DEV-010 PostgreSQL integration cases (blocked on AUTH-014 supplier wait), web/demo suites (no web/demo edits), live pgvector/hybrid retrieval or LLM calls (out of AUTH-018 scope).
+- **Pending review / decision:** Founder approved merging PR 9 (`"Proceed"`, `antigravity/dev-012-retrieval-preflight-2026-11-26` → `main`, merge commit, no force) on 26 November 2026. This line is written before the merge so that `main` records it; if `main` lacks it, the merge did not happen. After the merge, resume from `main`: development waits on the AUTH-014 supplier update (`postgres:17-alpine` `linux/amd64` `libssl3`/`libcrypto3` `3.5.9-r1+`) or a new founder authorization.
+- **Next command:** `git status -sb && git fetch && git log --oneline -3 origin/main && python3 tools/brief.py` (after founder decides on merging the AUTH-018 PR).
