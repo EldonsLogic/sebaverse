@@ -18,3 +18,5 @@ python3 tools/check_foundation.py
 ```
 
 These are foundation/document integrity checks, not product/security/learning tests. Later phase-specific suites must be implemented and pass before those phases exit. The local Arabic shell and synthetic PostgreSQL foundation passed F2; current implementation and remaining scope are recorded in CURRENT-STATE.md. [Roadmap](ROADMAP.md) and tasks.json define the sequence. The frozen v1 audit export remains historical; live architecture/registers/development files are current.
+
+U29 handover-first update: read [ACTIVE-HANDOFF.md](ACTIVE-HANDOFF.md) for the exact unfinished checkpoint and [NEXT-AGENT-PROMPT.md](NEXT-AGENT-PROMPT.md) for a reusable restart prompt. Update these records after bounded work units and before long operations; do not wait for a session-limit warning. [WORK-LOG.md](WORK-LOG.md) keeps milestone history. Preserve incomplete source on its named checkpoint branch without claiming final review or phase completion.

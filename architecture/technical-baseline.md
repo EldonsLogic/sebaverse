@@ -127,3 +127,5 @@ Hosting region/provider, payment gateway, exact model endpoints, retention durat
 No performance, safety, efficacy or cost benchmark result is claimed in this baseline.
 
 AUTH-013 / ADR-014, 19 November: founder selected the direct same-engine adapter for the initial authored text-only PDF PoC. This reduces the proposed Python package closure but grants no native/scanner/runtime/phase clearance. Advanced OCR/layout, all R039 capabilities and independent fidelity evaluation remain required; the direct PoC does not pass F3.
+
+25 November 2026 · U28: [Athar-derived refinements](athar-derived-refinements.md) add scoped evidence-gap hypotheses/requests, reviewed curriculum/import workflows and deterministic recipient reporting to existing module contracts. These are conceptual acceptance refinements within current requirements and phases, not a stack change, dependency adoption or implementation permission.

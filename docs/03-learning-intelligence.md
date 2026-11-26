@@ -49,3 +49,7 @@ Individual: validated attempt → evidence → deterministic versioned projectio
 Each release manifest records code SHA, prompt/model snapshots, policy/grader versions, curriculum/item versions and retrieval/embedding index. Affected content can be quarantined and projections rebuilt. Evaluate independent delayed retention/transfer, not merely engagement or next-answer prediction. Tiny pilots support descriptive case review rather than causal marketing.
 
 External review follow-up, 23 November 2026: [traceable contract proposals](../architecture/external-review-2026-11-23.md) retain spoken-input versioning, mechanical item validation, explicit language policy and mixed-speech evaluation alongside account/UI proposals. These are scoped proposals; existing execution gates and selected defaults are unchanged.
+
+## Cited support and missing evidence
+
+U28 / ATHAR-001 adds [selected learning/report refinements](../architecture/athar-derived-refinements.md): explain a prerequisite hypothesis with reviewed edge/evidence versions, competing paths and unknowns; suggest one distinguishing probe or a bounded missing-record request rather than guessing. Routine recipient facts may use reviewed Arabic templates. External marks and parent/teacher notes retain external-observation provenance and unknown assistance/exposure until independently established; import or human confirmation alone never raises mastery. Numeric graph confidence and before/after means are not educational calibration or causal findings. Implementation remains in its original gated task.

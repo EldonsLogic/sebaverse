@@ -773,7 +773,26 @@
         }
       ],
       "architecture_phase": "A3",
-      "phase_exit_gate": "F4"
+      "phase_exit_gate": "F4",
+      "authorized_slices": [
+        {
+          "id": "local-teaching-demo-v1",
+          "authorization": "AUTH-017 / U27",
+          "status": "in_progress",
+          "scope": "Isolated frontend-only authored local teaching mock; no production FSM, backend/data/provider calls or task/phase completion. Original dependencies remain unchanged.",
+          "requirements": [
+            "R010",
+            "R011",
+            "R019",
+            "R054",
+            "R055",
+            "R067",
+            "R097"
+          ],
+          "evidence": "development/evidence/local-teaching-demo.md",
+          "handoff": "development/ACTIVE-HANDOFF.md"
+        }
+      ]
     },
     {
       "id": "DEV-014",

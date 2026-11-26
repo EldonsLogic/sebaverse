@@ -1,0 +1,36 @@
+{
+  "date": "2026-11-25",
+  "upstream_version": "24.22.3",
+  "archive_url": "https://nodejs.org/dist/v24.22.3/node-v24.22.3-darwin-arm64.tar.xz",
+  "checksum_url": "https://nodejs.org/dist/v24.22.3/SHASUMS256.txt",
+  "archive_sha256": "1d64136c8a43d648d1b3bad10797a4c995b1ca032d2bde8799de43b37f058fe5",
+  "archive_bytes": 27519132,
+  "files": [
+    {
+      "member": "node-v24.22.3-darwin-arm64/bin/node",
+      "saved": "node",
+      "bytes": 122586000,
+      "sha256": "ba7073582822078d8c90bca3facacc46690bc5366fab4b815aeef9148cd6e854"
+    },
+    {
+      "member": "node-v24.22.3-darwin-arm64/LICENSE",
+      "saved": "LICENSE",
+      "bytes": 157609,
+      "sha256": "5888dbb9a1d2b18f2c3e6c5f6af1b39de658372b402a0577b002777f14c62ace"
+    },
+    {
+      "member": "node-v24.22.3-darwin-arm64/README.md",
+      "saved": "README.md",
+      "bytes": 41882,
+      "sha256": "66a4abdc81f9fc48e196aad4af434cc30aac77cb9a3bf74304f8da3fe80344da"
+    }
+  ],
+  "status": "authenticated; local compatibility measured separately; Linux/whole-application clearance not claimed",
+  "initial_extraction": "100MB per-file guard rejected 122586000-byte Node; inspected archive metadata, selected exact three regular members bounded at150MB; no automatic extraction or npm installation.",
+  "use": "Existing same-major build/browser toolchain security patch; no Node runtime in production static web application.",
+  "release": "https://nodejs.org/en/blog/release/v24.22.3",
+  "security_notice": "https://nodejs.org/en/blog/vulnerability/november-2026-security-releases",
+  "authentication": "Official HTTPS archive SHA-256 and independent Apple Developer ID Node.js Foundation HX7739G8FX signature verified; no OpenPGP verification claimed.",
+  "notices": "Complete publisher LICENSE extracted as data and hash-bound above; Node root MIT plus bundled component notices; binary is not distributed in this repository.",
+  "compatibility_evidence": "development/evidence/demo-node-patch-review.md"
+}

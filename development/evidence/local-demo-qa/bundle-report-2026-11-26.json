@@ -1,0 +1,15 @@
+{
+  "scriptStyleGzipBytes": 75787,
+  "maxBytes": 200000,
+  "fonts": [
+    {
+      "name": "Rubik-VF.ttf",
+      "bytes": 359804
+    },
+    {
+      "name": "Alexandria-VF.ttf",
+      "bytes": 332488
+    }
+  ],
+  "scope": "Disposable optimized demo measurement, not development-server transfer or production deployment. Existing TTFs are not subsetted WOFF2."
+}

@@ -1,5 +1,10 @@
 # Sebaverse — AI-native adaptive tutoring master project
 
+## Continue development here
+
+The live development entry is [CURRENT-STATE.md](development/CURRENT-STATE.md), followed by [ACTIVE-HANDOFF.md](development/ACTIVE-HANDOFF.md) and the [next-agent prompt](development/NEXT-AGENT-PROMPT.md). The original planning narrative below is historical; current Git, recorded approvals and phase evidence govern. Foundation code and an isolated local demo exist, but the demo's final verification and full F3 runtime remain incomplete. The canonical GitHub repository is public under U24. Preserve the named recovery checkpoint and do not reset unfinished work to main.
+
+
 Version 1.1 • 11 November 2026 • development foundation; product runtime not implemented.
 
 Egypt-first, solo-founder, affordability-critical, globally extensible. The founder selected **Sebaverse** for brand development (U7). The project folder is Documents/Sebaverse; the existing repository and history are preserved. C visual identity with B blue/orange is selected (U10). No permanent slogan is selected; detailed brand/design review remains open. No application, paid model benchmark, deployment or real-student pilot has been implemented.
@@ -32,7 +37,7 @@ Technical architecture is selected under U11/U12. Next: audit the concrete basel
 
 `python3 tools/model_economics.py` rebuilds illustrative costs; unknown full-margin inputs stay null. `python3 tools/validate_project.py` verifies report inventory, hashes, requirement references, links and arithmetic. See [validation report](VALIDATION.md). These are document checks, not security certification or measured tutoring results.
 
-Project files are editable Markdown/JSON with preserved Git history. The founder designated https://github.com/EldonsLogic/sebaverse as the shared private remote under U13; verified milestone commits/pushes are authorized. Later code starts only after product, brand/design and architecture gates, and a bounded technical PoC precedes real-student use.
+Project files are editable Markdown/JSON with preserved Git history. The founder designated https://github.com/EldonsLogic/sebaverse as the shared remote under U13 (public under U24); verified milestone commits/pushes are authorized. Later code starts only after product, brand/design and architecture gates, and a bounded technical PoC precedes real-student use.
 
 ## Arabic-first identity trials
 

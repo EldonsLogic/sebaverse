@@ -407,6 +407,38 @@
       "copied_files": [],
       "integration_results": "not run",
       "release_gate": "Exact release/closure/security/license/model rights and contract tests before adoption"
+    },
+    {
+      "name": "Athar",
+      "url": "https://github.com/OmarAxis/Athar",
+      "audited_commit": "a2e52a22fcc9e639a08c2e2040ac58479676ee24",
+      "audited_license": "Apache-2.0 root code license observed; content/dependency/model/provider rights not cleared",
+      "evidence": "ATHAR-001; research/athar-review/README.md and source-snapshot.json",
+      "disposition": "reference_only",
+      "phase": "A3–A7 within existing gates",
+      "boundary": "Conceptual adaptations in architecture/athar-derived-refinements.md; no upstream source, packs, weights, runtime or new framework selected. Keep owned deterministic authority and live scope.",
+      "requirements": [
+        "R025",
+        "R026",
+        "R027",
+        "R028",
+        "R035",
+        "R038",
+        "R041",
+        "R042",
+        "R047",
+        "R050",
+        "R060",
+        "R061",
+        "R067",
+        "R091",
+        "R092"
+      ],
+      "production_release": null,
+      "dependency_lock": null,
+      "copied_files": [],
+      "integration_results": "not run; selected source/tests read only",
+      "release_gate": "Exact reuse scope, notices/licenses, transitive security/content/model/processor rights, isolation and real tests before any copying or installation"
     }
   ],
   "followup_repositories": [
@@ -454,6 +486,14 @@
       "copied_files": [],
       "integration_results": "Owned disabled worker core and fake-engine tests independently reviewed under AUTH-013; no SDK installation, native execution or live upload integration.",
       "release_gate": "Exact native/shared-wheel/worker closure, applicable phase checks and evidence-backed ADR before integration"
+    }
+  ],
+  "later_reviews": [
+    {
+      "id": "ATHAR-001",
+      "source": "U28",
+      "date": "2026-11-25",
+      "evidence": "research/athar-review/README.md"
     }
   ]
 }

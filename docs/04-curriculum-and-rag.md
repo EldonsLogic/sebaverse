@@ -38,3 +38,7 @@ PoC corpus: 20–30 authorized pages across digital/scanned Arabic, bilingual tw
 Proposed gates from A11: recall@5 >=90% on answerable items, supported factual claims >=90%, fabricated citations zero, appropriate abstention >=90%; report each language, corpus type and edition separately with counts and uncertainty. Zero unauthorized retrieval/citation access across all negative fixtures. Measure OCR critical-symbol fidelity, retrieval nDCG/MRR, latency and full parse/index/query costs. Small datasets give engineering confidence only; they do not prove all curricula work.
 
 Unknowns: first content-rights route, source quality, OCR provider/model rights, exact page quotas, review workload and future curriculum authority integrations. Resolve at G1/G3 rather than invent licensed coverage.
+
+## Reviewed external observations and graph overlays
+
+U28 / ATHAR-001 retains [import and overlay refinements](../architecture/athar-derived-refinements.md): structured marks use preview/correction/confirmation with exact source/row/version provenance, identity and duplicate checks. They are external observations, not automatically accepted independent assessment. Spreadsheet/photo formats need their own qualified ingestion and privacy/rights checks. Topic and typed relation proposals are separately reviewed immutable versions; private overlays never become global, model suggestions never publish, and rights/consent/safety withdrawal overrides historical-reference convenience. No upstream Athar packs or parsers are adopted.

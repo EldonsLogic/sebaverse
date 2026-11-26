@@ -32,3 +32,5 @@ The integrating agent must update CURRENT-STATE.md before stopping, using the [t
 ## Resume protocol for a different agent
 
 Follow [WORKFLOW.md](WORKFLOW.md), beginning with the exact read order and Git inspection. Use [task-handoff template](templates/task-handoff.md) for a transfer with specific scope. Record any divergence from this handover before editing. Do not ask the founder to repeat information already in the current source/decision registers, and do not block subject-independent architecture on a particular German upload.
+
+U29 handover-first update: read [ACTIVE-HANDOFF.md](ACTIVE-HANDOFF.md) for the exact unfinished checkpoint and [NEXT-AGENT-PROMPT.md](NEXT-AGENT-PROMPT.md) for a reusable restart prompt. Update these records after bounded work units and before long operations; do not wait for a session-limit warning. [WORK-LOG.md](WORK-LOG.md) keeps milestone history. Preserve incomplete source on its named checkpoint branch without claiming final review or phase completion.

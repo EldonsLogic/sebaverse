@@ -1,0 +1,309 @@
+{
+  "repository": "https://github.com/OmarAxis/Athar",
+  "commit": "a2e52a22fcc9e639a08c2e2040ac58479676ee24",
+  "retrieved": "2026-11-25",
+  "scope": "Selected files as data only; no install, imports, scripts or tests executed.",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 16240,
+      "sha256": "a36b7d48feb5ee98f3c482d7fc5f65bfcfac3192d2f29e6c15032dbdc7c5db70",
+      "git_blob_sha": "9774979ed1f515095a2bc843c3135ae9b8a23a67",
+      "url": "https://github.com/OmarAxis/Athar/blob/a2e52a22fcc9e639a08c2e2040ac58479676ee24/README.md"
+    },
+    {
+      "path": "ARCHITECTURE.md",
+      "bytes": 9970,
+      "sha256": "f48b8ff232e24a34b49c7c42d11cef7a4c6e28acf6ce62d105f81e7cdc185389",
+      "git_blob_sha": "2c5b5b5b92473f63e944ef69b7e319a96f195eef",
+      "url": "https://github.com/OmarAxis/Athar/blob/a2e52a22fcc9e639a08c2e2040ac58479676ee24/ARCHITECTURE.md"
+    },
+    {
+      "path": "EVALS.md",
+      "bytes": 25372,
+      "sha256": "0a948018037a3bbefe9dc473519e446c7fb27d99894dca7be2bbffa8f5ea9308",
+      "git_blob_sha": "7f1f98a5f17c857c01aa49268359c3ebf9f89df6",
+      "url": "https://github.com/OmarAxis/Athar/blob/a2e52a22fcc9e639a08c2e2040ac58479676ee24/EVALS.md"
+    },
+    {
+      "path": "SECURITY.md",
+      "bytes": 10169,
+      "sha256": "7415a1d7b3a58918f386bf46e0a2fcb6d7960b3778c3ee1653414ebef5f79a51",
+      "git_blob_sha": "7744db6c5a43cbca3c5a5b7cd84b7e7d430bb1da",
+      "url": "https://github.com/OmarAxis/Athar/blob/a2e52a22fcc9e639a08c2e2040ac58479676ee24/SECURITY.md"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 11340,
+      "sha256": "52f203491064590513f5330b8ad701e9e12506ff8ca69691c979748ba6a638b3",
+      "git_blob_sha": "371b5353fb104a7c940b232f8ecec1f9ff065e5b",
+      "url": "https://github.com/OmarAxis/Athar/blob/a2e52a22fcc9e639a08c2e2040ac58479676ee24/LICENSE"
+    },
+    {
+      "path": "pyproject.toml",
+      "bytes": 1382,
+      "sha256": "1ec44fdfae8c6d35dddcbb61cee466c4b9868746ec5dda1bc9e3ee6330be7dc6",
+      "git_blob_sha": "ce5de31d1a252e2682dd9a6602776d1de9540730",
+      "url": "https://github.com/OmarAxis/Athar/blob/a2e52a22fcc9e639a08c2e2040ac58479676ee24/pyproject.toml"
+    },
+    {
+      "path": "uv.lock",
+      "bytes": 232762,
+      "sha256": "8818f3ec83f0d9c584a97e274992d80c918b68f7455344ae306228a0574f0270",
+      "git_blob_sha": "a9caf682d21f76525e01c1a182bcaadd68ef28a7",
+      "url": "https://github.com/OmarAxis/Athar/blob/a2e52a22fcc9e639a08c2e2040ac58479676ee24/uv.lock"
+    },
+    {
+      "path": "docs/VISION.md",
+      "bytes": 20085,
+      "sha256": "a7b4793308b6b9ad2a0ddd91c9fae8d42d96d1aad6185e747be1b537a5adfd18",
+      "git_blob_sha": "3b951a9b393d492d0eac89998c3d879d73cc1c4d",
+      "url": "https://github.com/OmarAxis/Athar/blob/a2e52a22fcc9e639a08c2e2040ac58479676ee24/docs/VISION.md"
+    },
+    {
+      "path": "docs/arabic-glossary.md",
+      "bytes": 5478,
+      "sha256": "ebee582441f196cb10673168366cc839dfe659f837421d0acd1f58245b675419",
+      "git_blob_sha": "e30060c23a76f95869bc919b0011c425bdc09992",
+      "url": "https://github.com/OmarAxis/Athar/blob/a2e52a22fcc9e639a08c2e2040ac58479676ee24/docs/arabic-glossary.md"
+    },
+    {
+      "path": "src/athar/graph.py",
+      "bytes": 24127,
+      "sha256": "c73770f86db0017b9d9eb7210da67bf93be90db7c34c7385621c13df8b9b0326",
+      "git_blob_sha": "fea00d488f75cb68eb791b9add159f507f30a399",
+      "url": "https://github.com/OmarAxis/Athar/blob/a2e52a22fcc9e639a08c2e2040ac58479676ee24/src/athar/graph.py"
+    },
+    {
+      "path": "src/athar/family.py",
+      "bytes": 21877,
+      "sha256": "d5ae37d96dc18f393fe1bdca439d5379f221d2d28021b4a7db33c18934ca1a67",
+      "git_blob_sha": "7a22da7e73f31586b967732fab3d1f276b40ccaf",
+      "url": "https://github.com/OmarAxis/Athar/blob/a2e52a22fcc9e639a08c2e2040ac58479676ee24/src/athar/family.py"
+    },
+    {
+      "path": "src/athar/imports.py",
+      "bytes": 21044,
+      "sha256": "cc9289268e409ea0b6221bc0206004a1e5e7d43581436cb7b9438abe7349ea49",
+      "git_blob_sha": "30d033da6385f86f96965045fba86a7ad4c0bd63",
+      "url": "https://github.com/OmarAxis/Athar/blob/a2e52a22fcc9e639a08c2e2040ac58479676ee24/src/athar/imports.py"
+    },
+    {
+      "path": "src/athar/photo.py",
+      "bytes": 11433,
+      "sha256": "4dd1e209eb2065d5a4e62a3e78303769316057f4db54ca75b47ef7b21eef8c36",
+      "git_blob_sha": "52a30305bede68e918d290b54e7a2e6bf2b4ec10",
+      "url": "https://github.com/OmarAxis/Athar/blob/a2e52a22fcc9e639a08c2e2040ac58479676ee24/src/athar/photo.py"
+    },
+    {
+      "path": "src/athar/curriculum.py",
+      "bytes": 14422,
+      "sha256": "007fda6e5be9ffb501770b4f4fb9c4d7dff263119c64f4016d392280d330c23b",
+      "git_blob_sha": "c5c5017d00a1e7fd0eecc24e4761ab5194e3f4b9",
+      "url": "https://github.com/OmarAxis/Athar/blob/a2e52a22fcc9e639a08c2e2040ac58479676ee24/src/athar/curriculum.py"
+    },
+    {
+      "path": "src/athar/curriculum_add.py",
+      "bytes": 37370,
+      "sha256": "6ddcac66e57c6fe1cbcd24d55eefbfee2e93758f16d5fb8dc865e3fe0c88b0e4",
+      "git_blob_sha": "67b7a00488ee2804d8cffa495a01e24a5b2354a1",
+      "url": "https://github.com/OmarAxis/Athar/blob/a2e52a22fcc9e639a08c2e2040ac58479676ee24/src/athar/curriculum_add.py"
+    },
+    {
+      "path": "src/athar/explain.py",
+      "bytes": 5046,
+      "sha256": "6d1de874ab4f8c4585bccf73538df3aea04c5b5d1a0a13b1dcb4a5eafd727c57",
+      "git_blob_sha": "33c2ac92bfcbfa1e8dbeeb9bd7ac837129aa4997",
+      "url": "https://github.com/OmarAxis/Athar/blob/a2e52a22fcc9e639a08c2e2040ac58479676ee24/src/athar/explain.py"
+    },
+    {
+      "path": "src/athar/review.py",
+      "bytes": 9239,
+      "sha256": "06f033280bea0879e81a15f302561161f3e86832d671d6b76eb95ed9b77dd729",
+      "git_blob_sha": "2a287fd4081a1681f0b5a0777d5eb95b5b17ce57",
+      "url": "https://github.com/OmarAxis/Athar/blob/a2e52a22fcc9e639a08c2e2040ac58479676ee24/src/athar/review.py"
+    },
+    {
+      "path": "src/athar/guard.py",
+      "bytes": 11173,
+      "sha256": "fe6b2902ee7e582fcc88a5e52d31e30d1d253f1b79452b4c7529bbc39616ac98",
+      "git_blob_sha": "fd5db651cec1e38df63396ae93b1dbd0dd3b2363",
+      "url": "https://github.com/OmarAxis/Athar/blob/a2e52a22fcc9e639a08c2e2040ac58479676ee24/src/athar/guard.py"
+    },
+    {
+      "path": "src/athar/agent/workflow.py",
+      "bytes": 54247,
+      "sha256": "2462ea4de041b47025e66c4f7e5d58559f02f8b3e28287c4f07fc77d5826226a",
+      "git_blob_sha": "6662560a1a6d8a767757f2ee83b2138a19550e7a",
+      "url": "https://github.com/OmarAxis/Athar/blob/a2e52a22fcc9e639a08c2e2040ac58479676ee24/src/athar/agent/workflow.py"
+    },
+    {
+      "path": "src/athar/agent/runner.py",
+      "bytes": 10265,
+      "sha256": "1f572a6edd35086befce94e4267a6d96e5f9dcb744566abb9adfdc9f95eeccef",
+      "git_blob_sha": "6bbbb4894747f3b34f333e6c8f88d4f45462c70d",
+      "url": "https://github.com/OmarAxis/Athar/blob/a2e52a22fcc9e639a08c2e2040ac58479676ee24/src/athar/agent/runner.py"
+    },
+    {
+      "path": "src/athar/agent/language.py",
+      "bytes": 2140,
+      "sha256": "4cbed48b04f96f7f2972049334d55bb77f97d802fdb39585b44c2abc6ea377f5",
+      "git_blob_sha": "b272b7fe423a88673238a353c499c5e56a79e416",
+      "url": "https://github.com/OmarAxis/Athar/blob/a2e52a22fcc9e639a08c2e2040ac58479676ee24/src/athar/agent/language.py"
+    },
+    {
+      "path": "src/athar/accounts.py",
+      "bytes": 9861,
+      "sha256": "c1886f5f6d969a4d850f2a5f2b2d18ffc043f165a399f9dde255531da12749e4",
+      "git_blob_sha": "5bacfa86f6765db21c00123546b96b949039cf5d",
+      "url": "https://github.com/OmarAxis/Athar/blob/a2e52a22fcc9e639a08c2e2040ac58479676ee24/src/athar/accounts.py"
+    },
+    {
+      "path": "src/athar/classes.py",
+      "bytes": 7998,
+      "sha256": "41450fb94fa6bd1f20d6278ae306f9c0af1da943022ba3a5c608c3c027630ef0",
+      "git_blob_sha": "7b65b1c2551d08e8cf4edad7bc64f661ed443598",
+      "url": "https://github.com/OmarAxis/Athar/blob/a2e52a22fcc9e639a08c2e2040ac58479676ee24/src/athar/classes.py"
+    },
+    {
+      "path": "src/athar/privacy.py",
+      "bytes": 11298,
+      "sha256": "767f99bfc364862dc6fe761ee02ea48d8dc7f231a47b140140929257655b16de",
+      "git_blob_sha": "bd12dcb6ba35e7533112d61b6014d3dbf790b550",
+      "url": "https://github.com/OmarAxis/Athar/blob/a2e52a22fcc9e639a08c2e2040ac58479676ee24/src/athar/privacy.py"
+    },
+    {
+      "path": "src/athar/config.py",
+      "bytes": 2364,
+      "sha256": "8a0b1f950b8ebb895dc41769137cc67d3d8c1953f93278b975e062829db263b1",
+      "git_blob_sha": "43d241c9de97ab4e59ef221f238937df0ed6366f",
+      "url": "https://github.com/OmarAxis/Athar/blob/a2e52a22fcc9e639a08c2e2040ac58479676ee24/src/athar/config.py"
+    },
+    {
+      "path": "src/athar/tools.py",
+      "bytes": 19229,
+      "sha256": "36080eb4a9bedd13428e39505010aee2a590f4e106fd7fa5da0e24fed776b270",
+      "git_blob_sha": "69f62e64321d9f0eca4e3f8bbe5a5c06a76eda28",
+      "url": "https://github.com/OmarAxis/Athar/blob/a2e52a22fcc9e639a08c2e2040ac58479676ee24/src/athar/tools.py"
+    },
+    {
+      "path": "src/athar/report.py",
+      "bytes": 27791,
+      "sha256": "b576a9d53fb9fb3a13c7ad1c73da5ddc95e9e3986379f26355c359cd6aeb92a0",
+      "git_blob_sha": "5d245f853213acb53796160f708cfb7a45e01a94",
+      "url": "https://github.com/OmarAxis/Athar/blob/a2e52a22fcc9e639a08c2e2040ac58479676ee24/src/athar/report.py"
+    },
+    {
+      "path": "src/athar/i18n.py",
+      "bytes": 3787,
+      "sha256": "88fdb63bf1aefa418d3d49ad4cd5f4821ab72c7a5bfb532e56a083aa85eb49bc",
+      "git_blob_sha": "998b1b8db1941efb427db316a903f3a354069669",
+      "url": "https://github.com/OmarAxis/Athar/blob/a2e52a22fcc9e639a08c2e2040ac58479676ee24/src/athar/i18n.py"
+    },
+    {
+      "path": "src/athar/web/app.py",
+      "bytes": 47479,
+      "sha256": "2f89600891865b6e99ac76e55c8ce6c9c4a41d858b117f51b85bcf64eea99868",
+      "git_blob_sha": "a0c3c3e5a5a1af5340571efb87a69cae47216595",
+      "url": "https://github.com/OmarAxis/Athar/blob/a2e52a22fcc9e639a08c2e2040ac58479676ee24/src/athar/web/app.py"
+    },
+    {
+      "path": "src/athar/web/people.py",
+      "bytes": 10491,
+      "sha256": "6f69ce9ba545f04759516cc7139c1706219ef4267c8fea0a54a47a1167285d40",
+      "git_blob_sha": "6ce7aefd92c6942f2ca55511e5484dbc57ee5631",
+      "url": "https://github.com/OmarAxis/Athar/blob/a2e52a22fcc9e639a08c2e2040ac58479676ee24/src/athar/web/people.py"
+    },
+    {
+      "path": "tests/test_graph.py",
+      "bytes": 11835,
+      "sha256": "7016ef17c3db18a44050b8ddafe352b74b393ba60326e4423aacc2dc31eb43ea",
+      "git_blob_sha": "81bb2098470d1a641ed45d1c7b370df7f5957cc7",
+      "url": "https://github.com/OmarAxis/Athar/blob/a2e52a22fcc9e639a08c2e2040ac58479676ee24/tests/test_graph.py"
+    },
+    {
+      "path": "tests/test_family.py",
+      "bytes": 12706,
+      "sha256": "80709c196b94a55d0c35064f7f9381c790f31cc4d9e076e01a7f73de5c3df37c",
+      "git_blob_sha": "56f8f3be1dd13cfe3ee7777cbfc917eecbb43695",
+      "url": "https://github.com/OmarAxis/Athar/blob/a2e52a22fcc9e639a08c2e2040ac58479676ee24/tests/test_family.py"
+    },
+    {
+      "path": "tests/test_curriculum_add.py",
+      "bytes": 15442,
+      "sha256": "a4c1db8465de451067d08cfaa093d010ec21f1495752c16e6d2e2cebe27b8632",
+      "git_blob_sha": "01ed3ed345ac58a2f18fc9afc5e45cfa5a37719d",
+      "url": "https://github.com/OmarAxis/Athar/blob/a2e52a22fcc9e639a08c2e2040ac58479676ee24/tests/test_curriculum_add.py"
+    },
+    {
+      "path": "tests/test_photo.py",
+      "bytes": 8548,
+      "sha256": "309d81cbb5d9be81fe03f49d35685dd326b7f6791f438229d5e53758a6e59e35",
+      "git_blob_sha": "50ae9f120b9138c9714ab60fd195972f79f52442",
+      "url": "https://github.com/OmarAxis/Athar/blob/a2e52a22fcc9e639a08c2e2040ac58479676ee24/tests/test_photo.py"
+    },
+    {
+      "path": "tests/test_review.py",
+      "bytes": 9222,
+      "sha256": "bb4db1c545f478e2eded8877455049333ef886e8ca4895602c8ce5312296bb58",
+      "git_blob_sha": "ea0ff3ee61b6737bbee501d77a6f8095d4532613",
+      "url": "https://github.com/OmarAxis/Athar/blob/a2e52a22fcc9e639a08c2e2040ac58479676ee24/tests/test_review.py"
+    },
+    {
+      "path": "tests/test_classes_privacy.py",
+      "bytes": 11537,
+      "sha256": "07b0de806cdb4ea0fdc411f77628048aeac4ee44c2777133be09d7cc3e48cc41",
+      "git_blob_sha": "4f78a1ad90532314f2d4aefd62519fdab42436ba",
+      "url": "https://github.com/OmarAxis/Athar/blob/a2e52a22fcc9e639a08c2e2040ac58479676ee24/tests/test_classes_privacy.py"
+    },
+    {
+      "path": "tests/test_accounts_upload.py",
+      "bytes": 14529,
+      "sha256": "16d9c0cda7854a66e5f4e3d3286dbf24e34784a91caaa3d033278695b38c9409",
+      "git_blob_sha": "d8c5b2ccbc95b06279b7871bf4334dd35188a904",
+      "url": "https://github.com/OmarAxis/Athar/blob/a2e52a22fcc9e639a08c2e2040ac58479676ee24/tests/test_accounts_upload.py"
+    },
+    {
+      "path": "tests/test_tools.py",
+      "bytes": 16139,
+      "sha256": "5b1b73f32b8275883d635fc1381938f860c66766f84b10869273e500a196bc0c",
+      "git_blob_sha": "070a6b803d18d2a54370f5d1d4b618b5719b4856",
+      "url": "https://github.com/OmarAxis/Athar/blob/a2e52a22fcc9e639a08c2e2040ac58479676ee24/tests/test_tools.py"
+    },
+    {
+      "path": "tests/test_cloud_models.py",
+      "bytes": 8000,
+      "sha256": "b36f99584c566f3b9037c92f31711a819582dcd7c40e06ab3198a928c4c47281",
+      "git_blob_sha": "31a6d749d3b0cc357e985441ae4a5c9ce5e35bab",
+      "url": "https://github.com/OmarAxis/Athar/blob/a2e52a22fcc9e639a08c2e2040ac58479676ee24/tests/test_cloud_models.py"
+    },
+    {
+      "path": "packs/egypt-school/pack.yaml",
+      "bytes": 1490,
+      "sha256": "66280ec0497c4cb14fa29b919e70ea9fb98dbec5b7e75901a85f13640d958a9f",
+      "git_blob_sha": "da8e61a5cc638f01f5bfad27e0524d63a7a19384",
+      "url": "https://github.com/OmarAxis/Athar/blob/a2e52a22fcc9e639a08c2e2040ac58479676ee24/packs/egypt-school/pack.yaml"
+    },
+    {
+      "path": "packs/egypt-maths/pack.yaml",
+      "bytes": 38086,
+      "sha256": "9e596ab7d4360fcdf015ef3ad4259088f458db77e195aeb1a14eba7a4fe932b0",
+      "git_blob_sha": "9a0a2813af0ce5e3ab7c1cff6a51a879ec355884",
+      "url": "https://github.com/OmarAxis/Athar/blob/a2e52a22fcc9e639a08c2e2040ac58479676ee24/packs/egypt-maths/pack.yaml"
+    },
+    {
+      "path": "packs/egypt-science/pack.yaml",
+      "bytes": 35649,
+      "sha256": "66b38ebd8bcf8ce5b6994cb7e22a20258ca863586f0644424450f13e9c2d6b7c",
+      "git_blob_sha": "a1f4cf19cdcc6fa61dfd8ab6a5dc659856b6c9c8",
+      "url": "https://github.com/OmarAxis/Athar/blob/a2e52a22fcc9e639a08c2e2040ac58479676ee24/packs/egypt-science/pack.yaml"
+    },
+    {
+      "path": ".github/workflows/ci.yml",
+      "bytes": 2244,
+      "sha256": "0eef2cd427e257d12835a4402729fe9ce25be9fc608b70f22753d50d62221422",
+      "git_blob_sha": "6108fc9e78db83580d6517b8b97b2770abe61423",
+      "url": "https://github.com/OmarAxis/Athar/blob/a2e52a22fcc9e639a08c2e2040ac58479676ee24/.github/workflows/ci.yml"
+    }
+  ]
+}

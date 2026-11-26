@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "run": "local-demo-scope-decision-2026-11-24",
+  "run": "handoff-recovery-2026-11-26",
   "max_concurrent_including_orchestrator": 4,
   "paid_provider_budget_usd": 0,
   "token_budget": null,
@@ -15,11 +15,31 @@
       ],
       "status": "completed",
       "files": [
-        "development shared checkpoint/evidence",
-        "development/evidence/local-teaching-demo-decision-2026-11-24.md"
+        "web/vite.demo.config.mjs",
+        "web/package.json",
+        "tools/demo/",
+        "tools/browser/demo-smoke.mjs",
+        "development shared approval/task/evidence/continuity"
       ],
-      "evidence": "Reviewed next-step proposal and receipts saved; root foundation179 and whitespace pass. Founder question pending; no dependent demo code started."
+      "evidence": "Recovery3b0f801 pushed; final snapshot reconciliation foundation179 and full local dependency smoke PASS. User requested immediate wrap. No final demo acceptance or main merge."
     },
+    {
+      "agent": "/root/handoff_audit",
+      "roles": [
+        "Reviewer"
+      ],
+      "model": "gpt-6.2-sol",
+      "reasoning_effort": "medium",
+      "status": "completed",
+      "files": [
+        "development/evidence/handoff-audit-2026-11-26.md"
+      ],
+      "evidence": "Independent handover audit released; observed 178/179 helper passes with exact snapshot drift, no final demo/phase acceptance."
+    }
+  ],
+  "run_status": "wrapped_at_user_limit",
+  "scope": "Handover-first recovery under U29. Preserve existing AUTH017/U28 work without promoting incomplete demo or passing phase/runtime gates.",
+  "previous_run_authors": [
     {
       "agent": "/root/writer_recovery_design",
       "roles": [
@@ -30,9 +50,13 @@
       "reasoning_effort": "medium",
       "status": "completed",
       "files": [
-        "development/evidence/supplier-notices-2026-11-24.md"
+        "web/src/demo/Demo.tsx",
+        "web/src/demo/demo.css",
+        "web/src/demo/main.tsx",
+        "web/src/demo/messages.ts",
+        "web/demo/index.html"
       ],
-      "evidence": "One bounded official notice pass; no meaningful update evidenced, live Docker tag metadata inaccessible. No artifacts or new supplier route."
+      "evidence": "Arabic-first demo UI/interaction and catalog using existing brand assets/tokens. Source ownership released previously; not currently running."
     },
     {
       "agent": "/root/writer_recovery_tests_plan",
@@ -44,9 +68,12 @@
       "reasoning_effort": "medium",
       "status": "completed",
       "files": [
-        "development/evidence/hosted-preflight-3dee5ab.md"
+        "web/src/demo/lesson.ts",
+        "web/src/demo/state.ts",
+        "web/src/demo/state.test.ts",
+        "development/evidence/local-demo-content.md"
       ],
-      "evidence": "Original hosted snapshot: foundation/dependency success, DB-free/web step success, skeleton still in progress; later outcomes unverified."
+      "evidence": "Original content and pure transition model with independent behavior tests; no data persistence or learning claims. Source ownership released previously; not currently running."
     },
     {
       "agent": "/root/cleanup_latest_review",
@@ -55,14 +82,11 @@
       ],
       "model": "gpt-6.2-sol",
       "reasoning_effort": "medium",
-      "status": "completed",
+      "status": "blocked",
       "files": [
-        "work/next-scope-2026-11-24.md",
-        "development/evidence/local-teaching-demo-scope-review.md"
+        "development/evidence/local-teaching-demo-review.md"
       ],
-      "evidence": "Independent bounded demo scope review accepted for founder decision only; foundation179 passed, no prototype execution."
+      "evidence": "Prior reviewer stopped at usage limit; partial observations and separate receipts exist, final demo review file absent. Not a running background agent."
     }
-  ],
-  "run_status": "pending_founder_choice",
-  "scope": "Read-only supplier notices, original hosted snapshot and reviewed local teaching-demo scope proposal. No demo implementation or new authority inferred."
+  ]
 }
