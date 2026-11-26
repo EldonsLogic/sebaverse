@@ -7,3 +7,5 @@ This log records milestones, not a transcript. CURRENT-STATE.md is the short cur
 - 26 November 2026 — Pushed recovery checkpoint `3b0f801`. Reconciled only the reviewed Node/demo-script live dependency hashes; final foundation179 and full dependency/import/render smoke passed. User requested wrap at 1% weekly limit. Stopped new work; final demo/browser verification and independent acceptance remain pending. Main not advanced.
 
 - 26 November 2026 — Claude session resumed from pushed recovery checkpoint `a637951` (verified equal to origin, clean). Started final demo verification and independent acceptance per ACTIVE-HANDOFF.md.
+
+- 26 November 2026 — Final demo verification on unchanged source: foundation179, dependencies, model 9/9, typecheck/build, isolation, bundle report and strict browser 29/29 all pass; guard refuses overrides. Independent review: ACCEPTED WITH NOTES (no blockers, three should-fix items on equation direction and feedback clarity). Main not advanced; founder to choose correction round or PR.

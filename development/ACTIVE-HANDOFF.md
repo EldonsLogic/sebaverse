@@ -80,3 +80,13 @@ Next: step 4, independent reviewer subagent writes `development/evidence/local-t
 ### Step 4 in progress — independent review launched
 
 A real independent Claude subagent (general-purpose, not an author) was launched 26 November to review source, content math, run the model tests itself, drive the demo at 360/1440 (hint path, keyboard no-hint path, wrong answers, reset, network/storage/console), and write `development/evidence/local-teaching-demo-review.md`. It owns only that file plus scratch `work/demo-review-2026-11-26/`; source is read-only to it. If this session ends before the file exists, the review did NOT complete: keep the demo pending and relaunch a reviewer with the same scope. The demo server on 127.0.0.1:5174 is task-owned and must be stopped after review.
+
+### Results — step 4 (independent review complete)
+
+`development/evidence/local-teaching-demo-review.md` written by the independent subagent at HEAD `b93f858`. Verdict: **ACCEPTED WITH NOTES** for the AUTH-017 local scope, no blockers. Reviewer ran model tests 9/9, its own Playwright paths at 360/1440 (hint path, keyboard no-hint path, wrong answers, reset; storage/cookies/IndexedDB empty, only 127.0.0.1:5174 requests, no console errors, CSP served), guard refusal via `resolveConfig`, and isolation check. Root confirmed finding 2 in source. Should-fix: (1) equation/bars LTR in RTL lesson, `Demo.tsx:42,55`; (2) wrong-answer headings "حجم القطعة مظبوط"/"عدد القطع صح" at `lesson.ts:73,97` with outcome only shown by colour; (3) picked answer not shown on feedback. Notes: no same-question retry (must not carry into DEV-013/014), wording inconsistencies, isolation marker only in `main.tsx`, font budget open. Reviewer did not run 390/768 widths, full a11y scan or screen reader.
+
+Demo server (PID 44499) stopped by root; port 5174 free. Source unchanged since `a637951`.
+
+## Exact next step (26 November, end of Claude session)
+
+Waiting on the founder: either (a) one correction round for should-fix 1–3 in `web/src/demo/{lesson.ts,Demo.tsx,state.ts,demo.css}`, then rerun model tests, typecheck, default build, isolation, bundle, `tools/browser/demo-smoke.mjs` and a fresh independent re-review; or (b) open a PR from `codex/handoff-recovery-2026-11-26` to main with the should-fix items listed as known issues. Never merge without the founder's word for that PR.
