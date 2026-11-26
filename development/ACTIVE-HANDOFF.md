@@ -343,7 +343,7 @@ Independent reviewer (`pro` subagent) appended `Re-review, correction round 1 â€
 
 ## Exact next step (26 November 2026, end of AUTH-020 Antigravity session)
 
-- **Branch:** `antigravity/dev-013-tutor-state-2026-11-26` (PR opened against `main` `89e0241`; do not merge without founder approval).
+- **Branch:** `antigravity/dev-013-tutor-state-2026-11-26` (PR https://github.com/EldonsLogic/sebaverse/pull/11 open against `main` `89e0241`; verified commit `917ccaa`; do not merge without founder approval).
 - **Verified:** `make test-tutor-state-preflight` (7/7 PASS), `make backend-check` (770 passed, 1 deselected), `make foundation-check` (179/179 PASS), `python3 tools/check_dependencies.py` (PASS), `git diff --check` (PASS), independent review (`ACCEPTED WITH NOTES` in `development/evidence/dev-013-tutor-state-review.md`).
 - **Not verified / not run:** 37 DEV-010 PostgreSQL integration cases (blocked on AUTH-014 supplier wait), web/demo suites (no web/demo edits), live DB/HTTP/SSE/AG-UI/LLM execution (out of AUTH-020 scope).
 - **Pending review / decision:** PR for AUTH-020 awaits founder merge decision. After merge, the core DB-free backend tutoring loop is complete on `main`; development waits on the AUTH-014 supplier update (`postgres:17-alpine` `linux/amd64` `libssl3`/`libcrypto3` `3.5.9-r1+`) or a new founder authorization.
