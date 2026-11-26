@@ -427,3 +427,15 @@ Fixing both blockers and all 3 should-fix items in `tools/security/check_reports
 - `make foundation-check`: exit 0 — 184/184 unit tests passed, `validate_project.py` PASS (0 errors, 0 warnings), `model_economics.py` PASS, `check_foundation.py` PASS.
 - `python3 tools/check_dependencies.py`: exit 0, PASS; `git diff --check`: exit 0.
 - Next: push to PR 13 and request independent re-review appending to `development/evidence/auth-022-synthetic-ci-review.md`. If no re-review results follow, round 1 remains pending re-review.
+
+### Independent re-review & hosted CI complete — `ACCEPTED WITH NOTES` on `93bd359`
+
+Independent reviewer (`pro` subagent) appended `Re-review, correction round 1 — 26 November 2026` to `development/evidence/auth-022-synthetic-ci-review.md`. Verdict: **ACCEPTED WITH NOTES** (0 blockers, 0 should-fix items; 184/184 foundation tests PASS; 27/27 `source_inputs` hashes verified; original `2026-12-18` expiry unchanged). All **7/7 hosted CI checks** on `93bd359` completed **GREEN** (Foundation checks ×2, Dependency readiness ×2, Static PostgreSQL remediation, and both `Local skeleton phase checks` runs including DEV-010's 37 PostgreSQL cases). Clarified reviewer Note 1 (`postgres-core-cves.json`: 1 reviewed Medium match `CVE-2017-8806`, 0 unreviewed, 0 blocking, 0 KEV) in `dev-010-postgres-probe-2026-11-26.md`.
+
+## Exact next step (26 November 2026, end of AUTH-022 Antigravity session)
+
+- **Branch:** `antigravity/auth-022-synthetic-ci-postgres-2026-11-26` (PR https://github.com/EldonsLogic/sebaverse/pull/13 open against `main` `b2fead8`; do not merge without founder approval).
+- **Verified:** All 7/7 hosted CI checks on PR 13 (`93bd359`), including `Local skeleton phase checks` and DEV-010's 37 PostgreSQL integration cases; `make foundation-check` (184/184 PASS); `python3 tools/check_dependencies.py` (PASS); independent security review (`ACCEPTED WITH NOTES`, 0 blockers, 0 should-fix in `development/evidence/auth-022-synthetic-ci-review.md`).
+- **Not verified / not run:** Local Docker PostgreSQL smoke (Docker daemon not running on host; executed on hosted Linux/amd64 CI instead); real scanner, one-source worker authority/ADR disposition, and Arabic/bilingual extraction fidelity (`R039`) remain open for F3 exit.
+- **Pending review / decision:** PR 13 awaits founder merge decision. Once merged, `Local skeleton phase checks` on `main` will be green again under `AUTH-022` (until `2026-12-18` or official `postgres:17-alpine` rebuild), and DEV-010's 37 PostgreSQL cases are verified passing.
+- **Next command:** `git status -sb && git fetch && git log --oneline -3 origin/main && python3 tools/brief.py` (after founder decides on merging PR 13).

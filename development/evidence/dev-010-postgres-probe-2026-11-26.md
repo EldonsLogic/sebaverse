@@ -21,7 +21,7 @@ Observed hosted Linux/amd64 CI result on PR 13 (`antigravity/auth-022-synthetic-
 
 ## Recorded unreviewed findings in run `45864202204` (QUALITY-BAR §2)
 
-- `postgres-core-cves.json`: **0** matches (`0` blocking, `0` KEV).
+- `postgres-core-cves.json`: **1** reviewed Medium match (`CVE-2017-8806` on `postgresql` `17.12`, reviewed in `infra/security-reviewed-findings.json`; `0` unreviewed, `0` blocking, `0` KEV).
 - `system-native-cves.json`: **0** Critical/High/KEV blocking; **16** unreviewed Low/Medium Ubuntu host OS-package findings recorded under `unreviewed_nonblocking`.
 - `image-cves.json`: **0** Critical/Unknown/KEV; **8** reviewed `AUTH-007` OpenSSL `3.5.9-r0` High matches (`CVE-2026-95692`, `CVE-2026-107496`, `CVE-2026-95691`, `CVE-2026-88823` on `libcrypto3`/`libssl3`); **10** `superseded_awaiting_image_rebuild` matches; **11** unreviewed High matches on listed unused-feature image packages (`libcrypto3`/`libssl3` `3.5.9-r0`: `CVE-2026-124709`, `CVE-2026-107494`, `CVE-2026-121482`, `CVE-2026-84786`, `CVE-2026-107493`; `libxml2` `2.13.9-r2`: `CVE-2026-86144`) recorded under `synthetic_unreached_image_high`; **15** total `unreviewed_nonblocking` (the 11 listed High matches + 4 Low/Medium OS findings).
 

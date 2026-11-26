@@ -52,3 +52,31 @@
 | Hosted CI `gh run view 45864202204` (`2aadaaf`) & `gh run list --commit f39a6bd...` | PASS | All 7 PR 13 runs on `2aadaaf` (`success`) and all 6 PR 13 runs on `f39a6bd` (`success`); inspected run `45864202204` `preuse-result.json` output, `f2-evidence` artifact CVEs, and `tools/run_postgres_smoke.py` exit 0 |
 | `git status --short` | PASS | Verified after writing this review file (only `development/evidence/auth-022-synthetic-ci-review.md` untracked) |
 | Local `backend-check` / Docker PostgreSQL smoke | Not run locally | Local Docker daemon unavailable; PostgreSQL integration suite observed passing in hosted CI run `45864202204` |
+
+## Re-review, correction round 1 — 26 November 2026
+
+- **Commit SHA reviewed:** `93bd3597453355a31e3e1d2333fd12d654df2180` (diff `f39a6bd..93bd359`)
+- **Verdict:** **ACCEPTED WITH NOTES** (0 Blockers, 0 Should-fix, 3 Notes)
+
+### Resolution of Prior Findings
+
+1. **Blocker 1 resolved (`tools/tests/test_auth_022_synthetic_ci.py:20-119`):** Replaced helper-only checks with 5 end-to-end `m.evaluate(...)` tests verifying strict `standard` failures vs `synthetic-ci` passes and non-blocking counts (`unreviewed_nonblocking`, `superseded_awaiting_image_rebuild`, `synthetic_unreached_image_high`), while confirming `synthetic-ci` still fails on `system-native` High, unlisted image High (`libc6`), `Critical`, `KEV`, `postgres-core` unreviewed Medium, and absent `AUTH-007` review.
+2. **Blocker 2 resolved (`development/evidence/dev-010-postgres-probe-2026-11-26.md:18, 22-26`):** Removed non-existent `consent/postgres_probe.py` and listed the actual probes executed (`backend/tests/authorization/postgres_probe.py`, `backend/tests/resilience/postgres_probe.py` (14 scenarios), `backend/tests/ingestion/postgres_probe.py` (37 scenarios, 30 injection fixtures)); added the `QUALITY-BAR §2` recorded unreviewed findings section covering the 16 native and 15 image `unreviewed_nonblocking` findings, 10 `superseded_awaiting_image_rebuild` matches, and 11 `synthetic_unreached_image_high` CVEs observed in run `45864202204`.
+3. **Should-fix 1–3 resolved:** Aligned scope/policy prose in [`sources/synthetic-ci-policy-alignment-instruction.md:9`](../../sources/synthetic-ci-policy-alignment-instruction.md#L9), [`development/APPROVALS.md:108`](../APPROVALS.md#L108), and [`tools/security/check_reports.py:629-633`](../../tools/security/check_reports.py#L629-L633); restricted `superseded_synthetic` at [`check_reports.py:593-600`](../../tools/security/check_reports.py#L593-L600) with `name in inventories` and `is_synthetic_unreached_high`; and revised the [`check_reports.py:284-288`](../../tools/security/check_reports.py#L284-L288) comment to state unused TLS/GSS/XML features rather than symbol-level reachability proof.
+4. **Hash & expiry integrity:** All `27/27` `source_inputs` SHA-256 hashes in [`infra/synthetic-openssl-review.json`](../../infra/synthetic-openssl-review.json#L65-L93) (including `tools/security/check_reports.py` = `613d2d089318f452498b2e3d52a2e2caae60593a153d9d20d59c6dadb6d28db8` at [line 82](../../infra/synthetic-openssl-review.json#L82)) match disk (`0` mismatches), and `expires_at_utc` remains unchanged at `2026-12-18T11:39:06.165579+00:00` ([line 6](../../infra/synthetic-openssl-review.json#L6)).
+
+### Remaining Notes
+
+1. **Minor count inaccuracy in [`development/evidence/dev-010-postgres-probe-2026-11-26.md:24`](dev-010-postgres-probe-2026-11-26.md#L24):** Line 24 states `postgres-core-cves.json: **0** matches (0 blocking, 0 KEV)`. In observed run `45864202204`, `postgres-core-cves.json` reported **`1` match** (`CVE-2017-8806` Medium on `postgresql` `17.12`, reviewed in `infra/security-reviewed-findings.json:75`), with `0` unreviewed, `0` blocking, and `0` KEV. Recommend clarifying line 24 to `1 reviewed Medium match (CVE-2017-8806); 0 unreviewed, 0 blocking, 0 KEV` if a final doc fix is made before merge (no security or gate impact).
+2. **Minor test-coverage edges in [`tools/tests/test_auth_022_synthetic_ci.py:58-114`](../../tools/tests/test_auth_022_synthetic_ci.py#L58-L114):** `test_listed_unused_feature_image_high_requires_active_auth007_window_and_stays_blocked_in_standard` ([line 104](../../tools/tests/test_auth_022_synthetic_ci.py#L104)) patches `validate_openssl_exception` rather than passing a full expired/valid `synthetic-openssl-review.json` fixture through `evaluate()` (expiry enforcement is covered separately in [`test_openssl_exception.py:55-59`](../../tools/tests/test_openssl_exception.py#L55-L59)), and `Unknown` severity, `postgres-core` `High`, and `postgres-core` reviewed `Medium` with `fix_released` under `synthetic-ci` are verified by inspection ([`check_reports.py:583, 593, 606`](../../tools/security/check_reports.py#L583-L606)) rather than explicit cases here.
+3. **Hosted CI on `93bd359`:** `Foundation checks` (×2) and `Dependency readiness` (×2) passed; `Local skeleton phase checks` (runs `45866614061`, `45866605400`) and `Static PostgreSQL remediation experiment` (run `45866605259`) were `in_progress` at review time and must show green on PR 13 before merge.
+
+### Re-review Verification Observed (`93bd359`)
+
+| Check / Command | Outcome | Observed Result |
+|---|---|---|
+| `make foundation-check` (local at `93bd359`) | PASS (exit 0) | `model_economics.py` PASS; `validate_project.py` PASS (`0` errors, `0` warnings); `check_foundation.py` PASS; `tools/tests` `184` tests `OK` |
+| `infra/synthetic-openssl-review.json` hash verification | PASS (exit 0) | `27/27` `source_inputs` hashes match disk (`0` mismatches); `expires_at_utc` `2026-12-18T11:39:06.165579+00:00` |
+| `gh run list --commit 93bd3597453355a31e3e1d2333fd12d654df2180` | Partial / in progress | `Foundation checks` (×2) and `Dependency readiness` (×2) `success`; `Local skeleton phase checks` (×2) and `Static PostgreSQL remediation experiment` `in_progress` at review time |
+| `git status --short` | PASS | Only `development/evidence/auth-022-synthetic-ci-review.md` modified |
+| Local `backend-check` / Docker PostgreSQL smoke | Not run locally | Local Docker daemon unavailable |
