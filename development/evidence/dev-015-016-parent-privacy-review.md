@@ -59,3 +59,40 @@ All commands below were executed directly on branch `antigravity/dev-015-016-par
 | `git status --short` | PASS (exit 0) | Confirmed only `?? development/evidence/dev-015-016-parent-privacy-review.md` added; source, tests, `Makefile`, and handoff files untouched |
 
 - **Not run in this review:** 37 `DEV-010` PostgreSQL integration cases (`AUTH-014` supplier wait), `make dependency-check`, `make smoke-local`, web/demo suites (no web edits), and live DB/HTTP/provider execution (outside `AUTH-021` scope).
+
+
+
+## Re-review, correction round 1 — 26 November 2026
+
+- **Commit SHA reviewed:** `d2af0571a1af4b711fc461a9cdfb0dce68d51d37` (`git diff 7b84372..d2af057` on branch `antigravity/dev-015-016-parent-privacy-2026-11-26`)
+- **Verdict:** **ACCEPTED WITH NOTES** (0 blockers, 0 should-fix items, 3 minor non-blocking notes).
+- **Next action:** Commit `development/evidence/dev-015-016-parent-privacy-review.md` and proceed with `AUTH-021` PR/handover under `U33` scope (full `DEV-015`, `DEV-016`, `DEV-010`, and `F4` phase exit remain gated).
+
+### Resolution Verification
+
+Both blockers and all four should-fix findings from `7b84372` are resolved in `d2af0571a1af4b711fc461a9cdfb0dce68d51d37` without regressions or scope drift:
+
+1. **Blocker 1 (Cross-kind `target_id` collision in deletion-tombstone replay):** Resolved in [`backend/modules/operations/privacy.py`](../../backend/modules/operations/privacy.py#L36), [lines 75–83](../../backend/modules/operations/privacy.py#L75-L83), [lines 198–207](../../backend/modules/operations/privacy.py#L198-L207), and [lines 258–260](../../backend/modules/operations/privacy.py#L258-L260). `RestorableRecord` now carries explicit `target_kind`, `_validate_record` requires matching `(target_kind, target_id)` pairing and enforces `target_kind == record_kind` for `upload` and `session` records, and `replay_deletion_tombstones` matches non-`learner_all` tombstones strictly on `(rec.target_kind, rec.target_id)`. Verified in [`backend/tests/operations/test_parent_privacy_preflight.py`](../../backend/tests/operations/test_parent_privacy_preflight.py#L249-L306).
+2. **Blocker 2 (`_PHONE_LIKE` dropping ISO-8601 `occurred_at` and date-stamped labels):** Resolved in [`backend/modules/operations/privacy.py`](../../backend/modules/operations/privacy.py#L19-L26), [lines 116–125](../../backend/modules/operations/privacy.py#L116-L125), and [lines 137–147](../../backend/modules/operations/privacy.py#L137-L147). `_parse_iso_utc` validates `occurred_at` strictly as a timezone-aware ISO-8601 timestamp normalized to UTC while rejecting naive dates/timestamps, and `ALLOWED_TELEMETRY_ID_FIELDS` preserves date-suffixed identifiers (such as `edition-2026-11-26`). Verified in [`test_parent_privacy_preflight.py`](../../backend/tests/operations/test_parent_privacy_preflight.py#L198-L243).
+3. **Should-fix 1 & 2 (Free-text telemetry labels and `'policy_version'` collision):** Resolved in [`privacy.py`](../../backend/modules/operations/privacy.py#L19-L26), [lines 51–58](../../backend/modules/operations/privacy.py#L51-L58), and [lines 137–141](../../backend/modules/operations/privacy.py#L137-L141). All six `ALLOWED_TELEMETRY_ID_FIELDS` require `_IDENTIFIER.fullmatch(val)` (dropping free text, spaces, emails, and phones), and `'policy_version'` was removed from the input allowlist so caller-supplied `'policy_version'` is dropped and cannot collide with `PRIVACY_POLICY_VERSION`. Verified in [`test_parent_privacy_preflight.py`](../../backend/tests/operations/test_parent_privacy_preflight.py#L207-L234).
+4. **Should-fix 3 (`parent_summary.py` error mapping & upfront validation):** Resolved in [`backend/modules/learning/parent_summary.py`](../../backend/modules/learning/parent_summary.py#L77-L138). `_validate_guardian_scope` validates `LedgerScope` fields upfront with `invalid_scope`, `events` requires `(list, tuple)` (`invalid_evidence`), `objectives` validates `(obj_id, obj_ver)` types and `_IDENTIFIER` before set lookup (`invalid_objectives`), and `LedgerError('invalid_scope')` now propagates as `ParentSummaryError('invalid_scope')`. Verified in [`test_parent_privacy_preflight.py`](../../backend/tests/operations/test_parent_privacy_preflight.py#L174-L188).
+5. **Should-fix 4 (Test coverage):** Expanded [`test_parent_privacy_preflight.py`](../../backend/tests/operations/test_parent_privacy_preflight.py#L84-L306) from 12 to 18 tests covering all 13 `LedgerScope` denial flags, `developing`/`needs_support`/`ready_for_review`/`retained`/`probe_needed`/`pending_review`/`unassessed` states, error distinctions, `occurred_at`/bool/negative/free-text/spoofed-`policy_version` redaction, and `upload`/`session`/`learner_all` tombstone replay.
+
+### Remaining Non-Blocking Notes
+
+1. **`chunk` `target_kind` and unexercised negative/count cases ([`backend/modules/operations/privacy.py`](../../backend/modules/operations/privacy.py#L37), [lines 196–207](../../backend/modules/operations/privacy.py#L196-L207); [`backend/tests/operations/test_parent_privacy_preflight.py`](../../backend/tests/operations/test_parent_privacy_preflight.py#L108-L172), [lines 249–337](../../backend/tests/operations/test_parent_privacy_preflight.py#L249-L337)):** `_validate_record` allows `record_kind='chunk'` with `target_kind='session'` or `target_kind=None` (outside `SCOPED_TARGET_KINDS`), and `invalid_record` rejections, `exposed_count`, and `external_observation_count` (covered by `test_learning_ledger.py` and wired at `parent_summary.py:148,150`) are not explicitly asserted in `test_parent_privacy_preflight.py`.
+2. **`retention_delay` error code mapping ([`backend/modules/learning/parent_summary.py`](../../backend/modules/learning/parent_summary.py#L131-L137)):** Passing `retention_delay <= timedelta(0)` fails closed cleanly via `LedgerError('invalid_time')` mapped to `ParentSummaryError('invalid_evidence')`.
+3. **`_is_non_model_authority` prefix check ([`backend/modules/operations/privacy.py`](../../backend/modules/operations/privacy.py#L39), [lines 110–113](../../backend/modules/operations/privacy.py#L110-L113)):** Unchanged from initial review (checks first split token, matching `ledger.py:220`).
+
+### Round 1 Verification Commands Observed
+
+All commands below were executed directly on `antigravity/dev-015-016-parent-privacy-2026-11-26` at commit `d2af0571a1af4b711fc461a9cdfb0dce68d51d37`:
+
+| Command | Outcome | Observed Result |
+|---|---|---|
+| `make test-parent-privacy-preflight` | PASS (exit 0) | `18 passed in 0.02s` |
+| `make backend-check` | PASS (exit 0) | `788 passed, 1 deselected in 5.34s`; `backend/manage.py check`: `System check identified no issues (0 silenced).` |
+| `make foundation-check` | PASS (exit 0) | `model_economics.py` PASS; `validate_project.py` PASS (`0` errors, `0` warnings); `check_foundation.py` PASS; `tools/tests`: `Ran 179 tests in 3.514s`, `OK` |
+| `git status --short` | PASS (exit 0) | Confirmed only ` M development/evidence/dev-015-016-parent-privacy-review.md` modified; source, tests, `Makefile`, and handoff files untouched |
+
+- **Not run in this re-review:** 37 `DEV-010` PostgreSQL integration cases (`AUTH-014` supplier wait), `make dependency-check`, `make smoke-local`, web/demo suites, and live DB/HTTP/provider execution.
