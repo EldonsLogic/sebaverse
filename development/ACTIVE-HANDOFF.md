@@ -76,3 +76,7 @@ Next: step 3, demo server on 127.0.0.1:5174 and strict browser rerun.
 - Guard refusal: `--host 0.0.0.0`, `--mode development`, `--port 5177` and `vite build` with the demo config all exit with "The teaching demo requires its dedicated loopback-only development invocation."; no stray listeners left.
 - Root inspected fresh screenshots 360 guided-hint, practice-feedback, summary and 1440 explanation: no overflow or clipping seen. Observation for review (not changed): equations render in left-to-right order with Eastern Arabic digits, so in RTL reading the result/`؟` comes first; Egyptian Arabic-medium textbooks usually write equations right-to-left.
 Next: step 4, independent reviewer subagent writes `development/evidence/local-teaching-demo-review.md`. Until that file exists, the demo stays pending review.
+
+### Step 4 in progress — independent review launched
+
+A real independent Claude subagent (general-purpose, not an author) was launched 26 November to review source, content math, run the model tests itself, drive the demo at 360/1440 (hint path, keyboard no-hint path, wrong answers, reset, network/storage/console), and write `development/evidence/local-teaching-demo-review.md`. It owns only that file plus scratch `work/demo-review-2026-11-26/`; source is read-only to it. If this session ends before the file exists, the review did NOT complete: keep the demo pending and relaunch a reviewer with the same scope. The demo server on 127.0.0.1:5174 is task-owned and must be stopped after review.
