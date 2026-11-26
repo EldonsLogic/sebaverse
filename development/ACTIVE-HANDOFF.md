@@ -162,3 +162,5 @@ Reviewer appended "Re-review, correction round 2 — 26 November 2026": **ACCEPT
 ## Exact next step (after round 2)
 
 PR from `claude/demo-correction-round-2` to main is opened next; merge needs the founder's word. After that, development waits on the AUTH-014 supplier fix (amd64 OpenSSL 3.5.9-r1) or a founder decision.
+
+PR opened: https://github.com/EldonsLogic/sebaverse/pull/7 (not merged; needs the founder's word).
