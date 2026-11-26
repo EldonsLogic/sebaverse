@@ -281,8 +281,9 @@ def validate_scoped_review(row, runtime, root, bind, now):
 
 OPENSSL_IDS = frozenset({'CVE-2026-95692', 'CVE-2026-107496', 'CVE-2026-95691', 'CVE-2026-88823'})
 OPENSSL_PARENT = 'sha256:005c5c37db96c1e6652a79ea31f9886402fba81ac95dc2db897739121dd7f8f2'
-# AUTH-022 / QUALITY-BAR §2 (synthetic-ci loopback fake-data only): image packages
-# proven unreached in synthetic loopback runs (TLS/GSS asserted disabled, XML unused).
+# AUTH-022 / QUALITY-BAR §2 (synthetic-ci loopback fake-data only): image OS packages
+# whose TLS/GSS/XML features are unused in synthetic loopback runs (not a symbol-level
+# reachability proof; full strict standard gate required before real data or deployment).
 # Never excepted for Critical/Unknown/KEV or in execution_scope="standard".
 SYNTHETIC_CI_UNREACHED_IMAGE_PACKAGES = frozenset({'libcrypto3', 'libssl3', 'libxml2'})
 
@@ -589,10 +590,13 @@ def evaluate(directory, root=None, now=None, execution_scope="standard"):
                     block = False
                     synthetic_unreached_high += 1
                 if (scoped_exception or is_reviewed) and fix_released(vuln):
-                    if execution_scope == "synthetic-ci" and (scoped_exception or severity in {"negligible", "low", "medium"}):
-                        # AUTH-022 (synthetic-ci only): keep reviewed AUTH-007 OpenSSL exception and
-                        # low/medium OS findings non-blocking within their 30-day cap until the
-                        # official Docker image rebuilds; standard scope stays strictly blocked.
+                    if execution_scope == "synthetic-ci" and name in inventories and (
+                        scoped_exception or is_synthetic_unreached_high or severity in {"negligible", "low", "medium"}
+                    ):
+                        # AUTH-022 (synthetic-ci only): keep reviewed AUTH-007 OpenSSL exception,
+                        # listed unused-feature image High packages, and low/medium OS findings
+                        # non-blocking within the 30-day cap until the official Docker image
+                        # rebuilds; standard scope stays strictly blocked.
                         superseded_synthetic += 1
                     else:
                         # AUTH-011: a reviewed exception ends once a fix is published; update the pin.
@@ -622,9 +626,14 @@ def evaluate(directory, root=None, now=None, execution_scope="standard"):
             reports.append({"file": name, "input": input_name, "matches": len(matches), "blocking": blocking, "temporary_synthetic_high_exceptions": excepted, "synthetic_unreached_image_high": synthetic_unreached_high, "unreviewed_nonblocking": unreviewed_nonblocking, "superseded_awaiting_image_rebuild": superseded_synthetic, "sha256": sha256(directory / name), "input_sha256": sha256(directory / input_name), "database": db})
     except (OSError, ValueError, KeyError, TypeError, AttributeError, ImportError) as exc:
         errors.append("Incomplete or invalid pre-use evidence: " + str(exc))
+    policy_summary = (
+        "AUTH-022 synthetic-ci loopback fake-data policy (QUALITY-BAR §2): KEV, Critical, Unknown, postgres-core, system-native High, and unlisted image High blocked; unreviewed Low/Medium OS findings, AUTH-007 OpenSSL image-rebuild lag (within 30-day cap), and listed unused-feature image High packages (libcrypto3/libssl3/libxml2) recorded as non-blocking; full strict standard policy required before real data or deployment"
+        if execution_scope == "synthetic-ci"
+        else "High/critical/unknown and KEV blocked except exact independently reviewed AUTH-007 High entries in disposable synthetic CI; no suppressed/unreviewed findings; reviews end when a fix is released or 30 days after review (AUTH-011); immutable source/scan bindings required"
+    )
     return {"schema_version": 2, "image_reference": runtime["reference"] if runtime else pin.get("reference"),
             "platform_manifest_digest": runtime["platform_manifest_digest"] if runtime else selected.get("digest"), "image_runtime": runtime,
-            "created_at_utc": now.isoformat(), "execution_scope": execution_scope, "temporary_exception": exception_summary, "policy": "High/critical/unknown and KEV blocked except exact independently reviewed AUTH-007 High entries in disposable synthetic CI; no suppressed/unreviewed findings; reviews end when a fix is released or 30 days after review (AUTH-011); immutable source/scan bindings required",
+            "created_at_utc": now.isoformat(), "execution_scope": execution_scope, "temporary_exception": exception_summary, "policy": policy_summary,
             "status": "fail" if errors else "pass", "errors": errors, "reports": reports, "input_hashes": hashes,
             "scope": "Linux system-libpq + pinned linux/amd64 image + supplier core; not hostOS, bundled-wheel, redistribution or application security certification"}
 

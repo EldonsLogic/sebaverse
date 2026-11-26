@@ -412,3 +412,18 @@ Step 1: record `U34` / `AUTH-022`, update `tools/security/check_reports.py` (`sy
 - PR 13 (`https://github.com/EldonsLogic/sebaverse/pull/13`) passed **all 7/7 hosted checks**: Foundation checks ×2 (183/183 tests), Dependency readiness ×2, Static PostgreSQL remediation, and **both `Local skeleton phase checks` runs** (including run `45864202204`: `Enforce native/image pre-use policy` PASS, `Real PostgreSQL migration, readiness and teardown smoke` PASS running DEV-010's 37 PostgreSQL cases, `Loopback server, desktop/mobile browser and teardown` PASS).
 - Recorded observed hosted evidence in `development/evidence/dev-010-postgres-probe-2026-11-26.md`.
 - Next: commit & push evidence/records, then launch an independent `pro` reviewer subagent owning only `development/evidence/auth-022-synthetic-ci-review.md`. If no review results follow, PR 13 remains pending review.
+
+### Independent review received — `CHANGES REQUESTED` on `f39a6bd`
+
+Independent reviewer (`pro` subagent) wrote `development/evidence/auth-022-synthetic-ci-review.md`. Verdict: **CHANGES REQUESTED** (2 blockers: `test_auth_022_synthetic_ci.py` did not call `evaluate(...)`, and `dev-010-postgres-probe-2026-11-26.md` cited non-existent `consent/postgres_probe.py`, omitted `resilience/postgres_probe.py`, and omitted the `QUALITY-BAR.md` §2 recorded list of unreviewed findings; plus 3 should-fix items on scope/policy wording, `and name in inventories` + reviewed-high consistency in `superseded_synthetic`, and comment accuracy for `SYNTHETIC_CI_UNREACHED_IMAGE_PACKAGES`).
+
+### AUTH-022 Correction round 1 of 2 — started 26 November 2026
+
+Fixing both blockers and all 3 should-fix items in `tools/security/check_reports.py`, `infra/synthetic-openssl-review.json`, `tools/tests/test_auth_022_synthetic_ci.py`, `development/evidence/dev-010-postgres-probe-2026-11-26.md`, `sources/synthetic-ci-policy-alignment-instruction.md`, and `development/APPROVALS.md`. Commands to run: `make foundation-check`, `python3 tools/check_dependencies.py`, `git diff --check`, push to PR 13, verify hosted CI stays green, and request independent re-review. If no results follow, this step did not finish.
+
+### Results — AUTH-022 correction round 1 (pending independent re-review)
+
+- Fixed both blockers and all 3 should-fix items: rewrote `tools/tests/test_auth_022_synthetic_ci.py` to exercise `m.evaluate(...)` end-to-end across `standard` and `synthetic-ci` scopes (verifying KEV, Critical, `postgres-core`, `system-native` High, unlisted image High, `AUTH-007` presence/window, `unreviewed_nonblocking`, and `superseded_awaiting_image_rebuild`); corrected `dev-010-postgres-probe-2026-11-26.md` to cite `resilience/postgres_probe.py` (14 scenarios) and `ingestion/postgres_probe.py` (37 scenarios, 30 injection fixtures) without non-existent `consent/postgres_probe.py`, and recorded the full `QUALITY-BAR.md` §2 list/counts of unreviewed findings; added `and name in inventories` + `is_synthetic_unreached_high` consistency in `check_reports.py`, updated the emitted `policy` string and honest package comment, aligned `U34`/`AUTH-022` docs, and refreshed `source_inputs["tools/security/check_reports.py"]` in `infra/synthetic-openssl-review.json` (preserving original `2026-12-18` expiry).
+- `make foundation-check`: exit 0 — 184/184 unit tests passed, `validate_project.py` PASS (0 errors, 0 warnings), `model_economics.py` PASS, `check_foundation.py` PASS.
+- `python3 tools/check_dependencies.py`: exit 0, PASS; `git diff --check`: exit 0.
+- Next: push to PR 13 and request independent re-review appending to `development/evidence/auth-022-synthetic-ci-review.md`. If no re-review results follow, round 1 remains pending re-review.
